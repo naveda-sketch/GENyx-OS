@@ -115,7 +115,8 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading }
         <span style={MONO}>{tenants.length} cliente(s)</span>
       </div>
       
-      {/* ── GENyx #000 ─────────────────────────────────────────────── */}
+      {/* ── GENyx #000 — solo visible cuando no hay cliente filtrado ─── */}
+      {!selectedSlug && (
       <div style={{ marginBottom: 20 }}>
         <p style={{ ...MONO, color: '#6366f1', fontSize: 10, marginBottom: 8, letterSpacing: '.08em' }}>CLIENTE 000 — OPERADOR</p>
         <div style={{ ...CARD, border: '1px solid rgba(99,102,241,0.35)', background: 'rgba(99,102,241,0.06)' }}>
@@ -132,13 +133,14 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading }
             <KpiMini label="Clientes activos" value={ tenants.filter(t=>t.status==='active').length } />
           </div>
           <div style={{ borderTop: '1px solid rgba(99,102,241,0.15)', paddingTop: 12, display: 'flex', gap: 8 }}>
-            <button onClick={() => window.open('https://os.genyxsystems.com', '_blank')} style={{ ...BTN_SM_BLUE, background: 'rgba(99,102,241,0.2)', border: '1px solid rgba(99,102,241,0.4)', color: '#a5b4fc' }}>🌐 OS Panel</button>
+            <button onClick={() => window.open('https://genyxsystems.com', '_blank')} style={{ ...BTN_SM_BLUE, background: 'rgba(99,102,241,0.2)', border: '1px solid rgba(99,102,241,0.4)', color: '#a5b4fc' }}>🌐 Web</button>
           </div>
         </div>
       </div>
+      )}
       {/* ── Clientes ──────────────────────────────────────────────────── */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: 16 }}>
-        {clientKPIs.map((t, i) => {
+      <div style={{ display: 'grid', gridTemplateColumns: selectedSlug ? '1fr' : 'repeat(auto-fill, minmax(340px, 1fr))', gap: 16 }}>
+        {(selectedSlug ? clientKPIs.filter(t => t.slug === selectedSlug) : clientKPIs).map((t, i) => {
           const isExpanded = expanded === t.slug;
           const edits = localEdits[t.slug] || {};
           const mode = t.payout_mode || 'manual';
