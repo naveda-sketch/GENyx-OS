@@ -21,12 +21,13 @@ const StatusBadge = ({ s }) => {
 
 // ── Tabs ─────────────────────────────────────────────────────────────────────
 const TABS = [
-  { id: 'clientes', label: '🏢 Clientes' },
+  { id: 'clientes',     label: '🏢 Clientes' },
   { id: 'herramientas', label: '🛠️ Herramientas' },
-  { id: 'analista', label: '📊 Analista' },
-  { id: 'data', label: '📈 DATA' },
-  { id: 'expedientes', label: '🗄️ Expedientes' },
-  { id: 'manuales', label: '📚 Manuales' },
+  { id: 'analista',     label: '📊 Analista' },
+  { id: 'data',         label: '📈 DATA' },
+  { id: 'expedientes',  label: '🗄️ Expedientes' },
+  { id: 'manuales',     label: '📚 Manuales' },
+  { id: 'onboarding',   label: '🚀 Onboarding' },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -1050,6 +1051,181 @@ const TabManuales = () => {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
+// TAB: ONBOARDING
+// ═══════════════════════════════════════════════════════════════════════════════
+const TabOnboarding = () => {
+  const [step, setStep] = useState(1);
+  const [sending, setSending] = useState(false);
+  const [result, setResult] = useState(null);
+  const [error, setError] = useState('');
+  const [form, setForm] = useState({
+    name: '', slug: '', owner_email: '', website_url: '',
+    industry: '', dashboard_pin: '', store_address: '',
+    meta_phone_number_id: '', personality_adn: '', catalog_text: ''
+  });
+
+  const set = (k, v) => setForm(f => ({ ...f, [k]: v }));
+
+  // Auto-genera slug desde el nombre
+  const autoSlug = (name) => name.toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+  const handleSubmit = async () => {
+    setSending(true); setError('');
+    try {
+      const r = await fetch(`${BACKEND}/api/admin/create-tenant`, {
+        method: 'POST',
+        headers: { ...AH, 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+      });
+      const d = await r.json();
+      if (!r.ok) { setError(d.detail || 'Error'); setSending(false); return; }
+      setResult(d);
+    } catch (e) { setError('Error de conexión'); }
+    setSending(false);
+  };
+
+  const stepStyle = (n) => ({
+    width: 28, height: 28, borderRadius: '50%', display: 'flex', alignItems: 'center',
+    justifyContent: 'center', fontSize: 12, fontWeight: 700,
+    background: step >= n ? '#6366f1' : 'rgba(255,255,255,0.08)',
+    color: step >= n ? '#fff' : '#475569', flexShrink: 0
+  });
+
+  if (result) return (
+    <section style={{ maxWidth: 600 }}>
+      <div style={{ ...CARD, border: '1px solid rgba(34,197,94,0.4)', background: 'rgba(20,83,45,0.15)' }}>
+        <p style={{ fontSize: 24, marginBottom: 8 }}>🎉</p>
+        <h2 style={{ ...H2, color: '#4ade80', marginBottom: 4 }}>Cajón Activado</h2>
+        <p style={{ fontSize: 13, color: '#86efac', marginBottom: 20 }}>{result.message}</p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          {[['Slug', result.slug], ['Clone ID', result.clone_id], ['Dashboard PIN', result.dashboard_pin], ['Dashboard Token', result.dashboard_token]]
+            .map(([k, v]) => (
+              <div key={k} style={{ background: 'rgba(0,0,0,0.3)', borderRadius: 8, padding: '8px 14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
+                <span style={{ fontSize: 11, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.04em' }}>{k}</span>
+                <code style={{ fontSize: 12, color: '#a5b4fc' }}>{v}</code>
+              </div>
+          ))}
+        </div>
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: 14, marginTop: 18, display: 'flex', gap: 10 }}>
+          <a href={result.dashboard_url} target="_blank" rel="noreferrer" style={BTN_SM_BLUE}>👤 Abrir Dashboard del cliente</a>
+          <button onClick={() => { setResult(null); setStep(1); setForm({ name:'',slug:'',owner_email:'',website_url:'',industry:'',dashboard_pin:'',store_address:'',meta_phone_number_id:'',personality_adn:'',catalog_text:'' }); }} style={BTN_SM_GHOST}>+ Nuevo cliente</button>
+        </div>
+      </div>
+    </section>
+  );
+
+  return (
+    <section style={{ maxWidth: 640 }}>
+      <div style={{ marginBottom: 24 }}>
+        <h2 style={{ ...H2, marginBottom: 4 }}>🚀 Activar Nuevo Cliente</h2>
+        <p style={{ fontSize: 13, color: '#64748b' }}>Completa el formulario para dar de alta un cajón hermético sin tocar código.</p>
+      </div>
+
+      {/* Stepper */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 28 }}>
+        {['Negocio', 'Bot', 'Catálogo'].map((label, i) => (
+          <React.Fragment key={i}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer' }} onClick={() => i + 1 < step && setStep(i + 1)}>
+              <div style={stepStyle(i + 1)}>{i + 1}</div>
+              <span style={{ fontSize: 12, color: step === i + 1 ? '#a5b4fc' : '#475569', fontWeight: step === i + 1 ? 700 : 400 }}>{label}</span>
+            </div>
+            {i < 2 && <div style={{ flex: 1, height: 1, background: step > i + 1 ? '#6366f1' : 'rgba(255,255,255,0.08)' }} />}
+          </React.Fragment>
+        ))}
+      </div>
+
+      <div style={CARD}>
+        {/* STEP 1 — INFO NEGOCIO */}
+        {step === 1 && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <h3 style={H3}>Información del Negocio</h3>
+            {[['Nombre comercial *', 'name', 'Ej: Tacos El Güero'], ['Giro', 'industry', 'Ej: Restaurante, Panadería, Floriste...'], ['Email del dueño', 'owner_email', 'Para reportes semanales'], ['Sitio web', 'website_url', 'https://...'], ['Dirección de la tienda', 'store_address', 'Calle, Número, Colonia, Ciudad']].map(([label, key, placeholder]) => (
+              <div key={key}>
+                <label style={LABEL}>{label}</label>
+                <input style={INPUT} value={form[key]} placeholder={placeholder} onChange={e => {
+                  set(key, e.target.value);
+                  if (key === 'name' && !form.slug) set('slug', autoSlug(e.target.value));
+                }} />
+              </div>
+            ))}
+            <div>
+              <label style={LABEL}>Slug (ID único del cajón) *</label>
+              <input style={{ ...INPUT, fontFamily: 'monospace', color: '#a5b4fc' }} value={form.slug} placeholder="tacos-el-guero" onChange={e => set('slug', e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, ''))} />
+              <p style={{ fontSize: 10, color: '#475569', marginTop: 4 }}>Se usa en la URL del dashboard: mando.genyxsystems.com/<strong>{form.slug || 'slug'}</strong></p>
+            </div>
+            <div>
+              <label style={LABEL}>Dashboard PIN *</label>
+              <input style={INPUT} value={form.dashboard_pin} placeholder="guero2024" onChange={e => set('dashboard_pin', e.target.value)} />
+              <p style={{ fontSize: 10, color: '#475569', marginTop: 4 }}>El cliente usa este PIN para acceder a su dashboard.</p>
+            </div>
+            <div>
+              <label style={LABEL}>Meta Phone Number ID (WaB)</label>
+              <input style={INPUT} value={form.meta_phone_number_id} placeholder="Opcional — se puede agregar después" onChange={e => set('meta_phone_number_id', e.target.value)} />
+            </div>
+          </div>
+        )}
+
+        {/* STEP 2 — BOT CONFIG */}
+        {step === 2 && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <h3 style={H3}>Configuración del Bot</h3>
+            <p style={{ fontSize: 12, color: '#64748b' }}>Describe la personalidad y tono del asistente. Si lo dejas vacío, se genera automáticamente un template base.</p>
+            <div>
+              <label style={LABEL}>Personalidad del Asistente (opcional)</label>
+              <textarea
+                style={{ ...INPUT, height: 180, resize: 'vertical', lineHeight: 1.5 }}
+                value={form.personality_adn}
+                placeholder={`Eres el asistente de ventas de ${form.name || 'el negocio'}. Tu misión es...
+CÓMO HABLAS:
+- Cálido, cercano y profesional.
+TU SALUDO OFICIAL:
+"\u00a1Hola! Soy el asistente de ${form.name || 'el negocio'}. ¿En qué te puedo ayudar?"`}
+                onChange={e => set('personality_adn', e.target.value)}
+              />
+            </div>
+          </div>
+        )}
+
+        {/* STEP 3 — CATÁLOGO */}
+        {step === 3 && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <h3 style={H3}>Catálogo de Productos</h3>
+            <p style={{ fontSize: 12, color: '#64748b' }}>Escribe el catálogo en texto libre. El bot lo usa como referencia de precios y productos disponibles. Se puede actualizar después sin redespliegue.</p>
+            <div>
+              <label style={LABEL}>Catálogo (opcional — añadir después si no tienes listo)</label>
+              <textarea
+                style={{ ...INPUT, height: 240, resize: 'vertical', lineHeight: 1.5, fontFamily: 'monospace', fontSize: 12 }}
+                value={form.catalog_text}
+                placeholder={`--- CATÁLOGO ${(form.name || 'NEGOCIO').toUpperCase()} ---\n- Producto A ($100): Descripción.\n- Producto B ($150): Descripción.`}
+                onChange={e => set('catalog_text', e.target.value)}
+              />
+            </div>
+          </div>
+        )}
+      </div>
+
+      {error && <p style={{ color: '#f87171', fontSize: 13, marginTop: 12 }}>❌ {error}</p>}
+
+      <div style={{ display: 'flex', gap: 10, marginTop: 16, justifyContent: 'space-between' }}>
+        <div>
+          {step > 1 && <button onClick={() => setStep(s => s - 1)} style={BTN_SM_GHOST}>← Atrás</button>}
+        </div>
+        <div style={{ display: 'flex', gap: 8 }}>
+          {step < 3 && <button onClick={() => setStep(s => s + 1)} disabled={step === 1 && (!form.name || !form.slug || !form.dashboard_pin)} style={{ ...BTN_SM_BLUE, opacity: (step === 1 && (!form.name || !form.slug || !form.dashboard_pin)) ? 0.5 : 1 }}>Siguiente →</button>}
+          {step === 3 && (
+            <button onClick={handleSubmit} disabled={sending} style={{ ...BTN_SM_BLUE, background: '#059669', minWidth: 140 }}>
+              {sending ? '⏳ Activando...' : '🎉 Activar Cajón'}
+            </button>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
 // MICRO COMPONENTS
 // ═══════════════════════════════════════════════════════════════════════════════
 const Spinner = () => <div style={{ display: 'flex', justifyContent: 'center', padding: 60 }}><div style={{ width: 32, height: 32, border: '2px solid #3b82f6', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} /></div>;
@@ -1184,6 +1360,7 @@ export default function GENyxOperatorDashboard() {
         {tab === 'data'         && <TabData          tenants={tenants} orders={orders}  selectedSlug={selectedSlug} />}
         {tab === 'expedientes'  && <TabExpedientes   tenants={tenants} selectedSlug={selectedSlug} />}
         {tab === 'manuales'     && <TabManuales />}
+        {tab === 'onboarding'   && <TabOnboarding />}
       </main>
     </div>
   );
