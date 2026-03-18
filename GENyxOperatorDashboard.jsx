@@ -1061,7 +1061,7 @@ const TabOnboarding = () => {
   const [form, setForm] = useState({
     name: '', slug: '', owner_email: '', website_url: '',
     industry: '', dashboard_pin: '', store_address: '',
-    meta_phone_number_id: '', personality_adn: '', catalog_text: ''
+    meta_phone_number_id: '', social_url: '', personality_adn: '', catalog_text: ''
   });
 
   const set = (k, v) => setForm(f => ({ ...f, [k]: v }));
@@ -1110,7 +1110,7 @@ const TabOnboarding = () => {
         </div>
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: 14, marginTop: 18, display: 'flex', gap: 10 }}>
           <a href={result.dashboard_url} target="_blank" rel="noreferrer" style={BTN_SM_BLUE}>👤 Abrir Dashboard del cliente</a>
-          <button onClick={() => { setResult(null); setStep(1); setForm({ name:'',slug:'',owner_email:'',website_url:'',industry:'',dashboard_pin:'',store_address:'',meta_phone_number_id:'',personality_adn:'',catalog_text:'' }); }} style={BTN_SM_GHOST}>+ Nuevo cliente</button>
+          <button onClick={() => { setResult(null); setStep(1); setForm({ name:'',slug:'',owner_email:'',website_url:'',industry:'',dashboard_pin:'',store_address:'',meta_phone_number_id:'',social_url:'',personality_adn:'',catalog_text:'' }); }} style={BTN_SM_GHOST}>+ Nuevo cliente</button>
         </div>
       </div>
     </section>
@@ -1163,6 +1163,11 @@ const TabOnboarding = () => {
             <div>
               <label style={LABEL}>Meta Phone Number ID (WaB)</label>
               <input style={INPUT} value={form.meta_phone_number_id} placeholder="Opcional — se puede agregar después" onChange={e => set('meta_phone_number_id', e.target.value)} />
+            </div>
+            <div>
+              <label style={LABEL}>Redes Sociales (cancel URL de Stripe)</label>
+              <input style={INPUT} value={form.social_url} placeholder="https://instagram.com/negocio (Instagram, Facebook, TikTok...)" onChange={e => set('social_url', e.target.value)} />
+              <p style={{ fontSize: 10, color: '#475569', marginTop: 4 }}>Si el cliente cancela el pago, lo llevas aquí. Sin RRSS → va al WaB. Sin nada → página cierra-pestaña.</p>
             </div>
           </div>
         )}
