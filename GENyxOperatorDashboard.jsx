@@ -1850,8 +1850,39 @@ function MandoClientView({ slug }) {
               </div>
             );
             const CARD = { background: '#fff', borderRadius: 14, padding: '16px', boxShadow: '0 2px 14px rgba(0,0,0,0.07)', marginBottom: 14 };
+            const menuItems = [...new Set(orders.flatMap(o =>
+              (o.items || []).map(it => it.nombre || it.name).filter(Boolean)
+            ))].sort();
 
             return (<>
+              {/* 0. Selector de Producto — siempre primero */}
+              <div style={{ ...CARD, border: '2.5px solid #92400e', background: 'linear-gradient(135deg,#fdf6ee 0%,#fff9f3 100%)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
+                  <span style={{ fontSize: 14, fontWeight: 900, color: '#92400e' }}>📖 Recetas del Menú</span>
+                  {INFO({ title: 'Recetas del Menú', text: 'Comienza seleccionando qué producto de tu menú quieres costear. Una vez seleccionado, el sistema te guía: ingredientes (MPD), mano de obra (MOD), costos indirectos (CIF) y margen de ganancia.', ex: 'Selecciona "Hogaza Natural" → llena la receta → obtén el precio de venta recomendado.' })}
+                </div>
+                <div style={{ fontSize: 12, color: '#78716c', marginBottom: 10 }}>¿Qué producto de tu menú vas a costear hoy?</div>
+                {menuItems.length > 0 ? (
+                  <select value={recName} onChange={e => setRecName(e.target.value)}
+                    style={{ ...INP, width: '100%', fontSize: 14, fontWeight: 600, boxSizing: 'border-box', borderColor: recName ? '#92400e' : '#e7e0d8' }}>
+                    <option value="">-- Selecciona un producto de tu menú --</option>
+                    {menuItems.map(p => <option key={p}>{p}</option>)}
+                  </select>
+                ) : (
+                  <div>
+                    <input placeholder="Nombre del producto (ej. Hogaza Natural)" value={recName}
+                      onChange={e => setRecName(e.target.value)}
+                      style={{ ...INP, width: '100%', boxSizing: 'border-box' }} />
+                    <div style={{ fontSize: 11, color: '#a8a29e', marginTop: 4 }}>Aún sin pedidos — escribe el nombre directo</div>
+                  </div>
+                )}
+                {recName && (
+                  <div style={{ marginTop: 10, padding: '8px 14px', background: '#fff7ed', borderRadius: 9, fontSize: 13, color: '#92400e', fontWeight: 800, border: '1.5px solid #fed7aa' }}>
+                    ✏️ Costeando: {recName}
+                  </div>
+                )}
+              </div>
+
               {/* 1. MPD */}
               <div style={CARD}>
                 {SECHEAD('1️⃣ Materia Prima Directa (MPD)', {
@@ -1924,32 +1955,18 @@ function MandoClientView({ slug }) {
                 </div>
               </div>
 
-              {/* 4-5-6: Recetas con cálculo completo */}
+              {/* 3-4-5-6: Receta — ingredientes, GO, margen y precio */}
               <div style={CARD}>
-                {SECHEAD('📖 Recetas del Menú', {
-                  title: 'Recetas del Menú',
-                  text: 'Conecta tus ingredientes (MPD) con cada producto de tu menú especificando cuánto usa de cada ingrediente. El sistema calculará automáticamente los 6 rubros de costo.',
-                  ex: 'Hogaza: Harina 500g, Mantequilla 80g, Sal 5g, Levadura 3g → calcula MPD automáticamente.'
+                {SECHEAD('📝 Armar Receta + Precio Final', {
+                  title: 'Ingredientes de la Receta',
+                  text: 'Conecta tus ingredientes (MPD) con el producto seleccionado, especificando cuánto usa de cada uno. El sistema calcula automáticamente los 6 rubros de costo contable.',
+                  ex: 'Hogaza Natural: Harina 500g, Mantequilla 80g, Sal 5g, Levadura 3g → MPD calculado automáticamente.'
                 })}
-                {(() => {
-                  // Productos únicos del menú (extraídos del historial de pedidos)
-                  const menuItems = [...new Set(orders.flatMap(o =>
-                    (o.items || []).map(it => it.nombre || it.name).filter(Boolean)
-                  ))].sort();
-                  return menuItems.length > 0 ? (
-                    <div style={{ display: 'flex', gap: 8, marginBottom: 10 }}>
-                      <select value={recName} onChange={e => setRecName(e.target.value)} style={{ ...INP, flex: 1 }}>
-                        <option value="">-- Selecciona un producto de tu menú --</option>
-                        {menuItems.map(p => <option key={p}>{p}</option>)}
-                      </select>
-                    </div>
-                  ) : (
-                    <div style={{ display: 'flex', gap: 8, marginBottom: 10 }}>
-                      <input placeholder="Nombre del producto (ej. Hogaza Artesanal)" value={recName} onChange={e => setRecName(e.target.value)} style={{ ...INP, flex: 1 }} />
-                      <div style={{ fontSize: 11, color: '#a8a29e', alignSelf: 'center', whiteSpace: 'nowrap' }}>Aún sin pedidos</div>
-                    </div>
-                  );
-                })()}
+                {!recName && (
+                  <div style={{ padding: '8px 12px', background: '#fef9c3', borderRadius: 8, fontSize: 12, color: '#854d0e', marginBottom: 10, border: '1px solid #fde047' }}>
+                    ⚠️ Selecciona primero un producto del menú arriba (Paso 1).
+                  </div>
+                )}
                 <div style={{ background: '#faf7f2', borderRadius: 8, padding: 10, marginBottom: 10 }}>
                   <div style={{ fontSize: 11, color: '#78716c', fontWeight: 700, marginBottom: 6 }}>Ingredientes de esta receta (MPD):</div>
                   {recItems.map((it, i) => (
