@@ -1190,7 +1190,7 @@ const TabOnboarding = () => {
 CÓMO HABLAS:
 - Cálido, cercano y profesional.
 TU SALUDO OFICIAL:
-"\u00a1Hola! Soy el asistente de ${form.name || 'el negocio'}. ¿En qué te puedo ayudar?"`}
+"¡Hola! Soy el asistente de ${form.name || 'el negocio'}. ¿En qué te puedo ayudar?"`}
                 onChange={e => set('personality_adn', e.target.value)}
               />
             </div>
@@ -1321,53 +1321,53 @@ function AdminLoginScreen({ onAuth }) {
   );
 }
 
-// \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550
-// MANDO \u2014 DASHBOARD DEL CLIENTE (mando.genyxsystems.com/{slug})
-// \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550
+// ═══════════════════════════════════════════════════════════════════════════════
+// MANDO — DASHBOARD DEL CLIENTE (mando.genyxsystems.com/{slug})
+// ═══════════════════════════════════════════════════════════════════════════════
 const PROD_STATUS = {
-  nuevo:         { label: '\ud83d\udd34 Nuevo',      color: '#dc2626', bg: '#fef2f2', next: 'en_produccion', nextLabel: 'Iniciar \u25b6' },
-  en_produccion: { label: '\ud83d\udfe1 En Proceso', color: '#d97706', bg: '#fffbeb', next: 'entregado',     nextLabel: 'Marcar Entregado \u2713' },
-  entregado:     { label: '\u2705 Entregado',   color: '#16a34a', bg: '#f0fdf4', next: null,           nextLabel: null },
+  nuevo:         { label: '🔴 Nuevo',      color: '#dc2626', bg: '#fef2f2', next: 'en_produccion', nextLabel: 'Iniciar ▶' },
+  en_produccion: { label: '🟡 En Proceso', color: '#d97706', bg: '#fffbeb', next: 'entregado',     nextLabel: 'Marcar Entregado ✓' },
+  entregado:     { label: '✅ Entregado',   color: '#16a34a', bg: '#f0fdf4', next: null,           nextLabel: null },
 };
 const MANDO_TABS = [
-  { id: 'pedidos', label: '\ud83d\udea6 Pedidos' },
-  { id: 'kpis',    label: '\ud83d\udcca KPIs' },
-  { id: 'inv',     label: '\ud83d\udce6 Inventario' },
-  { id: 'cost',    label: '\ud83d\udcb0 Costeador' },
-  { id: 'exp',     label: '\ud83d\udccb Expediente' },
+  { id: 'pedidos', label: '🚦 Pedidos' },
+  { id: 'kpis',    label: '📊 KPIs' },
+  { id: 'inv',     label: '📦 Inventario' },
+  { id: 'cost',    label: '💰 Costeador' },
+  { id: 'exp',     label: '📋 Expediente' },
 ];
 const EXPEDIENTE_DOCS = [
   { label: 'INE / Pasaporte', key: 'ine' },
   { label: 'Comprobante de domicilio', key: 'dom' },
-  { label: 'Constancia de Situaci\u00f3n Fiscal (SAT)', key: 'sat' },
+  { label: 'Constancia de Situación Fiscal (SAT)', key: 'sat' },
   { label: 'Contrato firmado', key: 'contrato' },
   { label: 'CLABE bancaria registrada', key: 'clabe' },
   { label: 'Cuenta Stripe configurada', key: 'stripe' },
-  { label: 'Cat\u00e1logo de productos cargado', key: 'catalogo' },
+  { label: 'Catálogo de productos cargado', key: 'catalogo' },
   { label: 'Recetas registradas en Costeador', key: 'recetas' },
 ];
 
 function MandoClientView({ slug }) {
-  // \u2500\u2500 Auth
+  // ── Auth
   const [pin, setPin]         = useState('');
   const [token, setToken]     = useState(null);
   const [name, setName]       = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError]     = useState('');
-  // \u2500\u2500 Navigation
+  // ── Navigation
   const [tab, setTab] = useState('pedidos');
-  // \u2500\u2500 Pedidos
+  // ── Pedidos
   const [orders, setOrders]   = useState([]);
   const [updating, setUpdating] = useState(null);
-  // \u2500\u2500 KPIs
+  // ── KPIs
   const [analytics, setAnalytics] = useState(null);
   const [analyticsLoading, setAnalyticsLoading] = useState(false);
-  // \u2500\u2500 Inventario
+  // ── Inventario
   const [inventory, setInventory] = useState([]);
   const [invLoading, setInvLoading] = useState(false);
   const [editStock, setEditStock] = useState({});    // {product_name: tmpValue}
   const [newProd, setNewProd]     = useState({ name: '', stock: '', unit: 'pza' });
-  // \u2500\u2500 Costeador (localStorage)
+  // ── Costeador (localStorage)
   const storageKey = `${slug}_cost`;
   const loadCost = () => { try { return JSON.parse(localStorage.getItem(storageKey) || '{"ings":[],"recs":[]}'); } catch { return { ings: [], recs: [] }; } };
   const [ings, setIngs]   = useState(() => loadCost().ings);
@@ -1376,11 +1376,18 @@ function MandoClientView({ slug }) {
   const [recName, setRecName] = useState('');
   const [recItems, setRecItems] = useState([]);    // [{ing, qty}]
   const [margin, setMargin]   = useState(60);      // % de margen objetivo
-  // \u2500\u2500 Expediente
+  // ── Costeador: costos adicionales
+  const [modRate,    setModRate]    = useState(120);   // $/hora de mano de obra
+  const [modHours,   setModHours]   = useState(1);     // horas por lote
+  const [batchUnits, setBatchUnits] = useState(1);     // unidades por lote
+  const [cifPct,     setCifPct]     = useState(15);    // CIF como % de (MPD+MOD)
+  const [opEx,       setOpEx]       = useState(0);     // gastos operativos por unidad
+  const [showInfo,   setShowInfo]   = useState(null);  // tooltip (i) activo
+  // ── Expediente
   const expKey = `${slug}_exp`;
   const [expDocs, setExpDocs] = useState(() => { try { return JSON.parse(localStorage.getItem(expKey) || '{}'); } catch { return {}; } });
 
-  // \u2500\u2500\u2500\u2500\u2500\u2500 handlers \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+  // ────── handlers ──────────────────────────────────────────────────
   const handleLogin = async (e) => {
     e.preventDefault(); setError(''); setLoading(true);
     try {
@@ -1458,13 +1465,13 @@ function MandoClientView({ slug }) {
   };
   const expPct = Math.round((EXPEDIENTE_DOCS.filter(d => expDocs[d.key]).length / EXPEDIENTE_DOCS.length) * 100);
 
-  // \u2500\u2500 Styles
+  // ── Styles
   const CS   = { minHeight: '100vh', background: '#faf7f2', color: '#1a1208', fontFamily: "'Inter', system-ui, sans-serif", display: 'flex', flexDirection: 'column' };
   const CARD = { background: '#fff', borderRadius: 14, padding: '18px', boxShadow: '0 2px 14px rgba(0,0,0,0.07)', marginBottom: 14 };
   const BTN  = (bg, color = '#fff') => ({ padding: '9px 16px', background: bg, color, border: 'none', borderRadius: 9, fontSize: 13, fontWeight: 700, cursor: 'pointer' });
   const INP  = { padding: '9px 12px', border: '1.5px solid #e7e0d8', borderRadius: 8, fontSize: 13, outline: 'none', background: '#fff' };
 
-  // \u2500\u2500 Login
+  // ── Login
   if (!token) return (
     <div style={{ ...CS, alignItems: 'center', justifyContent: 'center' }}>
       <div style={{ width: '100%', maxWidth: 360, padding: 24 }}>
@@ -1475,16 +1482,16 @@ function MandoClientView({ slug }) {
         </div>
         <div style={CARD}>
           <form onSubmit={handleLogin}>
-            <label style={{ fontSize: 11, fontWeight: 700, color: '#78716c', letterSpacing: '.07em', textTransform: 'uppercase' }}>Contrase\u00f1a de Acceso</label>
-            <input type="password" value={pin} onChange={e => setPin(e.target.value)} placeholder="\u2022\u2022\u2022\u2022\u2022\u2022" autoFocus
+            <label style={{ fontSize: 11, fontWeight: 700, color: '#78716c', letterSpacing: '.07em', textTransform: 'uppercase' }}>Contraseña de Acceso</label>
+            <input type="password" value={pin} onChange={e => setPin(e.target.value)} placeholder="••••••" autoFocus
               style={{ ...INP, width: '100%', fontSize: 22, letterSpacing: 10, textAlign: 'center', marginTop: 8, marginBottom: 14, boxSizing: 'border-box' }} />
             {error && <p style={{ color: '#dc2626', fontSize: 12, marginBottom: 10, textAlign: 'center' }}>{error}</p>}
             <button type="submit" disabled={loading} style={{ ...BTN('#92400e'), width: '100%', padding: 13, fontSize: 15, opacity: loading ? 0.7 : 1 }}>
-              {loading ? 'Entrando\u2026' : 'Entrar \u2713'}
+              {loading ? 'Entrando…' : 'Entrar ✓'}
             </button>
           </form>
         </div>
-        <p style={{ textAlign: 'center', color: '#c4b5a5', fontSize: 10, marginTop: 12 }}>GENyx OS \u00b7 {slug}</p>
+        <p style={{ textAlign: 'center', color: '#c4b5a5', fontSize: 10, marginTop: 12 }}>GENyx OS · {slug}</p>
       </div>
     </div>
   );
@@ -1500,11 +1507,11 @@ function MandoClientView({ slug }) {
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <img src="/paty-icon.png" alt="" style={{ width: 32, height: 32, borderRadius: 8 }} />
             <div>
-              <div style={{ fontWeight: 800, fontSize: 14 }}>{name || 'Mi Panader\u00eda'}</div>
+              <div style={{ fontWeight: 800, fontSize: 14 }}>{name || 'Mi Panadería'}</div>
               <div style={{ fontSize: 9, opacity: .7 }}>Centro de Mando</div>
             </div>
           </div>
-          <button onClick={fetchOrders} style={{ background: 'rgba(255,255,255,0.18)', border: 'none', color: '#fff', padding: '5px 12px', borderRadius: 7, fontSize: 12, cursor: 'pointer' }}>\u27f3</button>
+          <button onClick={fetchOrders} style={{ background: 'rgba(255,255,255,0.18)', border: 'none', color: '#fff', padding: '5px 12px', borderRadius: 7, fontSize: 12, cursor: 'pointer' }}>⟳</button>
         </div>
         {/* Tabs */}
         <div style={{ display: 'flex', gap: 2, overflowX: 'auto', paddingBottom: 0 }}>
@@ -1518,7 +1525,7 @@ function MandoClientView({ slug }) {
 
         {/* ═══ TAB: PEDIDOS ═══ */}
         {tab === 'pedidos' && (<>
-          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 12, color: '#44403c' }}>\ud83d\udea6 Pedidos Activos ({activos.length})</h2>
+          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 12, color: '#44403c' }}>🚦 Pedidos Activos ({activos.length})</h2>
           {/* Leyenda */}
           <div style={{ display: 'flex', gap: 6, marginBottom: 12, flexWrap: 'wrap' }}>
             {Object.values(PROD_STATUS).map(s => <span key={s.label} style={{ background: s.bg, color: s.color, border: `1px solid ${s.color}30`, padding: '3px 9px', borderRadius: 20, fontSize: 11, fontWeight: 700 }}>{s.label}</span>)}
@@ -1532,16 +1539,16 @@ function MandoClientView({ slug }) {
               <div key={o.id} style={{ ...CARD, borderLeft: `4px solid ${sp.color}` }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
                   <div>
-                    <div style={{ fontWeight: 700, fontSize: 14 }}>#{o.id} \u00b7 {o.customer_name || 'Cliente'}</div>
+                    <div style={{ fontWeight: 700, fontSize: 14 }}>#{o.id} · {o.customer_name || 'Cliente'}</div>
                     <div style={{ fontSize: 11, color: '#78716c', marginTop: 2 }}>
-                      {o.whatsapp && <span>\ud83d\udcf1 {o.whatsapp}</span>}
-                      {o.address && <span style={{ marginLeft: 6 }}>\ud83d\udccd {o.address}</span>}
+                      {o.whatsapp && <span>📱 {o.whatsapp}</span>}
+                      {o.address && <span style={{ marginLeft: 6 }}>📍 {o.address}</span>}
                     </div>
                   </div>
                   <span style={{ background: sp.bg, color: sp.color, padding: '3px 10px', borderRadius: 20, fontSize: 11, fontWeight: 800, border: `1px solid ${sp.color}30` }}>{sp.label}</span>
                 </div>
                 <div style={{ background: '#faf7f2', borderRadius: 8, padding: '8px 12px', marginBottom: 10, fontSize: 12 }}>
-                  {items.map((it, i) => <div key={i}>\u2022 {it.nombre || it.name} \u00d7{it.cantidad || it.qty || 1} \u2014 <b>${(it.subtotal || it.precio || 0).toLocaleString()}</b></div>)}
+                  {items.map((it, i) => <div key={i}>• {it.nombre || it.name} ×{it.cantidad || it.qty || 1} — <b>${(it.subtotal || it.precio || 0).toLocaleString()}</b></div>)}
                   {items.length === 0 && <span style={{ color: '#a8a29e' }}>Sin detalle.</span>}
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
@@ -1550,17 +1557,17 @@ function MandoClientView({ slug }) {
                 </div>
                 <div style={{ marginTop: 10, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                   {sp.next && <button onClick={() => updateProdStatus(o.id, sp.next)} disabled={isUpd} style={{ ...BTN(PROD_STATUS[sp.next].color), flex: 1, opacity: isUpd ? 0.5 : 1 }}>{isUpd ? '...' : sp.nextLabel}</button>}
-                  {ps === 'en_produccion' && <button onClick={() => updateProdStatus(o.id, 'nuevo')} disabled={isUpd} style={{ ...BTN('#f3f4f6', '#6b7280'), border: '1px solid #e5e7eb' }}>\u2190 Regresar</button>}
+                  {ps === 'en_produccion' && <button onClick={() => updateProdStatus(o.id, 'nuevo')} disabled={isUpd} style={{ ...BTN('#f3f4f6', '#6b7280'), border: '1px solid #e5e7eb' }}>← Regresar</button>}
                 </div>
               </div>
             );
           })}
           {historial.length > 0 && (
             <details style={{ marginTop: 8 }}>
-              <summary style={{ fontSize: 12, color: '#78716c', cursor: 'pointer', fontWeight: 600, marginBottom: 8 }}>\ud83d\uddc2 Historial entregados ({historial.length})</summary>
+              <summary style={{ fontSize: 12, color: '#78716c', cursor: 'pointer', fontWeight: 600, marginBottom: 8 }}>🗂 Historial entregados ({historial.length})</summary>
               {historial.slice(0, 15).map(o => (
                 <div key={o.id} style={{ ...CARD, opacity: 0.65, fontSize: 12 }}>
-                  #{o.id} \u00b7 <b>{o.customer_name}</b> \u2014 ${(o.total || 0).toLocaleString('es-MX')} MXN \u00b7 \u2705 Entregado \u00b7 {fmt(o.created_at)}
+                  #{o.id} · <b>{o.customer_name}</b> — ${(o.total || 0).toLocaleString('es-MX')} MXN · ✅ Entregado · {fmt(o.created_at)}
                 </div>
               ))}
             </details>
@@ -1569,38 +1576,38 @@ function MandoClientView({ slug }) {
 
         {/* ═══ TAB: KPIs ═══ */}
         {tab === 'kpis' && (<>
-          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 12, color: '#44403c' }}>\ud83d\udcca KPIs de mi Negocio</h2>
-          {analyticsLoading && <div style={{ textAlign: 'center', color: '#a8a29e', padding: 40 }}>Cargando datos\u2026</div>}
+          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 12, color: '#44403c' }}>📊 KPIs de mi Negocio</h2>
+          {analyticsLoading && <div style={{ textAlign: 'center', color: '#a8a29e', padding: 40 }}>Cargando datos…</div>}
           {!analyticsLoading && analytics && (
             <>
               {analytics.empty ? (
-                <div style={{ ...CARD, textAlign: 'center', color: '#a8a29e', fontSize: 14 }}>A\u00fan no hay pedidos registrados. Los KPIs aparecer\u00e1n cuando uses el sistema.</div>
+                <div style={{ ...CARD, textAlign: 'center', color: '#a8a29e', fontSize: 14 }}>Aún no hay pedidos registrados. Los KPIs aparecerán cuando uses el sistema.</div>
               ) : (<>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 14 }}>
                   <div style={{ ...CARD, textAlign: 'center', margin: 0 }}>
-                    <div style={{ fontSize: 11, color: '#78716c', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 6 }}>\ud83c\udfab Ticket Promedio</div>
+                    <div style={{ fontSize: 11, color: '#78716c', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 6 }}>🎫 Ticket Promedio</div>
                     <div style={{ fontSize: 28, fontWeight: 800, color: '#92400e' }}>${(analytics.ticket_promedio || 0).toLocaleString('es-MX')}</div>
                     <div style={{ fontSize: 10, color: '#a8a29e', marginTop: 4 }}>MXN por pedido</div>
                   </div>
                   <div style={{ ...CARD, textAlign: 'center', margin: 0 }}>
-                    <div style={{ fontSize: 11, color: '#78716c', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 6 }}>\ud83d\udce6 Total Pedidos</div>
+                    <div style={{ fontSize: 11, color: '#78716c', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 6 }}>📦 Total Pedidos</div>
                     <div style={{ fontSize: 28, fontWeight: 800, color: '#92400e' }}>{analytics.total_orders || 0}</div>
-                    <div style={{ fontSize: 10, color: '#a8a29e', marginTop: 4 }}>en el hist\u00f3rico</div>
+                    <div style={{ fontSize: 10, color: '#a8a29e', marginTop: 4 }}>en el histórico</div>
                   </div>
                 </div>
                 <div style={CARD}>
-                  <div style={{ fontSize: 12, fontWeight: 700, color: '#44403c', marginBottom: 10 }}>\ud83c\udfc6 Top Productos</div>
+                  <div style={{ fontSize: 12, fontWeight: 700, color: '#44403c', marginBottom: 10 }}>🏆 Top Productos</div>
                   {(analytics.top_productos || []).map((p, i) => (
                     <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '7px 0', borderBottom: i < (analytics.top_productos.length - 1) ? '1px solid #f5f0ea' : 'none' }}>
                       <span style={{ fontSize: 13 }}><b style={{ color: '#92400e' }}>#{i + 1}</b> {p.name}</span>
                       <span style={{ background: '#faf0e6', color: '#92400e', padding: '2px 10px', borderRadius: 20, fontSize: 12, fontWeight: 700 }}>{p.qty} vendidos</span>
                     </div>
                   ))}
-                  {(!analytics.top_productos || analytics.top_productos.length === 0) && <p style={{ color: '#a8a29e', fontSize: 13 }}>Sin datos de productos a\u00fan.</p>}
+                  {(!analytics.top_productos || analytics.top_productos.length === 0) && <p style={{ color: '#a8a29e', fontSize: 13 }}>Sin datos de productos aún.</p>}
                 </div>
                 <div style={{ ...CARD, background: '#faf0e6', border: '1px solid #e7d5c0', fontSize: 12, color: '#78400e' }}>
-                  <div style={{ fontWeight: 700, marginBottom: 6 }}>\ud83d\udce7 Recuerda</div>
-                  El an\u00e1lisis profundo (tendencias, hora pico, recomendaciones) lo recibes cada lunes a las 8am en tu correo.
+                  <div style={{ fontWeight: 700, marginBottom: 6 }}>📧 Recuerda</div>
+                  El análisis profundo (tendencias, hora pico, recomendaciones) lo recibes cada lunes a las 8am en tu correo.
                 </div>
               </>)}
             </>
@@ -1610,7 +1617,7 @@ function MandoClientView({ slug }) {
 
         {/* ═══ TAB: INVENTARIO ═══ */}
         {tab === 'inv' && (<>
-          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 12, color: '#44403c' }}>\ud83d\udce6 Inventario</h2>
+          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 12, color: '#44403c' }}>📦 Inventario</h2>
           {/* Agregar producto */}
           <div style={{ ...CARD }}>
             <div style={{ fontSize: 12, fontWeight: 700, color: '#44403c', marginBottom: 10 }}>+ Agregar / Actualizar producto</div>
@@ -1623,8 +1630,8 @@ function MandoClientView({ slug }) {
               <button onClick={addInventoryItem} style={BTN('#92400e')}>Guardar</button>
             </div>
           </div>
-          {invLoading && <div style={{ textAlign: 'center', color: '#a8a29e', padding: 30 }}>Cargando\u2026</div>}
-          {!invLoading && inventory.length === 0 && <div style={{ ...CARD, textAlign: 'center', color: '#a8a29e', fontSize: 13 }}>No hay productos en inventario a\u00fan.</div>}
+          {invLoading && <div style={{ textAlign: 'center', color: '#a8a29e', padding: 30 }}>Cargando…</div>}
+          {!invLoading && inventory.length === 0 && <div style={{ ...CARD, textAlign: 'center', color: '#a8a29e', fontSize: 13 }}>No hay productos en inventario aún.</div>}
           {!invLoading && inventory.map(item => {
             const isEditing = editStock[item.product_name] !== undefined;
             const stockVal = isEditing ? editStock[item.product_name] : item.stock;
@@ -1640,7 +1647,7 @@ function MandoClientView({ slug }) {
                     onChange={e => setEditStock(prev => ({ ...prev, [item.product_name]: e.target.value }))}
                     style={{ ...INP, width: 70, textAlign: 'center', border: `1.5px solid ${isEditing ? '#92400e' : '#e7e0d8'}` }} />
                   <span style={{ color: '#78716c', fontSize: 12 }}>{item.unit}</span>
-                  <span style={{ color: stockColor, fontWeight: 800, fontSize: 12 }}>{item.stock <= 0 ? '\ud83d\udd34 Agotado' : item.stock <= 3 ? '\ud83d\udfe1 Bajo' : '\ud83d\udfe2 OK'}</span>
+                  <span style={{ color: stockColor, fontWeight: 800, fontSize: 12 }}>{item.stock <= 0 ? '🔴 Agotado' : item.stock <= 3 ? '🟡 Bajo' : '🟢 OK'}</span>
                   {isEditing && <button onClick={() => patchInventory(item.product_name, stockVal, item.unit)} style={BTN('#92400e', '#fff')}>Guardar</button>}
                 </div>
               </div>
@@ -1650,138 +1657,252 @@ function MandoClientView({ slug }) {
 
         {/* ═══ TAB: COSTEADOR ═══ */}
         {tab === 'cost' && (<>
-          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 4, color: '#44403c' }}>\ud83d\udcb0 Costeador de Productos</h2>
-          <p style={{ fontSize: 12, color: '#78716c', marginBottom: 14 }}>Registra tus ingredientes y recetas para saber el costo real de cada producto.</p>
+          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 4, color: '#44403c' }}>💰 Costeador de Productos</h2>
+          <p style={{ fontSize: 12, color: '#78716c', marginBottom: 14 }}>Calcula el costo real y precio justo de cada producto de tu menú con la fórmula contable completa.</p>
 
-          {/* Ingredientes */}
-          <div style={CARD}>
-            <div style={{ fontSize: 12, fontWeight: 700, color: '#44403c', marginBottom: 10 }}>\ud83c\udf3e Ingredientes</div>
-            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 12 }}>
-              <input placeholder="Nombre (ej. Harina)" value={newIng.name} onChange={e => setNewIng(p => ({ ...p, name: e.target.value }))} style={{ ...INP, flex: 2, minWidth: 100 }} />
-              <input placeholder="Costo $" type="number" value={newIng.cost} onChange={e => setNewIng(p => ({ ...p, cost: e.target.value }))} style={{ ...INP, width: 80 }} />
-              <select value={newIng.unit} onChange={e => setNewIng(p => ({ ...p, unit: e.target.value }))} style={{ ...INP }}>
-                {['pz', 'kg', 'g', 'lt', 'ml', 'taza', 'cda', 'cdta'].map(u => <option key={u}>{u}</option>)}
-              </select>
-              <button onClick={() => {
-                if (!newIng.name.trim() || !newIng.cost) return;
-                const next = [...ings.filter(i => i.name !== newIng.name.trim()), { name: newIng.name.trim(), unit: newIng.unit, cost: parseFloat(newIng.cost) }];
-                saveIngs(next); setNewIng({ name: '', unit: 'pz', cost: '' });
-              }} style={BTN('#92400e')}>+ Agregar</button>
-            </div>
-            {ings.length === 0 && <p style={{ fontSize: 12, color: '#a8a29e' }}>Sin ingredientes a\u00fan.</p>}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
-              {ings.map(ing => (
-                <span key={ing.name} style={{ background: '#faf0e6', color: '#92400e', border: '1px solid #e7d5c0', padding: '4px 12px', borderRadius: 20, fontSize: 12, display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <b>{ing.name}</b> \u2014 ${ing.cost}/{ing.unit}
-                  <span onClick={() => saveIngs(ings.filter(i => i.name !== ing.name))} style={{ cursor: 'pointer', color: '#dc2626', fontWeight: 700 }}>\u00d7</span>
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Recetas */}
-          <div style={CARD}>
-            <div style={{ fontSize: 12, fontWeight: 700, color: '#44403c', marginBottom: 10 }}>\ud83d\udcd6 Recetas</div>
-            <div style={{ display: 'flex', gap: 8, marginBottom: 10, flexWrap: 'wrap' }}>
-              <input placeholder="Nombre del producto (ej. Hogaza)" value={recName} onChange={e => setRecName(e.target.value)} style={{ ...INP, flex: 1, minWidth: 140 }} />
-              <label style={{ fontSize: 12, color: '#78716c', display: 'flex', alignItems: 'center', gap: 6 }}>
-                Margen objetivo: <b style={{ color: '#92400e' }}>{margin}%</b>
-                <input type="range" min={20} max={80} value={margin} onChange={e => setMargin(Number(e.target.value))} style={{ width: 80 }} />
-              </label>
-            </div>
-            {/* Agregar ingrediente a la receta */}
-            <div style={{ background: '#faf7f2', borderRadius: 8, padding: 10, marginBottom: 10 }}>
-              <div style={{ fontSize: 11, color: '#78716c', fontWeight: 700, marginBottom: 6 }}>Ingredientes de esta receta:</div>
-              {recItems.map((it, i) => (
-                <div key={i} style={{ display: 'flex', gap: 6, alignItems: 'center', marginBottom: 4, fontSize: 12 }}>
-                  <span style={{ flex: 1 }}>{it.ing}</span><span>×{it.qty}</span>
-                  <span onClick={() => setRecItems(recItems.filter((_, j) => j !== i))} style={{ cursor: 'pointer', color: '#dc2626' }}>\u00d7</span>
+          {/* ── Tooltip helper ── */}
+          {showInfo && (
+            <div onClick={() => setShowInfo(null)} style={{ position: 'fixed', inset: 0, zIndex: 50, background: 'rgba(0,0,0,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24 }}>
+              <div style={{ background: '#fff', borderRadius: 14, padding: 20, maxWidth: 340, width: '100%' }} onClick={e => e.stopPropagation()}>
+                <div style={{ fontWeight: 800, fontSize: 14, color: '#92400e', marginBottom: 8 }}>{showInfo.title}</div>
+                <div style={{ fontSize: 13, color: '#44403c', lineHeight: 1.6 }}>{showInfo.text}</div>
+                <div style={{ marginTop: 12, padding: '8px 12px', background: '#faf0e6', borderRadius: 8, fontSize: 12, color: '#78400e' }}>
+                  <b>Ejemplo:</b> {showInfo.ex}
                 </div>
-              ))}
-              {ings.length > 0 ? (
-                <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginTop: 6 }}>
-                  <select id="ing-select" style={{ ...INP, flex: 1 }}>{ings.map(i => <option key={i.name}>{i.name}</option>)}</select>
-                  <input id="ing-qty" placeholder="Cantidad" type="number" step="0.01" defaultValue="1" style={{ ...INP, width: 80 }} />
+                <button onClick={() => setShowInfo(null)} style={{ marginTop: 12, width: '100%', padding: 9, background: '#92400e', color: '#fff', border: 'none', borderRadius: 8, fontWeight: 700, cursor: 'pointer' }}>Entendido ✓</button>
+              </div>
+            </div>
+          )}
+
+          {/* ── SECCIÓN 1: Materia Prima Directa (MPD) ── */}
+          {(() => {
+            const INP = { padding: '8px 11px', border: '1.5px solid #e7e0d8', borderRadius: 8, fontSize: 13, outline: 'none', background: '#fff' };
+            const BTN = (bg, col='#fff') => ({ padding: '8px 14px', background: bg, color: col, border: 'none', borderRadius: 8, fontSize: 13, fontWeight: 700, cursor: 'pointer' });
+            const INFO = (info) => (
+              <button onClick={() => setShowInfo(info)} style={{ background: 'none', border: '1.5px solid #d4c9be', color: '#92400e', borderRadius: '50%', width: 18, height: 18, fontSize: 10, fontWeight: 900, cursor: 'pointer', lineHeight: '16px', padding: 0, flexShrink: 0 }}>i</button>
+            );
+            const SECHEAD = (title, info) => (
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
+                <div style={{ fontSize: 12, fontWeight: 800, color: '#44403c' }}>{title}</div>
+                {INFO(info)}
+              </div>
+            );
+            const CARD = { background: '#fff', borderRadius: 14, padding: '16px', boxShadow: '0 2px 14px rgba(0,0,0,0.07)', marginBottom: 14 };
+
+            return (<>
+              {/* 1. MPD */}
+              <div style={CARD}>
+                {SECHEAD('1️⃣ Materia Prima Directa (MPD)', {
+                  title: '1. Materia Prima Directa (MPD)',
+                  text: 'Son todos los ingredientes o materiales que se incorporan DIRECTAMENTE al producto terminado. Es el costo base de lo que tu producto contiene físicamente.',
+                  ex: 'Para una hogaza: harina ($8), mantequilla ($4), sal ($0.50), levadura ($1.20) = MPD $13.70 por hogaza.'
+                })}
+                <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 10 }}>
+                  <input placeholder="Ingrediente (ej. Harina)" value={newIng.name} onChange={e => setNewIng(p => ({ ...p, name: e.target.value }))} style={{ ...INP, flex: 2, minWidth: 100 }} />
+                  <input placeholder="Costo $" type="number" value={newIng.cost} onChange={e => setNewIng(p => ({ ...p, cost: e.target.value }))} style={{ ...INP, width: 80 }} />
+                  <select value={newIng.unit} onChange={e => setNewIng(p => ({ ...p, unit: e.target.value }))} style={{ ...INP }}>
+                    {['pz', 'kg', 'g', 'lt', 'ml', 'taza', 'cda'].map(u => <option key={u}>{u}</option>)}
+                  </select>
                   <button onClick={() => {
-                    const sel  = document.getElementById('ing-select')?.value;
-                    const qty  = parseFloat(document.getElementById('ing-qty')?.value) || 0;
-                    if (sel && qty > 0) setRecItems(prev => [...prev, { ing: sel, qty }]);
-                  }} style={BTN('#78400e', '#fff')}>+ Ing.</button>
+                    if (!newIng.name.trim() || !newIng.cost) return;
+                    const next = [...ings.filter(i => i.name !== newIng.name.trim()), { name: newIng.name.trim(), unit: newIng.unit, cost: parseFloat(newIng.cost) }];
+                    saveIngs(next); setNewIng({ name: '', unit: 'pz', cost: '' });
+                  }} style={BTN('#92400e')}>+ Agregar</button>
                 </div>
-              ) : <p style={{ fontSize: 11, color: '#a8a29e' }}>Agrega ingredientes primero.</p>}
-            </div>
-            <button disabled={!recName.trim() || recItems.length === 0} onClick={() => {
-              const rec = { name: recName.trim(), items: recItems };
-              const next = [...recs.filter(r => r.name !== rec.name), rec];
-              saveRecs(next); setRecName(''); setRecItems([]); setSelRec(rec.name);
-            }} style={{ ...BTN('#92400e'), opacity: (!recName.trim() || recItems.length === 0) ? 0.5 : 1 }}>Guardar Receta</button>
-          </div>
+                {ings.length === 0 && <p style={{ fontSize: 12, color: '#a8a29e' }}>Sin ingredientes aún — agrega los materiales de tu menú.</p>}
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                  {ings.map(ing => (
+                    <span key={ing.name} style={{ background: '#faf0e6', color: '#92400e', border: '1px solid #e7d5c0', padding: '4px 10px', borderRadius: 20, fontSize: 12, display: 'flex', alignItems: 'center', gap: 6 }}>
+                      <b>{ing.name}</b> — ${ing.cost}/{ing.unit}
+                      <span onClick={() => saveIngs(ings.filter(i => i.name !== ing.name))} style={{ cursor: 'pointer', color: '#dc2626', fontWeight: 700 }}>×</span>
+                    </span>
+                  ))}
+                </div>
+              </div>
 
-          {/* Lista de recetas con c\u00e1lculo */}
-          {recs.length > 0 && (
-            <div style={CARD}>
-              <div style={{ fontSize: 12, fontWeight: 700, color: '#44403c', marginBottom: 10 }}>Resultados de Costo</div>
-              {recs.map(rec => {
-                const cost = calcCost(rec);
-                const price = suggestedPrice(cost);
+              {/* 2. MOD */}
+              <div style={CARD}>
+                {SECHEAD('2️⃣ Mano de Obra Directa (MOD)', {
+                  title: '2. Mano de Obra Directa (MOD)',
+                  text: 'Es el costo del tiempo que TÚ o tus empleados invierten DIRECTAMENTE en producir el producto. Se calcula como: Tarifa por hora × Horas de producción ÷ Unidades del lote.',
+                  ex: 'Si pagas $120/hr, tardas 2 horas en hacer 24 piezas → MOD = ($120×2)/24 = $10 por pieza.'
+                })}
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 10 }}>
+                  <div>
+                    <label style={{ fontSize: 11, color: '#78716c', fontWeight: 600 }}>Tarifa ($/hora)</label>
+                    <input type="number" value={modRate} onChange={e => setModRate(Number(e.target.value))} style={{ ...INP, width: '100%', marginTop: 4, boxSizing: 'border-box' }} />
+                  </div>
+                  <div>
+                    <label style={{ fontSize: 11, color: '#78716c', fontWeight: 600 }}>Horas por lote</label>
+                    <input type="number" step="0.25" value={modHours} onChange={e => setModHours(Number(e.target.value))} style={{ ...INP, width: '100%', marginTop: 4, boxSizing: 'border-box' }} />
+                  </div>
+                  <div>
+                    <label style={{ fontSize: 11, color: '#78716c', fontWeight: 600 }}>Unidades / lote</label>
+                    <input type="number" min="1" value={batchUnits} onChange={e => setBatchUnits(Math.max(1, Number(e.target.value)))} style={{ ...INP, width: '100%', marginTop: 4, boxSizing: 'border-box' }} />
+                  </div>
+                </div>
+                <div style={{ marginTop: 10, fontSize: 12, color: '#78716c' }}>
+                  MOD por unidad = <b style={{ color: '#d97706' }}>${(modRate * modHours / batchUnits).toFixed(2)}</b>
+                </div>
+              </div>
+
+              {/* 3. CIF */}
+              <div style={CARD}>
+                {SECHEAD('3️⃣ Costos Indirectos de Fabricación (CIF)', {
+                  title: '3. Costos Indirectos de Fabricación (CIF)',
+                  text: 'Son los costos de producción que NO son ni ingredientes ni mano de obra directa, pero son necesarios para producir: gas, luz del horno, agua, depreciación del equipo, renta del espacio de producción. Se estiman como % del costo directo (MPD + MOD).',
+                  ex: 'Si MPD+MOD = $23.70 y tus CIF son el 15% → CIF = $3.56 por unidad.'
+                })}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                  <label style={{ fontSize: 12, color: '#78716c', fontWeight: 600 }}>CIF = % de (MPD + MOD)</label>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <input type="range" min={0} max={40} value={cifPct} onChange={e => setCifPct(Number(e.target.value))} style={{ width: 120 }} />
+                    <span style={{ fontWeight: 800, color: '#92400e', fontSize: 14 }}>{cifPct}%</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 4-5-6: Recetas con cálculo completo */}
+              <div style={CARD}>
+                {SECHEAD('📖 Recetas del Menú', {
+                  title: 'Recetas del Menú',
+                  text: 'Conecta tus ingredientes (MPD) con cada producto de tu menú especificando cuánto usa de cada ingrediente. El sistema calculará automáticamente los 6 rubros de costo.',
+                  ex: 'Hogaza: Harina 500g, Mantequilla 80g, Sal 5g, Levadura 3g → calcula MPD automáticamente.'
+                })}
+                <div style={{ display: 'flex', gap: 8, marginBottom: 10 }}>
+                  <input placeholder="Nombre del producto (ej. Hogaza Artesanal)" value={recName} onChange={e => setRecName(e.target.value)} style={{ ...INP, flex: 1 }} />
+                </div>
+                <div style={{ background: '#faf7f2', borderRadius: 8, padding: 10, marginBottom: 10 }}>
+                  <div style={{ fontSize: 11, color: '#78716c', fontWeight: 700, marginBottom: 6 }}>Ingredientes de esta receta (MPD):</div>
+                  {recItems.map((it, i) => (
+                    <div key={i} style={{ display: 'flex', gap: 6, alignItems: 'center', marginBottom: 4, fontSize: 12 }}>
+                      <span style={{ flex: 1 }}>{it.ing}</span><span>×{it.qty}</span>
+                      <span onClick={() => setRecItems(recItems.filter((_, j) => j !== i))} style={{ cursor: 'pointer', color: '#dc2626' }}>×</span>
+                    </div>
+                  ))}
+                  {ings.length > 0 ? (
+                    <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginTop: 6 }}>
+                      <select id="ing-select" style={{ ...INP, flex: 1 }}>{ings.map(i => <option key={i.name}>{i.name}</option>)}</select>
+                      <input id="ing-qty" placeholder="Cantidad" type="number" step="0.01" defaultValue="1" style={{ ...INP, width: 80 }} />
+                      <button onClick={() => {
+                        const sel = document.getElementById('ing-select')?.value;
+                        const qty = parseFloat(document.getElementById('ing-qty')?.value) || 0;
+                        if (sel && qty > 0) setRecItems(prev => [...prev, { ing: sel, qty }]);
+                      }} style={BTN('#78400e')}>+ Ing.</button>
+                    </div>
+                  ) : <p style={{ fontSize: 11, color: '#a8a29e' }}>Agrega ingredientes primero (sección 1).</p>}
+                </div>
+
+                {/* Gastos Operativos */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <label style={{ fontSize: 12, color: '#78716c', fontWeight: 600, whiteSpace: 'nowrap' }}>5️⃣ Gastos Operativos / unidad $</label>
+                    {INFO({ title: '5. Costo Total (Gastos Operativos)', text: 'Son los gastos del negocio que NO son de producción pero son necesarios para operar: empaque (bolsas, cajas), entrega, comisiones de plataformas de pago, marketing ligero. Se agregan por unidad vendida.', ex: 'Caja $2.50 + bolsa $1.00 + comisión Stripe 3% aprox = ~$5 de gastos operativos por pedido.' })}
+                  </div>
+                  <input type="number" step="0.5" value={opEx} onChange={e => setOpEx(Number(e.target.value))} style={{ ...INP, width: 80 }} />
+                </div>
+
+                {/* Margen */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <label style={{ fontSize: 12, color: '#78716c', fontWeight: 600 }}>6️⃣ Margen de ganancia</label>
+                    {INFO({ title: '6. Precio de Venta con Margen', text: 'El margen se aplica SOBRE el costo total. Fórmula: Precio = Costo Total ÷ (1 - Margen%). Un margen del 50% significa que de cada peso que cobras, 50 centavos son ganancia neta.', ex: 'Costo Total $27 con margen 50% → Precio = $27 / (1-0.50) = $54. Tu ganancia = $27.' })}
+                  </div>
+                  <input type="range" min={20} max={80} value={margin} onChange={e => setMargin(Number(e.target.value))} style={{ flex: 1 }} />
+                  <span style={{ fontWeight: 800, color: '#92400e', fontSize: 14 }}>{margin}%</span>
+                </div>
+
+                <button disabled={!recName.trim() || recItems.length === 0} onClick={() => {
+                  const rec = { name: recName.trim(), items: recItems };
+                  const next = [...recs.filter(r => r.name !== rec.name), rec];
+                  saveRecs(next); setRecName(''); setRecItems([]);
+                }} style={{ ...BTN('#92400e'), opacity: (!recName.trim() || recItems.length === 0) ? 0.5 : 1 }}>Guardar Receta</button>
+              </div>
+
+              {/* Resultados: desglose contable por receta */}
+              {recs.length > 0 && recs.map(rec => {
+                const mpd     = calcCost(rec);
+                const mod     = modRate * modHours / batchUnits;
+                const cif     = (mpd + mod) * cifPct / 100;
+                const costoProd = mpd + mod + cif;
+                const costoTotal = costoProd + opEx;
+                const precio   = costoTotal / (1 - margin / 100);
+                const ganancia = precio - costoTotal;
+                const priceFmt = Math.ceil(precio / 5) * 5;
+
                 return (
-                  <div key={rec.name} style={{ border: '1px solid #e7e0d8', borderRadius: 10, padding: '12px', marginBottom: 10 }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
-                      <span style={{ fontWeight: 700, fontSize: 13 }}>{rec.name}</span>
+                  <div key={rec.name} style={{ ...CARD, border: '1px solid #e7e0d8' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                      <span style={{ fontWeight: 800, fontSize: 14, color: '#1a1208' }}>📊 {rec.name}</span>
                       <span onClick={() => saveRecs(recs.filter(r => r.name !== rec.name))} style={{ cursor: 'pointer', color: '#dc2626', fontSize: 12 }}>eliminar</span>
                     </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8, textAlign: 'center' }}>
-                      <div style={{ background: '#fef2f2', borderRadius: 8, padding: 8 }}>
-                        <div style={{ fontSize: 10, color: '#78716c', fontWeight: 600 }}>COSTO</div>
-                        <div style={{ fontSize: 18, fontWeight: 800, color: '#dc2626' }}>${cost.toFixed(2)}</div>
+
+                    {/* Tabla de fórmula */}
+                    <div style={{ fontSize: 12 }}>
+                      {[
+                        { n: '① MPD', label: 'Materia Prima Directa',         val: mpd,        color: '#1e40af', bg: '#eff6ff' },
+                        { n: '② MOD', label: 'Mano de Obra Directa',          val: mod,        color: '#7c3aed', bg: '#f5f3ff' },
+                        { n: '③ CIF', label: `CIF (${cifPct}% de MPD+MOD)`,   val: cif,        color: '#0f766e', bg: '#f0fdfa' },
+                        { n: '④ CP',  label: 'Costo de Producción (①+②+③)',   val: costoProd,  color: '#b45309', bg: '#fef3c7', bold: true },
+                        { n: '⑤ GO',  label: 'Gastos Operativos',              val: opEx,       color: '#9f1239', bg: '#fff1f2' },
+                        { n: '⑥ CT',  label: 'Costo Total (④+⑤)',             val: costoTotal, color: '#dc2626', bg: '#fef2f2', bold: true },
+                      ].map(row => (
+                        <div key={row.n} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 10px', borderRadius: 7, marginBottom: 4, background: row.bg }}>
+                          <span style={{ color: row.color, fontWeight: row.bold ? 800 : 600 }}>{row.n} <span style={{ fontWeight: 400, color: '#78716c' }}>{row.label}</span></span>
+                          <span style={{ fontWeight: row.bold ? 800 : 700, color: row.color }}>${row.val.toFixed(2)}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Precio sugerido */}
+                    <div style={{ marginTop: 12, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+                      <div style={{ background: '#f0fdf4', borderRadius: 10, padding: '10px 12px', textAlign: 'center', border: '1.5px solid #86efac' }}>
+                        <div style={{ fontSize: 10, color: '#15803d', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em' }}>💵 Precio Sugerido</div>
+                        <div style={{ fontSize: 24, fontWeight: 900, color: '#15803d' }}>${priceFmt}</div>
+                        <div style={{ fontSize: 10, color: '#6b7280' }}>redondeado al $5</div>
                       </div>
-                      <div style={{ background: '#fffbeb', borderRadius: 8, padding: 8 }}>
-                        <div style={{ fontSize: 10, color: '#78716c', fontWeight: 600 }}>MARGEN {margin}%</div>
-                        <div style={{ fontSize: 18, fontWeight: 800, color: '#d97706' }}>${price}</div>
-                      </div>
-                      <div style={{ background: '#f0fdf4', borderRadius: 8, padding: 8 }}>
-                        <div style={{ fontSize: 10, color: '#78716c', fontWeight: 600 }}>GANANCIA</div>
-                        <div style={{ fontSize: 18, fontWeight: 800, color: '#16a34a' }}>${(price - cost).toFixed(2)}</div>
+                      <div style={{ background: '#faf0e6', borderRadius: 10, padding: '10px 12px', textAlign: 'center', border: '1.5px solid #e7d5c0' }}>
+                        <div style={{ fontSize: 10, color: '#92400e', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em' }}>📈 Tu Ganancia ({margin}%)</div>
+                        <div style={{ fontSize: 24, fontWeight: 900, color: '#92400e' }}>${(priceFmt - costoTotal).toFixed(2)}</div>
+                        <div style={{ fontSize: 10, color: '#6b7280' }}>por unidad</div>
                       </div>
                     </div>
-                    <div style={{ fontSize: 10, color: '#a8a29e', marginTop: 6 }}>
-                      {rec.items.map((it, i) => `${it.ing} ×${it.qty}`).join(' · ')}
+
+                    <div style={{ fontSize: 10, color: '#a8a29e', marginTop: 8 }}>
+                      Ingredientes: {rec.items.map(it => `${it.ing} ×${it.qty}`).join(' · ')}
                     </div>
                   </div>
                 );
               })}
-            </div>
-          )}
-        </>)}
-
-        {/* ═══ TAB: EXPEDIENTE ═══ */}
+            </>);
+          })()} 
         {tab === 'exp' && (<>
-          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 4, color: '#44403c' }}>\ud83d\udccb Expediente Digital</h2>
+          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 4, color: '#44403c' }}>📋 Expediente Digital</h2>
           <div style={{ ...CARD, background: expPct < 100 ? '#fef2f2' : '#f0fdf4', border: `1px solid ${expPct < 100 ? '#fca5a5' : '#86efac'}` }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span style={{ fontSize: 13, fontWeight: 700, color: expPct < 100 ? '#dc2626' : '#16a34a' }}>{expPct < 100 ? `\u26a0\ufe0f ${expPct}% completado` : '\u2705 Expediente completo'}</span>
+              <span style={{ fontSize: 13, fontWeight: 700, color: expPct < 100 ? '#dc2626' : '#16a34a' }}>{expPct < 100 ? `⚠️ ${expPct}% completado` : '✅ Expediente completo'}</span>
               <span style={{ fontSize: 20, fontWeight: 900, color: expPct < 100 ? '#dc2626' : '#16a34a' }}>{expPct}%</span>
             </div>
-            {expPct < 100 && <p style={{ fontSize: 11, color: '#dc2626', marginTop: 6 }}>Completa tu expediente para evitar la suspensi\u00f3n del servicio (Cl\u00e1usula 6.4 del contrato).</p>}
+            {expPct < 100 && <p style={{ fontSize: 11, color: '#dc2626', marginTop: 6 }}>Completa tu expediente para evitar la suspensión del servicio (Cláusula 6.4 del contrato).</p>}
           </div>
           <div style={CARD}>
             <div style={{ fontSize: 12, color: '#78716c', marginBottom: 12 }}>Marca cada documento como entregado a GENyx:</div>
             {EXPEDIENTE_DOCS.map(doc => (
               <div key={doc.key} onClick={() => toggleDoc(doc.key)} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '11px 0', borderBottom: '1px solid #f5f0ea', cursor: 'pointer' }}>
                 <div style={{ width: 22, height: 22, borderRadius: 6, border: `2px solid ${expDocs[doc.key] ? '#16a34a' : '#d4c9be'}`, background: expDocs[doc.key] ? '#16a34a' : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, transition: 'all 0.15s' }}>
-                  {expDocs[doc.key] && <span style={{ color: '#fff', fontSize: 13, fontWeight: 900 }}>\u2713</span>}
+                  {expDocs[doc.key] && <span style={{ color: '#fff', fontSize: 13, fontWeight: 900 }}>✓</span>}
                 </div>
                 <span style={{ fontSize: 13, color: expDocs[doc.key] ? '#44403c' : '#78716c', textDecoration: expDocs[doc.key] ? 'none' : 'none' }}>{doc.label}</span>
               </div>
             ))}
           </div>
           <div style={{ ...CARD, background: '#faf0e6', border: '1px solid #e7d5c0', fontSize: 12, color: '#78400e' }}>
-            \ud83d\udce7 Env\u00eda tus documentos en PDF a: <b>hola@genyxsystems.com</b><br/>
-            GENyx confirmar\u00e1 cada entrega y actualizar\u00e1 tu expediente.
+            📧 Envía tus documentos en PDF a: <b>hola@genyxsystems.com</b><br/>
+            GENyx confirmará cada entrega y actualizará tu expediente.
           </div>
         </>)}
 
-        <p style={{ textAlign: 'center', color: '#c4b5a5', fontSize: 10, marginTop: 20 }}>GENyx OS \u00b7 {slug} \u00b7 Actualiza cada 30s</p>
+        <p style={{ textAlign: 'center', color: '#c4b5a5', fontSize: 10, marginTop: 20 }}>GENyx OS · {slug} · Actualiza cada 30s</p>
       </main>
     </div>
   );
