@@ -1322,96 +1322,172 @@ function AdminLoginScreen({ onAuth }) {
   );
 }
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// MANDO — DASHBOARD DEL CLIENTE (mando.genyxsystems.com/{slug})
-// Vista autenticada por PIN, muestra pedidos del tenant.
-// ═══════════════════════════════════════════════════════════════════════════════
-// \u2500\u2500 Sem\u00e1foro de producci\u00f3n (Mando de Paty) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+// \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550
+// MANDO \u2014 DASHBOARD DEL CLIENTE (mando.genyxsystems.com/{slug})
+// \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550
 const PROD_STATUS = {
-  nuevo:         { label: '\ud83d\udd34 Nuevo',        color: '#dc2626', bg: '#fef2f2', next: 'en_produccion', nextLabel: 'Iniciar \u25b6' },
-  en_produccion: { label: '\ud83d\udfe1 En Proceso',   color: '#d97706', bg: '#fffbeb', next: 'entregado',     nextLabel: 'Marcar Entregado \u2713' },
-  entregado:     { label: '\u2705 Entregado',     color: '#16a34a', bg: '#f0fdf4', next: null,           nextLabel: null },
+  nuevo:         { label: '\ud83d\udd34 Nuevo',      color: '#dc2626', bg: '#fef2f2', next: 'en_produccion', nextLabel: 'Iniciar \u25b6' },
+  en_produccion: { label: '\ud83d\udfe1 En Proceso', color: '#d97706', bg: '#fffbeb', next: 'entregado',     nextLabel: 'Marcar Entregado \u2713' },
+  entregado:     { label: '\u2705 Entregado',   color: '#16a34a', bg: '#f0fdf4', next: null,           nextLabel: null },
 };
-const STATUS_LABELS = { pending:'Pendiente', confirmed:'Confirmado', ready:'Listo \u2705', delivered:'Entregado \ud83d\ude9a', cancelled:'Cancelado \u2715', paid:'Pagado \ud83d\udcb3' };
-const STATUS_COLORS = { pending:'#d97706', confirmed:'#2563eb', ready:'#16a34a', delivered:'#64748b', cancelled:'#dc2626', paid:'#16a34a' };
+const MANDO_TABS = [
+  { id: 'pedidos', label: '\ud83d\udea6 Pedidos' },
+  { id: 'kpis',    label: '\ud83d\udcca KPIs' },
+  { id: 'inv',     label: '\ud83d\udce6 Inventario' },
+  { id: 'cost',    label: '\ud83d\udcb0 Costeador' },
+  { id: 'exp',     label: '\ud83d\udccb Expediente' },
+];
+const EXPEDIENTE_DOCS = [
+  { label: 'INE / Pasaporte', key: 'ine' },
+  { label: 'Comprobante de domicilio', key: 'dom' },
+  { label: 'Constancia de Situaci\u00f3n Fiscal (SAT)', key: 'sat' },
+  { label: 'Contrato firmado', key: 'contrato' },
+  { label: 'CLABE bancaria registrada', key: 'clabe' },
+  { label: 'Cuenta Stripe configurada', key: 'stripe' },
+  { label: 'Cat\u00e1logo de productos cargado', key: 'catalogo' },
+  { label: 'Recetas registradas en Costeador', key: 'recetas' },
+];
 
 function MandoClientView({ slug }) {
+  // \u2500\u2500 Auth
   const [pin, setPin]         = useState('');
   const [token, setToken]     = useState(null);
   const [name, setName]       = useState('');
-  const [orders, setOrders]   = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError]     = useState('');
-  const [updating, setUpdating] = useState(null); // order_id being updated
+  // \u2500\u2500 Navigation
+  const [tab, setTab] = useState('pedidos');
+  // \u2500\u2500 Pedidos
+  const [orders, setOrders]   = useState([]);
+  const [updating, setUpdating] = useState(null);
+  // \u2500\u2500 KPIs
+  const [analytics, setAnalytics] = useState(null);
+  const [analyticsLoading, setAnalyticsLoading] = useState(false);
+  // \u2500\u2500 Inventario
+  const [inventory, setInventory] = useState([]);
+  const [invLoading, setInvLoading] = useState(false);
+  const [editStock, setEditStock] = useState({});    // {product_name: tmpValue}
+  const [newProd, setNewProd]     = useState({ name: '', stock: '', unit: 'pza' });
+  // \u2500\u2500 Costeador (localStorage)
+  const storageKey = `${slug}_cost`;
+  const loadCost = () => { try { return JSON.parse(localStorage.getItem(storageKey) || '{"ings":[],"recs":[]}'); } catch { return { ings: [], recs: [] }; } };
+  const [ings, setIngs]   = useState(() => loadCost().ings);
+  const [recs, setRecs]   = useState(() => loadCost().recs);
+  const [newIng, setNewIng] = useState({ name: '', unit: 'pz', cost: '' });
+  const [recName, setRecName] = useState('');
+  const [recItems, setRecItems] = useState([]);    // [{ing, qty}]
+  const [margin, setMargin]   = useState(60);      // % de margen objetivo
+  const [selRec, setSelRec]   = useState(null);
+  // \u2500\u2500 Expediente
+  const expKey = `${slug}_exp`;
+  const [expDocs, setExpDocs] = useState(() => { try { return JSON.parse(localStorage.getItem(expKey) || '{}'); } catch { return {}; } });
 
+  // \u2500\u2500\u2500\u2500\u2500\u2500 handlers \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
   const handleLogin = async (e) => {
-    e.preventDefault();
-    setError(''); setLoading(true);
+    e.preventDefault(); setError(''); setLoading(true);
     try {
       const r = await fetch(`${BACKEND}/api/tenants/${slug}/auth`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ pin }),
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ pin }),
       });
       const d = await r.json();
       if (!r.ok) { setError(d.detail || 'PIN incorrecto'); setLoading(false); return; }
-      setToken(d.dashboard_token);
-      setName(d.name);
-    } catch { setError('No se pudo conectar. Intenta de nuevo.'); }
+      setToken(d.dashboard_token); setName(d.name);
+    } catch { setError('No se pudo conectar.'); }
     setLoading(false);
   };
 
   const fetchOrders = useCallback(async () => {
     if (!token) return;
-    try {
-      const r = await fetch(`${BACKEND}/api/dashboard/${slug}/orders`, { headers: { 'X-Dashboard-Token': token } });
-      if (r.ok) setOrders(await r.json());
-    } catch {}
+    try { const r = await fetch(`${BACKEND}/api/dashboard/${slug}/orders`, { headers: { 'X-Dashboard-Token': token } }); if (r.ok) setOrders(await r.json()); } catch {}
   }, [token, slug]);
-
   useEffect(() => { fetchOrders(); const t = setInterval(fetchOrders, 30000); return () => clearInterval(t); }, [fetchOrders]);
 
   const updateProdStatus = async (orderId, newStatus) => {
     setUpdating(orderId);
     try {
       const r = await fetch(`${BACKEND}/api/dashboard/${slug}/orders/${orderId}/production-status`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json', 'X-Dashboard-Token': token },
+        method: 'PATCH', headers: { 'Content-Type': 'application/json', 'X-Dashboard-Token': token },
         body: JSON.stringify({ production_status: newStatus }),
       });
-      if (r.ok) {
-        // Actualizar localmente sin esperar refetch
-        setOrders(prev => prev.map(o => o.id === orderId ? { ...o, production_status: newStatus } : o));
-      }
+      if (r.ok) setOrders(prev => prev.map(o => o.id === orderId ? { ...o, production_status: newStatus } : o));
     } catch {}
     setUpdating(null);
   };
 
-  const CS   = { minHeight: '100vh', background: '#faf7f2', color: '#1a1208', fontFamily: "'Inter', system-ui, sans-serif", display: 'flex', flexDirection: 'column' };
-  const CARD = { background: '#fff', borderRadius: 16, padding: '20px', boxShadow: '0 2px 16px rgba(0,0,0,0.07)', marginBottom: 14 };
+  const fetchAnalytics = useCallback(async () => {
+    if (!token) return;
+    setAnalyticsLoading(true);
+    try { const r = await fetch(`${BACKEND}/api/dashboard/${slug}/analytics`, { headers: { 'X-Dashboard-Token': token } }); if (r.ok) setAnalytics(await r.json()); } catch {}
+    setAnalyticsLoading(false);
+  }, [token, slug]);
+  useEffect(() => { if (tab === 'kpis' && token && !analytics) fetchAnalytics(); }, [tab, token, analytics, fetchAnalytics]);
 
+  const fetchInventory = useCallback(async () => {
+    if (!token) return; setInvLoading(true);
+    try { const r = await fetch(`${BACKEND}/api/dashboard/${slug}/inventory`, { headers: { 'X-Dashboard-Token': token } }); if (r.ok) { const d = await r.json(); setInventory(d.items || []); } } catch {}
+    setInvLoading(false);
+  }, [token, slug]);
+  useEffect(() => { if (tab === 'inv' && token) fetchInventory(); }, [tab, token, fetchInventory]);
+
+  const patchInventory = async (productName, stock, unit) => {
+    try {
+      const r = await fetch(`${BACKEND}/api/dashboard/${slug}/inventory`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Dashboard-Token': token },
+        body: JSON.stringify({ product_name: productName, stock: parseInt(stock) || 0, unit: unit || 'pza', updated_by: 'Propietario' }),
+      });
+      if (r.ok) { fetchInventory(); setEditStock(prev => { const n = { ...prev }; delete n[productName]; return n; }); }
+    } catch {}
+  };
+  const addInventoryItem = async () => {
+    if (!newProd.name.trim()) return;
+    await patchInventory(newProd.name.trim(), newProd.stock, newProd.unit);
+    setNewProd({ name: '', stock: '', unit: 'pza' });
+  };
+
+  // Costeador helpers
+  const saveIngs = (data) => { setIngs(data); const s = loadCost(); localStorage.setItem(storageKey, JSON.stringify({ ...s, ings: data })); };
+  const saveRecs = (data) => { setRecs(data); const s = loadCost(); localStorage.setItem(storageKey, JSON.stringify({ ...s, recs: data })); };
+  const calcCost = (recipe) => recipe.items.reduce((sum, it) => {
+    const ing = ings.find(i => i.name === it.ing);
+    return sum + (ing ? parseFloat(ing.cost) * parseFloat(it.qty) : 0);
+  }, 0);
+  const suggestedPrice = (cost) => Math.ceil(cost / (1 - margin / 100) / 5) * 5;
+
+  // Expediente helpers
+  const toggleDoc = (key) => {
+    const next = { ...expDocs, [key]: !expDocs[key] };
+    setExpDocs(next); localStorage.setItem(expKey, JSON.stringify(next));
+  };
+  const expPct = Math.round((EXPEDIENTE_DOCS.filter(d => expDocs[d.key]).length / EXPEDIENTE_DOCS.length) * 100);
+
+  // \u2500\u2500 Styles
+  const CS   = { minHeight: '100vh', background: '#faf7f2', color: '#1a1208', fontFamily: "'Inter', system-ui, sans-serif", display: 'flex', flexDirection: 'column' };
+  const CARD = { background: '#fff', borderRadius: 14, padding: '18px', boxShadow: '0 2px 14px rgba(0,0,0,0.07)', marginBottom: 14 };
+  const BTN  = (bg, color = '#fff') => ({ padding: '9px 16px', background: bg, color, border: 'none', borderRadius: 9, fontSize: 13, fontWeight: 700, cursor: 'pointer' });
+  const INP  = { padding: '9px 12px', border: '1.5px solid #e7e0d8', borderRadius: 8, fontSize: 13, outline: 'none', background: '#fff' };
+
+  // \u2500\u2500 Login
   if (!token) return (
     <div style={{ ...CS, alignItems: 'center', justifyContent: 'center' }}>
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
-      <div style={{ width: '100%', maxWidth: 380, padding: 24 }}>
-        <div style={{ textAlign: 'center', marginBottom: 32 }}>
-          <div style={{ fontSize: 48, marginBottom: 12 }}>🥐</div>
-          <h1 style={{ fontSize: 22, fontWeight: 800, color: '#1a1208' }}>Paty Home Bakery</h1>
-          <p style={{ color: '#78716c', fontSize: 13, marginTop: 6 }}>Centro de Mando</p>
+      <div style={{ width: '100%', maxWidth: 360, padding: 24 }}>
+        <div style={{ textAlign: 'center', marginBottom: 28 }}>
+          <img src="/paty-icon.png" alt="Paty HomeBakery" style={{ width: 80, height: 80, borderRadius: 16, marginBottom: 12 }} />
+          <h1 style={{ fontSize: 20, fontWeight: 800, color: '#1a1208' }}>Paty HomeBakery</h1>
+          <p style={{ color: '#78716c', fontSize: 13, marginTop: 4 }}>Centro de Mando</p>
         </div>
-        <div style={{ ...CARD }}>
+        <div style={CARD}>
           <form onSubmit={handleLogin}>
-            <label style={{ fontSize: 12, fontWeight: 700, color: '#78716c', letterSpacing: '.06em', textTransform: 'uppercase' }}>Contraseña de Acceso</label>
-            <input type="password" value={pin} onChange={e => setPin(e.target.value)} placeholder="••••••" autoFocus
-              style={{ width: '100%', padding: '12px 16px', fontSize: 20, letterSpacing: 8, border: '2px solid #e7e0d8', borderRadius: 10, marginTop: 8, marginBottom: 16, outline: 'none', boxSizing: 'border-box', textAlign: 'center' }} />
-            {error && <p style={{ color: '#dc2626', fontSize: 13, marginBottom: 12, textAlign: 'center' }}>{error}</p>}
-            <button type="submit" disabled={loading}
-              style={{ width: '100%', padding: '13px', background: '#92400e', color: '#fff', border: 'none', borderRadius: 10, fontSize: 15, fontWeight: 700, cursor: loading ? 'wait' : 'pointer', opacity: loading ? 0.7 : 1 }}>
-              {loading ? 'Entrando…' : 'Entrar ✓'}
+            <label style={{ fontSize: 11, fontWeight: 700, color: '#78716c', letterSpacing: '.07em', textTransform: 'uppercase' }}>Contrase\u00f1a de Acceso</label>
+            <input type="password" value={pin} onChange={e => setPin(e.target.value)} placeholder="\u2022\u2022\u2022\u2022\u2022\u2022" autoFocus
+              style={{ ...INP, width: '100%', fontSize: 22, letterSpacing: 10, textAlign: 'center', marginTop: 8, marginBottom: 14, boxSizing: 'border-box' }} />
+            {error && <p style={{ color: '#dc2626', fontSize: 12, marginBottom: 10, textAlign: 'center' }}>{error}</p>}
+            <button type="submit" disabled={loading} style={{ ...BTN('#92400e'), width: '100%', padding: 13, fontSize: 15, opacity: loading ? 0.7 : 1 }}>
+              {loading ? 'Entrando\u2026' : 'Entrar \u2713'}
             </button>
           </form>
         </div>
-        <p style={{ textAlign: 'center', color: '#a8a29e', fontSize: 11, marginTop: 16 }}>GENyx OS · {slug}</p>
+        <p style={{ textAlign: 'center', color: '#c4b5a5', fontSize: 10, marginTop: 12 }}>GENyx OS \u00b7 {slug}</p>
       </div>
     </div>
   );
@@ -1422,101 +1498,294 @@ function MandoClientView({ slug }) {
   return (
     <div style={CS}>
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
-      <header style={{ background: '#92400e', color: '#fff', padding: '14px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <span style={{ fontSize: 24 }}>🥐</span>
-          <div>
-            <div style={{ fontWeight: 800, fontSize: 15 }}>{name || 'Mi Panadería'}</div>
-            <div style={{ fontSize: 10, opacity: .75 }}>Centro de Mando</div>
+      {/* Header */}
+      <header style={{ background: '#92400e', color: '#fff', padding: '12px 20px 0', position: 'sticky', top: 0, zIndex: 10 }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <img src="/paty-icon.png" alt="" style={{ width: 32, height: 32, borderRadius: 8 }} />
+            <div>
+              <div style={{ fontWeight: 800, fontSize: 14 }}>{name || 'Mi Panader\u00eda'}</div>
+              <div style={{ fontSize: 9, opacity: .7 }}>Centro de Mando</div>
+            </div>
           </div>
+          <button onClick={fetchOrders} style={{ background: 'rgba(255,255,255,0.18)', border: 'none', color: '#fff', padding: '5px 12px', borderRadius: 7, fontSize: 12, cursor: 'pointer' }}>\u27f3</button>
         </div>
-        <div style={{ display: 'flex', gap: 8 }}>
-          {/* Leyenda semáforo */}
-          <div style={{ display: 'flex', gap: 6, alignItems: 'center', fontSize: 11 }}>
-            {Object.values(PROD_STATUS).map(s => (
-              <span key={s.label} style={{ background: s.bg, color: s.color, border: `1px solid ${s.color}40`, padding: '3px 8px', borderRadius: 20, fontWeight: 700 }}>{s.label}</span>
-            ))}
-          </div>
-          <button onClick={fetchOrders} style={{ background: 'rgba(255,255,255,0.2)', border: 'none', color: '#fff', padding: '6px 14px', borderRadius: 8, fontSize: 12, cursor: 'pointer', fontWeight: 600 }}>⟳</button>
+        {/* Tabs */}
+        <div style={{ display: 'flex', gap: 2, overflowX: 'auto', paddingBottom: 0 }}>
+          {MANDO_TABS.map(t => (
+            <button key={t.id} onClick={() => setTab(t.id)} style={{ padding: '8px 14px', fontSize: 11, fontWeight: 600, border: 'none', background: 'none', cursor: 'pointer', color: tab === t.id ? '#fff' : 'rgba(255,255,255,0.55)', borderBottom: `2px solid ${tab === t.id ? '#fff' : 'transparent'}`, whiteSpace: 'nowrap', letterSpacing: '.03em' }}>{t.label}</button>
+          ))}
         </div>
       </header>
 
-      <main style={{ padding: 20, maxWidth: 720, margin: '0 auto', width: '100%', flex: 1 }}>
-        <h2 style={{ fontSize: 15, fontWeight: 700, marginBottom: 14, color: '#44403c' }}>📋 Pedidos Activos ({activos.length})</h2>
-        {activos.length === 0 && <div style={{ ...CARD, textAlign: 'center', color: '#a8a29e', fontSize: 14 }}>No hay pedidos activos en este momento.</div>}
-        {activos.map(o => {
-          const ps = o.production_status || 'nuevo';
-          const sp = PROD_STATUS[ps] || PROD_STATUS.nuevo;
-          const items = o.items || [];
-          const total = o.total || o.total_estimated || 0;
-          const isUpdating = updating === o.id;
-          return (
-            <div key={o.id} style={{ ...CARD, borderLeft: `4px solid ${sp.color}` }}>
-              {/* Cabecera: nombre + semáforo */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 10 }}>
-                <div>
-                  <div style={{ fontWeight: 700, fontSize: 15 }}>#{o.id} · {o.customer_name || 'Cliente'}</div>
-                  <div style={{ fontSize: 12, color: '#78716c', marginTop: 2 }}>
-                    {o.whatsapp && <span>📱 {o.whatsapp}</span>}
-                    {o.address && <span style={{ marginLeft: 8 }}>📍 {o.address}</span>}
+      <main style={{ padding: 18, maxWidth: 720, margin: '0 auto', width: '100%', flex: 1 }}>
+
+        {/* ═══ TAB: PEDIDOS ═══ */}
+        {tab === 'pedidos' && (<>
+          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 12, color: '#44403c' }}>\ud83d\udea6 Pedidos Activos ({activos.length})</h2>
+          {/* Leyenda */}
+          <div style={{ display: 'flex', gap: 6, marginBottom: 12, flexWrap: 'wrap' }}>
+            {Object.values(PROD_STATUS).map(s => <span key={s.label} style={{ background: s.bg, color: s.color, border: `1px solid ${s.color}30`, padding: '3px 9px', borderRadius: 20, fontSize: 11, fontWeight: 700 }}>{s.label}</span>)}
+          </div>
+          {activos.length === 0 && <div style={{ ...CARD, textAlign: 'center', color: '#a8a29e', fontSize: 14 }}>No hay pedidos activos.</div>}
+          {activos.map(o => {
+            const ps = o.production_status || 'nuevo';
+            const sp = PROD_STATUS[ps] || PROD_STATUS.nuevo;
+            const items = o.items || []; const total = o.total || o.total_estimated || 0; const isUpd = updating === o.id;
+            return (
+              <div key={o.id} style={{ ...CARD, borderLeft: `4px solid ${sp.color}` }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
+                  <div>
+                    <div style={{ fontWeight: 700, fontSize: 14 }}>#{o.id} \u00b7 {o.customer_name || 'Cliente'}</div>
+                    <div style={{ fontSize: 11, color: '#78716c', marginTop: 2 }}>
+                      {o.whatsapp && <span>\ud83d\udcf1 {o.whatsapp}</span>}
+                      {o.address && <span style={{ marginLeft: 6 }}>\ud83d\udccd {o.address}</span>}
+                    </div>
+                  </div>
+                  <span style={{ background: sp.bg, color: sp.color, padding: '3px 10px', borderRadius: 20, fontSize: 11, fontWeight: 800, border: `1px solid ${sp.color}30` }}>{sp.label}</span>
+                </div>
+                <div style={{ background: '#faf7f2', borderRadius: 8, padding: '8px 12px', marginBottom: 10, fontSize: 12 }}>
+                  {items.map((it, i) => <div key={i}>\u2022 {it.nombre || it.name} \u00d7{it.cantidad || it.qty || 1} \u2014 <b>${(it.subtotal || it.precio || 0).toLocaleString()}</b></div>)}
+                  {items.length === 0 && <span style={{ color: '#a8a29e' }}>Sin detalle.</span>}
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
+                  <span style={{ color: '#78716c', fontSize: 11 }}>{fmt(o.created_at)}</span>
+                  <span style={{ fontWeight: 800, color: '#92400e', fontSize: 15 }}>${total.toLocaleString('es-MX')} MXN</span>
+                </div>
+                <div style={{ marginTop: 10, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                  {sp.next && <button onClick={() => updateProdStatus(o.id, sp.next)} disabled={isUpd} style={{ ...BTN(PROD_STATUS[sp.next].color), flex: 1, opacity: isUpd ? 0.5 : 1 }}>{isUpd ? '...' : sp.nextLabel}</button>}
+                  {ps === 'en_produccion' && <button onClick={() => updateProdStatus(o.id, 'nuevo')} disabled={isUpd} style={{ ...BTN('#f3f4f6', '#6b7280'), border: '1px solid #e5e7eb' }}>\u2190 Regresar</button>}
+                </div>
+              </div>
+            );
+          })}
+          {historial.length > 0 && (
+            <details style={{ marginTop: 8 }}>
+              <summary style={{ fontSize: 12, color: '#78716c', cursor: 'pointer', fontWeight: 600, marginBottom: 8 }}>\ud83d\uddc2 Historial entregados ({historial.length})</summary>
+              {historial.slice(0, 15).map(o => (
+                <div key={o.id} style={{ ...CARD, opacity: 0.65, fontSize: 12 }}>
+                  #{o.id} \u00b7 <b>{o.customer_name}</b> \u2014 ${(o.total || 0).toLocaleString('es-MX')} MXN \u00b7 \u2705 Entregado \u00b7 {fmt(o.created_at)}
+                </div>
+              ))}
+            </details>
+          )}
+        </>)}
+
+        {/* ═══ TAB: KPIs ═══ */}
+        {tab === 'kpis' && (<>
+          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 12, color: '#44403c' }}>\ud83d\udcca KPIs de mi Negocio</h2>
+          {analyticsLoading && <div style={{ textAlign: 'center', color: '#a8a29e', padding: 40 }}>Cargando datos\u2026</div>}
+          {!analyticsLoading && analytics && (
+            <>
+              {analytics.empty ? (
+                <div style={{ ...CARD, textAlign: 'center', color: '#a8a29e', fontSize: 14 }}>A\u00fan no hay pedidos registrados. Los KPIs aparecer\u00e1n cuando uses el sistema.</div>
+              ) : (<>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 14 }}>
+                  <div style={{ ...CARD, textAlign: 'center', margin: 0 }}>
+                    <div style={{ fontSize: 11, color: '#78716c', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 6 }}>\ud83c\udfab Ticket Promedio</div>
+                    <div style={{ fontSize: 28, fontWeight: 800, color: '#92400e' }}>${(analytics.ticket_promedio || 0).toLocaleString('es-MX')}</div>
+                    <div style={{ fontSize: 10, color: '#a8a29e', marginTop: 4 }}>MXN por pedido</div>
+                  </div>
+                  <div style={{ ...CARD, textAlign: 'center', margin: 0 }}>
+                    <div style={{ fontSize: 11, color: '#78716c', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 6 }}>\ud83d\udce6 Total Pedidos</div>
+                    <div style={{ fontSize: 28, fontWeight: 800, color: '#92400e' }}>{analytics.total_orders || 0}</div>
+                    <div style={{ fontSize: 10, color: '#a8a29e', marginTop: 4 }}>en el hist\u00f3rico</div>
                   </div>
                 </div>
-                <span style={{ background: sp.bg, color: sp.color, border: `1px solid ${sp.color}40`, padding: '4px 12px', borderRadius: 20, fontSize: 12, fontWeight: 800, whiteSpace: 'nowrap' }}>
-                  {sp.label}
-                </span>
-              </div>
+                <div style={CARD}>
+                  <div style={{ fontSize: 12, fontWeight: 700, color: '#44403c', marginBottom: 10 }}>\ud83c\udfc6 Top Productos</div>
+                  {(analytics.top_productos || []).map((p, i) => (
+                    <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '7px 0', borderBottom: i < (analytics.top_productos.length - 1) ? '1px solid #f5f0ea' : 'none' }}>
+                      <span style={{ fontSize: 13 }}><b style={{ color: '#92400e' }}>#{i + 1}</b> {p.name}</span>
+                      <span style={{ background: '#faf0e6', color: '#92400e', padding: '2px 10px', borderRadius: 20, fontSize: 12, fontWeight: 700 }}>{p.qty} vendidos</span>
+                    </div>
+                  ))}
+                  {(!analytics.top_productos || analytics.top_productos.length === 0) && <p style={{ color: '#a8a29e', fontSize: 13 }}>Sin datos de productos a\u00fan.</p>}
+                </div>
+                <div style={{ ...CARD, background: '#faf0e6', border: '1px solid #e7d5c0', fontSize: 12, color: '#78400e' }}>
+                  <div style={{ fontWeight: 700, marginBottom: 6 }}>\ud83d\udce7 Recuerda</div>
+                  El an\u00e1lisis profundo (tendencias, hora pico, recomendaciones) lo recibes cada lunes a las 8am en tu correo.
+                </div>
+              </>)}
+            </>
+          )}
+          {!analyticsLoading && !analytics && <button onClick={fetchAnalytics} style={{ ...BTN('#92400e'), width: '100%' }}>Cargar KPIs</button>}
+        </>)}
 
-              {/* Productos */}
-              <div style={{ background: '#faf7f2', borderRadius: 8, padding: '10px 14px', marginBottom: 12 }}>
-                {items.map((it, i) => <div key={i} style={{ fontSize: 13, color: '#44403c', padding: '2px 0' }}>• {it.nombre || it.name || it.nombre} ×{it.cantidad || it.qty || 1} — <b>${(it.subtotal || it.precio || 0).toLocaleString()}</b></div>)}
-                {items.length === 0 && <div style={{ fontSize: 12, color: '#a8a29e' }}>Sin detalle de productos.</div>}
-              </div>
-
-              {/* Footer: fecha + total + botones semáforo */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
-                <span style={{ color: '#78716c', fontSize: 12 }}>{fmt(o.created_at)}</span>
-                <span style={{ fontWeight: 800, color: '#92400e', fontSize: 16 }}>${total.toLocaleString('es-MX')} MXN</span>
-              </div>
-
-              {/* Controles del semáforo */}
-              <div style={{ marginTop: 12, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                {/* Avanzar al siguiente estado */}
-                {sp.next && (
-                  <button
-                    onClick={() => updateProdStatus(o.id, sp.next)}
-                    disabled={isUpdating}
-                    style={{ flex: 1, padding: '10px 14px', background: PROD_STATUS[sp.next].color, color: '#fff', border: 'none', borderRadius: 10, fontSize: 13, fontWeight: 700, cursor: isUpdating ? 'wait' : 'pointer', opacity: isUpdating ? 0.6 : 1, minWidth: 140 }}>
-                    {isUpdating ? '...' : sp.nextLabel}
-                  </button>
-                )}
-                {/* Regresar a Nuevo (si en_produccion) */}
-                {ps === 'en_produccion' && (
-                  <button
-                    onClick={() => updateProdStatus(o.id, 'nuevo')}
-                    disabled={isUpdating}
-                    style={{ padding: '10px 14px', background: '#f3f4f6', color: '#6b7280', border: '1px solid #e5e7eb', borderRadius: 10, fontSize: 12, fontWeight: 600, cursor: 'pointer' }}>
-                    ← Regresar
-                  </button>
-                )}
-              </div>
+        {/* ═══ TAB: INVENTARIO ═══ */}
+        {tab === 'inv' && (<>
+          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 12, color: '#44403c' }}>\ud83d\udce6 Inventario</h2>
+          {/* Agregar producto */}
+          <div style={{ ...CARD }}>
+            <div style={{ fontSize: 12, fontWeight: 700, color: '#44403c', marginBottom: 10 }}>+ Agregar / Actualizar producto</div>
+            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+              <input placeholder="Nombre del producto" value={newProd.name} onChange={e => setNewProd(p => ({ ...p, name: e.target.value }))} style={{ ...INP, flex: 2, minWidth: 140 }} />
+              <input placeholder="Stock" type="number" value={newProd.stock} onChange={e => setNewProd(p => ({ ...p, stock: e.target.value }))} style={{ ...INP, width: 70 }} />
+              <select value={newProd.unit} onChange={e => setNewProd(p => ({ ...p, unit: e.target.value }))} style={{ ...INP }}>
+                {['pza', 'kg', 'lt', 'paq', 'caja', 'bolsa'].map(u => <option key={u}>{u}</option>)}
+              </select>
+              <button onClick={addInventoryItem} style={BTN('#92400e')}>Guardar</button>
             </div>
-          );
-        })}
+          </div>
+          {invLoading && <div style={{ textAlign: 'center', color: '#a8a29e', padding: 30 }}>Cargando\u2026</div>}
+          {!invLoading && inventory.length === 0 && <div style={{ ...CARD, textAlign: 'center', color: '#a8a29e', fontSize: 13 }}>No hay productos en inventario a\u00fan.</div>}
+          {!invLoading && inventory.map(item => {
+            const isEditing = editStock[item.product_name] !== undefined;
+            const stockVal = isEditing ? editStock[item.product_name] : item.stock;
+            const stockColor = item.stock <= 0 ? '#dc2626' : item.stock <= 3 ? '#d97706' : '#16a34a';
+            return (
+              <div key={item.product_name} style={{ ...CARD, display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+                <div style={{ flex: 1, minWidth: 120 }}>
+                  <div style={{ fontWeight: 700, fontSize: 13 }}>{item.product_name}</div>
+                  <div style={{ fontSize: 10, color: '#a8a29e', marginTop: 2 }}>Actualizado: {fmt(item.updated_at)}</div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <input type="number" value={stockVal}
+                    onChange={e => setEditStock(prev => ({ ...prev, [item.product_name]: e.target.value }))}
+                    style={{ ...INP, width: 70, textAlign: 'center', border: `1.5px solid ${isEditing ? '#92400e' : '#e7e0d8'}` }} />
+                  <span style={{ color: '#78716c', fontSize: 12 }}>{item.unit}</span>
+                  <span style={{ color: stockColor, fontWeight: 800, fontSize: 12 }}>{item.stock <= 0 ? '\ud83d\udd34 Agotado' : item.stock <= 3 ? '\ud83d\udfe1 Bajo' : '\ud83d\udfe2 OK'}</span>
+                  {isEditing && <button onClick={() => patchInventory(item.product_name, stockVal, item.unit)} style={BTN('#92400e', '#fff')}>Guardar</button>}
+                </div>
+              </div>
+            );
+          })}
+        </>)}
 
-        {/* Historial de entregados */}
-        {historial.length > 0 && (
-          <details style={{ marginTop: 12 }}>
-            <summary style={{ fontSize: 13, color: '#78716c', cursor: 'pointer', fontWeight: 600, marginBottom: 10 }}>🗂 Historial entregados ({historial.length})</summary>
-            {historial.slice(0, 15).map(o => (
-              <div key={o.id} style={{ ...CARD, opacity: 0.65, fontSize: 13 }}>
-                <span style={{ fontWeight: 700 }}>#{o.id} · {o.customer_name}</span> — ${(o.total || 0).toLocaleString('es-MX')} MXN
-                {' · '}<span style={{ color: '#16a34a', fontWeight: 700 }}>✅ Entregado</span>
-                {' · '}{fmt(o.created_at)}
+        {/* ═══ TAB: COSTEADOR ═══ */}
+        {tab === 'cost' && (<>
+          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 4, color: '#44403c' }}>\ud83d\udcb0 Costeador de Productos</h2>
+          <p style={{ fontSize: 12, color: '#78716c', marginBottom: 14 }}>Registra tus ingredientes y recetas para saber el costo real de cada producto.</p>
+
+          {/* Ingredientes */}
+          <div style={CARD}>
+            <div style={{ fontSize: 12, fontWeight: 700, color: '#44403c', marginBottom: 10 }}>\ud83c\udf3e Ingredientes</div>
+            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 12 }}>
+              <input placeholder="Nombre (ej. Harina)" value={newIng.name} onChange={e => setNewIng(p => ({ ...p, name: e.target.value }))} style={{ ...INP, flex: 2, minWidth: 100 }} />
+              <input placeholder="Costo $" type="number" value={newIng.cost} onChange={e => setNewIng(p => ({ ...p, cost: e.target.value }))} style={{ ...INP, width: 80 }} />
+              <select value={newIng.unit} onChange={e => setNewIng(p => ({ ...p, unit: e.target.value }))} style={{ ...INP }}>
+                {['pz', 'kg', 'g', 'lt', 'ml', 'taza', 'cda', 'cdta'].map(u => <option key={u}>{u}</option>)}
+              </select>
+              <button onClick={() => {
+                if (!newIng.name.trim() || !newIng.cost) return;
+                const next = [...ings.filter(i => i.name !== newIng.name.trim()), { name: newIng.name.trim(), unit: newIng.unit, cost: parseFloat(newIng.cost) }];
+                saveIngs(next); setNewIng({ name: '', unit: 'pz', cost: '' });
+              }} style={BTN('#92400e')}>+ Agregar</button>
+            </div>
+            {ings.length === 0 && <p style={{ fontSize: 12, color: '#a8a29e' }}>Sin ingredientes a\u00fan.</p>}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+              {ings.map(ing => (
+                <span key={ing.name} style={{ background: '#faf0e6', color: '#92400e', border: '1px solid #e7d5c0', padding: '4px 12px', borderRadius: 20, fontSize: 12, display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <b>{ing.name}</b> \u2014 ${ing.cost}/{ing.unit}
+                  <span onClick={() => saveIngs(ings.filter(i => i.name !== ing.name))} style={{ cursor: 'pointer', color: '#dc2626', fontWeight: 700 }}>\u00d7</span>
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Recetas */}
+          <div style={CARD}>
+            <div style={{ fontSize: 12, fontWeight: 700, color: '#44403c', marginBottom: 10 }}>\ud83d\udcd6 Recetas</div>
+            <div style={{ display: 'flex', gap: 8, marginBottom: 10, flexWrap: 'wrap' }}>
+              <input placeholder="Nombre del producto (ej. Hogaza)" value={recName} onChange={e => setRecName(e.target.value)} style={{ ...INP, flex: 1, minWidth: 140 }} />
+              <label style={{ fontSize: 12, color: '#78716c', display: 'flex', alignItems: 'center', gap: 6 }}>
+                Margen objetivo: <b style={{ color: '#92400e' }}>{margin}%</b>
+                <input type="range" min={20} max={80} value={margin} onChange={e => setMargin(Number(e.target.value))} style={{ width: 80 }} />
+              </label>
+            </div>
+            {/* Agregar ingrediente a la receta */}
+            <div style={{ background: '#faf7f2', borderRadius: 8, padding: 10, marginBottom: 10 }}>
+              <div style={{ fontSize: 11, color: '#78716c', fontWeight: 700, marginBottom: 6 }}>Ingredientes de esta receta:</div>
+              {recItems.map((it, i) => (
+                <div key={i} style={{ display: 'flex', gap: 6, alignItems: 'center', marginBottom: 4, fontSize: 12 }}>
+                  <span style={{ flex: 1 }}>{it.ing}</span><span>×{it.qty}</span>
+                  <span onClick={() => setRecItems(recItems.filter((_, j) => j !== i))} style={{ cursor: 'pointer', color: '#dc2626' }}>\u00d7</span>
+                </div>
+              ))}
+              {ings.length > 0 ? (
+                <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginTop: 6 }}>
+                  <select id="ing-select" style={{ ...INP, flex: 1 }}>{ings.map(i => <option key={i.name}>{i.name}</option>)}</select>
+                  <input id="ing-qty" placeholder="Cantidad" type="number" step="0.01" defaultValue="1" style={{ ...INP, width: 80 }} />
+                  <button onClick={() => {
+                    const sel  = document.getElementById('ing-select')?.value;
+                    const qty  = parseFloat(document.getElementById('ing-qty')?.value) || 0;
+                    if (sel && qty > 0) setRecItems(prev => [...prev, { ing: sel, qty }]);
+                  }} style={BTN('#78400e', '#fff')}>+ Ing.</button>
+                </div>
+              ) : <p style={{ fontSize: 11, color: '#a8a29e' }}>Agrega ingredientes primero.</p>}
+            </div>
+            <button disabled={!recName.trim() || recItems.length === 0} onClick={() => {
+              const rec = { name: recName.trim(), items: recItems };
+              const next = [...recs.filter(r => r.name !== rec.name), rec];
+              saveRecs(next); setRecName(''); setRecItems([]); setSelRec(rec.name);
+            }} style={{ ...BTN('#92400e'), opacity: (!recName.trim() || recItems.length === 0) ? 0.5 : 1 }}>Guardar Receta</button>
+          </div>
+
+          {/* Lista de recetas con c\u00e1lculo */}
+          {recs.length > 0 && (
+            <div style={CARD}>
+              <div style={{ fontSize: 12, fontWeight: 700, color: '#44403c', marginBottom: 10 }}>Resultados de Costo</div>
+              {recs.map(rec => {
+                const cost = calcCost(rec);
+                const price = suggestedPrice(cost);
+                return (
+                  <div key={rec.name} style={{ border: '1px solid #e7e0d8', borderRadius: 10, padding: '12px', marginBottom: 10 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                      <span style={{ fontWeight: 700, fontSize: 13 }}>{rec.name}</span>
+                      <span onClick={() => saveRecs(recs.filter(r => r.name !== rec.name))} style={{ cursor: 'pointer', color: '#dc2626', fontSize: 12 }}>eliminar</span>
+                    </div>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8, textAlign: 'center' }}>
+                      <div style={{ background: '#fef2f2', borderRadius: 8, padding: 8 }}>
+                        <div style={{ fontSize: 10, color: '#78716c', fontWeight: 600 }}>COSTO</div>
+                        <div style={{ fontSize: 18, fontWeight: 800, color: '#dc2626' }}>${cost.toFixed(2)}</div>
+                      </div>
+                      <div style={{ background: '#fffbeb', borderRadius: 8, padding: 8 }}>
+                        <div style={{ fontSize: 10, color: '#78716c', fontWeight: 600 }}>MARGEN {margin}%</div>
+                        <div style={{ fontSize: 18, fontWeight: 800, color: '#d97706' }}>${price}</div>
+                      </div>
+                      <div style={{ background: '#f0fdf4', borderRadius: 8, padding: 8 }}>
+                        <div style={{ fontSize: 10, color: '#78716c', fontWeight: 600 }}>GANANCIA</div>
+                        <div style={{ fontSize: 18, fontWeight: 800, color: '#16a34a' }}>${(price - cost).toFixed(2)}</div>
+                      </div>
+                    </div>
+                    <div style={{ fontSize: 10, color: '#a8a29e', marginTop: 6 }}>
+                      {rec.items.map((it, i) => `${it.ing} ×${it.qty}`).join(' · ')}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </>)}
+
+        {/* ═══ TAB: EXPEDIENTE ═══ */}
+        {tab === 'exp' && (<>
+          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 4, color: '#44403c' }}>\ud83d\udccb Expediente Digital</h2>
+          <div style={{ ...CARD, background: expPct < 100 ? '#fef2f2' : '#f0fdf4', border: `1px solid ${expPct < 100 ? '#fca5a5' : '#86efac'}` }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span style={{ fontSize: 13, fontWeight: 700, color: expPct < 100 ? '#dc2626' : '#16a34a' }}>{expPct < 100 ? `\u26a0\ufe0f ${expPct}% completado` : '\u2705 Expediente completo'}</span>
+              <span style={{ fontSize: 20, fontWeight: 900, color: expPct < 100 ? '#dc2626' : '#16a34a' }}>{expPct}%</span>
+            </div>
+            {expPct < 100 && <p style={{ fontSize: 11, color: '#dc2626', marginTop: 6 }}>Completa tu expediente para evitar la suspensi\u00f3n del servicio (Cl\u00e1usula 6.4 del contrato).</p>}
+          </div>
+          <div style={CARD}>
+            <div style={{ fontSize: 12, color: '#78716c', marginBottom: 12 }}>Marca cada documento como entregado a GENyx:</div>
+            {EXPEDIENTE_DOCS.map(doc => (
+              <div key={doc.key} onClick={() => toggleDoc(doc.key)} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '11px 0', borderBottom: '1px solid #f5f0ea', cursor: 'pointer' }}>
+                <div style={{ width: 22, height: 22, borderRadius: 6, border: `2px solid ${expDocs[doc.key] ? '#16a34a' : '#d4c9be'}`, background: expDocs[doc.key] ? '#16a34a' : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, transition: 'all 0.15s' }}>
+                  {expDocs[doc.key] && <span style={{ color: '#fff', fontSize: 13, fontWeight: 900 }}>\u2713</span>}
+                </div>
+                <span style={{ fontSize: 13, color: expDocs[doc.key] ? '#44403c' : '#78716c', textDecoration: expDocs[doc.key] ? 'none' : 'none' }}>{doc.label}</span>
               </div>
             ))}
-          </details>
-        )}
-        <p style={{ textAlign: 'center', color: '#c4b5a5', fontSize: 10, marginTop: 24 }}>GENyx OS · {slug} · Actualiza cada 30s</p>
+          </div>
+          <div style={{ ...CARD, background: '#faf0e6', border: '1px solid #e7d5c0', fontSize: 12, color: '#78400e' }}>
+            \ud83d\udce7 Env\u00eda tus documentos en PDF a: <b>hola@genyxsystems.com</b><br/>
+            GENyx confirmar\u00e1 cada entrega y actualizar\u00e1 tu expediente.
+          </div>
+        </>)}
+
+        <p style={{ textAlign: 'center', color: '#c4b5a5', fontSize: 10, marginTop: 20 }}>GENyx OS \u00b7 {slug} \u00b7 Actualiza cada 30s</p>
       </main>
     </div>
   );

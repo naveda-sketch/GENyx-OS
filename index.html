@@ -4,6 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GENyx OS — Operator Dashboard</title>
+
+    <!-- ── PWA: Add to Home Screen ─────────────────────────────────────── -->
+    <!-- El manifest se inyecta dinámicamente por JS según el hostname -->
+    <link id="pwa-manifest" rel="manifest" href="/manifest-paty.json" />
+
+    <!-- iOS Safari "Add to Home Screen" -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Mando Paty" />
+    <link rel="apple-touch-icon" href="/paty-icon.png" />
+
+    <!-- Android / Chrome -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" id="pwa-theme" content="#060912" />
+
+    <!-- Ajusta manifest y theme según dominio -->
+    <script>
+      (function() {
+        var h = window.location.hostname;
+        if (h.startsWith('mando')) {
+          document.title = 'Paty HomeBakery — Centro de Mando';
+          document.getElementById('pwa-manifest').href = '/manifest-paty.json';
+          document.getElementById('pwa-theme').content = '#92400e';
+          document.querySelector('meta[name="apple-mobile-web-app-title"]').content = 'Mando Paty';
+        } else {
+          document.getElementById('pwa-manifest').href = '/manifest-paty.json'; // solo Paty por ahora
+          document.querySelector('link[rel="apple-touch-icon"]').href = '/paty-icon.png';
+        }
+      })();
+    </script>
+    <!-- ──────────────────────────────────────────────────────────────────── -->
+
     <style>* { margin: 0; padding: 0; box-sizing: border-box; } body { background: #060912; }</style>
   </head>
   <body>

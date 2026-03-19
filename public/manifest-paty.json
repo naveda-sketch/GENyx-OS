@@ -1,0 +1,26 @@
+{
+  "name": "Paty HomeBakery — Centro de Mando",
+  "short_name": "Mando Paty",
+  "description": "Gestiona tus pedidos de Paty HomeBakery desde cualquier dispositivo.",
+  "start_url": "/panaderia-paty",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#faf7f2",
+  "theme_color": "#92400e",
+  "orientation": "portrait-primary",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "/paty-icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/paty-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
