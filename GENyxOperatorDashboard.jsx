@@ -1347,13 +1347,98 @@ const EXPEDIENTE_DOCS = [
   { label: 'Recetas registradas en Costeador', key: 'recetas' },
 ];
 
+// ── Legal Pages (✕ /terminos ✕ /privacidad) ────────────────────────────────
+function LegalPage({ tipo }) {
+  const isTC = tipo === 'terminos';
+  const LS = { fontFamily: 'Inter, sans-serif', minHeight: '100vh', background: '#faf9f7', color: '#292524', padding: '32px 20px', maxWidth: 720, margin: '0 auto' };
+  const H1 = { fontSize: 22, fontWeight: 800, color: '#92400e', marginBottom: 6 };
+  const H2 = { fontSize: 14, fontWeight: 700, color: '#44403c', margin: '22px 0 8px', borderBottom: '1px solid #e7e5e4', paddingBottom: 6 };
+  const P  = { fontSize: 13, lineHeight: 1.7, color: '#57534e', marginBottom: 10 };
+  const UL = { fontSize: 13, lineHeight: 1.7, color: '#57534e', paddingLeft: 20, marginBottom: 10 };
+  const HL = { color: '#92400e', fontWeight: 700 };
+  return (
+    <div style={{ background: '#faf9f7', minHeight: '100vh' }}>
+      <div style={LS}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 28 }}>
+          <a href="/" style={{ color: '#92400e', fontSize: 13, textDecoration: 'none' }}>← Inicio</a>
+          <span style={{ color: '#d6d3d1' }}>|</span>
+          <span style={{ fontSize: 11, color: '#a8a29e', fontFamily: 'monospace' }}>GENyx Systems</span>
+        </div>
+        {isTC ? (
+          <>
+            <h1 style={H1}>Términos y Condiciones de Uso</h1>
+            <p style={{ ...P, color: '#a8a29e', fontSize: 11 }}>GENyx Systems · Versión 1.0 · Última actualización: Marzo 2026</p>
+            <h2 style={H2}>1. Aceptación</h2>
+            <p style={P}>Al activar el servicio o acceder al Centro de Mando, el Cliente acepta expresamente estos Términos y Condiciones, el Aviso de Privacidad y el Contrato de Servicios vigentes.</p>
+            <h2 style={H2}>2. Descripción del Servicio</h2>
+            <p style={P}>GENyx Systems provee una plataforma SaaS de automatización comercial con bot de ventas IA vía WhatsApp Business, Centro de Mando, procesamiento de pagos (Stripe Connect) y análisis de datos.</p>
+            <h2 style={H2}>3. Cuentas y Seguridad</h2>
+            <ul style={UL}>
+              <li><span style={HL}>Credenciales:</span> El Cliente es único responsable de su PIN de acceso.</li>
+              <li><span style={HL}>Líneas WaB:</span> Los números de WhatsApp están en custodia exclusiva de GENyx bajo la cuenta corporativa de Meta.</li>
+              <li><span style={HL}>Expediente Digital (KYC):</span> GENyx puede suspender el acceso si el expediente no está al 100%.</li>
+            </ul>
+            <h2 style={H2}>4. Pagos y Comisiones</h2>
+            <p style={P}>El procesamiento usa Stripe Connect. El Cliente autoriza el descuento automático de la comisión GENyx antes de cada liquidación. Los precios pueden ajustarse en renovación anual con 30 días de aviso.</p>
+            <h2 style={H2}>5. Inteligencia Artificial y Limitación de Responsabilidad</h2>
+            <p style={P}>El bot opera con IA generativa de naturaleza probabilística y puede cometer <strong>errores conversacionales</strong> (“alucinaçiones”). GENyx no garantiza precisión del 100%. <strong>GENyx no será responsable</strong> por pérdidas económicas, productos mal cotizados, daños a la reputación o cualquier daño indirecto o consecuencial. La responsabilidad máxima de GENyx se limita a los <strong>3 meses de suscripción pagados</strong> anteriores al evento.</p>
+            <h2 style={H2}>6. Fuerza Mayor y Caídas de Terceros</h2>
+            <p style={P}>GENyx no responde por interrupciones de Meta/WhatsApp, OpenAI, Stripe, Render, Vercel u otros proveedores de infraestructura. Estos tiempos no computan para el SLA del 99%.</p>
+            <h2 style={H2}>7. Uso Aceptable</h2>
+            <p style={P}>Queda prohibido usar la Plataforma para vender productos ilegales, enviar spam, o intentar vulnerar el código o infraestructura de GENyx.</p>
+            <h2 style={H2}>8. Propiedad Intelectual</h2>
+            <p style={P}>El código, algoritmos, prompts, ADN del bot, flujos de venta y herramientas son propiedad exclusiva de GENyx. El Cliente retiene derechos sobre su catálogo, recetas y marca.</p>
+            <h2 style={H2}>9. Jurisdicción</h2>
+            <p style={P}>Ley aplicable: Estados Unidos Mexicanos. Jurisdicción: Tribunales Federales de Guadalajara, Jalisco.</p>
+            <p style={{ ...P, marginTop: 24, fontSize: 11, color: '#a8a29e' }}>Consultas: legal@genyxsystems.com</p>
+          </>
+        ) : (
+          <>
+            <h1 style={H1}>Aviso de Privacidad</h1>
+            <p style={{ ...P, color: '#a8a29e', fontSize: 11 }}>GENyx Systems · Versión 1.0 · Última actualización: Marzo 2026 · Conforme a LFPDPPP</p>
+            <h2 style={H2}>1. Responsable del Tratamiento</h2>
+            <p style={P}><strong>GENyx Systems</strong>, representado por Erick Naveda, Guadalajara, Jalisco, México. Contacto: <strong>privacidad@genyxsystems.com</strong></p>
+            <h2 style={H2}>2. Roles de Tratamiento</h2>
+            <ul style={UL}>
+              <li><span style={HL}>GENyx como Responsable:</span> Datos del dueño del negocio (nombre, RFC, CLABE, etc.).</li>
+              <li><span style={HL}>GENyx como Encargado:</span> Datos de los compradores finales (nombre, teléfono, dirección). El <strong>Cliente es el Responsable</strong> frente a sus compradores.</li>
+            </ul>
+            <h2 style={H2}>3. Datos Recabados del Cliente</h2>
+            <p style={P}>Nombre, RFC, INE, correo, CLABE, comprobante de domicilio, catálogo, recetas, horarios y configuración del bot.</p>
+            <h2 style={H2}>4. Finalidades</h2>
+            <ul style={UL}>
+              <li>Activación y mantenimiento del servicio (Centro de Mando, bot WaB)</li>
+              <li>Procesamiento de pagos y dispersión de fondos (Stripe Connect)</li>
+              <li>Generación de análisis comerciales (Correo del Lunes)</li>
+              <li>Cumplimiento legal y fiscal</li>
+            </ul>
+            <h2 style={H2}>5. Transferencia a Terceros</h2>
+            <ul style={UL}>
+              <li><span style={HL}>Stripe:</span> KYB y procesamiento de pagos</li>
+              <li><span style={HL}>Meta Platforms:</span> Operación de WhatsApp Business API</li>
+              <li><span style={HL}>OpenAI:</span> Procesamiento de lenguaje (datos anonimizados, no se usan para entrenar modelos públicos)</li>
+              <li><span style={HL}>Render / Vercel:</span> Infraestructura cloud</li>
+            </ul>
+            <h2 style={H2}>6. Derechos ARCO</h2>
+            <p style={P}>Acceso, Rectificación, Cancelación u Oposición: envía solicitud a <strong>privacidad@genyxsystems.com</strong>. Respuesta en máximo 20 días hábiles.</p>
+            <h2 style={H2}>7. Cookies y Session Storage</h2>
+            <p style={P}>Solo usamos session storage y cookies técnicas estrictamente necesarias para la seguridad de las sesiones. No usamos cookies publicitarias ni de rastreo.</p>
+            <p style={{ ...P, marginTop: 24, fontSize: 11, color: '#a8a29e' }}>privacidad@genyxsystems.com · GENyx Systems · Guadalajara, Jalisco, México</p>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function MandoClientView({ slug }) {
   // ── Auth
-  const [pin, setPin]         = useState('');
-  const [token, setToken]     = useState(null);
-  const [name, setName]       = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError]     = useState('');
+  const [pin, setPin]             = useState('');
+  const [token, setToken]         = useState(null);
+  const [name, setName]           = useState('');
+  const [loading, setLoading]     = useState(false);
+  const [error, setError]         = useState('');
+  const [termsAccepted, setTermsAccepted] = useState(false);
   // ── Navigation
   const [tab, setTab] = useState('pedidos');
   // ── Pedidos
@@ -1485,8 +1570,26 @@ function MandoClientView({ slug }) {
             <label style={{ fontSize: 11, fontWeight: 700, color: '#78716c', letterSpacing: '.07em', textTransform: 'uppercase' }}>Contraseña de Acceso</label>
             <input type="password" value={pin} onChange={e => setPin(e.target.value)} placeholder="••••••" autoFocus
               style={{ ...INP, width: '100%', fontSize: 22, letterSpacing: 10, textAlign: 'center', marginTop: 8, marginBottom: 14, boxSizing: 'border-box' }} />
+            {/* T&C checkbox */}
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: 9, margin: '0 0 14px', padding: '10px 12px', background: '#faf9f7', borderRadius: 8, border: '1px solid #e7e5e4' }}>
+              <input
+                type="checkbox"
+                id={`terms-${slug}`}
+                checked={termsAccepted}
+                onChange={e => setTermsAccepted(e.target.checked)}
+                style={{ marginTop: 2, width: 16, height: 16, accentColor: '#92400e', cursor: 'pointer', flexShrink: 0 }}
+              />
+              <label htmlFor={`terms-${slug}`} style={{ fontSize: 11, color: '#78716c', lineHeight: 1.5, cursor: 'pointer' }}>
+                He leído y acepto los{' '}
+                <a href="/terminos" target="_blank" rel="noopener noreferrer" style={{ color: '#92400e', fontWeight: 700 }}>Términos y Condiciones</a>{' '}
+                y el{' '}
+                <a href="/privacidad" target="_blank" rel="noopener noreferrer" style={{ color: '#92400e', fontWeight: 700 }}>Aviso de Privacidad</a>{' '}
+                de GENyx Systems.
+              </label>
+            </div>
             {error && <p style={{ color: '#dc2626', fontSize: 12, marginBottom: 10, textAlign: 'center' }}>{error}</p>}
-            <button type="submit" disabled={loading} style={{ ...BTN('#92400e'), width: '100%', padding: 13, fontSize: 15, opacity: loading ? 0.7 : 1 }}>
+            <button type="submit" disabled={loading || !termsAccepted}
+              style={{ ...BTN('#92400e'), width: '100%', padding: 13, fontSize: 15, opacity: (loading || !termsAccepted) ? 0.5 : 1, cursor: !termsAccepted ? 'not-allowed' : 'pointer' }}>
               {loading ? 'Entrando…' : 'Entrar ✓'}
             </button>
           </form>
@@ -1950,7 +2053,12 @@ export default function GENyxOperatorDashboard() {
 
   // ── Conditional renders (después de todos los hooks) ──────────────────────
   const IS_MANDO   = window.location.hostname.startsWith('mando');
-  const MANDO_SLUG = IS_MANDO ? (window.location.pathname.split('/').filter(Boolean)[0] || '') : '';
+  const path       = window.location.pathname;
+  const MANDO_SLUG = IS_MANDO ? (path.split('/').filter(Boolean)[0] || '') : '';
+
+  // ―― Legal pages (mando.genyxsystems.com/terminos · /privacidad) ―――――
+  if (path === '/terminos')   return <LegalPage tipo="terminos" />;
+  if (path === '/privacidad') return <LegalPage tipo="privacidad" />;
 
   if (IS_MANDO && MANDO_SLUG) return <MandoClientView slug={MANDO_SLUG} />;
   if (IS_MANDO && !MANDO_SLUG) return (
