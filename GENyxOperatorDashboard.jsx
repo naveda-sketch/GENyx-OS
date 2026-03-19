@@ -1883,6 +1883,32 @@ function MandoClientView({ slug }) {
                 )}
               </div>
 
+              {/* Demo Hogaza Natural */}
+              <div style={{ padding: '10px 14px', background: 'linear-gradient(90deg,#92400e18,#fed7aa22)', borderRadius: 12, marginBottom: 14, border: '1.5px dashed #d97706', display: 'flex', alignItems: 'center', gap: 12 }}>
+                <span style={{ fontSize: 22 }}>🍞</span>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontSize: 12, fontWeight: 800, color: '#92400e' }}>¿Primera vez? Carga un ejemplo real</div>
+                  <div style={{ fontSize: 11, color: '#78716c' }}>Hogaza Natural — valores calibrados para verificar que $85 es el precio correcto</div>
+                </div>
+                <button onClick={() => {
+                  // Pre-cargar ingredientes de la Hogaza
+                  const demoIngs = [
+                    { name: 'Harina de trigo', unit: 'kg', cost: 15 },
+                    { name: 'Sal', unit: 'pz', cost: 0.25 },
+                    { name: 'Agua', unit: 'pz', cost: 0.10 },
+                  ];
+                  saveIngs(demoIngs);
+                  setRecName('Hogaza Natural');
+                  setRecItems([
+                    { ing: 'Harina de trigo', qty: 0.5 },
+                    { ing: 'Sal', qty: 1 },
+                    { ing: 'Agua', qty: 1 },
+                  ]);
+                  setModRate(60); setModHours(2); setBatchUnits(8);
+                  setCifPct(20); setOpEx(4); setMargin(63);
+                }} style={{ padding: '7px 14px', background: '#92400e', color: '#fff', border: 'none', borderRadius: 9, fontSize: 12, fontWeight: 800, cursor: 'pointer', whiteSpace: 'nowrap' }}>Cargar demo →</button>
+              </div>
+
               {/* 1. MPD */}
               <div style={CARD}>
                 {SECHEAD('1️⃣ Materia Prima Directa (MPD)', {
@@ -1946,12 +1972,35 @@ function MandoClientView({ slug }) {
                   text: 'Son los costos de producción que NO son ni ingredientes ni mano de obra directa, pero son necesarios para producir: gas, luz del horno, agua, depreciación del equipo, renta del espacio de producción. Se estiman como % del costo directo (MPD + MOD).',
                   ex: 'Si MPD+MOD = $23.70 y tus CIF son el 15% → CIF = $3.56 por unidad.'
                 })}
-                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 10 }}>
                   <label style={{ fontSize: 12, color: '#78716c', fontWeight: 600 }}>CIF = % de (MPD + MOD)</label>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                     <input type="range" min={0} max={40} value={cifPct} onChange={e => setCifPct(Number(e.target.value))} style={{ width: 120 }} />
                     <span style={{ fontWeight: 800, color: '#92400e', fontSize: 14 }}>{cifPct}%</span>
                   </div>
+                </div>
+                {/* Guía práctica CIF */}
+                <div style={{ background: '#fef9f3', borderRadius: 10, padding: '10px 12px', border: '1px solid #fed7aa' }}>
+                  <div style={{ fontSize: 11, color: '#92400e', fontWeight: 800, marginBottom: 8 }}>🧮 ¿No sabes tu %? Elige tu perfil de producción:</div>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 6 }}>
+                    {[
+                      { icon: '🏠', tipo: 'Cocina en casa', gas: '$400–600/mes', luz: '$200–350/mes', prod: '40–80 pzas', rango: '12–18%', pct: 15 },
+                      { icon: '🔧', tipo: 'Taller pequeño', gas: '$1,000–2,000', luz: '$500–900', prod: '100–250 pzas', rango: '18–25%', pct: 21 },
+                      { icon: '🏪', tipo: 'Local comercial', gas: '$3,000+', renta: 'variable', prod: '300+ pzas', rango: '25–35%', pct: 30 },
+                    ].map(p => (
+                      <div key={p.tipo} onClick={() => setCifPct(p.pct)}
+                        style={{ background: cifPct === p.pct ? '#fff7ed' : '#fff', borderRadius: 8, padding: '7px 8px', cursor: 'pointer', border: `1.5px solid ${cifPct === p.pct ? '#f97316' : '#e7e0d8'}`, transition: 'all .15s' }}>
+                        <div style={{ fontSize: 16 }}>{p.icon}</div>
+                        <div style={{ fontSize: 10, fontWeight: 800, color: '#44403c', marginTop: 2 }}>{p.tipo}</div>
+                        <div style={{ fontSize: 9, color: '#78716c', marginTop: 3 }}>Gas: {p.gas}</div>
+                        {p.luz && <div style={{ fontSize: 9, color: '#78716c' }}>Luz: {p.luz}</div>}
+                        {p.renta && <div style={{ fontSize: 9, color: '#78716c' }}>Renta: {p.renta}</div>}
+                        <div style={{ fontSize: 9, color: '#78716c' }}>{p.prod}/mes</div>
+                        <div style={{ marginTop: 5, fontSize: 11, fontWeight: 900, color: '#c2410c', background: '#fff7ed', borderRadius: 5, padding: '2px 6px', textAlign: 'center' }}>{p.rango}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <div style={{ fontSize: 9, color: '#a8a29e', marginTop: 8 }}>💡 CIF incluye: gas, luz, agua, depreciación del horno (vida útil 10 años) y renta proporcional del espacio de producción. Haz clic en tu perfil para aplicarlo.</div>
                 </div>
               </div>
 
@@ -2066,6 +2115,28 @@ function MandoClientView({ slug }) {
                     <div style={{ fontSize: 10, color: '#a8a29e', marginTop: 8 }}>
                       Ingredientes: {rec.items.map(it => `${it.ing} ×${it.qty}`).join(' · ')}
                     </div>
+
+                    {/* Análisis del Precio */}
+                    {(() => {
+                      const realMarginPct = priceFmt > 0 ? Math.round((priceFmt - costoTotal) / priceFmt * 100) : 0;
+                      const [semaforo, label, bg, borderCol, tip] = realMarginPct >= 50
+                        ? ['🟢', 'Margen Saludable', '#f0fdf4', '#86efac', '✅ Puedes absorber alzas de ingredientes sin afectar tu negocio.']
+                        : realMarginPct >= 30
+                        ? ['🟡', 'Margen Ajustado', '#fefce8', '#fde047', '⚠️ Considera subir precio o reducir costos. El mínimo recomendable para artesanos es 35–40%.']
+                        : ['🔴', 'Precio en Riesgo', '#fef2f2', '#fca5a5', '🚨 Tu precio de venta no cubre suficiente margen. Revisa tus costos o ajusta el precio urgente.'];
+                      return (
+                        <div style={{ marginTop: 12, padding: '10px 13px', background: bg, borderRadius: 10, border: `1.5px solid ${borderCol}` }}>
+                          <div style={{ fontWeight: 800, fontSize: 12, color: '#1a1208', marginBottom: 7 }}>{semaforo} Análisis — {label}</div>
+                          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 5, fontSize: 11, color: '#44403c' }}>
+                            <div>Margen real: <b style={{ color: '#92400e' }}>{realMarginPct}%</b></div>
+                            <div>Costo sobre precio: <b style={{ color: '#92400e' }}>{priceFmt > 0 ? Math.round(costoTotal / priceFmt * 100) : 0}%</b></div>
+                            <div>Ganancia bruta: <b style={{ color: '#15803d' }}>${(priceFmt - costoTotal).toFixed(2)} MXN</b> / unidad</div>
+                            <div>Punto de equilibrio: <b style={{ color: '#92400e' }}>${costoTotal.toFixed(2)} MXN</b></div>
+                          </div>
+                          <div style={{ fontSize: 10, color: '#44403c', marginTop: 8, paddingTop: 6, borderTop: `1px solid ${borderCol}` }}>{tip}</div>
+                        </div>
+                      );
+                    })()}
 
                     {/* Fee GENyx +8% (opcional) */}
                     <div style={{ marginTop: 10, padding: '8px 12px', background: '#faf9f7', borderRadius: 10, border: '1.5px solid #e7e0d8', display: 'flex', alignItems: 'center', gap: 10 }}>
