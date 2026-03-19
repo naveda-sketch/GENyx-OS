@@ -1876,6 +1876,8 @@ function MandoClientView({ slug }) {
               })}
             </>);
           })()} 
+        </>)}
+
         {tab === 'exp' && (<>
           <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 4, color: '#44403c' }}>📋 Expediente Digital</h2>
           <div style={{ ...CARD, background: expPct < 100 ? '#fef2f2' : '#f0fdf4', border: `1px solid ${expPct < 100 ? '#fca5a5' : '#86efac'}` }}>
