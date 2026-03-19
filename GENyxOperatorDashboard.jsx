@@ -6,8 +6,12 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react';
  */
 
 const BACKEND = import.meta.env.VITE_BACKEND_URL || 'https://paty-backend-dkzk.onrender.com';
-const ADMIN_KEY = import.meta.env.VITE_ADMIN_KEY || '';
-const AH = { 'Content-Type': 'application/json', 'X-Admin-Key': ADMIN_KEY };
+// ── SEGURIDAD: admin key nunca en el bundle — se solicita en login y vive en sessionStorage
+const getAH = () => ({
+  'Content-Type': 'application/json',
+  'X-Admin-Key': sessionStorage.getItem('genyx_admin_key') || '',
+});
+const isAuthed = () => !!sessionStorage.getItem('genyx_admin_key');
 
 const fmt = (x) => new Date(x).toLocaleString('es-MX', { dateStyle: 'short', timeStyle: 'short' });
 const $$ = (n) => ((isFinite(n) && !isNaN(n)) ? n : 0).toLocaleString('es-MX', { style: 'currency', currency: 'MXN', maximumFractionDigits: 0 });
@@ -41,8 +45,8 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
   const [onboardingUrl, setOnboardingUrl] = useState(null);
 
   useEffect(() => {
-    if (!ADMIN_KEY) return;
-    fetch(`${BACKEND}/api/admin/organizations`, { headers: { 'X-Admin-Key': ADMIN_KEY } })
+    if (!isAuthed()) return;
+    fetch(`${BACKEND}/api/admin/organizations`, { headers: getAH() })
       .then(r => r.ok ? r.json() : null)
       .then(d => {
         if (!d) return;
@@ -55,7 +59,6 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
   const clientKPIs = useMemo(() => {
     return tenants.map(t => {
       const org = orgSettings[t.slug] || {};
-      // Use server-computed totals (more reliable than recalculating from local orders)
       const totalRevenue  = parseFloat(org.total_revenue)    || 0;
       const feePct        = parseFloat(org.fee_percent)      || 8;
       const commission    = parseFloat(org.genyx_commission) || (totalRevenue * feePct / 100);
@@ -70,7 +73,7 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
     setSavingSlug(slug);
     try {
       const r = await fetch(`${BACKEND}/api/admin/organizations/${slug}/settings`, {
-        method: 'PUT', headers: { 'Content-Type': 'application/json', 'X-Admin-Key': ADMIN_KEY },
+        method: 'PUT', headers: getAH(),
         body: JSON.stringify(edits),
       });
       if (r.ok) {
@@ -84,7 +87,7 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
     setSavingSlug(slug + '_onboard');
     try {
       const r = await fetch(`${BACKEND}/api/admin/connect-onboard`, {
-        method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Admin-Key': ADMIN_KEY },
+        method: 'POST', headers: getAH(),
         body: JSON.stringify({ slug, email }),
       });
       const d = await r.json();
@@ -94,7 +97,7 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
 
   if (loading) return <Spinner />;
   if (clientKPIs.length === 0) return (
-    <Empty icon="🏢" msg="No hay clientes registrados." sub={ADMIN_KEY ? null : 'Falta configurar VITE_ADMIN_KEY en Vercel.'} />
+    <Empty icon="🏢" msg="No hay clientes registrados." sub={isAuthed() ? null : 'Inicia sesión para ver los datos.'} />
   );
 
   return (
@@ -487,7 +490,7 @@ const TabHerramientas = ({ health, orders, tenants, selectedSlug }) => {
     if (!resetKey.trim()) return;
     setResetStatus('Reiniciando...');
     try {
-      const r = await fetch(`${BACKEND}/api/session/${encodeURIComponent(resetKey.trim())}`, { method: 'DELETE', headers: AH });
+      const r = await fetch(`${BACKEND}/api/session/${encodeURIComponent(resetKey.trim())}`, { method: 'DELETE', headers: getAH() });
       const d = await r.json();
       setResetStatus(r.ok ? `✅ Sesión reiniciada. ${d.messages_deleted} mensajes eliminados.` : `❌ ${d.detail}`);
     } catch { setResetStatus('❌ Error de conexión'); }
@@ -498,7 +501,7 @@ const TabHerramientas = ({ health, orders, tenants, selectedSlug }) => {
     if (!panicSlug) return;
     setPanicStatus('Procesando...');
     try {
-      const r = await fetch(`${BACKEND}/api/admin/client-status`, { method: 'POST', headers: AH, body: JSON.stringify({ slug: panicSlug, action }) });
+      const r = await fetch(`${BACKEND}/api/admin/client-status`, { method: 'POST', headers: getAH(), body: JSON.stringify({ slug: panicSlug, action }) });
       const d = await r.json();
       setPanicStatus(r.ok ? `✅ Cliente ${action === 'suspend' ? 'suspendido' : 'reactivado'} exitosamente.` : `❌ ${d.detail || 'Error'}`);
     } catch { setPanicStatus('❌ Error de conexión'); }
@@ -570,7 +573,7 @@ const TabAnalista = ({ tenants, orders, selectedSlug, setSelectedSlug }) => {
     if (!s || s === '__genyx__') { setData(null); setError(''); return; }
     setLoading(true); setError(''); setData(null);
     try {
-      const r = await fetch(`${BACKEND}/api/dashboard/${s}/analytics`, { headers: AH });
+      const r = await fetch(`${BACKEND}/api/dashboard/${s}/analytics`, { headers: getAH() });
       const d = await r.json();
       if (!r.ok) setError(d.detail || 'Error');
       else setData(d);
@@ -740,7 +743,6 @@ const TabExpedientes = ({ tenants }) => {
   const [saving, setSaving] = useState(false);
   const [saveMsg, setSaveMsg] = useState('');
   const [loadingExp, setLoadingExp] = useState(false);
-  const ADMIN_KEY = import.meta.env.VITE_ADMIN_KEY || '';
 
   // Build empty shells for all clients on mount
   useEffect(() => {
@@ -773,7 +775,7 @@ const TabExpedientes = ({ tenants }) => {
     try {
       const slug = id === '__genyx__' ? '000-genyx' : id;
       const res = await fetch(`${BACKEND}/api/admin/expediente/${slug}`, {
-        headers: { 'x-admin-key': ADMIN_KEY }
+        headers: getAH()
       });
       if (res.ok) {
         const json = await res.json();
@@ -799,7 +801,7 @@ const TabExpedientes = ({ tenants }) => {
     try {
       const res = await fetch(`${BACKEND}/api/admin/expediente/${slug}`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'x-admin-key': ADMIN_KEY },
+        headers: getAH(),
         body: JSON.stringify({ data })
       });
       if (res.ok) setSaveMsg('✅ Guardado');
@@ -1078,7 +1080,7 @@ const TabOnboarding = () => {
     try {
       const r = await fetch(`${BACKEND}/api/admin/create-tenant`, {
         method: 'POST',
-        headers: { ...AH, 'Content-Type': 'application/json' },
+        headers: getAH(),
         body: JSON.stringify(form)
       });
       const d = await r.json();
@@ -1253,8 +1255,73 @@ const BTN_SM_RED = { background: '#7f1d1d', color: '#fca5a5', padding: '6px 14px
 const BTN_SM_GREEN = { background: '#14532d', color: '#86efac', padding: '6px 14px', borderRadius: 8, fontSize: 12, fontWeight: 600, cursor: 'pointer', border: '1px solid rgba(34,197,94,0.3)' };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// MAIN COMPONENT
+// ADMIN LOGIN SCREEN — Solicita la Admin Key al inicio de sesión
+// La key NUNCA toca el bundle — vive sólo en sessionStorage.
 // ═══════════════════════════════════════════════════════════════════════════════
+function AdminLoginScreen({ onAuth }) {
+  const [key, setKey] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!key.trim()) { setError('Ingresa la Admin Key.'); return; }
+    setLoading(true); setError('');
+    // Verificación rápida contra el backend
+    try {
+      const r = await fetch(`${BACKEND}/api/tenants`, {
+        headers: { 'Content-Type': 'application/json', 'X-Admin-Key': key.trim() },
+      });
+      if (r.status === 403 || r.status === 401) {
+        setError('Admin Key incorrecta. Inténtalo de nuevo.');
+        setLoading(false); return;
+      }
+      // Key válida — guardar y continuar
+      sessionStorage.setItem('genyx_admin_key', key.trim());
+      onAuth(key.trim());
+    } catch { setError('No se pudo conectar al servidor. Verifica tu conexión.'); }
+    setLoading(false);
+  };
+
+  return (
+    <div style={{ minHeight: '100vh', background: '#060912', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Inter', system-ui, sans-serif" }}>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+      <style>{`@keyframes blink{0%,100%{opacity:1}50%{opacity:0}} @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}`}</style>
+      <div style={{ width: '100%', maxWidth: 420, padding: '0 24px', animation: 'fadeIn 0.4s ease' }}>
+        {/* Logo + Brand */}
+        <div style={{ textAlign: 'center', marginBottom: 40 }}>
+          <div style={{ width: 52, height: 52, border: '2px solid #6366f1', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, fontWeight: 900, color: '#818cf8', marginBottom: 16, fontFamily: 'JetBrains Mono, monospace' }}>G</div>
+          <h1 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', letterSpacing: '.02em', margin: 0 }}>GENyx <span style={{ color: '#6366f1' }}>Systems</span></h1>
+          <p style={{ fontSize: 11, color: '#334155', fontFamily: 'JetBrains Mono, monospace', marginTop: 6, letterSpacing: '.08em' }}>OPERATOR CONTROL CENTER</p>
+        </div>
+        {/* Card */}
+        <div style={{ background: '#0c1220', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 16, padding: '32px 28px', boxShadow: '0 0 40px rgba(99,102,241,0.08)' }}>
+          <p style={{ fontSize: 11, color: '#475569', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '.1em', marginBottom: 20, textTransform: 'uppercase' }}>$ authenticate --role=admin</p>
+          <form onSubmit={handleSubmit}>
+            <label style={{ fontSize: 11, color: '#64748b', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', display: 'block', marginBottom: 8 }}>Admin Key</label>
+            <div style={{ position: 'relative', marginBottom: 20 }}>
+              <span style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', color: '#6366f1', fontFamily: 'monospace', fontSize: 14 }}>›</span>
+              <input
+                type="password" value={key} onChange={e => setKey(e.target.value)}
+                placeholder="Ingresa tu Admin Key…" autoFocus
+                style={{ width: '100%', padding: '12px 14px 12px 32px', background: '#060912', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 8, color: '#a5b4fc', fontSize: 13, fontFamily: 'JetBrains Mono, monospace', letterSpacing: 3, outline: 'none', boxSizing: 'border-box', transition: 'border-color 0.2s' }}
+                onFocus={e => e.target.style.borderColor = '#6366f1'}
+                onBlur={e => e.target.style.borderColor = 'rgba(99,102,241,0.3)'}
+              />
+            </div>
+            {error && <p style={{ color: '#f87171', fontSize: 12, marginBottom: 16, fontFamily: 'JetBrains Mono, monospace' }}>⚠ {error}</p>}
+            <button type="submit" disabled={loading}
+              style={{ width: '100%', padding: '12px', background: loading ? 'rgba(99,102,241,0.3)' : 'rgba(99,102,241,0.15)', border: '1px solid rgba(99,102,241,0.5)', color: loading ? '#64748b' : '#a5b4fc', borderRadius: 8, fontSize: 13, fontWeight: 700, cursor: loading ? 'wait' : 'pointer', transition: 'all 0.2s', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '.04em' }}>
+              {loading ? 'Verificando…' : '> Acceder'}
+            </button>
+          </form>
+        </div>
+        <p style={{ textAlign: 'center', color: '#1e293b', fontSize: 10, marginTop: 20, fontFamily: 'monospace' }}>GENyx OS v3.4 · Sesión segura</p>
+      </div>
+    </div>
+  );
+}
+
 // ═══════════════════════════════════════════════════════════════════════════════
 // MANDO — DASHBOARD DEL CLIENTE (mando.genyxsystems.com/{slug})
 // Vista autenticada por PIN, muestra pedidos del tenant.
@@ -1393,30 +1460,22 @@ function MandoClientView({ slug }) {
 }
 
 export default function GENyxOperatorDashboard() {
-  // ── MANDO MODE: si el dominio es mando.*, delega al dashboard del cliente ──
-  const IS_MANDO = window.location.hostname.startsWith('mando');
-  const MANDO_SLUG = IS_MANDO ? (window.location.pathname.split('/').filter(Boolean)[0] || '') : '';
-  if (IS_MANDO && MANDO_SLUG) return <MandoClientView slug={MANDO_SLUG} />;
-  if (IS_MANDO && !MANDO_SLUG) return (
-    <div style={{ minHeight: '100vh', background: '#faf7f2', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Inter, sans-serif' }}>
-      <div style={{ textAlign: 'center' }}><div style={{ fontSize: 48 }}>🥐</div><h1 style={{ fontSize: 20, color: '#1a1208', margin: '16px 0 8px' }}>Paty Home Bakery</h1><p style={{ color: '#78716c', fontSize: 14 }}>Accede a tu mando en:<br/><strong>mando.genyxsystems.com/panaderia-paty</strong></p></div>
-    </div>
-  );
-  // ── OPERATOR MODE (os.genyxsystems.com) ───────────────────────────────────
-  const [tab, setTab] = useState('clientes');
-  const [tenants, setTenants] = useState([]);
-  const [orders, setOrders] = useState([]);
-  const [health, setHealth] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // ── REGLA DE HOOKS: todos los hooks PRIMERO, antes de cualquier return condicional ──
+  const [adminKey, setAdminKey] = useState(sessionStorage.getItem('genyx_admin_key') || '');
+  const [tab, setTab]           = useState('clientes');
+  const [tenants, setTenants]   = useState([]);
+  const [orders, setOrders]     = useState([]);
+  const [health, setHealth]     = useState(null);
+  const [loading, setLoading]   = useState(true);
   const [statusLoading, setStatusLoading] = useState('');
-  const [selectedSlug, setSelectedSlug] = useState('');  // ← selector global de cliente
+  const [selectedSlug, setSelectedSlug]   = useState('');
 
   const fetchAll = useCallback(async () => {
     setLoading(true);
     try {
       const [hR, tR, oR] = await Promise.all([
         fetch(`${BACKEND}/api/health`),
-        fetch(`${BACKEND}/api/tenants`, { headers: AH }),
+        fetch(`${BACKEND}/api/tenants`, { headers: getAH() }),
         fetch(`${BACKEND}/api/dashboard/orders`),
       ]);
       if (hR.ok) setHealth(await hR.json());
@@ -1432,12 +1491,33 @@ export default function GENyxOperatorDashboard() {
     setStatusLoading(slug);
     const action = currentStatus === 'suspended' ? 'reactivate' : 'suspend';
     try {
-      const r = await fetch(`${BACKEND}/api/admin/client-status`, { method: 'POST', headers: AH, body: JSON.stringify({ slug, action }) });
+      const r = await fetch(`${BACKEND}/api/admin/client-status`, { method: 'POST', headers: getAH(), body: JSON.stringify({ slug, action }) });
       if (r.ok) fetchAll();
     } catch {}
     setStatusLoading('');
   };
 
+  // ── Conditional renders (después de todos los hooks) ──────────────────────
+  const IS_MANDO   = window.location.hostname.startsWith('mando');
+  const MANDO_SLUG = IS_MANDO ? (window.location.pathname.split('/').filter(Boolean)[0] || '') : '';
+
+  if (IS_MANDO && MANDO_SLUG) return <MandoClientView slug={MANDO_SLUG} />;
+  if (IS_MANDO && !MANDO_SLUG) return (
+    <div style={{ minHeight: '100vh', background: '#060912', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Inter, sans-serif' }}>
+      <div style={{ textAlign: 'center', color: '#94a3b8' }}>
+        <div style={{ fontSize: 40, marginBottom: 16 }}>🔗</div>
+        <h1 style={{ fontSize: 18, color: '#f1f5f9', margin: '0 0 10px' }}>GENyx Systems OS</h1>
+        <p style={{ fontSize: 13, color: '#64748b', maxWidth: 320, lineHeight: 1.6 }}>
+          Centro de Mando. Por favor ingresa a la URL específica proporcionada por tu administrador.
+        </p>
+      </div>
+    </div>
+  );
+
+  // ── Login gate (adminKey vacío = mostrar AdminLoginScreen) ─────────────────
+  if (!adminKey) return <AdminLoginScreen onAuth={(k) => { sessionStorage.setItem('genyx_admin_key', k); setAdminKey(k); }} />;
+
+  // ── Operator Dashboard (os.genyxsystems.com) ─────────────────────────────
   return (
     <div style={{ minHeight: '100vh', background: '#060912', color: '#f0f0f5', fontFamily: "'Inter', system-ui, sans-serif" }}>
       <style>{`@keyframes spin{to{transform:rotate(360deg)}} @keyframes pulse-red{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,0.4)}70%{box-shadow:0 0 0 6px rgba(239,68,68,0)}} a{cursor:pointer}`}</style>
@@ -1480,6 +1560,9 @@ export default function GENyxOperatorDashboard() {
             🚨 PÁNICO
           </button>
           {health && <span style={{ fontSize: 11, color: '#4ade80', background: '#14532d30', border: '1px solid #14532d', padding: '4px 12px', borderRadius: 20, fontFamily: 'monospace' }}>🟢 v{health.version} · {health.tenants_active} tenant(s)</span>}
+          <button onClick={() => { sessionStorage.removeItem('genyx_admin_key'); setAdminKey(''); }}
+            style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', color: '#475569', padding: '7px 14px', borderRadius: 8, cursor: 'pointer', fontSize: 12 }}
+            title="Cerrar sesión">🔒 Salir</button>
         </div>
       </header>
 
