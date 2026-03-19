@@ -33,7 +33,7 @@ const TABS = [
 // ═══════════════════════════════════════════════════════════════════════════════
 // TAB: CLIENTES
 // ═══════════════════════════════════════════════════════════════════════════════
-const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading }) => {
+const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, selectedSlug }) => {
   const [orgSettings, setOrgSettings] = useState({});
   const [expanded, setExpanded] = useState(null);
   const [savingSlug, setSavingSlug] = useState(null);
