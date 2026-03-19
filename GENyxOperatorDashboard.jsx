@@ -1468,6 +1468,8 @@ function MandoClientView({ slug }) {
   const [cifPct,     setCifPct]     = useState(15);    // CIF como % de (MPD+MOD)
   const [opEx,       setOpEx]       = useState(0);     // gastos operativos por unidad
   const [showInfo,   setShowInfo]   = useState(null);  // tooltip (i) activo
+  const [kpiPeriod,  setKpiPeriod]  = useState('month'); // filtro ingresos: day/week/month
+  const [genyxFee,   setGenyxFee]   = useState(false);  // +8% fee GENyx opcional
   // ── Expediente
   const expKey = `${slug}_exp`;
   const [expDocs, setExpDocs] = useState(() => { try { return JSON.parse(localStorage.getItem(expKey) || '{}'); } catch { return {}; } });
@@ -1629,6 +1631,27 @@ function MandoClientView({ slug }) {
         {/* ═══ TAB: PEDIDOS ═══ */}
         {tab === 'pedidos' && (<>
           <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 12, color: '#44403c' }}>🚦 Pedidos Activos ({activos.length})</h2>
+          {/* ━━ Contadores de status ━━ */}
+          {(() => {
+            const cNuevo    = activos.filter(o => !o.production_status || o.production_status === 'nuevo').length;
+            const cProd     = activos.filter(o => o.production_status === 'en_produccion').length;
+            const cTotal    = historial.length;
+            const STAT = [
+              { label: '🆕 Nuevos',     count: cNuevo, bg: '#eff6ff', txt: '#1d4ed8' },
+              { label: '⚙️ En Proceso', count: cProd,  bg: '#fefce8', txt: '#b45309' },
+              { label: '✅ Entregados', count: cTotal, bg: '#f0fdf4', txt: '#15803d' },
+            ];
+            return (
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 8, marginBottom: 14 }}>
+                {STAT.map(({ label, count, bg, txt }) => (
+                  <div key={label} style={{ background: bg, borderRadius: 12, padding: '12px 8px', textAlign: 'center' }}>
+                    <div style={{ fontSize: 26, fontWeight: 900, color: txt }}>{count}</div>
+                    <div style={{ fontSize: 10, fontWeight: 700, color: txt, marginTop: 2 }}>{label}</div>
+                  </div>
+                ))}
+              </div>
+            );
+          })()}
           {/* Leyenda */}
           <div style={{ display: 'flex', gap: 6, marginBottom: 12, flexWrap: 'wrap' }}>
             {Object.values(PROD_STATUS).map(s => <span key={s.label} style={{ background: s.bg, color: s.color, border: `1px solid ${s.color}30`, padding: '3px 9px', borderRadius: 20, fontSize: 11, fontWeight: 700 }}>{s.label}</span>)}
@@ -1698,6 +1721,37 @@ function MandoClientView({ slug }) {
                     <div style={{ fontSize: 10, color: '#a8a29e', marginTop: 4 }}>en el histórico</div>
                   </div>
                 </div>
+                {/* INGRESOS */}
+                {(() => {
+                  const now = new Date();
+                  const filtered = orders.filter(o => {
+                    const d = new Date(o.created_at);
+                    if (kpiPeriod === 'day')   return d.toDateString() === now.toDateString();
+                    if (kpiPeriod === 'week')  return (now - d) < 7 * 24 * 60 * 60 * 1000;
+                    return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
+                  });
+                  const revenue = filtered.reduce((s, o) => s + (o.total || o.total_estimated || 0), 0);
+                  const labels  = { day: 'Hoy', week: 'Esta Semana', month: 'Este Mes' };
+                  return (
+                    <div style={{ background: 'linear-gradient(135deg,#92400e 0%,#b45309 100%)', borderRadius: 14, padding: '14px 16px', marginBottom: 14, color: '#fff' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+                        <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.07em', textTransform: 'uppercase' }}>💵 Ingresos</div>
+                        <div style={{ display: 'flex', gap: 4 }}>
+                          {['day','week','month'].map(p => (
+                            <button key={p} onClick={() => setKpiPeriod(p)}
+                              style={{ fontSize: 10, padding: '3px 9px', borderRadius: 12, border: 'none', cursor: 'pointer', fontWeight: 700,
+                                background: kpiPeriod === p ? '#fff' : 'rgba(255,255,255,0.22)',
+                                color:      kpiPeriod === p ? '#92400e' : '#fff' }}>
+                              {labels[p]}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                      <div style={{ fontSize: 34, fontWeight: 900 }}>${revenue.toLocaleString('es-MX')}</div>
+                      <div style={{ fontSize: 10, opacity: .8, marginTop: 4 }}>MXN · {labels[kpiPeriod]} · {filtered.length} pedido(s)</div>
+                    </div>
+                  );
+                })()}
                 <div style={CARD}>
                   <div style={{ fontSize: 12, fontWeight: 700, color: '#44403c', marginBottom: 10 }}>🏆 Top Productos</div>
                   {(analytics.top_productos || []).map((p, i) => (
@@ -1872,9 +1926,25 @@ function MandoClientView({ slug }) {
                   text: 'Conecta tus ingredientes (MPD) con cada producto de tu menú especificando cuánto usa de cada ingrediente. El sistema calculará automáticamente los 6 rubros de costo.',
                   ex: 'Hogaza: Harina 500g, Mantequilla 80g, Sal 5g, Levadura 3g → calcula MPD automáticamente.'
                 })}
-                <div style={{ display: 'flex', gap: 8, marginBottom: 10 }}>
-                  <input placeholder="Nombre del producto (ej. Hogaza Artesanal)" value={recName} onChange={e => setRecName(e.target.value)} style={{ ...INP, flex: 1 }} />
-                </div>
+                {(() => {
+                  // Productos únicos del menú (extraídos del historial de pedidos)
+                  const menuItems = [...new Set(orders.flatMap(o =>
+                    (o.items || []).map(it => it.nombre || it.name).filter(Boolean)
+                  ))].sort();
+                  return menuItems.length > 0 ? (
+                    <div style={{ display: 'flex', gap: 8, marginBottom: 10 }}>
+                      <select value={recName} onChange={e => setRecName(e.target.value)} style={{ ...INP, flex: 1 }}>
+                        <option value="">-- Selecciona un producto de tu menú --</option>
+                        {menuItems.map(p => <option key={p}>{p}</option>)}
+                      </select>
+                    </div>
+                  ) : (
+                    <div style={{ display: 'flex', gap: 8, marginBottom: 10 }}>
+                      <input placeholder="Nombre del producto (ej. Hogaza Artesanal)" value={recName} onChange={e => setRecName(e.target.value)} style={{ ...INP, flex: 1 }} />
+                      <div style={{ fontSize: 11, color: '#a8a29e', alignSelf: 'center', whiteSpace: 'nowrap' }}>Aún sin pedidos</div>
+                    </div>
+                  );
+                })()}
                 <div style={{ background: '#faf7f2', borderRadius: 8, padding: 10, marginBottom: 10 }}>
                   <div style={{ fontSize: 11, color: '#78716c', fontWeight: 700, marginBottom: 6 }}>Ingredientes de esta receta (MPD):</div>
                   {recItems.map((it, i) => (
@@ -1973,6 +2043,20 @@ function MandoClientView({ slug }) {
 
                     <div style={{ fontSize: 10, color: '#a8a29e', marginTop: 8 }}>
                       Ingredientes: {rec.items.map(it => `${it.ing} ×${it.qty}`).join(' · ')}
+                    </div>
+
+                    {/* Fee GENyx +8% (opcional) */}
+                    <div style={{ marginTop: 10, padding: '8px 12px', background: '#faf9f7', borderRadius: 10, border: '1.5px solid #e7e0d8', display: 'flex', alignItems: 'center', gap: 10 }}>
+                      <input type="checkbox" id={`fee-${rec.name}`} checked={genyxFee} onChange={e => setGenyxFee(e.target.checked)}
+                        style={{ width: 16, height: 16, accentColor: '#92400e', cursor: 'pointer', flexShrink: 0 }} />
+                      <label htmlFor={`fee-${rec.name}`} style={{ fontSize: 11, color: '#78716c', cursor: 'pointer', lineHeight: 1.4 }}>
+                        Agregar comisión GENyx (+8%) al precio de venta
+                      </label>
+                      {genyxFee && (
+                        <span style={{ marginLeft: 'auto', fontWeight: 900, color: '#92400e', fontSize: 16, whiteSpace: 'nowrap' }}>
+                          ${Math.ceil(priceFmt * 1.08 / 5) * 5}
+                        </span>
+                      )}
                     </div>
                   </div>
                 );
