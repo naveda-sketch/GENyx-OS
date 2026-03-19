@@ -1255,7 +1255,154 @@ const BTN_SM_GREEN = { background: '#14532d', color: '#86efac', padding: '6px 14
 // ═══════════════════════════════════════════════════════════════════════════════
 // MAIN COMPONENT
 // ═══════════════════════════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════════════════════════════════
+// MANDO — DASHBOARD DEL CLIENTE (mando.genyxsystems.com/{slug})
+// Vista autenticada por PIN, muestra pedidos del tenant.
+// ═══════════════════════════════════════════════════════════════════════════════
+const STATUS_LABELS = { pending:'Pendiente', confirmed:'Confirmado', ready:'Listo ✅', delivered:'Entregado 🚚', cancelled:'Cancelado ✕' };
+const STATUS_COLORS = { pending:'#d97706', confirmed:'#2563eb', ready:'#16a34a', delivered:'#64748b', cancelled:'#dc2626' };
+
+function MandoClientView({ slug }) {
+  const [pin, setPin]       = useState('');
+  const [token, setToken]   = useState(null);
+  const [name, setName]     = useState('');
+  const [cloneId, setCloneId] = useState('');
+  const [orders, setOrders]  = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError]    = useState('');
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError(''); setLoading(true);
+    try {
+      const r = await fetch(`${BACKEND}/api/tenants/${slug}/auth`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pin }),
+      });
+      const d = await r.json();
+      if (!r.ok) { setError(d.detail || 'PIN incorrecto'); setLoading(false); return; }
+      setToken(d.dashboard_token);
+      setName(d.name);
+      setCloneId(d.clone_id);
+    } catch { setError('No se pudo conectar. Intenta de nuevo.'); }
+    setLoading(false);
+  };
+
+  const fetchOrders = useCallback(async () => {
+    if (!token) return;
+    try {
+      const r = await fetch(`${BACKEND}/api/dashboard/${slug}/orders`, {
+        headers: { 'X-Dashboard-Token': token },
+      });
+      if (r.ok) setOrders(await r.json());
+    } catch {}
+  }, [token, slug]);
+
+  useEffect(() => { fetchOrders(); const t = setInterval(fetchOrders, 30000); return () => clearInterval(t); }, [fetchOrders]);
+
+  const CS = { minHeight: '100vh', background: '#faf7f2', color: '#1a1208', fontFamily: "'Inter', system-ui, sans-serif", display: 'flex', flexDirection: 'column' };
+  const CARD = { background: '#fff', borderRadius: 16, padding: '24px', boxShadow: '0 2px 20px rgba(0,0,0,0.07)', marginBottom: 16 };
+
+  if (!token) return (
+    <div style={{ ...CS, alignItems: 'center', justifyContent: 'center' }}>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+      <div style={{ width: '100%', maxWidth: 380, padding: 24 }}>
+        <div style={{ textAlign: 'center', marginBottom: 32 }}>
+          <div style={{ fontSize: 48, marginBottom: 12 }}>🥐</div>
+          <h1 style={{ fontSize: 22, fontWeight: 800, color: '#1a1208' }}>Paty Home Bakery</h1>
+          <p style={{ color: '#78716c', fontSize: 13, marginTop: 6 }}>Centro de Mando</p>
+        </div>
+        <div style={{ ...CARD }}>
+          <form onSubmit={handleLogin}>
+            <label style={{ fontSize: 12, fontWeight: 700, color: '#78716c', letterSpacing: '.06em', textTransform: 'uppercase' }}>Contraseña de Acceso</label>
+            <input
+              type="password" value={pin} onChange={e => setPin(e.target.value)}
+              placeholder="••••••" autoFocus
+              style={{ width: '100%', padding: '12px 16px', fontSize: 20, letterSpacing: 8, border: '2px solid #e7e0d8', borderRadius: 10, marginTop: 8, marginBottom: 16, outline: 'none', boxSizing: 'border-box', textAlign: 'center' }}
+            />
+            {error && <p style={{ color: '#dc2626', fontSize: 13, marginBottom: 12, textAlign: 'center' }}>{error}</p>}
+            <button type="submit" disabled={loading}
+              style={{ width: '100%', padding: '13px', background: '#92400e', color: '#fff', border: 'none', borderRadius: 10, fontSize: 15, fontWeight: 700, cursor: loading ? 'wait' : 'pointer', opacity: loading ? 0.7 : 1 }}>
+              {loading ? 'Entrando…' : 'Entrar ✓'}
+            </button>
+          </form>
+        </div>
+        <p style={{ textAlign: 'center', color: '#a8a29e', fontSize: 11, marginTop: 16 }}>GENyx OS · {slug}</p>
+      </div>
+    </div>
+  );
+
+  const pending = orders.filter(o => !['delivered','cancelled'].includes(o.status || 'pending'));
+  const history = orders.filter(o =>  ['delivered','cancelled'].includes(o.status || 'pending'));
+
+  return (
+    <div style={CS}>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+      <header style={{ background: '#92400e', color: '#fff', padding: '14px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <span style={{ fontSize: 24 }}>🥐</span>
+          <div>
+            <div style={{ fontWeight: 800, fontSize: 15 }}>{name || 'Mi Panadería'}</div>
+            <div style={{ fontSize: 10, opacity: .75 }}>Centro de Mando</div>
+          </div>
+        </div>
+        <button onClick={fetchOrders} style={{ background: 'rgba(255,255,255,0.2)', border: 'none', color: '#fff', padding: '6px 14px', borderRadius: 8, fontSize: 12, cursor: 'pointer', fontWeight: 600 }}>⟳ Actualizar</button>
+      </header>
+      <main style={{ padding: 24, maxWidth: 700, margin: '0 auto', width: '100%', flex: 1 }}>
+        <h2 style={{ fontSize: 16, fontWeight: 700, marginBottom: 16, color: '#44403c' }}>📋 Pedidos Activos ({pending.length})</h2>
+        {pending.length === 0 && <div style={{ ...CARD, textAlign: 'center', color: '#a8a29e', fontSize: 14 }}>No hay pedidos activos en este momento.</div>}
+        {pending.map(o => {
+          const items = o.items || [];
+          const total = o.total || o.total_estimated || 0;
+          const st = o.status || 'pending';
+          return (
+            <div key={o.id} style={{ ...CARD }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 12 }}>
+                <div>
+                  <div style={{ fontWeight: 700, fontSize: 15 }}>#{o.id} · {o.customer_name || 'Cliente'}</div>
+                  <div style={{ fontSize: 12, color: '#78716c', marginTop: 2 }}>{o.whatsapp} · {o.address || 'Pickup'}</div>
+                </div>
+                <span style={{ background: (STATUS_COLORS[st]+'20'), color: STATUS_COLORS[st], border: `1px solid ${STATUS_COLORS[st]}40`, padding: '3px 10px', borderRadius: 20, fontSize: 11, fontWeight: 700, whiteSpace: 'nowrap' }}>{STATUS_LABELS[st] || st}</span>
+              </div>
+              <div style={{ background: '#faf7f2', borderRadius: 8, padding: '10px 14px', marginBottom: 10 }}>
+                {items.map((it, i) => <div key={i} style={{ fontSize: 13, color: '#44403c', padding: '2px 0' }}>• {it.nombre || it.name} ×{it.cantidad || it.qty || 1} — <b>${(it.subtotal || it.precio || 0).toLocaleString()}</b></div>)}
+                {items.length === 0 && <div style={{ fontSize: 12, color: '#a8a29e' }}>Sin detalle de productos.</div>}
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13 }}>
+                <span style={{ color: '#78716c' }}>{fmt(o.created_at)}</span>
+                <span style={{ fontWeight: 800, color: '#92400e', fontSize: 16 }}>${total.toLocaleString('es-MX')} MXN</span>
+              </div>
+            </div>
+          );
+        })}
+        {history.length > 0 && (
+          <details style={{ marginTop: 8 }}>
+            <summary style={{ fontSize: 13, color: '#78716c', cursor: 'pointer', fontWeight: 600, marginBottom: 12 }}>🗂 Historial ({history.length} pedidos)</summary>
+            {history.slice(0,10).map(o => (
+              <div key={o.id} style={{ ...CARD, opacity: 0.7, fontSize: 13 }}>
+                <span style={{ fontWeight: 700 }}>#{o.id} · {o.customer_name}</span> — ${(o.total || o.total_estimated || 0).toLocaleString('es-MX')} MXN · <span style={{ color: STATUS_COLORS[o.status] || '#64748b' }}>{STATUS_LABELS[o.status] || o.status}</span> · {fmt(o.created_at)}
+              </div>
+            ))}
+          </details>
+        )}
+        <p style={{ textAlign: 'center', color: '#c4b5a5', fontSize: 10, marginTop: 24 }}>GENyx OS · {slug} · Actualiza cada 30s</p>
+      </main>
+    </div>
+  );
+}
+
 export default function GENyxOperatorDashboard() {
+  // ── MANDO MODE: si el dominio es mando.*, delega al dashboard del cliente ──
+  const IS_MANDO = window.location.hostname.startsWith('mando');
+  const MANDO_SLUG = IS_MANDO ? (window.location.pathname.split('/').filter(Boolean)[0] || '') : '';
+  if (IS_MANDO && MANDO_SLUG) return <MandoClientView slug={MANDO_SLUG} />;
+  if (IS_MANDO && !MANDO_SLUG) return (
+    <div style={{ minHeight: '100vh', background: '#faf7f2', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Inter, sans-serif' }}>
+      <div style={{ textAlign: 'center' }}><div style={{ fontSize: 48 }}>🥐</div><h1 style={{ fontSize: 20, color: '#1a1208', margin: '16px 0 8px' }}>Paty Home Bakery</h1><p style={{ color: '#78716c', fontSize: 14 }}>Accede a tu mando en:<br/><strong>mando.genyxsystems.com/panaderia-paty</strong></p></div>
+    </div>
+  );
+  // ── OPERATOR MODE (os.genyxsystems.com) ───────────────────────────────────
   const [tab, setTab] = useState('clientes');
   const [tenants, setTenants] = useState([]);
   const [orders, setOrders] = useState([]);
