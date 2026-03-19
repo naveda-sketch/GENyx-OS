@@ -1733,7 +1733,7 @@ function MandoClientView({ slug }) {
                     if (kpiPeriod === 'week')  return (now - d) < 7 * 24 * 60 * 60 * 1000;
                     return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
                   });
-                  const revenue = filtered.reduce((s, o) => s + (o.total || o.total_estimated || 0), 0);
+                  const revenue = filtered.reduce((s, o) => s + (parseFloat(o.total || o.total_estimated || 0) || 0), 0);
                   const labels  = { day: 'Hoy', week: 'Esta Semana', month: 'Este Mes' };
                   return (
                     <div style={{ background: 'linear-gradient(135deg,#92400e 0%,#b45309 100%)', borderRadius: 14, padding: '14px 16px', marginBottom: 14, color: '#fff' }}>
@@ -1750,7 +1750,9 @@ function MandoClientView({ slug }) {
                           ))}
                         </div>
                       </div>
-                      <div style={{ fontSize: 34, fontWeight: 900 }}>${revenue.toLocaleString('es-MX')}</div>
+                      <div style={{ fontSize: revenue >= 100000 ? 22 : revenue >= 10000 ? 27 : 34, fontWeight: 900, letterSpacing: '-.02em' }}>
+                        ${Math.round(revenue).toLocaleString('es-MX')}
+                      </div>
                       <div style={{ fontSize: 10, opacity: .8, marginTop: 4 }}>MXN · {labels[kpiPeriod]} · {filtered.length} pedido(s)</div>
                     </div>
                   );
