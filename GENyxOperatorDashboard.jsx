@@ -1345,8 +1345,10 @@ const EXPEDIENTE_DOCS = [
   { label: 'Cuenta Stripe configurada', key: 'stripe' },
   { label: 'Catálogo de productos cargado', key: 'catalogo' },
   { label: 'Recetas registradas en Costeador', key: 'recetas' },
-  { label: '⚖️ Declaración Políticas Comercio WA (Anexo B firmado)', key: 'wa_policies' },
+  { label: '⚡ Declaración Políticas Comercio WA (Anexo B firmado)', key: 'wa_policies' },
   { label: '🔒 Opt-In WhatsApp configurado en bot', key: 'wa_optin' },
+  { label: '📝 Aviso de Privacidad publicado en tu sitio web', key: 'privacidad_web' },
+  { label: '📄 Términos y Condiciones de Venta publicados en tu sitio web', key: 'tyc_web' },
 ];
 
 
