@@ -1473,6 +1473,7 @@ function MandoClientView({ slug }) {
   const [showInfo,   setShowInfo]   = useState(null);  // tooltip (i) activo
   const [kpiPeriod,  setKpiPeriod]  = useState('month'); // filtro ingresos: day/week/month
   const [genyxFee,   setGenyxFee]   = useState(false);  // +8% fee GENyx opcional
+  const [expandedRec, setExpandedRec] = useState(null);  // acordeón: nombre del producto expandido
   // ── Expediente
   const expKey = `${slug}_exp`;
   const [expDocs, setExpDocs] = useState(() => { try { return JSON.parse(localStorage.getItem(expKey) || '{}'); } catch { return {}; } });
@@ -1784,7 +1785,22 @@ function MandoClientView({ slug }) {
           <div style={{ ...CARD }}>
             <div style={{ fontSize: 12, fontWeight: 700, color: '#44403c', marginBottom: 10 }}>+ Agregar / Actualizar producto</div>
             <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-              <input placeholder="Nombre del producto" value={newProd.name} onChange={e => setNewProd(p => ({ ...p, name: e.target.value }))} style={{ ...INP, flex: 2, minWidth: 140 }} />
+              {(() => {
+                const menuProds = [...new Set(orders.flatMap(o =>
+                  (o.items || []).map(it => it.nombre || it.name).filter(Boolean)
+                ))].sort();
+                return menuProds.length > 0 ? (
+                  <select value={newProd.name} onChange={e => setNewProd(p => ({ ...p, name: e.target.value }))}
+                    style={{ ...INP, flex: 2, minWidth: 140 }}>
+                    <option value="">-- Producto del menú --</option>
+                    {menuProds.map(p => <option key={p}>{p}</option>)}
+                  </select>
+                ) : (
+                  <input placeholder="Nombre del producto" value={newProd.name}
+                    onChange={e => setNewProd(p => ({ ...p, name: e.target.value }))}
+                    style={{ ...INP, flex: 2, minWidth: 140 }} />
+                );
+              })()}
               <input placeholder="Stock" type="number" value={newProd.stock} onChange={e => setNewProd(p => ({ ...p, stock: e.target.value }))} style={{ ...INP, width: 70 }} />
               <select value={newProd.unit} onChange={e => setNewProd(p => ({ ...p, unit: e.target.value }))} style={{ ...INP }}>
                 {['pza', 'kg', 'lt', 'paq', 'caja', 'bolsa'].map(u => <option key={u}>{u}</option>)}
@@ -2063,97 +2079,93 @@ function MandoClientView({ slug }) {
                 }} style={{ ...BTN('#92400e'), opacity: (!recName.trim() || recItems.length === 0) ? 0.5 : 1 }}>Guardar Receta</button>
               </div>
 
-              {/* Resultados: desglose contable por receta */}
-              {recs.length > 0 && recs.map(rec => {
-                const mpd     = calcCost(rec);
-                const mod     = modRate * modHours / batchUnits;
-                const cif     = (mpd + mod) * cifPct / 100;
-                const costoProd = mpd + mod + cif;
-                const costoTotal = costoProd + opEx;
-                const precio   = costoTotal / (1 - margin / 100);
-                const ganancia = precio - costoTotal;
-                const priceFmt = Math.ceil(precio / 5) * 5;
-
-                return (
-                  <div key={rec.name} style={{ ...CARD, border: '1px solid #e7e0d8' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-                      <span style={{ fontWeight: 800, fontSize: 14, color: '#1a1208' }}>📊 {rec.name}</span>
-                      <span onClick={() => saveRecs(recs.filter(r => r.name !== rec.name))} style={{ cursor: 'pointer', color: '#dc2626', fontSize: 12 }}>eliminar</span>
-                    </div>
-
-                    {/* Tabla de fórmula */}
-                    <div style={{ fontSize: 12 }}>
-                      {[
-                        { n: '① MPD', label: 'Materia Prima Directa',         val: mpd,        color: '#1e40af', bg: '#eff6ff' },
-                        { n: '② MOD', label: 'Mano de Obra Directa',          val: mod,        color: '#7c3aed', bg: '#f5f3ff' },
-                        { n: '③ CIF', label: `CIF (${cifPct}% de MPD+MOD)`,   val: cif,        color: '#0f766e', bg: '#f0fdfa' },
-                        { n: '④ CP',  label: 'Costo de Producción (①+②+③)',   val: costoProd,  color: '#b45309', bg: '#fef3c7', bold: true },
-                        { n: '⑤ GO',  label: 'Gastos Operativos',              val: opEx,       color: '#9f1239', bg: '#fff1f2' },
-                        { n: '⑥ CT',  label: 'Costo Total (④+⑤)',             val: costoTotal, color: '#dc2626', bg: '#fef2f2', bold: true },
-                      ].map(row => (
-                        <div key={row.n} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 10px', borderRadius: 7, marginBottom: 4, background: row.bg }}>
-                          <span style={{ color: row.color, fontWeight: row.bold ? 800 : 600 }}>{row.n} <span style={{ fontWeight: 400, color: '#78716c' }}>{row.label}</span></span>
-                          <span style={{ fontWeight: row.bold ? 800 : 700, color: row.color }}>${row.val.toFixed(2)}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Precio sugerido */}
-                    <div style={{ marginTop: 12, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
-                      <div style={{ background: '#f0fdf4', borderRadius: 10, padding: '10px 12px', textAlign: 'center', border: '1.5px solid #86efac' }}>
-                        <div style={{ fontSize: 10, color: '#15803d', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em' }}>💵 Precio Sugerido</div>
-                        <div style={{ fontSize: 24, fontWeight: 900, color: '#15803d' }}>${priceFmt}</div>
-                        <div style={{ fontSize: 10, color: '#6b7280' }}>redondeado al $5</div>
-                      </div>
-                      <div style={{ background: '#faf0e6', borderRadius: 10, padding: '10px 12px', textAlign: 'center', border: '1.5px solid #e7d5c0' }}>
-                        <div style={{ fontSize: 10, color: '#92400e', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em' }}>📈 Tu Ganancia ({margin}%)</div>
-                        <div style={{ fontSize: 24, fontWeight: 900, color: '#92400e' }}>${(priceFmt - costoTotal).toFixed(2)}</div>
-                        <div style={{ fontSize: 10, color: '#6b7280' }}>por unidad</div>
-                      </div>
-                    </div>
-
-                    <div style={{ fontSize: 10, color: '#a8a29e', marginTop: 8 }}>
-                      Ingredientes: {rec.items.map(it => `${it.ing} ×${it.qty}`).join(' · ')}
-                    </div>
-
-                    {/* Análisis del Precio */}
-                    {(() => {
-                      const realMarginPct = priceFmt > 0 ? Math.round((priceFmt - costoTotal) / priceFmt * 100) : 0;
-                      const [semaforo, label, bg, borderCol, tip] = realMarginPct >= 50
-                        ? ['🟢', 'Margen Saludable', '#f0fdf4', '#86efac', '✅ Puedes absorber alzas de ingredientes sin afectar tu negocio.']
-                        : realMarginPct >= 30
-                        ? ['🟡', 'Margen Ajustado', '#fefce8', '#fde047', '⚠️ Considera subir precio o reducir costos. El mínimo recomendable para artesanos es 35–40%.']
-                        : ['🔴', 'Precio en Riesgo', '#fef2f2', '#fca5a5', '🚨 Tu precio de venta no cubre suficiente margen. Revisa tus costos o ajusta el precio urgente.'];
-                      return (
-                        <div style={{ marginTop: 12, padding: '10px 13px', background: bg, borderRadius: 10, border: `1.5px solid ${borderCol}` }}>
-                          <div style={{ fontWeight: 800, fontSize: 12, color: '#1a1208', marginBottom: 7 }}>{semaforo} Análisis — {label}</div>
-                          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 5, fontSize: 11, color: '#44403c' }}>
-                            <div>Margen real: <b style={{ color: '#92400e' }}>{realMarginPct}%</b></div>
-                            <div>Costo sobre precio: <b style={{ color: '#92400e' }}>{priceFmt > 0 ? Math.round(costoTotal / priceFmt * 100) : 0}%</b></div>
-                            <div>Ganancia bruta: <b style={{ color: '#15803d' }}>${(priceFmt - costoTotal).toFixed(2)} MXN</b> / unidad</div>
-                            <div>Punto de equilibrio: <b style={{ color: '#92400e' }}>${costoTotal.toFixed(2)} MXN</b></div>
+              {/* Resultados: acordeón por receta */}
+              {recs.length > 0 && (
+                <div>
+                  <div style={{ fontSize: 11, color: '#92400e', fontWeight: 800, marginBottom: 8, letterSpacing: '.04em', textTransform: 'uppercase' }}>📊 Recetas Guardadas ({recs.length}) — haz clic para ver el desglose</div>
+                  {recs.map(rec => {
+                    const mpd      = calcCost(rec);
+                    const mod      = modRate * modHours / batchUnits;
+                    const cif      = (mpd + mod) * cifPct / 100;
+                    const costoProd  = mpd + mod + cif;
+                    const costoTotal = costoProd + opEx;
+                    const precio    = costoTotal / (1 - margin / 100);
+                    const priceFmt  = Math.ceil(precio / 5) * 5;
+                    const rMgn     = priceFmt > 0 ? Math.round((priceFmt - costoTotal) / priceFmt * 100) : 0;
+                    const isOpen   = expandedRec === rec.name;
+                    const sem      = rMgn >= 50 ? '🟢' : rMgn >= 30 ? '🟡' : '🔴';
+                    return (
+                      <div key={rec.name} style={{ ...CARD, marginBottom: 8 }}>
+                        <div onClick={() => setExpandedRec(isOpen ? null : rec.name)}
+                          style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', userSelect: 'none' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                            <span style={{ fontSize: 11, color: '#92400e' }}>{isOpen ? '▼' : '▶'}</span>
+                            <span style={{ fontWeight: 800, fontSize: 13, color: '#1a1208' }}>{rec.name}</span>
                           </div>
-                          <div style={{ fontSize: 10, color: '#44403c', marginTop: 8, paddingTop: 6, borderTop: `1px solid ${borderCol}` }}>{tip}</div>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                            <span style={{ fontSize: 14, fontWeight: 900, color: '#15803d' }}>${priceFmt}</span>
+                            <span style={{ fontSize: 11 }}>{sem} {rMgn}%</span>
+                            <span onClick={e => { e.stopPropagation(); saveRecs(recs.filter(r => r.name !== rec.name)); }}
+                              style={{ fontSize: 10, color: '#dc2626', cursor: 'pointer', padding: '2px 6px', border: '1px solid #fca5a5', borderRadius: 4 }}>✕</span>
+                          </div>
                         </div>
-                      );
-                    })()}
-
-                    {/* Fee GENyx +8% (opcional) */}
-                    <div style={{ marginTop: 10, padding: '8px 12px', background: '#faf9f7', borderRadius: 10, border: '1.5px solid #e7e0d8', display: 'flex', alignItems: 'center', gap: 10 }}>
-                      <input type="checkbox" id={`fee-${rec.name}`} checked={genyxFee} onChange={e => setGenyxFee(e.target.checked)}
-                        style={{ width: 16, height: 16, accentColor: '#92400e', cursor: 'pointer', flexShrink: 0 }} />
-                      <label htmlFor={`fee-${rec.name}`} style={{ fontSize: 11, color: '#78716c', cursor: 'pointer', lineHeight: 1.4 }}>
-                        Agregar comisión GENyx (+8%) al precio de venta
-                      </label>
-                      {genyxFee && (
-                        <span style={{ marginLeft: 'auto', fontWeight: 900, color: '#92400e', fontSize: 16, whiteSpace: 'nowrap' }}>
-                          ${Math.ceil(priceFmt * 1.08 / 5) * 5}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
+                        {isOpen && (() => {
+                          const [sl, sbg, sbd, stip] = rMgn >= 50
+                            ? ['🟢 Margen Saludable', '#f0fdf4', '#86efac', '✅ Puedes absorber alzas de ingredientes.']            
+                            : rMgn >= 30
+                            ? ['🟡 Margen Ajustado', '#fefce8', '#fde047', '⚠️ Considera subir precio. Mínimo recomendable: 35–40%.']
+                            : ['🔴 Precio en Riesgo', '#fef2f2', '#fca5a5', '🚨 Revisa tus costos o ajusta el precio urgente.'];
+                          return (
+                            <div style={{ marginTop: 12, borderTop: '1px solid #f3f0ec', paddingTop: 12 }}>
+                              <div style={{ fontSize: 12 }}>
+                                {[
+                                  { n: '① MPD', label: 'Materia Prima Directa',       val: mpd,       color: '#1e40af', bg: '#eff6ff' },
+                                  { n: '② MOD', label: 'Mano de Obra Directa',        val: mod,       color: '#7c3aed', bg: '#f5f3ff' },
+                                  { n: '③ CIF', label: `CIF (${cifPct}% MPD+MOD)`,    val: cif,       color: '#0f766e', bg: '#f0fdfa' },
+                                  { n: '④ CP',  label: 'Costo de Producción',        val: costoProd, color: '#b45309', bg: '#fef3c7', bold: true },
+                                  { n: '⑤ GO',  label: 'Gastos Operativos',           val: opEx,      color: '#9f1239', bg: '#fff1f2' },
+                                  { n: '⑥ CT',  label: 'Costo Total',                val: costoTotal,color: '#dc2626', bg: '#fef2f2', bold: true },
+                                ].map(row => (
+                                  <div key={row.n} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 10px', borderRadius: 7, marginBottom: 4, background: row.bg }}>
+                                    <span style={{ color: row.color, fontWeight: row.bold ? 800 : 600 }}>{row.n} <span style={{ fontWeight: 400, color: '#78716c' }}>{row.label}</span></span>
+                                    <span style={{ fontWeight: row.bold ? 800 : 700, color: row.color }}>${row.val.toFixed(2)}</span>
+                                  </div>
+                                ))}
+                              </div>
+                              <div style={{ marginTop: 10, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+                                <div style={{ background: '#f0fdf4', borderRadius: 10, padding: '10px 12px', textAlign: 'center', border: '1.5px solid #86efac' }}>
+                                  <div style={{ fontSize: 10, color: '#15803d', fontWeight: 700, textTransform: 'uppercase' }}>💵 Precio Sugerido</div>
+                                  <div style={{ fontSize: 24, fontWeight: 900, color: '#15803d' }}>${priceFmt}</div>
+                                  <div style={{ fontSize: 10, color: '#6b7280' }}>redondeado al $5</div>
+                                </div>
+                                <div style={{ background: '#faf0e6', borderRadius: 10, padding: '10px 12px', textAlign: 'center', border: '1.5px solid #e7d5c0' }}>
+                                  <div style={{ fontSize: 10, color: '#92400e', fontWeight: 700, textTransform: 'uppercase' }}>📈 Tu Ganancia ({margin}%)</div>
+                                  <div style={{ fontSize: 24, fontWeight: 900, color: '#92400e' }}>${(priceFmt - costoTotal).toFixed(2)}</div>
+                                  <div style={{ fontSize: 10, color: '#6b7280' }}>por unidad</div>
+                                </div>
+                              </div>
+                              <div style={{ fontSize: 10, color: '#a8a29e', marginTop: 8 }}>Ingredientes: {rec.items.map(it => `${it.ing} ×${it.qty}`).join(' · ')}</div>
+                              <div style={{ marginTop: 10, padding: '10px 13px', background: sbg, borderRadius: 10, border: `1.5px solid ${sbd}` }}>
+                                <div style={{ fontWeight: 800, fontSize: 12, color: '#1a1208', marginBottom: 5 }}>{sl}</div>
+                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 4, fontSize: 11, color: '#44403c' }}>
+                                  <div>Margen real: <b style={{ color: '#92400e' }}>{rMgn}%</b></div>
+                                  <div>Ganancia: <b style={{ color: '#15803d' }}>${(priceFmt - costoTotal).toFixed(2)} MXN</b></div>
+                                </div>
+                                <div style={{ fontSize: 10, color: '#44403c', marginTop: 5, borderTop: `1px solid ${sbd}`, paddingTop: 4 }}>{stip}</div>
+                              </div>
+                              <div style={{ marginTop: 10, padding: '8px 12px', background: '#faf9f7', borderRadius: 10, border: '1.5px solid #e7e0d8', display: 'flex', alignItems: 'center', gap: 10 }}>
+                                <input type="checkbox" id={`fee-${rec.name}`} checked={genyxFee} onChange={e => setGenyxFee(e.target.checked)} style={{ width: 16, height: 16, accentColor: '#92400e', cursor: 'pointer', flexShrink: 0 }} />
+                                <label htmlFor={`fee-${rec.name}`} style={{ fontSize: 11, color: '#78716c', cursor: 'pointer', lineHeight: 1.4 }}>Agregar comisión GENyx (+8%) al precio de venta</label>
+                                {genyxFee && <span style={{ marginLeft: 'auto', fontWeight: 900, color: '#92400e', fontSize: 16, whiteSpace: 'nowrap' }}>${Math.ceil(priceFmt * 1.08 / 5) * 5}</span>}
+                              </div>
+                            </div>
+                          );
+                        })()}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </>);
           })()} 
         </>)}
