@@ -1285,7 +1285,6 @@ function AdminLoginScreen({ onAuth }) {
 
   return (
     <div style={{ minHeight: '100vh', background: '#060912', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Inter', system-ui, sans-serif" }}>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
       <style>{`@keyframes blink{0%,100%{opacity:1}50%{opacity:0}} @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}`}</style>
       <div style={{ width: '100%', maxWidth: 420, padding: '0 24px', animation: 'fadeIn 0.4s ease' }}>
         {/* Logo + Brand */}
@@ -1377,7 +1376,6 @@ function MandoClientView({ slug }) {
   const [recName, setRecName] = useState('');
   const [recItems, setRecItems] = useState([]);    // [{ing, qty}]
   const [margin, setMargin]   = useState(60);      // % de margen objetivo
-  const [selRec, setSelRec]   = useState(null);
   // \u2500\u2500 Expediente
   const expKey = `${slug}_exp`;
   const [expDocs, setExpDocs] = useState(() => { try { return JSON.parse(localStorage.getItem(expKey) || '{}'); } catch { return {}; } });
@@ -1469,7 +1467,6 @@ function MandoClientView({ slug }) {
   // \u2500\u2500 Login
   if (!token) return (
     <div style={{ ...CS, alignItems: 'center', justifyContent: 'center' }}>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
       <div style={{ width: '100%', maxWidth: 360, padding: 24 }}>
         <div style={{ textAlign: 'center', marginBottom: 28 }}>
           <img src="/paty-icon.png" alt="Paty HomeBakery" style={{ width: 80, height: 80, borderRadius: 16, marginBottom: 12 }} />
@@ -1497,7 +1494,6 @@ function MandoClientView({ slug }) {
 
   return (
     <div style={CS}>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
       {/* Header */}
       <header style={{ background: '#92400e', color: '#fff', padding: '12px 20px 0', position: 'sticky', top: 0, zIndex: 10 }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
@@ -1853,7 +1849,6 @@ export default function GENyxOperatorDashboard() {
   return (
     <div style={{ minHeight: '100vh', background: '#060912', color: '#f0f0f5', fontFamily: "'Inter', system-ui, sans-serif" }}>
       <style>{`@keyframes spin{to{transform:rotate(360deg)}} @keyframes pulse-red{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,0.4)}70%{box-shadow:0 0 0 6px rgba(239,68,68,0)}} a{cursor:pointer}`}</style>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
       {/* Header */}
       <header style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(6,9,18,0.95)', backdropFilter: 'blur(12px)', padding: '14px 28px', position: 'sticky', top: 0, zIndex: 20, display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
