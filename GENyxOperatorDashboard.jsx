@@ -2204,88 +2204,167 @@ function MandoClientView({ slug }) {
   );
 }
 
-// ── GENyx Systems Landing Page (genyxsystems.com) ────────────────────────
+// ── GENyx Systems Landing Page — Diseño Aprobado (genyxsystems.com) ────────
 function GENyxLandingPage() {
+  const [scrolled, setScrolled] = React.useState(false);
+  React.useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', fn);
+    return () => window.removeEventListener('scroll', fn);
+  }, []);
+
   const features = [
-    { icon: '🤖', title: 'Bot de Ventas IA', desc: 'Tu asistente vende 24/7 por WhatsApp, responde preguntas, agrega productos al carrito y cobra — sin que muevas un dedo.' },
-    { icon: '🛒', title: 'Carrito + Cobros Reales', desc: 'Checkout con Stripe integrado. El cliente paga, recibe su ticket digital y tú ves el pedido en tu panel al instante.' },
-    { icon: '📦', title: 'Centro de Mando', desc: 'Pedidos en vivo, KPIs, inventario, expediente del cliente y costeador de productos — todo en una sola pantalla.' },
-    { icon: '💰', title: 'Costeador Artesanal', desc: 'Calcula MPD, MOD y CIF con una fórmula contable real. Nunca vuelvas a vender sin saber si estás ganando.' },
+    ['🤖', 'Agente de Ventas IA', 'Atiende a tus clientes en WhatsApp, responde preguntas, toma pedidos y cierra ventas — 24/7, sin que estés presente.'],
+    ['💳', 'Pagos Automatizados', 'Genera links de Stripe directamente en el chat. El cliente paga en segundos, tú recibes la notificación al instante.'],
+    ['📊', 'Dashboard de Control', 'Pedidos en vivo, KPIs, inventario, expediente y costeador. Tu negocio en un solo panel desde cualquier lugar.'],
+    ['📱', 'WhatsApp Business', 'Integración oficial con la API de Meta. Mensajes verificados, multicanal y sin costo adicional por chat.'],
+    ['🎯', 'Elimina el 85% de Curiosos', 'Tu IA filtra prospectos y solo avanza con quienes tienen intención real de compra. Menos ruido, más cierres.'],
+    ['🔒', 'Seguridad Total', 'Tus datos son tuyos. Infraestructura en la nube con respaldos automáticos y acceso protegido.'],
   ];
-  const L = {
-    page: { minHeight: '100vh', background: '#05080f', color: '#f1f5f9', fontFamily: "'Inter','Segoe UI',sans-serif" },
-    nav: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 32px', borderBottom: '1px solid #1e293b', position: 'sticky', top: 0, background: 'rgba(5,8,15,.95)', backdropFilter: 'blur(12px)', zIndex: 10 },
-    logo: { fontWeight: 900, fontSize: 20, background: 'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
-    hero: { textAlign: 'center', padding: '100px 24px 80px', maxWidth: 760, margin: '0 auto' },
-    badge: { display: 'inline-block', background: 'rgba(129,140,248,.15)', border: '1px solid rgba(129,140,248,.3)', color: '#a5b4fc', fontSize: 12, fontWeight: 700, padding: '5px 16px', borderRadius: 20, marginBottom: 28, letterSpacing: '.06em' },
-    h1: { fontSize: 'clamp(32px,6vw,60px)', fontWeight: 900, lineHeight: 1.1, margin: '0 0 24px', background: 'linear-gradient(135deg,#f1f5f9 30%,#a5b4fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
-    sub: { fontSize: 18, color: '#94a3b8', lineHeight: 1.7, maxWidth: 560, margin: '0 auto 40px' },
-    ctaRow: { display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' },
-    ctaPrimary: { background: 'linear-gradient(135deg,#818cf8,#c084fc)', color: '#fff', border: 'none', fontWeight: 800, fontSize: 15, padding: '14px 32px', borderRadius: 30, cursor: 'pointer', textDecoration: 'none', display: 'inline-block' },
-    ctaSecondary: { background: 'transparent', color: '#94a3b8', border: '1px solid #334155', fontWeight: 700, fontSize: 14, padding: '13px 28px', borderRadius: 30, cursor: 'pointer', textDecoration: 'none', display: 'inline-block' },
-    grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))', gap: 20, maxWidth: 1000, margin: '0 auto', padding: '0 24px 80px' },
-    card: { background: 'rgba(30,41,59,.6)', border: '1px solid #1e293b', borderRadius: 20, padding: 28 },
-    iconBox: { width: 52, height: 52, background: 'rgba(129,140,248,.12)', border: '1px solid rgba(129,140,248,.2)', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24, marginBottom: 18 },
-    cTitle: { fontWeight: 800, fontSize: 16, color: '#f1f5f9', marginBottom: 10 },
-    cDesc: { fontSize: 14, color: '#64748b', lineHeight: 1.7 },
-    divider: { height: 1, background: 'linear-gradient(90deg,transparent,#1e293b,transparent)', margin: '0 24px 60px' },
-    cta2: { textAlign: 'center', padding: '0 24px 80px' },
-    ftr: { borderTop: '1px solid #1e293b', padding: '28px 32px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 },
-    ftrTxt: { fontSize: 13, color: '#475569' },
+  const steps = [
+    ['01', 'Sesión de ADN', 'Te escuchamos. Entendemos tu negocio, menú, reglas de venta y personalidad de marca. 45 minutos.'],
+    ['02', 'Instalamos tu agente', 'Configuramos tu clon IA, lo conectamos a WhatsApp y lo entrenamos con tu catálogo y flujo de ventas. 48 horas.'],
+    ['03', 'Vendes mientras duermes', 'Tu agente atiende clientes, filtra curiosos, toma pedidos y genera links de pago. Tú recibes reportes cada lunes.'],
+  ];
+
+  const C = {
+    page: { fontFamily: "'Inter', sans-serif", background: '#050508', color: '#f0f0f5', minHeight: '100vh', overflowX: 'hidden' },
+    nav: { position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 100, boxSizing: 'border-box', background: scrolled ? 'rgba(5,5,8,0.96)' : 'transparent', backdropFilter: scrolled ? 'blur(14px)' : 'none', borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : 'none', transition: 'all 0.3s ease', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 48px' },
+    logo: { display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' },
+    logoBox: { width: 32, height: 32, border: '2px solid #6366f1', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 800, color: '#818cf8' },
+    logoText: { fontWeight: 800, fontSize: 15, color: '#fff', letterSpacing: '-0.3px' },
+    navLinks: { display: 'flex', gap: 32, alignItems: 'center' },
+    navLink: { color: '#64748b', fontSize: 13, textDecoration: 'none' },
+    demoCta: { background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', color: '#fff', padding: '8px 22px', borderRadius: 8, fontSize: 13, fontWeight: 600, textDecoration: 'none', boxShadow: '0 0 20px rgba(99,102,241,0.3)' },
+    hero: { minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', textAlign: 'center', padding: '120px 24px 80px', position: 'relative' },
+    glow: { position: 'absolute', top: '35%', left: '50%', transform: 'translate(-50%,-50%)', width: 700, height: 700, borderRadius: '50%', background: 'radial-gradient(circle, rgba(99,102,241,0.11) 0%, transparent 70%)', pointerEvents: 'none' },
+    badge: { display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 20, padding: '6px 18px', marginBottom: 32, fontSize: 12, color: '#818cf8', fontWeight: 600, letterSpacing: '.06em' },
+    dot: { width: 6, height: 6, borderRadius: '50%', background: '#6366f1', display: 'inline-block' },
+    h1: { fontSize: 'clamp(42px, 7vw, 86px)', fontWeight: 800, lineHeight: 1.05, marginBottom: 24, letterSpacing: '-2.5px', background: 'linear-gradient(135deg, #fff 0%, #94a3b8 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
+    h1accent: { background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
+    sub: { fontSize: 18, color: '#64748b', maxWidth: 520, lineHeight: 1.7, marginBottom: 52 },
+    btns: { display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center' },
+    primary: { background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', color: '#fff', padding: '15px 34px', borderRadius: 12, fontSize: 15, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 36px rgba(99,102,241,0.35)' },
+    secondary: { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)', color: '#e2e8f0', padding: '15px 34px', borderRadius: 12, fontSize: 15, fontWeight: 600, textDecoration: 'none' },
+    stats: { padding: '0 24px 100px', maxWidth: 960, margin: '0 auto' },
+    statsGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 20, overflow: 'hidden' },
+    statCell: (i) => ({ padding: '30px 24px', textAlign: 'center', borderRight: i < 3 ? '1px solid rgba(255,255,255,0.07)' : 'none' }),
+    statVal: { fontSize: 34, fontWeight: 800, color: '#818cf8', marginBottom: 6 },
+    statLbl: { fontSize: 11, color: '#475569', textTransform: 'uppercase', letterSpacing: '.08em' },
+    section: (pb=120) => ({ padding: `0 24px ${pb}px`, maxWidth: 1100, margin: '0 auto' }),
+    sHead: { textAlign: 'center', marginBottom: 64 },
+    sH2: { fontSize: 42, fontWeight: 800, marginBottom: 14, letterSpacing: '-1px' },
+    sP: { color: '#64748b', fontSize: 16 },
+    grid6: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 20 },
+    card: { background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 16, padding: '28px 24px', transition: 'all 0.25s' },
+    cardIcon: { fontSize: 32, marginBottom: 16 },
+    cardH: { fontSize: 16, fontWeight: 700, marginBottom: 10, color: '#f1f5f9' },
+    cardP: { fontSize: 13, color: '#64748b', lineHeight: 1.75 },
+    grid3: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 },
+    stepCard: { background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 16, padding: '28px 24px', position: 'relative', overflow: 'hidden', transition: 'all 0.25s' },
+    stepNum: { fontSize: 56, fontWeight: 900, color: 'rgba(99,102,241,0.18)', lineHeight: 1, marginBottom: 16, letterSpacing: '-3px' },
+    ctaSec: { padding: '0 24px 120px', textAlign: 'center' },
+    ctaBox: { maxWidth: 560, margin: '0 auto', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 24, padding: '56px 40px' },
+    ctaH: { fontSize: 36, fontWeight: 800, marginBottom: 16, letterSpacing: '-1px' },
+    ctaSub: { color: '#64748b', marginBottom: 40, lineHeight: 1.7 },
+    ctaBtn: { display: 'block', background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', color: '#fff', padding: '16px 32px', borderRadius: 12, fontSize: 15, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 32px rgba(99,102,241,0.3)' },
+    footer: { borderTop: '1px solid rgba(255,255,255,0.06)', padding: '32px 48px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 },
+    ftrBrand: { fontSize: 13, color: '#475569', fontWeight: 700 },
+    ftrLinks: { display: 'flex', gap: 24 },
+    ftrLink: { fontSize: 12, color: '#475569', textDecoration: 'none' },
   };
+  const hoverCard = (e, on) => { e.currentTarget.style.borderColor = on ? 'rgba(99,102,241,0.4)' : 'rgba(255,255,255,0.07)'; e.currentTarget.style.background = on ? 'rgba(99,102,241,0.06)' : 'rgba(255,255,255,0.03)'; };
+
   return (
-    <div style={L.page}>
-      {/* Nav */}
-      <nav style={L.nav}>
-        <span style={L.logo}>GENyx Systems</span>
-        <a href="https://mando.genyxsystems.com" style={{ ...L.ctaSecondary, padding: '9px 22px', fontSize: 13 }}>
-          Acceder al Centro de Mando →
+    <div style={C.page}>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+      <nav style={C.nav}>
+        <a href="#" style={C.logo}>
+          <div style={C.logoBox}>G</div>
+          <span style={C.logoText}>GENyx <span style={{ color: '#6366f1' }}>Sys.</span></span>
         </a>
+        <div style={C.navLinks}>
+          {[['Soluciones', '#soluciones'], ['Proceso', '#proceso']].map(([l, h]) => (
+            <a key={l} href={h} style={C.navLink} onMouseOver={e => e.target.style.color = '#fff'} onMouseOut={e => e.target.style.color = '#64748b'}>{l}</a>
+          ))}
+          <a href="#contacto" style={C.demoCta}>Solicita tu Demo →</a>
+        </div>
       </nav>
 
-      {/* Hero */}
-      <section style={L.hero}>
-        <div style={L.badge}>🚀 VENTAS IA · WHATSAPP · PAGOS REALES</div>
-        <h1 style={L.h1}>El sistema operativo de ventas para artesanos</h1>
-        <p style={L.sub}>Tu catálogo + IA conversacional + Stripe = pedidos pagados en automático, 24/7, directamente desde WhatsApp.</p>
-        <div style={L.ctaRow}>
-          <a href="mailto:hola@genyxsystems.com?subject=Demo GENyx" style={L.ctaPrimary}>Agenda tu Demo Gratis →</a>
-          <a href="https://mando.genyxsystems.com" style={L.ctaSecondary}>Soy cliente — Entrar</a>
+      <section style={C.hero}>
+        <div style={C.glow} />
+        <div style={C.badge}><span style={C.dot} />INTELIGENCIA ARTIFICIAL · VENTAS 24/7 · WHATSAPP</div>
+        <h1 style={C.h1}>Tu negocio.<br /><span style={C.h1accent}>Automatizado.</span></h1>
+        <p style={C.sub}>GENyx Systems instala agentes de IA que eliminan el 85% de curiosos, atienden clientes 24/7 en WhatsApp y procesan pagos — sin que toques el teléfono.</p>
+        <div style={C.btns}>
+          <a href="#contacto" style={C.primary}>Quiero un agente de IA →</a>
+          <a href="#proceso" style={C.secondary}>¿Cómo funciona?</a>
         </div>
       </section>
 
-      {/* Features */}
-      <div style={L.grid}>
-        {features.map((f, i) => (
-          <div key={i} style={L.card}>
-            <div style={L.iconBox}>{f.icon}</div>
-            <div style={L.cTitle}>{f.title}</div>
-            <div style={L.cDesc}>{f.desc}</div>
-          </div>
-        ))}
+      <section style={C.stats}>
+        <div style={C.statsGrid}>
+          {[['24/7', 'Atención continua'], ['>80%', 'Curiosos eliminados'], ['3 min', 'Tiempo de respuesta'], ['0', 'Llamadas sin atender']].map(([v, l], i) => (
+            <div key={i} style={C.statCell(i)}>
+              <p style={C.statVal}>{v}</p>
+              <p style={C.statLbl}>{l}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="soluciones" style={C.section()}>
+        <div style={C.sHead}>
+          <h2 style={C.sH2}>¿Qué hace GENyx por ti?</h2>
+          <p style={C.sP}>Un sistema completo de ventas y atención al cliente.</p>
+        </div>
+        <div style={C.grid6}>
+          {features.map(([ico, t, d]) => (
+            <div key={t} style={C.card} onMouseOver={e => hoverCard(e, true)} onMouseOut={e => hoverCard(e, false)}>
+              <div style={C.cardIcon}>{ico}</div>
+              <h3 style={C.cardH}>{t}</h3>
+              <p style={C.cardP}>{d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="proceso" style={C.section()}>
+        <div style={C.sHead}>
+          <h2 style={{ ...C.sH2, fontSize: 40 }}>Así de simple.</h2>
+          <p style={C.sP}>En 3 pasos transformamos tu operación.</p>
+        </div>
+        <div style={C.grid3}>
+          {steps.map(([n, t, d]) => (
+            <div key={n} style={C.stepCard} onMouseOver={e => hoverCard(e, true)} onMouseOut={e => hoverCard(e, false)}>
+              <div style={C.stepNum}>{n}</div>
+              <h3 style={C.cardH}>{t}</h3>
+              <p style={C.cardP}>{d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div id="contacto" style={C.ctaSec}>
+        <div style={C.ctaBox}>
+          <h2 style={C.ctaH}>¿Listo para automatizar?</h2>
+          <p style={C.ctaSub}>Cuéntanos de tu negocio y te mostramos en 15 minutos cómo GENyx puede ayudarte.</p>
+          <a href="mailto:hola@genyxsystems.com" style={C.ctaBtn}>hola@genyxsystems.com →</a>
+        </div>
       </div>
 
-      <div style={L.divider} />
-
-      {/* Bottom CTA */}
-      <div style={L.cta2}>
-        <h2 style={{ fontSize: 32, fontWeight: 900, color: '#f1f5f9', margin: '0 0 16px' }}>¿Listo para automatizar tus ventas?</h2>
-        <p style={{ color: '#64748b', marginBottom: 28, fontSize: 15 }}>En menos de 48 horas tu bot ya estará vendiendo. Sin contratar personal extra.</p>
-        <a href="mailto:hola@genyxsystems.com?subject=Demo GENyx" style={L.ctaPrimary}>Escribir a hola@genyxsystems.com</a>
-      </div>
-
-      {/* Footer */}
-      <footer style={L.ftr}>
-        <span style={L.ftrTxt}>© 2026 GENyx Systems · Todos los derechos reservados</span>
-        <span style={{ display: 'flex', gap: 20 }}>
-          <a href="/terminos" style={{ ...L.ftrTxt, textDecoration: 'none' }}>Términos</a>
-          <a href="/privacidad" style={{ ...L.ftrTxt, textDecoration: 'none' }}>Privacidad</a>
-          <a href="https://mando.genyxsystems.com" style={{ ...L.ftrTxt, textDecoration: 'none' }}>Centro de Mando</a>
-        </span>
+      <footer style={C.footer}>
+        <span style={C.ftrBrand}>GENyx <span style={{ color: '#4f46e5' }}>Sys.</span> © 2026</span>
+        <div style={C.ftrLinks}>
+          <a href="/privacidad" style={C.ftrLink}>Privacidad</a>
+          <a href="/terminos" style={C.ftrLink}>Términos</a>
+          <a href="https://mando.genyxsystems.com" style={C.ftrLink}>Centro de Mando</a>
+        </div>
       </footer>
     </div>
   );
 }
+
 
 // ── Ticket de Compra (post-Stripe payment) ────────────────────────────────
 function TicketPage({ sid }) {
@@ -2435,22 +2514,22 @@ export default function GENyxOperatorDashboard() {
   // ―― Ticket de compra post-Stripe (?pago=exitoso&sid=cs_live_...) ―――――
   const _qp = new URLSearchParams(window.location.search);
   if (_qp.get('pago') === 'exitoso') return <TicketPage sid={_qp.get('sid')} />;
+  if (_qp.get('pago') === 'cancelado') return (
+    <div style={{ minHeight:'100vh', background:'#05080f', display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Inter',sans-serif" }}>
+      <div style={{ textAlign:'center', padding:40, maxWidth:440 }}>
+        <div style={{ fontSize:52, marginBottom:20 }}>⚠️</div>
+        <h1 style={{ color:'#f1f5f9', fontSize:24, fontWeight:800, marginBottom:12 }}>Pago no completado</h1>
+        <p style={{ color:'#64748b', lineHeight:1.7, marginBottom:32 }}>No te preocupes — tu carrito sigue guardado. Regresa al chat de WhatsApp y genera un nuevo link cuando estés listo.</p>
+        <a href="https://wa.me/523326220697" style={{ display:'inline-block', background:'linear-gradient(135deg,#25d366,#128c7e)', color:'#fff', padding:'14px 32px', borderRadius:30, fontWeight:700, fontSize:14, textDecoration:'none' }}>← Volver al Chat de Paty</a>
+      </div>
+    </div>
+  );
 
   // ―― www.genyxsystems.com (o cualquier dominio no-mando) → Landing Page ―――
   if (!IS_MANDO && !IS_LOCAL) return <GENyxLandingPage />;
 
   if (IS_MANDO && MANDO_SLUG) return <MandoClientView slug={MANDO_SLUG} />;
-  if (IS_MANDO && !MANDO_SLUG) return (
-    <div style={{ minHeight: '100vh', background: '#060912', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Inter, sans-serif' }}>
-      <div style={{ textAlign: 'center', color: '#94a3b8' }}>
-        <div style={{ fontSize: 40, marginBottom: 16 }}>🔗</div>
-        <h1 style={{ fontSize: 18, color: '#f1f5f9', margin: '0 0 10px' }}>GENyx Systems OS</h1>
-        <p style={{ fontSize: 13, color: '#64748b', maxWidth: 320, lineHeight: 1.6 }}>
-          Centro de Mando. Por favor ingresa a la URL específica proporcionada por tu administrador.
-        </p>
-      </div>
-    </div>
-  );
+  if (IS_MANDO && !MANDO_SLUG) return <AdminLoginScreen onAuth={(k) => { sessionStorage.setItem('genyx_admin_key', k); setAdminKey(k); }} />;
 
   // ── Login gate (adminKey vacío = mostrar AdminLoginScreen) ─────────────────
   if (!adminKey) return <AdminLoginScreen onAuth={(k) => { sessionStorage.setItem('genyx_admin_key', k); setAdminKey(k); }} />;
