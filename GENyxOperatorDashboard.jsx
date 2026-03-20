@@ -2204,7 +2204,104 @@ function MandoClientView({ slug }) {
   );
 }
 
+// ── Ticket de Compra (post-Stripe payment) ────────────────────────────────
+function TicketPage({ sid }) {
+  const [ticket, setTicket] = React.useState(null);
+  const [loading, setLoading] = React.useState(!!sid);
+
+  React.useEffect(() => {
+    if (!sid) return;
+    fetch(`${BACKEND}/api/orden-exitosa/${sid}`)
+      .then(r => r.ok ? r.json() : null)
+      .then(d => { setTicket(d); setLoading(false); })
+      .catch(() => setLoading(false));
+  }, [sid]);
+
+  const S = {
+    bg: { minHeight: '100vh', background: 'linear-gradient(160deg, #f0fdf4 0%, #dcfce7 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20, fontFamily: "'Inter', 'Segoe UI', sans-serif" },
+    wrap: { background: '#fff', borderRadius: 24, boxShadow: '0 24px 64px rgba(0,0,0,.13)', maxWidth: 420, width: '100%', overflow: 'hidden' },
+    hdr: { background: 'linear-gradient(135deg, #15803d, #16a34a)', padding: '32px 24px 24px', textAlign: 'center', color: '#fff' },
+    body: { padding: '22px 24px' },
+    infoR: { display: 'flex', justifyContent: 'space-between', fontSize: 13, color: '#6b7280', marginBottom: 6 },
+    itemR: { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', padding: '10px 0', borderBottom: '1px dashed #e5e7eb' },
+    totalR: { display: 'flex', justifyContent: 'space-between', padding: '16px 0 0', fontWeight: 900, fontSize: 20, color: '#15803d' },
+    ftr: { background: '#f9fafb', padding: '18px 24px', textAlign: 'center', borderTop: '1px dashed #e2e8f0' },
+  };
+
+  const items = ticket?.items || [];
+  const total = ticket?.total || 0;
+  const fecha = ticket?.fecha || new Date().toLocaleDateString('es-MX');
+  const hora  = ticket?.hora  || '';
+  const orderId = ticket?.order_id || (sid ? sid.slice(-8).toUpperCase() : '——');
+
+  if (loading) return (
+    <div style={S.bg}>
+      <div style={{ textAlign: 'center', color: '#15803d' }}>
+        <div style={{ fontSize: 48, marginBottom: 12, animation: 'spin 1s linear infinite' }}>⏳</div>
+        <p style={{ fontWeight: 700, fontSize: 15 }}>Cargando tu ticket…</p>
+      </div>
+    </div>
+  );
+
+  return (
+    <div style={S.bg}>
+      <div style={S.wrap}>
+        {/* ── Header ── */}
+        <div style={S.hdr}>
+          <div style={{ fontSize: 54, marginBottom: 6 }}>✅</div>
+          <h1 style={{ margin: 0, fontSize: 24, fontWeight: 900 }}>¡Pago Confirmado!</h1>
+          <p style={{ margin: '6px 0 0', fontSize: 14, opacity: .9 }}>Tu pedido está siendo preparado 🍞</p>
+          <div style={{ display: 'inline-block', background: '#dcfce7', color: '#15803d', fontWeight: 800, fontSize: 12, padding: '4px 16px', borderRadius: 20, marginTop: 12, letterSpacing: '.05em' }}>PAGO EXITOSO</div>
+        </div>
+
+        {/* ── Body ── */}
+        <div style={S.body}>
+          {/* Meta */}
+          <div style={{ marginBottom: 16 }}>
+            <div style={S.infoR}><span>🔖 N° de Orden</span><b style={{ color: '#1a1208' }}>#{orderId}</b></div>
+            <div style={S.infoR}><span>📅 Fecha</span><span>{fecha}</span></div>
+            {hora && <div style={S.infoR}><span>🕐 Hora</span><span>{hora}</span></div>}
+          </div>
+
+          {/* Items */}
+          <div style={{ fontSize: 11, fontWeight: 800, color: '#92400e', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 8 }}>🛒 Productos</div>
+          {items.length > 0 ? items.map((it, i) => (
+            <div key={i} style={S.itemR}>
+              <div>
+                <div style={{ fontWeight: 700, fontSize: 14, color: '#1a1208' }}>{it.nombre}</div>
+                <div style={{ fontSize: 12, color: '#78716c' }}>Cantidad: {it.qty}</div>
+              </div>
+              <div style={{ fontWeight: 700, fontSize: 14, color: '#15803d', whiteSpace: 'nowrap', marginLeft: 12 }}>${it.total_item?.toFixed(2)}</div>
+            </div>
+          )) : (
+            <p style={{ color: '#78716c', fontSize: 13, textAlign: 'center', padding: '12px 0' }}>📲 Revisa tu resumen en WhatsApp</p>
+          )}
+
+          {/* Total */}
+          <div style={S.totalR}>
+            <span>TOTAL</span>
+            <span>{total > 0 ? `$${total.toFixed(2)} MXN` : '——'}</span>
+          </div>
+        </div>
+
+        {/* ── Footer ── */}
+        <div style={S.ftr}>
+          <div style={{ fontSize: 28, marginBottom: 4 }}>🍞</div>
+          <div style={{ fontWeight: 800, fontSize: 15, color: '#1a1208' }}>Panadería Paty</div>
+          <div style={{ fontSize: 12, color: '#6b7280', marginTop: 2 }}>Magnolias 111, Bugambilias, Zapopan, Jal.</div>
+          <div style={{ fontSize: 11, color: '#9ca3af', margin: '10px 0 14px' }}>Recibirás una confirmación con tu número de orden por WhatsApp 📲</div>
+          <button onClick={() => window.close()}
+            style={{ background: '#25D366', color: '#fff', border: 'none', fontWeight: 800, fontSize: 14, padding: '12px 28px', borderRadius: 25, cursor: 'pointer', marginBottom: 6 }}>
+            💬 Cerrar y volver al chat
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function GENyxOperatorDashboard() {
+
   // ── REGLA DE HOOKS: todos los hooks PRIMERO, antes de cualquier return condicional ──
   const [adminKey, setAdminKey] = useState(sessionStorage.getItem('genyx_admin_key') || '');
   const [tab, setTab]           = useState('clientes');
@@ -2250,6 +2347,10 @@ export default function GENyxOperatorDashboard() {
   // ―― Legal pages (mando.genyxsystems.com/terminos · /privacidad) ―――――
   if (path === '/terminos')   return <LegalPage tipo="terminos" />;
   if (path === '/privacidad') return <LegalPage tipo="privacidad" />;
+
+  // ―― Ticket de compra post-Stripe (?pago=exitoso&sid=cs_live_...) ―――――
+  const _qp = new URLSearchParams(window.location.search);
+  if (_qp.get('pago') === 'exitoso') return <TicketPage sid={_qp.get('sid')} />;
 
   if (IS_MANDO && MANDO_SLUG) return <MandoClientView slug={MANDO_SLUG} />;
   if (IS_MANDO && !MANDO_SLUG) return (
