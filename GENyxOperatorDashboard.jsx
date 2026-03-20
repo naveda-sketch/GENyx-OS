@@ -1612,6 +1612,12 @@ function MandoClientView({ slug }) {
   const [kpiPeriod,  setKpiPeriod]  = useState('month'); // filtro ingresos: day/week/month
   const [genyxFee,   setGenyxFee]   = useState(false);  // +8% fee GenYX opcional
   const [expandedRec, setExpandedRec] = useState(null);  // acordeón: nombre del producto expandido
+  // ── Costeador v2 (IA)
+  const [costMode, setCostMode]     = useState('v1');    // 'v1' formulario | 'v2' IA chat
+  const [aiChat, setAiChat]         = useState([{ role: 'assistant', content: '\u00a1Hola! Soy tu Costeador IA con metodolog\u00eda ABC. \u00bfQu\u00e9 quieres costear hoy?\n\nEjemplo: \"Cost\u00e9ame una hogaza: 500g harina, 350ml agua, 10g sal. 30 min de trabajo.\"' }]);
+  const [aiInput, setAiInput]       = useState('');
+  const [aiLoading, setAiLoading]   = useState(false);
+  const aiChatRef                   = React.useRef(null);
   // ── Expediente
   const expKey = `${slug}_exp`;
   const [expDocs, setExpDocs] = useState(() => { try { return JSON.parse(localStorage.getItem(expKey) || '{}'); } catch { return {}; } });
@@ -1828,7 +1834,7 @@ function MandoClientView({ slug }) {
                   <span style={{ background: sp.bg, color: sp.color, padding: '3px 10px', borderRadius: 20, fontSize: 11, fontWeight: 800, border: `1px solid ${sp.color}30` }}>{sp.label}</span>
                 </div>
                 <div style={{ background: '#faf7f2', borderRadius: 8, padding: '8px 12px', marginBottom: 10, fontSize: 12 }}>
-                  {items.map((it, i) => <div key={i}>• {it.nombre || it.name} ×{it.cantidad || it.qty || 1} — <b>${(it.subtotal || it.precio || 0).toLocaleString()}</b></div>)}
+                  {items.map((it, i) => <div key={i}>• {it.nombre || it.name} ×{it.cantidad || it.qty || 1} — <b>${(it.subtotal || it.precio || it.price || (it.precio_unitario * (it.cantidad || it.qty || 1)) || 0).toLocaleString()}</b></div>)}
                   {items.length === 0 && <span style={{ color: '#a8a29e' }}>Sin detalle.</span>}
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
@@ -1985,8 +1991,155 @@ function MandoClientView({ slug }) {
 
         {/* ═══ TAB: COSTEADOR ═══ */}
         {tab === 'cost' && (<>
-          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 4, color: '#44403c' }}>💰 Costeador de Productos</h2>
+          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 4, color: '#44403c' }}>�� Costeador de Productos</h2>
           <p style={{ fontSize: 12, color: '#78716c', marginBottom: 14 }}>Calcula el costo real y precio justo de cada producto de tu menú con la fórmula contable completa.</p>
+
+          {/* ── Toggle v1 / v2 ── */}
+          <div style={{ display: 'flex', gap: 8, marginBottom: 20, background: '#f5f0eb', borderRadius: 12, padding: 4 }}>
+            {[['v1','📋 Formulario'],['v2','🤖 IA Costeador']].map(([k,lbl]) => (
+              <button key={k} onClick={() => setCostMode(k)} style={{
+                flex: 1, padding: '9px 0', borderRadius: 9, border: 'none', cursor: 'pointer',
+                fontWeight: 700, fontSize: 13, transition: 'all .2s',
+                background: costMode === k ? '#92400e' : 'transparent',
+                color: costMode === k ? '#fff' : '#78716c'
+              }}>{lbl}</button>
+            ))}
+          </div>
+
+          {/* ── v2: Chat IA Costeador ABC ── */}
+          {costMode === 'v2' && (() => {
+            const BURL = 'https://paty-backend-dkzk.onrender.com';
+            const sendAiMsg = async () => {
+              if (!aiInput.trim() || aiLoading) return;
+              const userMsg = { role: 'user', content: aiInput.trim() };
+              const nextChat = [...aiChat, userMsg];
+              setAiChat(nextChat); setAiInput(''); setAiLoading(true);
+              try {
+                const res = await fetch(`${BURL}/api/costeador/${slug}/chat`, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json', 'X-PIN': pin },
+                  body: JSON.stringify({ message: userMsg.content, history: nextChat.slice(-10) })
+                });
+                const data = await res.json();
+                setAiChat(p => [...p, { role: 'assistant', content: data.reply || '❌ Sin respuesta' }]);
+              } catch(e) {
+                setAiChat(p => [...p, { role: 'assistant', content: '❌ Error: ' + e.message }]);
+              }
+              setAiLoading(false);
+              setTimeout(() => { if (aiChatRef.current) aiChatRef.current.scrollTop = aiChatRef.current.scrollHeight; }, 100);
+            };
+            return (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+                <div ref={aiChatRef} style={{ background: '#faf7f4', border: '1.5px solid #e7e0d8', borderRadius: '14px 14px 0 0', padding: 16, minHeight: 340, maxHeight: 460, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  {aiChat.map((msg, i) => (
+                    <div key={i} style={{ display: 'flex', justifyContent: msg.role === 'user' ? 'flex-end' : 'flex-start' }}>
+                      <div style={{
+                        maxWidth: '88%', padding: '10px 14px', fontSize: 13, lineHeight: 1.55, whiteSpace: 'pre-wrap',
+                        borderRadius: msg.role === 'user' ? '14px 14px 4px 14px' : '14px 14px 14px 4px',
+                        background: msg.role === 'user' ? '#92400e' : '#fff',
+                        color: msg.role === 'user' ? '#fff' : '#44403c',
+                        boxShadow: '0 1px 6px rgba(0,0,0,0.08)'
+                      }}>{msg.content}</div>
+                    </div>
+                  ))}
+                  {aiLoading && (
+                    <div style={{ display: 'flex' }}>
+                      <div style={{ padding: '10px 16px', background: '#fff', borderRadius: '14px 14px 14px 4px', fontSize: 20, boxShadow: '0 1px 6px rgba(0,0,0,0.08)' }}>⏳</div>
+                    </div>
+                  )}
+                </div>
+                <div style={{ display: 'flex', border: '1.5px solid #e7e0d8', borderTop: 'none', borderRadius: '0 0 14px 14px', overflow: 'hidden', background: '#fff' }}>
+                  <input value={aiInput} onChange={e => setAiInput(e.target.value)}
+                    onKeyDown={e => e.key === 'Enter' && !e.shiftKey && sendAiMsg()}
+                    placeholder="Ej: Costéame la hogaza con semillas: 500g harina $18/kg..."
+                    style={{ flex: 1, padding: '12px 14px', border: 'none', outline: 'none', fontSize: 13 }} />
+                  <button onClick={sendAiMsg} disabled={aiLoading || !aiInput.trim()}
+                    style={{ padding: '12px 20px', background: aiInput.trim() ? '#92400e' : '#d4c9be', color: '#fff', border: 'none', cursor: 'pointer', fontWeight: 800, fontSize: 15 }}>▶</button>
+                </div>
+                <p style={{ fontSize: 11, color: '#a8a29e', textAlign: 'center', marginTop: 8 }}>
+                  💡 Tip: registra tus ingredientes con precios para que los costeos usen datos reales.<br />
+                  Ej: <em>"Registra: Harina de trigo 1kg = $18"</em>
+                </p>
+              </div>
+            );
+          })()}
+
+
+          {/* ── Toggle v1 / v2 ── */}
+          <div style={{ display: 'flex', gap: 8, marginBottom: 20, background: '#f5f0eb', borderRadius: 12, padding: 4 }}>
+            {[['v1','📋 Formulario'],['v2','🤖 IA Costeador']].map(([k,lbl]) => (
+              <button key={k} onClick={() => setCostMode(k)} style={{
+                flex: 1, padding: '9px 0', borderRadius: 9, border: 'none', cursor: 'pointer', fontWeight: 700,
+                fontSize: 13, transition: 'all .2s',
+                background: costMode === k ? '#92400e' : 'transparent',
+                color: costMode === k ? '#fff' : '#78716c'
+              }}>{lbl}</button>
+            ))}
+          </div>
+
+          {/* ── v2: Chat IA ── */}
+          {costMode === 'v2' && (() => {
+            const BURL = 'https://paty-backend-dkzk.onrender.com';
+            const sendAiMsg = async () => {
+              if (!aiInput.trim() || aiLoading) return;
+              const userMsg = { role: 'user', content: aiInput.trim() };
+              const nextChat = [...aiChat, userMsg];
+              setAiChat(nextChat); setAiInput(''); setAiLoading(true);
+              try {
+                const res = await fetch(`${BURL}/api/costeador/${slug}/chat`, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json', 'X-PIN': pin },
+                  body: JSON.stringify({ message: userMsg.content, history: nextChat.slice(-10) })
+                });
+                const data = await res.json();
+                setAiChat(p => [...p, { role: 'assistant', content: data.reply || '❌ Sin respuesta' }]);
+              } catch(e) {
+                setAiChat(p => [...p, { role: 'assistant', content: '❌ Error de conexión: ' + e.message }]);
+              }
+              setAiLoading(false);
+              setTimeout(() => { if(aiChatRef.current) aiChatRef.current.scrollTop = aiChatRef.current.scrollHeight; }, 100);
+            };
+            return (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+                {/* Chat window */}
+                <div ref={aiChatRef} style={{ background: '#faf7f4', border: '1.5px solid #e7e0d8', borderRadius: '14px 14px 0 0', padding: 16, minHeight: 360, maxHeight: 480, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  {aiChat.map((msg, i) => (
+                    <div key={i} style={{ display: 'flex', justifyContent: msg.role === 'user' ? 'flex-end' : 'flex-start' }}>
+                      <div style={{
+                        maxWidth: '85%', padding: '10px 14px', borderRadius: msg.role === 'user' ? '14px 14px 4px 14px' : '14px 14px 14px 4px',
+                        background: msg.role === 'user' ? '#92400e' : '#fff',
+                        color: msg.role === 'user' ? '#fff' : '#44403c',
+                        fontSize: 13, lineHeight: 1.55, whiteSpace: 'pre-wrap',
+                        boxShadow: '0 1px 6px rgba(0,0,0,0.08)'
+                      }}>{msg.content}</div>
+                    </div>
+                  ))}
+                  {aiLoading && (
+                    <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
+                      <div style={{ padding: '10px 16px', background: '#fff', borderRadius: '14px 14px 14px 4px', fontSize: 20, boxShadow: '0 1px 6px rgba(0,0,0,0.08)' }}>⏳</div>
+                    </div>
+                  )}
+                </div>
+                {/* Input bar */}
+                <div style={{ display: 'flex', gap: 0, border: '1.5px solid #e7e0d8', borderTop: 'none', borderRadius: '0 0 14px 14px', overflow: 'hidden', background: '#fff' }}>
+                  <input
+                    value={aiInput} onChange={e => setAiInput(e.target.value)}
+                    onKeyDown={e => e.key === 'Enter' && !e.shiftKey && sendAiMsg()}
+                    placeholder="Ej: Costéame la hogaza con semillas..."
+                    style={{ flex: 1, padding: '12px 14px', border: 'none', outline: 'none', fontSize: 13, background: 'transparent' }}
+                  />
+                  <button onClick={sendAiMsg} disabled={aiLoading || !aiInput.trim()} style={{ padding: '12px 20px', background: aiInput.trim() ? '#92400e' : '#d4c9be', color: '#fff', border: 'none', cursor: aiInput.trim() ? 'pointer' : 'default', fontWeight: 800, fontSize: 15, transition: 'background .2s' }}>▶</button>
+                </div>
+                <div style={{ marginTop: 10, fontSize: 11, color: '#a8a29e', textAlign: 'center' }}>
+                  💡 Tip: registra tus ingredientes con sus precios para que el costeo use datos reales.
+                  <br />Ej: <em>"Registra: Harina de trigo 1kg = $18"</em>
+                </div>
+              </div>
+            );
+          })()}
+
+          {/* ── v1: Formulario (original, sin cambios) ── */}
+          {costMode === 'v1' && (<>
 
           {/* ── Tooltip helper ── */}
           {showInfo && (
@@ -2318,6 +2471,7 @@ function MandoClientView({ slug }) {
               )}
             </>);
           })()} 
+          </>)}
         </>)}
 
         {tab === 'exp' && (<>
