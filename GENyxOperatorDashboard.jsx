@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 
 /**
- * GENyx Systems OS — Operator Dashboard v2.0
+ * GenYX Systems OS — Operator Dashboard v2.0
  * Tabs: Clientes · Órdenes · Herramientas · Analista · Manuales
  */
 
@@ -118,21 +118,21 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
         <span style={MONO}>{tenants.length} cliente(s)</span>
       </div>
       
-      {/* ── GENyx #000 — solo visible cuando no hay cliente filtrado ─── */}
+      {/* ── GenYX #000 — solo visible cuando no hay cliente filtrado ─── */}
       {!selectedSlug && (
       <div style={{ marginBottom: 20 }}>
         <p style={{ ...MONO, color: '#6366f1', fontSize: 10, marginBottom: 8, letterSpacing: '.08em' }}>CLIENTE 000 — OPERADOR</p>
         <div style={{ ...CARD, border: '1px solid rgba(99,102,241,0.35)', background: 'rgba(99,102,241,0.06)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
             <div>
-              <h3 style={{ fontWeight: 700, fontSize: 16, color: '#a5b4fc' }}>GENyx Systems</h3>
+              <h3 style={{ fontWeight: 700, fontSize: 16, color: '#a5b4fc' }}>GenYX Systems</h3>
               <p style={{ fontSize: 12, color: '#6366f1', marginTop: 2 }}>Plataforma Operadora</p>
             </div>
             <span style={{ background: 'rgba(99,102,241,0.15)', color: '#818cf8', border: '1px solid rgba(99,102,241,0.3)', padding: '2px 10px', borderRadius: 12, fontSize: 10, fontWeight: 700, textTransform: 'uppercase' }}>OPERADOR</span>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginBottom: 16 }}>
             <KpiMini label="Revenue plataforma" value={$$( clientKPIs.reduce((s,t)=>s+(t.revenueMonth||0),0) )} />
-            <KpiMini label="Comisión GENyx" value={$$( clientKPIs.reduce((s,t)=>s+(t.commission||0),0) )} />
+            <KpiMini label="Comisión GenYX" value={$$( clientKPIs.reduce((s,t)=>s+(t.commission||0),0) )} />
             <KpiMini label="Clientes activos" value={ tenants.filter(t=>t.status==='active').length } />
           </div>
           <div style={{ borderTop: '1px solid rgba(99,102,241,0.15)', paddingTop: 12, display: 'flex', gap: 8 }}>
@@ -175,7 +175,7 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
               {/* KPIs */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginBottom: 16 }}>
                 <KpiMini label="Ingresos/mes" value={$$(t.revenueMonth)} />
-                <KpiMini label={`GENyx (${t.fee_percent || 8}%)`} value={$$(t.commission)} />
+                <KpiMini label={`GenYX (${t.fee_percent || 8}%)`} value={$$(t.commission)} />
                 <KpiMini label="→ Al cliente" value={$$(t.pending)} />
               </div>
 
@@ -243,7 +243,7 @@ const TabOrdenes = ({ orders, tenants, loading }) => {
         <select value={selectedSlug} onChange={e => setSelectedSlug(e.target.value)}
           style={{ background: '#1e293b', border: '1px solid rgba(255,255,255,0.1)', color: '#cbd5e1', padding: '6px 12px', borderRadius: 8, fontSize: 12 }}>
           <option value="all">Todos los clientes</option>
-          <option value="__genyx__" style={{ color: '#818cf8' }}>🟣 GENyx Systems — Plataforma</option>
+          <option value="__genyx__" style={{ color: '#818cf8' }}>🟣 GenYX Systems — Plataforma</option>
           {tenants.map(t => <option key={t.slug} value={t.slug}>{t.name || t.slug}</option>)}
         </select>
         <span style={MONO}>{recent.length} orden(es)</span>
@@ -353,7 +353,7 @@ const NewsFeed = ({ health, orders, tenants }) => {
 
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// TAB: DATA — GENyx Intelligence Hub
+// TAB: DATA — GenYX Intelligence Hub
 // ═══════════════════════════════════════════════════════════════════════════════
 const TabData = ({ tenants, orders }) => {
   const [genyxData, setGenyxData] = useState(null);
@@ -397,7 +397,7 @@ const TabData = ({ tenants, orders }) => {
     <section>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
         <div>
-          <h2 style={H2}>📈 GENyx — Intelligence Hub</h2>
+          <h2 style={H2}>📈 GenYX — Intelligence Hub</h2>
           <p style={{ ...MONO, color: '#64748b', fontSize: 11, marginTop: 4 }}>{today}</p>
         </div>
         <span style={{ ...MONO, fontSize: 10, color: '#4ade80', background: 'rgba(74,222,128,0.1)', padding: '4px 12px', borderRadius: 20, border: '1px solid rgba(74,222,128,0.2)' }}>
@@ -409,7 +409,7 @@ const TabData = ({ tenants, orders }) => {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 24 }}>
         {[
           { label: 'Revenue Total', value: $$(g.totalRevenue), icon: '💰', color: '#4ade80' },
-          { label: 'Comisión GENyx', value: $$(g.totalCommission), icon: '⚡', color: '#818cf8' },
+          { label: 'Comisión GenYX', value: $$(g.totalCommission), icon: '⚡', color: '#818cf8' },
           { label: 'Ticket Promedio', value: $$(g.avgTicket), icon: '🎯', color: '#fb923c' },
           { label: 'Pedidos Totales', value: g.totalOrders, icon: '📦', color: '#38bdf8' },
         ].map((kpi, i) => (
@@ -439,9 +439,9 @@ const TabData = ({ tenants, orders }) => {
         ))}
       </div>
 
-      {/* GENyx as a Business */}
+      {/* GenYX as a Business */}
       <div style={{ ...CARD, background: 'linear-gradient(135deg, rgba(99,102,241,0.15) 0%, rgba(139,92,246,0.1) 100%)', border: '1px solid rgba(99,102,241,0.3)' }}>
-        <h3 style={{ ...H2, fontSize: 14, marginBottom: 16, color: '#a5b4fc' }}>⚡ GENyx Systems — Como Negocio</h3>
+        <h3 style={{ ...H2, fontSize: 14, marginBottom: 16, color: '#a5b4fc' }}>⚡ GenYX Systems — Como Negocio</h3>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
           <div>
             <p style={{ ...MONO, fontSize: 10, color: '#64748b', marginBottom: 8 }}>INGRESOS (COMISIONES)</p>
@@ -621,7 +621,7 @@ const TabAnalista = ({ tenants, orders, selectedSlug, setSelectedSlug }) => {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: 12 }}>
             <KpiCard label="Órdenes plataforma" value={platformStats.totalOrders} icon="📋" />
             <KpiCard label="Revenue total" value={$$(platformStats.totalRevenue)} icon="💰" />
-            <KpiCard label="Comisión GENyx (8%)" value={$$(platformStats.commission)} icon="🏷️" />
+            <KpiCard label="Comisión GenYX (8%)" value={$$(platformStats.commission)} icon="🏷️" />
             <KpiCard label="Clientes activos" value={tenants.filter(t => t.status === 'active').length} icon="🏢" />
           </div>
           {Object.keys(platformStats.byTenant).length > 0 && (
@@ -708,19 +708,19 @@ const TabAnalista = ({ tenants, orders, selectedSlug, setSelectedSlug }) => {
 const CHECKLIST_SECTIONS = [
   { key: 'contacto', label: '📞 Contacto', fields: ['Nombre titular', 'RFC', 'Email principal', 'WhatsApp', 'Ciudad / Estado', 'Nombre comercial'] },
   { key: 'ids', label: '🏦 IDs Oficiales', fields: ['INE / Pasaporte', 'Comprobante domicilio', 'Constancia SAT'] },
-  { key: 'legal', label: '⚖️ Legal', fields: ['Contrato GENyx firmado', 'NDA incluido', 'Aviso de privacidad (ARCO)', 'Términos y Condiciones', 'Fecha inicio relación', 'Vigencia contrato'] },
+  { key: 'legal', label: '⚖️ Legal', fields: ['Contrato GenYX firmado', 'NDA incluido', 'Aviso de privacidad (ARCO)', 'Términos y Condiciones', 'Fecha inicio relación', 'Vigencia contrato'] },
   { key: 'adn', label: '🧭 ADN Negocio', fields: ['Catálogo de productos', 'Precios actualizados', 'Horarios de atención', 'Zona de entrega', 'FAQ del negocio', 'Tono del bot', 'Políticas de devolución'] },
   { key: 'tecnico', label: '⚙️ Técnico', fields: ['Slug asignado', 'Clone ID en DB', 'URL sitio web', 'Meta Phone Number ID', 'CLABE bancaria', 'Email correo lunes', 'Dashboard token'] },
   { key: 'comercial', label: '💰 Financiero', fields: ['Comisión acordada (%)', 'Cuota mensual', 'Método de pago', 'Stripe Connect activo', 'Último pago registrado'] },
 ];
 
 const GENYX_EXPEDIENTE = {
-  id: '__genyx__', name: 'GENyx Systems', slug: '000-genyx', industry: 'Plataforma Operadora',
+  id: '__genyx__', name: 'GenYX Systems', slug: '000-genyx', industry: 'Plataforma Operadora',
   startDate: '2025-01-01', status: 'active', phone: '+52 (55) XXXX-XXXX',
   email: 'admin@genyxsys.com', city: 'México', rfc: 'GXS250101XXX',
   contacto: { 'Nombre titular': '✅', 'RFC': '✅', 'Email principal': '✅', 'WhatsApp': '✅', 'Ciudad / Estado': '✅', 'Nombre comercial': '✅' },
   ids: { 'INE / Pasaporte': '✅', 'Comprobante domicilio': '✅', 'Constancia SAT': '✅' },
-  legal: { 'Contrato GENyx firmado': 'N/A', 'NDA incluido': 'N/A', 'Aviso de privacidad (ARCO)': '✅', 'Términos y Condiciones': '✅', 'Fecha inicio relación': '✅', 'Vigencia contrato': 'N/A' },
+  legal: { 'Contrato GenYX firmado': 'N/A', 'NDA incluido': 'N/A', 'Aviso de privacidad (ARCO)': '✅', 'Términos y Condiciones': '✅', 'Fecha inicio relación': '✅', 'Vigencia contrato': 'N/A' },
   adn: { 'Catálogo de productos': '✅', 'Precios actualizados': '✅', 'Horarios de atención': '✅', 'Zona de entrega': 'N/A', 'FAQ del negocio': '✅', 'Tono del bot': '✅', 'Políticas de devolución': 'N/A' },
   tecnico: { 'Slug asignado': '✅', 'Clone ID en DB': '✅', 'URL sitio web': '✅', 'Meta Phone Number ID': '⚠️', 'CLABE bancaria': 'N/A', 'Email correo lunes': '✅', 'Dashboard token': '✅' },
   comercial: { 'Comisión acordada (%)': 'N/A', 'Cuota mensual': 'N/A', 'Método de pago': 'N/A', 'Stripe Connect activo': 'N/A', 'Último pago registrado': 'N/A' },
@@ -978,12 +978,12 @@ const TabExpedientes = ({ tenants }) => {
               <p style={{ fontSize: 11, color: '#64748b', marginBottom: 12 }}>Datos operativos sincronizados desde la DB.</p>
               {[
                 ['Slug', exp.slug],
-                ['Comisión GENyx', exp.fee_percent ? `${exp.fee_percent}%` : '8% (default)'],
+                ['Comisión GenYX', exp.fee_percent ? `${exp.fee_percent}%` : '8% (default)'],
                 ['CLABE bancaria', exp.bank_clabe || '—'],
                 ['Email correo lunes', exp.owner_email || '—'],
                 ['URL sitio web', exp.website_url || '—'],
                 ['Stripe Connect', exp.payout_mode === 'connect' ? `✅ ${exp.stripe_account_id}` : '🏦 SPEI Manual'],
-                ['Número WaB (GENyx)', exp.meta_phone || '⚠️ Pendiente asignar'],
+                ['Número WaB (GenYX)', exp.meta_phone || '⚠️ Pendiente asignar'],
               ].map(([l, v]) => (
                 <div key={l} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 12 }}>
                   <span style={{ color: '#64748b' }}>{l}</span>
@@ -1025,7 +1025,7 @@ const TabManuales = () => {
     <section style={{ maxWidth: 720 }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
         <h2 style={H2}>📚 Manuales de Emergencia</h2>
-        <span style={{ fontSize: 10, ...MONO, color: '#64748b', background: '#1e293b', padding: '4px 10px', borderRadius: 6 }}>GENyx OS v5.1 · CHASSIS-STABLE</span>
+        <span style={{ fontSize: 10, ...MONO, color: '#64748b', background: '#1e293b', padding: '4px 10px', borderRadius: 6 }}>GenYX OS v5.1 · CHASSIS-STABLE</span>
       </div>
       {scenarios.map((s, i) => (
         <div key={i} style={{ ...CARD, marginBottom: 12 }}>
@@ -1293,7 +1293,7 @@ function AdminLoginScreen({ onAuth }) {
         {/* Logo + Brand */}
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div style={{ width: 52, height: 52, border: '2px solid #6366f1', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, fontWeight: 900, color: '#818cf8', marginBottom: 16, fontFamily: 'JetBrains Mono, monospace' }}>G</div>
-          <h1 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', letterSpacing: '.02em', margin: 0 }}>GENyx <span style={{ color: '#6366f1' }}>Systems</span></h1>
+          <h1 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', letterSpacing: '.02em', margin: 0 }}>GenYX <span style={{ color: '#6366f1' }}>Systems</span></h1>
           <p style={{ fontSize: 11, color: '#334155', fontFamily: 'JetBrains Mono, monospace', marginTop: 6, letterSpacing: '.08em' }}>OPERATOR CONTROL CENTER</p>
         </div>
         {/* Card */}
@@ -1318,7 +1318,7 @@ function AdminLoginScreen({ onAuth }) {
             </button>
           </form>
         </div>
-        <p style={{ textAlign: 'center', color: '#1e293b', fontSize: 10, marginTop: 20, fontFamily: 'monospace' }}>GENyx OS v3.4 · Sesión segura</p>
+        <p style={{ textAlign: 'center', color: '#1e293b', fontSize: 10, marginTop: 20, fontFamily: 'monospace' }}>GenYX OS v3.4 · Sesión segura</p>
       </div>
     </div>
   );
@@ -1468,7 +1468,7 @@ function PatyPrivacyPage() {
         </p>
         <h2 style={H2}>4. Con Quien Compartimos Tus Datos</h2>
         <p style={P}>
-          &bull; <span style={HL}>GENyx Systems</span> — plataforma tecnologica que opera el asistente de ventas. Solo procesa tus mensajes para gestionar el pedido.<br />
+          &bull; <span style={HL}>GenYX Systems</span> — plataforma tecnologica que opera el asistente de ventas. Solo procesa tus mensajes para gestionar el pedido.<br />
           &bull; <span style={HL}>Stripe</span> — procesador de pagos seguro. Tus datos de pago nunca pasan por nosotros.<br />
           Ningun otro tercero tiene acceso a tus datos.
         </p>
@@ -1497,52 +1497,52 @@ function LegalPage({ tipo }) {
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 28 }}>
           <a href="/" style={{ color: '#92400e', fontSize: 13, textDecoration: 'none' }}>← Inicio</a>
           <span style={{ color: '#d6d3d1' }}>|</span>
-          <span style={{ fontSize: 11, color: '#a8a29e', fontFamily: 'monospace' }}>GENyx Systems</span>
+          <span style={{ fontSize: 11, color: '#a8a29e', fontFamily: 'monospace' }}>GenYX Systems</span>
         </div>
         {isTC ? (
           <>
             <h1 style={H1}>Términos y Condiciones de Uso</h1>
-            <p style={{ ...P, color: '#a8a29e', fontSize: 11 }}>GENyx Systems · Versión 1.0 · Última actualización: Marzo 2026</p>
+            <p style={{ ...P, color: '#a8a29e', fontSize: 11 }}>GenYX Systems · Versión 1.0 · Última actualización: Marzo 2026</p>
             <h2 style={H2}>1. Aceptación</h2>
             <p style={P}>Al activar el servicio o acceder al Centro de Mando, el Cliente acepta expresamente estos Términos y Condiciones, el Aviso de Privacidad y el Contrato de Servicios vigentes.</p>
             <h2 style={H2}>2. Descripción del Servicio</h2>
-            <p style={P}>GENyx Systems provee una plataforma SaaS de automatización comercial con bot de ventas IA vía WhatsApp Business, Centro de Mando, procesamiento de pagos (Stripe Connect) y análisis de datos.</p>
+            <p style={P}>GenYX Systems provee una plataforma SaaS de automatización comercial con bot de ventas IA vía WhatsApp Business, Centro de Mando, procesamiento de pagos (Stripe Connect) y análisis de datos.</p>
             <h2 style={H2}>3. Cuentas y Seguridad</h2>
             <ul style={UL}>
               <li><span style={HL}>Credenciales:</span> El Cliente es único responsable de su PIN de acceso.</li>
-              <li><span style={HL}>Líneas WaB:</span> Los números de WhatsApp están en custodia exclusiva de GENyx bajo la cuenta corporativa de Meta.</li>
-              <li><span style={HL}>Expediente Digital (KYC):</span> GENyx puede suspender el acceso si el expediente no está al 100%.</li>
+              <li><span style={HL}>Líneas WaB:</span> Los números de WhatsApp están en custodia exclusiva de GenYX bajo la cuenta corporativa de Meta.</li>
+              <li><span style={HL}>Expediente Digital (KYC):</span> GenYX puede suspender el acceso si el expediente no está al 100%.</li>
             </ul>
             <h2 style={H2}>4. Pagos y Comisiones</h2>
-            <p style={P}>El procesamiento usa Stripe Connect. El Cliente autoriza el descuento automático de la comisión GENyx antes de cada liquidación. Los precios pueden ajustarse en renovación anual con 30 días de aviso.</p>
+            <p style={P}>El procesamiento usa Stripe Connect. El Cliente autoriza el descuento automático de la comisión GenYX antes de cada liquidación. Los precios pueden ajustarse en renovación anual con 30 días de aviso.</p>
             <h2 style={H2}>5. Inteligencia Artificial y Limitación de Responsabilidad</h2>
-            <p style={P}>El bot opera con IA generativa de naturaleza probabilística y puede cometer <strong>errores conversacionales</strong> (“alucinaçiones”). GENyx no garantiza precisión del 100%. <strong>GENyx no será responsable</strong> por pérdidas económicas, productos mal cotizados, daños a la reputación o cualquier daño indirecto o consecuencial. La responsabilidad máxima de GENyx se limita a los <strong>3 meses de suscripción pagados</strong> anteriores al evento.</p>
+            <p style={P}>El bot opera con IA generativa de naturaleza probabilística y puede cometer <strong>errores conversacionales</strong> (“alucinaçiones”). GenYX no garantiza precisión del 100%. <strong>GenYX no será responsable</strong> por pérdidas económicas, productos mal cotizados, daños a la reputación o cualquier daño indirecto o consecuencial. La responsabilidad máxima de GenYX se limita a los <strong>3 meses de suscripción pagados</strong> anteriores al evento.</p>
             <h2 style={H2}>6. Fuerza Mayor y Caídas de Terceros</h2>
-            <p style={P}>GENyx no responde por interrupciones de Meta/WhatsApp, OpenAI, Stripe, Render, Vercel u otros proveedores de infraestructura. Estos tiempos no computan para el SLA del 99%.</p>
+            <p style={P}>GenYX no responde por interrupciones de Meta/WhatsApp, OpenAI, Stripe, Render, Vercel u otros proveedores de infraestructura. Estos tiempos no computan para el SLA del 99%.</p>
             <h2 style={H2}>7. Uso Aceptable</h2>
-            <p style={P}>Queda prohibido usar la Plataforma para vender productos ilegales, enviar spam, o intentar vulnerar el código o infraestructura de GENyx.</p>
+            <p style={P}>Queda prohibido usar la Plataforma para vender productos ilegales, enviar spam, o intentar vulnerar el código o infraestructura de GenYX.</p>
             <h2 style={H2}>8. Propiedad Intelectual</h2>
-            <p style={P}>El código, algoritmos, prompts, ADN del bot, flujos de venta y herramientas son propiedad exclusiva de GENyx. El Cliente retiene derechos sobre su catálogo, recetas y marca.</p>
+            <p style={P}>El código, algoritmos, prompts, ADN del bot, flujos de venta y herramientas son propiedad exclusiva de GenYX. El Cliente retiene derechos sobre su catálogo, recetas y marca.</p>
             <h2 style={H2}>9. Jurisdiccion</h2>
             <p style={P}>Ley aplicable: Estados Unidos Mexicanos. Jurisdiccion: Tribunales Federales de Guadalajara, Jalisco. Previo a cualquier litigio, las partes se someten a mediacion ante el CANACO-GDL.</p>
             <h2 style={H2}>10. Terminacion del Servicio</h2>
-            <p style={P}>El Cliente puede cancelar con <strong>30 dias naturales de aviso</strong> por escrito a legal@genyxsystems.com. GENyx puede rescindir anticipadamente por incumplimiento de pago o uso indebido. Al terminar: (i) GENyx entregara un export CSV de los datos del Cliente dentro de 15 dias; (ii) GENyx eliminara los datos de sus servidores en un plazo maximo de 60 dias; (iii) el numero WA permanecera en custodia de GENyx, salvo acuerdo expreso de portabilidad.</p>
+            <p style={P}>El Cliente puede cancelar con <strong>30 dias naturales de aviso</strong> por escrito a legal@genyxsystems.com. GenYX puede rescindir anticipadamente por incumplimiento de pago o uso indebido. Al terminar: (i) GenYX entregara un export CSV de los datos del Cliente dentro de 15 dias; (ii) GenYX eliminara los datos de sus servidores en un plazo maximo de 60 dias; (iii) el numero WA permanecera en custodia de GenYX, salvo acuerdo expreso de portabilidad.</p>
             <h2 style={H2}>11. SLA y Creditos</h2>
-            <p style={P}>GENyx garantiza una <strong>disponibilidad mensual del 99.0%</strong> del bot y el Centro de Mando, excluyendo mantenimientos programados (notificados 24h antes) e interrupciones de terceros (Meta, OpenAI, Stripe, Render, Vercel). Si la disponibilidad cae por debajo del 99.0% en un mes calendario por causa atribuible a GENyx, el Cliente recibe un <strong>credito equivalente a 5 dias de servicio</strong> aplicado en la siguiente factura. Maximo 30 dias de credito por anio.</p>
+            <p style={P}>GenYX garantiza una <strong>disponibilidad mensual del 99.0%</strong> del bot y el Centro de Mando, excluyendo mantenimientos programados (notificados 24h antes) e interrupciones de terceros (Meta, OpenAI, Stripe, Render, Vercel). Si la disponibilidad cae por debajo del 99.0% en un mes calendario por causa atribuible a GenYX, el Cliente recibe un <strong>credito equivalente a 5 dias de servicio</strong> aplicado en la siguiente factura. Maximo 30 dias de credito por anio.</p>
             <h2 style={H2}>12. Comision de Procesamiento</h2>
-            <p style={P}>GENyx descuenta automaticamente una <strong>comision del [X]% por transaccion</strong> procesada via Stripe Connect antes de la liquidacion al Cliente. El porcentaje especifico se establece en el Anexo de Servicios firmado por ambas partes. Dicho porcentaje puede ajustarse con 30 dias de aviso por escrito.</p>
+            <p style={P}>GenYX descuenta automaticamente una <strong>comision del [X]% por transaccion</strong> procesada via Stripe Connect antes de la liquidacion al Cliente. El porcentaje especifico se establece en el Anexo de Servicios firmado por ambas partes. Dicho porcentaje puede ajustarse con 30 dias de aviso por escrito.</p>
             <p style={{ ...P, marginTop: 24, fontSize: 11, color: '#a8a29e' }}>Consultas: legal@genyxsystems.com</p>
           </>
         ) : (
           <>
             <h1 style={H1}>Aviso de Privacidad</h1>
-            <p style={{ ...P, color: '#a8a29e', fontSize: 11 }}>GENyx Systems · Versión 1.0 · Última actualización: Marzo 2026 · Conforme a LFPDPPP</p>
+            <p style={{ ...P, color: '#a8a29e', fontSize: 11 }}>GenYX Systems · Versión 1.0 · Última actualización: Marzo 2026 · Conforme a LFPDPPP</p>
             <h2 style={H2}>1. Responsable del Tratamiento</h2>
-            <p style={P}><strong>GENyx Systems</strong>, representado por Erick Naveda, Guadalajara, Jalisco, México. Contacto: <strong>privacidad@genyxsystems.com</strong></p>
+            <p style={P}><strong>GenYX Systems</strong>, representado por Erick Naveda, Guadalajara, Jalisco, México. Contacto: <strong>privacidad@genyxsystems.com</strong></p>
             <h2 style={H2}>2. Roles de Tratamiento</h2>
             <ul style={UL}>
-              <li><span style={HL}>GENyx como Responsable:</span> Datos del dueño del negocio (nombre, RFC, CLABE, etc.).</li>
-              <li><span style={HL}>GENyx como Encargado:</span> Datos de los compradores finales (nombre, teléfono, dirección). El <strong>Cliente es el Responsable</strong> frente a sus compradores.</li>
+              <li><span style={HL}>GenYX como Responsable:</span> Datos del dueño del negocio (nombre, RFC, CLABE, etc.).</li>
+              <li><span style={HL}>GenYX como Encargado:</span> Datos de los compradores finales (nombre, teléfono, dirección). El <strong>Cliente es el Responsable</strong> frente a sus compradores.</li>
             </ul>
             <h2 style={H2}>3. Datos Recabados del Cliente</h2>
             <p style={P}>Nombre, RFC, INE, correo, CLABE, comprobante de domicilio, catálogo, recetas, horarios y configuración del bot.</p>
@@ -1564,7 +1564,7 @@ function LegalPage({ tipo }) {
             <p style={P}>Acceso, Rectificación, Cancelación u Oposición: envía solicitud a <strong>privacidad@genyxsystems.com</strong>. Respuesta en máximo 20 días hábiles.</p>
             <h2 style={H2}>7. Cookies y Session Storage</h2>
             <p style={P}>Solo usamos session storage y cookies técnicas estrictamente necesarias para la seguridad de las sesiones. No usamos cookies publicitarias ni de rastreo.</p>
-            <p style={{ ...P, marginTop: 24, fontSize: 11, color: '#a8a29e' }}>privacidad@genyxsystems.com · GENyx Systems · Guadalajara, Jalisco, México</p>
+            <p style={{ ...P, marginTop: 24, fontSize: 11, color: '#a8a29e' }}>privacidad@genyxsystems.com · GenYX Systems · Guadalajara, Jalisco, México</p>
           </>
         )}
       </div>
@@ -1610,7 +1610,7 @@ function MandoClientView({ slug }) {
   const [opEx,       setOpEx]       = useState(0);     // gastos operativos por unidad
   const [showInfo,   setShowInfo]   = useState(null);  // tooltip (i) activo
   const [kpiPeriod,  setKpiPeriod]  = useState('month'); // filtro ingresos: day/week/month
-  const [genyxFee,   setGenyxFee]   = useState(false);  // +8% fee GENyx opcional
+  const [genyxFee,   setGenyxFee]   = useState(false);  // +8% fee GenYX opcional
   const [expandedRec, setExpandedRec] = useState(null);  // acordeón: nombre del producto expandido
   // ── Expediente
   const expKey = `${slug}_exp`;
@@ -1740,7 +1740,7 @@ function MandoClientView({ slug }) {
                 <a href="/terminos" target="_blank" rel="noopener noreferrer" style={{ color: '#92400e', fontWeight: 700 }}>Términos y Condiciones</a>{' '}
                 y el{' '}
                 <a href="/privacidad" target="_blank" rel="noopener noreferrer" style={{ color: '#92400e', fontWeight: 700 }}>Aviso de Privacidad</a>{' '}
-                de GENyx Systems.
+                de GenYX Systems.
               </label>
             </div>
             {error && <p style={{ color: '#dc2626', fontSize: 12, marginBottom: 10, textAlign: 'center' }}>{error}</p>}
@@ -1750,7 +1750,7 @@ function MandoClientView({ slug }) {
             </button>
           </form>
         </div>
-        <p style={{ textAlign: 'center', color: '#c4b5a5', fontSize: 10, marginTop: 12 }}>GENyx OS · {slug}</p>
+        <p style={{ textAlign: 'center', color: '#c4b5a5', fontSize: 10, marginTop: 12 }}>GenYX OS · {slug}</p>
       </div>
     </div>
   );
@@ -2305,7 +2305,7 @@ function MandoClientView({ slug }) {
                               </div>
                               <div style={{ marginTop: 10, padding: '8px 12px', background: '#faf9f7', borderRadius: 10, border: '1.5px solid #e7e0d8', display: 'flex', alignItems: 'center', gap: 10 }}>
                                 <input type="checkbox" id={`fee-${rec.name}`} checked={genyxFee} onChange={e => setGenyxFee(e.target.checked)} style={{ width: 16, height: 16, accentColor: '#92400e', cursor: 'pointer', flexShrink: 0 }} />
-                                <label htmlFor={`fee-${rec.name}`} style={{ fontSize: 11, color: '#78716c', cursor: 'pointer', lineHeight: 1.4 }}>Agregar comisión GENyx (+8%) al precio de venta</label>
+                                <label htmlFor={`fee-${rec.name}`} style={{ fontSize: 11, color: '#78716c', cursor: 'pointer', lineHeight: 1.4 }}>Agregar comisión GenYX (+8%) al precio de venta</label>
                                 {genyxFee && <span style={{ marginLeft: 'auto', fontWeight: 900, color: '#92400e', fontSize: 16, whiteSpace: 'nowrap' }}>${Math.ceil(priceFmt * 1.08 / 5) * 5}</span>}
                               </div>
                             </div>
@@ -2330,7 +2330,7 @@ function MandoClientView({ slug }) {
             {expPct < 100 && <p style={{ fontSize: 11, color: '#dc2626', marginTop: 6 }}>Completa tu expediente para evitar la suspensión del servicio (Cláusula 6.4 del contrato).</p>}
           </div>
           <div style={CARD}>
-            <div style={{ fontSize: 12, color: '#78716c', marginBottom: 12 }}>Marca cada documento como entregado a GENyx:</div>
+            <div style={{ fontSize: 12, color: '#78716c', marginBottom: 12 }}>Marca cada documento como entregado a GenYX:</div>
             {EXPEDIENTE_DOCS.map(doc => (
               <div key={doc.key} onClick={() => toggleDoc(doc.key)} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '11px 0', borderBottom: '1px solid #f5f0ea', cursor: 'pointer' }}>
                 <div style={{ width: 22, height: 22, borderRadius: 6, border: `2px solid ${expDocs[doc.key] ? '#16a34a' : '#d4c9be'}`, background: expDocs[doc.key] ? '#16a34a' : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, transition: 'all 0.15s' }}>
@@ -2342,17 +2342,17 @@ function MandoClientView({ slug }) {
           </div>
           <div style={{ ...CARD, background: '#faf0e6', border: '1px solid #e7d5c0', fontSize: 12, color: '#78400e' }}>
             📧 Envía tus documentos en PDF a: <b>hola@genyxsystems.com</b><br/>
-            GENyx confirmará cada entrega y actualizará tu expediente.
+            GenYX confirmará cada entrega y actualizará tu expediente.
           </div>
         </>)}
 
-        <p style={{ textAlign: 'center', color: '#c4b5a5', fontSize: 10, marginTop: 20 }}>GENyx OS · {slug} · Actualiza cada 30s</p>
+        <p style={{ textAlign: 'center', color: '#c4b5a5', fontSize: 10, marginTop: 20 }}>GenYX OS · {slug} · Actualiza cada 30s</p>
       </main>
     </div>
   );
 }
 
-// ── GENyx Concierge Web Widget (floating chat) ───────────────────────────
+// ── GenYX Concierge Web Widget (floating chat) ───────────────────────────
 function GENyxConciergeWidget() {
   const BURL = 'https://paty-backend-dkzk.onrender.com';
   const BC = '#6366f1', BD = '#4f46e5';
@@ -2367,7 +2367,7 @@ function GENyxConciergeWidget() {
   const inpRef = React.useRef(null);
 
   React.useEffect(() => { const t = setTimeout(() => setPulse(false), 8000); return () => clearTimeout(t); }, []);
-  React.useEffect(() => { if (open && msgs.length === 0) addBot('Hola! Soy tu asistente IA de GENyx Systems.\n\n¿En que tipo de negocio trabajas?\n(panaderia, restaurante, tienda, clinica, agencia, otro...'); }, [open]);
+  React.useEffect(() => { if (open && msgs.length === 0) addBot('Hola! Soy tu asistente IA de GenYX Systems.\n\n¿En que tipo de negocio trabajas?\n(panaderia, restaurante, tienda, clinica, agencia, otro...'); }, [open]);
   React.useEffect(() => { botRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [msgs, typing]);
   React.useEffect(() => { if (open && phase !== 'done') setTimeout(() => inpRef.current?.focus(), 150); }, [open, phase]);
 
@@ -2380,7 +2380,7 @@ function GENyxConciergeWidget() {
       const d = await r.json();
       setTyping(false);
       setMsgs(p => [...p, { from: 'bot', text: d.reply || '¡Perfecto! Te podemos ayudar exactamente con eso 🎯\n\n¿Cómo te llamas y cuál es tu WhatsApp o email?' }]);
-    } catch { setTyping(false); setMsgs(p => [...p, { from: 'bot', text: '¡Te entendemos! Con GENyx lo automatizamos en 48 hrs.\n\n¿Cómo te llamas y cuál es tu WhatsApp o email?' }]); }
+    } catch { setTyping(false); setMsgs(p => [...p, { from: 'bot', text: '¡Te entendemos! Con GenYX lo automatizamos en 48 hrs.\n\n¿Cómo te llamas y cuál es tu WhatsApp o email?' }]); }
     setPhase('capture');
   }
 
@@ -2393,7 +2393,7 @@ function GENyxConciergeWidget() {
     setInp(''); setMsgs(p => [...p, { from: 'user', text: v }]);
     if (phase === 'negocio') { setCol(x => ({ ...x, negocio: v })); setPhase('reto'); addBot(`¡Perfecto, los negocios de ${v} tienen potencial enorme con IA! 🚀\n¿Cuál es tu mayor reto hoy?\n\n(atención a clientes, pedidos por WA, pagos, contabilidad, otro)`, 800); }
     else if (phase === 'reto') { const upd = { ...col, reto: v }; setCol(upd); setPhase('ai'); callGPT(col.negocio, v); }
-    else if (phase === 'capture') { saveLead(v.split(' ')[0], v, col.negocio, col.reto); setPhase('done'); addBot(`¡Gracias! ✅\nUn especialista de GENyx te contacta en menos de 24 horas.\n\n📧 hola@genyxsystems.com`, 900); }
+    else if (phase === 'capture') { saveLead(v.split(' ')[0], v, col.negocio, col.reto); setPhase('done'); addBot(`¡Gracias! ✅\nUn especialista de GenYX te contacta en menos de 24 horas.\n\n📧 hola@genyxsystems.com`, 900); }
   }
 
   const ph = phase === 'negocio' ? 'Ej: panadería, restaurante...' : phase === 'reto' ? 'Ej: muchos mensajes sin responder...' : phase === 'capture' ? 'Tu nombre + WhatsApp o email...' : '';
@@ -2406,7 +2406,7 @@ function GENyxConciergeWidget() {
             <div style={{ display:'flex', alignItems:'center', gap:10 }}>
               <div style={{ width:8, height:8, borderRadius:'50%', background:'#4ade80', boxShadow:'0 0 8px #4ade80' }} />
               <div>
-                <p style={{ color:'#fff', fontWeight:700, fontSize:13, margin:0 }}>GENyx Asistente</p>
+                <p style={{ color:'#fff', fontWeight:700, fontSize:13, margin:0 }}>GenYX Asistente</p>
                 <p style={{ color:'rgba(255,255,255,0.7)', fontSize:10, margin:0 }}>Responde en segundos · IA</p>
               </div>
             </div>
@@ -2430,7 +2430,7 @@ function GENyxConciergeWidget() {
           )}
         </div>
       )}
-      <button onClick={() => { setOpen(o => !o); setPulse(false); }} style={{ position:'fixed', bottom:28, right:28, zIndex:9999, width:54, height:54, borderRadius:'50%', background:open?BD:`linear-gradient(135deg,${BC},${BD})`, border:'none', cursor:'pointer', color:'#fff', fontSize:23, boxShadow:'0 4px 24px rgba(99,102,241,0.55)', transition:'all 0.25s', display:'flex', alignItems:'center', justifyContent:'center' }} aria-label="Chat con GENyx">
+      <button onClick={() => { setOpen(o => !o); setPulse(false); }} style={{ position:'fixed', bottom:28, right:28, zIndex:9999, width:54, height:54, borderRadius:'50%', background:open?BD:`linear-gradient(135deg,${BC},${BD})`, border:'none', cursor:'pointer', color:'#fff', fontSize:23, boxShadow:'0 4px 24px rgba(99,102,241,0.55)', transition:'all 0.25s', display:'flex', alignItems:'center', justifyContent:'center' }} aria-label="Chat con GenYX">
         {open ? '×' : '💬'}
         {pulse && !open && (<span style={{ position:'absolute', top:-2, right:-2, width:14, height:14, background:'#4ade80', borderRadius:'50%', border:'2px solid #050508' }} />)}
       </button>
@@ -2439,7 +2439,7 @@ function GENyxConciergeWidget() {
   );
 }
 
-// ── GENyx Systems Landing Page — Diseño Aprobado (genyxsystems.com) ────────
+// ── GenYX Systems Landing Page — Diseño Aprobado (genyxsystems.com) ────────
 function GENyxLandingPage() {
   const [scrolled, setScrolled] = React.useState(false);
   React.useEffect(() => {
@@ -2516,7 +2516,7 @@ function GENyxLandingPage() {
       <nav style={C.nav}>
         <a href="#" style={C.logo}>
           <div style={C.logoBox}>G</div>
-          <span style={C.logoText}>GENyx <span style={{ color: '#6366f1' }}>Sys.</span></span>
+          <span style={C.logoText}>GenYX <span style={{ color: '#6366f1' }}>Sys.</span></span>
         </a>
         <div style={C.navLinks}>
           {[['Soluciones', '#soluciones'], ['Proceso', '#proceso']].map(([l, h]) => (
@@ -2533,7 +2533,7 @@ function GENyxLandingPage() {
           &#x2713; Tu no programas nada — Tu asesor de ventas inteligente, activo en 24 horas.
         </div>
         <h1 style={C.h1}>Más cierres.<br /><span style={C.h1accent}>Sin más personal.</span></h1>
-        <p style={C.sub}>¿Respondes los mismos WhatsApps 40 veces al día? ¿Muchos interesados, pocos cierres, equipo saturado? GENyx instala un agente de IA que filtra curiosos, atiende 24/7 — omnicanal — y cobra. Sin contratar a nadie.</p>
+        <p style={C.sub}>¿Respondes los mismos WhatsApps 40 veces al día? ¿Muchos interesados, pocos cierres, equipo saturado? GenYX instala un agente de IA que filtra curiosos, atiende 24/7 — omnicanal — y cobra. Sin contratar a nadie.</p>
         <div style={C.btns}>
           <a href="#contacto" style={C.primary}>Agenda tu Demo Gratis →</a>
           <a href="#proceso" style={C.secondary}>¿Cómo funciona?</a>
@@ -2553,7 +2553,7 @@ function GENyxLandingPage() {
 
       <section id="soluciones" style={C.section()}>
         <div style={C.sHead}>
-          <h2 style={C.sH2}>¿Qué resuelve GENyx?</h2>
+          <h2 style={C.sH2}>¿Qué resuelve GenYX?</h2>
           <p style={C.sP}>Todo lo que necesitas para vender 24/7 sin contratar a nadie.</p>
         </div>
         <div style={C.grid6}>
@@ -2598,7 +2598,7 @@ function GENyxLandingPage() {
       <section style={{ padding:'0 24px 100px', maxWidth:1000, margin:'0 auto', textAlign:'center' }}>
         <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12 }}>NUESTRO SISTEMA ES PARA TODOS</div>
         <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:10 }}>Soluciones por Industria</h2>
-        <p style={{ color:'#64748b', marginBottom:40, fontSize:15 }}>Si tu negocio tiene clientes y les vendes por mensaje — GENyx es para ti.</p>
+        <p style={{ color:'#64748b', marginBottom:40, fontSize:15 }}>Si tu negocio tiene clientes y les vendes por mensaje — GenYX es para ti.</p>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(140px,1fr))', gap:14 }}>
           {[['🥖','Panaderias y Pastelerias'],['🍕','Restaurantes y Fondas'],['🌿','Productos Naturales'],['💄','Belleza y Cosmeticos'],['🏋','Fitness y Bienestar'],['🐾','Veterinarias'],['🏠','Inmobiliarias'],['📚','Educacion y Cursos'],['🔧','Servicios a Domicilio'],['🎉','Eventos y Catering'],['👗','Moda y Ropa'],['💊','Farmacias y Suplementos']].map(([ico, label]) => (
             <div key={label} style={{ background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.07)', borderRadius:14, padding:'18px 12px', transition:'all 0.2s' }}
@@ -2630,14 +2630,14 @@ function GENyxLandingPage() {
       <div id="contacto" style={C.ctaSec}>
         <div style={C.ctaBox}>
           <h2 style={C.ctaH}>¿Listo para automatizar?</h2>
-          <p style={C.ctaSub}>Agenda una llamada de 15 minutos. Si GENyx no es para ti, te lo decimos con honestidad.</p>
+          <p style={C.ctaSub}>Agenda una llamada de 15 minutos. Si GenYX no es para ti, te lo decimos con honestidad.</p>
           <a href="mailto:hola@genyxsystems.com" style={C.ctaBtn}>hola@genyxsystems.com →</a>
         </div>
       </div>
 
       <GENyxConciergeWidget />
       <footer style={C.footer}>
-        <span style={C.ftrBrand}>GENyx <span style={{ color: '#4f46e5' }}>Sys.</span> © 2026</span>
+        <span style={C.ftrBrand}>GenYX <span style={{ color: '#4f46e5' }}>Sys.</span> © 2026</span>
         <div style={{ ...C.ftrLinks, paddingRight: 72 }}>
           <a href="/privacidad" style={C.ftrLink}>Privacidad</a>
           <a href="/terminos" style={C.ftrLink}>Términos</a>
@@ -2829,7 +2829,7 @@ export default function GENyxOperatorDashboard() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           {/* Home button */}
           <button onClick={() => window.location.href = '/'}
-            title="Ir a la landing de GENyx"
+            title="Ir a la landing de GenYX"
             style={{ background: 'rgba(99,102,241,0.12)', border: '1px solid rgba(99,102,241,0.3)', color: '#818cf8', padding: '7px 14px', borderRadius: 8, cursor: 'pointer', fontSize: 13, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 6 }}>
             🏠 Home
           </button>
@@ -2841,7 +2841,7 @@ export default function GENyxOperatorDashboard() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginLeft: 4 }}>
             <div style={{ width: 30, height: 30, border: '2px solid #6366f1', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 800, color: '#818cf8' }}>G</div>
             <div>
-              <p style={{ fontWeight: 700, fontSize: 13, color: '#fff', letterSpacing: '.03em' }}>GENyx <span style={{ color: '#6366f1' }}>Systems</span> OS</p>
+              <p style={{ fontWeight: 700, fontSize: 13, color: '#fff', letterSpacing: '.03em' }}>GenYX <span style={{ color: '#6366f1' }}>Systems</span> OS</p>
               <p style={{ fontSize: 10, color: '#475569', fontFamily: 'monospace' }}>Operator Control Center</p>
             </div>
           </div>
