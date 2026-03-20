@@ -2449,12 +2449,12 @@ function GENyxLandingPage() {
   }, []);
 
   const features = [
-    ['🤖', 'Agente de Ventas IA', 'Atiende a tus clientes, responde preguntas, arma pedidos y cierra ventas — 24/7, sin que estés presente.'],
-    ['💳', 'Pagos Automatizados', 'Genera links de Stripe directamente en el chat. El cliente paga en segundos, tú recibes la notificación al instante.'],
-    ['🌐', 'Omnicanal — WA · Web · IG', 'Un solo agente atiende en WhatsApp, tu sitio web y DMs de Instagram. Tus clientes te encuentran donde ya están.'],
-    ['📊', 'Dashboard de Control', 'Pedidos en vivo, KPIs, inventario, expediente y costeador. Tu negocio en un solo panel desde cualquier lugar.'],
-    ['🎯', 'Filtra el 85% de Curiosos', 'Tu IA avanza solo con quienes tienen intención real de compra. Menos ruido, más energía para los cierres que importan.'],
-    ['⚡', 'En vivo en 48 horas', 'Sesión de ADN → configuración → bot vendiendo. Sin meses de implementación, sin código, sin consultor caro.'],
+    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 3h6m-3 0v3m-6 1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1zm2 4.5a1 1 0 1 0 2 0 1 1 0 0 0-2 0zm4 0a1 1 0 1 0 2 0 1 1 0 0 0-2 0zm-5 4h6"/></svg>, 'Agente de Ventas IA', 'Atiende a tus clientes, responde preguntas, arma pedidos y cierra ventas — 24/7, sin que estés presente.'],
+    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/><path d="M5 15h4"/></svg>, 'Pagos Automatizados', 'Genera links de Stripe directamente en el chat. El cliente paga en segundos, tú recibes la notificación al instante.'],
+    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="4" cy="19" r="2"/><circle cx="20" cy="19" r="2"/><path d="M12 7v3m0 0-6.5 7m6.5-7 6.5 7"/></svg>, <>Omnicanal<span style={{display:"inline-flex",gap:4,verticalAlign:"middle",marginLeft:8}}><span style={{background:"#25D366",color:"#fff",borderRadius:4,padding:"2px 6px",fontSize:9,fontWeight:800}}>WA</span><span style={{background:"linear-gradient(45deg,#833ab4,#fd1d1d,#fcb045)",color:"#fff",borderRadius:4,padding:"2px 6px",fontSize:9,fontWeight:800}}>IG</span><span style={{background:"#1877F2",color:"#fff",borderRadius:4,padding:"2px 6px",fontSize:9,fontWeight:800}}>FB</span><span style={{background:"#475569",color:"#fff",borderRadius:4,padding:"2px 6px",fontSize:9,fontWeight:800}}>WEB</span></span></>, 'Un solo agente atiende en WhatsApp, tu sitio web y DMs de Instagram. Tus clientes te encuentran donde ya están.'],
+    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="M7 16V12m4 4V8m4 8V5"/></svg>, 'Dashboard de Control', 'Pedidos en vivo, KPIs, inventario, expediente y costeador. Tu negocio en un solo panel desde cualquier lugar.'],
+    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 4h18l-7 9v6l-4-2v-4L3 4z"/></svg>, 'Filtra el 85% de Curiosos', 'Tu IA avanza solo con quienes tienen intención real de compra. Menos ruido, más energía para los cierres que importan.'],
+    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>, 'En vivo en 48 horas', 'Sesión de ADN → configuración → bot vendiendo. Sin meses de implementación, sin código, sin consultor caro.'],
   ];
   const steps = [
     ['01', 'Sesión de ADN', 'Te escuchamos. Entendemos tu negocio, menú, reglas de venta y personalidad de marca. 45 minutos.'],
@@ -2557,8 +2557,8 @@ function GENyxLandingPage() {
           <p style={C.sP}>Todo lo que necesitas para vender 24/7 sin contratar a nadie.</p>
         </div>
         <div style={C.grid6}>
-          {features.map(([ico, t, d]) => (
-            <div key={t} style={C.card} onMouseOver={e => hoverCard(e, true)} onMouseOut={e => hoverCard(e, false)}>
+          {features.map(([ico, t, d], fi) => (
+            <div key={fi} style={C.card} onMouseOver={e => hoverCard(e, true)} onMouseOut={e => hoverCard(e, false)}>
               <div style={C.cardIcon}>{ico}</div>
               <h3 style={C.cardH}>{t}</h3>
               <p style={C.cardP}>{d}</p>
