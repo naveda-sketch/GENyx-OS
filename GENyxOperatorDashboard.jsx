@@ -2293,18 +2293,18 @@ function GENyxLandingPage() {
 
       <section style={C.hero}>
         <div style={C.glow} />
-        <div style={C.badge}><span style={C.dot} />INTELIGENCIA ARTIFICIAL · VENTAS 24/7 · WHATSAPP</div>
-        <h1 style={C.h1}>Tu negocio.<br /><span style={C.h1accent}>Automatizado.</span></h1>
-        <p style={C.sub}>GENyx Systems instala agentes de IA que eliminan el 85% de curiosos, atienden clientes 24/7 en WhatsApp y procesan pagos — sin que toques el teléfono.</p>
+        <div style={C.badge}><span style={C.dot} />IA · OMNICANAL · WHATSAPP · VENTAS 24/7</div>
+        <h1 style={C.h1}>Más cierres.<br /><span style={C.h1accent}>Sin más personal.</span></h1>
+        <p style={C.sub}>Equipo de ventas saturado, muchos leads y pocos cierres. GENyx instala un agente de IA que filtra el 85% de curiosos, atiende 24/7 por WhatsApp y cobra — sin contratar personal extra.</p>
         <div style={C.btns}>
-          <a href="#contacto" style={C.primary}>Quiero un agente de IA →</a>
+          <a href="#contacto" style={C.primary}>Agenda tu Demo Gratis →</a>
           <a href="#proceso" style={C.secondary}>¿Cómo funciona?</a>
         </div>
       </section>
 
       <section style={C.stats}>
         <div style={C.statsGrid}>
-          {[['24/7', 'Atención continua'], ['>80%', 'Curiosos eliminados'], ['3 min', 'Tiempo de respuesta'], ['0', 'Llamadas sin atender']].map(([v, l], i) => (
+          {[['24/7', 'Atención continua'], ['85%', 'Curiosos filtrados'], ['3 min', 'Tiempo de respuesta'], ['48h', 'Para estar operando']].map(([v, l], i) => (
             <div key={i} style={C.statCell(i)}>
               <p style={C.statVal}>{v}</p>
               <p style={C.statLbl}>{l}</p>
@@ -2315,8 +2315,8 @@ function GENyxLandingPage() {
 
       <section id="soluciones" style={C.section()}>
         <div style={C.sHead}>
-          <h2 style={C.sH2}>¿Qué hace GENyx por ti?</h2>
-          <p style={C.sP}>Un sistema completo de ventas y atención al cliente.</p>
+          <h2 style={C.sH2}>¿Qué resuelve GENyx?</h2>
+          <p style={C.sP}>Todo lo que necesitas para vender 24/7 sin contratar a nadie.</p>
         </div>
         <div style={C.grid6}>
           {features.map(([ico, t, d]) => (
@@ -2348,7 +2348,7 @@ function GENyxLandingPage() {
       <div id="contacto" style={C.ctaSec}>
         <div style={C.ctaBox}>
           <h2 style={C.ctaH}>¿Listo para automatizar?</h2>
-          <p style={C.ctaSub}>Cuéntanos de tu negocio y te mostramos en 15 minutos cómo GENyx puede ayudarte.</p>
+          <p style={C.ctaSub}>Agenda una llamada de 15 minutos. Si GENyx no es para ti, te lo decimos con honestidad.</p>
           <a href="mailto:hola@genyxsystems.com" style={C.ctaBtn}>hola@genyxsystems.com →</a>
         </div>
       </div>
