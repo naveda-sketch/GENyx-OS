@@ -2204,6 +2204,93 @@ function MandoClientView({ slug }) {
   );
 }
 
+// ── GENyx Concierge Web Widget (floating chat) ───────────────────────────
+function GENyxConciergeWidget() {
+  const BURL = 'https://paty-backend-dkzk.onrender.com';
+  const BC = '#6366f1', BD = '#4f46e5';
+  const [open, setOpen] = React.useState(false);
+  const [msgs, setMsgs] = React.useState([]);
+  const [inp, setInp] = React.useState('');
+  const [phase, setPhase] = React.useState('negocio');
+  const [col, setCol] = React.useState({ negocio: '', reto: '' });
+  const [typing, setTyping] = React.useState(false);
+  const [pulse, setPulse] = React.useState(true);
+  const botRef = React.useRef(null);
+  const inpRef = React.useRef(null);
+
+  React.useEffect(() => { const t = setTimeout(() => setPulse(false), 8000); return () => clearTimeout(t); }, []);
+  React.useEffect(() => { if (open && msgs.length === 0) addBot('¡Hola! �� Soy el asistente de GENyx Systems.\n¿En qué tipo de negocio trabajas? (panadería, restaurante, tienda, clínica, otro...)'); }, [open]);
+  React.useEffect(() => { botRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [msgs, typing]);
+  React.useEffect(() => { if (open && phase !== 'done') setTimeout(() => inpRef.current?.focus(), 150); }, [open, phase]);
+
+  function addBot(text, d = 800) { setTyping(true); setTimeout(() => { setTyping(false); setMsgs(p => [...p, { from: 'bot', text }]); }, d); }
+
+  async function callGPT(neg, ret) {
+    setTyping(true);
+    try {
+      const r = await fetch(`${BURL}/api/genyx-bot`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ negocio: neg, reto: ret }) });
+      const d = await r.json();
+      setTyping(false);
+      setMsgs(p => [...p, { from: 'bot', text: d.reply || '¡Perfecto! Te podemos ayudar exactamente con eso 🎯\n\n¿Cómo te llamas y cuál es tu WhatsApp o email?' }]);
+    } catch { setTyping(false); setMsgs(p => [...p, { from: 'bot', text: '¡Te entendemos! Con GENyx lo automatizamos en 48 hrs.\n\n¿Cómo te llamas y cuál es tu WhatsApp o email?' }]); }
+    setPhase('capture');
+  }
+
+  async function saveLead(nom, contact, neg, ret) {
+    try { await fetch(`${BURL}/api/leads`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ nombre: nom, contacto: contact, negocio: neg, reto: ret }) }); } catch {}
+  }
+
+  function handleSend() {
+    const v = inp.trim(); if (!v || phase === 'done') return;
+    setInp(''); setMsgs(p => [...p, { from: 'user', text: v }]);
+    if (phase === 'negocio') { setCol(x => ({ ...x, negocio: v })); setPhase('reto'); addBot(`¡Perfecto, los negocios de ${v} tienen potencial enorme con IA! 🚀\n¿Cuál es tu mayor reto hoy?\n\n(atención a clientes, pedidos por WA, pagos, contabilidad, otro)`, 800); }
+    else if (phase === 'reto') { const upd = { ...col, reto: v }; setCol(upd); setPhase('ai'); callGPT(col.negocio, v); }
+    else if (phase === 'capture') { saveLead(v.split(' ')[0], v, col.negocio, col.reto); setPhase('done'); addBot(`¡Gracias! ✅\nUn especialista de GENyx te contacta en menos de 24 horas.\n\n📧 hola@genyxsystems.com`, 900); }
+  }
+
+  const ph = phase === 'negocio' ? 'Ej: panadería, restaurante...' : phase === 'reto' ? 'Ej: muchos mensajes sin responder...' : phase === 'capture' ? 'Tu nombre + WhatsApp o email...' : '';
+
+  return (
+    <>
+      {open && (
+        <div style={{ position:'fixed', bottom:88, right:24, width:340, maxHeight:500, zIndex:9999, background:'#0f172a', border:'1px solid rgba(99,102,241,0.3)', borderRadius:20, boxShadow:'0 24px 64px rgba(0,0,0,0.55)', display:'flex', flexDirection:'column', overflow:'hidden', fontFamily:"'Inter',sans-serif" }}>
+          <div style={{ background:`linear-gradient(135deg,${BC},${BD})`, padding:'14px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
+            <div style={{ display:'flex', alignItems:'center', gap:10 }}>
+              <div style={{ width:8, height:8, borderRadius:'50%', background:'#4ade80', boxShadow:'0 0 8px #4ade80' }} />
+              <div>
+                <p style={{ color:'#fff', fontWeight:700, fontSize:13, margin:0 }}>GENyx Asistente</p>
+                <p style={{ color:'rgba(255,255,255,0.7)', fontSize:10, margin:0 }}>Responde en segundos · IA</p>
+              </div>
+            </div>
+            <button onClick={() => setOpen(false)} style={{ background:'none', border:'none', color:'rgba(255,255,255,0.7)', cursor:'pointer', fontSize:20, lineHeight:1, padding:'2px 6px', borderRadius:6 }}>×</button>
+          </div>
+          <div style={{ flex:1, overflowY:'auto', padding:'14px 14px 8px', display:'flex', flexDirection:'column', gap:10 }}>
+            {msgs.map((m, i) => (
+              <div key={i} style={{ display:'flex', justifyContent:m.from==='user'?'flex-end':'flex-start' }}>
+                <div style={{ maxWidth:'84%', padding:'9px 13px', borderRadius:m.from==='user'?'16px 16px 4px 16px':'16px 16px 16px 4px', background:m.from==='user'?BC:'rgba(255,255,255,0.07)', color:m.from==='user'?'#fff':'#cbd5e1', fontSize:13, lineHeight:1.65, whiteSpace:'pre-line' }}>{m.text}</div>
+              </div>
+            ))}
+            {typing && (<div style={{ display:'flex', alignItems:'center', gap:5, padding:'8px 12px', background:'rgba(255,255,255,0.07)', borderRadius:'16px 16px 16px 4px', width:'fit-content' }}>{[0,1,2].map(i => (<div key={i} style={{ width:6, height:6, borderRadius:'50%', background:'#64748b', animation:`gcb ${1.2}s ${i*0.2}s infinite` }} />))}</div>)}
+            {phase==='done' && (<a href="mailto:hola@genyxsystems.com" style={{ display:'block', marginTop:8, background:`linear-gradient(135deg,${BC},${BD})`, color:'#fff', textAlign:'center', padding:'10px 16px', borderRadius:10, fontSize:12, fontWeight:700, textDecoration:'none' }}>📧 hola@genyxsystems.com</a>)}
+            <div ref={botRef} />
+          </div>
+          {phase !== 'done' && (
+            <div style={{ padding:'8px 12px 12px', borderTop:'1px solid rgba(255,255,255,0.06)', display:'flex', gap:8 }}>
+              <input ref={inpRef} value={inp} onChange={e => setInp(e.target.value)} onKeyDown={e => { if (e.key==='Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); } }} placeholder={ph} disabled={typing} style={{ flex:1, background:'rgba(255,255,255,0.07)', border:'1px solid rgba(99,102,241,0.25)', borderRadius:10, padding:'8px 12px', color:'#f1f5f9', fontSize:13, outline:'none', opacity:typing?0.5:1 }} />
+              <button onClick={handleSend} disabled={!inp.trim()||typing} style={{ background:BC, color:'#fff', border:'none', borderRadius:10, padding:'8px 14px', cursor:inp.trim()&&!typing?'pointer':'default', opacity:inp.trim()&&!typing?1:0.45, fontSize:15, fontWeight:700 }}>→</button>
+            </div>
+          )}
+        </div>
+      )}
+      <button onClick={() => { setOpen(o => !o); setPulse(false); }} style={{ position:'fixed', bottom:24, right:24, zIndex:9999, width:58, height:58, borderRadius:'50%', background:open?BD:`linear-gradient(135deg,${BC},${BD})`, border:'none', cursor:'pointer', color:'#fff', fontSize:23, boxShadow:'0 4px 24px rgba(99,102,241,0.55)', transition:'all 0.25s', display:'flex', alignItems:'center', justifyContent:'center' }} aria-label="Chat con GENyx">
+        {open ? '×' : '💬'}
+        {pulse && !open && (<span style={{ position:'absolute', top:-2, right:-2, width:14, height:14, background:'#4ade80', borderRadius:'50%', border:'2px solid #050508' }} />)}
+      </button>
+      <style>{`@keyframes gcb { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-5px)} }`}</style>
+    </>
+  );
+}
+
 // ── GENyx Systems Landing Page — Diseño Aprobado (genyxsystems.com) ────────
 function GENyxLandingPage() {
   const [scrolled, setScrolled] = React.useState(false);
@@ -2214,12 +2301,12 @@ function GENyxLandingPage() {
   }, []);
 
   const features = [
-    ['🤖', 'Agente de Ventas IA', 'Atiende a tus clientes en WhatsApp, responde preguntas, toma pedidos y cierra ventas — 24/7, sin que estés presente.'],
+    ['🤖', 'Agente de Ventas IA', 'Atiende a tus clientes, responde preguntas, arma pedidos y cierra ventas — 24/7, sin que estés presente.'],
     ['💳', 'Pagos Automatizados', 'Genera links de Stripe directamente en el chat. El cliente paga en segundos, tú recibes la notificación al instante.'],
+    ['🌐', 'Omnicanal — WA · Web · IG', 'Un solo agente atiende en WhatsApp, tu sitio web y DMs de Instagram. Tus clientes te encuentran donde ya están.'],
     ['📊', 'Dashboard de Control', 'Pedidos en vivo, KPIs, inventario, expediente y costeador. Tu negocio en un solo panel desde cualquier lugar.'],
-    ['📱', 'WhatsApp Business', 'Integración oficial con la API de Meta. Mensajes verificados, multicanal y sin costo adicional por chat.'],
-    ['🎯', 'Elimina el 85% de Curiosos', 'Tu IA filtra prospectos y solo avanza con quienes tienen intención real de compra. Menos ruido, más cierres.'],
-    ['🔒', 'Seguridad Total', 'Tus datos son tuyos. Infraestructura en la nube con respaldos automáticos y acceso protegido.'],
+    ['🎯', 'Filtra el 85% de Curiosos', 'Tu IA avanza solo con quienes tienen intención real de compra. Menos ruido, más energía para los cierres que importan.'],
+    ['⚡', 'En vivo en 48 horas', 'Sesión de ADN → configuración → bot vendiendo. Sin meses de implementación, sin código, sin consultor caro.'],
   ];
   const steps = [
     ['01', 'Sesión de ADN', 'Te escuchamos. Entendemos tu negocio, menú, reglas de venta y personalidad de marca. 45 minutos.'],
@@ -2295,7 +2382,7 @@ function GENyxLandingPage() {
         <div style={C.glow} />
         <div style={C.badge}><span style={C.dot} />IA · OMNICANAL · WHATSAPP · VENTAS 24/7</div>
         <h1 style={C.h1}>Más cierres.<br /><span style={C.h1accent}>Sin más personal.</span></h1>
-        <p style={C.sub}>Equipo de ventas saturado, muchos leads y pocos cierres. GENyx instala un agente de IA que filtra el 85% de curiosos, atiende 24/7 por WhatsApp y cobra — sin contratar personal extra.</p>
+        <p style={C.sub}>¿Respondes los mismos WhatsApps 40 veces al día? ¿Muchos interesados, pocos cierres, equipo saturado? GENyx instala un agente de IA que filtra curiosos, atiende 24/7 — omnicanal — y cobra. Sin contratar a nadie.</p>
         <div style={C.btns}>
           <a href="#contacto" style={C.primary}>Agenda tu Demo Gratis →</a>
           <a href="#proceso" style={C.secondary}>¿Cómo funciona?</a>
@@ -2353,6 +2440,7 @@ function GENyxLandingPage() {
         </div>
       </div>
 
+      <GENyxConciergeWidget />
       <footer style={C.footer}>
         <span style={C.ftrBrand}>GENyx <span style={{ color: '#4f46e5' }}>Sys.</span> © 2026</span>
         <div style={C.ftrLinks}>
