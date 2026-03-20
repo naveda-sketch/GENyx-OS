@@ -1352,6 +1352,55 @@ const EXPEDIENTE_DOCS = [
 ];
 
 
+
+// ── Aviso de Privacidad — Panadería Paty HomeBakery (para compradores) ────────
+function PatyPrivacyPage() {
+  const LS = { fontFamily: 'Inter, sans-serif', minHeight: '100vh', background: '#faf9f7', color: '#292524', padding: '40px 20px', maxWidth: 680, margin: '0 auto' };
+  const H1 = { fontSize: 22, fontWeight: 800, color: '#78350f', marginBottom: 6 };
+  const H2 = { fontSize: 14, fontWeight: 700, color: '#44403c', margin: '22px 0 8px', borderBottom: '1px solid #e7e5e4', paddingBottom: 6 };
+  const P  = { fontSize: 13, lineHeight: 1.75, color: '#57534e', marginBottom: 10 };
+  const HL = { color: '#78350f', fontWeight: 700 };
+  return (
+    <div style={{ background: '#faf9f7', minHeight: '100vh' }}>
+      <div style={LS}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 28 }}>
+          <a href="/" style={{ color: '#78350f', fontSize: 13, textDecoration: 'none' }}>&#x2190; Inicio</a>
+        </div>
+        <h1 style={H1}>Aviso de Privacidad</h1>
+        <p style={{ ...P, color: '#a8a29e', fontSize: 11 }}>Panaderia Paty HomeBakery &middot; Version 1.0 &middot; Ultima actualizacion: Marzo 2026 &middot; Conforme a LFPDPPP</p>
+        <h2 style={H2}>1. Responsable del Tratamiento</h2>
+        <p style={P}><span style={HL}>Panaderia Paty HomeBakery</span>, un negocio de produccion artesanal de alimentos con base en Guadalajara, Jalisco, Mexico.<br />Contacto: <span style={HL}>paty@patyhomebakery.com</span></p>
+        <h2 style={H2}>2. Datos Personales que Recopilamos</h2>
+        <p style={P}>Al realizar un pedido a traves de WhatsApp o nuestra pagina web, recopilamos:<br />
+          &bull; <span style={HL}>Nombre</span> — para personalizar tu pedido<br />
+          &bull; <span style={HL}>Numero de WhatsApp</span> — para confirmar y coordinar tu entrega<br />
+          &bull; <span style={HL}>Direccion de entrega</span> — unicamente cuando solicitas envio a domicilio<br />
+          &bull; <span style={HL}>Historial de pedidos</span> — para agilizar compras futuras
+        </p>
+        <h2 style={H2}>3. Para Que Usamos Tus Datos</h2>
+        <p style={P}>
+          &bull; Procesar y confirmar tu pedido de pan artesanal<br />
+          &bull; Coordinar la entrega o recoleccion en tienda<br />
+          &bull; Enviarte el link de pago seguro (Stripe)<br />
+          &bull; Notificarte cuando tu pedido este listo<br />
+          &bull; Atender dudas o cambios en tu pedido
+        </p>
+        <h2 style={H2}>4. Con Quien Compartimos Tus Datos</h2>
+        <p style={P}>
+          &bull; <span style={HL}>GENyx Systems</span> — plataforma tecnologica que opera el asistente de ventas. Solo procesa tus mensajes para gestionar el pedido.<br />
+          &bull; <span style={HL}>Stripe</span> — procesador de pagos seguro. Tus datos de pago nunca pasan por nosotros.<br />
+          Ningun otro tercero tiene acceso a tus datos.
+        </p>
+        <h2 style={H2}>5. Tus Derechos (ARCO)</h2>
+        <p style={P}>Puedes ejercer tus derechos de Acceso, Rectificacion, Cancelacion u Oposicion enviando un mensaje por WhatsApp al <span style={HL}>+52 (33) 2622-0697</span> o escribiendo a <span style={HL}>paty@patyhomebakery.com</span>. Respondemos en un maximo de 5 dias habiles.</p>
+        <h2 style={H2}>6. Seguridad</h2>
+        <p style={P}>Tus datos se almacenan en servidores con acceso restringido. No vendemos ni compartimos tu informacion con fines publicitarios.</p>
+        <p style={{ ...P, marginTop: 32, fontSize: 11, color: '#a8a29e', borderTop: '1px solid #e7e5e4', paddingTop: 16 }}>Panaderia Paty HomeBakery &middot; Guadalajara, Jalisco, Mexico &middot; paty@patyhomebakery.com</p>
+      </div>
+    </div>
+  );
+}
+
 // ── Legal Pages (✕ /terminos ✕ /privacidad) ────────────────────────────────
 function LegalPage({ tipo }) {
   const isTC = tipo === 'terminos';
@@ -1393,8 +1442,14 @@ function LegalPage({ tipo }) {
             <p style={P}>Queda prohibido usar la Plataforma para vender productos ilegales, enviar spam, o intentar vulnerar el código o infraestructura de GENyx.</p>
             <h2 style={H2}>8. Propiedad Intelectual</h2>
             <p style={P}>El código, algoritmos, prompts, ADN del bot, flujos de venta y herramientas son propiedad exclusiva de GENyx. El Cliente retiene derechos sobre su catálogo, recetas y marca.</p>
-            <h2 style={H2}>9. Jurisdicción</h2>
-            <p style={P}>Ley aplicable: Estados Unidos Mexicanos. Jurisdicción: Tribunales Federales de Guadalajara, Jalisco.</p>
+            <h2 style={H2}>9. Jurisdiccion</h2>
+            <p style={P}>Ley aplicable: Estados Unidos Mexicanos. Jurisdiccion: Tribunales Federales de Guadalajara, Jalisco. Previo a cualquier litigio, las partes se someten a mediacion ante el CANACO-GDL.</p>
+            <h2 style={H2}>10. Terminacion del Servicio</h2>
+            <p style={P}>El Cliente puede cancelar con <strong>30 dias naturales de aviso</strong> por escrito a legal@genyxsystems.com. GENyx puede rescindir anticipadamente por incumplimiento de pago o uso indebido. Al terminar: (i) GENyx entregara un export CSV de los datos del Cliente dentro de 15 dias; (ii) GENyx eliminara los datos de sus servidores en un plazo maximo de 60 dias; (iii) el numero WA permanecera en custodia de GENyx, salvo acuerdo expreso de portabilidad.</p>
+            <h2 style={H2}>11. SLA y Creditos</h2>
+            <p style={P}>GENyx garantiza una <strong>disponibilidad mensual del 99.0%</strong> del bot y el Centro de Mando, excluyendo mantenimientos programados (notificados 24h antes) e interrupciones de terceros (Meta, OpenAI, Stripe, Render, Vercel). Si la disponibilidad cae por debajo del 99.0% en un mes calendario por causa atribuible a GENyx, el Cliente recibe un <strong>credito equivalente a 5 dias de servicio</strong> aplicado en la siguiente factura. Maximo 30 dias de credito por anio.</p>
+            <h2 style={H2}>12. Comision de Procesamiento</h2>
+            <p style={P}>GENyx descuenta automaticamente una <strong>comision del [X]% por transaccion</strong> procesada via Stripe Connect antes de la liquidacion al Cliente. El porcentaje especifico se establece en el Anexo de Servicios firmado por ambas partes. Dicho porcentaje puede ajustarse con 30 dias de aviso por escrito.</p>
             <p style={{ ...P, marginTop: 24, fontSize: 11, color: '#a8a29e' }}>Consultas: legal@genyxsystems.com</p>
           </>
         ) : (
@@ -2219,7 +2274,7 @@ function GENyxConciergeWidget() {
   const inpRef = React.useRef(null);
 
   React.useEffect(() => { const t = setTimeout(() => setPulse(false), 8000); return () => clearTimeout(t); }, []);
-  React.useEffect(() => { if (open && msgs.length === 0) addBot('¡Hola! �� Soy el asistente de GENyx Systems.\n¿En qué tipo de negocio trabajas? (panadería, restaurante, tienda, clínica, otro...)'); }, [open]);
+  React.useEffect(() => { if (open && msgs.length === 0) addBot('Hola! Soy tu asistente IA de GENyx Systems.\n\n¿En que tipo de negocio trabajas?\n(panaderia, restaurante, tienda, clinica, agencia, otro...'); }, [open]);
   React.useEffect(() => { botRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [msgs, typing]);
   React.useEffect(() => { if (open && phase !== 'done') setTimeout(() => inpRef.current?.focus(), 150); }, [open, phase]);
 
@@ -2382,7 +2437,10 @@ function GENyxLandingPage() {
         <div style={C.glow} />
         <div style={C.badge}><span style={C.dot} />IA · OMNICANAL · WHATSAPP · VENTAS 24/7</div>
         <h1 style={C.h1}>Más cierres.<br /><span style={C.h1accent}>Sin más personal.</span></h1>
-        <p style={C.sub}>¿Respondes los mismos WhatsApps 40 veces al día? ¿Muchos interesados, pocos cierres, equipo saturado? GENyx instala un agente de IA que filtra curiosos, atiende 24/7 — omnicanal — y cobra. Sin contratar a nadie.</p>
+        <p st
+        <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(74,222,128,0.1)', border:'1px solid rgba(74,222,128,0.35)', color:'#4ade80', fontSize:12, fontWeight:700, padding:'7px 22px', borderRadius:30, marginBottom:16 }}>
+          &#x2713; Tu no programas nada &mdash; Nosotros montamos tu bot en 24 horas.
+        </div>yle={C.sub}>¿Respondes los mismos WhatsApps 40 veces al día? ¿Muchos interesados, pocos cierres, equipo saturado? GENyx instala un agente de IA que filtra curiosos, atiende 24/7 — omnicanal — y cobra. Sin contratar a nadie.</p>
         <div style={C.btns}>
           <a href="#contacto" style={C.primary}>Agenda tu Demo Gratis →</a>
           <a href="#proceso" style={C.secondary}>¿Cómo funciona?</a>
@@ -2411,6 +2469,50 @@ function GENyxLandingPage() {
               <div style={C.cardIcon}>{ico}</div>
               <h3 style={C.cardH}>{t}</h3>
               <p style={C.cardP}>{d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── ADN de tu Marca ── */}
+      <section style={{ padding:'0 24px 100px', maxWidth:960, margin:'0 auto' }}>
+        <div style={{ background:'linear-gradient(135deg,rgba(99,102,241,0.08),rgba(139,92,246,0.08))', border:'1px solid rgba(99,102,241,0.2)', borderRadius:24, padding:'40px 48px', display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))', gap:40, alignItems:'center' }}>
+          <div>
+            <div style={{ fontSize:12, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12 }}>NO ES UN CONTESTADOR AUTOMATICO</div>
+            <h2 style={{ fontSize:32, fontWeight:900, color:'#f1f5f9', lineHeight:1.2, marginBottom:16 }}>Asistente con<br /><span style={{ background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>ADN de tu Marca</span></h2>
+            <p style={{ color:'#64748b', lineHeight:1.8, fontSize:14 }}>No solo "da información". Tu agente entiende regionalismos, interpreta notas de voz, lee entre lineas y guia al cliente hacia la compra — con la personalidad y calidez de tu negocio.</p>
+          </div>
+          <div style={{ display:'flex', flexDirection:'column', gap:14 }}>
+            {[
+              ['��️', 'Entiende notas de voz', 'Transcribe y responde audios de WhatsApp en segundos'],
+              ['🗣️', 'Habla como tu cliente', 'Regionalismos, abreviaciones y hasta emojis — sin respuestas roboticas'],
+              ['🧠', 'Asesora, no solo informa', 'Detecta lo que el cliente necesita y recomienda antes de que pregunte'],
+              ['🤝', 'Cierra, no solo responde', 'Lleva al cliente del interes al carrito sin friccion ni esfuerzo humano'],
+            ].map(([ico, t, d]) => (
+              <div key={t} style={{ display:'flex', gap:14, alignItems:'flex-start' }}>
+                <div style={{ fontSize:22, flexShrink:0, marginTop:2 }}>{ico}</div>
+                <div>
+                  <div style={{ color:'#f1f5f9', fontWeight:700, fontSize:14, marginBottom:3 }}>{t}</div>
+                  <div style={{ color:'#64748b', fontSize:12, lineHeight:1.6 }}>{d}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Soluciones por Industria ── */}
+      <section style={{ padding:'0 24px 100px', maxWidth:1000, margin:'0 auto', textAlign:'center' }}>
+        <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12 }}>NUESTRO SISTEMA ES PARA TODOS</div>
+        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:10 }}>Soluciones por Industria</h2>
+        <p style={{ color:'#64748b', marginBottom:40, fontSize:15 }}>Si tu negocio tiene clientes y les vendes por mensaje — GENyx es para ti.</p>
+        <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(140px,1fr))', gap:14 }}>
+          {[['🥖','Panaderias y Pastelerias'],['🍕','Restaurantes y Fondas'],['🌿','Productos Naturales'],['💄','Belleza y Cosmeticos'],['🏋','Fitness y Bienestar'],['🐾','Veterinarias'],['🏠','Inmobiliarias'],['📚','Educacion y Cursos'],['🔧','Servicios a Domicilio'],['🎉','Eventos y Catering'],['👗','Moda y Ropa'],['💊','Farmacias y Suplementos']].map(([ico, label]) => (
+            <div key={label} style={{ background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.07)', borderRadius:14, padding:'18px 12px', transition:'all 0.2s' }}
+              onMouseOver={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.4)'; e.currentTarget.style.background='rgba(99,102,241,0.06)'; }}
+              onMouseOut={e => { e.currentTarget.style.borderColor='rgba(255,255,255,0.07)'; e.currentTarget.style.background='rgba(255,255,255,0.03)'; }}>
+              <div style={{ fontSize:28, marginBottom:8 }}>{ico}</div>
+              <div style={{ fontSize:11, color:'#94a3b8', lineHeight:1.4, fontWeight:600 }}>{label}</div>
             </div>
           ))}
         </div>
@@ -2602,6 +2704,7 @@ export default function GENyxOperatorDashboard() {
   // ―― Ticket de compra post-Stripe (?pago=exitoso&sid=cs_live_...) ―――――
   const _qp = new URLSearchParams(window.location.search);
   if (_qp.get('pago') === 'exitoso') return <TicketPage sid={_qp.get('sid')} />;
+  if (_path === '/paty-privacidad') return <PatyPrivacyPage />;
   if (_qp.get('pago') === 'cancelado') return (
     <div style={{ minHeight:'100vh', background:'#05080f', display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Inter',sans-serif" }}>
       <div style={{ textAlign:'center', padding:40, maxWidth:440 }}>
