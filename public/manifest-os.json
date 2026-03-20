@@ -1,0 +1,14 @@
+{
+  "name": "GenYX OS",
+  "short_name": "GenYX OS",
+  "description": "Operator Control Center — GenYX Systems",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060912",
+  "theme_color": "#6366f1",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/genyx-logo.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/genyx-logo.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

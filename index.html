@@ -23,17 +23,26 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="theme-color" id="pwa-theme" content="#060912" />
 
-    <!-- Ajusta manifest y theme según dominio -->
+    <!-- Ajusta manifest y theme según dominio + path -->
     <script>
       (function() {
         var h = window.location.hostname;
-        if (h.startsWith('mando')) {
+        var p = window.location.pathname;
+        var isMandoPaty = h.startsWith('mando.') && p.startsWith('/panaderia-paty');
+        var isOS = h.startsWith('os.') || (h.startsWith('mando.') && !p.startsWith('/panaderia-paty'));
+        if (isMandoPaty) {
           document.title = 'Paty HomeBakery — Centro de Mando';
           document.getElementById('pwa-manifest').href = '/manifest-paty.json';
           document.getElementById('pwa-theme').content = '#92400e';
           document.querySelector('meta[name="apple-mobile-web-app-title"]').content = 'Mando Paty';
+        } else if (isOS) {
+          document.title = 'GenYX OS — Operator Control Center';
+          document.getElementById('pwa-manifest').href = '/manifest-os.json';
+          document.getElementById('pwa-theme').content = '#6366f1';
+          document.querySelector('meta[name="apple-mobile-web-app-title"]').content = 'GenYX OS';
+          document.querySelector('link[rel="apple-touch-icon"]').href = '/genyx-logo.png';
         } else if (h.includes('genyxsystems') || h.includes('genyx')) {
-          document.title = 'GENyx Systems — Ventas IA para Artesanos';
+          document.title = 'GenYX Systems — Ventas IA para Artesanos';
           document.getElementById('pwa-theme').content = '#818cf8';
         }
       })();
