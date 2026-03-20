@@ -1,4 +1,12 @@
 {
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://genyxsystems.com/$1",
+      "has": [{ "type": "host", "value": "xyon-platform.vercel.app" }],
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
