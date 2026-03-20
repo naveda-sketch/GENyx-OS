@@ -1353,6 +1353,84 @@ const EXPEDIENTE_DOCS = [
 
 
 
+
+// ── Términos de Compra — Panadería Paty HomeBakery ───────────────────────────
+function PatyTermsPage() {
+  const LS = { fontFamily: 'Inter, sans-serif', minHeight: '100vh', background: '#faf9f7', color: '#292524', padding: '40px 20px', maxWidth: 680, margin: '0 auto' };
+  const H1 = { fontSize: 22, fontWeight: 800, color: '#78350f', marginBottom: 6 };
+  const H2 = { fontSize: 14, fontWeight: 700, color: '#44403c', margin: '22px 0 8px', borderBottom: '1px solid #e7e5e4', paddingBottom: 6 };
+  const P  = { fontSize: 13, lineHeight: 1.75, color: '#57534e', marginBottom: 10 };
+  const HL = { color: '#78350f', fontWeight: 700 };
+  const TR = { fontSize: 12, color: '#57534e', borderBottom: '1px solid #e7e5e4' };
+  const TH = { fontSize: 11, fontWeight: 700, color: '#44403c', padding: '8px 12px', background: '#f5f5f4', textAlign: 'left' };
+  const TD = { fontSize: 12, color: '#57534e', padding: '8px 12px' };
+  const rows = [
+    ['Pan de masa madre (Hogaza, Baguette, Pan de Caja)', '2 dias habiles'],
+    ['Pan dulce, roles, galletas', '1 dia habil'],
+    ['Bebidas naturales (shots, jugos)', '1 dia habil'],
+  ];
+  const refund = [
+    ['Cancelacion antes de iniciar la preparacion', 'Reembolso total en 3-5 dias habiles'],
+    ['Cancelacion despues de iniciar la preparacion', 'Sin reembolso (producto artesanal perecedero)'],
+    ['Producto llegó dañado o incorrecto', 'Reposicion del producto o reembolso total'],
+    ['Error de entrega por datos incorrectos del cliente', 'Sin reembolso'],
+  ];
+  return (
+    <div style={{ background: '#faf9f7', minHeight: '100vh' }}>
+      <div style={LS}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 28 }}>
+          <a href="/" style={{ color: '#78350f', fontSize: 13, textDecoration: 'none' }}>&#x2190; Inicio</a>
+        </div>
+        <h1 style={H1}>Terminos y Condiciones de Compra</h1>
+        <p style={{ ...P, color: '#a8a29e', fontSize: 11 }}>Panaderia Paty HomeBakery &middot; Version 1.0 &middot; Marzo 2026</p>
+
+        <h2 style={H2}>1. Quienes Somos</h2>
+        <p style={P}><span style={HL}>Panaderia Paty HomeBakery</span> — panaderia artesanal. Magnolias 111, Bugambilias, Zapopan, Jalisco. WhatsApp: <span style={HL}>+52 (33) 2622-0697</span></p>
+
+        <h2 style={H2}>2. Confirmacion de Pedidos</h2>
+        <p style={P}>El pedido queda confirmado unicamente cuando se recibe el pago completo mediante el link de Stripe. Nos reservamos el derecho de cancelar por fuerza mayor con reembolso total.</p>
+
+        <h2 style={H2}>3. Tiempos de Preparacion</h2>
+        <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: 12 }}>
+          <thead><tr><th style={TH}>Producto</th><th style={TH}>Preparacion</th></tr></thead>
+          <tbody>{rows.map(([p, t]) => <tr key={p} style={TR}><td style={TD}>{p}</td><td style={{ ...TD, fontWeight: 700 }}>{t}</td></tr>)}</tbody>
+        </table>
+        <p style={{ ...P, fontSize: 12 }}>Un pedido = una fecha de entrega. Productos con fechas distintas requieren pedidos separados.</p>
+
+        <h2 style={H2}>4. Entrega</h2>
+        <p style={P}>
+          <span style={HL}>Recoleccion en tienda:</span> Magnolias 111, Bugambilias. Sin costo.<br />
+          <span style={HL}>Domicilio:</span> Costo segun kilometros desde tienda (gratis primeros 5 km). Paty no se hace responsable por demoras del servicio de mensajeria una vez recogido el pedido.
+        </p>
+
+        <h2 style={H2}>5. Precios y Pago</h2>
+        <p style={P}>Precios en pesos MXN. Pago exclusivo por link de <span style={HL}>Stripe</span> (tarjeta). No se aceptan efectivo ni transferencias. El link vence en 24 horas.</p>
+
+        <h2 style={H2}>6. Cancelaciones y Reembolsos</h2>
+        <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: 12 }}>
+          <thead><tr><th style={TH}>Escenario</th><th style={TH}>Politica</th></tr></thead>
+          <tbody>{refund.map(([s, p]) => <tr key={s} style={TR}><td style={TD}>{s}</td><td style={TD}>{p}</td></tr>)}</tbody>
+        </table>
+        <p style={{ ...P, fontSize: 12 }}>Reporta problemas al WhatsApp dentro de las primeras 2 horas de recibir tu pedido.</p>
+
+        <h2 style={H2}>7. Alergenos y Seguridad Alimentaria</h2>
+        <p style={P}>Elaboramos en cocina artesanal con: <span style={HL}>gluten (trigo), lacteos, huevo, frutos secos y semillas</span>. Informa tus alergias antes del pedido. Paty no se hace responsable por reacciones por informacion incorrecta del cliente.</p>
+
+        <h2 style={H2}>8. Calidad y Conservacion</h2>
+        <p style={P}>Productos artesanales sin conservadores artificiales. Consume segun indicaciones del empaque. Una vez entregado en condiciones optimas, la conservacion es responsabilidad del cliente.</p>
+
+        <h2 style={H2}>9. Privacidad</h2>
+        <p style={P}>Al comprar aceptas nuestro <a href="/paty-privacidad" style={{ color: '#78350f' }}>Aviso de Privacidad</a> conforme a LFPDPPP.</p>
+
+        <h2 style={H2}>10. Jurisdiccion</h2>
+        <p style={P}>Ley aplicable: Mexico. Jurisdiccion: Guadalajara, Jalisco.</p>
+
+        <p style={{ ...P, marginTop: 32, fontSize: 11, color: '#a8a29e', borderTop: '1px solid #e7e5e4', paddingTop: 16 }}>Panaderia Paty HomeBakery &middot; +52 (33) 2622-0697 &middot; Magnolias 111, Bugambilias, Zapopan, Jal.</p>
+      </div>
+    </div>
+  );
+}
+
 // ── Aviso de Privacidad — Panadería Paty HomeBakery (para compradores) ────────
 function PatyPrivacyPage() {
   const LS = { fontFamily: 'Inter, sans-serif', minHeight: '100vh', background: '#faf9f7', color: '#292524', padding: '40px 20px', maxWidth: 680, margin: '0 auto' };
@@ -2704,6 +2782,7 @@ export default function GENyxOperatorDashboard() {
   // ―― Ticket de compra post-Stripe (?pago=exitoso&sid=cs_live_...) ―――――
   const _qp = new URLSearchParams(window.location.search);
   if (_qp.get('pago') === 'exitoso') return <TicketPage sid={_qp.get('sid')} />;
+  if (_path === '/paty-terminos') return <PatyTermsPage />;
   if (_path === '/paty-privacidad') return <PatyPrivacyPage />;
   if (_qp.get('pago') === 'cancelado') return (
     <div style={{ minHeight:'100vh', background:'#05080f', display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Inter',sans-serif" }}>
