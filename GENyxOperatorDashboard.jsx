@@ -2797,8 +2797,8 @@ export default function GENyxOperatorDashboard() {
   // ―― Ticket de compra post-Stripe (?pago=exitoso&sid=cs_live_...) ―――――
   const _qp = new URLSearchParams(window.location.search);
   if (_qp.get('pago') === 'exitoso') return <TicketPage sid={_qp.get('sid')} />;
-  if (_path === '/paty-terminos') return <PatyTermsPage />;
-  if (_path === '/paty-privacidad') return <PatyPrivacyPage />;
+  if (path === '/paty-terminos') return <PatyTermsPage />;
+  if (path === '/paty-privacidad') return <PatyPrivacyPage />;
   if (_qp.get('pago') === 'cancelado') return (
     <div style={{ minHeight:'100vh', background:'#05080f', display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Inter',sans-serif" }}>
       <div style={{ textAlign:'center', padding:40, maxWidth:440 }}>
