@@ -13,7 +13,7 @@ const getAH = () => ({
 });
 const isAuthed = () => !!sessionStorage.getItem('genyx_admin_key');
 
-const fmt = (x) => new Date(x).toLocaleString('es-MX', { dateStyle: 'short', timeStyle: 'short' });
+const fmt = (x) => { try { const d = new Date(typeof x === 'string' && !x.includes('Z') && !x.includes('+') ? x + 'Z' : x); return d.toLocaleString('es-MX', { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'America/Mexico_City' }); } catch(e) { return x || '—'; } };
 const $$ = (n) => ((isFinite(n) && !isNaN(n)) ? n : 0).toLocaleString('es-MX', { style: 'currency', currency: 'MXN', maximumFractionDigits: 0 });
 
 // ── Status badge ────────────────────────────────────────────────────────────
@@ -204,19 +204,22 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
 const TabOrdenes = ({ orders, tenants, loading }) => {
   const [selectedSlug, setSelectedSlug] = useState('all');
 
+  // Only paid orders — filter by Stripe confirmed status
+  const paidOrders = orders.filter(o => o.status === 'paid');
+  const toUtc = (s) => new Date(typeof s === 'string' && !s.includes('Z') && !s.includes('+') ? s + 'Z' : s);
   const today = new Date(); today.setHours(0, 0, 0, 0);
-  const todayOrders = orders.filter(o => o.created_at && new Date(o.created_at) >= today);
-  const weekOrders = orders.filter(o => {
+  const todayOrders = paidOrders.filter(o => o.created_at && toUtc(o.created_at) >= today);
+  const weekOrders = paidOrders.filter(o => {
     if (!o.created_at) return false;
     const d = new Date(); d.setDate(d.getDate() - 7);
-    return new Date(o.created_at) >= d;
+    return toUtc(o.created_at) >= d;
   });
   const weekRevenue = weekOrders.reduce((s, o) => {
     const od = typeof o.order_data === 'object' ? o.order_data : {};
     return s + parseFloat(od.total_estimated || od.total || 0);
   }, 0);
 
-  const displayed = selectedSlug === 'all' ? orders : orders.filter(o => {
+  const displayed = selectedSlug === 'all' ? paidOrders : paidOrders.filter(o => {
     const od = typeof o.order_data === 'object' ? o.order_data : {};
     return od.slug === selectedSlug || o.slug === selectedSlug;
   });
@@ -231,7 +234,7 @@ const TabOrdenes = ({ orders, tenants, loading }) => {
         <KpiCard label="Comandas hoy" value={todayOrders.length} icon="📋" />
         <KpiCard label="Esta semana" value={weekOrders.length} icon="📅" />
         <KpiCard label="Revenue semana" value={$$(weekRevenue)} icon="💰" />
-        <KpiCard label="Total histórico" value={orders.length} icon="📦" />
+        <KpiCard label="Total histórico" value={paidOrders.length} icon="📦" />
       </div>
 
       {/* Filter */}
@@ -1660,14 +1663,26 @@ function MandoClientView({ slug }) {
   }, [token, slug]);
   useEffect(() => { if (tab === 'inv' && token) fetchInventory(); }, [tab, token, fetchInventory]);
 
+  const [invSaveMsg, setInvSaveMsg] = useState(null);
   const patchInventory = async (productName, stock, unit) => {
+    setInvSaveMsg(null);
     try {
       const r = await fetch(`${BACKEND}/api/dashboard/${slug}/inventory`, {
         method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Dashboard-Token': token },
         body: JSON.stringify({ product_name: productName, stock: parseInt(stock) || 0, unit: unit || 'pza', updated_by: 'Propietario' }),
       });
-      if (r.ok) { fetchInventory(); setEditStock(prev => { const n = { ...prev }; delete n[productName]; return n; }); }
-    } catch {}
+      if (r.ok) {
+        fetchInventory();
+        setEditStock(prev => { const n = { ...prev }; delete n[productName]; return n; });
+        setInvSaveMsg({ ok: true, txt: '✅ Guardado' });
+        setTimeout(() => setInvSaveMsg(null), 3000);
+      } else {
+        const err = await r.json().catch(() => ({}));
+        setInvSaveMsg({ ok: false, txt: '❌ Error ' + r.status + ': ' + (err.detail || 'Revisa tu conexion') });
+      }
+    } catch (e) {
+      setInvSaveMsg({ ok: false, txt: '❌ Sin conexion al servidor' });
+    }
   };
   const addInventoryItem = async () => {
     if (!newProd.name.trim()) return;
@@ -2514,11 +2529,11 @@ function GENyxLandingPage() {
       <section style={C.hero}>
         <div style={C.glow} />
         <div style={C.badge}><span style={C.dot} />IA · OMNICANAL · WHATSAPP · VENTAS 24/7</div>
-        <h1 style={C.h1}>Más cierres.<br /><span style={C.h1accent}>Sin más personal.</span></h1>
-        <p st
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(74,222,128,0.1)', border:'1px solid rgba(74,222,128,0.35)', color:'#4ade80', fontSize:12, fontWeight:700, padding:'7px 22px', borderRadius:30, marginBottom:16 }}>
-          &#x2713; Tu no programas nada &mdash; Nosotros montamos tu bot en 24 horas.
-        </div>yle={C.sub}>¿Respondes los mismos WhatsApps 40 veces al día? ¿Muchos interesados, pocos cierres, equipo saturado? GENyx instala un agente de IA que filtra curiosos, atiende 24/7 — omnicanal — y cobra. Sin contratar a nadie.</p>
+          &#x2713; Tu no programas nada — Nosotros montamos tu bot en 24 horas.
+        </div>
+        <h1 style={C.h1}>Más cierres.<br /><span style={C.h1accent}>Sin más personal.</span></h1>
+        <p style={C.sub}>¿Respondes los mismos WhatsApps 40 veces al día? ¿Muchos interesados, pocos cierres, equipo saturado? GENyx instala un agente de IA que filtra curiosos, atiende 24/7 — omnicanal — y cobra. Sin contratar a nadie.</p>
         <div style={C.btns}>
           <a href="#contacto" style={C.primary}>Agenda tu Demo Gratis →</a>
           <a href="#proceso" style={C.secondary}>¿Cómo funciona?</a>
