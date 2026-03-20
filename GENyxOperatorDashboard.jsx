@@ -2577,10 +2577,10 @@ function GENyxLandingPage() {
           </div>
           <div style={{ display:'flex', flexDirection:'column', gap:14 }}>
             {[
-              ['��️', 'Entiende notas de voz', 'Transcribe y responde audios de WhatsApp en segundos'],
-              ['🗣️', 'Habla como tu cliente', 'Regionalismos, abreviaciones y hasta emojis — sin respuestas roboticas'],
-              ['🧠', 'Asesora, no solo informa', 'Detecta lo que el cliente necesita y recomienda antes de que pregunte'],
-              ['🤝', 'Cierra, no solo responde', 'Lleva al cliente del interes al carrito sin friccion ni esfuerzo humano'],
+              [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>, 'Entiende notas de voz', 'Transcribe y responde audios de WhatsApp en segundos'],
+              [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>, 'Habla como tu cliente', 'Regionalismos, abreviaciones y hasta emojis — sin respuestas roboticas'],
+              [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>, 'Asesora, no solo informa', 'Detecta lo que el cliente necesita y recomienda antes de que pregunte'],
+              [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>, 'Cierra, no solo responde', 'Lleva al cliente del interes al carrito sin friccion ni esfuerzo humano'],
             ].map(([ico, t, d]) => (
               <div key={t} style={{ display:'flex', gap:14, alignItems:'flex-start' }}>
                 <div style={{ fontSize:22, flexShrink:0, marginTop:2 }}>{ico}</div>
@@ -2599,13 +2599,20 @@ function GENyxLandingPage() {
         <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12 }}>NUESTRO SISTEMA ES PARA TODOS</div>
         <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:10 }}>Soluciones por Industria</h2>
         <p style={{ color:'#64748b', marginBottom:40, fontSize:15 }}>Si tu negocio tiene clientes y les vendes por mensaje — GenYX es para ti.</p>
-        <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(140px,1fr))', gap:14 }}>
-          {[['🥖','Panaderias y Pastelerias'],['🍕','Restaurantes y Fondas'],['🌿','Productos Naturales'],['💄','Belleza y Cosmeticos'],['🏋','Fitness y Bienestar'],['🐾','Veterinarias'],['🏠','Inmobiliarias'],['📚','Educacion y Cursos'],['🔧','Servicios a Domicilio'],['🎉','Eventos y Catering'],['👗','Moda y Ropa'],['💊','Farmacias y Suplementos']].map(([ico, label]) => (
-            <div key={label} style={{ background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.07)', borderRadius:14, padding:'18px 12px', transition:'all 0.2s' }}
-              onMouseOver={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.4)'; e.currentTarget.style.background='rgba(99,102,241,0.06)'; }}
-              onMouseOut={e => { e.currentTarget.style.borderColor='rgba(255,255,255,0.07)'; e.currentTarget.style.background='rgba(255,255,255,0.03)'; }}>
-              <div style={{ fontSize:28, marginBottom:8 }}>{ico}</div>
-              <div style={{ fontSize:11, color:'#94a3b8', lineHeight:1.4, fontWeight:600 }}>{label}</div>
+        <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(130px,1fr))', gap:12 }}>
+          {[
+            ['PAN','Panaderías y Pastelerías'],['RST','Restaurantes y Fondas'],
+            ['NAT','Productos Naturales'],['BLZ','Belleza y Cosméticos'],
+            ['FIT','Fitness y Bienestar'],['VET','Veterinarias'],
+            ['INM','Inmobiliarias'],['EDU','Educación y Cursos'],
+            ['SRV','Servicios a Domicilio'],['EVT','Eventos y Catering'],
+            ['MOD','Moda y Ropa'],['FAR','Farmacias y Suplementos'],
+          ].map(([code, label]) => (
+            <div key={label} style={{ background:'rgba(6,9,18,0.8)', border:'1px solid rgba(99,102,241,0.2)', borderRadius:12, padding:'20px 12px', transition:'all .2s', cursor:'default' }}
+              onMouseOver={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.6)'; e.currentTarget.style.background='rgba(99,102,241,0.08)'; e.currentTarget.style.transform='translateY(-2px)'; }}
+              onMouseOut={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.2)'; e.currentTarget.style.background='rgba(6,9,18,0.8)'; e.currentTarget.style.transform='translateY(0)'; }}>
+              <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:14, fontWeight:700, color:'#818cf8', letterSpacing:'.06em', marginBottom:10 }}>/{code}</div>
+              <div style={{ fontSize:10, color:'#64748b', lineHeight:1.5, fontWeight:600, textTransform:'uppercase', letterSpacing:'.04em' }}>{label}</div>
             </div>
           ))}
         </div>
