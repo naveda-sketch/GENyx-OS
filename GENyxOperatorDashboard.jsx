@@ -2530,7 +2530,7 @@ function GENyxLandingPage() {
         <div style={C.glow} />
         <div style={C.badge}><span style={C.dot} />IA · OMNICANAL · WHATSAPP · VENTAS 24/7</div>
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(74,222,128,0.1)', border:'1px solid rgba(74,222,128,0.35)', color:'#4ade80', fontSize:12, fontWeight:700, padding:'7px 22px', borderRadius:30, marginBottom:16 }}>
-          &#x2713; Tu no programas nada — Nosotros montamos tu bot en 24 horas.
+          &#x2713; Tu no programas nada — Tu asesor de ventas inteligente, activo en 24 horas.
         </div>
         <h1 style={C.h1}>Más cierres.<br /><span style={C.h1accent}>Sin más personal.</span></h1>
         <p style={C.sub}>¿Respondes los mismos WhatsApps 40 veces al día? ¿Muchos interesados, pocos cierres, equipo saturado? GENyx instala un agente de IA que filtra curiosos, atiende 24/7 — omnicanal — y cobra. Sin contratar a nadie.</p>
