@@ -2337,7 +2337,7 @@ function GENyxConciergeWidget() {
           )}
         </div>
       )}
-      <button onClick={() => { setOpen(o => !o); setPulse(false); }} style={{ position:'fixed', bottom:24, right:24, zIndex:9999, width:58, height:58, borderRadius:'50%', background:open?BD:`linear-gradient(135deg,${BC},${BD})`, border:'none', cursor:'pointer', color:'#fff', fontSize:23, boxShadow:'0 4px 24px rgba(99,102,241,0.55)', transition:'all 0.25s', display:'flex', alignItems:'center', justifyContent:'center' }} aria-label="Chat con GENyx">
+      <button onClick={() => { setOpen(o => !o); setPulse(false); }} style={{ position:'fixed', bottom:28, right:28, zIndex:9999, width:54, height:54, borderRadius:'50%', background:open?BD:`linear-gradient(135deg,${BC},${BD})`, border:'none', cursor:'pointer', color:'#fff', fontSize:23, boxShadow:'0 4px 24px rgba(99,102,241,0.55)', transition:'all 0.25s', display:'flex', alignItems:'center', justifyContent:'center' }} aria-label="Chat con GENyx">
         {open ? '×' : '💬'}
         {pulse && !open && (<span style={{ position:'absolute', top:-2, right:-2, width:14, height:14, background:'#4ade80', borderRadius:'50%', border:'2px solid #050508' }} />)}
       </button>
@@ -2545,7 +2545,7 @@ function GENyxLandingPage() {
       <GENyxConciergeWidget />
       <footer style={C.footer}>
         <span style={C.ftrBrand}>GENyx <span style={{ color: '#4f46e5' }}>Sys.</span> © 2026</span>
-        <div style={C.ftrLinks}>
+        <div style={{ ...C.ftrLinks, paddingRight: 72 }}>
           <a href="/privacidad" style={C.ftrLink}>Privacidad</a>
           <a href="/terminos" style={C.ftrLink}>Términos</a>
           <a href="https://mando.genyxsystems.com" style={C.ftrLink}>Centro de Mando</a>
