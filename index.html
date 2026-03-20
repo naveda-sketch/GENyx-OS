@@ -32,9 +32,9 @@
           document.getElementById('pwa-manifest').href = '/manifest-paty.json';
           document.getElementById('pwa-theme').content = '#92400e';
           document.querySelector('meta[name="apple-mobile-web-app-title"]').content = 'Mando Paty';
-        } else {
-          document.getElementById('pwa-manifest').href = '/manifest-paty.json'; // solo Paty por ahora
-          document.querySelector('link[rel="apple-touch-icon"]').href = '/paty-icon.png';
+        } else if (h.includes('genyxsystems') || h.includes('genyx')) {
+          document.title = 'GENyx Systems — Ventas IA para Artesanos';
+          document.getElementById('pwa-theme').content = '#818cf8';
         }
       })();
     </script>
