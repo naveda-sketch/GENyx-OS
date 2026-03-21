@@ -1572,6 +1572,64 @@ function LegalPage({ tipo }) {
   );
 }
 
+
+// ─── Editar Menú Compacto ────────────────────────────────────────────────────
+function EditarMenuCompacto({ catalog, catLoading, slug, pin, fetchCatalog }) {
+  const [selProd, setSelProd] = React.useState('');
+  const [newPrice, setNewPrice] = React.useState('');
+  const [saving, setSaving] = React.useState(false);
+  const [saveMsg, setSaveMsg] = React.useState(null);
+
+  const selectedProd = catalog.find(p => p.product_name === selProd);
+
+  const handleSave = async () => {
+    if (!selProd || !newPrice || isNaN(parseFloat(newPrice))) return;
+    setSaving(true);
+    const _slug = slug.endsWith('-sales') ? slug : slug + '-sales';
+    try {
+      await fetch(`https://paty-backend-dkzk.onrender.com/api/catalog/${_slug}`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json', 'X-PIN': pin },
+        body: JSON.stringify({ product_name: selProd, price: parseFloat(newPrice), category: selectedProd?.category || 'general' })
+      });
+      setSaveMsg('✅ Precio actualizado');
+      setSelProd(''); setNewPrice('');
+      setTimeout(() => setSaveMsg(null), 3000);
+      fetchCatalog();
+    } catch(e) { setSaveMsg('❌ Error al guardar'); }
+    setSaving(false);
+  };
+
+  if (catLoading) return <div style={{ textAlign: 'center', color: '#a8a29e', padding: 20, fontSize: 13 }}>Cargando menú…</div>;
+  if (!catalog.length) return <div style={{ background: '#fff', borderRadius: 10, padding: 14, color: '#a8a29e', fontSize: 13, textAlign: 'center' }}>Menú no disponible. Recarga el tab de Inventario.</div>;
+
+  return (
+    <div style={{ background: '#fff', borderRadius: 14, padding: 16, boxShadow: '0 2px 14px rgba(0,0,0,0.07)', marginBottom: 14 }}>
+      <div style={{ fontSize: 12, color: '#78716c', marginBottom: 10 }}>
+        Selecciona un producto y actualiza su precio. El cambio se aplica al bot inmediatamente.
+      </div>
+      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center' }}>
+        <select value={selProd} onChange={e => { setSelProd(e.target.value); const p = catalog.find(x => x.product_name === e.target.value); setNewPrice(p ? String(p.price) : ''); }}
+          style={{ flex: 2, minWidth: 180, padding: '8px 10px', borderRadius: 8, border: '1.5px solid #e7d5c0', fontSize: 13, background: '#faf7f2', color: '#44403c', cursor: 'pointer' }}>
+          <option value=''>▼ Selecciona producto del menú</option>
+          {catalog.map(p => <option key={p.product_name} value={p.product_name}>{p.product_name} — ${p.price} MXN</option>)}
+        </select>
+        {selProd && (
+          <>
+            <input type="number" value={newPrice} onChange={e => setNewPrice(e.target.value)}
+              placeholder="Nuevo precio $" min="0"
+              style={{ width: 100, padding: '8px 10px', borderRadius: 8, border: '1.5px solid #e7d5c0', fontSize: 13 }} />
+            <button onClick={handleSave} disabled={saving || !newPrice}
+              style={{ padding: '8px 14px', background: '#92400e', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer', fontWeight: 700, fontSize: 13 }}>
+              {saving ? '…' : 'Guardar $'}
+            </button>
+          </>
+        )}
+      </div>
+      {saveMsg && <div style={{ fontSize: 12, marginTop: 8, color: saveMsg.startsWith('✅') ? '#15803d' : '#dc2626' }}>{saveMsg}</div>}
+    </div>
+  );
+}
+
 function MandoClientView({ slug }) {
   // ── Auth
   const [pin, setPin]             = useState('');
@@ -1682,7 +1740,7 @@ function MandoClientView({ slug }) {
     } catch(e) { console.warn('catalog fetch', e); }
     setCatLoading(false);
   }, [slug, pin]);
-  useEffect(() => { if (tab === 'inv' && token) fetchCatalog(); }, [tab, token, fetchCatalog]);
+  useEffect(() => { if ((tab === 'inv' || tab === 'cost') && token) fetchCatalog(); }, [tab, token, fetchCatalog]);
 
   const [invSaveMsg, setInvSaveMsg] = useState(null);
   const patchInventory = async (productName, stock, unit) => {
@@ -1967,20 +2025,13 @@ function MandoClientView({ slug }) {
             <div style={{ fontSize: 12, fontWeight: 700, color: '#44403c', marginBottom: 10 }}>+ Agregar / Actualizar producto</div>
             <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
               {(() => {
-              {(() => {
-                const catProds = catalog.map(p => p.product_name).sort();
-                return catProds.length > 0 ? (
-                  <select value={newProd.name} onChange={e => setNewProd(p => ({ ...p, name: e.target.value }))}
-                    style={{ ...INP, flex: 2, minWidth: 140 }}>
-                    <option value=''>-- Producto del menú --</option>
-                    {catProds.map(p => <option key={p}>{p}</option>)}
-                  </select>
-                ) : (
-                  <input placeholder='Nombre del producto' value={newProd.name}
-                    onChange={e => setNewProd(p => ({ ...p, name: e.target.value }))}
-                    style={{ ...INP, flex: 2, minWidth: 140 }} />
-                );
-              })()}
+              <datalist id="cat-datalist">
+                {catalog.map(p => <option key={p.product_name} value={p.product_name} />)}
+              </datalist>
+              <input list="cat-datalist" placeholder='▼ Elige o escribe un producto del menú'
+                value={newProd.name}
+                onChange={e => setNewProd(p => ({ ...p, name: e.target.value }))}
+                style={{ ...INP, flex: 2, minWidth: 160, cursor: 'pointer' }} />
               <input placeholder="Stock" type="number" value={newProd.stock} onChange={e => setNewProd(p => ({ ...p, stock: e.target.value }))} style={{ ...INP, width: 70 }} />
               <select value={newProd.unit} onChange={e => setNewProd(p => ({ ...p, unit: e.target.value }))} style={{ ...INP }}>
                 {['pza', 'kg', 'lt', 'paq', 'caja', 'bolsa'].map(u => <option key={u}>{u}</option>)}
@@ -2012,34 +2063,9 @@ function MandoClientView({ slug }) {
             );
           })}
 
-          {/* ═══ EDITAR MENÚ (solo precios) ═══ */}
+          {/* ═══ EDITAR MENÚ (compacto — solo precios) ═══ */}
           <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 8, color: '#44403c', marginTop: 4 }}>📋 Editar Menú · Precios en Vivo</h2>
-          <div style={{ background: '#fdf6ee', borderRadius: 10, padding: '10px 14px', marginBottom: 12, fontSize: 12, color: '#78716c' }}>
-            Toca <b>Editar $</b> para actualizar el precio de un producto en el menú. Los cambios se aplican al bot inmediatamente.
-          </div>
-          {catLoading && <div style={{ textAlign: 'center', color: '#a8a29e', padding: 20, fontSize: 13 }}>Cargando menú…</div>}
-          {!catLoading && catalog.length === 0 && <div style={{ background: '#fff', borderRadius: 14, padding: 16, boxShadow: '0 2px 14px rgba(0,0,0,0.07)', marginBottom: 14, textAlign: 'center', color: '#a8a29e', fontSize: 13 }}>Menú no disponible. Contacta soporte.</div>}
-          {!catLoading && catalog.map(prod => (
-            <div key={prod.product_name} style={{ background: '#fff', borderRadius: 12, padding: '12px 16px', boxShadow: '0 1px 8px rgba(0,0,0,0.06)', marginBottom: 10, display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
-              <div style={{ flex: 1, minWidth: 120 }}>
-                <div style={{ fontWeight: 700, fontSize: 13, color: '#44403c' }}>{prod.product_name}</div>
-                <div style={{ fontSize: 10, color: '#a8a29e', marginTop: 2 }}>{prod.category}</div>
-              </div>
-              <div style={{ fontWeight: 900, fontSize: 15, color: '#92400e', whiteSpace: 'nowrap' }}>${prod.price} MXN</div>
-              <button onClick={async () => {
-                const newPrice = prompt(`Nuevo precio para "${prod.product_name}" (actual: $${prod.price}):`, prod.price);
-                if (!newPrice || isNaN(parseFloat(newPrice))) return;
-                const _slug = slug.endsWith('-sales') ? slug : slug + '-sales';
-                await fetch(`https://paty-backend-dkzk.onrender.com/api/catalog/${_slug}`, {
-                  method: 'POST', headers: { 'Content-Type': 'application/json', 'X-PIN': pin },
-                  body: JSON.stringify({ product_name: prod.product_name, price: parseFloat(newPrice), category: prod.category })
-                });
-                fetchCatalog();
-              }} style={{ padding: '5px 10px', background: '#f5f0eb', border: '1px solid #e7d5c0', borderRadius: 7, cursor: 'pointer', fontSize: 12, color: '#78400e', fontWeight: 700 }}>
-                Editar $
-              </button>
-            </div>
-          ))}
+          <EditarMenuCompacto catalog={catalog} catLoading={catLoading} slug={slug} pin={pin} fetchCatalog={fetchCatalog} />
 
 {/* ═══ TAB: COSTEADOR ═══ */}
         {tab === 'cost' && (<>
@@ -2067,8 +2093,7 @@ function MandoClientView({ slug }) {
               const nextChat = [...aiChat, userMsg];
               setAiChat(nextChat); setAiInput(''); setAiLoading(true);
               try {
-                const _cSlug = slug.endsWith('-sales') ? slug : slug + '-sales';
-                const res = await fetch(`${BURL}/api/costeador/${_cSlug}/chat`, {
+                const res = await fetch(`${BURL}/api/costeador/${slug}/chat`, {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json', 'X-PIN': pin },
                   body: JSON.stringify({ message: userMsg.content, history: nextChat.slice(-10) })
