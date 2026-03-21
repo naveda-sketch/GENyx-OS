@@ -1593,6 +1593,10 @@ function MandoClientView({ slug }) {
   const [invLoading, setInvLoading] = useState(false);
   const [editStock, setEditStock] = useState({});    // {product_name: tmpValue}
   const [newProd, setNewProd]     = useState({ name: '', stock: '', unit: 'pza' });
+  const [catalog, setCatalog]     = useState([]);
+  const [catLoading, setCatLoading] = useState(false);
+  const [catForm, setCatForm]       = useState({ name: '', price: '', category: 'general' });
+  const [catMsg, setCatMsg]         = useState(null);
   // ── Costeador (localStorage)
   const storageKey = `${slug}_cost`;
   const loadCost = () => { try { return JSON.parse(localStorage.getItem(storageKey) || '{"ings":[],"recs":[]}'); } catch { return { ings: [], recs: [] }; } };
@@ -1668,6 +1672,16 @@ function MandoClientView({ slug }) {
     setInvLoading(false);
   }, [token, slug]);
   useEffect(() => { if (tab === 'inv' && token) fetchInventory(); }, [tab, token, fetchInventory]);
+  const fetchCatalog = useCallback(async () => {
+    setCatLoading(true);
+    try {
+      const r = await fetch(`https://paty-backend-dkzk.onrender.com/api/catalog/${slug}`, { headers: { 'X-PIN': pin } });
+      const d = await r.json();
+      setCatalog(d.products || []);
+    } catch(e) { console.warn('catalog fetch', e); }
+    setCatLoading(false);
+  }, [slug, pin]);
+  useEffect(() => { if (tab === 'inv' && token) fetchCatalog(); }, [tab, token, fetchCatalog]);
 
   const [invSaveMsg, setInvSaveMsg] = useState(null);
   const patchInventory = async (productName, stock, unit) => {
@@ -1943,7 +1957,7 @@ function MandoClientView({ slug }) {
             <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
               {(() => {
                 const menuProds = [...new Set(orders.flatMap(o =>
-                  (o.items || []).map(it => it.nombre || it.name).filter(Boolean)
+                  (o.items || o.order_data?.items || []).map(it => it.nombre || it.name).filter(Boolean)
                 ))].sort();
                 return menuProds.length > 0 ? (
                   <select value={newProd.name} onChange={e => setNewProd(p => ({ ...p, name: e.target.value }))}
@@ -1987,6 +2001,69 @@ function MandoClientView({ slug }) {
               </div>
             );
           })}
+
+          {/* ═══ GESTIÓN DEL MENÚ (Catálogo CANON → DB) ═══ */}
+          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 8, color: '#44403c', marginTop: 4 }}>📋 Editar Menú · Precios en Vivo</h2>
+          <div style={{ background: '#fff', borderRadius: 14, padding: 16, boxShadow: '0 2px 14px rgba(0,0,0,0.07)', marginBottom: 14 }}>
+            <div style={{ fontSize: 12, fontWeight: 700, color: '#44403c', marginBottom: 10 }}>+ Agregar o actualizar precio</div>
+            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 8 }}>
+              <input placeholder="Nombre del producto" value={catForm.name}
+                onChange={e => setCatForm(p => ({ ...p, name: e.target.value }))}
+                style={{ flex: 2, minWidth: 150, padding: '8px 11px', border: '1.5px solid #e7e0d8', borderRadius: 8, fontSize: 13, outline: 'none' }} />
+              <input type="number" placeholder="Precio $" value={catForm.price}
+                onChange={e => setCatForm(p => ({ ...p, price: e.target.value }))}
+                style={{ width: 90, padding: '8px 11px', border: '1.5px solid #e7e0d8', borderRadius: 8, fontSize: 13, outline: 'none' }} />
+              <select value={catForm.category} onChange={e => setCatForm(p => ({ ...p, category: e.target.value }))}
+                style={{ padding: '8px 11px', border: '1.5px solid #e7e0d8', borderRadius: 8, fontSize: 13, outline: 'none', background: '#fff' }}>
+                {['masa-madre','reposteria','pasteleria','bebidas','shots','general'].map(c => <option key={c}>{c}</option>)}
+              </select>
+              <button onClick={async () => {
+                if (!catForm.name.trim() || !catForm.price) { setCatMsg('⚠️ Nombre y precio requeridos'); return; }
+                const r = await fetch(`https://paty-backend-dkzk.onrender.com/api/catalog/${slug}`, {
+                  method: 'POST', headers: { 'Content-Type': 'application/json', 'X-PIN': pin },
+                  body: JSON.stringify({ product_name: catForm.name.trim(), price: parseFloat(catForm.price), category: catForm.category })
+                });
+                const d = await r.json();
+                if (d.ok) { setCatMsg('✅ Guardado'); setCatForm({ name: '', price: '', category: 'general' }); fetchCatalog(); }
+                else setCatMsg('❌ ' + (d.error || 'Error'));
+                setTimeout(() => setCatMsg(null), 3000);
+              }} style={{ padding: '8px 14px', background: '#92400e', color: '#fff', border: 'none', borderRadius: 8, fontWeight: 700, cursor: 'pointer', fontSize: 13 }}>
+                Guardar en Menú
+              </button>
+            </div>
+            {catMsg && <div style={{ fontSize: 12, color: catMsg.startsWith('✅') ? '#16a34a' : '#dc2626', fontWeight: 700 }}>{catMsg}</div>}
+          </div>
+          {catLoading && <div style={{ textAlign: 'center', color: '#a8a29e', padding: 20, fontSize: 13 }}>Cargando catálogo…</div>}
+          {!catLoading && catalog.length === 0 && <div style={{ background: '#fff', borderRadius: 14, padding: 16, boxShadow: '0 2px 14px rgba(0,0,0,0.07)', marginBottom: 14, textAlign: 'center', color: '#a8a29e', fontSize: 13 }}>Catálogo vacío. El bot usará el menú base hasta que guardes productos aquí.</div>}
+          {!catLoading && catalog.map(prod => (
+            <div key={prod.product_name} style={{ background: '#fff', borderRadius: 12, padding: '12px 16px', boxShadow: '0 1px 8px rgba(0,0,0,0.06)', marginBottom: 10, display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
+              <div style={{ flex: 1, minWidth: 120 }}>
+                <div style={{ fontWeight: 700, fontSize: 13, color: '#44403c' }}>{prod.product_name}</div>
+                <div style={{ fontSize: 10, color: '#a8a29e', marginTop: 2 }}>{prod.category}</div>
+              </div>
+              <div style={{ fontWeight: 900, fontSize: 15, color: '#92400e', whiteSpace: 'nowrap' }}>${prod.price} MXN</div>
+              <button onClick={async () => {
+                const newPrice = prompt(`Nuevo precio para "${prod.product_name}" (actual: $${prod.price}):`, prod.price);
+                if (!newPrice || isNaN(parseFloat(newPrice))) return;
+                await fetch(`https://paty-backend-dkzk.onrender.com/api/catalog/${slug}`, {
+                  method: 'POST', headers: { 'Content-Type': 'application/json', 'X-PIN': pin },
+                  body: JSON.stringify({ product_name: prod.product_name, price: parseFloat(newPrice), category: prod.category })
+                });
+                fetchCatalog();
+              }} style={{ padding: '5px 10px', background: '#f5f0eb', border: '1px solid #e7d5c0', borderRadius: 7, cursor: 'pointer', fontSize: 12, color: '#78400e', fontWeight: 700 }}>
+                Editar $
+              </button>
+              <button onClick={async () => {
+                if (!confirm(`¿Eliminar "${prod.product_name}" del menú?`)) return;
+                await fetch(`https://paty-backend-dkzk.onrender.com/api/catalog/${slug}/${encodeURIComponent(prod.product_name)}`, {
+                  method: 'DELETE', headers: { 'X-PIN': pin }
+                });
+                fetchCatalog();
+              }} style={{ padding: '5px 10px', background: '#fef2f2', border: '1px solid #fca5a5', borderRadius: 7, cursor: 'pointer', fontSize: 12, color: '#dc2626', fontWeight: 700 }}>
+                🗑
+              </button>
+            </div>
+          ))}
         </>)}
 
         {/* ═══ TAB: COSTEADOR ═══ */}
@@ -2097,7 +2174,7 @@ function MandoClientView({ slug }) {
             );
             const CARD = { background: '#fff', borderRadius: 14, padding: '16px', boxShadow: '0 2px 14px rgba(0,0,0,0.07)', marginBottom: 14 };
             const menuItems = [...new Set(orders.flatMap(o =>
-              (o.items || []).map(it => it.nombre || it.name).filter(Boolean)
+              (o.items || o.order_data?.items || []).map(it => it.nombre || it.name).filter(Boolean)
             ))].sort();
 
             return (<>
