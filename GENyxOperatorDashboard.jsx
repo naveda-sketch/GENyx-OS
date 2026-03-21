@@ -1664,7 +1664,7 @@ function MandoClientView({ slug }) {
     try { const r = await fetch(`${BACKEND}/api/dashboard/${slug}/analytics`, { headers: { 'X-Dashboard-Token': token } }); if (r.ok) setAnalytics(await r.json()); } catch {}
     setAnalyticsLoading(false);
   }, [token, slug]);
-  useEffect(() => { if (tab === 'kpis' && token && !analytics) fetchAnalytics(); }, [tab, token, analytics, fetchAnalytics]);
+  useEffect(() => { if (tab === 'kpis' && token) { setAnalytics(null); fetchAnalytics(); } }, [tab, token]);
 
   const fetchInventory = useCallback(async () => {
     if (!token) return; setInvLoading(true);
@@ -1675,7 +1675,8 @@ function MandoClientView({ slug }) {
   const fetchCatalog = useCallback(async () => {
     setCatLoading(true);
     try {
-      const r = await fetch(`https://paty-backend-dkzk.onrender.com/api/catalog/${slug}`, { headers: { 'X-PIN': pin } });
+      const _catSlug = slug.endsWith('-sales') ? slug : slug + '-sales';
+      const r = await fetch(`https://paty-backend-dkzk.onrender.com/api/catalog/${_catSlug}`, { headers: { 'X-PIN': pin } });
       const d = await r.json();
       setCatalog(d.products || []);
     } catch(e) { console.warn('catalog fetch', e); }
@@ -2011,39 +2012,13 @@ function MandoClientView({ slug }) {
             );
           })}
 
-          {/* ═══ GESTIÓN DEL MENÚ (Catálogo CANON → DB) ═══ */}
+          {/* ═══ EDITAR MENÚ (solo precios) ═══ */}
           <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 8, color: '#44403c', marginTop: 4 }}>📋 Editar Menú · Precios en Vivo</h2>
-          <div style={{ background: '#fff', borderRadius: 14, padding: 16, boxShadow: '0 2px 14px rgba(0,0,0,0.07)', marginBottom: 14 }}>
-            <div style={{ fontSize: 12, fontWeight: 700, color: '#44403c', marginBottom: 10 }}>+ Agregar o actualizar precio</div>
-            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 8 }}>
-              <input placeholder="Nombre del producto" value={catForm.name}
-                onChange={e => setCatForm(p => ({ ...p, name: e.target.value }))}
-                style={{ flex: 2, minWidth: 150, padding: '8px 11px', border: '1.5px solid #e7e0d8', borderRadius: 8, fontSize: 13, outline: 'none' }} />
-              <input type="number" placeholder="Precio $" value={catForm.price}
-                onChange={e => setCatForm(p => ({ ...p, price: e.target.value }))}
-                style={{ width: 90, padding: '8px 11px', border: '1.5px solid #e7e0d8', borderRadius: 8, fontSize: 13, outline: 'none' }} />
-              <select value={catForm.category} onChange={e => setCatForm(p => ({ ...p, category: e.target.value }))}
-                style={{ padding: '8px 11px', border: '1.5px solid #e7e0d8', borderRadius: 8, fontSize: 13, outline: 'none', background: '#fff' }}>
-                {['masa-madre','reposteria','pasteleria','bebidas','shots','general'].map(c => <option key={c}>{c}</option>)}
-              </select>
-              <button onClick={async () => {
-                if (!catForm.name.trim() || !catForm.price) { setCatMsg('⚠️ Nombre y precio requeridos'); return; }
-                const r = await fetch(`https://paty-backend-dkzk.onrender.com/api/catalog/${slug}`, {
-                  method: 'POST', headers: { 'Content-Type': 'application/json', 'X-PIN': pin },
-                  body: JSON.stringify({ product_name: catForm.name.trim(), price: parseFloat(catForm.price), category: catForm.category })
-                });
-                const d = await r.json();
-                if (d.ok) { setCatMsg('✅ Guardado'); setCatForm({ name: '', price: '', category: 'general' }); fetchCatalog(); }
-                else setCatMsg('❌ ' + (d.error || 'Error'));
-                setTimeout(() => setCatMsg(null), 3000);
-              }} style={{ padding: '8px 14px', background: '#92400e', color: '#fff', border: 'none', borderRadius: 8, fontWeight: 700, cursor: 'pointer', fontSize: 13 }}>
-                Guardar en Menú
-              </button>
-            </div>
-            {catMsg && <div style={{ fontSize: 12, color: catMsg.startsWith('✅') ? '#16a34a' : '#dc2626', fontWeight: 700 }}>{catMsg}</div>}
+          <div style={{ background: '#fdf6ee', borderRadius: 10, padding: '10px 14px', marginBottom: 12, fontSize: 12, color: '#78716c' }}>
+            Toca <b>Editar $</b> para actualizar el precio de un producto en el menú. Los cambios se aplican al bot inmediatamente.
           </div>
-          {catLoading && <div style={{ textAlign: 'center', color: '#a8a29e', padding: 20, fontSize: 13 }}>Cargando catálogo…</div>}
-          {!catLoading && catalog.length === 0 && <div style={{ background: '#fff', borderRadius: 14, padding: 16, boxShadow: '0 2px 14px rgba(0,0,0,0.07)', marginBottom: 14, textAlign: 'center', color: '#a8a29e', fontSize: 13 }}>Catálogo vacío. El bot usará el menú base hasta que guardes productos aquí.</div>}
+          {catLoading && <div style={{ textAlign: 'center', color: '#a8a29e', padding: 20, fontSize: 13 }}>Cargando menú…</div>}
+          {!catLoading && catalog.length === 0 && <div style={{ background: '#fff', borderRadius: 14, padding: 16, boxShadow: '0 2px 14px rgba(0,0,0,0.07)', marginBottom: 14, textAlign: 'center', color: '#a8a29e', fontSize: 13 }}>Menú no disponible. Contacta soporte.</div>}
           {!catLoading && catalog.map(prod => (
             <div key={prod.product_name} style={{ background: '#fff', borderRadius: 12, padding: '12px 16px', boxShadow: '0 1px 8px rgba(0,0,0,0.06)', marginBottom: 10, display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
               <div style={{ flex: 1, minWidth: 120 }}>
@@ -2054,7 +2029,8 @@ function MandoClientView({ slug }) {
               <button onClick={async () => {
                 const newPrice = prompt(`Nuevo precio para "${prod.product_name}" (actual: $${prod.price}):`, prod.price);
                 if (!newPrice || isNaN(parseFloat(newPrice))) return;
-                await fetch(`https://paty-backend-dkzk.onrender.com/api/catalog/${slug}`, {
+                const _slug = slug.endsWith('-sales') ? slug : slug + '-sales';
+                await fetch(`https://paty-backend-dkzk.onrender.com/api/catalog/${_slug}`, {
                   method: 'POST', headers: { 'Content-Type': 'application/json', 'X-PIN': pin },
                   body: JSON.stringify({ product_name: prod.product_name, price: parseFloat(newPrice), category: prod.category })
                 });
@@ -2062,22 +2038,12 @@ function MandoClientView({ slug }) {
               }} style={{ padding: '5px 10px', background: '#f5f0eb', border: '1px solid #e7d5c0', borderRadius: 7, cursor: 'pointer', fontSize: 12, color: '#78400e', fontWeight: 700 }}>
                 Editar $
               </button>
-              <button onClick={async () => {
-                if (!confirm(`¿Eliminar "${prod.product_name}" del menú?`)) return;
-                await fetch(`https://paty-backend-dkzk.onrender.com/api/catalog/${slug}/${encodeURIComponent(prod.product_name)}`, {
-                  method: 'DELETE', headers: { 'X-PIN': pin }
-                });
-                fetchCatalog();
-              }} style={{ padding: '5px 10px', background: '#fef2f2', border: '1px solid #fca5a5', borderRadius: 7, cursor: 'pointer', fontSize: 12, color: '#dc2626', fontWeight: 700 }}>
-                🗑
-              </button>
             </div>
           ))}
-        </>)}
 
-        {/* ═══ TAB: COSTEADOR ═══ */}
+{/* ═══ TAB: COSTEADOR ═══ */}
         {tab === 'cost' && (<>
-          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 4, color: '#44403c' }}> Costeador de Productos</h2>
+          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 4, color: '#44403c' }}>Costeador de Productos</h2>
           <p style={{ fontSize: 12, color: '#78716c', marginBottom: 14 }}>Calcula el costo real y precio justo de cada producto de tu menú con la fórmula contable completa.</p>
 
           {/* ── Toggle v1 / v2 ── */}
@@ -2101,7 +2067,8 @@ function MandoClientView({ slug }) {
               const nextChat = [...aiChat, userMsg];
               setAiChat(nextChat); setAiInput(''); setAiLoading(true);
               try {
-                const res = await fetch(`${BURL}/api/costeador/${slug}/chat`, {
+                const _cSlug = slug.endsWith('-sales') ? slug : slug + '-sales';
+                const res = await fetch(`${BURL}/api/costeador/${_cSlug}/chat`, {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json', 'X-PIN': pin },
                   body: JSON.stringify({ message: userMsg.content, history: nextChat.slice(-10) })
