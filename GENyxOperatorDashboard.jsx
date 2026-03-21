@@ -1704,6 +1704,16 @@ function MandoClientView({ slug }) {
       setInvSaveMsg({ ok: false, txt: '❌ Sin conexion al servidor' });
     }
   };
+
+  const deleteInventory = async (productName) => {
+    if (!confirm(`¿Eliminar "${productName}" del inventario?`)) return;
+    try {
+      await fetch(`${BURL}/api/dashboard/${slug}/inventory/${encodeURIComponent(productName)}`, {
+        method: 'DELETE', headers: { 'X-PIN': pin }
+      });
+      fetchInventory();
+    } catch (e) { setInvSaveMsg('❌ Error al eliminar: ' + e.message); }
+  };
   const addInventoryItem = async () => {
     if (!newProd.name.trim()) return;
     await patchInventory(newProd.name.trim(), newProd.stock, newProd.unit);
@@ -1876,7 +1886,7 @@ function MandoClientView({ slug }) {
 
         {/* ═══ TAB: KPIs ═══ */}
         {tab === 'kpis' && (<>
-          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 12, color: '#44403c' }}>📊 KPIs de mi Negocio</h2>
+          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 12, color: '#44403c' }}>KPIs de mi Negocio <button onClick={() => { setOrders([]); setTimeout(() => window.location.reload(), 50); }} style={{ marginLeft: 10, padding: '3px 9px', fontSize: 11, background: '#f5f0eb', border: '1px solid #e7d5c0', borderRadius: 7, cursor: 'pointer', color: '#78400e', fontWeight: 700, verticalAlign: 'middle' }}>↺</button></h2>
           {analyticsLoading && <div style={{ textAlign: 'center', color: '#a8a29e', padding: 40 }}>Cargando datos…</div>}
           {!analyticsLoading && analytics && (
             <>
@@ -1956,17 +1966,16 @@ function MandoClientView({ slug }) {
             <div style={{ fontSize: 12, fontWeight: 700, color: '#44403c', marginBottom: 10 }}>+ Agregar / Actualizar producto</div>
             <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
               {(() => {
-                const menuProds = [...new Set(orders.flatMap(o =>
-                  (o.items || o.order_data?.items || []).map(it => it.nombre || it.name).filter(Boolean)
-                ))].sort();
-                return menuProds.length > 0 ? (
+              {(() => {
+                const catProds = catalog.map(p => p.product_name).sort();
+                return catProds.length > 0 ? (
                   <select value={newProd.name} onChange={e => setNewProd(p => ({ ...p, name: e.target.value }))}
                     style={{ ...INP, flex: 2, minWidth: 140 }}>
-                    <option value="">-- Producto del menú --</option>
-                    {menuProds.map(p => <option key={p}>{p}</option>)}
+                    <option value=''>-- Producto del menú --</option>
+                    {catProds.map(p => <option key={p}>{p}</option>)}
                   </select>
                 ) : (
-                  <input placeholder="Nombre del producto" value={newProd.name}
+                  <input placeholder='Nombre del producto' value={newProd.name}
                     onChange={e => setNewProd(p => ({ ...p, name: e.target.value }))}
                     style={{ ...INP, flex: 2, minWidth: 140 }} />
                 );
@@ -1996,7 +2005,7 @@ function MandoClientView({ slug }) {
                     style={{ ...INP, width: 70, textAlign: 'center', border: `1.5px solid ${isEditing ? '#92400e' : '#e7e0d8'}` }} />
                   <span style={{ color: '#78716c', fontSize: 12 }}>{item.unit}</span>
                   <span style={{ color: stockColor, fontWeight: 800, fontSize: 12 }}>{item.stock <= 0 ? '🔴 Agotado' : item.stock <= 3 ? '🟡 Bajo' : '🟢 OK'}</span>
-                  {isEditing && <button onClick={() => patchInventory(item.product_name, stockVal, item.unit)} style={BTN('#92400e', '#fff')}>Guardar</button>}
+                  {isEditing && <button onClick={() => patchInventory(item.product_name, stockVal, item.unit)} style={BTN('#92400e', '#fff')}>Guardar</button>} <button onClick={() => deleteInventory(item.product_name)} style={{ padding: '5px 10px', background: '#fef2f2', border: '1px solid #fca5a5', borderRadius: 7, cursor: 'pointer', fontSize: 12, color: '#dc2626', fontWeight: 700, marginLeft: 4 }}>🗑</button>
                 </div>
               </div>
             );
@@ -2068,7 +2077,7 @@ function MandoClientView({ slug }) {
 
         {/* ═══ TAB: COSTEADOR ═══ */}
         {tab === 'cost' && (<>
-          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 4, color: '#44403c' }}>�� Costeador de Productos</h2>
+          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 4, color: '#44403c' }}> Costeador de Productos</h2>
           <p style={{ fontSize: 12, color: '#78716c', marginBottom: 14 }}>Calcula el costo real y precio justo de cada producto de tu menú con la fórmula contable completa.</p>
 
           {/* ── Toggle v1 / v2 ── */}
