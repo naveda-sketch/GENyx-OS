@@ -2173,9 +2173,12 @@ function MandoClientView({ slug }) {
               </div>
             );
             const CARD = { background: '#fff', borderRadius: 14, padding: '16px', boxShadow: '0 2px 14px rgba(0,0,0,0.07)', marginBottom: 14 };
-            const menuItems = [...new Set(orders.flatMap(o =>
-              (o.items || o.order_data?.items || []).map(it => it.nombre || it.name).filter(Boolean)
-            ))].sort();
+            // MENÚ DINÁMICO: catalog del menú (preferido) o fallback a nombres de pedidos
+            const menuItems = catalog.length > 0
+              ? catalog.map(p => p.product_name).sort()
+              : [...new Set(orders.flatMap(o =>
+                  (o.items || o.order_data?.items || []).map(it => it.nombre || it.name).filter(Boolean)
+                ))].sort();
 
             return (<>
               {/* 0. Selector de Producto — siempre primero */}
