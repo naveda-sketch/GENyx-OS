@@ -2024,14 +2024,11 @@ function MandoClientView({ slug }) {
           <div style={{ ...CARD }}>
             <div style={{ fontSize: 12, fontWeight: 700, color: '#44403c', marginBottom: 10 }}>+ Agregar / Actualizar producto</div>
             <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-              {(() => {
-              <datalist id="cat-datalist">
-                {catalog.map(p => <option key={p.product_name} value={p.product_name} />)}
-              </datalist>
-              <input list="cat-datalist" placeholder='▼ Elige o escribe un producto del menú'
-                value={newProd.name}
-                onChange={e => setNewProd(p => ({ ...p, name: e.target.value }))}
-                style={{ ...INP, flex: 2, minWidth: 160, cursor: 'pointer' }} />
+              <select value={newProd.name} onChange={e => setNewProd(p => ({ ...p, name: e.target.value }))}
+                style={{ ...INP, flex: 2, minWidth: 160, cursor: 'pointer', color: newProd.name ? '#44403c' : '#a8a29e' }}>
+                <option value=''>▼ Selecciona producto del menú</option>
+                {catalog.map(p => <option key={p.product_name} value={p.product_name}>{p.product_name}</option>)}
+              </select>
               <input placeholder="Stock" type="number" value={newProd.stock} onChange={e => setNewProd(p => ({ ...p, stock: e.target.value }))} style={{ ...INP, width: 70 }} />
               <select value={newProd.unit} onChange={e => setNewProd(p => ({ ...p, unit: e.target.value }))} style={{ ...INP }}>
                 {['pza', 'kg', 'lt', 'paq', 'caja', 'bolsa'].map(u => <option key={u}>{u}</option>)}
@@ -2067,7 +2064,9 @@ function MandoClientView({ slug }) {
           <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 8, color: '#44403c', marginTop: 4 }}>📋 Editar Menú · Precios en Vivo</h2>
           <EditarMenuCompacto catalog={catalog} catLoading={catLoading} slug={slug} pin={pin} fetchCatalog={fetchCatalog} />
 
-{/* ═══ TAB: COSTEADOR ═══ */}
+        </>)}
+
+        {/* ═══ TAB: COSTEADOR ═══ */}
         {tab === 'cost' && (<>
           <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 4, color: '#44403c' }}>Costeador de Productos</h2>
           <p style={{ fontSize: 12, color: '#78716c', marginBottom: 14 }}>Calcula el costo real y precio justo de cada producto de tu menú con la fórmula contable completa.</p>
