@@ -1669,7 +1669,9 @@ function MandoClientView({ slug }) {
   const [modHours,   setModHours]   = useState(1);     // horas por lote
   const [batchUnits, setBatchUnits] = useState(1);     // unidades por lote
   const [cifPct,     setCifPct]     = useState(15);    // CIF como % de (MPD+MOD)
-  const [opEx,       setOpEx]       = useState(0);     // gastos operativos por unidad
+  const [opEx,       setOpEx]       = useState(0);     // gastos operativos total (suma de líneas)
+  const [opExItems,  setOpExItems]  = useState([]);    // líneas individuales de gastos operativos
+  const [newOpEx,    setNewOpEx]    = useState({ name: '', cost: '' }); // form nueva línea GO
   const [merma,      setMerma]      = useState(5);     // % imprevistos/merma (N5)
   const [useGiReal,  setUseGiReal]  = useState(false); // toggle GI real vs estimado
   const [giReal,     setGiReal]     = useState({ renta:0, luz:0, gas:0, otros:0, horas:160 });
@@ -2098,7 +2100,7 @@ function MandoClientView({ slug }) {
               try {
                 const res = await fetch(`${BURL}/api/costeador/${slug}/chat`, {
                   method: 'POST',
-                  headers: { 'Content-Type': 'application/json', 'X-PIN': pin },
+                  headers: { 'Content-Type': 'application/json', 'X-Dashboard-Token': token },
                   body: JSON.stringify({ message: userMsg.content, history: nextChat.slice(-10) })
                 });
                 const data = await res.json();
@@ -2457,13 +2459,49 @@ function MandoClientView({ slug }) {
                   <span style={{ fontWeight: 800, color: '#92400e', fontSize: 14, minWidth: 36 }}>{merma}%</span>
                 </div>
 
-                {/* Gastos Operativos */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <label style={{ fontSize: 12, color: '#78716c', fontWeight: 600, whiteSpace: 'nowrap' }}>5️⃣ Gastos Operativos / unidad $</label>
-                    {INFO({ title: '5. Costo Total (Gastos Operativos)', text: 'Son los gastos del negocio que NO son de producción pero son necesarios para operar: empaque (bolsas, cajas), entrega, comisiones de plataformas de pago, marketing ligero. Se agregan por unidad vendida.', ex: 'Caja $2.50 + bolsa $1.00 + comisión Stripe 3% aprox = ~$5 de gastos operativos por pedido.' })}
+                {/* Gastos Operativos — líneas individuales */}
+                <div style={{ marginBottom: 12 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8 }}>
+                    <label style={{ fontSize: 12, color: '#78716c', fontWeight: 600 }}>5️⃣ Gastos Operativos / unidad</label>
+                    {INFO({ title: '5. Gastos Operativos por Unidad', text: 'Son los gastos que NO son de producción pero se cargan por unidad vendida: empaque (caja/bolsa), comisión de plataforma de pago, etiqueta, etc.', ex: 'Caja $2.50 + bolsa $1.00 + comisión Stripe ~3% = ~$5/unidad.' })}
                   </div>
-                  <input type="number" step="0.5" value={opEx} onChange={e => setOpEx(Number(e.target.value))} style={{ ...INP, width: 80 }} />
+                  {/* Lista de líneas */}
+                  {opExItems.length > 0 && (
+                    <div style={{ background: '#faf7f2', borderRadius: 8, padding: '8px 10px', marginBottom: 8 }}>
+                      {opExItems.map((it, i) => (
+                        <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: 12, color: '#44403c', marginBottom: 3 }}>
+                          <span>{it.name}</span>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                            <span style={{ fontWeight: 700, color: '#92400e' }}>${Number(it.cost).toFixed(2)}</span>
+                            <span onClick={() => { const n = opExItems.filter((_,j)=>j!==i); setOpExItems(n); setOpEx(n.reduce((s,x)=>s+Number(x.cost),0)); }}
+                              style={{ cursor: 'pointer', color: '#dc2626', fontWeight: 700, fontSize: 13 }}>×</span>
+                          </div>
+                        </div>
+                      ))}
+                      <div style={{ borderTop: '1px solid #e7d5c0', marginTop: 6, paddingTop: 6, display: 'flex', justifyContent: 'space-between', fontSize: 12, fontWeight: 800 }}>
+                        <span>Total GO/unidad</span>
+                        <span style={{ color: '#92400e' }}>${opEx.toFixed(2)}</span>
+                      </div>
+                    </div>
+                  )}
+                  {/* Agregar línea nueva */}
+                  <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+                    <input placeholder="ej. Caja de cartón" value={newOpEx.name}
+                      onChange={e => setNewOpEx(p => ({ ...p, name: e.target.value }))}
+                      style={{ ...INP, flex: 2, minWidth: 120 }} />
+                    <input type="number" placeholder="$0.00" step="0.5" value={newOpEx.cost}
+                      onChange={e => setNewOpEx(p => ({ ...p, cost: e.target.value }))}
+                      style={{ ...INP, width: 80 }} />
+                    <button onClick={() => {
+                      const nombre = newOpEx.name.trim(), costo = parseFloat(newOpEx.cost);
+                      if (!nombre || !costo) return;
+                      const next = [...opExItems, { name: nombre, cost: costo }];
+                      setOpExItems(next);
+                      setOpEx(next.reduce((s, x) => s + Number(x.cost), 0));
+                      setNewOpEx({ name: '', cost: '' });
+                    }} style={BTN('#92400e')}>+ Agregar</button>
+                  </div>
+                  {opExItems.length === 0 && <p style={{ fontSize: 11, color: '#a8a29e', marginTop: 5 }}>Agrega tus gastos: empaque, etiqueta, comisión de pago, etc.</p>}
                 </div>
 
                 {/* Margen */}
