@@ -235,6 +235,18 @@ const TabOrdenes = ({ orders, tenants, loading }) => {
         <KpiCard label="Esta semana" value={weekOrders.length} icon="📅" />
         <KpiCard label="Revenue semana" value={$$(weekRevenue)} icon="💰" />
         <KpiCard label="Total histórico" value={paidOrders.length} icon="📦" />
+        <KpiCard
+          label="⬆ Uptime 30d"
+          value={sla.uptime !== null ? `${sla.uptime}%` : '—'}
+          icon="🟢"
+          color={sla.uptime !== null && sla.uptime >= 99 ? '#22c55e' : sla.uptime >= 95 ? '#f59e0b' : '#ef4444'}
+        />
+        <KpiCard
+          label="⚡ Resp. promedio"
+          value={sla.avgMs ? `${(sla.avgMs/1000).toFixed(1)}s` : '—'}
+          icon="⚡"
+          color={sla.avgMs && sla.avgMs < 4000 ? '#22c55e' : sla.avgMs < 8000 ? '#f59e0b' : '#ef4444'}
+        />
       </div>
 
       {/* Filter */}
@@ -291,12 +303,23 @@ const TabOrdenes = ({ orders, tenants, loading }) => {
 const NewsFeed = ({ health, orders, tenants }) => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [sla, setSla] = useState({ uptime: null, avgMs: null, total: null }); // SLA Metrics
 
   const fetchNews = () => {
     setLoading(true);
     fetch(`${BACKEND}/api/news?t=${Date.now()}`) // bypass cache
       .then(r => r.json())
-      .then(d => { setNews(d.articles || []); setLoading(false); })
+      .then(d => { setNews(d.articles || []); setLoading(false);
+    // ── Fetch SLA metrics ──────────────────────────────────────────────────
+    try {
+      const slaRes = await fetch(`${BASE}/api/sla`, {
+        headers: { 'X-Dashboard-Token': TOKEN }
+      });
+      if (slaRes.ok) {
+        const slaData = await slaRes.json();
+        setSla({ uptime: slaData.uptime_pct, avgMs: slaData.avg_ms, total: slaData.total_messages_30d });
+      }
+    } catch (_) { /* SLA fetch failed silently */ } })
       .catch(() => setLoading(false));
   };
 
