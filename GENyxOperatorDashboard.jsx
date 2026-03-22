@@ -1670,6 +1670,10 @@ function MandoClientView({ slug }) {
   const [batchUnits, setBatchUnits] = useState(1);     // unidades por lote
   const [cifPct,     setCifPct]     = useState(15);    // CIF como % de (MPD+MOD)
   const [opEx,       setOpEx]       = useState(0);     // gastos operativos por unidad
+  const [merma,      setMerma]      = useState(5);     // % imprevistos/merma (N5)
+  const [useGiReal,  setUseGiReal]  = useState(false); // toggle GI real vs estimado
+  const [giReal,     setGiReal]     = useState({ renta:0, luz:0, gas:0, otros:0, horas:160 });
+  const [purchCalc,  setPurchCalc]  = useState({ nombre:'', precio:'', cantidad:'', unidad:'g' }); // Calc Factura N1
   const [showInfo,   setShowInfo]   = useState(null);  // tooltip (i) activo
   const [kpiPeriod,  setKpiPeriod]  = useState('month'); // filtro ingresos: day/week/month
   const [genyxFee,   setGenyxFee]   = useState(false);  // +8% fee GenYX opcional
@@ -2263,6 +2267,48 @@ function MandoClientView({ slug }) {
                     </span>
                   ))}
                 </div>
+                                {/* 🧾 Calculadora de Factura — Nivel 1 */}
+                                <details style={{ marginTop: 12 }}>
+                                  <summary style={{ fontSize: 11, fontWeight: 800, color: '#92400e', cursor: 'pointer', userSelect: 'none' }}>
+                                    🧾 Calculadora de Factura → Nivel 1: precio total ÷ cantidad = costo/unidad exacto
+                                  </summary>
+                                  <div style={{ marginTop: 8, background: '#fef9f3', borderRadius: 10, padding: 12, border: '1px dashed #fed7aa' }}>
+                                    <div style={{ fontSize: 11, color: '#78716c', marginBottom: 8 }}>
+                                      Ej: costal de harina $349 / 10,000g = <b>$0.0349/g</b> — el sistema guarda el costo exacto.
+                                    </div>
+                                    <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', alignItems: 'flex-end' }}>
+                                      <div><div style={{ fontSize: 10, color:'#78716c', fontWeight: 600 }}>Ingrediente</div>
+                                        <input placeholder="ej. Harina de trigo" value={purchCalc.nombre}
+                                          onChange={e => setPurchCalc(p => ({ ...p, nombre: e.target.value }))}
+                                          style={{ ...INP, width: 130, marginTop: 3 }} /></div>
+                                      <div><div style={{ fontSize: 10, color:'#78716c', fontWeight: 600 }}>Precio factura $</div>
+                                        <input type="number" placeholder="349" value={purchCalc.precio}
+                                          onChange={e => setPurchCalc(p => ({ ...p, precio: e.target.value }))}
+                                          style={{ ...INP, width: 80, marginTop: 3 }} /></div>
+                                      <div><div style={{ fontSize: 10, color:'#78716c', fontWeight: 600 }}>Cantidad total</div>
+                                        <input type="number" placeholder="10000" value={purchCalc.cantidad}
+                                          onChange={e => setPurchCalc(p => ({ ...p, cantidad: e.target.value }))}
+                                          style={{ ...INP, width: 80, marginTop: 3 }} /></div>
+                                      <div><div style={{ fontSize: 10, color:'#78716c', fontWeight: 600 }}>Unidad</div>
+                                        <select value={purchCalc.unidad} onChange={e => setPurchCalc(p => ({ ...p, unidad: e.target.value }))} style={{ ...INP, marginTop: 3 }}>
+                                          {['g','ml','pz','kg','lt'].map(u => <option key={u}>{u}</option>)}
+                                        </select></div>
+                                      <button onClick={() => {
+                                        const precio = parseFloat(purchCalc.precio), qty = parseFloat(purchCalc.cantidad);
+                                        const nombre = purchCalc.nombre.trim();
+                                        if (!nombre || !precio || !qty) return;
+                                        const costo = parseFloat((precio/qty).toFixed(6));
+                                        const next = [...ings.filter(i => i.name !== nombre), { name: nombre, unit: purchCalc.unidad, cost: costo }];
+                                        saveIngs(next); setPurchCalc({ nombre:'', precio:'', cantidad:'', unidad:'g' });
+                                      }} style={{  padding: '8px 14px', background: '#15803d', color: '#fff', border: 'none', borderRadius: 8, fontSize: 13, fontWeight: 700, cursor: 'pointer' }}>✓ Calcular y Guardar</button>
+                                    </div>
+                                    {purchCalc.precio && purchCalc.cantidad && parseFloat(purchCalc.cantidad) > 0 && (
+                                      <div style={{ marginTop: 8, fontSize: 13, color: '#15803d', fontWeight: 800 }}>
+                                        → Costo unitario: <b>${(parseFloat(purchCalc.precio)/parseFloat(purchCalc.cantidad)).toFixed(5)}/{purchCalc.unidad}</b>
+                                      </div>
+                                    )}
+                                  </div>
+                                </details>
               </div>
 
               {/* 2. MOD */}
@@ -2328,6 +2374,44 @@ function MandoClientView({ slug }) {
                   </div>
                   <div style={{ fontSize: 9, color: '#a8a29e', marginTop: 8 }}>💡 CIF incluye: gas, luz, agua, depreciación del horno (vida útil 10 años) y renta proporcional del espacio de producción. Haz clic en tu perfil para aplicarlo.</div>
                 </div>
+                {/* GI Real toggle */}
+                <div style={{ marginTop: 12 }}>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer', fontSize: 12, fontWeight: 700, color: '#92400e' }}>
+                    <input type="checkbox" checked={useGiReal} onChange={e => setUseGiReal(e.target.checked)} />
+                    Calcular GI desde costos reales (más preciso)
+                  </label>
+                  {useGiReal && (
+                    <div style={{ marginTop: 10, background: '#f0fdf4', borderRadius: 10, padding: '12px', border: '1px dashed #86efac' }}>
+                      <div style={{ fontSize: 11, color: '#15803d', fontWeight: 700, marginBottom: 8 }}>
+                        💡 GI Real = (Renta + Luz + Gas + Otros) ÷ Horas operadas/mes
+                      </div>
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+                        {[
+                          { label: 'Renta/mes $', key: 'renta' },
+                          { label: 'Luz/mes $', key: 'luz' },
+                          { label: 'Gas/mes $', key: 'gas' },
+                          { label: 'Otros/mes $', key: 'otros' },
+                        ].map(({ label, key }) => (
+                          <div key={key}>
+                            <label style={{ fontSize: 10, color: '#78716c', fontWeight: 600 }}>{label}</label>
+                            <input type="number" value={giReal[key]} onChange={e => setGiReal(p => ({ ...p, [key]: Number(e.target.value) }))}
+                              style={{ ...INP, width: '100%', marginTop: 3, boxSizing: 'border-box' }} />
+                          </div>
+                        ))}
+                        <div style={{ gridColumn: '1/-1' }}>
+                          <label style={{ fontSize: 10, color: '#78716c', fontWeight: 600 }}>Horas operadas/mes</label>
+                          <input type="number" value={giReal.horas} onChange={e => setGiReal(p => ({ ...p, horas: Number(e.target.value) }))}
+                            style={{ ...INP, width: '100%', marginTop: 3, boxSizing: 'border-box' }} />
+                        </div>
+                      </div>
+                      {giReal.horas > 0 && (
+                        <div style={{ marginTop: 10, fontSize: 12, fontWeight: 800, color: '#15803d' }}>
+                          → Tasa GI real: <b>${((giReal.renta+giReal.luz+giReal.gas+giReal.otros)/giReal.horas).toFixed(2)}/hora</b>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
 
               {/* 3-4-5-6: Receta — ingredientes, GO, margen y precio */}
@@ -2363,6 +2447,16 @@ function MandoClientView({ slug }) {
                   ) : <p style={{ fontSize: 11, color: '#a8a29e' }}>Agrega ingredientes primero (sección 1).</p>}
                 </div>
 
+                {/* 4.5 Merma / Imprevistos */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <label style={{ fontSize: 12, color: '#78716c', fontWeight: 600, whiteSpace: 'nowrap' }}>4️⃣ Merma / Imprevistos</label>
+                    {INFO({ title: '4. Merma e Imprevistos', text: 'Porcentaje que cubre ingredientes que se pierden durante la preparación, quemaduras, descarte de presentación imperfecta y cualquier imprevisto. Se aplica sobre el Costo de Producción (MPD+MOD+CIF).', ex: '5% de merma sobre un costo de $20 = $1 de reserva → Costo ajustado $21 antes de margen.' })}
+                  </div>
+                  <input type="range" min={0} max={15} value={merma} onChange={e => setMerma(Number(e.target.value))} style={{ flex: 1 }} />
+                  <span style={{ fontWeight: 800, color: '#92400e', fontSize: 14, minWidth: 36 }}>{merma}%</span>
+                </div>
+
                 {/* Gastos Operativos */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
@@ -2396,9 +2490,14 @@ function MandoClientView({ slug }) {
                   {recs.map(rec => {
                     const mpd      = calcCost(rec);
                     const mod      = modRate * modHours / batchUnits;
-                    const cif      = (mpd + mod) * cifPct / 100;
+                    // GI: real ($/hora × horas/lote ÷ unidades) o estimado (% de MPD+MOD)
+                    const giRealPerUnit = useGiReal && giReal.horas > 0
+                      ? ((giReal.renta+giReal.luz+giReal.gas+giReal.otros)/giReal.horas) * modHours / batchUnits
+                      : 0;
+                    const cif      = useGiReal ? giRealPerUnit : (mpd + mod) * cifPct / 100;
                     const costoProd  = mpd + mod + cif;
-                    const costoTotal = costoProd + opEx;
+                    const costoConMerma = costoProd * (1 + merma / 100); // Nivel 5: merma
+                    const costoTotal = costoConMerma + opEx;
                     const precio    = costoTotal / (1 - margin / 100);
                     const priceFmt  = Math.ceil(precio / 5) * 5;
                     const rMgn     = priceFmt > 0 ? Math.round((priceFmt - costoTotal) / priceFmt * 100) : 0;
