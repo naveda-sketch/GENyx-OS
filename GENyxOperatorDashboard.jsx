@@ -307,23 +307,26 @@ const NewsFeed = ({ health, orders, tenants }) => {
 
   const fetchNews = () => {
     setLoading(true);
-    fetch(`${BACKEND}/api/news?t=${Date.now()}`) // bypass cache
+    fetch(`${BACKEND}/api/news?t=${Date.now()}`)
       .then(r => r.json())
-      .then(d => { setNews(d.articles || []); setLoading(false);
-    // ── Fetch SLA metrics ──────────────────────────────────────────────────
+      .then(d => { setNews(d.articles || []); setLoading(false); })
+      .catch(() => setLoading(false));
+  };
+
+  // SLA metrics — async function so await works correctly
+  const fetchSla = async () => {
     try {
-      const slaRes = await fetch(`${BASE}/api/sla`, {
+      const slaRes = await fetch(`${BACKEND}/api/sla`, {
         headers: { 'X-Dashboard-Token': TOKEN }
       });
       if (slaRes.ok) {
         const slaData = await slaRes.json();
         setSla({ uptime: slaData.uptime_pct, avgMs: slaData.avg_ms, total: slaData.total_messages_30d });
       }
-    } catch (_) { /* SLA fetch failed silently */ } })
-      .catch(() => setLoading(false));
+    } catch (_) {}
   };
 
-  useEffect(() => { fetchNews(); }, []);
+  useEffect(() => { fetchNews(); fetchSla(); }, []);
 
   const SOURCE_COLORS = {
     'TechCrunch': '#10b981', 'MIT Tech Review': '#6366f1',
@@ -1796,11 +1799,17 @@ function MandoClientView({ slug }) {
   const deleteInventory = async (productName) => {
     if (!confirm(`¿Eliminar "${productName}" del inventario?`)) return;
     try {
-      await fetch(`${BURL}/api/dashboard/${slug}/inventory/${encodeURIComponent(productName)}`, {
-        method: 'DELETE', headers: { 'X-PIN': pin }
+      const r = await fetch(`${BACKEND}/api/dashboard/${slug}/inventory/${encodeURIComponent(productName)}`, {
+        method: 'DELETE', headers: { 'X-Dashboard-Token': token }
       });
+      if (!r.ok) {
+        const err = await r.json().catch(() => ({}));
+        setInvSaveMsg({ ok: false, txt: `❌ Error: ${err.detail || r.status}` });
+        return;
+      }
+      setInvSaveMsg({ ok: true, txt: `✅ "${productName}" eliminado` });
       fetchInventory();
-    } catch (e) { setInvSaveMsg('❌ Error al eliminar: ' + e.message); }
+    } catch (e) { setInvSaveMsg({ ok: false, txt: '❌ Error al eliminar: ' + e.message }); }
   };
   const addInventoryItem = async () => {
     if (!newProd.name.trim()) return;
@@ -2044,6 +2053,26 @@ function MandoClientView({ slug }) {
             </>
           )}
           {!analyticsLoading && !analytics && <button onClick={fetchAnalytics} style={{ ...BTN('#92400e'), width: '100%' }}>Cargar KPIs</button>}
+
+          {/* ─── BLOQUE SLA / Métricas de Plataforma ─── */}
+          <div style={{ marginTop: 18, borderTop: '1px solid #e7d5c0', paddingTop: 16 }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: '#78716c', letterSpacing: '.07em', textTransform: 'uppercase', marginBottom: 12 }}>⚙️ Estado de la Plataforma (últimos 30 días)</div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+              <div style={{ ...CARD, textAlign: 'center', margin: 0, background: '#fafaf9', border: '1px solid #e7d5c0' }}>
+                <div style={{ fontSize: 22 }}>⬆️</div>
+                <div style={{ fontSize: 24, fontWeight: 900, color: '#16a34a', marginTop: 4 }}>—</div>
+                <div style={{ fontSize: 10, color: '#78716c', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em', marginTop: 4 }}>Uptime</div>
+                <div style={{ fontSize: 9, color: '#a8a29e', marginTop: 2 }}>Disponibilidad del sistema</div>
+              </div>
+              <div style={{ ...CARD, textAlign: 'center', margin: 0, background: '#fafaf9', border: '1px solid #e7d5c0' }}>
+                <div style={{ fontSize: 22 }}>⚡</div>
+                <div style={{ fontSize: 24, fontWeight: 900, color: '#2563eb', marginTop: 4 }}>—</div>
+                <div style={{ fontSize: 10, color: '#78716c', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em', marginTop: 4 }}>Resp. Promedio</div>
+                <div style={{ fontSize: 9, color: '#a8a29e', marginTop: 2 }}>Tiempo de respuesta del bot</div>
+              </div>
+            </div>
+            <div style={{ fontSize: 10, color: '#a8a29e', textAlign: 'center', marginTop: 8 }}>Los datos se actualizan con cada conversación activa</div>
+          </div>
         </>)}
 
         {/* ═══ TAB: INVENTARIO ═══ */}
