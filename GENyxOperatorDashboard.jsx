@@ -2054,25 +2054,64 @@ function MandoClientView({ slug }) {
           )}
           {!analyticsLoading && !analytics && <button onClick={fetchAnalytics} style={{ ...BTN('#92400e'), width: '100%' }}>Cargar KPIs</button>}
 
-          {/* ─── BLOQUE SLA / Métricas de Plataforma ─── */}
-          <div style={{ marginTop: 18, borderTop: '1px solid #e7d5c0', paddingTop: 16 }}>
-            <div style={{ fontSize: 11, fontWeight: 700, color: '#78716c', letterSpacing: '.07em', textTransform: 'uppercase', marginBottom: 12 }}>⚙️ Estado de la Plataforma (últimos 30 días)</div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
-              <div style={{ ...CARD, textAlign: 'center', margin: 0, background: '#fafaf9', border: '1px solid #e7d5c0' }}>
-                <div style={{ fontSize: 22 }}>⬆️</div>
-                <div style={{ fontSize: 24, fontWeight: 900, color: '#16a34a', marginTop: 4 }}>—</div>
-                <div style={{ fontSize: 10, color: '#78716c', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em', marginTop: 4 }}>Uptime</div>
-                <div style={{ fontSize: 9, color: '#a8a29e', marginTop: 2 }}>Disponibilidad del sistema</div>
+          {/* ─── HERO: ROI del sistema este mes ─── */}
+          {(() => {
+            const now = new Date();
+            const monthOrders = orders.filter(o => {
+              if (!o.created_at) return false;
+              const d = new Date(o.created_at);
+              return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
+            });
+            const monthRevenue = monthOrders.reduce((s, o) => {
+              const od = typeof o.order_data === 'object' ? o.order_data : {};
+              return s + (parseFloat(od.total_estimated || od.total || 0) || 0);
+            }, 0);
+            const monthFee = analytics?.plan_monthly_fee || 2500;
+            const netGain = monthRevenue - monthFee;
+            const roi = monthFee > 0 ? Math.round((netGain / monthFee) * 100) : 0;
+            const multiplier = monthFee > 0 ? (monthRevenue / monthFee).toFixed(1) : '—';
+            const roiColor = roi >= 200 ? '#16a34a' : roi >= 100 ? '#d97706' : '#dc2626';
+            return (
+              <div style={{ marginTop: 18, borderRadius: 16, overflow: 'hidden', boxShadow: '0 4px 24px rgba(146,64,14,0.18)' }}>
+                {/* Header */}
+                <div style={{ background: 'linear-gradient(135deg, #78350f 0%, #92400e 60%, #b45309 100%)', padding: '16px 20px 12px' }}>
+                  <div style={{ fontSize: 10, fontWeight: 700, color: 'rgba(255,255,255,0.7)', letterSpacing: '.1em', textTransform: 'uppercase', marginBottom: 4 }}>🤖 Tu Clon Digital este mes</div>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
+                    <div style={{ fontSize: monthRevenue >= 100000 ? 28 : 36, fontWeight: 900, color: '#fff', letterSpacing: '-.02em', lineHeight: 1 }}>
+                      ${Math.round(monthRevenue).toLocaleString('es-MX')}
+                    </div>
+                    <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', fontWeight: 600 }}>MXN generados</div>
+                  </div>
+                  <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', marginTop: 4 }}>{monthOrders.length} pedido(s) procesados automáticamente</div>
+                </div>
+                {/* ROI Row */}
+                <div style={{ background: '#fff7ed', padding: '14px 20px', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12 }}>
+                  <div style={{ textAlign: 'center' }}>
+                    <div style={{ fontSize: 11, color: '#78716c', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Tu inversión</div>
+                    <div style={{ fontSize: 20, fontWeight: 800, color: '#44403c' }}>${monthFee.toLocaleString('es-MX')}</div>
+                    <div style={{ fontSize: 9, color: '#a8a29e' }}>suscripción mensual</div>
+                  </div>
+                  <div style={{ textAlign: 'center', borderLeft: '1px solid #e7d5c0', borderRight: '1px solid #e7d5c0', padding: '0 12px' }}>
+                    <div style={{ fontSize: 11, color: '#78716c', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>ROI</div>
+                    <div style={{ fontSize: 28, fontWeight: 900, color: roiColor, lineHeight: 1 }}>{roi > 0 ? `${roi}%` : '—'}</div>
+                    <div style={{ fontSize: 9, color: '#a8a29e' }}>{multiplier}x tu inversión</div>
+                  </div>
+                  <div style={{ textAlign: 'center' }}>
+                    <div style={{ fontSize: 11, color: '#78716c', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Ganancia neta</div>
+                    <div style={{ fontSize: 20, fontWeight: 800, color: netGain > 0 ? '#16a34a' : '#dc2626' }}>${Math.round(netGain).toLocaleString('es-MX')}</div>
+                    <div style={{ fontSize: 9, color: '#a8a29e' }}>después de tu fee</div>
+                  </div>
+                </div>
+                {/* Footer */}
+                <div style={{ background: '#fef3c7', padding: '8px 20px', fontSize: 10, color: '#92400e', fontWeight: 600, textAlign: 'center' }}>
+                  {roi >= 300 ? '🏆 Tu sistema trabaja más duro que cualquier vendedor. ¡Excelente mes!' :
+                   roi >= 100 ? '📈 Tu sistema ya se pagó solo. Todo lo demás es ganancia pura.' :
+                   monthRevenue > 0 ? '🚀 El sistema está arrancando. Las ventas irán creciendo.' :
+                   '⏳ Los datos aparecerán con cada venta procesada por el bot.'}
+                </div>
               </div>
-              <div style={{ ...CARD, textAlign: 'center', margin: 0, background: '#fafaf9', border: '1px solid #e7d5c0' }}>
-                <div style={{ fontSize: 22 }}>⚡</div>
-                <div style={{ fontSize: 24, fontWeight: 900, color: '#2563eb', marginTop: 4 }}>—</div>
-                <div style={{ fontSize: 10, color: '#78716c', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em', marginTop: 4 }}>Resp. Promedio</div>
-                <div style={{ fontSize: 9, color: '#a8a29e', marginTop: 2 }}>Tiempo de respuesta del bot</div>
-              </div>
-            </div>
-            <div style={{ fontSize: 10, color: '#a8a29e', textAlign: 'center', marginTop: 8 }}>Los datos se actualizan con cada conversación activa</div>
-          </div>
+            );
+          })()}
         </>)}
 
         {/* ═══ TAB: INVENTARIO ═══ */}
