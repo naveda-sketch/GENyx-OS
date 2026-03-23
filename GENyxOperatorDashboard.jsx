@@ -2102,6 +2102,20 @@ function MandoClientView({ slug }) {
                     <div style={{ fontSize: 9, color: '#a8a29e' }}>después de tu fee</div>
                   </div>
                 </div>
+                {/* Horas ahorradas */}
+                {analytics?.horas_ahorradas > 0 && (
+                  <div style={{ background: '#f0fdf4', padding: '8px 20px', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 16, borderTop: '1px solid #dcfce7' }}>
+                    <div style={{ textAlign: 'center' }}>
+                      <div style={{ fontSize: 16, fontWeight: 900, color: '#16a34a' }}>⏱ {analytics.horas_ahorradas}h</div>
+                      <div style={{ fontSize: 9, color: '#16a34a', fontWeight: 600 }}>horas ahorradas al dueño</div>
+                    </div>
+                    <div style={{ width: 1, height: 30, background: '#bbf7d0' }} />
+                    <div style={{ textAlign: 'center' }}>
+                      <div style={{ fontSize: 16, fontWeight: 900, color: '#16a34a' }}>�� {analytics?.total_ordenes || 0}</div>
+                      <div style={{ fontSize: 9, color: '#16a34a', fontWeight: 600 }}>pedidos cerrados sin intervención</div>
+                    </div>
+                  </div>
+                )}
                 {/* Footer */}
                 <div style={{ background: '#fef3c7', padding: '8px 20px', fontSize: 10, color: '#92400e', fontWeight: 600, textAlign: 'center' }}>
                   {roi >= 300 ? '🏆 Tu sistema trabaja más duro que cualquier vendedor. ¡Excelente mes!' :
