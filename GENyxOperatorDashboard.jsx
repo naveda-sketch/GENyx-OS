@@ -1955,8 +1955,10 @@ function MandoClientView({ slug }) {
             const ps = o.production_status || 'nuevo';
             const sp = PROD_STATUS[ps] || PROD_STATUS.nuevo;
             const od = typeof o.order_data === 'object' ? o.order_data : {};
-            const items = o.items || od.items || [];
+            const items = o.items || od.items || od.cart || [];
             const total = o.total_estimated || od.total || od.total_estimated || 0;
+            const shipping = od.shipping || o.shipping || 0;
+            const subtotal = total - shipping;
             const isUpd = updating === o.id;
             return (
               <div key={o.id} style={{ ...CARD, borderLeft: `4px solid ${sp.color}`, marginBottom: 10 }}>
@@ -1978,6 +1980,31 @@ function MandoClientView({ slug }) {
                   <span style={{ color: '#78716c', fontSize: 11 }}>{fmt(o.created_at)}</span>
                   <span style={{ fontWeight: 800, color: '#92400e', fontSize: 15 }}>${Number(total).toLocaleString('es-MX')} MXN</span>
                 </div>
+                {/* ── Expandable ticket completo ── */}
+                <details style={{ marginTop: 8 }}>
+                  <summary style={{ fontSize: 11, color: '#92400e', cursor: 'pointer', fontWeight: 700, padding: '6px 0', userSelect: 'none' }}>
+                    🎫 Ver ticket completo ▾
+                  </summary>
+                  <div style={{ background: '#fff9f5', border: '1px dashed #e7d5c0', borderRadius: 8, padding: '12px', marginTop: 6, fontSize: 12 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}><span style={{ color: '#78716c' }}>🔖 N° Orden</span><b>#{o.id}</b></div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}><span style={{ color: '#78716c' }}>👤 Nombre</span><span>{o.customer_name || '—'}</span></div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}><span style={{ color: '#78716c' }}>📱 WaB</span><span>{o.whatsapp || '—'}</span></div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8, alignItems: 'flex-start' }}><span style={{ color: '#78716c' }}>📍 Dirección</span><span style={{ textAlign: 'right', maxWidth: '60%' }}>{o.address || '—'}</span></div>
+                    <div style={{ borderTop: '1px solid #e7d5c0', paddingTop: 8, marginBottom: 6, fontWeight: 700, color: '#44403c' }}>🛒 Productos ({items.length})</div>
+                    {items.map((it, i) => (
+                      <div key={i} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 3 }}>
+                        <span>{it.nombre || it.name} ×{it.cantidad || it.qty || 1}</span>
+                        <b style={{ color: '#92400e' }}>${((it.subtotal || it.precio || it.price || 0)).toLocaleString('es-MX')}</b>
+                      </div>
+                    ))}
+                    <div style={{ borderTop: '1px solid #e7d5c0', marginTop: 8, paddingTop: 8 }}>
+                      {subtotal > 0 && <div style={{ display: 'flex', justifyContent: 'space-between', color: '#78716c' }}><span>Subtotal</span><span>${Number(subtotal).toLocaleString('es-MX')}</span></div>}
+                      {shipping > 0 && <div style={{ display: 'flex', justifyContent: 'space-between', color: '#78716c' }}><span>🚚 Envío</span><span>${Number(shipping).toLocaleString('es-MX')}</span></div>}
+                      <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 900, color: '#15803d', fontSize: 14, marginTop: 4 }}><span>TOTAL</span><span>${Number(total).toLocaleString('es-MX')} MXN</span></div>
+                    </div>
+                    <div style={{ marginTop: 8, color: '#a8a29e', fontSize: 10 }}>📅 {fmt(o.created_at)}</div>
+                  </div>
+                </details>
                 <div style={{ marginTop: 10, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                   {sp.next && <button onClick={() => updateProdStatus(o.id, sp.next)} disabled={isUpd} style={{ ...BTN(PROD_STATUS[sp.next].color), flex: 1, opacity: isUpd ? 0.5 : 1 }}>{isUpd ? '⏳ ...' : sp.nextLabel}</button>}
                   {ps === 'en_produccion' && <button onClick={() => updateProdStatus(o.id, 'nuevo')} disabled={isUpd} style={{ ...BTN('#f3f4f6', '#6b7280'), border: '1px solid #e5e7eb' }}>← Regresar</button>}
@@ -1985,6 +2012,7 @@ function MandoClientView({ slug }) {
               </div>
             );
           })}
+
 
           {/* ━━ POR COBRAR: Pedidos PENDIENTES (link enviado, pago no confirmado) ━━ */}
           {pendingOrders.length > 0 && (
@@ -3141,21 +3169,28 @@ function TicketPage({ sid }) {
   }, [sid]);
 
   const S = {
-    bg: { minHeight: '100vh', background: 'linear-gradient(160deg, #f0fdf4 0%, #dcfce7 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20, fontFamily: "'Inter', 'Segoe UI', sans-serif" },
-    wrap: { background: '#fff', borderRadius: 24, boxShadow: '0 24px 64px rgba(0,0,0,.13)', maxWidth: 420, width: '100%', overflow: 'hidden' },
-    hdr: { background: 'linear-gradient(135deg, #15803d, #16a34a)', padding: '32px 24px 24px', textAlign: 'center', color: '#fff' },
-    body: { padding: '22px 24px' },
-    infoR: { display: 'flex', justifyContent: 'space-between', fontSize: 13, color: '#6b7280', marginBottom: 6 },
+    bg:    { minHeight: '100vh', background: 'linear-gradient(160deg, #f0fdf4 0%, #dcfce7 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20, fontFamily: "'Inter', 'Segoe UI', sans-serif" },
+    wrap:  { background: '#fff', borderRadius: 24, boxShadow: '0 24px 64px rgba(0,0,0,.13)', maxWidth: 440, width: '100%', overflow: 'hidden' },
+    hdr:   { background: 'linear-gradient(135deg, #15803d, #16a34a)', padding: '32px 24px 24px', textAlign: 'center', color: '#fff' },
+    body:  { padding: '22px 24px' },
+    row:   { display: 'flex', justifyContent: 'space-between', fontSize: 13, color: '#6b7280', marginBottom: 7, alignItems: 'flex-start' },
+    rowB:  { display: 'flex', justifyContent: 'space-between', fontSize: 13, color: '#374151', fontWeight: 700, marginBottom: 7 },
     itemR: { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', padding: '10px 0', borderBottom: '1px dashed #e5e7eb' },
-    totalR: { display: 'flex', justifyContent: 'space-between', padding: '16px 0 0', fontWeight: 900, fontSize: 20, color: '#15803d' },
-    ftr: { background: '#f9fafb', padding: '18px 24px', textAlign: 'center', borderTop: '1px dashed #e2e8f0' },
+    totalR:{ display: 'flex', justifyContent: 'space-between', padding: '14px 0 0', fontWeight: 900, fontSize: 20, color: '#15803d', borderTop: '2px solid #dcfce7', marginTop: 8 },
+    ftr:   { background: '#f9fafb', padding: '18px 24px', textAlign: 'center', borderTop: '1px dashed #e2e8f0' },
+    sec:   { fontSize: 11, fontWeight: 800, color: '#92400e', textTransform: 'uppercase', letterSpacing: '.06em', margin: '16px 0 8px' },
   };
 
-  const items = ticket?.items || [];
-  const total = ticket?.total || 0;
-  const fecha = ticket?.fecha || new Date().toLocaleDateString('es-MX');
-  const hora  = ticket?.hora  || '';
-  const orderId = ticket?.order_id || (sid ? sid.slice(-8).toUpperCase() : '——');
+  const items    = ticket?.items    || [];
+  const total    = ticket?.total    || 0;
+  const subtotal = ticket?.subtotal || 0;
+  const shipping = ticket?.shipping || 0;
+  const fecha    = ticket?.fecha    || new Date().toLocaleDateString('es-MX');
+  const hora     = ticket?.hora     || '';
+  const orderId  = ticket?.order_id || (sid ? `#${sid.slice(-8).toUpperCase()}` : '——');
+  const nombre   = ticket?.nombre   || '';
+  const whatsapp = ticket?.whatsapp || '';
+  const address  = ticket?.address  || '';
 
   if (loading) return (
     <div style={S.bg}>
@@ -3172,27 +3207,35 @@ function TicketPage({ sid }) {
         {/* ── Header ── */}
         <div style={S.hdr}>
           <div style={{ fontSize: 54, marginBottom: 6 }}>✅</div>
-          <h1 style={{ margin: 0, fontSize: 24, fontWeight: 900 }}>¡Pago Confirmado!</h1>
-          <p style={{ margin: '6px 0 0', fontSize: 14, opacity: .9 }}>Tu pedido está siendo preparado 🍞</p>
+          <h1 style={{ margin: 0, fontSize: 24, fontWeight: 900 }}>¡Pago Recibido!</h1>
+          <p style={{ margin: '6px 0 0', fontSize: 14, opacity: .9 }}>Tu pedido está siendo preparado con amor 🍞</p>
           <div style={{ display: 'inline-block', background: '#dcfce7', color: '#15803d', fontWeight: 800, fontSize: 12, padding: '4px 16px', borderRadius: 20, marginTop: 12, letterSpacing: '.05em' }}>PAGO EXITOSO</div>
         </div>
 
         {/* ── Body ── */}
         <div style={S.body}>
-          {/* Meta */}
-          <div style={{ marginBottom: 16 }}>
-            <div style={S.infoR}><span>🔖 N° de Orden</span><b style={{ color: '#1a1208' }}>#{orderId}</b></div>
-            <div style={S.infoR}><span>📅 Fecha</span><span>{fecha}</span></div>
-            {hora && <div style={S.infoR}><span>🕐 Hora</span><span>{hora}</span></div>}
-          </div>
 
-          {/* Items */}
-          <div style={{ fontSize: 11, fontWeight: 800, color: '#92400e', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 8 }}>🛒 Productos</div>
+          {/* Info del pedido */}
+          <div style={S.sec}>📋 Detalle del Pedido</div>
+          <div style={S.rowB}><span>🔖 N° de Orden</span><b style={{ color: '#15803d' }}>#{orderId}</b></div>
+          <div style={S.row}><span>📅 Fecha</span><span>{fecha}</span></div>
+          {hora && <div style={S.row}><span>🕐 Hora</span><span>{hora}</span></div>}
+
+          {/* Info del cliente */}
+          {(nombre || whatsapp || address) && <>
+            <div style={S.sec}>👤 Datos del Cliente</div>
+            {nombre   && <div style={S.rowB}><span>Nombre</span><span>{nombre}</span></div>}
+            {whatsapp && <div style={S.row}><span>📱 WhatsApp</span><span>{whatsapp}</span></div>}
+            {address  && <div style={S.row}><span>📍 Dirección</span><span style={{ textAlign: 'right', maxWidth: '55%' }}>{address}</span></div>}
+          </>}
+
+          {/* Productos */}
+          <div style={S.sec}>🛒 Productos ({items.length} {items.length === 1 ? 'item' : 'items'})</div>
           {items.length > 0 ? items.map((it, i) => (
             <div key={i} style={S.itemR}>
               <div>
                 <div style={{ fontWeight: 700, fontSize: 14, color: '#1a1208' }}>{it.nombre}</div>
-                <div style={{ fontSize: 12, color: '#78716c' }}>Cantidad: {it.qty}</div>
+                <div style={{ fontSize: 12, color: '#78716c' }}>Cant: {it.qty} × ${it.precio_unitario?.toFixed(2)}</div>
               </div>
               <div style={{ fontWeight: 700, fontSize: 14, color: '#15803d', whiteSpace: 'nowrap', marginLeft: 12 }}>${it.total_item?.toFixed(2)}</div>
             </div>
@@ -3200,11 +3243,11 @@ function TicketPage({ sid }) {
             <p style={{ color: '#78716c', fontSize: 13, textAlign: 'center', padding: '12px 0' }}>📲 Revisa tu resumen en WhatsApp</p>
           )}
 
-          {/* Total */}
-          <div style={S.totalR}>
-            <span>TOTAL</span>
-            <span>{total > 0 ? `$${total.toFixed(2)} MXN` : '——'}</span>
-          </div>
+          {/* Totales */}
+          {subtotal > 0 && <div style={{ ...S.row, marginTop: 12 }}><span>Subtotal</span><span>${subtotal.toFixed(2)} MXN</span></div>}
+          {shipping > 0 && <div style={S.row}><span>🚚 Envío</span><span>${shipping.toFixed(2)} MXN</span></div>}
+          {shipping === 0 && total > 0 && <div style={S.row}><span>🏪 Recoger en tienda</span><span>$0.00 MXN</span></div>}
+          <div style={S.totalR}><span>TOTAL PAGADO</span><span>{total > 0 ? `$${total.toFixed(2)} MXN` : '——'}</span></div>
         </div>
 
         {/* ── Footer ── */}
@@ -3212,16 +3255,17 @@ function TicketPage({ sid }) {
           <div style={{ fontSize: 28, marginBottom: 4 }}>🍞</div>
           <div style={{ fontWeight: 800, fontSize: 15, color: '#1a1208' }}>Panadería Paty</div>
           <div style={{ fontSize: 12, color: '#6b7280', marginTop: 2 }}>Magnolias 111, Bugambilias, Zapopan, Jal.</div>
-          <div style={{ fontSize: 11, color: '#9ca3af', margin: '10px 0 14px' }}>Recibirás una confirmación con tu número de orden por WhatsApp 📲</div>
-          <button onClick={() => window.close()}
-            style={{ background: '#25D366', color: '#fff', border: 'none', fontWeight: 800, fontSize: 14, padding: '12px 28px', borderRadius: 25, cursor: 'pointer', marginBottom: 6 }}>
-            💬 Cerrar y volver al chat
+          <div style={{ fontSize: 11, color: '#9ca3af', margin: '8px 0 12px' }}>Paty se pondrá en contacto contigo por WhatsApp para coordinar la entrega 📲</div>
+          <button onClick={() => window.location.href = 'https://paty.genyxsystems.com'}
+            style={{ background: '#25D366', color: '#fff', border: 'none', fontWeight: 800, fontSize: 14, padding: '12px 28px', borderRadius: 25, cursor: 'pointer' }}>
+            💬 Volver al chat
           </button>
         </div>
       </div>
     </div>
   );
 }
+
 
 export default function GENyxOperatorDashboard() {
 
