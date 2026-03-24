@@ -1748,6 +1748,17 @@ function MandoClientView({ slug }) {
     setUpdating(null);
   };
 
+  const markPaid = async (orderId) => {
+    setUpdating(orderId);
+    try {
+      const r = await fetch(`${BACKEND}/api/dashboard/${slug}/orders/${orderId}/mark-paid`, {
+        method: 'PATCH', headers: { 'Content-Type': 'application/json', 'X-Dashboard-Token': token },
+      });
+      if (r.ok) setOrders(prev => prev.map(o => o.id === orderId ? { ...o, status: 'paid', production_status: o.production_status || 'nuevo' } : o));
+    } catch {}
+    setUpdating(null);
+  };
+
   const fetchAnalytics = useCallback(async () => {
     if (!token) return;
     setAnalyticsLoading(true);
@@ -1882,8 +1893,10 @@ function MandoClientView({ slug }) {
     </div>
   );
 
-  const activos   = orders.filter(o => o.production_status !== 'entregado');
-  const historial = orders.filter(o => o.production_status === 'entregado');
+  const paidOrders   = orders.filter(o => o.status === 'paid');
+  const pendingOrders = orders.filter(o => o.status === 'pending');
+  const activos   = paidOrders.filter(o => o.production_status !== 'entregado');
+  const historial = paidOrders.filter(o => o.production_status === 'entregado');
 
   return (
     <div style={CS}>
@@ -1911,72 +1924,122 @@ function MandoClientView({ slug }) {
 
         {/* ═══ TAB: PEDIDOS ═══ */}
         {tab === 'pedidos' && (<>
-          <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 12, color: '#44403c' }}>🚦 Pedidos Activos ({activos.length})</h2>
-          {/* ━━ Contadores de status ━━ */}
+          {/* ━━ Semáforo de Estado ━━ */}
           {(() => {
-            const cNuevo    = activos.filter(o => !o.production_status || o.production_status === 'nuevo').length;
-            const cProd     = activos.filter(o => o.production_status === 'en_produccion').length;
-            const cTotal    = historial.length;
+            const cNuevo = activos.filter(o => !o.production_status || o.production_status === 'nuevo').length;
+            const cProd  = activos.filter(o => o.production_status === 'en_produccion').length;
+            const cEntr  = historial.length;
+            const cPend  = pendingOrders.length;
             const STAT = [
-              { label: '🆕 Nuevos',     count: cNuevo, bg: '#eff6ff', txt: '#1d4ed8' },
-              { label: '⚙️ En Proceso', count: cProd,  bg: '#fefce8', txt: '#b45309' },
-              { label: '✅ Entregados', count: cTotal, bg: '#f0fdf4', txt: '#15803d' },
+              { label: '🔴 Nuevos',       count: cNuevo, bg: '#fef2f2', txt: '#b91c1c' },
+              { label: '🟡 En Proceso',   count: cProd,  bg: '#fffbeb', txt: '#b45309' },
+              { label: '🟢 Entregados',   count: cEntr,  bg: '#f0fdf4', txt: '#15803d' },
+              { label: '⏳ Por Cobrar',   count: cPend,  bg: '#f8fafc', txt: '#64748b' },
             ];
             return (
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 8, marginBottom: 14 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 6, marginBottom: 14 }}>
                 {STAT.map(({ label, count, bg, txt }) => (
-                  <div key={label} style={{ background: bg, borderRadius: 12, padding: '12px 8px', textAlign: 'center' }}>
-                    <div style={{ fontSize: 26, fontWeight: 900, color: txt }}>{count}</div>
-                    <div style={{ fontSize: 10, fontWeight: 700, color: txt, marginTop: 2 }}>{label}</div>
+                  <div key={label} style={{ background: bg, borderRadius: 12, padding: '10px 6px', textAlign: 'center', border: `1px solid ${txt}20` }}>
+                    <div style={{ fontSize: 22, fontWeight: 900, color: txt }}>{count}</div>
+                    <div style={{ fontSize: 9, fontWeight: 700, color: txt, marginTop: 2 }}>{label}</div>
                   </div>
                 ))}
               </div>
             );
           })()}
-          {/* Leyenda */}
-          <div style={{ display: 'flex', gap: 6, marginBottom: 12, flexWrap: 'wrap' }}>
-            {Object.values(PROD_STATUS).map(s => <span key={s.label} style={{ background: s.bg, color: s.color, border: `1px solid ${s.color}30`, padding: '3px 9px', borderRadius: 20, fontSize: 11, fontWeight: 700 }}>{s.label}</span>)}
-          </div>
-          {activos.length === 0 && <div style={{ ...CARD, textAlign: 'center', color: '#a8a29e', fontSize: 14 }}>No hay pedidos activos.</div>}
+
+          {/* ━━ SEMÁFORO: Pedidos PAGADOS activos ━━ */}
+          <h2 style={{ fontSize: 13, fontWeight: 700, marginBottom: 10, color: '#44403c' }}>✅ Pedidos Pagados ({activos.length})</h2>
+          {activos.length === 0 && <div style={{ ...CARD, textAlign: 'center', color: '#a8a29e', fontSize: 13, marginBottom: 16 }}>No hay pedidos activos aún.<br/><span style={{ fontSize: 11 }}>Aparecerán aquí cuando un cliente complete su pago en Stripe.</span></div>}
           {activos.map(o => {
             const ps = o.production_status || 'nuevo';
             const sp = PROD_STATUS[ps] || PROD_STATUS.nuevo;
-            const items = o.items || []; const total = o.total || o.total_estimated || 0; const isUpd = updating === o.id;
+            const od = typeof o.order_data === 'object' ? o.order_data : {};
+            const items = o.items || od.items || [];
+            const total = o.total_estimated || od.total || od.total_estimated || 0;
+            const isUpd = updating === o.id;
             return (
-              <div key={o.id} style={{ ...CARD, borderLeft: `4px solid ${sp.color}` }}>
+              <div key={o.id} style={{ ...CARD, borderLeft: `4px solid ${sp.color}`, marginBottom: 10 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
                   <div>
                     <div style={{ fontWeight: 700, fontSize: 14 }}>#{o.id} · {o.customer_name || 'Cliente'}</div>
                     <div style={{ fontSize: 11, color: '#78716c', marginTop: 2 }}>
-                      {o.whatsapp && <span>📱 {o.whatsapp}</span>}
-                      {o.address && <span style={{ marginLeft: 6 }}>📍 {o.address}</span>}
+                      {o.whatsapp && <span>📱 {o.whatsapp} </span>}
+                      {o.address && <span>📍 {String(o.address).substring(0, 40)}{String(o.address).length > 40 ? '…' : ''}</span>}
                     </div>
                   </div>
                   <span style={{ background: sp.bg, color: sp.color, padding: '3px 10px', borderRadius: 20, fontSize: 11, fontWeight: 800, border: `1px solid ${sp.color}30` }}>{sp.label}</span>
                 </div>
                 <div style={{ background: '#faf7f2', borderRadius: 8, padding: '8px 12px', marginBottom: 10, fontSize: 12 }}>
-                  {items.map((it, i) => <div key={i}>• {it.nombre || it.name} ×{it.cantidad || it.qty || 1} — <b>${(it.subtotal || it.precio || it.price || (it.precio_unitario * (it.cantidad || it.qty || 1)) || 0).toLocaleString()}</b></div>)}
-                  {items.length === 0 && <span style={{ color: '#a8a29e' }}>Sin detalle.</span>}
+                  {items.map((it, i) => <div key={i}>• {it.nombre || it.name} ×{it.cantidad || it.qty || 1} — <b>${((it.subtotal || it.precio || it.price || 0)).toLocaleString('es-MX')}</b></div>)}
+                  {items.length === 0 && <span style={{ color: '#a8a29e' }}>Sin detalle de productos.</span>}
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
                   <span style={{ color: '#78716c', fontSize: 11 }}>{fmt(o.created_at)}</span>
-                  <span style={{ fontWeight: 800, color: '#92400e', fontSize: 15 }}>${total.toLocaleString('es-MX')} MXN</span>
+                  <span style={{ fontWeight: 800, color: '#92400e', fontSize: 15 }}>${Number(total).toLocaleString('es-MX')} MXN</span>
                 </div>
                 <div style={{ marginTop: 10, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                  {sp.next && <button onClick={() => updateProdStatus(o.id, sp.next)} disabled={isUpd} style={{ ...BTN(PROD_STATUS[sp.next].color), flex: 1, opacity: isUpd ? 0.5 : 1 }}>{isUpd ? '...' : sp.nextLabel}</button>}
+                  {sp.next && <button onClick={() => updateProdStatus(o.id, sp.next)} disabled={isUpd} style={{ ...BTN(PROD_STATUS[sp.next].color), flex: 1, opacity: isUpd ? 0.5 : 1 }}>{isUpd ? '⏳ ...' : sp.nextLabel}</button>}
                   {ps === 'en_produccion' && <button onClick={() => updateProdStatus(o.id, 'nuevo')} disabled={isUpd} style={{ ...BTN('#f3f4f6', '#6b7280'), border: '1px solid #e5e7eb' }}>← Regresar</button>}
                 </div>
               </div>
             );
           })}
+
+          {/* ━━ POR COBRAR: Pedidos PENDIENTES (link enviado, pago no confirmado) ━━ */}
+          {pendingOrders.length > 0 && (
+            <details style={{ marginTop: 16 }} open={pendingOrders.length > 0 && activos.length === 0}>
+              <summary style={{ fontSize: 12, color: '#78716c', cursor: 'pointer', fontWeight: 700, marginBottom: 8, padding: '8px 0' }}>
+                ⏳ Por Cobrar — {pendingOrders.length} pedido(s) con link enviado
+              </summary>
+              <div style={{ fontSize: 11, color: '#94a3b8', marginBottom: 10 }}>Link Stripe enviado. El pago se confirma automáticamente cuando el cliente paga. Si recibiste pago por SPEI o efectivo, marca como pagado manualmente.</div>
+              {pendingOrders.map(o => {
+                const od = typeof o.order_data === 'object' ? o.order_data : {};
+                const items = o.items || od.items || [];
+                const total = o.total_estimated || od.total || od.total_estimated || 0;
+                const isUpd = updating === o.id;
+                return (
+                  <div key={o.id} style={{ ...CARD, borderLeft: '4px solid #94a3b8', marginBottom: 8, opacity: 0.85 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
+                      <div style={{ fontWeight: 700, fontSize: 13 }}>#{o.id} · {o.customer_name || 'Cliente'}</div>
+                      <span style={{ background: '#f1f5f9', color: '#64748b', padding: '2px 8px', borderRadius: 12, fontSize: 10, fontWeight: 700 }}>PENDIENTE</span>
+                    </div>
+                    <div style={{ fontSize: 11, color: '#78716c', marginBottom: 8 }}>
+                      {o.whatsapp && <span>📱 {o.whatsapp} · </span>}
+                      {items.length} artículo(s) · {fmt(o.created_at)}
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span style={{ fontWeight: 800, color: '#78716c', fontSize: 14 }}>${Number(total).toLocaleString('es-MX')} MXN</span>
+                      <button onClick={() => markPaid(o.id)} disabled={isUpd}
+                        style={{ background: '#dcfce7', color: '#15803d', border: '1px solid #86efac', borderRadius: 8, padding: '5px 12px', fontSize: 11, fontWeight: 700, cursor: 'pointer', opacity: isUpd ? 0.5 : 1 }}>
+                        {isUpd ? '⏳...' : '✅ Marcar Pagado'}
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </details>
+          )}
+
+          {/* ━━ HISTORIAL: Pedidos entregados (DATA para los lunes) ━━ */}
           {historial.length > 0 && (
-            <details style={{ marginTop: 8 }}>
-              <summary style={{ fontSize: 12, color: '#78716c', cursor: 'pointer', fontWeight: 600, marginBottom: 8 }}>🗂 Historial entregados ({historial.length})</summary>
-              {historial.slice(0, 15).map(o => (
-                <div key={o.id} style={{ ...CARD, opacity: 0.65, fontSize: 12 }}>
-                  #{o.id} · <b>{o.customer_name}</b> — ${(o.total || 0).toLocaleString('es-MX')} MXN · ✅ Entregado · {fmt(o.created_at)}
-                </div>
-              ))}
+            <details style={{ marginTop: 16 }}>
+              <summary style={{ fontSize: 12, color: '#78716c', cursor: 'pointer', fontWeight: 600, padding: '8px 0' }}>🗂️ Historial Entregados ({historial.length}) — DATA 📊</summary>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginTop: 8 }}>
+                {historial.map(o => {
+                  const od = typeof o.order_data === 'object' ? o.order_data : {};
+                  const total = o.total_estimated || od.total || od.total_estimated || 0;
+                  return (
+                    <div key={o.id} style={{ ...CARD, opacity: 0.7, fontSize: 12, padding: '10px 14px' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <span>#{o.id} · <b>{o.customer_name}</b></span>
+                        <span style={{ fontWeight: 800, color: '#15803d' }}>${Number(total).toLocaleString('es-MX')} MXN</span>
+                      </div>
+                      <div style={{ color: '#a8a29e', fontSize: 11, marginTop: 2 }}>✅ Entregado · {fmt(o.created_at)}</div>
+                    </div>
+                  );
+                })}
+              </div>
             </details>
           )}
         </>)}
