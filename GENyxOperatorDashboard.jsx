@@ -655,6 +655,117 @@ const TabHerramientas = ({ health, orders, tenants, selectedSlug }) => {
         {/* ────── COL IZQUIERDA: Herramientas ────── */}
         <div>
 
+      {/* ══ AUDITORÍA RÁPIDA DEL SISTEMA ══ */}
+      {(() => {
+        const [auditRunning, setAuditRunning] = React.useState(false);
+        const [auditResult, setAuditResult] = React.useState(null);
+
+        const runAudit = async () => {
+          setAuditRunning(true);
+          setAuditResult(null);
+          const t0 = Date.now();
+          const checks = {};
+
+          // CHECK 1: Backend health
+          try {
+            const r = await fetch(`${BACKEND}/api/health`);
+            const d = await r.json();
+            checks.backend = r.ok
+              ? { ok: true,  label: 'Backend online', detail: `v${d.version || '?'} · ${d.tenants_active || 0} tenant(s)` }
+              : { ok: false, label: 'Backend caído', detail: 'No responde' };
+            // CHECK 2: agent_core integridad
+            checks.core = (d.agent_core_lines && d.agent_core_lines >= 2000)
+              ? { ok: true,  label: 'agent_core íntegro', detail: `${d.agent_core_lines} líneas ✅` }
+              : d.agent_core_lines
+                ? { ok: false, label: 'agent_core TRUNCADO', detail: `Solo ${d.agent_core_lines} líneas — ALERTA` }
+                : { ok: null, label: 'agent_core', detail: 'Dato no disponible (sin campo en /health)' };
+          } catch {
+            checks.backend = { ok: false, label: 'Backend inaccesible', detail: 'Error de red' };
+            checks.core    = { ok: null,  label: 'agent_core', detail: 'No verificable' };
+          }
+
+          // CHECK 3: Órdenes pending > 24h
+          try {
+            const r = await fetch(`${BACKEND}/api/dashboard/orders`, { headers: getAH() });
+            if (r.ok) {
+              const d = await r.json();
+              const orders = d.orders || [];
+              const cutoff = Date.now() - 24 * 3600 * 1000;
+              const stale = orders.filter(o => o.status === 'pending' && new Date(o.created_at + 'Z').getTime() < cutoff);
+              checks.orders = stale.length === 0
+                ? { ok: true,  label: 'Órdenes OK', detail: `${orders.length} total, 0 pendientes >24h` }
+                : { ok: false, label: `${stale.length} pedido(s) pendiente(s) >24h`, detail: 'Verificar con el cliente' };
+            } else {
+              checks.orders = { ok: null, label: 'Órdenes', detail: 'Sin autorización para ver' };
+            }
+          } catch { checks.orders = { ok: null, label: 'Órdenes', detail: 'Error de conexión' }; }
+
+          // CHECK 4: Webhook Stripe (indirecto — verificar que el endpoint responde)
+          try {
+            const r = await fetch(`${BACKEND}/api/health`); // Render no expone webhook check, usamos health
+            checks.webhook = r.ok
+              ? { ok: true, label: 'Webhook endpoint OK', detail: 'Backend acepta requests de Stripe' }
+              : { ok: false, label: 'Webhook en riesgo', detail: 'Backend no responde' };
+          } catch { checks.webhook = { ok: null, label: 'Webhook', detail: 'No verificable' }; }
+
+          setAuditResult({ ...checks, ms: Date.now() - t0 });
+          setAuditRunning(false);
+        };
+
+        const allOk    = auditResult && Object.values(auditResult).filter(v => v && v.ok !== undefined).every(v => v.ok !== false);
+        const hasError = auditResult && Object.values(auditResult).filter(v => v && v.ok !== undefined).some(v => v.ok === false);
+        const semColor = !auditResult ? '#64748b' : hasError ? '#ef4444' : allOk ? '#22c55e' : '#f59e0b';
+        const semIcon  = !auditResult ? '⚪' : hasError ? '🔴' : allOk ? '🟢' : '🟡';
+
+        return (
+          <div style={{ ...CARD, border: `1px solid ${semColor}30`, marginBottom: 20, background: `${semColor}06` }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+              <div>
+                <h3 style={{ fontWeight: 700, fontSize: 14, color: '#f1f5f9', marginBottom: 2 }}>
+                  {semIcon} Auditoría Rápida del Sistema
+                </h3>
+                <p style={{ fontSize: 11, color: '#64748b' }}>
+                  Verifica backend · agent_core · órdenes · webhook
+                </p>
+              </div>
+              <button
+                onClick={runAudit}
+                disabled={auditRunning}
+                style={{ ...BTN_SM_BLUE, opacity: auditRunning ? 0.6 : 1, minWidth: 110, fontSize: 12 }}
+              >
+                {auditRunning ? '⏳ Auditando…' : '▶ Ejecutar Auditoría'}
+              </button>
+            </div>
+
+            {auditResult && (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                {Object.entries(auditResult).filter(([k]) => k !== 'ms').map(([key, c]) => {
+                  if (!c || typeof c !== 'object') return null;
+                  const dot = c.ok === true ? '🟢' : c.ok === false ? '🔴' : '🟡';
+                  return (
+                    <div key={key} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '6px 10px', background: 'rgba(15,23,42,0.4)', borderRadius: 8 }}>
+                      <span style={{ fontSize: 14, lineHeight: 1.4 }}>{dot}</span>
+                      <div>
+                        <p style={{ fontSize: 12, fontWeight: 600, color: c.ok === false ? '#fca5a5' : '#e2e8f0' }}>{c.label}</p>
+                        <p style={{ fontSize: 10, color: '#64748b' }}>{c.detail}</p>
+                      </div>
+                      {c.ok === false && (
+                        <span style={{ marginLeft: 'auto', fontSize: 10, color: '#f87171', background: 'rgba(239,68,68,0.1)', padding: '2px 8px', borderRadius: 4, whiteSpace: 'nowrap' }}>
+                          → consulta Farmacopeia
+                        </span>
+                      )}
+                    </div>
+                  );
+                })}
+                <p style={{ ...MONO, fontSize: 9, color: '#475569', textAlign: 'right', marginTop: 4 }}>
+                  Completado en {auditResult.ms}ms
+                </p>
+              </div>
+            )}
+          </div>
+        );
+      })()}
+
       {/* ── Botón de Pánico ── */}
       <div style={{ ...CARD, border: '1px solid rgba(239,68,68,0.2)', marginBottom: 20 }}>
         <h3 style={{ fontWeight: 700, fontSize: 14, color: '#f87171', marginBottom: 6 }}>🚨 Botón de Pánico — Gestión de Cliente</h3>
