@@ -32,7 +32,119 @@ const TABS = [
   { id: 'expedientes',  label: '🗄️ Expedientes' },
   { id: 'manuales',     label: '📚 Manuales' },
   { id: 'onboarding',   label: '🚀 Onboarding' },
+  { id: 'farmacopeia',  label: '💊 Farmacopeia' },
 ];
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// TAB: FARMACOPEIA — Base de conocimiento de bugs y soluciones
+// ═══════════════════════════════════════════════════════════════════════════════
+const FARMACOPEIA_DATA = [
+  { sintoma: 'Bot pide dirección después del código promo', diagnostico: 'calcular_distancia llamada con dir placeholder; ignora bypass de promo', fix: 'Bypass: "coordinar" in dir.lower() → retorna GRATIS sin llamar Maps. Known-hint: PROHIBIDO ABSOLUTO llamar calcular_distancia.', estado: '✅', commit: '62fc6e3' },
+  { sintoma: 'Upsell "Si x2" / "Si x3" agrega solo x1', diagnostico: 'UPSELL-INJECT tenía cantidad=1 hardcodeada; no leía el mensaje del usuario', fix: 'Regex extrae número del mensaje: "Si x3" → qty=3. Dedup reducido 45s→8s para permitir respuesta rápida.', estado: '✅', commit: 'd642551 + 7012386' },
+  { sintoma: 'eliminar_item borra más productos de los pedidos', diagnostico: '_kw_match usaba "al menos 1 palabra en común" — "pizza"+"base" matcheaban TODAS las pizzas', fix: 'Ahora requiere ALL query words como subset del item name (q_words.issubset(i_words))', estado: '✅', commit: '93722b6' },
+  { sintoma: 'Webhook Stripe con 82% de errores', diagnostico: 'Dos endpoints registrados en Stripe Dashboard para el mismo URL', fix: 'Dejar exactamente 1 endpoint en Stripe → Developers → Webhooks. Eliminar el duplicado.', estado: '✅', commit: 'Admin' },
+  { sintoma: 'Bot da link de pago en el saludo de bienvenida', diagnostico: 'Sesión anterior con payment_url activo; bot intentaba completar el pedido viejo', fix: 'PROHIBICIÓN ABSOLUTA de llamar iniciar_pago en saludos. Estado payment_ready se limpias al FULL-RESET.', estado: '✅', commit: 'a4c3f92' },
+  { sintoma: 'Envío $0 siendo domicilio (PICKUP falso)', diagnostico: 'tipo_entrega derivado del LLM que omitía el campo o enviaba "recoger" por default', fix: 'Derivar tipo comparando dir guardada vs dirección física de la tienda. LLM no puede manipular este campo.', estado: '✅', commit: 'e8c7fda' },
+  { sintoma: '"no such column: phone_id" — WaB post-pago silenciosa', diagnostico: 'Query SQL usaba phone_id pero la columna real en organizations es meta_phone_number_id', fix: 'Corregir SELECT a meta_phone_number_id en la query de WaB-CONFIRM.', estado: '✅', commit: '86dcbeb' },
+  { sintoma: 'Bot alucina tamaño del producto (75ml vs 65ml)', diagnostico: 'CHASIS del cliente sin regla de variante/tamaño — LLM inventa variantes inexistentes', fix: 'Agregar regla explícita en CHASIS: "todos los shots son 65ml — no existen de 75ml/80ml".', estado: '✅', commit: 'CHASIS' },
+  { sintoma: 'openai 2.x crash en Render al arrancar', diagnostico: 'requirements.txt sin pin de versión — Render instalaba openai 2.x con breaking changes de API', fix: 'Pinear openai>=1.0,<2.0 en requirements.txt. Verificar en cada nuevo cliente.', estado: '✅', commit: 'cc4940e' },
+  { sintoma: 'Deploy trunca agent_core.py — bot roto en producción', diagnostico: 'Script Python de reemplazo sobreescribió el archivo con contenido parcial (1082 vs 2281 líneas)', fix: 'Candado startup: sys.exit(1) si agent_core < 2000 líneas. Pre-commit hook local bloquea commit si >20% pérdida.', estado: '✅', commit: 'ac0b299' },
+  { sintoma: 'Carrito acumula cantidades sin que el usuario lo pida', diagnostico: 'LLM re-llamaba agregar_item para productos ya en carrito al procesar mensajes ajenos ("Nadamas")', fix: 'Guardrail dedup 8s + idempotencia: si misma qty → ignorar. REGLA INQUEBRANTABLE en CHASIS.', estado: '✅', commit: 'c5a089f' },
+  { sintoma: 'Bot no recuerda la conversación tras restart del servidor', diagnostico: 'Estado en RAM (dicts Python) — cada redeploy de Render borraba todos los carritos activos', fix: 'SQLite Session Store con WAL-mode. Tabla sessions con 7 columnas. Estado persiste entre reinicios.', estado: '✅', commit: 'e53715c' },
+  { sintoma: 'Pedidos pagados no aparecen en el dashboard', diagnostico: 'Query filtraba status=paid pero webhook no estaba configurado — todos quedaban en pending', fix: 'status IN (paid, pending) para ver todos. Configurar webhook Stripe correctamente.', estado: '✅', commit: '8821239' },
+  { sintoma: 'Stripe cobró monto incorrecto ($238 vs $323)', diagnostico: 'AUTO-RESET borraba carrito cuando payment_sent=True → producto perdido del total', fix: 'SOFT-RESET: conserva carrito/dir/contacto si order.status≠paid en DB antes de resetear.', estado: '✅', commit: '9b75638' },
+  { sintoma: '"domicilio cero" / "código cero" no es detectado', diagnostico: 'Regex solo buscaba el dígito "0" — no detectaba la palabra "cero" en español', fix: 'Normalizar texto antes del regex: texto.replace("cero","0"). También soporta variantes: "cod0", "c0d0".', estado: '✅', commit: 'd97ccfb' },
+  { sintoma: 'Monto Stripe $238 en vez de $323 en pedido con cambio', diagnostico: 'AUTO-RESET (args invertidos) borraba el carrito cuando el usuario cambiaba un item post-link', fix: 'FIX: args del AUTO-RESET estaban invertidos. SOFT-RESET conserva el carrito si no hay pago confirmado.', estado: '✅', commit: '37acd88 + 9b75638' },
+];
+
+const TabFarmacopeia = () => {
+  const [q, setQ] = useState('');
+  const [selected, setSelected] = useState(null);
+
+  const results = q.trim().length < 2
+    ? FARMACOPEIA_DATA
+    : FARMACOPEIA_DATA.filter(e => {
+        const hay = `${e.sintoma} ${e.diagnostico} ${e.fix} ${e.commit}`.toLowerCase();
+        return q.toLowerCase().split(' ').filter(Boolean).every(w => hay.includes(w));
+      });
+
+  return (
+    <section>
+      <div style={{ marginBottom: 24 }}>
+        <h2 style={H2}>💊 Farmacopeia GENyx</h2>
+        <p style={{ fontSize: 12, color: '#64748b', marginTop: 4 }}>
+          Base de conocimiento de bugs resueltos · <strong style={{ color: '#4ade80' }}>Regla de oro:</strong> buscar aquí <em>primero</em> antes de tocar código.
+        </p>
+      </div>
+
+      {/* Buscador */}
+      <div style={{ display: 'flex', gap: 10, marginBottom: 20, alignItems: 'center' }}>
+        <div style={{ position: 'relative', flex: 1 }}>
+          <span style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', fontSize: 16, pointerEvents: 'none' }}>🔍</span>
+          <input
+            id="farmacopeia-search"
+            type="text"
+            value={q}
+            onChange={e => { setQ(e.target.value); setSelected(null); }}
+            placeholder="Buscar por síntoma, diagnóstico, fix o commit…"
+            style={{ ...INPUT, paddingLeft: 38, width: '100%', fontSize: 13 }}
+          />
+          {q && <button onClick={() => setQ('')} style={{ position: 'absolute', right: 10, top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', color: '#64748b', cursor: 'pointer', fontSize: 18, lineHeight: 1 }}>×</button>}
+        </div>
+        <span style={{ ...MONO, color: '#64748b', fontSize: 11, whiteSpace: 'nowrap' }}>{results.length} resultado(s)</span>
+      </div>
+
+      {/* Lista */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+        {results.length === 0 && (
+          <div style={{ ...CARD, textAlign: 'center', color: '#64748b', padding: 32 }}>
+            <p style={{ fontSize: 28, marginBottom: 8 }}>🤷‍♂️</p>
+            <p>No se encontró para <strong style={{ color: '#f1f5f9' }}>"{q}"</strong></p>
+            <p style={{ fontSize: 11, marginTop: 6 }}>Si es un bug nuevo, resuélvelo y agrégalo aquí.</p>
+          </div>
+        )}
+        {results.map((e, i) => (
+          <div
+            key={i}
+            onClick={() => setSelected(selected === i ? null : i)}
+            style={{ ...CARD, cursor: 'pointer', border: `1px solid ${selected === i ? 'rgba(99,102,241,0.4)' : 'rgba(255,255,255,0.06)'}`, transition: 'border-color 0.15s' }}
+            onMouseOver={el => { if (selected !== i) el.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; }}
+            onMouseOut={el => { if (selected !== i) el.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'; }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12 }}>
+              <div style={{ flex: 1 }}>
+                <p style={{ fontWeight: 700, fontSize: 13, color: '#f1f5f9', marginBottom: selected !== i ? 4 : 0 }}>⚡ {e.sintoma}</p>
+                {selected !== i && <p style={{ fontSize: 11, color: '#64748b' }}>{e.diagnostico.substring(0, 90)}{e.diagnostico.length > 90 ? '…' : ''}</p>}
+              </div>
+              <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexShrink: 0 }}>
+                <span style={{ ...MONO, fontSize: 9, color: '#6366f1', background: 'rgba(99,102,241,0.1)', padding: '2px 7px', borderRadius: 4 }}>{e.commit}</span>
+                <span style={{ fontSize: 14 }}>{e.estado}</span>
+                <span style={{ color: '#64748b', fontSize: 11 }}>{selected === i ? '▲' : '▼'}</span>
+              </div>
+            </div>
+
+            {selected === i && (
+              <div style={{ marginTop: 14, paddingTop: 14, borderTop: '1px solid rgba(255,255,255,0.06)', display: 'flex', flexDirection: 'column', gap: 10 }}>
+                <div>
+                  <p style={{ ...MONO, fontSize: 9, color: '#64748b', marginBottom: 4, textTransform: 'uppercase', letterSpacing: '.06em' }}>Diagnóstico</p>
+                  <p style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6 }}>{e.diagnostico}</p>
+                </div>
+                <div style={{ background: 'rgba(74,222,128,0.05)', border: '1px solid rgba(74,222,128,0.15)', borderRadius: 8, padding: '10px 14px' }}>
+                  <p style={{ ...MONO, fontSize: 9, color: '#4ade80', marginBottom: 4, textTransform: 'uppercase', letterSpacing: '.06em' }}>✅ Fix Aplicado</p>
+                  <p style={{ fontSize: 12, color: '#d1fae5', lineHeight: 1.6 }}>{e.fix}</p>
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <div style={{ marginTop: 20, padding: '12px 16px', background: 'rgba(99,102,241,0.06)', borderRadius: 10, border: '1px solid rgba(99,102,241,0.15)' }}>
+        <p style={{ fontSize: 11, color: '#818cf8' }}>💡 <strong>¿Bug nuevo resuelto?</strong> Agrégalo al array <code style={{ background: 'rgba(99,102,241,0.2)', padding: '1px 5px', borderRadius: 3 }}>FARMACOPEIA_DATA</code> en el dashboard y a <code style={{ background: 'rgba(99,102,241,0.2)', padding: '1px 5px', borderRadius: 3 }}>bitacora_bugs_recurrentes.md</code>.</p>
+      </div>
+    </section>
+  );
+};
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // TAB: CLIENTES
@@ -3422,6 +3534,7 @@ export default function GENyxOperatorDashboard() {
         {tab === 'expedientes'  && <TabExpedientes   tenants={tenants} selectedSlug={selectedSlug} />}
         {tab === 'manuales'     && <TabManuales />}
         {tab === 'onboarding'   && <TabOnboarding />}
+        {tab === 'farmacopeia'  && <TabFarmacopeia />}
       </main>
     </div>
   );
