@@ -3347,10 +3347,10 @@ function GENyxLandingPage() {
           {[
             ['🔒', 'Guardrails Determinísticos', 'Código Python que blinda cada interacción. Tu IA nunca inventa precios, nunca improvisa flujos y nunca comete errores que dañen a tu cliente — ni a tu reputación.'],
             ['📊', 'Data de 100+ Implementaciones', 'Nuestros flujos están calibrados con datos reales de decenas de negocios por industria. Sabes exactamente qué convierte — antes de tu primer mes.'],
-            ['⚡', 'SLA de 5 Segundos', '100% de los mensajes atendidos en menos de 5 segundos, clasificados y guiados al cierre. Si fallamos más de 3 veces al mes, ese mes es sin costo.'],
-            ['🔗', 'Sin Comisión por Transacción', 'Modelo de suscripción fija. Tú vendes $10,000 o $500,000 en el mes — GenyX cobra lo mismo. Tu crecimiento es tuyo, no nuestro.'],
+            ['🔒', 'Tu negocio no depende de una persona', 'Un vendedor se enferma, renuncia, pide aumento o tiene un mal día. GenyX no. Atiende a todos tus clientes al mismo tiempo, los 365 días del año, con el mismo nivel de excelencia desde el primer mensaje hasta el cobro.'],
+            ['📊', 'Aprende de tus ventas desde el día uno', 'Histórico de conversaciones, productos más pedidos, horarios pico y ventas por mes. Información real de tu negocio — sin contratar un analista de datos ni instalar nada especial.'],
             ['🌐', 'Multi-Tenant Escalable', 'La misma plataforma que sirve a cualquier negocio de cualquier industria en paralelo con un solo operador. Infraestructura enterprise.'],
-            ['🏆', 'Lock-in de Valor, no de Contrato', 'Tu historial de conversaciones, catálogo y equipo entrenado crecen cada mes activo. Cuanto más tiempo, más difícil reproducir eso en otro sistema.'],
+            ['🏆', 'Y si no vendes, se apaga', 'GenyX provee la línea de ventas configurada para tu negocio. Si tú creces, crecerá contigo. Y si en algún momento decides dejar de crecer, la infraestructura se detiene — sin que puedas llevarte el sistema que construimos para ti. Así de simple y transparente.'],
           ].map(([ico, t, d]) => (
             <div key={t} style={{ background:'rgba(255,255,255,0.03)', border:'1px solid rgba(99,102,241,0.15)', borderRadius:16, padding:'24px 22px', transition:'all 0.25s' }}
               onMouseOver={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.45)'; e.currentTarget.style.background='rgba(99,102,241,0.06)'; }}
@@ -3404,13 +3404,13 @@ function GENyxLandingPage() {
           <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9' }}>Todo lo que necesitas saber</h2>
         </div>
         {[
-          ['¿Por qué GenyX y no un chatbot genérico?', 'Un chatbot genérico responde FAQs. GenyX opera tu proceso de ventas completo: califica prospectos, arma pedidos, genera cobros, guarda el historial y te entrega reportes. No tiene punto de comparación — es como elegir entre una recepcionista y un departamento de ventas.'],
-          ['¿Cuáles son sus ventajas competitivas reales?', '(1) Guardrails determinísticos: Python blinda cada respuesta, cero alucinaciones. (2) Data de 100+ implementaciones reales por industria. (3) SLA de 5 segundos garantizado. (4) Modelo sin comisión por venta. (5) Multi-tenant: la misma plataforma escala sin límite. (6) Historial y catálogo que crecen mes a mes, generando un foso defensivo para tu negocio.'],
-          ['¿Qué canales soporta realmente?', 'WhatsApp Business API, sitio web (widget), Instagram DM, Facebook Messenger y API de voz. Un solo agente con ADN de tu marca presente en todos — sin duplicar operación ni costos.'],
-          ['¿GenyX cobra comisión por cada venta?', 'No. GenyX opera con un modelo IVaaS: fee único de instalación + suscripción mensual fija. No importa si tu negocio factura $30,000 o $300,000 ese mes — tu costo de infraestructura no cambia.'],
-          ['¿Cuánto tarda en activarse?', 'Sesión de ADN de 45 minutos → configuración → tu agente vendiendo en menos de 48 horas. Sin meses de implementación, sin equipos técnicos, sin consultores caros.'],
-          ['¿Qué pasa si el sistema falla?', 'Nuestro SLA garantiza que el 100% de los mensajes serán atendidos en menos de 5 segundos. Si el sistema falla el SLA más de 3 veces en un mes, ese mes es gratuito.'],
-          ['¿Necesito experiencia técnica?', 'Ninguna. GenyX se encarga de toda la infraestructura. Tú solo aportas tu catálogo, tus reglas de negocio y tus ganas de crecer. Nosotros hacemos el resto.'],
+          ['¿Por qué GenyX y no un chatbot genérico?', 'Un chatbot genérico responde preguntas. GenyX cierra ventas. Atiende a tu cliente, arma su pedido, genera el cobro y te avisa cuando el dinero ya está en tu cuenta. Sin complicaciones, sin intervención humana.'],
+          ['¿Por qué GenyX y no contratar un vendedor?', 'Contratar un vendedor implica semanas de búsqueda, entrevistas, capacitación, nómina, IMSS, aguinaldo y reemplazos cuando se va. GenyX se activa en 48 horas, no se enferma, no renuncia, no cobra comisión y atiende a todos tus clientes al mismo tiempo — por un costo mensual fijo.'],
+          ['¿Para quién es GenyX?', 'Para dueños de negocio que quieren vender más sin contratar más gente. Si tienes clientes que te escriben por WhatsApp, Instagram o tu página web y quieres que esos mensajes se conviertan en dinero — sin que tú tengas que estar al pendiente — GenyX es para ti.'],
+          ['¿Qué pasa si el sistema falla?', 'Garantizamos que cada mensaje de tu cliente será atendido en menos de 5 segundos, los 7 días de la semana. Si fallamos más de 3 veces en un mes, ese mes es sin costo para ti.'],
+          ['¿GenyX cobra comisión por cada venta que cierra?', 'No. Jamas. Tu costo es fijo cada mes — sin importar si vendes $30,000 o $300,000. Lo que ganas es tuyo.'],
+          ['¿Cuánto tarda en activarse?', 'Una sesión de 45 minutos para entender tu negocio. Nosotros configuramos todo. En menos de 48 horas tu agente está atendiendo clientes y cerrando ventas.'],
+          ['¿Necesito conocimientos técnicos?', 'Ninguno. Tú nos das la información de tu negocio y nosotros hacemos todo lo demás. Solo tienes que revisar tu mando de control y contar tus ventas.'],
         ].map(([q, a], i) => {
           const [open, setOpen] = React.useState(false);
           return (
