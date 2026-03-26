@@ -237,7 +237,7 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
         <div style={{ ...CARD, border: '1px solid rgba(99,102,241,0.35)', background: 'rgba(99,102,241,0.06)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
             <div>
-              <h3 style={{ fontWeight: 700, fontSize: 16, color: '#a5b4fc' }}>GenYX Systems</h3>
+              <h3 style={{ fontWeight: 700, fontSize: 16, color: '#a5b4fc' }}>GenyX Systems</h3>
               <p style={{ fontSize: 12, color: '#6366f1', marginTop: 2 }}>Plataforma Operadora</p>
             </div>
             <span style={{ background: 'rgba(99,102,241,0.15)', color: '#818cf8', border: '1px solid rgba(99,102,241,0.3)', padding: '2px 10px', borderRadius: 12, fontSize: 10, fontWeight: 700, textTransform: 'uppercase' }}>OPERADOR</span>
@@ -367,7 +367,7 @@ const TabOrdenes = ({ orders, tenants, loading }) => {
         <select value={selectedSlug} onChange={e => setSelectedSlug(e.target.value)}
           style={{ background: '#1e293b', border: '1px solid rgba(255,255,255,0.1)', color: '#cbd5e1', padding: '6px 12px', borderRadius: 8, fontSize: 12 }}>
           <option value="all">Todos los clientes</option>
-          <option value="__genyx__" style={{ color: '#818cf8' }}>🟣 GenYX Systems — Plataforma</option>
+          <option value="__genyx__" style={{ color: '#818cf8' }}>🟣 GenyX Systems — Plataforma</option>
           {tenants.map(t => <option key={t.slug} value={t.slug}>{t.name || t.slug}</option>)}
         </select>
         <span style={MONO}>{recent.length} orden(es)</span>
@@ -579,7 +579,7 @@ const TabData = ({ tenants, orders }) => {
 
       {/* GenYX as a Business */}
       <div style={{ ...CARD, background: 'linear-gradient(135deg, rgba(99,102,241,0.15) 0%, rgba(139,92,246,0.1) 100%)', border: '1px solid rgba(99,102,241,0.3)' }}>
-        <h3 style={{ ...H2, fontSize: 14, marginBottom: 16, color: '#a5b4fc' }}>⚡ GenYX Systems — Como Negocio</h3>
+        <h3 style={{ ...H2, fontSize: 14, marginBottom: 16, color: '#a5b4fc' }}>⚡ GenyX Systems — Como Negocio</h3>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
           <div>
             <p style={{ ...MONO, fontSize: 10, color: '#64748b', marginBottom: 8 }}>INGRESOS (COMISIONES)</p>
@@ -964,7 +964,7 @@ const CHECKLIST_SECTIONS = [
 ];
 
 const GENYX_EXPEDIENTE = {
-  id: '__genyx__', name: 'GenYX Systems', slug: '000-genyx', industry: 'Plataforma Operadora',
+  id: '__genyx__', name: 'GenyX Systems', slug: '000-genyx', industry: 'Plataforma Operadora',
   startDate: '2025-01-01', status: 'active', phone: '+52 (55) XXXX-XXXX',
   email: 'admin@genyxsys.com', city: 'México', rfc: 'GXS250101XXX',
   contacto: { 'Nombre titular': '✅', 'RFC': '✅', 'Email principal': '✅', 'WhatsApp': '✅', 'Ciudad / Estado': '✅', 'Nombre comercial': '✅' },
@@ -1717,7 +1717,7 @@ function PatyPrivacyPage() {
         </p>
         <h2 style={H2}>4. Con Quien Compartimos Tus Datos</h2>
         <p style={P}>
-          &bull; <span style={HL}>GenYX Systems</span> — plataforma tecnologica que opera el asistente de ventas. Solo procesa tus mensajes para gestionar el pedido.<br />
+          &bull; <span style={HL}>GenyX Systems</span> — plataforma tecnologica que opera el asistente de ventas. Solo procesa tus mensajes para gestionar el pedido.<br />
           &bull; <span style={HL}>Stripe</span> — procesador de pagos seguro. Tus datos de pago nunca pasan por nosotros.<br />
           Ningun otro tercero tiene acceso a tus datos.
         </p>
@@ -1746,7 +1746,7 @@ function LegalPage({ tipo }) {
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 28 }}>
           <a href="/" style={{ color: '#92400e', fontSize: 13, textDecoration: 'none' }}>← Inicio</a>
           <span style={{ color: '#d6d3d1' }}>|</span>
-          <span style={{ fontSize: 11, color: '#a8a29e', fontFamily: 'monospace' }}>GenYX Systems</span>
+          <span style={{ fontSize: 11, color: '#a8a29e', fontFamily: 'monospace' }}>GenyX Systems</span>
         </div>
         {isTC ? (
           <>
@@ -1759,25 +1759,25 @@ function LegalPage({ tipo }) {
             <h2 style={H2}>3. Cuentas y Seguridad</h2>
             <ul style={UL}>
               <li><span style={HL}>Credenciales:</span> El Cliente es único responsable de su PIN de acceso.</li>
-              <li><span style={HL}>Líneas WaB:</span> Los números de WhatsApp están en custodia exclusiva de GenYX bajo la cuenta corporativa de Meta.</li>
-              <li><span style={HL}>Expediente Digital (KYC):</span> GenYX puede suspender el acceso si el expediente no está al 100%.</li>
+              <li><span style={HL}>Líneas WaB:</span> Los números de WhatsApp están en custodia exclusiva de GenyX bajo la cuenta corporativa de Meta.</li>
+              <li><span style={HL}>Expediente Digital (KYC):</span> GenyX puede suspender el acceso si el expediente no está al 100%.</li>
             </ul>
             <h2 style={H2}>4. Modelo de Cobro</h2>
             <p style={P}>El modelo de cobro es <strong>Setup Fee único + Suscripción Mensual</strong> según el plan contratado (Starter / Growth / Autonomy). GenyX no retiene ni procesa fondos de los compradores del Cliente — el cobro al comprador final es directo vía Stripe. La suscripción mensual a GenyX se realiza por separado según el Contrato de Servicios. Los precios son fijos para clientes activos; cualquier ajuste aplica únicamente a nuevos contratos, con 30 días de aviso previo.</p>
             <h2 style={H2}>5. Inteligencia Artificial y Limitación de Responsabilidad</h2>
-            <p style={P}>El bot opera con IA generativa de naturaleza probabilística y puede cometer <strong>errores conversacionales</strong> (“alucinaçiones”). GenYX no garantiza precisión del 100%. <strong>GenYX no será responsable</strong> por pérdidas económicas, productos mal cotizados, daños a la reputación o cualquier daño indirecto o consecuencial. La responsabilidad máxima de GenYX se limita a los <strong>3 meses de suscripción pagados</strong> anteriores al evento.</p>
+            <p style={P}>El bot opera con IA generativa de naturaleza probabilística y puede cometer <strong>errores conversacionales</strong> (“alucinaçiones”). GenyX no garantiza precisión del 100%. <strong>GenyX no será responsable</strong> por pérdidas económicas, productos mal cotizados, daños a la reputación o cualquier daño indirecto o consecuencial. La responsabilidad máxima de GenYX se limita a los <strong>3 meses de suscripción pagados</strong> anteriores al evento.</p>
             <h2 style={H2}>6. Fuerza Mayor y Caídas de Terceros</h2>
-            <p style={P}>GenYX no responde por interrupciones de Meta/WhatsApp, OpenAI, Stripe, Render, Vercel u otros proveedores de infraestructura. Estos tiempos no computan para el SLA del 99%.</p>
+            <p style={P}>GenyX no responde por interrupciones de Meta/WhatsApp, OpenAI, Stripe, Render, Vercel u otros proveedores de infraestructura. Estos tiempos no computan para el SLA del 99%.</p>
             <h2 style={H2}>7. Uso Aceptable</h2>
-            <p style={P}>Queda prohibido usar la Plataforma para vender productos ilegales, enviar spam, o intentar vulnerar el código o infraestructura de GenYX.</p>
+            <p style={P}>Queda prohibido usar la Plataforma para vender productos ilegales, enviar spam, o intentar vulnerar el código o infraestructura de GenyX.</p>
             <h2 style={H2}>8. Propiedad Intelectual</h2>
-            <p style={P}>El código, algoritmos, prompts, ADN del bot, flujos de venta y herramientas son propiedad exclusiva de GenYX. El Cliente retiene derechos sobre su catálogo, recetas y marca.</p>
+            <p style={P}>El código, algoritmos, prompts, ADN del bot, flujos de venta y herramientas son propiedad exclusiva de GenyX. El Cliente retiene derechos sobre su catálogo, recetas y marca.</p>
             <h2 style={H2}>9. Jurisdiccion</h2>
             <p style={P}>Ley aplicable: Estados Unidos Mexicanos. Jurisdiccion: Tribunales Federales de Guadalajara, Jalisco. Previo a cualquier litigio, las partes se someten a mediacion ante el CANACO-GDL.</p>
             <h2 style={H2}>10. Terminacion del Servicio</h2>
-            <p style={P}>El Cliente puede cancelar con <strong>30 dias naturales de aviso</strong> por escrito a legal@genyxsystems.com. GenYX puede rescindir anticipadamente por incumplimiento de pago o uso indebido. Al terminar: (i) GenYX entregara un export CSV de los datos del Cliente dentro de 15 dias; (ii) GenYX eliminara los datos de sus servidores en un plazo maximo de 60 dias; (iii) el numero WA permanecera en custodia de GenYX, salvo acuerdo expreso de portabilidad.</p>
-            <h2 style={H2}>11. SLA y Creditos</h2>
-            <p style={P}>GenYX garantiza una <strong>disponibilidad mensual del 99.0%</strong> del bot y el Centro de Mando, excluyendo mantenimientos programados (notificados 24h antes) e interrupciones de terceros (Meta, OpenAI, Stripe, Render, Vercel). Si la disponibilidad cae por debajo del 99.0% en un mes calendario por causa atribuible a GenYX, el Cliente recibe un <strong>credito equivalente a 5 dias de servicio</strong> aplicado en la siguiente factura. Maximo 30 dias de credito por anio.</p>
+            <p style={P}>El Cliente puede cancelar con <strong>30 dias naturales de aviso</strong> por escrito a legal@genyxsystems.com. GenyX puede rescindir anticipadamente por incumplimiento de pago o uso indebido. Al terminar: (i) GenYX entregara un export CSV de los datos del Cliente dentro de 15 dias; (ii) GenYX eliminara los datos de sus servidores en un plazo maximo de 60 dias; (iii) el número WaB permanecerá en custodia de GenyX; Clientes con historial de pago ininterrumpido de 12 o más meses tienen derecho a solicitar la portabilidad del número, sujeto a los procesos técnicos de Meta y un período de transición de 30 días naturales.</p>
+            <h2 style={H2}>11. SLA de Atención y Bonificación</h2>
+            <p style={P}>GenyX garantiza que el <strong>100% de los mensajes entrantes</strong> serán atendidos y respondidos por el sistema en un tiempo menor a <strong>5 segundos</strong>. Si el sistema incumple este SLA en más de <strong>3 ocasiones</strong> dentro de un mismo mes calendario por causa atribuible a GenyX, el Cliente recibirá la <strong>mensualidad de ese mes sin costo</strong>. Máximo 1 bonificación por trimestre calendario. Interrupciones de Meta, OpenAI, Stripe, Render o Vercel no computan para el SLA.</p>
             <h2 style={H2}>12. Modelo de Suscripcion</h2>
             <p style={P}>GenyX no cobra comision por transaccion. El Cliente paga una <strong>Suscripcion Mensual Fija</strong> segun el plan contratado. Los detalles del monto, forma de pago y vigencia se especifican en el Contrato de Servicios firmado por ambas partes. El plan contratado puede actualizarse (upgrade) en cualquier momento; el downgrade aplica al siguiente ciclo de facturacion.</p>
             <p style={{ ...P, marginTop: 24, fontSize: 11, color: '#a8a29e' }}>Consultas: legal@genyxsystems.com</p>
@@ -1787,11 +1787,12 @@ function LegalPage({ tipo }) {
             <h1 style={H1}>Aviso de Privacidad</h1>
             <p style={{ ...P, color: '#a8a29e', fontSize: 11 }}>GenyX Systems · Versión 2.0 · Última actualización: Marzo 2026 · Conforme a LFPDPPP</p>
             <h2 style={H2}>1. Responsable del Tratamiento</h2>
-            <p style={P}><strong>GenYX Systems</strong>, representado por Erick Naveda, Guadalajara, Jalisco, México. Contacto: <strong>privacidad@genyxsystems.com</strong></p>
+            <p style={P}><strong>GenyX Systems</strong>, representado por Erick Naveda, Guadalajara, Jalisco, México. Contacto: <strong>privacidad@genyxsystems.com</strong></p>
             <h2 style={H2}>2. Roles de Tratamiento</h2>
             <ul style={UL}>
-              <li><span style={HL}>GenYX como Responsable:</span> Datos del dueño del negocio (nombre, RFC, CLABE, etc.).</li>
-              <li><span style={HL}>GenYX como Encargado:</span> Datos de los compradores finales (nombre, teléfono, dirección). El <strong>Cliente es el Responsable</strong> frente a sus compradores.</li>
+              <li><span style={HL}>GenyX como Responsable:</span> Datos del dueño del negocio (nombre, RFC, CLABE, etc.).</li>
+              <li><span style={HL}>GenyX como Encargado:</span> Datos de los compradores finales (nombre, teléfono, dirección, pedido). El <strong>Cliente es el Responsable</strong> frente a sus compradores.</li>
+              <li><span style={HL}>Obligación del Cliente:</span> El Cliente se obliga a contar con su propio Aviso de Privacidad visible para sus compradores finales, conforme a la LFPDPPP. GenyX proporciona una plantilla de Aviso Simplificado para WhatsApp como parte del onboarding.</li>
             </ul>
             <h2 style={H2}>3. Datos Recabados del Cliente</h2>
             <p style={P}>Nombre, RFC, INE, correo, CLABE, comprobante de domicilio, catálogo, recetas, horarios y configuración del bot.</p>
@@ -1804,7 +1805,7 @@ function LegalPage({ tipo }) {
             </ul>
             <h2 style={H2}>5. Transferencia a Terceros</h2>
             <ul style={UL}>
-              <li><span style={HL}>Stripe:</span> KYB y procesamiento de pagos</li>
+              <li><span style={HL}>Stripe:</span> Procesamiento seguro de pagos (Stripe Standard) para la generación de links de cobro del Cliente</li>
               <li><span style={HL}>Meta Platforms:</span> Operación de WhatsApp Business API</li>
               <li><span style={HL}>OpenAI:</span> Procesamiento de lenguaje (datos anonimizados, no se usan para entrenar modelos públicos)</li>
               <li><span style={HL}>Render / Vercel:</span> Infraestructura cloud</li>
@@ -1813,7 +1814,7 @@ function LegalPage({ tipo }) {
             <p style={P}>Acceso, Rectificación, Cancelación u Oposición: envía solicitud a <strong>privacidad@genyxsystems.com</strong>. Respuesta en máximo 20 días hábiles.</p>
             <h2 style={H2}>7. Cookies y Session Storage</h2>
             <p style={P}>Solo usamos session storage y cookies técnicas estrictamente necesarias para la seguridad de las sesiones. No usamos cookies publicitarias ni de rastreo.</p>
-            <p style={{ ...P, marginTop: 24, fontSize: 11, color: '#a8a29e' }}>privacidad@genyxsystems.com · GenYX Systems · Guadalajara, Jalisco, México</p>
+            <p style={{ ...P, marginTop: 24, fontSize: 11, color: '#a8a29e' }}>privacidad@genyxsystems.com · GenyX Systems · Guadalajara, Jalisco, México</p>
           </>
         )}
       </div>
@@ -2101,7 +2102,7 @@ function MandoClientView({ slug }) {
                 <a href="/terminos" target="_blank" rel="noopener noreferrer" style={{ color: '#92400e', fontWeight: 700 }}>Términos y Condiciones</a>{' '}
                 y el{' '}
                 <a href="/privacidad" target="_blank" rel="noopener noreferrer" style={{ color: '#92400e', fontWeight: 700 }}>Aviso de Privacidad</a>{' '}
-                de GenYX Systems.
+                de GenyX Systems.
               </label>
             </div>
             {error && <p style={{ color: '#dc2626', fontSize: 12, marginBottom: 10, textAlign: 'center' }}>{error}</p>}
