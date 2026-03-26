@@ -3349,7 +3349,7 @@ function GENyxLandingPage() {
             ['📊', 'Data de 100+ Implementaciones', 'Nuestros flujos están calibrados con datos reales de decenas de negocios por industria. Sabes exactamente qué convierte — antes de tu primer mes.'],
             ['⚡', 'SLA de 5 Segundos', '100% de los mensajes atendidos en menos de 5 segundos, clasificados y guiados al cierre. Si fallamos más de 3 veces al mes, ese mes es sin costo.'],
             ['🔗', 'Sin Comisión por Transacción', 'Modelo de suscripción fija. Tú vendes $10,000 o $500,000 en el mes — GenyX cobra lo mismo. Tu crecimiento es tuyo, no nuestro.'],
-            ['🌐', 'Multi-Tenant Escalable', 'La misma plataforma que sirve a Panadería Paty sirve a 30 negocios en paralelo con un solo operador. Infraestructura enterprise a precio PyME.'],
+            ['🌐', 'Multi-Tenant Escalable', 'La misma plataforma que sirve a cualquier negocio de cualquier industria en paralelo con un solo operador. Infraestructura enterprise.'],
             ['🏆', 'Lock-in de Valor, no de Contrato', 'Tu historial de conversaciones, catálogo y equipo entrenado crecen cada mes activo. Cuanto más tiempo, más difícil reproducir eso en otro sistema.'],
           ].map(([ico, t, d]) => (
             <div key={t} style={{ background:'rgba(255,255,255,0.03)', border:'1px solid rgba(99,102,241,0.15)', borderRadius:16, padding:'24px 22px', transition:'all 0.25s' }}
