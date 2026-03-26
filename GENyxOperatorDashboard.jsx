@@ -216,8 +216,8 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
     <section>
       {onboardingUrl && (
         <div style={{ ...CARD, background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.3)', marginBottom: 20 }}>
-          <p style={{ color: '#a5b4fc', fontWeight: 700, marginBottom: 8 }}>🔗 Link de Onboarding Stripe Connect</p>
-          <p style={{ fontSize: 12, color: '#64748b', marginBottom: 12 }}>Envía este link al cliente para que conecte su cuenta Stripe. Expira en 24h.</p>
+          <p style={{ color: '#a5b4fc', fontWeight: 700, marginBottom: 8 }}>🔗 Configuración de Pago (Stripe)</p>
+          <p style={{ fontSize: 12, color: '#64748b', marginBottom: 12 }}>Envía este link al cliente para completar la configuración de cobros en Stripe. Expira en 24h.</p>
           <div style={{ display: 'flex', gap: 8 }}>
             <input readOnly value={onboardingUrl} style={{ ...INPUT, flex: 1, fontSize: 11 }} />
             <button onClick={() => { navigator.clipboard.writeText(onboardingUrl); }} style={BTN_SM_BLUE}>Copiar</button>
@@ -960,7 +960,7 @@ const CHECKLIST_SECTIONS = [
   { key: 'legal', label: '⚖️ Legal', fields: ['Contrato GenYX firmado', 'NDA incluido', 'Aviso de privacidad (ARCO)', 'Términos y Condiciones', 'Fecha inicio relación', 'Vigencia contrato'] },
   { key: 'adn', label: '🧭 ADN Negocio', fields: ['Catálogo de productos', 'Precios actualizados', 'Horarios de atención', 'Zona de entrega', 'FAQ del negocio', 'Tono del bot', 'Políticas de devolución'] },
   { key: 'tecnico', label: '⚙️ Técnico', fields: ['Slug asignado', 'Clone ID en DB', 'URL sitio web', 'Meta Phone Number ID', 'CLABE bancaria', 'Email correo lunes', 'Dashboard token'] },
-  { key: 'comercial', label: '💰 Financiero', fields: ['Comisión acordada (%)', 'Cuota mensual', 'Método de pago', 'Stripe Connect activo', 'Último pago registrado'] },
+  { key: 'comercial', label: '💰 Financiero', fields: ['Plan contratado', 'Cuota mensual (MXN)', 'Método de pago', 'Pago Stripe configurado', 'Último pago registrado'] },
 ];
 
 const GENYX_EXPEDIENTE = {
@@ -972,7 +972,7 @@ const GENYX_EXPEDIENTE = {
   legal: { 'Contrato GenYX firmado': 'N/A', 'NDA incluido': 'N/A', 'Aviso de privacidad (ARCO)': '✅', 'Términos y Condiciones': '✅', 'Fecha inicio relación': '✅', 'Vigencia contrato': 'N/A' },
   adn: { 'Catálogo de productos': '✅', 'Precios actualizados': '✅', 'Horarios de atención': '✅', 'Zona de entrega': 'N/A', 'FAQ del negocio': '✅', 'Tono del bot': '✅', 'Políticas de devolución': 'N/A' },
   tecnico: { 'Slug asignado': '✅', 'Clone ID en DB': '✅', 'URL sitio web': '✅', 'Meta Phone Number ID': '⚠️', 'CLABE bancaria': 'N/A', 'Email correo lunes': '✅', 'Dashboard token': '✅' },
-  comercial: { 'Comisión acordada (%)': 'N/A', 'Cuota mensual': 'N/A', 'Método de pago': 'N/A', 'Stripe Connect activo': 'N/A', 'Último pago registrado': 'N/A' },
+  comercial: { 'Plan contratado': 'N/A', 'Cuota mensual (MXN)': 'N/A', 'Método de pago': 'N/A', 'Pago Stripe configurado': 'N/A', 'Último pago registrado': 'N/A' },
 };
 
 const STATUS_ICON = { '✅': '✅', '⚠️': '⚠️', '❌': '❌', '⬜': '⬜', 'N/A': '➖' };
@@ -1227,11 +1227,11 @@ const TabExpedientes = ({ tenants }) => {
               <p style={{ fontSize: 11, color: '#64748b', marginBottom: 12 }}>Datos operativos sincronizados desde la DB.</p>
               {[
                 ['Slug', exp.slug],
-                ['Comisión GenYX', exp.fee_percent ? `${exp.fee_percent}%` : '8% (default)'],
+                ['Plan mensual', exp.plan_monthly_fee ? `$${exp.plan_monthly_fee.toLocaleString('es-MX')} MXN/mes` : '—'],
                 ['CLABE bancaria', exp.bank_clabe || '—'],
                 ['Email correo lunes', exp.owner_email || '—'],
                 ['URL sitio web', exp.website_url || '—'],
-                ['Stripe Connect', exp.payout_mode === 'connect' ? `✅ ${exp.stripe_account_id}` : '🏦 SPEI Manual'],
+                ['Pago Stripe', exp.stripe_secret_key ? '✅ Configurado' : '⚠️ Pendiente configurar'],
                 ['Número WaB (GenYX)', exp.meta_phone || '⚠️ Pendiente asignar'],
               ].map(([l, v]) => (
                 <div key={l} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 12 }}>
@@ -1274,7 +1274,7 @@ const TabManuales = () => {
     <section style={{ maxWidth: 720 }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
         <h2 style={H2}>📚 Manuales de Emergencia</h2>
-        <span style={{ fontSize: 10, ...MONO, color: '#64748b', background: '#1e293b', padding: '4px 10px', borderRadius: 6 }}>GenYX OS v5.1 · CHASSIS-STABLE</span>
+        <span style={{ fontSize: 10, ...MONO, color: '#64748b', background: '#1e293b', padding: '4px 10px', borderRadius: 6 }}>GenyX OS v2.0 · IVaaS</span>
       </div>
       {scenarios.map((s, i) => (
         <div key={i} style={{ ...CARD, marginBottom: 12 }}>
@@ -1567,7 +1567,7 @@ function AdminLoginScreen({ onAuth }) {
             </button>
           </form>
         </div>
-        <p style={{ textAlign: 'center', color: '#1e293b', fontSize: 10, marginTop: 20, fontFamily: 'monospace' }}>GenYX OS v3.4 · Sesión segura</p>
+        <p style={{ textAlign: 'center', color: '#1e293b', fontSize: 10, marginTop: 20, fontFamily: 'monospace' }}>GenyX OS v2.0 · Sesión segura</p>
       </div>
     </div>
   );
@@ -1751,19 +1751,19 @@ function LegalPage({ tipo }) {
         {isTC ? (
           <>
             <h1 style={H1}>Términos y Condiciones de Uso</h1>
-            <p style={{ ...P, color: '#a8a29e', fontSize: 11 }}>GenYX Systems · Versión 1.0 · Última actualización: Marzo 2026</p>
+            <p style={{ ...P, color: '#a8a29e', fontSize: 11 }}>GenyX Systems · Versión 2.0 · Última actualización: Marzo 2026</p>
             <h2 style={H2}>1. Aceptación</h2>
             <p style={P}>Al activar el servicio o acceder al Centro de Mando, el Cliente acepta expresamente estos Términos y Condiciones, el Aviso de Privacidad y el Contrato de Servicios vigentes.</p>
             <h2 style={H2}>2. Descripción del Servicio</h2>
-            <p style={P}>GenYX Systems provee una plataforma SaaS de automatización comercial con bot de ventas IA vía WhatsApp Business, Centro de Mando, procesamiento de pagos (Stripe Connect) y análisis de datos.</p>
+            <p style={P}>GenyX Systems provee una plataforma <strong>IVaaS (Infraestructura de Ventas como Servicio)</strong>: un departamento de ventas autónomo vía WhatsApp Business que incluye Agente de Ventas IA, Centro de Mando, cobro seguro por Stripe y análisis de datos. Los pagos de compradores finales van directamente al Cliente; GenyX cobra una suscripción mensual fija.</p>
             <h2 style={H2}>3. Cuentas y Seguridad</h2>
             <ul style={UL}>
               <li><span style={HL}>Credenciales:</span> El Cliente es único responsable de su PIN de acceso.</li>
               <li><span style={HL}>Líneas WaB:</span> Los números de WhatsApp están en custodia exclusiva de GenYX bajo la cuenta corporativa de Meta.</li>
               <li><span style={HL}>Expediente Digital (KYC):</span> GenYX puede suspender el acceso si el expediente no está al 100%.</li>
             </ul>
-            <h2 style={H2}>4. Pagos y Comisiones</h2>
-            <p style={P}>El procesamiento usa Stripe Connect. El Cliente autoriza el descuento automático de la comisión GenYX antes de cada liquidación. Los precios pueden ajustarse en renovación anual con 30 días de aviso.</p>
+            <h2 style={H2}>4. Modelo de Cobro</h2>
+            <p style={P}>El modelo de cobro es <strong>Setup Fee único + Suscripción Mensual</strong> según el plan contratado (Starter / Growth / Autonomy). GenyX no retiene ni procesa fondos de los compradores del Cliente — el cobro al comprador final es directo vía Stripe. La suscripción mensual a GenyX se realiza por separado según el Contrato de Servicios. Los precios son fijos para clientes activos; cualquier ajuste aplica únicamente a nuevos contratos, con 30 días de aviso previo.</p>
             <h2 style={H2}>5. Inteligencia Artificial y Limitación de Responsabilidad</h2>
             <p style={P}>El bot opera con IA generativa de naturaleza probabilística y puede cometer <strong>errores conversacionales</strong> (“alucinaçiones”). GenYX no garantiza precisión del 100%. <strong>GenYX no será responsable</strong> por pérdidas económicas, productos mal cotizados, daños a la reputación o cualquier daño indirecto o consecuencial. La responsabilidad máxima de GenYX se limita a los <strong>3 meses de suscripción pagados</strong> anteriores al evento.</p>
             <h2 style={H2}>6. Fuerza Mayor y Caídas de Terceros</h2>
@@ -1778,14 +1778,14 @@ function LegalPage({ tipo }) {
             <p style={P}>El Cliente puede cancelar con <strong>30 dias naturales de aviso</strong> por escrito a legal@genyxsystems.com. GenYX puede rescindir anticipadamente por incumplimiento de pago o uso indebido. Al terminar: (i) GenYX entregara un export CSV de los datos del Cliente dentro de 15 dias; (ii) GenYX eliminara los datos de sus servidores en un plazo maximo de 60 dias; (iii) el numero WA permanecera en custodia de GenYX, salvo acuerdo expreso de portabilidad.</p>
             <h2 style={H2}>11. SLA y Creditos</h2>
             <p style={P}>GenYX garantiza una <strong>disponibilidad mensual del 99.0%</strong> del bot y el Centro de Mando, excluyendo mantenimientos programados (notificados 24h antes) e interrupciones de terceros (Meta, OpenAI, Stripe, Render, Vercel). Si la disponibilidad cae por debajo del 99.0% en un mes calendario por causa atribuible a GenYX, el Cliente recibe un <strong>credito equivalente a 5 dias de servicio</strong> aplicado en la siguiente factura. Maximo 30 dias de credito por anio.</p>
-            <h2 style={H2}>12. Comision de Procesamiento</h2>
-            <p style={P}>GenYX descuenta automaticamente una <strong>comision del [X]% por transaccion</strong> procesada via Stripe Connect antes de la liquidacion al Cliente. El porcentaje especifico se establece en el Anexo de Servicios firmado por ambas partes. Dicho porcentaje puede ajustarse con 30 dias de aviso por escrito.</p>
+            <h2 style={H2}>12. Modelo de Suscripcion</h2>
+            <p style={P}>GenyX no cobra comision por transaccion. El Cliente paga una <strong>Suscripcion Mensual Fija</strong> segun el plan contratado. Los detalles del monto, forma de pago y vigencia se especifican en el Contrato de Servicios firmado por ambas partes. El plan contratado puede actualizarse (upgrade) en cualquier momento; el downgrade aplica al siguiente ciclo de facturacion.</p>
             <p style={{ ...P, marginTop: 24, fontSize: 11, color: '#a8a29e' }}>Consultas: legal@genyxsystems.com</p>
           </>
         ) : (
           <>
             <h1 style={H1}>Aviso de Privacidad</h1>
-            <p style={{ ...P, color: '#a8a29e', fontSize: 11 }}>GenYX Systems · Versión 1.0 · Última actualización: Marzo 2026 · Conforme a LFPDPPP</p>
+            <p style={{ ...P, color: '#a8a29e', fontSize: 11 }}>GenyX Systems · Versión 2.0 · Última actualización: Marzo 2026 · Conforme a LFPDPPP</p>
             <h2 style={H2}>1. Responsable del Tratamiento</h2>
             <p style={P}><strong>GenYX Systems</strong>, representado por Erick Naveda, Guadalajara, Jalisco, México. Contacto: <strong>privacidad@genyxsystems.com</strong></p>
             <h2 style={H2}>2. Roles de Tratamiento</h2>
@@ -1798,7 +1798,7 @@ function LegalPage({ tipo }) {
             <h2 style={H2}>4. Finalidades</h2>
             <ul style={UL}>
               <li>Activación y mantenimiento del servicio (Centro de Mando, bot WaB)</li>
-              <li>Procesamiento de pagos y dispersión de fondos (Stripe Connect)</li>
+              <li>Generación de links de pago seguros (Stripe) para el cierre de ventas del Cliente</li>
               <li>Generación de análisis comerciales (Correo del Lunes)</li>
               <li>Cumplimiento legal y fiscal</li>
             </ul>
