@@ -71,7 +71,7 @@ const TabFarmacopeia = () => {
   return (
     <section>
       <div style={{ marginBottom: 24 }}>
-        <h2 style={H2}>💊 Farmacopeia GENyx</h2>
+        <h2 style={H2}>💊 Farmacopeia GenyX</h2>
         <p style={{ fontSize: 12, color: '#64748b', marginTop: 4 }}>
           Base de conocimiento de bugs resueltos · <strong style={{ color: '#4ade80' }}>Regla de oro:</strong> buscar aquí <em>primero</em> antes de tocar código.
         </p>
@@ -427,7 +427,7 @@ const NewsFeed = ({ health, orders, tenants }) => {
   const fetchSla = async () => {
     try {
       const slaRes = await fetch(`${BACKEND}/api/sla`, {
-        headers: { 'X-Dashboard-Token': TOKEN }
+        headers: getAH()
       });
       if (slaRes.ok) {
         const slaData = await slaRes.json();
@@ -492,7 +492,7 @@ const NewsFeed = ({ health, orders, tenants }) => {
 // TAB: DATA — GenyX Intelligence Hub
 // ═══════════════════════════════════════════════════════════════════════════════
 const TabData = ({ tenants, orders }) => {
-  const [genyxData, setGenyxData] = useState(null);
+  const [genyxData, setGenyXData] = useState(null);
 
   useEffect(() => {
     const allOrders = orders || [];
@@ -521,7 +521,7 @@ const TabData = ({ tenants, orders }) => {
         subscription: parseFloat(t.plan_monthly_fee) || 3500,
       };
     });
-    setGenyxData({ totalRevenue, totalSubscription, avgTicket, totalOrders: paid.length, clientBreakdown });
+    setGenyXData({ totalRevenue, totalSubscription, avgTicket, totalOrders: paid.length, clientBreakdown });
   }, [tenants, orders]);
 
   if (!genyxData) return <Spinner />;
@@ -956,11 +956,11 @@ const CHECKLIST_SECTIONS = [
   { key: 'ids', label: '🏦 IDs Oficiales', fields: ['INE / Pasaporte', 'Comprobante domicilio', 'Constancia SAT'] },
   { key: 'legal', label: '⚖️ Legal', fields: ['Contrato GenyX firmado', 'NDA incluido', 'Aviso de privacidad (ARCO)', 'Términos y Condiciones', 'Fecha inicio relación', 'Vigencia contrato'] },
   { key: 'adn', label: '🧭 ADN Negocio', fields: ['Catálogo de productos', 'Precios actualizados', 'Horarios de atención', 'Zona de entrega', 'FAQ del negocio', 'Tono del bot', 'Políticas de devolución'] },
-  { key: 'tecnico', label: '⚙️ Técnico', fields: ['Slug asignado', 'Clone ID en DB', 'URL sitio web', 'Meta Phone Number ID', 'CLABE bancaria', 'Email correo lunes', 'Dashboard token'] },
+  { key: 'tecnico', label: '⚙️ Configuración', fields: ['Identificador de negocio', 'Vínculo base de datos', 'URL sitio web', 'ID línea oficial Meta', 'CLABE bancaria', 'Email para reportes', 'Llave de acceso'] },
   { key: 'comercial', label: '💰 Financiero', fields: ['Plan contratado', 'Cuota mensual (MXN)', 'Método de pago', 'Pago Stripe configurado', 'Último pago registrado'] },
 ];
 
-const GENYX_EXPEDIENTE = {
+const GenyX_EXPEDIENTE = {
   id: '__genyx__', name: 'GenyX Systems', slug: '000-genyx', industry: 'Plataforma Operadora',
   startDate: '2025-01-01', status: 'active', phone: '+52 (55) XXXX-XXXX',
   email: 'admin@genyxsys.com', city: 'México', rfc: 'GXS250101XXX',
@@ -968,7 +968,7 @@ const GENYX_EXPEDIENTE = {
   ids: { 'INE / Pasaporte': '✅', 'Comprobante domicilio': '✅', 'Constancia SAT': '✅' },
   legal: { 'Contrato GenyX firmado': 'N/A', 'NDA incluido': 'N/A', 'Aviso de privacidad (ARCO)': '✅', 'Términos y Condiciones': '✅', 'Fecha inicio relación': '✅', 'Vigencia contrato': 'N/A' },
   adn: { 'Catálogo de productos': '✅', 'Precios actualizados': '✅', 'Horarios de atención': '✅', 'Zona de entrega': 'N/A', 'FAQ del negocio': '✅', 'Tono del bot': '✅', 'Políticas de devolución': 'N/A' },
-  tecnico: { 'Slug asignado': '✅', 'Clone ID en DB': '✅', 'URL sitio web': '✅', 'Meta Phone Number ID': '⚠️', 'CLABE bancaria': 'N/A', 'Email correo lunes': '✅', 'Dashboard token': '✅' },
+  tecnico: { 'Identificador de negocio': '✅', 'Vínculo base de datos': '✅', 'URL sitio web': '✅', 'ID línea oficial Meta': '⚠️', 'CLABE bancaria': 'N/A', 'Email para reportes': '✅', 'Llave de acceso': '✅' },
   comercial: { 'Plan contratado': 'N/A', 'Cuota mensual (MXN)': 'N/A', 'Método de pago': 'N/A', 'Pago Stripe configurado': 'N/A', 'Último pago registrado': 'N/A' },
 };
 
@@ -996,7 +996,7 @@ const TabExpedientes = ({ tenants }) => {
   // Build empty shells for all clients on mount
   useEffect(() => {
     const initial = {};
-    [GENYX_EXPEDIENTE, ...tenants.map(t => ({ ...t, id: t.slug }))]
+    [GenyX_EXPEDIENTE, ...tenants.map(t => ({ ...t, id: t.slug }))]
       .forEach(c => {
         const id = c.id || c.slug;
         if (!initial[id]) {
@@ -1102,7 +1102,7 @@ const TabExpedientes = ({ tenants }) => {
     return total > 0 ? Math.round((scored / total) * 100) : 0;
   };
 
-  const allClients = [GENYX_EXPEDIENTE, ...tenants.map((t, i) => ({ ...t, id: t.slug, idx: i + 1 }))];
+  const allClients = [GenyX_EXPEDIENTE, ...tenants.map((t, i) => ({ ...t, id: t.slug, idx: i + 1 }))];
   const exp = selected ? (expedientes[selected] || {}) : null;
   const pct = selected ? calcProgress2(selected) : 0;
   const barColor = pct >= 80 ? '#4ade80' : pct >= 50 ? '#fbbf24' : '#f87171';
@@ -1122,19 +1122,19 @@ const TabExpedientes = ({ tenants }) => {
             const id = c.id || c.slug;
             const p = calcProgress2(id);
             const bc = p >= 80 ? '#4ade80' : p >= 50 ? '#fbbf24' : '#f87171';
-            const isGenyx = id === '__genyx__';
+            const isGenyX = id === '__genyx__';
             return (
               <div key={id} onClick={() => selectClient(id)}
                 style={{ ...CARD, cursor: 'pointer',
-                  border: selected === id ? '1px solid #6366f1' : isGenyx ? '1px solid rgba(99,102,241,0.35)' : '1px solid rgba(255,255,255,0.07)',
-                  background: selected === id ? 'rgba(99,102,241,0.1)' : isGenyx ? 'rgba(99,102,241,0.05)' : undefined,
+                  border: selected === id ? '1px solid #6366f1' : isGenyX ? '1px solid rgba(99,102,241,0.35)' : '1px solid rgba(255,255,255,0.07)',
+                  background: selected === id ? 'rgba(99,102,241,0.1)' : isGenyX ? 'rgba(99,102,241,0.05)' : undefined,
                   padding: '14px 16px', transition: 'all 0.15s' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
                   <div>
-                    <p style={{ ...MONO, fontSize: 9, color: isGenyx ? '#6366f1' : '#64748b', marginBottom: 3 }}>
-                      {isGenyx ? 'CLIENTE 000' : `CLIENTE ${String(i).padStart(3, '0')}`}
+                    <p style={{ ...MONO, fontSize: 9, color: isGenyX ? '#6366f1' : '#64748b', marginBottom: 3 }}>
+                      {isGenyX ? 'CLIENTE 000' : `CLIENTE ${String(i).padStart(3, '0')}`}
                     </p>
-                    <p style={{ fontWeight: 700, fontSize: 13, color: isGenyx ? '#a5b4fc' : '#f1f5f9' }}>{c.name || c.slug}</p>
+                    <p style={{ fontWeight: 700, fontSize: 13, color: isGenyX ? '#a5b4fc' : '#f1f5f9' }}>{c.name || c.slug}</p>
                   </div>
                   <span style={{ fontSize: 12, fontWeight: 800, color: bc }}>{p}%</span>
                 </div>
@@ -1764,7 +1764,7 @@ function LegalPage({ tipo }) {
             <h2 style={H2}>5. Inteligencia Artificial y Limitación de Responsabilidad</h2>
             <p style={P}>El bot opera con IA generativa de naturaleza probabilística y puede cometer <strong>errores conversacionales</strong> (“alucinaçiones”). GenyX no garantiza precisión del 100%. <strong>GenyX no será responsable</strong> por pérdidas económicas, productos mal cotizados, daños a la reputación o cualquier daño indirecto o consecuencial. La responsabilidad máxima de GenyX se limita a los <strong>3 meses de suscripción pagados</strong> anteriores al evento.</p>
             <h2 style={H2}>6. Fuerza Mayor y Caídas de Terceros</h2>
-            <p style={P}>GenyX no responde por interrupciones de Meta/WhatsApp, OpenAI, Stripe, Render, Vercel u otros proveedores de infraestructura. Estos tiempos no computan para el SLA del 99%.</p>
+            <p style={P}>GenyX no responde por interrupciones de Meta/WhatsApp, OpenAI, Stripe, Render, Vercel u otros proveedores de infraestructura. Estos tiempos no computan para la Garantía de Disponibilidad del 99%.</p>
             <h2 style={H2}>7. Uso Aceptable</h2>
             <p style={P}>Queda prohibido usar la Plataforma para vender productos ilegales, enviar spam, o intentar vulnerar el código o infraestructura de GenyX.</p>
             <h2 style={H2}>8. Propiedad Intelectual</h2>
@@ -1773,8 +1773,8 @@ function LegalPage({ tipo }) {
             <p style={P}>Ley aplicable: Estados Unidos Mexicanos. Jurisdiccion: Tribunales Federales de Guadalajara, Jalisco. Previo a cualquier litigio, las partes se someten a mediacion ante el CANACO-GDL.</p>
             <h2 style={H2}>10. Terminacion del Servicio</h2>
             <p style={P}>El Cliente puede cancelar con <strong>30 dias naturales de aviso</strong> por escrito a legal@genyxsystems.com. GenyX puede rescindir anticipadamente por incumplimiento de pago o uso indebido. Al terminar: (i) GenyX entregara un export CSV de los datos del Cliente dentro de 15 dias; (ii) GenyX eliminara los datos de sus servidores en un plazo maximo de 60 dias; (iii) el número WaB permanecerá en custodia de GenyX; Clientes con historial de pago ininterrumpido de 12 o más meses tienen derecho a solicitar la portabilidad del número, sujeto a los procesos técnicos de Meta y un período de transición de 30 días naturales.</p>
-            <h2 style={H2}>11. SLA de Atención y Bonificación</h2>
-            <p style={P}>GenyX garantiza que el <strong>100% de los mensajes entrantes</strong> serán atendidos y respondidos por el sistema en un tiempo menor a <strong>5 segundos</strong>. Si el sistema incumple este SLA en más de <strong>3 ocasiones</strong> dentro de un mismo mes calendario por causa atribuible a GenyX, el Cliente recibirá la <strong>mensualidad de ese mes sin costo</strong>. Máximo 1 bonificación por trimestre calendario. Interrupciones de Meta, OpenAI, Stripe, Render o Vercel no computan para el SLA.</p>
+            <h2 style={H2}>11. Garantía de Respuesta y Compromiso de Velocidad</h2>
+            <p style={P}>GenyX garantiza que el <strong>100% de los mensajes entrantes</strong> serán atendidos y respondidos por el sistema en un tiempo menor a <strong>5 segundos</strong>. Si el sistema incumple este compromiso de velocidad en más de <strong>3 ocasiones</strong> dentro de un mismo mes calendario por causa atribuible a GenyX, el Cliente recibirá la <strong>mensualidad de ese mes sin costo</strong>. Máximo 1 bonificación por trimestre calendario. Interrupciones de Meta, OpenAI, Stripe, Render o Vercel no computan para esta Garantía.</p>
             <h2 style={H2}>12. Modelo de Suscripcion</h2>
             <p style={P}>GenyX no cobra comision por transaccion. El Cliente paga una <strong>Suscripcion Mensual Fija</strong> segun el plan contratado. Los detalles del monto, forma de pago y vigencia se especifican en el Contrato de Servicios firmado por ambas partes. El plan contratado puede actualizarse (upgrade) en cualquier momento; el downgrade aplica al siguiente ciclo de facturacion.</p>
             <p style={{ ...P, marginTop: 24, fontSize: 11, color: '#a8a29e' }}>Consultas: legal@genyxsystems.com</p>
@@ -1834,7 +1834,7 @@ function EditarMenuCompacto({ catalog, catLoading, slug, pin, fetchCatalog }) {
     setSaving(true);
     const _slug = slug.endsWith('-sales') ? slug : slug + '-sales';
     try {
-      await fetch(`https://paty-backend-dkzk.onrender.com/api/catalog/${_slug}`, {
+      await fetch(`${BACKEND}/api/catalog/${_slug}`, {
         method: 'POST', headers: { 'Content-Type': 'application/json', 'X-PIN': pin },
         body: JSON.stringify({ product_name: selProd, price: parseFloat(newPrice), category: selectedProd?.category || 'general' })
       });
@@ -1997,7 +1997,7 @@ function MandoClientView({ slug }) {
     setCatLoading(true);
     try {
       const _catSlug = slug.endsWith('-sales') ? slug : slug + '-sales';
-      const r = await fetch(`https://paty-backend-dkzk.onrender.com/api/catalog/${_catSlug}`, { headers: { 'X-PIN': pin } });
+      const r = await fetch(`${BACKEND}/api/catalog/${_catSlug}`, { headers: { 'X-PIN': pin } });
       const d = await r.json();
       setCatalog(d.products || []);
     } catch(e) { console.warn('catalog fetch', e); }
@@ -2507,7 +2507,7 @@ function MandoClientView({ slug }) {
 
           {/* ── v2: Chat IA Costeador ABC ── */}
           {costMode === 'v2' && (() => {
-            const BURL = 'https://paty-backend-dkzk.onrender.com';
+            const BURL = BACKEND;
             const sendAiMsg = async () => {
               if (!aiInput.trim() || aiLoading) return;
               const userMsg = { role: 'user', content: aiInput.trim() };
@@ -3062,8 +3062,8 @@ function MandoClientView({ slug }) {
 }
 
 // ── GenyX Concierge Web Widget (floating chat) ───────────────────────────
-function GENyxConciergeWidget() {
-  const BURL = 'https://paty-backend-dkzk.onrender.com';
+function GenyXConciergeWidget() {
+  const BURL = BACKEND;
   const BC = '#6366f1', BD = '#4f46e5';
   const [open, setOpen] = React.useState(false);
   const [msgs, setMsgs] = React.useState([]);
@@ -3149,7 +3149,7 @@ function GENyxConciergeWidget() {
 }
 
 // ── GenyX Systems Landing Page — Diseño Aprobado (genyxsystems.com) ────────
-function GENyxLandingPage() {
+function GenyXLandingPage() {
   const [scrolled, setScrolled] = React.useState(false);
   React.useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 20);
@@ -3340,7 +3340,7 @@ function GENyxLandingPage() {
 
       {/* ── Ventajas Competitivas ── */}
       <section style={{ padding:'0 24px 100px', maxWidth:1000, margin:'0 auto' }}>
-        <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12, textAlign:'center' }}>POR QUÉ GENYXSYSTEMS</div>
+        <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12, textAlign:'center' }}>POR QUÉ GenyXSYSTEMS</div>
         <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:12, textAlign:'center' }}>No somos un chatbot.<br /><span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Somos tu infraestructura de ventas.</span></h2>
         <p style={{ color:'#64748b', marginBottom:48, textAlign:'center', fontSize:15, maxWidth:600, margin:'0 auto 48px' }}>El mercado tiene chatbots que responden preguntas. GenyX opera tu departamento de ventas completo — con datos, reglas de negocio y resultados medibles.</p>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:16 }}>
@@ -3433,7 +3433,7 @@ function GENyxLandingPage() {
         </div>
       </div>
 
-      <GENyxConciergeWidget />
+      <GenyXConciergeWidget />
       <footer style={C.footer}>
         <span style={C.ftrBrand}>GenyX <span style={{ color: '#4f46e5' }}>Sys.</span> © 2026</span>
         <div style={{ ...C.ftrLinks, paddingRight: 72 }}>
@@ -3559,7 +3559,7 @@ function TicketPage({ sid }) {
 }
 
 
-export default function GENyxOperatorDashboard() {
+export default function GenyXOperatorDashboard() {
 
   // ── REGLA DE HOOKS: todos los hooks PRIMERO, antes de cualquier return condicional ──
   const [adminKey, setAdminKey] = useState(sessionStorage.getItem('genyx_admin_key') || '');
@@ -3626,7 +3626,7 @@ export default function GENyxOperatorDashboard() {
   );
 
   // ―― www.genyxsystems.com (o cualquier dominio no-mando) → Landing Page ―――
-  if (!IS_MANDO && !IS_LOCAL && !IS_OS) return <GENyxLandingPage />;
+  if (!IS_MANDO && !IS_LOCAL && !IS_OS) return <GenyXLandingPage />;
 
   if (IS_MANDO && MANDO_SLUG) return <MandoClientView slug={MANDO_SLUG} />;
   if (IS_MANDO && !MANDO_SLUG && !adminKey) return <AdminLoginScreen onAuth={(k) => { sessionStorage.setItem('genyx_admin_key', k); setAdminKey(k); }} />;
