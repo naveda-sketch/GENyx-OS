@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
-    <title>GenYX OS — Operator Control Center</title>
+    <title>GenyX — Infraestructura de Ventas Autónoma</title>
 
     <!-- ── PWA: Add to Home Screen ─────────────────────────────────────── -->
     <!-- El manifest se inyecta dinámicamente por JS según el hostname -->
@@ -16,8 +16,8 @@
     <!-- iOS Safari "Add to Home Screen" -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Mando Paty" />
-    <link rel="apple-touch-icon" href="/paty-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="GenyX" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <!-- Android / Chrome -->
     <meta name="mobile-web-app-capable" content="yes" />
@@ -36,13 +36,13 @@
           document.getElementById('pwa-theme').content = '#92400e';
           document.querySelector('meta[name="apple-mobile-web-app-title"]').content = 'Mando Paty';
         } else if (isOS) {
-          document.title = 'GenYX OS — Operator Control Center';
+          document.title = 'GenyX — Panel de Operaciones';
           document.getElementById('pwa-manifest').href = '/manifest-os.json';
           document.getElementById('pwa-theme').content = '#6366f1';
-          document.querySelector('meta[name="apple-mobile-web-app-title"]').content = 'GenYX OS';
+          document.querySelector('meta[name="apple-mobile-web-app-title"]').content = 'GenyX';
           document.querySelector('link[rel="apple-touch-icon"]').href = '/genyx-logo.png';
         } else if (h.includes('genyxsystems') || h.includes('genyx')) {
-          document.title = 'GenyX Systems — IVaaS · Infraestructura de Ventas';
+          document.title = 'GenyX — Infraestructura de Ventas Autónoma';
           document.getElementById('pwa-theme').content = '#818cf8';
         }
       })();

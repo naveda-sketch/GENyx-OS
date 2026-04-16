@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 
 /**
- * GenyX Systems OS — Operator Dashboard v2.0
+ * GenyX — Operator Dashboard v2.0
  * Tabs: Clientes · Órdenes · Herramientas · Analista · Manuales
  */
 
@@ -235,7 +235,7 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
         <div style={{ ...CARD, border: '1px solid rgba(99,102,241,0.35)', background: 'rgba(99,102,241,0.06)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
             <div>
-              <h3 style={{ fontWeight: 700, fontSize: 16, color: '#a5b4fc' }}>GenyX Systems</h3>
+              <h3 style={{ fontWeight: 700, fontSize: 16, color: '#a5b4fc' }}>GenyX</h3>
               <p style={{ fontSize: 12, color: '#6366f1', marginTop: 2 }}>Plataforma Operadora</p>
             </div>
             <span style={{ background: 'rgba(99,102,241,0.15)', color: '#818cf8', border: '1px solid rgba(99,102,241,0.3)', padding: '2px 10px', borderRadius: 12, fontSize: 10, fontWeight: 700, textTransform: 'uppercase' }}>OPERADOR</span>
@@ -365,7 +365,7 @@ const TabOrdenes = ({ orders, tenants, loading }) => {
         <select value={selectedSlug} onChange={e => setSelectedSlug(e.target.value)}
           style={{ background: '#1e293b', border: '1px solid rgba(255,255,255,0.1)', color: '#cbd5e1', padding: '6px 12px', borderRadius: 8, fontSize: 12 }}>
           <option value="all">Todos los clientes</option>
-          <option value="__genyx__" style={{ color: '#818cf8' }}>🟣 GenyX Systems — Plataforma</option>
+          <option value="__genyx__" style={{ color: '#818cf8' }}>🟣 GenyX — Plataforma</option>
           {tenants.map(t => <option key={t.slug} value={t.slug}>{t.name || t.slug}</option>)}
         </select>
         <span style={MONO}>{recent.length} orden(es)</span>
@@ -576,7 +576,7 @@ const TabData = ({ tenants, orders }) => {
 
       {/* GenyX as a Business */}
       <div style={{ ...CARD, background: 'linear-gradient(135deg, rgba(99,102,241,0.15) 0%, rgba(139,92,246,0.1) 100%)', border: '1px solid rgba(99,102,241,0.3)' }}>
-        <h3 style={{ ...H2, fontSize: 14, marginBottom: 16, color: '#a5b4fc' }}>⚡ GenyX Systems — Como Negocio</h3>
+        <h3 style={{ ...H2, fontSize: 14, marginBottom: 16, color: '#a5b4fc' }}>⚡ GenyX — Como Negocio</h3>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
           <div>
             <p style={{ ...MONO, fontSize: 10, color: '#64748b', marginBottom: 8 }}>MRR (SUSCRIPCIONES)</p>
@@ -961,7 +961,7 @@ const CHECKLIST_SECTIONS = [
 ];
 
 const GenyX_EXPEDIENTE = {
-  id: '__genyx__', name: 'GenyX Systems', slug: '000-genyx', industry: 'Plataforma Operadora',
+  id: '__genyx__', name: 'GenyX', slug: '000-genyx', industry: 'Plataforma Operadora',
   startDate: '2025-01-01', status: 'active', phone: '+52 (55) XXXX-XXXX',
   email: 'admin@genyxsys.com', city: 'México', rfc: 'GXS250101XXX',
   contacto: { 'Nombre titular': '✅', 'RFC': '✅', 'Email principal': '✅', 'WhatsApp': '✅', 'Ciudad / Estado': '✅', 'Nombre comercial': '✅' },
@@ -1271,7 +1271,7 @@ const TabManuales = () => {
     <section style={{ maxWidth: 720 }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
         <h2 style={H2}>📚 Manuales de Emergencia</h2>
-        <span style={{ fontSize: 10, ...MONO, color: '#64748b', background: '#1e293b', padding: '4px 10px', borderRadius: 6 }}>GenyX OS v2.0 · IVaaS</span>
+        <span style={{ fontSize: 10, ...MONO, color: '#64748b', background: '#1e293b', padding: '4px 10px', borderRadius: 6 }}>GenyX · IVaaS</span>
       </div>
       {scenarios.map((s, i) => (
         <div key={i} style={{ ...CARD, marginBottom: 12 }}>
@@ -1539,7 +1539,7 @@ function AdminLoginScreen({ onAuth }) {
         {/* Logo + Brand */}
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div style={{ width: 52, height: 52, border: '2px solid #6366f1', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, fontWeight: 900, color: '#818cf8', marginBottom: 16, fontFamily: 'JetBrains Mono, monospace' }}>G</div>
-          <h1 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', letterSpacing: '.02em', margin: 0 }}>GenyX <span style={{ color: '#6366f1' }}>Systems</span></h1>
+          <h1 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', letterSpacing: '.02em', margin: 0 }}>Geny<span style={{ color: '#818cf8' }}>X</span></h1>
           <p style={{ fontSize: 11, color: '#334155', fontFamily: 'JetBrains Mono, monospace', marginTop: 6, letterSpacing: '.08em' }}>OPERATOR CONTROL CENTER</p>
         </div>
         {/* Card */}
@@ -1564,7 +1564,7 @@ function AdminLoginScreen({ onAuth }) {
             </button>
           </form>
         </div>
-        <p style={{ textAlign: 'center', color: '#1e293b', fontSize: 10, marginTop: 20, fontFamily: 'monospace' }}>GenyX OS v2.0 · Sesión segura</p>
+        <p style={{ textAlign: 'center', color: '#1e293b', fontSize: 10, marginTop: 20, fontFamily: 'monospace' }}>GenyX · Sesión segura</p>
       </div>
     </div>
   );
@@ -2108,7 +2108,7 @@ function MandoClientView({ slug }) {
             </button>
           </form>
         </div>
-        <p style={{ textAlign: 'center', color: '#c4b5a5', fontSize: 10, marginTop: 12 }}>GenyX OS · {slug}</p>
+        <p style={{ textAlign: 'center', color: '#c4b5a5', fontSize: 10, marginTop: 12 }}>GenyX · {slug}</p>
       </div>
     </div>
   );
@@ -3055,7 +3055,7 @@ function MandoClientView({ slug }) {
           </div>
         </>)}
 
-        <p style={{ textAlign: 'center', color: '#c4b5a5', fontSize: 10, marginTop: 20 }}>GenyX OS · {slug} · Actualiza cada 30s</p>
+        <p style={{ textAlign: 'center', color: '#c4b5a5', fontSize: 10, marginTop: 20 }}>GenyX · {slug} · Actualiza cada 30s</p>
       </main>
     </div>
   );
@@ -3076,7 +3076,7 @@ function GenyXConciergeWidget() {
   const inpRef = React.useRef(null);
 
   React.useEffect(() => { const t = setTimeout(() => setPulse(false), 8000); return () => clearTimeout(t); }, []);
-  React.useEffect(() => { if (open && msgs.length === 0) addBot('Hola! Soy tu asistente IA de GenyX Systems.\n\n¿En que tipo de negocio trabajas?\n(panaderia, restaurante, tienda, clinica, agencia, otro...'); }, [open]);
+  React.useEffect(() => { if (open && msgs.length === 0) addBot('Hola! Soy tu asistente IA de GenyX.\n\n¿En que tipo de negocio trabajas?\n(panaderia, restaurante, tienda, clinica, agencia, otro...'); }, [open]);
   React.useEffect(() => { botRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [msgs, typing]);
   React.useEffect(() => { if (open && phase !== 'done') setTimeout(() => inpRef.current?.focus(), 150); }, [open, phase]);
 
@@ -3148,7 +3148,7 @@ function GenyXConciergeWidget() {
   );
 }
 
-// ── GenyX Systems Landing Page — Diseño Aprobado (genyxsystems.com) ────────
+// ── GenyX Landing Page — Diseño Aprobado (genyxsystems.com) ────────
 function GenyXLandingPage() {
   const [scrolled, setScrolled] = React.useState(false);
   React.useEffect(() => {
@@ -3230,8 +3230,8 @@ function GenyXLandingPage() {
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
       <nav style={C.nav}>
         <a href="#" style={C.logo}>
-          <div style={C.logoBox}>G</div>
-          <span style={C.logoText}>GenyX <span style={{ color: '#6366f1' }}>Sys.</span></span>
+          <img src="/genyx-logo.png" alt="GenyX — Infraestructura de Ventas Autónoma" style={{ width: 32, height: 32, borderRadius: 4 }} />
+          <span style={C.logoText}>Geny<span style={{ color: '#818cf8' }}>X</span></span>
         </a>
         <div style={C.navLinks}>
           {[['Soluciones', '#soluciones'], ['Proceso', '#proceso']].map(([l, h]) => (
@@ -3340,7 +3340,7 @@ function GenyXLandingPage() {
 
       {/* ── Ventajas Competitivas ── */}
       <section style={{ padding:'0 24px 100px', maxWidth:1000, margin:'0 auto' }}>
-        <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12, textAlign:'center' }}>POR QUÉ GenyXSYSTEMS</div>
+        <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12, textAlign:'center' }}>POR QUÉ GENYX</div>
         <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:12, textAlign:'center' }}>No somos un chatbot.<br /><span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Somos tu infraestructura de ventas.</span></h2>
         <p style={{ color:'#64748b', marginBottom:48, textAlign:'center', fontSize:15, maxWidth:600, margin:'0 auto 48px' }}>El mercado tiene chatbots que responden preguntas. GenyX opera tu departamento de ventas completo — con datos, reglas de negocio y resultados medibles.</p>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:16 }}>
@@ -3435,7 +3435,7 @@ function GenyXLandingPage() {
 
       <GenyXConciergeWidget />
       <footer style={C.footer}>
-        <span style={C.ftrBrand}>GenyX <span style={{ color: '#4f46e5' }}>Sys.</span> © 2026</span>
+        <span style={C.ftrBrand}>GenyX © 2026</span>
         <div style={{ ...C.ftrLinks, paddingRight: 72 }}>
           <a href="/privacidad" style={C.ftrLink}>Privacidad</a>
           <a href="/terminos" style={C.ftrLink}>Términos</a>
@@ -3656,7 +3656,7 @@ export default function GenyXOperatorDashboard() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginLeft: 4 }}>
             <div style={{ width: 30, height: 30, border: '2px solid #6366f1', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 800, color: '#818cf8' }}>G</div>
             <div>
-              <p style={{ fontWeight: 700, fontSize: 13, color: '#fff', letterSpacing: '.03em' }}>GenyX <span style={{ color: '#6366f1' }}>Systems</span> OS</p>
+              <p style={{ fontWeight: 700, fontSize: 13, color: '#fff', letterSpacing: '.03em' }}>Geny<span style={{ color: '#818cf8' }}>X</span></p>
               <p style={{ fontSize: 10, color: '#475569', fontFamily: 'monospace' }}>Operator Control Center</p>
             </div>
           </div>
