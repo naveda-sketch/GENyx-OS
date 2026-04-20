@@ -11,13 +11,14 @@
 
     <!-- ── PWA: Add to Home Screen ─────────────────────────────────────── -->
     <!-- El manifest se inyecta dinámicamente por JS según el hostname -->
-    <link id="pwa-manifest" rel="manifest" href="/manifest-paty.json" />
+    <link id="pwa-manifest" rel="manifest" href="/manifest-os.json" />
+    <link id="site-favicon" rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- iOS Safari "Add to Home Screen" -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="GenyX" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" href="/genyx-logo.png" />
 
     <!-- Android / Chrome -->
     <meta name="mobile-web-app-capable" content="yes" />
@@ -35,12 +36,14 @@
           document.getElementById('pwa-manifest').href = '/manifest-paty.json';
           document.getElementById('pwa-theme').content = '#92400e';
           document.querySelector('meta[name="apple-mobile-web-app-title"]').content = 'Mando Paty';
+          document.querySelector('link[rel="apple-touch-icon"]').href = '/paty-icon.png';
+          document.getElementById('site-favicon').href = '/paty-icon.png';
+          document.getElementById('site-favicon').type = 'image/png';
         } else if (isOS) {
           document.title = 'GenyX — Panel de Operaciones';
           document.getElementById('pwa-manifest').href = '/manifest-os.json';
           document.getElementById('pwa-theme').content = '#6366f1';
           document.querySelector('meta[name="apple-mobile-web-app-title"]').content = 'GenyX';
-          document.querySelector('link[rel="apple-touch-icon"]').href = '/genyx-logo.png';
         } else if (h.includes('genyxsystems') || h.includes('genyx')) {
           document.title = 'GenyX — Infraestructura de Ventas Autónoma';
           document.getElementById('pwa-theme').content = '#818cf8';
