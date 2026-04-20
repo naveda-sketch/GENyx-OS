@@ -1584,6 +1584,7 @@ const MANDO_TABS = [
   { id: 'inv',     label: '📦 Inventario' },
   { id: 'cost',    label: '💰 Costeador' },
   { id: 'exp',     label: '📋 Expediente' },
+  { id: 'foto',    label: '📸 Foto Lab' },
 ];
 const EXPEDIENTE_DOCS = [
   { label: 'INE / Pasaporte', key: 'ine' },
@@ -1874,6 +1875,374 @@ function EditarMenuCompacto({ catalog, catLoading, slug, pin, fetchCatalog }) {
       </div>
       {saveMsg && <div style={{ fontSize: 12, marginTop: 8, color: saveMsg.startsWith('✅') ? '#15803d' : '#dc2626' }}>{saveMsg}</div>}
     </div>
+  );
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// 📸 FOTO LAB — Módulo de Fotografía Editorial IA
+// Paty sube una foto de su producto → elige estilo → la IA mejora/genera
+// + captions para redes sociales. Mobile-first, Safari-safe.
+// ══════════════════════════════════════════════════════════════════════════════
+
+const FOTO_PERSPECTIVES = [
+  { id: 'normal', label: '📐 Normal (45°)', prompt: 'Shot at a classic 45-degree food photography angle, eye-catching perspective' },
+  { id: 'zenital', label: '🔽 Zenital', prompt: 'Top-down flat lay photography, shot from directly overhead, perfectly centered' },
+];
+const FOTO_BACKGROUNDS = [
+  { id: 'madera', label: '🪵 Madera Rústica', prompt: 'dark weathered rustic wooden table, deep wood grain textures' },
+  { id: 'marmol', label: '⬜ Mármol Blanco', prompt: 'clean white Carrara marble countertop, minimalist aesthetic' },
+  { id: 'pizarra', label: '🪨 Piedra Pizarra', prompt: 'dark slate stone surface, moody and artisanal' },
+  { id: 'tabla', label: '🔪 Tabla Vintage', prompt: 'antique heavy wooden cutting board with knife marks, rustic charm' },
+];
+const FOTO_LIGHTING = [
+  { id: 'natural', label: '☀️ Natural Suave', prompt: 'soft natural morning light streaming from a side window, diffused soft shadows' },
+  { id: 'golden', label: '🌅 Atardecer', prompt: 'warm golden hour sunlight, creating deep rich amber tones on the crust' },
+  { id: 'dramatic', label: '🎭 Dramática', prompt: 'chiaroscuro lighting, moody dark shadows, high contrast directional spotlight' },
+  { id: 'commercial', label: '💡 Comercial', prompt: 'even bright studio lighting, commercial food photography, well-lit without harsh shadows' },
+];
+const FOTO_PROPS = [
+  { id: 'none', label: '❌ Ninguno', prompt: '' },
+  { id: 'harina', label: '🌾 Harina', prompt: 'a light dusting of white flour scattered organically on the surface' },
+  { id: 'textil', label: '🧶 Textiles', prompt: 'a casual folded linen napkin draped softly in the blurred background' },
+  { id: 'ingredientes', label: '🫙 Ingredientes', prompt: 'small rustic ceramic bowls with raw wheat grains and coarse sea salt in the blurred background' },
+  { id: 'herramientas', label: '🔪 Herramientas', prompt: 'an elegant vintage bread knife resting softly on the side in the blurred background' },
+];
+const FOTO_STYLES = [
+  { id: 'kinfolk', label: '📖 Kinfolk', prompt: 'high-end magazine aesthetic, Kinfolk style, desaturated greens, rich browns, ultra-sharp focus, shallow depth of field with beautiful bokeh' },
+  { id: 'warm', label: '🧈 Tonos Cálidos', prompt: 'warm color grading, butter-like tones, cozy atmosphere, highly detailed textures' },
+  { id: 'commercial', label: '📸 Comercial Nítido', prompt: 'hyper-realistic commercial food photography, crisp edges, vibrant contrast, 8k resolution' },
+];
+
+function TabFotoLab({ slug, token }) {
+  const [mode, setMode] = useState('enhance');
+  const [perspective, setPerspective] = useState('normal');
+  const [background, setBackground] = useState('madera');
+  const [lighting, setLighting] = useState('natural');
+  const [props, setProps] = useState('none');
+  const [style, setStyle] = useState('kinfolk');
+  const [product, setProduct] = useState('');
+  const [products, setProducts] = useState([]);
+  const [freePrompt, setFreePrompt] = useState('');
+
+  const [srcImg, setSrcImg] = useState(null);       // { b64, url, name }
+  const [resultImg, setResultImg] = useState(null);  // { url, b64, mime }
+  const [captions, setCaptions] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [logs, setLogs] = useState([]);
+  const [showLogs, setShowLogs] = useState(false);
+  const [error, setError] = useState('');
+
+  const log = (m) => setLogs(p => [...p, `[${new Date().toLocaleTimeString()}] ${m}`]);
+
+  // Fetch catalog on mount
+  useEffect(() => {
+    const cloneId = slug?.endsWith('-sales') ? slug : `${slug}-sales`;
+    fetch(`${BACKEND}/api/catalog/${cloneId}`)
+      .then(r => r.json())
+      .then(d => {
+        const prods = (d.products || []).map(p => p.product_name);
+        setProducts(prods);
+        if (prods.length > 0 && !product) setProduct(prods[0]);
+        log(`📦 Catálogo cargado: ${prods.length} productos`);
+      })
+      .catch(e => log(`⚠️ Error cargando catálogo: ${e.message}`));
+  }, [slug]);
+
+  // ── Auto-compress image ────────────────────────────────────────────────────
+  const compressImage = (file) => new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        const MAX = 1024;
+        let w = img.width, h = img.height;
+        if (w > MAX || h > MAX) {
+          if (w > h) { h = Math.round(h * MAX / w); w = MAX; }
+          else { w = Math.round(w * MAX / h); h = MAX; }
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = w; canvas.height = h;
+        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+        const b64 = canvas.toDataURL('image/jpeg', 0.8).split(',')[1];
+        const blob = canvas.toBlob ? null : null; // will create blob from b64
+        log(`🗜️ Comprimida: ${img.width}x${img.height} → ${w}x${h} (JPEG 0.8)`);
+        resolve({ b64, w, h, name: file.name });
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+
+  const handleFile = async (file) => {
+    if (!file || !file.type.startsWith('image/')) return;
+    setError('');
+    setResultImg(null);
+    setCaptions('');
+    log(`📷 Archivo: ${file.name} (${(file.size/1024).toFixed(0)}KB)`);
+    const compressed = await compressImage(file);
+    // Safari-safe: create blob URL instead of using b64 directly
+    const byteChars = atob(compressed.b64);
+    const byteArr = new Uint8Array(byteChars.length);
+    for (let i = 0; i < byteChars.length; i++) byteArr[i] = byteChars.charCodeAt(i);
+    const blobUrl = URL.createObjectURL(new Blob([byteArr], { type: 'image/jpeg' }));
+    setSrcImg({ b64: compressed.b64, url: blobUrl, name: compressed.name });
+    log(`✅ Preview lista (${compressed.w}x${compressed.h})`);
+  };
+
+  const onDrop = (e) => { e.preventDefault(); handleFile(e.dataTransfer?.files?.[0]); };
+  const onDragOver = (e) => e.preventDefault();
+
+  // ── Build prompt ───────────────────────────────────────────────────────────
+  const buildPrompt = () => {
+    if (mode === 'caption') {
+      return `You are a social media expert for "Panadería Paty", an artisan Mexican bakery. 
+Analyze this product photo${product ? ` of "${product}"` : ''} and write exactly 3 Instagram/Facebook caption variants in Spanish.
+Each caption must include: engaging text (2-3 sentences), relevant emojis, 5 hashtags, and a call to action.
+Format: Number each caption 1), 2), 3). Write captions that feel warm, authentic, and appetizing.
+Focus on Mexican bakery culture, artisan quality, and homemade tradition.`;
+    }
+    if (mode === 'generate') {
+      const p = FOTO_PERSPECTIVES.find(x => x.id === perspective);
+      const b = FOTO_BACKGROUNDS.find(x => x.id === background);
+      const l = FOTO_LIGHTING.find(x => x.id === lighting);
+      const pr = FOTO_PROPS.find(x => x.id === props);
+      const s = FOTO_STYLES.find(x => x.id === style);
+      return `Professional food photography of${product ? ` "${product}" from` : ' artisan bread from'} Panadería Paty, an artisan Mexican bakery. ${p.prompt}. Placed on ${b.prompt}. ${l.prompt}. ${pr.prompt ? pr.prompt + '.' : ''} ${s.prompt}. Ultra-high detail, 4K resolution, photorealistic.${freePrompt ? ' ' + freePrompt : ''}`;
+    }
+    // enhance
+    const p = FOTO_PERSPECTIVES.find(x => x.id === perspective);
+    const b = FOTO_BACKGROUNDS.find(x => x.id === background);
+    const l = FOTO_LIGHTING.find(x => x.id === lighting);
+    const pr = FOTO_PROPS.find(x => x.id === props);
+    const s = FOTO_STYLES.find(x => x.id === style);
+    return `Transform this food photo into professional editorial photography${product ? ` of "${product}"` : ''}. ${p.prompt}. Change the background/surface to ${b.prompt}. Apply ${l.prompt}. ${pr.prompt ? 'Add ' + pr.prompt + '.' : ''} ${s.prompt}. Make the bread/pastry the absolute hero of the image. Ultra-high detail, photorealistic result.${freePrompt ? ' ' + freePrompt : ''}`;
+  };
+
+  // ── Generate ───────────────────────────────────────────────────────────────
+  const handleGenerate = async () => {
+    if (mode !== 'generate' && !srcImg) { setError('Sube una foto primero'); return; }
+    setLoading(true); setError(''); setResultImg(null); setCaptions('');
+    const prompt = buildPrompt();
+    log(`🚀 Enviando a Gemini (mode=${mode})…`);
+    log(`📝 Prompt: ${prompt.substring(0, 120)}…`);
+    try {
+      const resp = await fetch(`${BACKEND}/api/gemini/generate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          mode,
+          prompt,
+          image_b64: srcImg?.b64 || '',
+          product_name: product,
+        }),
+      });
+      if (!resp.ok) {
+        const err = await resp.json().catch(() => ({ detail: resp.statusText }));
+        throw new Error(err.detail || `HTTP ${resp.status}`);
+      }
+      const data = await resp.json();
+      if (data.image) {
+        // Safari-safe: convert b64 → Blob → ObjectURL
+        const bytes = atob(data.image.data);
+        const arr = new Uint8Array(bytes.length);
+        for (let i = 0; i < bytes.length; i++) arr[i] = bytes.charCodeAt(i);
+        const blob = new Blob([arr], { type: data.image.mime_type });
+        const url = URL.createObjectURL(blob);
+        setResultImg({ url, b64: data.image.data, mime: data.image.mime_type });
+        log(`✅ Imagen generada (${data.image.mime_type})`);
+      }
+      if (data.text) {
+        setCaptions(data.text);
+        log(`📝 Texto recibido (${data.text.length} chars)`);
+      }
+      if (!data.image && !data.text) {
+        setError('Gemini no retornó resultado. Intenta de nuevo.');
+        log('⚠️ Respuesta vacía de Gemini');
+      }
+    } catch (e) {
+      setError(e.message);
+      log(`❌ Error: ${e.message}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // ── Download ───────────────────────────────────────────────────────────────
+  const handleDownload = () => {
+    if (!resultImg) return;
+    const ext = resultImg.mime?.includes('png') ? 'png' : 'jpg';
+    const name = `paty_${(product || 'foto').replace(/\s+/g, '_').toLowerCase()}_${new Date().toISOString().slice(0,10)}.${ext}`;
+    const a = document.createElement('a');
+    a.href = resultImg.url;
+    a.download = name;
+    a.click();
+    log(`⬇️ Descargada: ${name}`);
+  };
+
+  // ── Cleanup blob URLs ──────────────────────────────────────────────────────
+  useEffect(() => {
+    return () => {
+      if (srcImg?.url) URL.revokeObjectURL(srcImg.url);
+      if (resultImg?.url) URL.revokeObjectURL(resultImg.url);
+    };
+  }, []);
+
+  // ── Styles ─────────────────────────────────────────────────────────────────
+  const SEL = { width: '100%', padding: '8px 10px', borderRadius: 8, border: '1px solid #d4c9be', fontSize: 13, background: '#faf8f5', color: '#44403c', appearance: 'none', WebkitAppearance: 'none' };
+  const LBL = { fontSize: 11, fontWeight: 600, color: '#78716c', marginBottom: 4, display: 'block' };
+  const BTN_PRIMARY = { width: '100%', padding: '14px', borderRadius: 12, border: 'none', background: 'linear-gradient(135deg, #92400e, #b45309)', color: '#fff', fontSize: 15, fontWeight: 700, cursor: 'pointer', letterSpacing: '.02em', transition: 'all 0.2s', opacity: loading ? 0.6 : 1 };
+  const CARD_S = { background: '#fff', borderRadius: 14, padding: 16, border: '1px solid #f0ebe4', marginBottom: 12 };
+
+  return (
+    <>
+      <h2 style={{ fontSize: 15, fontWeight: 700, marginBottom: 4, color: '#44403c', display: 'flex', alignItems: 'center', gap: 6 }}>
+        📸 Foto Lab <span style={{ fontSize: 10, fontWeight: 400, color: '#a8a29e' }}>IA Editorial</span>
+      </h2>
+
+      {/* ── Mode selector ── */}
+      <div style={{ display: 'flex', gap: 4, marginBottom: 12 }}>
+        {[
+          { id: 'enhance', icon: '🔄', label: 'Mejorar' },
+          { id: 'generate', icon: '✨', label: 'Generar' },
+          { id: 'caption', icon: '📝', label: 'Captions' },
+        ].map(m => (
+          <button key={m.id} onClick={() => setMode(m.id)}
+            style={{ flex: 1, padding: '10px 6px', borderRadius: 10, border: mode === m.id ? '2px solid #92400e' : '1px solid #e7e0d8', background: mode === m.id ? '#fef3c7' : '#fff', cursor: 'pointer', fontSize: 12, fontWeight: 600, color: mode === m.id ? '#92400e' : '#78716c', transition: 'all .15s' }}>
+            {m.icon} {m.label}
+          </button>
+        ))}
+      </div>
+
+      {/* ── Upload zone ── */}
+      {mode !== 'generate' && (
+        <div style={CARD_S}>
+          <div
+            onDrop={onDrop} onDragOver={onDragOver}
+            onClick={() => document.getElementById('foto-lab-input').click()}
+            style={{ border: '2px dashed #d4c9be', borderRadius: 12, padding: srcImg ? 8 : 32, textAlign: 'center', cursor: 'pointer', background: '#faf8f5', transition: 'all .2s', minHeight: 80, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+            {srcImg ? (
+              <img src={srcImg.url} alt="Preview" style={{ maxWidth: '100%', maxHeight: 280, borderRadius: 10, objectFit: 'contain' }} />
+            ) : (
+              <>
+                <div style={{ fontSize: 36, marginBottom: 8 }}>📷</div>
+                <div style={{ fontSize: 13, color: '#78716c', fontWeight: 500 }}>Toca para tomar foto o seleccionar</div>
+                <div style={{ fontSize: 11, color: '#a8a29e', marginTop: 4 }}>Arrastra una imagen aquí (desktop)</div>
+              </>
+            )}
+          </div>
+          <input id="foto-lab-input" type="file" accept="image/*" capture="environment" style={{ display: 'none' }}
+            onChange={(e) => handleFile(e.target.files?.[0])} />
+          {srcImg && (
+            <button onClick={() => { if (srcImg?.url) URL.revokeObjectURL(srcImg.url); setSrcImg(null); setResultImg(null); setCaptions(''); }}
+              style={{ marginTop: 8, fontSize: 11, color: '#dc2626', background: 'none', border: 'none', cursor: 'pointer' }}>
+              ✕ Quitar foto
+            </button>
+          )}
+        </div>
+      )}
+
+      {/* ── Product selector ── */}
+      <div style={CARD_S}>
+        <label style={LBL}>Producto</label>
+        <select value={product} onChange={e => setProduct(e.target.value)} style={SEL}>
+          <option value="">— Selecciona producto —</option>
+          {products.map(p => <option key={p} value={p}>{p}</option>)}
+        </select>
+      </div>
+
+      {/* ── Style Controls (not for caption mode) ── */}
+      {mode !== 'caption' && (
+        <div style={CARD_S}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 10 }}>
+            <div>
+              <label style={LBL}>Perspectiva</label>
+              <select value={perspective} onChange={e => setPerspective(e.target.value)} style={SEL}>
+                {FOTO_PERSPECTIVES.map(o => <option key={o.id} value={o.id}>{o.label}</option>)}
+              </select>
+            </div>
+            <div>
+              <label style={LBL}>Fondo</label>
+              <select value={background} onChange={e => setBackground(e.target.value)} style={SEL}>
+                {FOTO_BACKGROUNDS.map(o => <option key={o.id} value={o.id}>{o.label}</option>)}
+              </select>
+            </div>
+            <div>
+              <label style={LBL}>Iluminación</label>
+              <select value={lighting} onChange={e => setLighting(e.target.value)} style={SEL}>
+                {FOTO_LIGHTING.map(o => <option key={o.id} value={o.id}>{o.label}</option>)}
+              </select>
+            </div>
+            <div>
+              <label style={LBL}>Props</label>
+              <select value={props} onChange={e => setProps(e.target.value)} style={SEL}>
+                {FOTO_PROPS.map(o => <option key={o.id} value={o.id}>{o.label}</option>)}
+              </select>
+            </div>
+          </div>
+          <div style={{ marginTop: 10 }}>
+            <label style={LBL}>Estilo Visual</label>
+            <select value={style} onChange={e => setStyle(e.target.value)} style={SEL}>
+              {FOTO_STYLES.map(o => <option key={o.id} value={o.id}>{o.label}</option>)}
+            </select>
+          </div>
+          <div style={{ marginTop: 10 }}>
+            <label style={LBL}>Instrucciones extra (opcional)</label>
+            <input type="text" value={freePrompt} onChange={e => setFreePrompt(e.target.value)}
+              placeholder="Ej: sin gluten, con cafe al lado..."
+              style={{ ...SEL, fontSize: 12 }} />
+          </div>
+        </div>
+      )}
+
+      {/* ── Generate button ── */}
+      <button onClick={handleGenerate} disabled={loading} style={BTN_PRIMARY}>
+        {loading ? '⏳ Procesando con IA…' : mode === 'enhance' ? '🔄 Mejorar Foto' : mode === 'generate' ? '✨ Generar Imagen' : '📝 Generar Captions'}
+      </button>
+
+      {error && <div style={{ marginTop: 10, padding: 10, borderRadius: 8, background: '#fef2f2', color: '#dc2626', fontSize: 12, border: '1px solid #fca5a5' }}>⚠️ {error}</div>}
+
+      {/* ── Result ── */}
+      {resultImg && (
+        <div style={{ ...CARD_S, marginTop: 14, textAlign: 'center' }}>
+          <div style={{ fontSize: 12, fontWeight: 600, color: '#92400e', marginBottom: 8 }}>✨ Resultado</div>
+          <img src={resultImg.url} alt="Resultado IA" style={{ maxWidth: '100%', maxHeight: 400, borderRadius: 12, objectFit: 'contain', boxShadow: '0 4px 20px rgba(0,0,0,.12)' }} />
+          <div style={{ display: 'flex', gap: 8, marginTop: 12, justifyContent: 'center' }}>
+            <button onClick={handleDownload} style={{ padding: '10px 20px', borderRadius: 10, border: '1px solid #92400e', background: '#fff', color: '#92400e', fontSize: 12, fontWeight: 600, cursor: 'pointer' }}>⬇️ Descargar</button>
+            <button onClick={handleGenerate} disabled={loading} style={{ padding: '10px 20px', borderRadius: 10, border: '1px solid #d4c9be', background: '#fff', color: '#78716c', fontSize: 12, fontWeight: 600, cursor: 'pointer' }}>🔄 Regenerar</button>
+          </div>
+        </div>
+      )}
+
+      {/* ── Captions ── */}
+      {captions && (
+        <div style={{ ...CARD_S, marginTop: 14 }}>
+          <div style={{ fontSize: 12, fontWeight: 600, color: '#92400e', marginBottom: 8 }}>📝 Captions para Redes</div>
+          {captions.split(/\n\n+|\d+\)/).filter(Boolean).map((c, i) => (
+            <div key={i} style={{ padding: 12, background: '#faf8f5', borderRadius: 10, marginBottom: 8, fontSize: 13, color: '#44403c', lineHeight: 1.5, position: 'relative', whiteSpace: 'pre-wrap' }}>
+              {c.trim()}
+              <button onClick={() => { navigator.clipboard.writeText(c.trim()); log(`📋 Caption ${i+1} copiado`); }}
+                style={{ position: 'absolute', top: 8, right: 8, padding: '4px 8px', borderRadius: 6, border: '1px solid #d4c9be', background: '#fff', fontSize: 10, cursor: 'pointer', color: '#78716c' }}>
+                📋 Copiar
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* ── Monitor de Sistema (collapsible) ── */}
+      <div style={{ marginTop: 14 }}>
+        <button onClick={() => setShowLogs(!showLogs)}
+          style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 11, color: '#a8a29e', fontWeight: 500 }}>
+          {showLogs ? '▾' : '▸'} Monitor de Sistema ({logs.length})
+        </button>
+        {showLogs && (
+          <div style={{ marginTop: 6, background: '#1a1a2e', borderRadius: 10, padding: 12, maxHeight: 200, overflowY: 'auto', fontFamily: 'monospace', fontSize: 10, color: '#8bc34a', lineHeight: 1.6 }}>
+            {logs.length === 0 && <div style={{ color: '#555' }}>Sin actividad</div>}
+            {logs.map((l, i) => <div key={i}>{l}</div>)}
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 
@@ -3054,6 +3423,9 @@ function MandoClientView({ slug }) {
             GenyX confirmará cada entrega y actualizará tu expediente.
           </div>
         </>)}
+
+        {/* ═══ TAB: FOTO LAB ═══ */}
+        {tab === 'foto' && <TabFotoLab slug={slug} token={token} />}
 
         <p style={{ textAlign: 'center', color: '#c4b5a5', fontSize: 10, marginTop: 20 }}>GenyX · {slug} · Actualiza cada 30s</p>
       </main>
