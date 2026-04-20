@@ -2130,7 +2130,7 @@ Focus on Mexican bakery culture, artisan quality, and homemade tradition.`;
               </>
             )}
           </div>
-          <input id="foto-lab-input" type="file" accept="image/*" capture="environment" style={{ display: 'none' }}
+          <input id="foto-lab-input" type="file" accept="image/*" style={{ display: 'none' }}
             onChange={(e) => handleFile(e.target.files?.[0])} />
           {srcImg && (
             <button onClick={() => { if (srcImg?.url) URL.revokeObjectURL(srcImg.url); setSrcImg(null); setResultImg(null); setCaptions(''); }}
