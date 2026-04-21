@@ -3622,10 +3622,10 @@ function GenyXLandingPage() {
         </div>
         <div style={C.badge}><span style={C.dot} />Vende por WhatsApp 24/7 · Cobra automático · Sin contratar a nadie</div>
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(74,222,128,0.1)', border:'1px solid rgba(74,222,128,0.35)', color:'#4ade80', fontSize:12, fontWeight:700, padding:'7px 22px', borderRadius:30, marginBottom:16 }}>
-          &#x2713; Activo en 48h · SLA garantizado · Si fallamos, el mes es gratis
+          &#x2713; Activo en 48h · Respuesta garantizada · Si fallamos, el mes es gratis
         </div>
         <h1 style={C.h1}>Tu negocio no debería<br /><span style={C.h1accent}>depender de que tú estés.</span></h1>
-        <p style={C.sub}>GenyX instala una infraestructura de ventas completa: agente con ADN de tu marca, cobro automatizado, reportes semanales y SLA garantizado de atención en menos de 5 segundos. Omnicanal — sin contratar a nadie.</p>
+        <p style={C.sub}>GenyX instala tu departamento de ventas completo: agente con ADN de tu marca, cobro automatizado, reportes semanales y respuesta garantizada en menos de 5 segundos. Sin contratar a nadie.</p>
         <div style={C.btns}>
           <a href="#contacto" style={C.primary}>Solicita tu Demo →</a>
           <a href="#proceso" style={C.secondary}>¿Cómo funciona?</a>
@@ -3672,7 +3672,7 @@ function GenyXLandingPage() {
               [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>, 'Entiende notas de voz', 'Transcribe y responde audios de WhatsApp en segundos'],
               [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>, 'Habla como tu cliente', 'Regionalismos, abreviaciones y hasta emojis — sin respuestas roboticas'],
               [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>, 'Asesora, no solo informa', 'Detecta lo que el cliente necesita y recomienda antes de que pregunte'],
-              [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>, 'Cierra, no solo responde', 'Lleva al cliente del interés al carrito sin fricción ni esfuerzo humano. Y lo hace en menos de 5 segundos. Garantizado.'],
+              [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>, 'Cierra, no solo responde', 'Lleva al cliente del interés al carrito sin fricción ni esfuerzo humano. Y lo hace en segundos. Garantizado.'],
             ].map(([ico, t, d]) => (
               <div key={t} style={{ display:'flex', gap:14, alignItems:'flex-start' }}>
                 <div style={{ fontSize:22, flexShrink:0, marginTop:2 }}>{ico}</div>
@@ -3724,11 +3724,11 @@ function GenyXLandingPage() {
         <p style={{ color:'#64748b', marginBottom:48, textAlign:'center', fontSize:15, maxWidth:600, margin:'0 auto 48px' }}>El mercado tiene chatbots que responden preguntas. GenyX opera tu departamento de ventas completo — con datos, reglas de negocio y resultados medibles.</p>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:16 }}>
           {[
-            ['🔒', 'Guardrails Determinísticos', 'Código Python que blinda cada interacción. Tu IA nunca inventa precios, nunca improvisa flujos y nunca comete errores que dañen a tu cliente — ni a tu reputación.'],
-            ['📊', '500+ Escenarios de Venta Validados', 'Antes de que tu agente atienda a un solo cliente, ya pasó 835 pruebas automáticas de calidad. Cada actualización se verifica contra 500 conversaciones simuladas en 74 segundos. Cero improvisación.'],
+            ['🔒', 'Blindaje Anti-Errores', 'Tu agente nunca inventa precios, nunca ofrece productos que no existen y nunca cobra de más. Cada interacción está protegida para que tu cliente siempre reciba información correcta — y tú nunca pierdas dinero por un error.'],
+            ['📊', 'Probado Antes de Que Atienda', 'Antes de que tu agente hable con un solo cliente, ya fue probado en cientos de escenarios de venta diferentes. Cada actualización pasa por el mismo proceso de calidad. Tu negocio nunca es el conejillo de indias.'],
             ['🔒', 'Tu negocio no depende de una persona', 'Un vendedor se enferma, renuncia, pide aumento o tiene un mal día. GenyX no. Atiende a todos tus clientes al mismo tiempo, los 365 días del año, con el mismo nivel de excelencia desde el primer mensaje hasta el cobro.'],
             ['📊', 'Aprende de tus ventas desde el día uno', 'Histórico de conversaciones, productos más pedidos, horarios pico y ventas por mes. Información real de tu negocio — sin contratar un analista de datos ni instalar nada especial.'],
-            ['🌐', 'Configurado para Tu Negocio', 'Tu catálogo. Tus precios. Tu personalidad de marca. Tu zona de entrega. Configurado específicamente para ti — no es un template genérico. Funciona como si lo hubiera construido tu mejor vendedor.'],
+            ['🌐', 'Configurado para Tu Negocio', 'Tu catálogo. Tus precios. Tu personalidad de marca. Tu zona de entrega. Todo configurado específicamente para ti. Funciona como si lo hubiera construido tu mejor vendedor.'],
             ['🏆', 'Sin contratos de permanencia', 'Te quedas porque funciona, no porque firmaste. GenyX provee la infraestructura de ventas configurada para tu negocio. Si creces, crece contigo.'],
           ].map(([ico, t, d]) => (
             <div key={t} style={{ background:'rgba(255,255,255,0.03)', border:'1px solid rgba(99,102,241,0.15)', borderRadius:16, padding:'24px 22px', transition:'all 0.25s' }}
@@ -3749,9 +3749,9 @@ function GenyXLandingPage() {
         <div style={{ textAlign:'left', background:'rgba(255,255,255,0.03)', border:'1px solid rgba(99,102,241,0.15)', borderRadius:20, padding:'36px 32px', marginBottom:32 }}>
           <p style={{ color:'#94a3b8', fontSize:15, lineHeight:2, marginBottom:16 }}>Un bot de opciones dice <em>"escribe 1 para ventas"</em>.<br />Tu cliente escribe <em>"quiero una pizza"</em> y el bot no entiende.</p>
           <p style={{ color:'#94a3b8', fontSize:15, lineHeight:2, marginBottom:16 }}>Un CRM organiza a tus vendedores.<br />Pero necesitas vendedores.</p>
-          <p style={{ color:'#f1f5f9', fontSize:18, fontWeight:800, lineHeight:2, marginBottom:24 }}>GenyX <span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>ES</span> el vendedor.<br />Atiende, recomienda, cobra y confirma.<br />En 38 milisegundos. A las 3am. Sin sueldo.</p>
+          <p style={{ color:'#f1f5f9', fontSize:18, fontWeight:800, lineHeight:2, marginBottom:24 }}>GenyX <span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>ES</span> el vendedor.<br />Atiende, recomienda, cobra y confirma.<br />En segundos. A las 3am. Sin sueldo.</p>
           <div style={{ display:'flex', flexDirection:'column', gap:10 }}>
-            {['SLA garantizado: 100% de mensajes en menos de 5 segundos','Si fallamos, el mes es gratis','835 pruebas automáticas antes de cada actualización','Cero comisión por venta','Python controla la venta — la IA nunca toca tu dinero'].map(item => (
+            {['Garantía de respuesta: 100% de tus mensajes atendidos en menos de 5 segundos','Si fallamos, el mes es gratis','Cada actualización pasa cientos de pruebas de calidad antes de llegar a tu negocio','Cero comisión por venta — tus márgenes son tuyos','Tu agente nunca inventa precios ni cobra de más'].map(item => (
               <div key={item} style={{ display:'flex', alignItems:'center', gap:10 }}>
                 <span style={{ color:'#4ade80', fontWeight:800, fontSize:16 }}>✓</span>
                 <span style={{ color:'#94a3b8', fontSize:14 }}>{item}</span>
@@ -3783,7 +3783,7 @@ function GenyXLandingPage() {
               </div>
             ))}
           </div>
-          <p style={{ fontSize:13, color:'#64748b', marginBottom:24 }}>Cero comisión por venta. Facturación en MXN. 100% deducible.</p>
+          <p style={{ fontSize:13, color:'#64748b', marginBottom:24 }}>Cero comisión por venta. Facturamos en pesos mexicanos.</p>
           <a href="#contacto" style={{ display:'inline-block', background:'linear-gradient(135deg,#6366f1,#8b5cf6)', color:'#fff', padding:'14px 36px', borderRadius:12, fontSize:14, fontWeight:700, textDecoration:'none', boxShadow:'0 0 28px rgba(99,102,241,0.3)' }}>Conoce qué plan es para ti →</a>
         </div>
       </section>
