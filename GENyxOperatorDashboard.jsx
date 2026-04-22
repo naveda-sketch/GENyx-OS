@@ -3837,7 +3837,7 @@ function GenyXLandingPage() {
         <div style={C.ctaBox}>
           <h2 style={C.ctaH}>¿Listo para vender más?</h2>
           <p style={C.ctaSub}>15 minutos. Sin compromiso. Si GenyX no es la solución correcta para tu negocio, te lo decimos con honestidad antes de que inviertas un peso.</p>
-          <a href="https://wa.me/5215667731317?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={{ ...C.ctaBtn, display:'inline-flex', alignItems:'center', gap:10, marginBottom:14 }}>Escríbenos por WhatsApp →</a>
+          <a href="https://wa.me/525667731317?text=Hola,%20vi%20su%20p%C3%A1gina%20web" style={{ ...C.ctaBtn, display:'inline-flex', alignItems:'center', gap:10, marginBottom:14 }}>Escríbenos por WhatsApp →</a>
           <p style={{ color:'#64748b', fontSize:13 }}>o si prefieres: <a href="mailto:hola@genyxsystems.com" style={{ color:'#818cf8', textDecoration:'none' }}>hola@genyxsystems.com</a></p>
         </div>
       </div>
