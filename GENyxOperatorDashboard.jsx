@@ -3520,6 +3520,210 @@ function GenyXConciergeWidget() {
   );
 }
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// CREDIBILITY COMPONENTS — Confianza por Transparencia (sin casos de éxito)
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// ── 1. WhatsApp Conversation Simulator ──────────────────────────────────────
+function WhatsAppSimulator() {
+  const [step, setStep] = React.useState(0);
+  const [started, setStarted] = React.useState(false);
+  const containerRef = React.useRef(null);
+
+  const conversation = [
+    { from: 'client', msg: 'Hola! Quiero pedir pan para mañana 🍞', delay: 0 },
+    { from: 'bot', msg: 'Hola Ana! 👋 Con gusto te ayudo.\n\nTenemos disponible:\n🥖 Hogaza Natural — $120\n🍞 Pan Integral — $85\n🥐 Cuernos (6 pzs) — $75\n\n¿Qué te gustaría llevar?', delay: 1200 },
+    { from: 'client', msg: '2 hogazas y unos cuernos porfa', delay: 2000 },
+    { from: 'bot', msg: '¡Perfecto! Tu pedido queda así:\n\n🥖 Hogaza Natural × 2 — $240\n🥐 Cuernos (6 pzs) × 1 — $75\n\n💰 Total: $315 MXN\n\n¿Lo quieres a domicilio o pasas a recoger?', delay: 1500 },
+    { from: 'client', msg: 'A domicilio! Estoy en Col. Bugambilias', delay: 1800 },
+    { from: 'bot', msg: '📍 Col. Bugambilias — envío: $35 MXN\n\n💳 Total con envío: $350 MXN\n\nAquí tienes tu link de pago seguro 👇\n🔗 stripe.com/pay/paty-315...', delay: 1400 },
+    { from: 'client', msg: 'Listo, ya pagué ✅', delay: 2200 },
+    { from: 'bot', msg: '✅ ¡Pago confirmado, Ana!\n\n📋 Pedido #847 registrado\n🕐 Entrega mañana entre 9-11am\n\nPaty se pondrá en contacto contigo para coordinar. ¡Gracias por tu compra! 💛', delay: 1500 },
+  ];
+
+  React.useEffect(() => {
+    if (!started || step >= conversation.length) return;
+    const timer = setTimeout(() => setStep(s => s + 1), conversation[step].delay + 800);
+    return () => clearTimeout(timer);
+  }, [step, started]);
+
+  React.useEffect(() => {
+    if (containerRef.current) {
+      containerRef.current.scrollTop = containerRef.current.scrollHeight;
+    }
+  }, [step]);
+
+  // Intersection observer to auto-start
+  const wrapRef = React.useRef(null);
+  React.useEffect(() => {
+    if (!wrapRef.current) return;
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !started) setStarted(true);
+    }, { threshold: 0.5 });
+    obs.observe(wrapRef.current);
+    return () => obs.disconnect();
+  }, [started]);
+
+  const visible = conversation.slice(0, step);
+
+  return (
+    <section ref={wrapRef} style={{ padding: '0 24px 100px', maxWidth: 520, margin: '0 auto' }}>
+      <div style={{ textAlign: 'center', marginBottom: 32 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>MIRA CÓMO FUNCIONA</div>
+        <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>Una venta completa.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Sin intervención humana.</span></h2>
+        <p style={{ color: '#64748b', fontSize: 14 }}>Esto es lo que tu agente GenyX hace por ti — automático, 24/7.</p>
+      </div>
+
+      {/* WhatsApp-like container */}
+      <div style={{ background: '#0b141a', borderRadius: 20, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 24px 64px rgba(0,0,0,0.4)' }}>
+        {/* WA Header */}
+        <div style={{ background: '#1f2c34', padding: '12px 16px', display: 'flex', alignItems: 'center', gap: 10 }}>
+          <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'linear-gradient(135deg, #92400e, #d97706)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16, fontWeight: 800, color: '#fff' }}>P</div>
+          <div>
+            <div style={{ color: '#e9edef', fontWeight: 700, fontSize: 14 }}>Panadería Paty</div>
+            <div style={{ color: '#8696a0', fontSize: 11 }}>🤖 Agente GenyX · en línea</div>
+          </div>
+          <div style={{ marginLeft: 'auto', display: 'flex', gap: 4 }}>
+            <span style={{ color: '#25D366', fontSize: 10, background: 'rgba(37,211,102,0.15)', padding: '3px 8px', borderRadius: 10, fontWeight: 700 }}>DEMO</span>
+          </div>
+        </div>
+
+        {/* Chat area */}
+        <div ref={containerRef} style={{ padding: '16px 12px', minHeight: 320, maxHeight: 420, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 6, background: 'url("data:image/svg+xml,%3Csvg width=\'400\' height=\'400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence baseFrequency=\'.65\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\' opacity=\'.015\'/%3E%3C/svg%3E"), #0b141a' }}>
+          {visible.map((m, i) => (
+            <div key={i} style={{ display: 'flex', justifyContent: m.from === 'client' ? 'flex-end' : 'flex-start', animation: 'fadeInUp 0.3s ease-out' }}>
+              <div style={{
+                background: m.from === 'client' ? '#005c4b' : '#202c33',
+                color: '#e9edef',
+                padding: '8px 12px',
+                borderRadius: m.from === 'client' ? '10px 10px 2px 10px' : '10px 10px 10px 2px',
+                maxWidth: '85%',
+                fontSize: 13,
+                lineHeight: 1.5,
+                whiteSpace: 'pre-line',
+                boxShadow: '0 1px 2px rgba(0,0,0,0.2)',
+              }}>
+                {m.msg}
+                <div style={{ fontSize: 9, color: '#8696a0', textAlign: 'right', marginTop: 4 }}>
+                  {new Date(Date.now() - (conversation.length - i) * 60000).toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' })}
+                  {m.from === 'client' && ' ✓✓'}
+                </div>
+              </div>
+            </div>
+          ))}
+          {started && step < conversation.length && (
+            <div style={{ display: 'flex', justifyContent: conversation[step]?.from === 'client' ? 'flex-end' : 'flex-start' }}>
+              <div style={{ background: conversation[step]?.from === 'client' ? '#005c4b' : '#202c33', padding: '10px 16px', borderRadius: 10, display: 'flex', gap: 4 }}>
+                {[0, 1, 2].map(i => (<div key={i} style={{ width: 6, height: 6, borderRadius: '50%', background: '#8696a0', animation: `gcb 1.2s ${i * 0.2}s infinite` }} />))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Bottom bar */}
+        <div style={{ background: '#1f2c34', padding: '10px 12px', display: 'flex', alignItems: 'center', gap: 8 }}>
+          <div style={{ flex: 1, background: '#2a3942', borderRadius: 20, padding: '8px 14px', color: '#8696a0', fontSize: 12 }}>
+            {step >= conversation.length ? '✅ Venta completada — $350 MXN en 40 segundos' : 'Observa la conversación...'}
+          </div>
+        </div>
+      </div>
+
+      {step >= conversation.length && (
+        <div style={{ textAlign: 'center', marginTop: 20 }}>
+          <button onClick={() => { setStep(0); setTimeout(() => setStarted(true), 100); }}
+            style={{ background: 'rgba(99,102,241,0.15)', border: '1px solid rgba(99,102,241,0.4)', color: '#818cf8', padding: '8px 20px', borderRadius: 8, cursor: 'pointer', fontSize: 12, fontWeight: 700 }}>↺ Repetir demo</button>
+        </div>
+      )}
+      <style>{`@keyframes fadeInUp { from { opacity:0; transform:translateY(8px) } to { opacity:1; transform:translateY(0) } }`}</style>
+    </section>
+  );
+}
+
+// ── 2. Trust Badges ─────────────────────────────────────────────────────────
+function TrustBadges() {
+  const badges = [
+    { name: 'OpenAI', color: '#10a37f', icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="#10a37f"><path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855l-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.795.795 0 0 0-.393.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z"/></svg> },
+    { name: 'Stripe', color: '#635bff', icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="#635bff"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.918 3.757 7.078c0 4.071 2.49 5.742 6.565 7.159 2.596 1.005 3.508 1.725 3.508 2.814 0 1.033-.874 1.638-2.478 1.638-2.134 0-4.904-.881-6.878-2.054l-.893 5.575C5.816 23.186 8.769 24 12.001 24c2.588 0 4.736-.681 6.25-1.974 1.649-1.399 2.497-3.358 2.497-5.825 0-4.157-2.538-5.763-6.772-7.051z"/></svg> },
+    { name: 'WhatsApp Business', color: '#25D366', icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 0 0 .611.611l4.458-1.495A11.942 11.942 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.43 0-4.67-.868-6.405-2.312l-.447-.37-3.107 1.041 1.041-3.107-.37-.447A9.958 9.958 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg> },
+    { name: 'Meta Cloud API', color: '#0668E1', icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="#0668E1"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02z"/></svg> },
+  ];
+
+  return (
+    <div style={{ padding: '0 24px 60px', maxWidth: 800, margin: '0 auto' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 32, flexWrap: 'wrap', padding: '20px 0', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+        <span style={{ fontSize: 11, color: '#475569', fontWeight: 600, letterSpacing: '.05em' }}>TECNOLOGÍA:</span>
+        {badges.map(b => (
+          <div key={b.name} style={{ display: 'flex', alignItems: 'center', gap: 6, opacity: 0.6, transition: 'opacity 0.2s' }}
+            onMouseOver={e => e.currentTarget.style.opacity = '1'}
+            onMouseOut={e => e.currentTarget.style.opacity = '0.6'}>
+            {b.icon}
+            <span style={{ fontSize: 11, color: '#94a3b8', fontWeight: 600 }}>{b.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ── 3. Dashboard Preview ────────────────────────────────────────────────────
+function DashboardPreview() {
+  return (
+    <section style={{ padding: '0 24px 100px', maxWidth: 900, margin: '0 auto' }}>
+      <div style={{ textAlign: 'center', marginBottom: 40 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>TU CENTRO DE MANDO</div>
+        <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>Ve cada venta.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>En tiempo real.</span></h2>
+        <p style={{ color: '#64748b', fontSize: 14, maxWidth: 460, margin: '0 auto' }}>Pedidos, ingresos, clientes y métricas — desde tu celular o computadora. Sin instalar nada.</p>
+      </div>
+      <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(99,102,241,0.3)', boxShadow: '0 32px 80px rgba(99,102,241,0.15), 0 0 0 1px rgba(99,102,241,0.1)' }}>
+        <img src="/dashboard-preview.png" alt="Centro de Mando GenyX — Panel de control en tiempo real" style={{ width: '100%', display: 'block' }} loading="lazy" />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 60%, rgba(5,5,8,0.9) 100%)' }} />
+        <div style={{ position: 'absolute', bottom: 20, left: 0, right: 0, textAlign: 'center' }}>
+          <span style={{ background: 'rgba(99,102,241,0.2)', border: '1px solid rgba(99,102,241,0.4)', color: '#a5b4fc', padding: '8px 20px', borderRadius: 20, fontSize: 12, fontWeight: 700 }}>📊 Panel en vivo desde el día 1</span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ── 4. Guarantee Seal ───────────────────────────────────────────────────────
+function GuaranteeSeal() {
+  return (
+    <section style={{ padding: '0 24px 100px', maxWidth: 640, margin: '0 auto', textAlign: 'center' }}>
+      <div style={{
+        background: 'linear-gradient(135deg, rgba(74,222,128,0.06), rgba(34,197,94,0.04))',
+        border: '2px solid rgba(74,222,128,0.25)',
+        borderRadius: 24,
+        padding: '48px 40px',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        {/* Shield icon */}
+        <div style={{ fontSize: 56, marginBottom: 16 }}>🛡️</div>
+        <h3 style={{ fontSize: 28, fontWeight: 900, color: '#4ade80', marginBottom: 12, letterSpacing: '-0.5px' }}>Garantía GenyX</h3>
+        <p style={{ fontSize: 18, color: '#f1f5f9', fontWeight: 700, lineHeight: 1.6, marginBottom: 8 }}>
+          Si tu agente falla más de 3 veces en un mes,<br />
+          <span style={{ background: 'linear-gradient(135deg, #4ade80, #22c55e)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontSize: 22 }}>ese mes es sin costo.</span>
+        </p>
+        <p style={{ color: '#64748b', fontSize: 14, lineHeight: 1.7, maxWidth: 420, margin: '0 auto' }}>
+          Cada actualización es verificada exhaustivamente antes de llegar a tu negocio. Tú nunca eres el conejillo de indias — eres el beneficiario de un sistema probado.
+        </p>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: 20, marginTop: 24, flexWrap: 'wrap' }}>
+          {[
+            ['✓ 100%', 'mensajes atendidos'],
+            ['✓ < 5s', 'tiempo de respuesta'],
+            ['✓ 365', 'días al año'],
+          ].map(([val, label]) => (
+            <div key={label} style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: 18, fontWeight: 800, color: '#4ade80' }}>{val}</div>
+              <div style={{ fontSize: 10, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.05em' }}>{label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ── GenyX Landing Page — Diseño Aprobado (genyxsystems.com) ────────
 function GenyXLandingPage() {
   const [scrolled, setScrolled] = React.useState(false);
@@ -3634,7 +3838,7 @@ function GenyXLandingPage() {
 
       <section style={C.stats}>
         <div style={C.statsGrid}>
-          {[['24/7', 'Atención continua'], ['85%', 'Califica antes de que tú intervengas'], ['3 min', 'Tiempo de respuesta'], ['48h', 'Para estar operando']].map(([v, l], i) => (
+          {[['< 5s', 'Tu cliente recibe respuesta'], ['24/7', 'Incluye fines de semana y días festivos'], ['$0', 'Comisión por venta — lo que vendes es tuyo'], ['48h', 'De la sesión a tu agente vendiendo']].map(([v, l], i) => (
             <div key={i} style={C.statCell(i)}>
               <p style={C.statVal}>{v}</p>
               <p style={C.statLbl}>{l}</p>
@@ -3642,6 +3846,20 @@ function GenyXLandingPage() {
           ))}
         </div>
       </section>
+
+      {/* ── Social Proof Bar ── */}
+      <div style={{ padding: '0 24px 60px', maxWidth: 800, margin: '0 auto' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 32, flexWrap: 'wrap', padding: '20px 0', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+          {[['🏪', 'Negocios con 2-3 sucursales'], ['🍽️', 'Restaurantes y cafeterías'], ['🏥', 'Clínicas y consultorios'], ['💇', 'Estéticas y spas'], ['🏠', 'Inmobiliarias']].map(([icon, label]) => (
+            <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 6, opacity: 0.6, transition: 'opacity 0.2s' }}
+              onMouseOver={e => e.currentTarget.style.opacity = '1'}
+              onMouseOut={e => e.currentTarget.style.opacity = '0.6'}>
+              <span style={{ fontSize: 16 }}>{icon}</span>
+              <span style={{ fontSize: 11, color: '#94a3b8', fontWeight: 600 }}>{label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
 
       <section id="soluciones" style={C.section()}>
         <div style={C.sHead}>
@@ -3658,6 +3876,12 @@ function GenyXLandingPage() {
           ))}
         </div>
       </section>
+
+      {/* ── WhatsApp Simulator ── */}
+      <WhatsAppSimulator />
+
+      {/* ── Dashboard Preview ── */}
+      <DashboardPreview />
 
       {/* ── ADN de tu Marca ── */}
       <section style={{ padding:'0 24px 100px', maxWidth:960, margin:'0 auto' }}>
@@ -3688,30 +3912,25 @@ function GenyXLandingPage() {
 
       {/* ── Soluciones por Industria ── */}
       <section style={{ padding:'0 24px 100px', maxWidth:1000, margin:'0 auto', textAlign:'center' }}>
-        <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12 }}>NUESTRO SISTEMA ES PARA TODOS</div>
-        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:10 }}>Soluciones por Industria</h2>
-        <p style={{ color:'#64748b', marginBottom:40, fontSize:15 }}>Si tu negocio tiene clientes y les vendes por mensaje — GenyX es para ti.</p>
-        <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(200px,1fr))', gap:12 }}>
+        <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12 }}>¿EN QUÉ INDUSTRIA ESTÁS?</div>
+        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:10 }}>Tu industria. Tu agente. Tu forma de vender.</h2>
+        <p style={{ color:'#64748b', marginBottom:40, fontSize:15 }}>Si tus clientes te escriben por WhatsApp y tú no das abasto para contestar — GenyX es para ti.</p>
+        <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:16 }}>
           {[
-            ['PAN','Panaderías y Pastelerías','Tu cliente pide a las 10pm. Tú solo horneas.'],
-            ['RST','Restaurantes y Fondas','8 mensajes sin leer. GenyX atiende los 3 al mismo tiempo.'],
-            ['NAT','Productos Naturales','Las mismas 5 preguntas 30 veces al día. GenyX responde y cobra.'],
-            ['BLZ','Belleza y Cosméticos','30 mensajes de citas al día. GenyX agenda, confirma y cobra.'],
-            ['FIT','Fitness y Bienestar','Cancelación de último minuto. GenyX mueve al siguiente y cobra.'],
-            ['VET','Veterinarias','Emergencia a las 11pm. GenyX responde al instante con todo.'],
-            ['INM','Inmobiliarias','50 leads. 3 van en serio. GenyX filtra y te manda los buenos.'],
-            ['EDU','Educación y Cursos','Las mismas preguntas 50 veces al día. GenyX inscribe y cobra.'],
-            ['SRV','Servicios a Domicilio','El cliente quiere precio y fecha. GenyX cotiza y cobra anticipo.'],
-            ['EVT','Eventos y Catering','Cotización para 80 personas. GenyX la arma en 3 minutos.'],
-            ['MOD','Moda y Ropa','¿Talla M en azul? GenyX muestra catálogo y genera link de pago.'],
-            ['FAR','Farmacias y Suplementos','5 medicamentos. GenyX verifica, cotiza y agenda el envío.'],
-          ].map(([code, label, tagline]) => (
-            <div key={label} style={{ background:'rgba(6,9,18,0.8)', border:'1px solid rgba(99,102,241,0.2)', borderRadius:12, padding:'20px 14px', transition:'all .2s', cursor:'default' }}
-              onMouseOver={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.6)'; e.currentTarget.style.background='rgba(99,102,241,0.08)'; e.currentTarget.style.transform='translateY(-2px)'; }}
+            ['🍽️','Restaurantes y Comida','Te escriben 50 mensajes al día. No puedes con todos. GenyX atiende a todos al mismo tiempo, arma el pedido y cobra — mientras tú te enfocas en la cocina.','EL DOLOR: "No puedo estar en el teléfono y en la cocina al mismo tiempo"'],
+            ['🏥','Clínicas y Consultorios','Tus pacientes quieren agendar cita por WhatsApp pero tu recepcionista no da abasto. GenyX agenda, confirma y cobra anticipo — sin que pierdas un solo paciente.','EL DOLOR: "Pierdo pacientes porque no contesto a tiempo"'],
+            ['💇','Belleza y Cuidado Personal','Tu agenda se llena pero pierdes clientes porque no confirmas a tiempo. GenyX agenda, confirma y manda recordatorio — tu silla nunca está vacía.','EL DOLOR: "Cancelaciones de último minuto y citas sin confirmar"'],
+            ['🎓','Escuelas y Cursos','Los interesados preguntan precio y no vuelven a escribir. GenyX responde al instante, resuelve dudas y los guía hasta la inscripción.','EL DOLOR: "Se interesan pero nunca se inscriben"'],
+            ['🏠','Inmobiliarias','Te llegan 50 leads de portales. 3 van en serio. GenyX filtra, califica y te manda solo los buenos — con ficha completa y presupuesto confirmado.','EL DOLOR: "Pierdo tiempo con curiosos que nunca van a comprar"'],
+            ['🍞','Panaderías y Pastelerías','Tu cliente pide a las 10pm. Tú ya estás dormida. GenyX toma el pedido, cobra y te lo tiene listo para cuando llegas a hornear.','EL DOLOR: "Pierdo pedidos porque no puedo contestar fuera de horario"'],
+          ].map(([icon, label, desc, pain]) => (
+            <div key={label} style={{ background:'rgba(6,9,18,0.8)', border:'1px solid rgba(99,102,241,0.2)', borderRadius:16, padding:'24px 20px', transition:'all .2s', cursor:'default', textAlign:'left' }}
+              onMouseOver={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.6)'; e.currentTarget.style.background='rgba(99,102,241,0.08)'; e.currentTarget.style.transform='translateY(-3px)'; }}
               onMouseOut={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.2)'; e.currentTarget.style.background='rgba(6,9,18,0.8)'; e.currentTarget.style.transform='translateY(0)'; }}>
-              <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:14, fontWeight:700, color:'#818cf8', letterSpacing:'.06em', marginBottom:6 }}>/{code}</div>
-              <div style={{ fontSize:11, color:'#94a3b8', lineHeight:1.5, fontWeight:600, textTransform:'uppercase', letterSpacing:'.04em', marginBottom:8 }}>{label}</div>
-              <div style={{ fontSize:12, color:'#64748b', lineHeight:1.6, fontStyle:'italic' }}>"{tagline}"</div>
+              <div style={{ fontSize:32, marginBottom:12 }}>{icon}</div>
+              <div style={{ fontSize:15, color:'#f1f5f9', fontWeight:700, marginBottom:8 }}>{label}</div>
+              <div style={{ fontSize:12, color:'#64748b', lineHeight:1.7, marginBottom:12 }}>{desc}</div>
+              <div style={{ fontSize:11, color:'#818cf8', fontStyle:'italic', fontWeight:600, background:'rgba(99,102,241,0.08)', padding:'6px 10px', borderRadius:8, lineHeight:1.5 }}>{pain}</div>
             </div>
           ))}
         </div>
@@ -3724,12 +3943,12 @@ function GenyXLandingPage() {
         <p style={{ color:'#64748b', marginBottom:48, textAlign:'center', fontSize:15, maxWidth:600, margin:'0 auto 48px' }}>El mercado tiene chatbots que responden preguntas. GenyX opera tu departamento de ventas completo — con tu catálogo, tus reglas y resultados que puedes medir.</p>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:16 }}>
           {[
-            ['🔒', 'Blindaje Anti-Errores', 'Tu agente nunca inventa precios, nunca ofrece productos que no existen y nunca cobra de más. Cada interacción está protegida para que tu cliente siempre reciba información correcta — y tú nunca pierdas dinero por un error.'],
-            ['📊', 'Probado Antes de Que Atienda', 'Antes de que tu agente hable con un solo cliente, ya fue probado en cientos de escenarios de venta diferentes. Cada actualización pasa por el mismo proceso de calidad. Tu negocio nunca es el conejillo de indias.'],
-            ['🔒', 'Tu negocio no depende de una persona', 'Un vendedor se enferma, renuncia, pide aumento o tiene un mal día. GenyX no. Atiende a todos tus clientes al mismo tiempo, los 365 días del año, con el mismo nivel de excelencia desde el primer mensaje hasta el cobro.'],
-            ['📊', 'Aprende de tus ventas desde el día uno', 'Histórico de conversaciones, productos más pedidos, horarios pico y ventas por mes. Información real de tu negocio — sin contratar un analista de datos ni instalar nada especial.'],
-            ['🌐', 'Configurado para Tu Negocio', 'Tu catálogo. Tus precios. Tu personalidad de marca. Tu zona de entrega. Todo configurado específicamente para ti. Funciona como si lo hubiera construido tu mejor vendedor.'],
-            ['🏆', 'Sin contratos de permanencia', 'Te quedas porque funciona, no porque firmaste. GenyX es tu departamento de ventas configurado para tu negocio. Si creces, crece contigo.'],
+            ['🔒', 'Nunca cobra de más, nunca inventa precios', 'Tu agente respeta tu catálogo al 100%. Si no lo vendes, no lo ofrece. Si cuesta $120, cobra $120. Cero errores, cero sorpresas para tu cliente.'],
+            ['📊', 'Reportes que te hacen tomar decisiones', '¿Cuál es tu producto más vendido? ¿A qué hora te escriben más? ¿Cuánto vendiste esta semana? Información de tu negocio que hoy no tienes — sin contratar un analista.'],
+            ['💪', 'Tu negocio no depende de una persona', 'Un vendedor se enferma, renuncia, pide aumento o tiene un mal día. GenyX no. Atiende a todos tus clientes al mismo tiempo, los 365 días del año, desde el primer mensaje hasta el cobro.'],
+            ['🎯', 'Hecho a la medida de tu negocio', 'Tu catálogo. Tus precios. Tu personalidad de marca. Tu zona de entrega. Todo configurado para ti. Funciona como si lo hubiera entrenado tu mejor vendedor.'],
+            ['⚡', 'De cero a vendiendo en 48 horas', 'Una sesión de 45 minutos para entender tu negocio. Nosotros hacemos todo. En 2 días tu agente ya está cerrando ventas mientras tú haces lo que mejor sabes hacer.'],
+            ['🏆', 'Sin contratos — te quedas porque funciona', 'No hay letra chiquita ni contratos de permanencia. Te quedas porque ves resultados reales en tu cuenta bancaria, no porque firmaste un papel.'],
           ].map(([ico, t, d]) => (
             <div key={t} style={{ background:'rgba(255,255,255,0.03)', border:'1px solid rgba(99,102,241,0.15)', borderRadius:16, padding:'24px 22px', transition:'all 0.25s' }}
               onMouseOver={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.45)'; e.currentTarget.style.background='rgba(99,102,241,0.06)'; }}
@@ -3832,6 +4051,9 @@ function GenyXLandingPage() {
           );
         })}
       </section>
+
+      {/* ── Guarantee Seal ── */}
+      <GuaranteeSeal />
 
       <div id="contacto" style={C.ctaSec}>
         <div style={C.ctaBox}>
