@@ -3828,6 +3828,9 @@ function GenyXLandingPage() {
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(74,222,128,0.1)', border:'1px solid rgba(74,222,128,0.35)', color:'#4ade80', fontSize:12, fontWeight:700, padding:'7px 22px', borderRadius:30, marginBottom:16 }}>
           &#x2713; Activo en 48h · Respuesta garantizada · Si fallamos, el mes es gratis
         </div>
+        <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(251,191,36,0.08)', border:'1px solid rgba(251,191,36,0.25)', color:'#fbbf24', fontSize:11, fontWeight:700, padding:'6px 18px', borderRadius:30, marginBottom:16, letterSpacing:'.04em' }}>
+          🇲🇽 Empresa mexicana operada 100% con IA
+        </div>
         <h1 style={C.h1}>Tu negocio no debería<br /><span style={C.h1accent}>depender de que tú estés.</span></h1>
         <p style={C.sub}>GenyX instala 8 departamentos en tu negocio: ventas, cobros, entregas, seguimiento, analítica y más — todos operando 24/7 sin contratar a nadie. Cada lunes recibes un reporte con lo que se vendió, cuánto y qué decisiones tomar.</p>
         <div style={C.btns}>
