@@ -3813,7 +3813,7 @@ function GenyXLandingPage() {
           {[['Soluciones', '#soluciones'], ['Proceso', '#proceso']].map(([l, h]) => (
             <a key={l} href={h} style={C.navLink} onMouseOver={e => e.target.style.color = '#fff'} onMouseOut={e => e.target.style.color = '#64748b'}>{l}</a>
           ))}
-          <a href="#contacto" style={C.demoCta}>Solicita tu Demo →</a>
+          <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={C.demoCta}>Cuéntame de tu negocio →</a>
         </div>
       </nav>
 
@@ -3822,7 +3822,7 @@ function GenyXLandingPage() {
         {/* Hero Badge */}
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(99,102,241,0.12)', border:'1px solid rgba(99,102,241,0.4)', borderRadius:30, padding:'6px 20px', marginBottom:14, fontSize:11, fontWeight:800, color:'#818cf8', letterSpacing:'.1em', textTransform:'uppercase' }}>
           <span style={{ width:6, height:6, borderRadius:'50%', background:'#6366f1', display:'inline-block', boxShadow:'0 0 8px #6366f1' }} />
-          8 DEPARTAMENTOS OPERANDO TU NEGOCIO
+          8 AGENTES DE IA OPERANDO TU NEGOCIO
         </div>
         <div style={C.badge}><span style={C.dot} />Ventas · Cobros · Entregas · Reportes · Todo automático</div>
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(74,222,128,0.1)', border:'1px solid rgba(74,222,128,0.35)', color:'#4ade80', fontSize:12, fontWeight:700, padding:'7px 22px', borderRadius:30, marginBottom:16 }}>
@@ -3831,10 +3831,10 @@ function GenyXLandingPage() {
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(251,191,36,0.08)', border:'1px solid rgba(251,191,36,0.25)', color:'#fbbf24', fontSize:11, fontWeight:700, padding:'6px 18px', borderRadius:30, marginBottom:16, letterSpacing:'.04em' }}>
           🇲🇽 Empresa mexicana operada 100% con IA
         </div>
-        <h1 style={C.h1}>Tu negocio no debería<br /><span style={C.h1accent}>depender de que tú estés.</span></h1>
-        <p style={C.sub}>GenyX instala 8 departamentos en tu negocio: ventas, cobros, entregas, seguimiento, analítica y más — todos operando 24/7 sin contratar a nadie. Cada lunes recibes un reporte con lo que se vendió, cuánto y qué decisiones tomar.</p>
+        <h1 style={C.h1}>¿Cuántas decisiones en tu negocio<br /><span style={C.h1accent}>tomas sin datos?</span></h1>
+        <p style={C.sub}>GenyX es una herramienta de 8 agentes de inteligencia artificial que opera tu departamento de ventas mientras tú duermes. Atraen clientes, cierran ventas dentro del chat, recuperan pedidos abandonados, coordinan entregas, y cada lunes a las 8am nuestro agente de inteligencia financiera te envía un reporte basado en lo que realmente pasó en tus ventas — para que tomes mejores decisiones.</p>
         <div style={C.btns}>
-          <a href="#contacto" style={C.primary}>Solicita tu Demo →</a>
+          <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={C.primary}>Cuéntame de tu negocio y exploremos cómo GenyX puede ayudarte →</a>
           <a href="#proceso" style={C.secondary}>¿Cómo funciona?</a>
         </div>
       </section>
@@ -3880,23 +3880,23 @@ function GenyXLandingPage() {
         </div>
       </section>
 
-      {/* ── 8 Departamentos ── */}
+      {/* ── 8 Agentes de IA ── */}
       <section style={{ padding: '0 24px 100px', maxWidth: 1000, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>TU EQUIPO COMPLETO</div>
-          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>8 departamentos.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Cero empleados.</span></h2>
-          <p style={{ color: '#64748b', fontSize: 14, maxWidth: 520, margin: '0 auto' }}>Cada departamento se encarga de una función clave de tu negocio. Trabajan juntos, comparten información y operan 24/7 sin que tú supervises.</p>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>LA SOLUCIÓN</div>
+          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>8 agentes de IA.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Un equipo completo.</span></h2>
+          <p style={{ color: '#64748b', fontSize: 14, maxWidth: 520, margin: '0 auto' }}>Cada agente se encarga de una función clave de tu negocio. Trabajan juntos, comparten información y operan 24/7 sin que tú supervises.</p>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
           {[
-            ['📣', 'Marketing', 'Atrae clientes nuevos a tu WhatsApp con campañas inteligentes'],
-            ['🎯', 'Captación', 'Filtra curiosos de compradores reales antes de que tú intervengas'],
-            ['💬', 'Ventas', 'Atiende, recomienda y arma el pedido con la personalidad de tu marca'],
-            ['💳', 'Cobranza', 'Genera el link de pago y confirma la compra en segundos'],
-            ['🚚', 'Entregas', 'Coordina envío, calcula costo y notifica al cliente'],
-            ['🔔', 'Seguimiento', 'Post-venta: pregunta cómo le fue, pide reseña y reactiva clientes dormidos'],
-            ['📊', 'Reporte Semanal', 'Cada lunes recibes: qué se vendió, cuánto, a qué hora y qué producto es el rey'],
-            ['💰', 'Inteligencia Financiera', 'Ingresos, costos, márgenes y ROI — para que tomes decisiones con datos, no con corazonadas'],
+            ['📣', 'Marketing', 'Publica contenido basado en datos reales de ventas. Reactiva clientes inactivos.'],
+            ['🎯', 'Captación', 'Atrae clientes a tu WhatsApp directo desde redes, web y buscadores.'],
+            ['💬', 'Venta', 'Atiende en segundos con la personalidad de tu marca. Recomienda complementos.'],
+            ['💳', 'Cierre', 'Cobra dentro del chat. Sin fricción. Sin que el cliente salga de WhatsApp.'],
+            ['🚚', 'Entrega', 'Coordina envíos, calcula costos logísticos y notifica al cliente.'],
+            ['🔔', 'Seguimiento', 'Recupera pedidos abandonados. Reactiva clientes que no han vuelto.'],
+            ['📊', 'Analítica', 'Cada lunes a las 8am: KPIs, top productos, hora pico, recomendaciones.'],
+            ['💰', 'Finanzas', 'Margen por producto. Punto de equilibrio. Utilidad real. Proyección mensual.'],
           ].map(([ico, name, desc], i) => (
             <div key={name} style={{ background: i < 5 ? 'rgba(99,102,241,0.06)' : 'rgba(255,255,255,0.03)', border: `1px solid ${i < 5 ? 'rgba(99,102,241,0.25)' : 'rgba(255,255,255,0.08)'}`, borderRadius: 12, padding: '18px 16px', transition: 'all 0.2s', position: 'relative' }}
               onMouseOver={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.5)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
@@ -3910,12 +3910,105 @@ function GenyXLandingPage() {
           ))}
         </div>
         <div style={{ textAlign: 'center', marginTop: 20 }}>
-          <p style={{ fontSize: 12, color: '#64748b' }}><span style={{ color: '#818cf8', fontWeight: 700 }}>STARTER</span> = 5 departamentos &nbsp;·&nbsp; <span style={{ color: '#818cf8', fontWeight: 700 }}>GROWTH</span> = 7 departamentos &nbsp;·&nbsp; <span style={{ color: '#c084fc', fontWeight: 700 }}>AUTONOMY</span> = 8 departamentos</p>
+          <p style={{ fontSize: 12, color: '#64748b' }}><span style={{ color: '#818cf8', fontWeight: 700 }}>STARTER</span> = 5 agentes &nbsp;·&nbsp; <span style={{ color: '#818cf8', fontWeight: 700 }}>GROWTH</span> = 7 agentes &nbsp;·&nbsp; <span style={{ color: '#c084fc', fontWeight: 700 }}>AUTONOMY</span> = 8 agentes</p>
         </div>
       </section>
 
       {/* ── WhatsApp Simulator ── */}
       <WhatsAppSimulator />
+
+      {/* ── El Problema (datos duros como párrafos) ── */}
+      <section style={{ padding: '0 24px 100px', maxWidth: 720, margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: 40 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#ef4444', letterSpacing: '.1em', marginBottom: 12 }}>EL PROBLEMA</div>
+          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>Estás volando a ciegas.<br /><span style={{ background: 'linear-gradient(135deg,#ef4444,#f97316)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Y volar a ciegas es caro.</span></h2>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>El <strong style={{ color: '#f1f5f9' }}>78% de tus clientes compra con el primero que responde.</strong> Si no estás respondiendo en segundos, se van con tu competencia.</p>
+          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>El <strong style={{ color: '#f1f5f9' }}>55% de las ventas se pierden al momento de cobrar</strong> — le mandas un número de cuenta, el cliente sale de la app, y en el camino se arrepiente.</p>
+          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>Y si vendes por plataformas de delivery, estás pagando <strong style={{ color: '#f1f5f9' }}>entre 25% y 30% de comisión por cada pedido.</strong> Con 10 pedidos al día, son más de <strong style={{ color: '#f1f5f9' }}>$20,000 al mes</strong> que se van en comisiones.</p>
+          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>Mientras tanto, <strong style={{ color: '#f1f5f9' }}>solo 3 de cada 10 negocios en México usan internet para vender.</strong> Los que ya lo hacen bien reportan hasta <strong style={{ color: '#f1f5f9' }}>57% más ingresos.</strong></p>
+        </div>
+      </section>
+
+      {/* ── Aprendizaje Continuo ── */}
+      <section style={{ padding: '0 24px 100px', maxWidth: 800, margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: 40 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>EL DIFERENCIADOR</div>
+          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>Mientras más tiempo trabaja contigo,<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>mejores son sus recomendaciones.</span></h2>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+          {[
+            ['Semana 1', 'Identifica tu producto estrella y hora pico'],
+            ['Mes 1', 'Detecta clientes recurrentes vs inactivos'],
+            ['Mes 3', 'Detecta tendencias que tú nunca verías'],
+            ['Mes 6', 'Predice demanda estacional'],
+            ['Mes 12', 'Todas tus decisiones son con datos'],
+          ].map(([time, desc], i) => (
+            <div key={time} style={{ display: 'flex', alignItems: 'center', gap: 20, padding: '20px 0', borderBottom: i < 4 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
+              <div style={{ minWidth: 90, fontSize: 14, fontWeight: 800, color: '#818cf8', textAlign: 'right' }}>{time}</div>
+              <div style={{ width: 12, height: 12, borderRadius: '50%', background: i === 4 ? '#4ade80' : 'rgba(99,102,241,0.5)', border: '2px solid rgba(99,102,241,0.8)', flexShrink: 0 }} />
+              <div style={{ fontSize: 15, color: '#94a3b8', lineHeight: 1.6 }}>{desc}</div>
+            </div>
+          ))}
+        </div>
+        <div style={{ textAlign: 'center', marginTop: 32, background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 16, padding: '24px 32px' }}>
+          <p style={{ color: '#f1f5f9', fontSize: 16, fontWeight: 600, lineHeight: 1.7, fontStyle: 'italic' }}>El reporte del lunes no es un resumen — es información real de tus ventas que se vuelve más precisa y útil con cada semana que pasa.</p>
+        </div>
+      </section>
+
+      {/* ── GenyX vs Empleado ── */}
+      <section style={{ padding: '0 24px 100px', maxWidth: 800, margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: 40 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>LA MATEMÁTICA</div>
+          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>El costo real de un empleado<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>vs GenyX</span></h2>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
+          {/* Empleado */}
+          <div style={{ background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: 20, padding: '32px 28px' }}>
+            <div style={{ fontSize: 13, fontWeight: 800, color: '#ef4444', letterSpacing: '.08em', marginBottom: 20 }}>EMPLEADO</div>
+            {[['Salario base', '$10,000'], ['IMSS patronal', '$3,500'], ['Aguinaldo', '$417'], ['Vacaciones + prima', '$625'], ['Infonavit', '$500'], ['Otros', '$2,283']].map(([label, val]) => (
+              <div key={label} style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#94a3b8' }}>
+                <span>{label}</span><span style={{ fontWeight: 700, color: '#f1f5f9' }}>{val}</span>
+              </div>
+            ))}
+            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '14px 0 0', marginTop: 8, borderTop: '2px solid rgba(239,68,68,0.3)', fontSize: 18, fontWeight: 900, color: '#ef4444' }}>
+              <span>TOTAL</span><span>$17,325/mes</span>
+            </div>
+            <div style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 6 }}>
+              {['Trabaja 8h L-S', 'Tiene días malos', 'Decide sin datos'].map(t => (
+                <div key={t} style={{ fontSize: 12, color: '#64748b', display: 'flex', alignItems: 'center', gap: 6 }}><span style={{ color: '#ef4444' }}>✗</span> {t}</div>
+              ))}
+            </div>
+          </div>
+          {/* GenyX */}
+          <div style={{ background: 'rgba(74,222,128,0.06)', border: '2px solid rgba(74,222,128,0.3)', borderRadius: 20, padding: '32px 28px' }}>
+            <div style={{ fontSize: 13, fontWeight: 800, color: '#4ade80', letterSpacing: '.08em', marginBottom: 20 }}>GENYX</div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#94a3b8' }}>
+              <span>8 agentes de IA</span><span style={{ fontWeight: 700, color: '#f1f5f9' }}>$3,500</span>
+            </div>
+            {['IMSS', 'Aguinaldo', 'Vacaciones', 'Infonavit', 'Otros'].map(label => (
+              <div key={label} style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#475569' }}>
+                <span>{label}</span><span style={{ fontWeight: 700, color: '#4ade80' }}>$0</span>
+              </div>
+            ))}
+            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '14px 0 0', marginTop: 8, borderTop: '2px solid rgba(74,222,128,0.3)', fontSize: 18, fontWeight: 900, color: '#4ade80' }}>
+              <span>TOTAL</span><span>$3,500/mes</span>
+            </div>
+            <div style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 6 }}>
+              {['Trabaja 24/7', 'Siempre consistente', 'Decide con datos'].map(t => (
+                <div key={t} style={{ fontSize: 12, color: '#64748b', display: 'flex', alignItems: 'center', gap: 6 }}><span style={{ color: '#4ade80' }}>✓</span> {t}</div>
+              ))}
+            </div>
+          </div>
+        </div>
+        {/* Ahorro destacado */}
+        <div style={{ textAlign: 'center', marginTop: 32, background: 'linear-gradient(135deg, rgba(74,222,128,0.08), rgba(34,197,94,0.04))', border: '2px solid rgba(74,222,128,0.3)', borderRadius: 20, padding: '32px 24px' }}>
+          <div style={{ fontSize: 12, color: '#64748b', marginBottom: 8, fontWeight: 600 }}>AHORRO MENSUAL</div>
+          <div style={{ fontSize: 56, fontWeight: 900, background: 'linear-gradient(135deg, #4ade80, #22c55e)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', lineHeight: 1.1 }}>$13,825</div>
+          <div style={{ fontSize: 14, color: '#94a3b8', marginTop: 8 }}>por mes, comparado con un solo empleado</div>
+        </div>
+      </section>
 
       {/* ── Dashboard Preview ── */}
       <DashboardPreview />
@@ -3950,7 +4043,7 @@ function GenyXLandingPage() {
       {/* ── Soluciones por Industria ── */}
       <section style={{ padding:'0 24px 100px', maxWidth:1000, margin:'0 auto', textAlign:'center' }}>
         <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12 }}>¿EN QUÉ INDUSTRIA ESTÁS?</div>
-        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:10 }}>Tu industria. Tus departamentos. Tu forma de vender.</h2>
+        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:10 }}>Tu industria. Tus agentes. Tu forma de vender.</h2>
         <p style={{ color:'#64748b', marginBottom:40, fontSize:15 }}>Si tus clientes te escriben por WhatsApp y tú no das abasto para contestar — GenyX es para ti.</p>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:16 }}>
           {[
@@ -3976,8 +4069,8 @@ function GenyXLandingPage() {
       {/* ── Ventajas Competitivas ── */}
       <section style={{ padding:'0 24px 100px', maxWidth:1000, margin:'0 auto' }}>
         <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12, textAlign:'center' }}>POR QUÉ GENYX</div>
-        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:12, textAlign:'center' }}>No somos un chatbot.<br /><span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Somos tu departamento de ventas.</span></h2>
-        <p style={{ color:'#64748b', marginBottom:48, textAlign:'center', fontSize:15, maxWidth:600, margin:'0 auto 48px' }}>El mercado tiene chatbots que responden preguntas. GenyX opera tu departamento de ventas completo — con tu catálogo, tus reglas y resultados que puedes medir.</p>
+        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:12, textAlign:'center' }}>No somos un bot genérico.<br /><span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Somos tu departamento de ventas.</span></h2>
+        <p style={{ color:'#64748b', marginBottom:48, textAlign:'center', fontSize:15, maxWidth:600, margin:'0 auto 48px' }}>El mercado tiene bots que responden preguntas. GenyX opera tu departamento de ventas completo — con tu catálogo, tus reglas y resultados que puedes medir.</p>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:16 }}>
           {[
             ['🔒', 'Nunca cobra de más, nunca inventa precios', 'Tu agente respeta tu catálogo al 100%. Si no lo vendes, no lo ofrece. Si cuesta $120, cobra $120. Cero errores, cero sorpresas para tu cliente.'],
@@ -4025,9 +4118,9 @@ function GenyXLandingPage() {
           <p style={{ color:'#64748b', lineHeight:1.8, marginBottom:32, fontSize:15 }}>GenyX opera bajo un modelo de <strong style={{ color:'#a5b4fc' }}>Fee de instalación + Suscripción mensual fija</strong>. Sin importar cuánto vendas en el mes, tu costo no cambia. Tus márgenes son tuyos.</p>
           <div style={{ display:'flex', justifyContent:'center', gap:16, flexWrap:'wrap', marginBottom:24 }}>
             {[
-              ['STARTER','$3,500','MXN/mes','Setup: $6,000','5 dptos · 0-10 empleados'],
-              ['GROWTH','$7,500','MXN/mes','Setup: $9,000','7 dptos · 11-50 empleados'],
-              ['AUTONOMY','$12,500','MXN/mes','Setup: $15,000','8 dptos · 51-1,000+'],
+          ['STARTER','$3,500','MXN/mes','Setup: $6,000','5 agentes · 0-10 empleados'],
+              ['GROWTH','$7,500','MXN/mes','Setup: $9,000','7 agentes · 11-50 empleados'],
+              ['AUTONOMY','$12,500','MXN/mes','Setup: $15,000','8 agentes · 51-1,000+'],
             ].map(([plan, price, period, setup, size]) => (
               <div key={plan} style={{ background: plan === 'GROWTH' ? 'rgba(99,102,241,0.12)' : 'rgba(255,255,255,0.04)', border: plan === 'GROWTH' ? '2px solid rgba(99,102,241,0.5)' : '1px solid rgba(255,255,255,0.1)', borderRadius:16, padding:'24px 20px', minWidth:200, flex:'1 1 180px', maxWidth:260, position:'relative' }}>
                 {plan === 'GROWTH' && <div style={{ position:'absolute', top:-10, left:'50%', transform:'translateX(-50%)', background:'linear-gradient(135deg,#6366f1,#8b5cf6)', color:'#fff', fontSize:9, fontWeight:800, padding:'3px 14px', borderRadius:20, letterSpacing:'.05em' }}>MÁS POPULAR</div>}
@@ -4067,7 +4160,7 @@ function GenyXLandingPage() {
           <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9' }}>Todo lo que necesitas saber</h2>
         </div>
         {[
-          ['¿Por qué GenyX y no un chatbot genérico?', 'Un chatbot genérico responde preguntas. GenyX cierra ventas. Atiende a tu cliente, arma su pedido, genera el cobro y te avisa cuando el dinero ya está en tu cuenta. Sin complicaciones, sin intervención humana.'],
+          ['¿Por qué GenyX y no un bot genérico?', 'Un bot genérico responde preguntas. GenyX cierra ventas. Atiende a tu cliente, arma su pedido, genera el cobro y te avisa cuando el dinero ya está en tu cuenta. Sin complicaciones, sin intervención humana.'],
           ['¿Por qué GenyX y no contratar un vendedor?', 'Contratar un vendedor implica semanas de búsqueda, entrevistas, capacitación, nómina, IMSS, aguinaldo y reemplazos cuando se va. GenyX se activa en 48 horas, no se enferma, no renuncia, no cobra comisión y atiende a todos tus clientes al mismo tiempo — por un costo mensual fijo.'],
           ['¿Para quién es GenyX?', 'Para dueños de negocio que quieren vender más sin contratar más gente. Si tienes clientes que te escriben por WhatsApp, Instagram o tu página web y quieres que esos mensajes se conviertan en dinero — sin que tú tengas que estar al pendiente — GenyX es para ti.'],
           ['¿Qué pasa si el sistema falla?', 'Garantizamos que cada mensaje de tu cliente será atendido en menos de 5 segundos, los 7 días de la semana. Si fallamos más de 3 veces en un mes, ese mes es sin costo para ti.'],
@@ -4094,16 +4187,16 @@ function GenyXLandingPage() {
 
       <div id="contacto" style={C.ctaSec}>
         <div style={C.ctaBox}>
-          <h2 style={C.ctaH}>¿Listo para vender más?</h2>
-          <p style={C.ctaSub}>15 minutos. Sin compromiso. Si GenyX no es la solución correcta para tu negocio, te lo decimos con honestidad antes de que inviertas un peso.</p>
-          <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={{ ...C.ctaBtn, display:'inline-flex', alignItems:'center', gap:10, marginBottom:14 }}>Escríbenos por WhatsApp →</a>
+          <h2 style={C.ctaH}>¿Listo para tomar mejores decisiones?</h2>
+          <p style={C.ctaSub}>Cuéntanos de tu negocio. Sin compromiso. Si GenyX no es la solución correcta para ti, te lo decimos con honestidad.</p>
+          <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={{ ...C.ctaBtn, display:'inline-flex', alignItems:'center', gap:10, marginBottom:14 }}>Cuéntame de tu negocio y exploremos cómo GenyX puede ayudarte →</a>
           <p style={{ color:'#64748b', fontSize:13 }}>o si prefieres: <a href="mailto:hola@genyxsystems.com" style={{ color:'#818cf8', textDecoration:'none' }}>hola@genyxsystems.com</a></p>
         </div>
       </div>
 
       <GenyXConciergeWidget />
       <footer style={C.footer}>
-        <span style={C.ftrBrand}>GenyX © 2026 · Inteligencia de negocio</span>
+        <span style={C.ftrBrand}>GenyX © 2026 · Inteligencia de negocio · Empresa mexicana operada 100% con IA</span>
         <div style={{ ...C.ftrLinks, paddingRight: 72 }}>
           <a href="/privacidad" style={C.ftrLink}>Privacidad</a>
           <a href="/terminos" style={C.ftrLink}>Términos</a>
