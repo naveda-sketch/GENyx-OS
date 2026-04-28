@@ -3448,7 +3448,7 @@ function GenyXConciergeWidget() {
   const inpRef = React.useRef(null);
 
   React.useEffect(() => { const t = setTimeout(() => setPulse(false), 8000); return () => clearTimeout(t); }, []);
-  React.useEffect(() => { if (open && msgs.length === 0) addBot('Hola! Soy tu asistente IA de GenyX.\n\n¿En que tipo de negocio trabajas?\n(panaderia, restaurante, tienda, clinica, agencia, otro...'); }, [open]);
+  React.useEffect(() => { if (open && msgs.length === 0) addBot('Hola! Soy el agente de ventas de GenyX.\n\n¿En que tipo de negocio trabajas?\n(panaderia, restaurante, tienda, clinica, agencia, otro...'); }, [open]);
   React.useEffect(() => { botRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [msgs, typing]);
   React.useEffect(() => { if (open && phase !== 'done') setTimeout(() => inpRef.current?.focus(), 150); }, [open, phase]);
 
@@ -3487,7 +3487,7 @@ function GenyXConciergeWidget() {
             <div style={{ display:'flex', alignItems:'center', gap:10 }}>
               <div style={{ width:8, height:8, borderRadius:'50%', background:'#4ade80', boxShadow:'0 0 8px #4ade80' }} />
               <div>
-                <p style={{ color:'#fff', fontWeight:700, fontSize:13, margin:0 }}>GenyX Asistente</p>
+                <p style={{ color:'#fff', fontWeight:700, fontSize:13, margin:0 }}>GenyX Agente</p>
                 <p style={{ color:'rgba(255,255,255,0.7)', fontSize:10, margin:0 }}>Responde en segundos · IA</p>
               </div>
             </div>
@@ -3734,7 +3734,7 @@ function GenyXLandingPage() {
   }, []);
 
   const features = [
-    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 3h6m-3 0v3m-6 1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1zm2 4.5a1 1 0 1 0 2 0 1 1 0 0 0-2 0zm4 0a1 1 0 1 0 2 0 1 1 0 0 0-2 0zm-5 4h6"/></svg>, 'Tu Departamento de Ventas Completo', 'No es un bot. Es tu vendedor digital: atiende con la personalidad de tu marca, cobra automático, te reporta cada semana y trabaja 24/7 — sin descanso ni sueldo.'],
+    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 3h6m-3 0v3m-6 1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1zm2 4.5a1 1 0 1 0 2 0 1 1 0 0 0-2 0zm4 0a1 1 0 1 0 2 0 1 1 0 0 0-2 0zm-5 4h6"/></svg>, 'Tu Departamento de Ventas Completo', 'No es un bot genérico. Es tu agente de ventas: atiende con la personalidad de tu marca, cobra automático, te reporta cada semana y trabaja 24/7.'],
     [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/><path d="M5 15h4"/></svg>, 'Cobro Automatizado', 'Genera links de pago directamente en la conversación. El cliente paga en segundos desde WhatsApp, tú recibes la confirmación al instante y el dinero va a tu cuenta.'],
     [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="4" cy="19" r="2"/><circle cx="20" cy="19" r="2"/><path d="M12 7v3m0 0-6.5 7m6.5-7 6.5 7"/></svg>, <>Donde Ya Están Tus Clientes<span style={{display:"inline-flex",gap:8,verticalAlign:"middle",marginLeft:10,alignItems:"center"}}>
   <svg title="WhatsApp" width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#25D366"/><path fill="#fff" d="M17.5 14.38c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg>
@@ -3749,7 +3749,7 @@ function GenyXLandingPage() {
   ];
   const steps = [
     ['01', 'Sesión de ADN', 'Te escuchamos. Entendemos tu negocio, menú, reglas de venta y personalidad de marca. 45 minutos.'],
-    ['02', 'Instalamos tu agente', 'Configuramos tu vendedor digital, lo conectamos a WhatsApp y lo entrenamos con tu catálogo y forma de vender. 48 horas.'],
+    ['02', 'Instalamos tu agente', 'Configuramos tu agente de ventas, lo conectamos a WhatsApp y lo entrenamos con tu catálogo y forma de vender. 48 horas.'],
     ['03', 'Vendes mientras duermes', 'Tu agente atiende clientes, filtra curiosos, toma pedidos y genera links de pago. Tú recibes reportes cada lunes.'],
   ];
 
@@ -4021,7 +4021,7 @@ function GenyXLandingPage() {
         <div style={{ background:'linear-gradient(135deg,rgba(99,102,241,0.08),rgba(139,92,246,0.08))', border:'1px solid rgba(99,102,241,0.2)', borderRadius:24, padding:'40px 48px', display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))', gap:40, alignItems:'center' }}>
           <div>
             <div style={{ fontSize:12, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12 }}>NO ES UN CONTESTADOR AUTOMATICO</div>
-            <h2 style={{ fontSize:32, fontWeight:900, color:'#f1f5f9', lineHeight:1.2, marginBottom:16 }}>Asistente con<br /><span style={{ background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>ADN de tu Marca</span></h2>
+            <h2 style={{ fontSize:32, fontWeight:900, color:'#f1f5f9', lineHeight:1.2, marginBottom:16 }}>Agente con<br /><span style={{ background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>ADN de tu Marca</span></h2>
             <p style={{ color:'#64748b', lineHeight:1.8, fontSize:14 }}>No solo "da información". Tu agente entiende regionalismos, interpreta notas de voz, lee entre lineas y guia al cliente hacia la compra — con la personalidad y calidez de tu negocio.</p>
           </div>
           <div style={{ display:'flex', flexDirection:'column', gap:14 }}>
@@ -4055,7 +4055,7 @@ function GenyXLandingPage() {
             ['💇','Belleza y Cuidado Personal','Tu agenda se llena pero pierdes clientes porque no confirmas a tiempo. GenyX agenda, confirma y manda recordatorio — tu silla nunca está vacía.','EL DOLOR: "Cancelaciones de último minuto y citas sin confirmar"'],
             ['🎓','Escuelas y Cursos','Los interesados preguntan precio y no vuelven a escribir. GenyX responde al instante, resuelve dudas y los guía hasta la inscripción.','EL DOLOR: "Se interesan pero nunca se inscriben"'],
             ['🏠','Inmobiliarias','Te llegan 50 leads de portales. 3 van en serio. GenyX filtra, califica y te manda solo los buenos — con ficha completa y presupuesto confirmado.','EL DOLOR: "Pierdo tiempo con curiosos que nunca van a comprar"'],
-            ['🍞','Panaderías y Pastelerías','Tu cliente pide a las 10pm. Tú ya estás dormida. GenyX toma el pedido, cobra y te lo tiene listo para cuando llegas a hornear.','EL DOLOR: "Pierdo pedidos porque no puedo contestar fuera de horario"'],
+            ['🍞','Panaderías y Pastelerías','Tu cliente pide a las 10pm. Tú ya no estás. GenyX toma el pedido, cobra y lo tiene listo para cuando llegas a hornear.','EL DOLOR: "Pierdo pedidos porque no puedo contestar fuera de horario"'],
           ].map(([icon, label, desc, pain]) => (
             <div key={label} style={{ background:'rgba(6,9,18,0.8)', border:'1px solid rgba(99,102,241,0.2)', borderRadius:16, padding:'24px 20px', transition:'all .2s', cursor:'default', textAlign:'left' }}
               onMouseOver={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.6)'; e.currentTarget.style.background='rgba(99,102,241,0.08)'; e.currentTarget.style.transform='translateY(-3px)'; }}
