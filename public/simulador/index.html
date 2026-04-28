@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GenyX | Simulación de Inteligencia de Negocio</title>
+<title>GenyX | Simulador — Mira tu negocio operando</title>
+<meta name="description" content="Mira un día completo de tu negocio operando con GenyX. Llena tu catálogo y elige tu plan — los 8 agentes te muestran qué pasa cuando dejas de operar manualmente.">
+<meta property="og:title" content="GenyX | Simulador de Inteligencia de Negocio">
+<meta property="og:description" content="Llena tu catálogo. Elige tu plan. Mira a los 8 agentes operar tu negocio 24/7.">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -383,7 +386,7 @@ h1 span{color:var(--purple)}
       <div class="upgrade-title" id="upgradeTitle">Sube a Growth — desbloquea 2 agentes más</div>
       <div class="upgrade-items" id="upgradeItems"></div>
       <div class="upgrade-cta-row">
-        <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20más%20sobre%20cómo%20subir%20de%20plan%20en%20GenyX" class="btn-upgrade" target="_blank">Explorar upgrade →</a>
+        <a href="https://wa.me/523340026694?text=Hola%20quiero%20conocer%20informaci%C3%B3n%20sobre%20como%20subir%20de%20plan%20en%20GenyX" class="btn-upgrade" target="_blank">Explorar upgrade →</a>
       </div>
     </div>
 
@@ -415,7 +418,7 @@ h1 span{color:var(--purple)}
     <div class="cta-final">
       <p><strong id="sr-name">Tu negocio</strong> podría operar así desde la próxima semana.<br>
       No instalamos chatbots. <strong>Instalamos inteligencia de negocio.</strong></p>
-      <a href="https://wa.me/523340026694?text=Hola%2C%20vi%20la%20simulaci%C3%B3n%20y%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" class="btn-wa" target="_blank">Agendar demo de 15 minutos</a>
+      <a href="https://wa.me/523340026694?text=Hola%20quiero%20conocer%20informaci%C3%B3n%20sobre%20como%20la%20herramienta%20GenyX%20puede%20ayudarme%20a%20tomar%20decisiones%20m%C3%A1s%20informadas" class="btn-wa" target="_blank">Agendar demo de 15 minutos</a>
       <div class="ai-badge">GenyX · Inteligencia de negocio</div>
     </div>
 
@@ -549,7 +552,7 @@ function buildSteps(){
     steps.push({t:'6:01 am',a:1,st:'on',d:'WA Status actualizado',log:`Marketing: Status con ${pr[i1]} — producto estrella de la semana`});
   }
   steps.push({t:'7:12 am',a:2,st:'on',d:'Lead entrando',log:`Captación: ${randomName()} escribió — "Hola, vi su publicación"`});
-  steps.push({t:'7:12 am',a:3,st:'on',d:'Saludando al cliente',log:`Venta: "Hola! Bienvenido/a a ${n}. Hoy tenemos ${pr[i1]} ($${pp[i1]}) y ${pr[i2]} ($${pp[i2]})."`});
+  steps.push({t:'7:12 am',a:3,st:'on',d:'Saludando al cliente',log:`Venta: "¡Hola! Bienvenido/a a ${n}. Hoy tenemos ${pr[i1]} ($${pp[i1]}) y ${pr[i2]} ($${pp[i2]})."`});
   steps.push({t:'7:13 am',a:3,st:'on',d:'Upsell aceptado',log:`Venta: Cliente pidió ${pr[i1]} + ${pr[i2]}. Upsell aceptado.`});
   steps.push({t:'7:14 am',a:4,st:'on',d:`Link Stripe $${s1.toLocaleString()}`,log:`Cierre: Link generado — ${pr[i1]} + ${pr[i2]} = $${s1.toLocaleString()} MXN`});
   steps.push({t:'7:15 am',a:4,st:'ok',d:`Pago confirmado $${s1.toLocaleString()}`,log:`Cierre: Pago OK. Pedido #201 creado. Alerta enviada al dueño.`,addV:s1});
@@ -558,7 +561,7 @@ function buildSteps(){
     steps.push({t:'7:17 am',a:5,st:'ok',d:'En camino',log:`Entrega: Repartidor en camino. Cliente notificado.`});
   }
   steps.push({t:'8:45 am',a:2,st:'on',d:'Segundo lead',log:`Captación: ${randomName()} desde Google Business — "Buenos días, ¿qué tienen?"`});
-  steps.push({t:'8:46 am',a:3,st:'on',d:'Atendiendo lead',log:`Venta: "Hola! Hoy más pedido: ${pr[i3]}, ${pr[i4]} y ${pr[i5]}."`});
+  steps.push({t:'8:46 am',a:3,st:'on',d:'Atendiendo lead',log:`Venta: "¡Hola! Hoy lo más pedido: ${pr[i3]}, ${pr[i4]} y ${pr[i5]}."`});
   steps.push({t:'8:48 am',a:3,st:'on',d:'Pedido grande',log:`Venta: Cliente pidió 3 productos. Total: $${s2.toLocaleString()} MXN.`});
   steps.push({t:'8:49 am',a:4,st:'ok',d:`Pago #2 $${s2.toLocaleString()}`,log:`Cierre: Pedido #202 OK. Acumulado: $${(s1+s2).toLocaleString()} MXN.`,addV:s2});
   steps.push({t:'10:30 am',a:6,st:'on',d:'Carrito abandonado',log:`Seguimiento: Cliente armó carrito $${s3.toLocaleString()} hace 35 min sin pagar. Nudge enviado.`});
