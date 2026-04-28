@@ -3831,8 +3831,8 @@ function GenyXLandingPage() {
         <h1 style={C.h1}>¿Cuántas decisiones en tu negocio<br /><span style={C.h1accent}>tomas sin datos?</span></h1>
         <p style={C.sub}>GenyX es una herramienta de 8 agentes de inteligencia artificial que opera tu departamento de ventas mientras tú duermes. Atraen clientes, cierran ventas dentro del chat, recuperan pedidos abandonados, coordinan entregas, y cada lunes a las 8am nuestro agente de inteligencia financiera te envía un reporte basado en lo que realmente pasó en tus ventas para que tomes mejores decisiones.</p>
         <div style={C.btns}>
-          <a href="https://wa.me/523340026694?text=Hola%20quiero%20conocer%20informaci%C3%B3n%20sobre%20como%20la%20herramienta%20GenyX%20puede%20ayudarme%20a%20tomar%20decisiones%20m%C3%A1s%20informadas" style={C.primary}>Cuéntame de tu negocio y exploremos cómo GenyX puede ayudarte →</a>
-          <a href="#proceso" style={C.secondary}>¿Cómo funciona?</a>
+          <a href="https://wa.me/523340026694?text=Hola%20quiero%20conocer%20informaci%C3%B3n%20sobre%20como%20la%20herramienta%20GenyX%20puede%20ayudarme%20a%20tomar%20decisiones%20m%C3%A1s%20informadas" style={C.primary}>Cuéntame de tu negocio →</a>
+          <a href="/simulador" style={C.secondary}>Probar simulador</a>
         </div>
       </section>
 
@@ -3951,6 +3951,10 @@ function GenyXLandingPage() {
         </div>
         <div style={{ textAlign: 'center', marginTop: 32, background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 16, padding: '24px 32px' }}>
           <p style={{ color: '#f1f5f9', fontSize: 16, fontWeight: 600, lineHeight: 1.7, fontStyle: 'italic' }}>El reporte del lunes no es un resumen — es información real de tus ventas que se vuelve más precisa y útil con cada semana que pasa.</p>
+        </div>
+        <div style={{ textAlign: 'center', marginTop: 24 }}>
+          <p style={{ color: '#94a3b8', fontSize: 14, marginBottom: 14 }}>¿Quieres ver cómo se vería un día de tu negocio con GenyX operando?</p>
+          <a href="/simulador" style={{ display: 'inline-block', background: 'transparent', border: '1px solid rgba(99,102,241,0.5)', color: '#818cf8', padding: '12px 28px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', transition: 'all .2s' }}>Probar el simulador con tus productos reales →</a>
         </div>
       </section>
 

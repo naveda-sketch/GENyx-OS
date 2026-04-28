@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GenyX | Simulador — Mira tu negocio operando</title>
+<meta name="description" content="Mira un día completo de tu negocio operando con GenyX. Llena tu catálogo y elige tu plan — los 8 agentes te muestran qué pasa cuando dejas de operar manualmente.">
+<meta property="og:title" content="GenyX | Simulador de Inteligencia de Negocio">
+<meta property="og:description" content="Llena tu catálogo. Elige tu plan. Mira a los 8 agentes operar tu negocio 24/7.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--purple:#6C5CE7;--purple-dark:#4834D4;--purple-light:#A29BFE;--purple-bg:rgba(108,92,231,0.06);
+--dark:#0D0D1A;--dark2:#1A1A2E;--gray:#8E8E9A;--light:#F4F3F8;--white:#FFFFFF;
+--green:#00B894;--green-bg:rgba(0,184,148,0.08);--green-light:#55EFC4;
+--amber:#FDCB6E;--amber-bg:rgba(253,203,110,0.1);
+--red:#E17055;--coral:#FAB1A0;
+--font:'DM Sans',sans-serif;--mono:'Space Mono',monospace;
+--radius:16px;--radius-sm:10px;
+}
+body{font-family:var(--font);background:var(--dark);color:var(--white);min-height:100vh;overflow-x:hidden}
+.noise{position:fixed;top:0;left:0;width:100%;height:100%;opacity:.03;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.container{max-width:860px;margin:0 auto;padding:24px 20px;position:relative;z-index:1}
+.header{text-align:center;margin-bottom:40px}
+.logo{font-family:var(--mono);font-size:13px;letter-spacing:4px;color:var(--purple-light);text-transform:uppercase;margin-bottom:12px}
+.header h1{font-size:clamp(26px,4.5vw,38px);font-weight:700;line-height:1.2;margin-bottom:10px;background:linear-gradient(135deg,var(--white),var(--purple-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header p{font-size:15px;color:var(--gray);max-width:520px;margin:0 auto;line-height:1.6}
+.biz-input-wrap{display:flex;justify-content:center;margin:24px 0 32px;gap:10px;flex-wrap:wrap}
+.biz-input{background:var(--dark2);border:1px solid rgba(108,92,231,0.3);border-radius:var(--radius-sm);padding:12px 18px;color:var(--white);font-family:var(--font);font-size:15px;width:280px;outline:none;transition:border .2s}
+.biz-input:focus{border-color:var(--purple)}
+.biz-input::placeholder{color:var(--gray)}
+.biz-select{background:var(--dark2);border:1px solid rgba(108,92,231,0.3);border-radius:var(--radius-sm);padding:12px 14px;color:var(--white);font-family:var(--font);font-size:14px;outline:none;cursor:pointer;-webkit-appearance:none}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
+@media(max-width:600px){.metrics{grid-template-columns:repeat(2,1fr)}}
+.metric{background:var(--dark2);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius-sm);padding:16px 12px;text-align:center;transition:border .3s,background .3s}
+.metric.active{border-color:var(--purple);background:var(--purple-bg)}
+.metric-val{font-size:clamp(22px,3vw,28px);font-weight:700;font-family:var(--mono);margin-bottom:2px}
+.metric-val.green{color:var(--green-light)}
+.metric-val.purple{color:var(--purple-light)}
+.metric-val.amber{color:var(--amber)}
+.metric-lab{font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:1px}
+.agents-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:20px}
+@media(max-width:600px){.agents-grid{grid-template-columns:1fr}}
+.agent-card{background:var(--dark2);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius);padding:16px;position:relative;transition:all .4s;overflow:hidden}
+.agent-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gray);transition:background .4s;border-radius:3px 0 0 3px}
+.agent-card.active::before{background:var(--purple);box-shadow:0 0 12px var(--purple)}
+.agent-card.active{border-color:rgba(108,92,231,0.4);background:var(--purple-bg)}
+.agent-card.done::before{background:var(--green);box-shadow:0 0 12px var(--green)}
+.agent-card.done{border-color:rgba(0,184,148,0.3);background:var(--green-bg)}
+.agent-num{font-size:10px;color:var(--gray);text-transform:uppercase;letter-spacing:2px;margin-bottom:4px}
+.agent-name{font-size:16px;font-weight:700;margin-bottom:4px}
+.agent-desc{font-size:12px;color:var(--gray);line-height:1.5;min-height:18px}
+.agent-status{position:absolute;top:16px;right:16px;width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.15)}
+.agent-status.on{background:var(--green);box-shadow:0 0 8px var(--green)}
+.agent-status.pulse{background:var(--purple-light);animation:pulse 1.2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
+.log-container{background:var(--dark2);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius);padding:16px;max-height:280px;overflow-y:auto;margin-bottom:20px;scrollbar-width:thin;scrollbar-color:var(--purple-dark) var(--dark2)}
+.log-container::-webkit-scrollbar{width:6px}
+.log-container::-webkit-scrollbar-track{background:var(--dark2)}
+.log-container::-webkit-scrollbar-thumb{background:var(--purple-dark);border-radius:3px}
+.log-title{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--gray);margin-bottom:12px}
+.log-entry{font-size:13px;line-height:1.6;margin-bottom:8px;padding-left:12px;border-left:2px solid rgba(255,255,255,0.06);opacity:0;animation:fadeIn .5s forwards}
+@keyframes fadeIn{to{opacity:1}}
+.log-time{color:var(--purple-light);font-family:var(--mono);font-size:11px;margin-right:8px}
+.log-agent{font-weight:700;color:var(--white)}
+.log-text{color:var(--gray)}
+.btn-wrap{text-align:center;margin:20px 0}
+.btn{display:inline-block;padding:14px 36px;border-radius:var(--radius-sm);font-family:var(--font);font-size:15px;font-weight:600;cursor:pointer;border:none;transition:all .3s;letter-spacing:.5px}
+.btn-primary{background:linear-gradient(135deg,var(--purple),var(--purple-dark));color:var(--white);box-shadow:0 4px 20px rgba(108,92,231,0.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(108,92,231,0.45)}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn-secondary{background:transparent;color:var(--purple-light);border:1px solid var(--purple-light);margin-left:10px}
+.btn-secondary:hover{background:var(--purple-bg)}
+.footer{text-align:center;margin-top:40px;padding:24px 0;border-top:1px solid rgba(255,255,255,0.06)}
+.footer p{color:var(--gray);font-size:13px;margin-bottom:4px}
+.footer a{color:var(--purple-light);text-decoration:none}
+.footer a:hover{text-decoration:underline}
+.summary-box{display:none;background:linear-gradient(135deg,rgba(108,92,231,0.12),rgba(0,184,148,0.08));border:1px solid rgba(108,92,231,0.3);border-radius:var(--radius);padding:24px;margin:20px 0;text-align:center}
+.summary-box h3{font-size:20px;margin-bottom:16px;color:var(--purple-light)}
+.summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px}
+@media(max-width:600px){.summary-grid{grid-template-columns:1fr}}
+.summary-item{padding:12px}
+.summary-val{font-size:24px;font-weight:700;font-family:var(--mono)}
+.summary-label{font-size:12px;color:var(--gray);margin-top:4px}
+.cta-final{font-size:15px;color:var(--white);margin-top:16px;line-height:1.6}
+.cta-link{display:inline-block;margin-top:12px;padding:12px 28px;background:var(--green);color:var(--dark);font-weight:700;border-radius:var(--radius-sm);text-decoration:none;transition:transform .2s}
+.cta-link:hover{transform:translateY(-2px)}
+</style>
+</head>
+<body>
+<div class="noise"></div>
+<div class="container">
+<div class="header">
+<div class="logo">GenyX &nbsp;|&nbsp; Inteligencia de negocio</div>
+<h1>8 agentes de IA operando tu negocio 24/7</h1>
+<p>Esta simulacion muestra un dia completo de operacion de GenyX en tu negocio. Sin intervencion humana.</p>
+</div>
+
+<div class="biz-input-wrap">
+<input type="text" class="biz-input" id="bizName" placeholder="Nombre de tu negocio" value="Restaurante Don Carlos">
+<select class="biz-select" id="bizType">
+<option value="restaurante">Restaurante</option>
+<option value="clinica">Clinica / Consultorio</option>
+<option value="estetica">Estetica / Spa</option>
+<option value="escuela">Escuela / Cursos</option>
+<option value="inmobiliaria">Inmobiliaria</option>
+<option value="panaderia">Panaderia</option>
+</select>
+</div>
+
+<div class="metrics">
+<div class="metric" id="mc-pedidos"><div class="metric-val green" id="m-pedidos">0</div><div class="metric-lab">Pedidos</div></div>
+<div class="metric" id="mc-ventas"><div class="metric-val purple" id="m-ventas">$0</div><div class="metric-lab">Ventas MXN</div></div>
+<div class="metric" id="mc-horas"><div class="metric-val amber" id="m-horas">0h</div><div class="metric-lab">Horas IA</div></div>
+<div class="metric" id="mc-humano"><div class="metric-val" id="m-humano" style="color:var(--coral)">0</div><div class="metric-lab">Intervencion humana</div></div>
+</div>
+
+<div class="agents-grid">
+<div class="agent-card" id="a1"><div class="agent-status" id="s1"></div><div class="agent-num">Agente 01</div><div class="agent-name">Marketing</div><div class="agent-desc" id="d1">En espera</div></div>
+<div class="agent-card" id="a2"><div class="agent-status" id="s2"></div><div class="agent-num">Agente 02</div><div class="agent-name">Captacion</div><div class="agent-desc" id="d2">En espera</div></div>
+<div class="agent-card" id="a3"><div class="agent-status" id="s3"></div><div class="agent-num">Agente 03</div><div class="agent-name">Venta</div><div class="agent-desc" id="d3">En espera</div></div>
+<div class="agent-card" id="a4"><div class="agent-status" id="s4"></div><div class="agent-num">Agente 04</div><div class="agent-name">Cierre</div><div class="agent-desc" id="d4">En espera</div></div>
+<div class="agent-card" id="a5"><div class="agent-status" id="s5"></div><div class="agent-num">Agente 05</div><div class="agent-name">Entrega</div><div class="agent-desc" id="d5">En espera</div></div>
+<div class="agent-card" id="a6"><div class="agent-status" id="s6"></div><div class="agent-num">Agente 06</div><div class="agent-name">Seguimiento</div><div class="agent-desc" id="d6">En espera</div></div>
+<div class="agent-card" id="a7"><div class="agent-status" id="s7"></div><div class="agent-num">Agente 07</div><div class="agent-name">Analitica</div><div class="agent-desc" id="d7">En espera</div></div>
+<div class="agent-card" id="a8"><div class="agent-status" id="s8"></div><div class="agent-num">Agente 08</div><div class="agent-name">Finanzas</div><div class="agent-desc" id="d8">En espera</div></div>
+</div>
+
+<div class="log-container" id="logBox">
+<div class="log-title">Registro de actividad en tiempo real</div>
+<div id="log"></div>
+</div>
+
+<div class="btn-wrap">
+<button class="btn btn-primary" id="startBtn" onclick="startSim()">Iniciar simulacion</button>
+<button class="btn btn-secondary" onclick="resetSim()">Reiniciar</button>
+</div>
+
+<div class="summary-box" id="summaryBox">
+<h3>Resumen del dia</h3>
+<div class="summary-grid">
+<div class="summary-item"><div class="summary-val green" id="sum-ventas">$0</div><div class="summary-label">Ventas totales</div></div>
+<div class="summary-item"><div class="summary-val purple" id="sum-ahorro">$0</div><div class="summary-label">Ahorro vs empleado</div></div>
+<div class="summary-item"><div class="summary-val amber" id="sum-roi">0x</div><div class="summary-label">ROI de GenyX</div></div>
+</div>
+<p class="cta-final">Tu negocio <strong id="sum-name">Restaurante Don Carlos</strong> podria operar asi desde la proxima semana.<br>GenyX cuesta <strong>$3,500 MXN/mes</strong>. Se paga en menos de 2 dias.</p>
+<a href="https://wa.me/523340026694?text=Hola%20quiero%20conocer%20informaci%C3%B3n%20sobre%20como%20la%20herramienta%20GenyX%20puede%20ayudarme%20a%20tomar%20decisiones%20m%C3%A1s%20informadas" class="cta-link" target="_blank">Agendar demo de 15 minutos</a>
+</div>
+
+<div class="footer">
+<p><strong>GenyX | Inteligencia de negocio</strong></p>
+<p><a href="https://genyxsystems.com" target="_blank">genyxsystems.com</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/523340026694" target="_blank">WhatsApp</a></p>
+</div>
+</div>
+
+<script>
+const catalog={
+restaurante:{products:['Tacos al pastor x6','Birria de res','Orden de quesadillas','Agua de horchata 1L','Torta ahogada','Ceviche','Michelada preparada'],prices:[120,165,95,45,85,140,75],clients:['Gabriela L.','Ricardo M.','Patricia S.','Laura G.','Miguel R.','Ana K.','Carlos P.'],upsells:['bebida','postre del dia','guacamole extra','salsa especial']},
+clinica:{products:['Consulta general','Limpieza dental','Radiografia','Blanqueamiento','Consulta especialista','Ortodoncia revision','Extraccion simple'],prices:[600,800,350,2500,900,500,1200],clients:['Maria F.','Jose L.','Carmen R.','Pedro G.','Sofia M.','Andres T.','Diana C.'],upsells:['radiografia panoramica','fluoruro','consulta de seguimiento','paquete preventivo']},
+estetica:{products:['Corte + peinado','Tinte completo','Manicure gel','Facial hidratante','Depilacion piernas','Masaje relajante','Pedicure spa'],prices:[350,800,250,500,400,600,300],clients:['Valentina R.','Camila S.','Isabella M.','Fernanda L.','Daniela P.','Mariana G.','Andrea T.'],upsells:['tratamiento capilar','diseno de cejas','exfoliacion','aromaterapia']},
+escuela:{products:['Curso ingles basico','Taller conversacion','Clase particular','Examen certificacion','Curso intensivo','Club de lectura','Preparacion TOEFL'],prices:[1800,600,400,2500,3500,300,4000],clients:['Roberto H.','Diana M.','Eduardo S.','Monica P.','Felipe R.','Lucia G.','Arturo C.'],upsells:['material extra','sesion adicional','acceso plataforma','certificado digital']},
+inmobiliaria:{products:['Visita departamento','Avaluo comercial','Asesoria compra','Renta mensual','Visita casa','Asesoria inversion','Contrato arrendamiento'],prices:[0,3500,0,15000,0,0,2500],clients:['Ing. Martinez','Lic. Gonzalez','Arq. Ramirez','Dr. Herrera','Mtro. Salazar','Ing. Vargas','Lic. Mendoza'],upsells:['seguro de vivienda','estudio de mercado','gestion de credito','notaria express']},
+panaderia:{products:['Hogaza Natural','Pan de Caja Integral','Galleta NY Masa Madre','Pizza Base','Trenza Chocolate','Conchas artesanales x6','Rol de canela x4'],prices:[85,120,65,135,72,90,80],clients:['Gabriela L.','Ricardo M.','Patricia S.','Laura G.','Miguel R.','Ana K.','Carlos P.'],upsells:['mermelada artesanal','cafe de especialidad','pan de temporada','caja sorpresa']}
+};
+let idx=0,pedidos=0,ventas=0,running=false,steps=[];
+function getBiz(){return document.getElementById('bizName').value||'Tu negocio'}
+function getType(){return document.getElementById('bizType').value}
+function rnd(a){return a[Math.floor(Math.random()*a.length)]}
+function rndPrice(p){return p[Math.floor(Math.random()*p.length)]}
+function buildSteps(){
+const t=getType(),c=catalog[t],n=getBiz();
+const cl=c.clients,pr=c.products,pp=c.prices,up=c.upsells;
+const p1=Math.floor(Math.random()*pr.length),p2=Math.floor(Math.random()*pr.length);
+const v1=pp[p1]+pp[p2],v2=pp[Math.floor(Math.random()*pp.length)]+pp[Math.floor(Math.random()*pp.length)];
+const v3=pp[Math.floor(Math.random()*pp.length)]+pp[Math.floor(Math.random()*pp.length)]+pp[Math.floor(Math.random()*pp.length)];
+const v4=pp[Math.floor(Math.random()*pp.length)];
+const totalV=v1+v2+v3+v4;
+steps=[
+{t:'6:00 am',a:1,st:'active',d:'Publicando post en Instagram',log:`Marketing: Post programado publicado para ${n} — "${pr[p1]} recien preparado, pide el tuyo"`},
+{t:'6:01 am',a:1,st:'active',d:'Actualizando WhatsApp Status',log:`Marketing: WA Status actualizado con foto del producto estrella de la semana`},
+{t:'7:12 am',a:2,st:'active',d:'Lead entrando por wa.me',log:`Captacion: Nuevo lead desde Instagram. ${cl[0]} escribio "Hola, vi su post"`},
+{t:'7:12 am',a:3,st:'active',d:`Saludando a ${cl[0]}`,log:`Venta: "Hola ${cl[0]}! Bienvenida a ${n}. Hoy tenemos ${pr[p1]} por $${pp[p1]} y ${pr[p2]} por $${pp[p2]}. Te interesa?"`},
+{t:'7:13 am',a:3,st:'active',d:'Upsell aceptado',log:`Venta: ${cl[0]} pidio ${pr[p1]}. Agente sugirio ${rnd(up)} como complemento. Acepto.`},
+{t:'7:14 am',a:4,st:'active',d:`Generando link Stripe $${v1.toLocaleString()}`,log:`Cierre: Link de pago enviado — ${pr[p1]} $${pp[p1]} + ${pr[p2]} $${pp[p2]} = $${v1.toLocaleString()} MXN`},
+{t:'7:15 am',a:4,st:'done',d:`Pago confirmado $${v1.toLocaleString()}`,log:`Cierre: Pago confirmado via Stripe. Pedido #193 creado. Alerta enviada al dueno.`,addV:v1},
+{t:'7:15 am',a:5,st:'active',d:'Calculando envio',log:`Entrega: Distancia 4.2km. Costo envio: $45 MXN. Tiempo estimado: 25 min.`},
+{t:'7:16 am',a:5,st:'done',d:'Repartidor asignado',log:`Entrega: Solicitud de envio generada. Repartidor asignado. ETA 25 min.`},
+{t:'8:30 am',a:2,st:'active',d:'Otro lead entrando',log:`Captacion: ${cl[1]} escribio desde Google Business — "Tienen disponibilidad?"`},
+{t:'8:31 am',a:3,st:'active',d:`Atendiendo a ${cl[1]}`,log:`Venta: "Hola ${cl[1]}! Claro que si. Te muestro lo que tenemos disponible hoy?"`},
+{t:'9:45 am',a:6,st:'active',d:'Carrito abandonado detectado',log:`Seguimiento: ${cl[2]} armo carrito de $${v2.toLocaleString()} hace 32 min y no pago. Enviando nudge.`},
+{t:'9:46 am',a:6,st:'active',d:'Nudge enviado',log:`Seguimiento: "Hola ${cl[2]}, vi que tienes un pedido pendiente de $${v2.toLocaleString()}. Quieres que lo procese?"`},
+{t:'10:02 am',a:6,st:'done',d:`Carrito recuperado $${v2.toLocaleString()}`,log:`Seguimiento: ${cl[2]} respondio "si porfa". Link enviado. Pago confirmado. Carrito rescatado.`},
+{t:'10:02 am',a:4,st:'done',d:`Segundo pago $${v2.toLocaleString()}`,log:`Cierre: Pedido #194 — ${cl[2]} $${v2.toLocaleString()} MXN. Total del dia: $${(v1+v2).toLocaleString()} MXN.`,addV:v2},
+{t:'12:00 pm',a:1,st:'active',d:'Historia de mediodia',log:`Marketing: Historia publicada — "Ya vendimos ${Math.floor(Math.random()*20)+10} unidades hoy. Quedan pocas. Pide antes de que se acaben."`},
+{t:'2:30 pm',a:3,st:'active',d:`Vendiendo pedido #195`,log:`Venta: ${cl[3]} pidio 3 productos por $${v3.toLocaleString()} MXN. Upsell: ${rnd(up)}.`},
+{t:'2:31 pm',a:4,st:'done',d:`Tercer pago $${v3.toLocaleString()}`,log:`Cierre: Pedido #195 confirmado. Total del dia: $${(v1+v2+v3).toLocaleString()} MXN.`,addV:v3},
+{t:'5:00 pm',a:7,st:'active',d:'Generando reporte diario',log:`Analitica: Hora pico hoy: 7-8am. Producto estrella: ${pr[p1]}. Ticket promedio: $${Math.round((v1+v2+v3)/3).toLocaleString()}.`},
+{t:'5:01 pm',a:7,st:'active',d:'Detectando tendencia',log:`Analitica: Alerta — stock de ${pr[p1]} se agoto por 3er dia consecutivo. Recomendacion: preparar mas unidades.`},
+{t:'5:02 pm',a:8,st:'active',d:'Calculando P&L del dia',log:`Finanzas: Ingresos: $${(v1+v2+v3).toLocaleString()}. Costos estimados: $${Math.round((v1+v2+v3)*0.3).toLocaleString()}. Comision Stripe: $${Math.round((v1+v2+v3)*0.04).toLocaleString()}. Margen neto: ${Math.round(((v1+v2+v3)*0.66/(v1+v2+v3))*100)}%.`},
+{t:'5:03 pm',a:8,st:'done',d:'ROI calculado',log:`Finanzas: Costo GenyX hoy: $117 (=$3,500/30). Ingreso generado: $${(v1+v2+v3).toLocaleString()}. ROI del dia: ${Math.round((v1+v2+v3)/117)}x.`,totalV:v1+v2+v3},
+{t:'6:00 pm',a:6,st:'active',d:'Reactivando inactivos',log:`Seguimiento: ${Math.floor(Math.random()*10)+5} clientes sin pedir en 60+ dias. Enviando: "Te extrañamos, tenemos novedades."`},
+{t:'8:00 pm',a:1,st:'done',d:'Contenido de manana listo',log:`Marketing: 3 posts programados para manana basados en datos de hoy. Producto estrella + dato de ventas.`},
+{t:'8:01 pm',a:7,st:'done',d:'Reporte semanal listo',log:`Analitica: Datos consolidados. Email del lunes 8am preparado. 0 intervencion humana.`},
+{t:'8:02 pm',a:8,st:'done',d:'P&L semanal cerrado',log:`Finanzas: Margen semanal proyectado: ${Math.round(((v1+v2+v3)*7*0.66)).toLocaleString()} MXN. Ahorro vs empleado: $15,625/semana.`},
+{t:'11:30 pm',a:3,st:'active',d:'Vendiendo fuera de horario',log:`Venta: ${cl[4]} pidio a las 11:30pm. Agente atendio en 2 segundos. Pedido #196: $${v4.toLocaleString()} MXN.`},
+{t:'11:31 pm',a:4,st:'done',d:`Pago nocturno $${v4.toLocaleString()}`,log:`Cierre: Pago nocturno confirmado. Total del dia: $${totalV.toLocaleString()} MXN. La duena duerme.`,addV:v4,final:true,totalV:totalV}
+];
+}
+function log(time,text){
+const el=document.getElementById('log');
+const parts=text.split(':');
+const agent=parts[0];
+const msg=parts.slice(1).join(':').trim();
+const p=document.createElement('div');
+p.className='log-entry';
+p.innerHTML=`<span class="log-time">${time}</span><span class="log-agent">${agent}:</span> <span class="log-text">${msg}</span>`;
+el.appendChild(p);
+const box=document.getElementById('logBox');
+box.scrollTop=box.scrollHeight;
+}
+function setAgent(n,state,desc){
+const card=document.getElementById('a'+n);
+const dot=document.getElementById('s'+n);
+const d=document.getElementById('d'+n);
+card.className='agent-card'+(state?' '+state:'');
+dot.className='agent-status'+(state==='active'?' pulse':state==='done'?' on':'');
+d.textContent=desc;
+}
+function updateMetrics(){
+document.getElementById('m-pedidos').textContent=pedidos;
+document.getElementById('m-ventas').textContent='$'+ventas.toLocaleString();
+document.getElementById('m-horas').textContent=Math.min(Math.round(idx*0.9),24)+'h';
+document.getElementById('m-humano').textContent='0';
+}
+function showSummary(totalV){
+const box=document.getElementById('summaryBox');
+box.style.display='block';
+document.getElementById('sum-ventas').textContent='$'+totalV.toLocaleString();
+document.getElementById('sum-ahorro').textContent='$'+Math.round(totalV*3.5).toLocaleString();
+document.getElementById('sum-roi').textContent=Math.round(totalV/117)+'x';
+document.getElementById('sum-name').textContent=getBiz();
+box.scrollIntoView({behavior:'smooth'});
+}
+function runStep(){
+if(idx>=steps.length){
+running=false;
+document.getElementById('startBtn').textContent='Simulacion completada';
+document.getElementById('startBtn').disabled=true;
+return;
+}
+const s=steps[idx];
+setAgent(s.a,s.st,s.d);
+log(s.t,s.log);
+if(s.addV){pedidos++;ventas+=s.addV}
+updateMetrics();
+if(s.final){setTimeout(()=>showSummary(s.totalV),800)}
+idx++;
+setTimeout(runStep,1600);
+}
+function startSim(){
+if(running)return;
+if(idx>0)return;
+buildSteps();
+running=true;
+document.getElementById('startBtn').textContent='Simulacion en curso...';
+document.getElementById('startBtn').disabled=true;
+document.getElementById('bizName').disabled=true;
+document.getElementById('bizType').disabled=true;
+runStep();
+}
+function resetSim(){
+running=false;idx=0;pedidos=0;ventas=0;
+document.getElementById('log').innerHTML='';
+document.getElementById('summaryBox').style.display='none';
+for(let i=1;i<=8;i++)setAgent(i,'','En espera');
+updateMetrics();
+document.getElementById('startBtn').textContent='Iniciar simulacion';
+document.getElementById('startBtn').disabled=false;
+document.getElementById('bizName').disabled=false;
+document.getElementById('bizType').disabled=false;
+}
+</script>
+</body>
+</html>
