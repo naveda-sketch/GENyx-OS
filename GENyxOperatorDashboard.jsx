@@ -3984,7 +3984,7 @@ function GenyXLandingPage() {
           </div>
           {/* GenyX */}
           <div style={{ background: 'rgba(74,222,128,0.06)', border: '2px solid rgba(74,222,128,0.3)', borderRadius: 20, padding: '32px 28px' }}>
-            <div style={{ fontSize: 13, fontWeight: 800, color: '#4ade80', letterSpacing: '.08em', marginBottom: 20 }}>GENYX</div>
+            <div style={{ fontSize: 13, fontWeight: 800, color: '#4ade80', letterSpacing: '.08em', marginBottom: 20 }}>GenyX</div>
             <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#94a3b8' }}>
               <span>Plan Starter (5 agentes)</span><span style={{ fontWeight: 700, color: '#f1f5f9' }}>$3,500</span>
             </div>
@@ -4075,7 +4075,7 @@ function GenyXLandingPage() {
 
       {/* ── Ventajas Competitivas ── */}
       <section style={{ padding:'0 24px 100px', maxWidth:1000, margin:'0 auto' }}>
-        <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12, textAlign:'center' }}>POR QUÉ GENYX</div>
+        <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12, textAlign:'center' }}>POR QUÉ GenyX</div>
         <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:12, textAlign:'center' }}>No somos un bot genérico.<br /><span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Somos tu departamento de ventas.</span></h2>
         <p style={{ color:'#64748b', marginBottom:48, textAlign:'center', fontSize:15, maxWidth:600, margin:'0 auto 48px' }}>El mercado tiene bots que responden preguntas. GenyX opera tu departamento de ventas completo — con tu catálogo, tus reglas y resultados que puedes medir.</p>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:16 }}>
