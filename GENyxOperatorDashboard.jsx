@@ -3844,10 +3844,10 @@ function GenyXLandingPage() {
         </div>
       </section>
 
-      {/* ── El Problema (PAS: Pain first) ── */}
+      {/* ── El Reto ── */}
       <section style={{ padding: '0 24px 100px', maxWidth: 720, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#ef4444', letterSpacing: '.1em', marginBottom: 12 }}>EL PROBLEMA</div>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>EL RETO</div>
           <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>Estás volando a ciegas.<br /><span style={{ background: 'linear-gradient(135deg,#ef4444,#f97316)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Y volar a ciegas es caro.</span></h2>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
