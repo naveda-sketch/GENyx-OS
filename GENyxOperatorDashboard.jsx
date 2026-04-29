@@ -3863,6 +3863,20 @@ function GenyXLandingPage() {
         </div>
       </section>
 
+      {/* ── Configurado para tu negocio (Módulos por industria) ── */}
+      <section style={{ padding: '0 24px 100px', maxWidth: 720, margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: 40 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>CONFIGURADO PARA TU NEGOCIO</div>
+          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>Un núcleo poderoso.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Herramientas especializadas para tu industria.</span></h2>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+          <p style={{ color: '#cbd5e1', fontSize: 15, lineHeight: 1.7 }}>GenyX se entrega en dos capas.</p>
+          <p style={{ color: '#cbd5e1', fontSize: 15, lineHeight: 1.7 }}>Primero, el <strong style={{ color: '#f1f5f9' }}>núcleo común</strong> que todo cliente recibe: tu equipo de agentes de IA según el plan que elijas (5 agentes en Starter, 7 en Growth, 8 en Autonomy), Reporte del Lunes con inteligencia financiera y la infraestructura completa de venta.</p>
+          <p style={{ color: '#cbd5e1', fontSize: 15, lineHeight: 1.7 }}>Segundo, las <strong style={{ color: '#f1f5f9' }}>herramientas especializadas</strong> que activamos según tu industria: Inventario, Costeador, Citas, Foto Lab, Pipeline de Leads, Historial de Pacientes y más — solo las que tu negocio realmente usa.</p>
+          <p style={{ color: '#94a3b8', fontSize: 14, fontStyle: 'italic', marginTop: 24 }}>Cuando hablemos de tu negocio, te decimos exactamente qué herramientas activamos para ti.</p>
+        </div>
+      </section>
+
       {/* ── 8 Agentes de IA ── */}
       <section style={{ padding: '0 24px 100px', maxWidth: 1000, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
@@ -4069,12 +4083,12 @@ function GenyXLandingPage() {
         <p style={{ color:'#64748b', marginBottom:40, fontSize:15 }}>Si tus clientes te escriben por WhatsApp y tú no das abasto para contestar — GenyX es para ti.</p>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:16 }}>
           {[
-            ['🍽️','Restaurantes y Comida','Te escriben 50 mensajes al día. No puedes con todos. GenyX atiende a todos al mismo tiempo, arma el pedido y cobra — mientras tú te enfocas en la cocina.','EL DOLOR: "No puedo estar en el teléfono y en la cocina al mismo tiempo"'],
-            ['🏥','Clínicas y Consultorios','Tus pacientes quieren agendar cita por WhatsApp pero tu recepcionista no da abasto. GenyX agenda, confirma y cobra anticipo — para que dejes de perder pacientes por no contestar.','EL DOLOR: "Pierdo pacientes porque no contesto a tiempo"'],
-            ['💇','Belleza y Cuidado Personal','Tu agenda se llena pero pierdes clientes porque no confirmas a tiempo. GenyX agenda, confirma y manda recordatorio — ayuda a llenar tu agenda.','EL DOLOR: "Cancelaciones de último minuto y citas sin confirmar"'],
-            ['🎓','Escuelas y Cursos','Los interesados preguntan precio y no vuelven a escribir. GenyX responde al instante, resuelve dudas y los guía hasta la inscripción.','EL DOLOR: "Se interesan pero nunca se inscriben"'],
-            ['🏠','Inmobiliarias','Te llegan 50 leads de portales. 3 van en serio. GenyX filtra, califica leads y te entrega los más serios.','EL DOLOR: "Pierdo tiempo con curiosos que nunca van a comprar"'],
-            ['🍞','Panaderías y Pastelerías','Tu cliente pide a las 10pm. Tú ya no estás. GenyX toma el pedido, cobra y lo tiene listo para cuando llegas a hornear.','EL DOLOR: "Pierdo pedidos porque no puedo contestar fuera de horario"'],
+            ['🍽️','Restaurantes y Comida','Te escriben 50 mensajes al día. No puedes con todos. GenyX atiende a todos al mismo tiempo, arma el pedido y cobra — mientras tú te enfocas en la cocina.','EL RETO: "No puedo estar en el teléfono y en la cocina al mismo tiempo"'],
+            ['🏥','Clínicas y Consultorios','Tus pacientes quieren agendar cita por WhatsApp pero tu recepcionista no da abasto. GenyX agenda, confirma y cobra anticipo — para que dejes de perder pacientes por no contestar.','EL RETO: "Pierdo pacientes porque no contesto a tiempo"'],
+            ['💇','Belleza y Cuidado Personal','Tu agenda se llena pero pierdes clientes porque no confirmas a tiempo. GenyX agenda, confirma y manda recordatorio — ayuda a llenar tu agenda.','EL RETO: "Cancelaciones de último minuto y citas sin confirmar"'],
+            ['🎓','Escuelas y Cursos','Los interesados preguntan precio y no vuelven a escribir. GenyX responde al instante, resuelve dudas y los guía hasta la inscripción.','EL RETO: "Se interesan pero nunca se inscriben"'],
+            ['🏠','Inmobiliarias','Te llegan 50 leads de portales. 3 van en serio. GenyX filtra, califica leads y te entrega los más serios.','EL RETO: "Pierdo tiempo con curiosos que nunca van a comprar"'],
+            ['🍞','Panaderías y Pastelerías','Tu cliente pide a las 10pm. Tú ya no estás. GenyX toma el pedido, cobra y lo tiene listo para cuando llegas a hornear.','EL RETO: "Pierdo pedidos porque no puedo contestar fuera de horario"'],
           ].map(([icon, label, desc, pain]) => (
             <div key={label} style={{ background:'rgba(6,9,18,0.8)', border:'1px solid rgba(99,102,241,0.2)', borderRadius:16, padding:'24px 20px', transition:'all .2s', cursor:'default', textAlign:'left' }}
               onMouseOver={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.6)'; e.currentTarget.style.background='rgba(99,102,241,0.08)'; e.currentTarget.style.transform='translateY(-3px)'; }}
