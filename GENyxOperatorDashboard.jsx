@@ -4059,10 +4059,10 @@ function GenyXLandingPage() {
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:16 }}>
           {[
             ['🍽️','Restaurantes y Comida','Te escriben 50 mensajes al día. No puedes con todos. GenyX atiende a todos al mismo tiempo, arma el pedido y cobra — mientras tú te enfocas en la cocina.','EL DOLOR: "No puedo estar en el teléfono y en la cocina al mismo tiempo"'],
-            ['🏥','Clínicas y Consultorios','Tus pacientes quieren agendar cita por WhatsApp pero tu recepcionista no da abasto. GenyX agenda, confirma y cobra anticipo — sin que pierdas un solo paciente.','EL DOLOR: "Pierdo pacientes porque no contesto a tiempo"'],
-            ['💇','Belleza y Cuidado Personal','Tu agenda se llena pero pierdes clientes porque no confirmas a tiempo. GenyX agenda, confirma y manda recordatorio — tu silla nunca está vacía.','EL DOLOR: "Cancelaciones de último minuto y citas sin confirmar"'],
+            ['🏥','Clínicas y Consultorios','Tus pacientes quieren agendar cita por WhatsApp pero tu recepcionista no da abasto. GenyX agenda, confirma y cobra anticipo — para que dejes de perder pacientes por no contestar.','EL DOLOR: "Pierdo pacientes porque no contesto a tiempo"'],
+            ['💇','Belleza y Cuidado Personal','Tu agenda se llena pero pierdes clientes porque no confirmas a tiempo. GenyX agenda, confirma y manda recordatorio — ayuda a llenar tu agenda.','EL DOLOR: "Cancelaciones de último minuto y citas sin confirmar"'],
             ['🎓','Escuelas y Cursos','Los interesados preguntan precio y no vuelven a escribir. GenyX responde al instante, resuelve dudas y los guía hasta la inscripción.','EL DOLOR: "Se interesan pero nunca se inscriben"'],
-            ['🏠','Inmobiliarias','Te llegan 50 leads de portales. 3 van en serio. GenyX filtra, califica y te manda solo los buenos — con ficha completa y presupuesto confirmado.','EL DOLOR: "Pierdo tiempo con curiosos que nunca van a comprar"'],
+            ['🏠','Inmobiliarias','Te llegan 50 leads de portales. 3 van en serio. GenyX filtra, califica leads y te entrega los más serios.','EL DOLOR: "Pierdo tiempo con curiosos que nunca van a comprar"'],
             ['🍞','Panaderías y Pastelerías','Tu cliente pide a las 10pm. Tú ya no estás. GenyX toma el pedido, cobra y lo tiene listo para cuando llegas a hornear.','EL DOLOR: "Pierdo pedidos porque no puedo contestar fuera de horario"'],
           ].map(([icon, label, desc, pain]) => (
             <div key={label} style={{ background:'rgba(6,9,18,0.8)', border:'1px solid rgba(99,102,241,0.2)', borderRadius:16, padding:'24px 20px', transition:'all .2s', cursor:'default', textAlign:'left' }}
