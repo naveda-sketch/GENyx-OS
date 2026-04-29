@@ -309,105 +309,6 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// TAB: ÓRDENES
-// ═══════════════════════════════════════════════════════════════════════════════
-const TabOrdenes = ({ orders, tenants, loading }) => {
-  const [selectedSlug, setSelectedSlug] = useState('all');
-
-  // Only paid orders — filter by Stripe confirmed status
-  const paidOrders = orders.filter(o => o.status === 'paid');
-  const toUtc = (s) => new Date(typeof s === 'string' && !s.includes('Z') && !s.includes('+') ? s + 'Z' : s);
-  const today = new Date(); today.setHours(0, 0, 0, 0);
-  const todayOrders = paidOrders.filter(o => o.created_at && toUtc(o.created_at) >= today);
-  const weekOrders = paidOrders.filter(o => {
-    if (!o.created_at) return false;
-    const d = new Date(); d.setDate(d.getDate() - 7);
-    return toUtc(o.created_at) >= d;
-  });
-  const weekRevenue = weekOrders.reduce((s, o) => {
-    const od = typeof o.order_data === 'object' ? o.order_data : {};
-    return s + parseFloat(od.total_estimated || od.total || 0);
-  }, 0);
-
-  const displayed = selectedSlug === 'all' ? paidOrders : paidOrders.filter(o => {
-    const od = typeof o.order_data === 'object' ? o.order_data : {};
-    return od.slug === selectedSlug || o.slug === selectedSlug;
-  });
-  const recent = displayed.slice(0, 30);
-
-  if (loading) return <Spinner />;
-
-  return (
-    <section>
-      {/* KPI Row */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 12, marginBottom: 28 }}>
-        <KpiCard label="Comandas hoy" value={todayOrders.length} icon="📋" />
-        <KpiCard label="Esta semana" value={weekOrders.length} icon="📅" />
-        <KpiCard label="Revenue semana" value={$$(weekRevenue)} icon="💰" />
-        <KpiCard label="Total histórico" value={paidOrders.length} icon="📦" />
-        <KpiCard
-          label="⬆ Uptime 30d"
-          value={sla.uptime !== null ? `${sla.uptime}%` : '—'}
-          icon="🟢"
-          color={sla.uptime !== null && sla.uptime >= 99 ? '#22c55e' : sla.uptime >= 95 ? '#f59e0b' : '#ef4444'}
-        />
-        <KpiCard
-          label="⚡ Resp. promedio"
-          value={sla.avgMs ? `${(sla.avgMs/1000).toFixed(1)}s` : '—'}
-          icon="⚡"
-          color={sla.avgMs && sla.avgMs < 4000 ? '#22c55e' : sla.avgMs < 8000 ? '#f59e0b' : '#ef4444'}
-        />
-      </div>
-
-      {/* Filter */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20, flexWrap: 'wrap' }}>
-        <h2 style={{ ...H2, margin: 0 }}>Órdenes Recientes</h2>
-        <select value={selectedSlug} onChange={e => setSelectedSlug(e.target.value)}
-          style={{ background: '#1e293b', border: '1px solid rgba(255,255,255,0.1)', color: '#cbd5e1', padding: '6px 12px', borderRadius: 8, fontSize: 12 }}>
-          <option value="all">Todos los clientes</option>
-          <option value="__genyx__" style={{ color: '#818cf8' }}>🟣 GenyX — Plataforma</option>
-          {tenants.map(t => <option key={t.slug} value={t.slug}>{t.name || t.slug}</option>)}
-        </select>
-        <span style={MONO}>{recent.length} orden(es)</span>
-      </div>
-
-      {recent.length === 0 ? <Empty icon="📋" msg="No hay órdenes registradas aún." /> : (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-          {recent.map((order, i) => {
-            const od = typeof order.order_data === 'object' ? order.order_data : {};
-            const items = Array.isArray(od.items) ? od.items : [];
-            const total = od.total_estimated || od.total;
-            return (
-              <div key={order.id || i} style={{ ...CARD, display: 'flex', gap: 16, flexWrap: 'wrap', padding: '14px 18px' }}>
-                <div style={{ flex: 2, minWidth: 200 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4, flexWrap: 'wrap' }}>
-                    <span style={{ ...MONO, background: '#1e40af20', color: '#60a5fa', padding: '2px 8px', borderRadius: 4 }}>#{order.id}</span>
-                    <span style={{ fontSize: 11, color: '#64748b' }}>{order.created_at ? fmt(order.created_at) : '—'}</span>
-                    <span style={{ marginLeft: 'auto', background: order.status === 'pending' ? '#78350f30' : '#14532d30', color: order.status === 'pending' ? '#fbbf24' : '#4ade80', padding: '2px 8px', borderRadius: 4, fontSize: 10, fontWeight: 700 }}>{order.status?.toUpperCase()}</span>
-                  </div>
-                  <p style={{ fontWeight: 600, fontSize: 14, color: '#f1f5f9' }}>{order.customer_name || 'Cliente Directo'}</p>
-                  {order.whatsapp && <p style={{ fontSize: 11, color: '#64748b' }}>📱 {order.whatsapp}</p>}
-                </div>
-                <div style={{ flex: 2, minWidth: 160 }}>
-                  <p style={{ fontSize: 11, color: '#64748b', marginBottom: 4 }}>{items.length} artículo(s)</p>
-                  {items.slice(0, 3).map((item, j) => (
-                    <p key={j} style={{ fontSize: 12, color: '#94a3b8' }}>· {typeof item === 'string' ? item : (item.item || item.name || '?')} {item.quantity ? `×${item.quantity}` : ''}</p>
-                  ))}
-                  {items.length > 3 && <p style={{ fontSize: 11, color: '#64748b' }}>+{items.length - 3} más</p>}
-                </div>
-                {total && <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <span style={{ fontSize: 18, fontWeight: 800, color: '#fb923c' }}>{$$(total)}</span>
-                </div>}
-              </div>
-            );
-          })}
-        </div>
-      )}
-    </section>
-  );
-};
-
-// ═══════════════════════════════════════════════════════════════════════════════
 // COMPONENTE: NEWS FEED — 15 Minutos de Lectura
 // ═══════════════════════════════════════════════════════════════════════════════
 const NewsFeed = ({ health, orders, tenants }) => {
@@ -1540,7 +1441,7 @@ function AdminLoginScreen({ onAuth }) {
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div style={{ width: 52, height: 52, border: '2px solid #6366f1', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, fontWeight: 900, color: '#818cf8', marginBottom: 16, fontFamily: 'JetBrains Mono, monospace' }}>G</div>
           <h1 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', letterSpacing: '.02em', margin: 0 }}>Geny<span style={{ color: '#818cf8' }}>X</span></h1>
-          <p style={{ fontSize: 11, color: '#334155', fontFamily: 'JetBrains Mono, monospace', marginTop: 6, letterSpacing: '.08em' }}>OPERATOR CONTROL CENTER</p>
+          <p style={{ fontSize: 11, color: '#334155', fontFamily: 'JetBrains Mono, monospace', marginTop: 6, letterSpacing: '.08em' }}>CENTRO DE MANDO GENYX</p>
         </div>
         {/* Card */}
         <div style={{ background: '#0c1220', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 16, padding: '32px 28px', boxShadow: '0 0 40px rgba(99,102,241,0.08)' }}>
@@ -1765,7 +1666,7 @@ function LegalPage({ tipo }) {
             <h2 style={H2}>5. Inteligencia Artificial y Limitación de Responsabilidad</h2>
             <p style={P}>El bot opera con IA generativa de naturaleza probabilística y puede cometer <strong>errores conversacionales</strong> (“alucinaçiones”). GenyX no garantiza precisión del 100%. <strong>GenyX no será responsable</strong> por pérdidas económicas, productos mal cotizados, daños a la reputación o cualquier daño indirecto o consecuencial. La responsabilidad máxima de GenyX se limita a los <strong>3 meses de suscripción pagados</strong> anteriores al evento.</p>
             <h2 style={H2}>6. Fuerza Mayor y Caídas de Terceros</h2>
-            <p style={P}>GenyX no responde por interrupciones de Meta/WhatsApp, OpenAI, Stripe, Render, Vercel u otros proveedores de infraestructura. Estos tiempos no computan para la Garantía de Disponibilidad del 99%.</p>
+            <p style={P}>GenyX no responde por interrupciones de Meta/WhatsApp, OpenAI, Stripe, Render, Vercel u otros proveedores de infraestructura.</p>
             <h2 style={H2}>7. Uso Aceptable</h2>
             <p style={P}>Queda prohibido usar la Plataforma para vender productos ilegales, enviar spam, o intentar vulnerar el código o infraestructura de GenyX.</p>
             <h2 style={H2}>8. Propiedad Intelectual</h2>
@@ -1774,8 +1675,8 @@ function LegalPage({ tipo }) {
             <p style={P}>Ley aplicable: Estados Unidos Mexicanos. Jurisdiccion: Tribunales Federales de Guadalajara, Jalisco. Previo a cualquier litigio, las partes se someten a mediacion ante el CANACO-GDL.</p>
             <h2 style={H2}>10. Terminacion del Servicio</h2>
             <p style={P}>El Cliente puede cancelar con <strong>30 dias naturales de aviso</strong> por escrito a legal@genyxsystems.com. GenyX puede rescindir anticipadamente por incumplimiento de pago o uso indebido. Al terminar: (i) GenyX entregara un export CSV de los datos del Cliente dentro de 15 dias; (ii) GenyX eliminara los datos de sus servidores en un plazo maximo de 60 dias; (iii) el número WaB permanecerá en custodia de GenyX; Clientes con historial de pago ininterrumpido de 12 o más meses tienen derecho a solicitar la portabilidad del número, sujeto a los procesos técnicos de Meta y un período de transición de 30 días naturales.</p>
-            <h2 style={H2}>11. Garantía de Respuesta y Compromiso de Velocidad</h2>
-            <p style={P}>GenyX garantiza que el <strong>100% de los mensajes entrantes</strong> serán atendidos y respondidos por el sistema en un tiempo menor a <strong>5 segundos</strong>. Si el sistema incumple este compromiso de velocidad en más de <strong>3 ocasiones</strong> dentro de un mismo mes calendario por causa atribuible a GenyX, el Cliente recibirá la <strong>mensualidad de ese mes sin costo</strong>. Máximo 1 bonificación por trimestre calendario. Interrupciones de Meta, OpenAI, Stripe, Render o Vercel no computan para esta Garantía.</p>
+            <h2 style={H2}>11. Compromiso de Servicio</h2>
+            <p style={P}>GenyX se compromete a operar la plataforma con la mayor disponibilidad posible y a resolver incidencias reportadas por el Cliente en el menor tiempo razonable. El equipo de GenyX monitorea activamente el sistema y aplica actualizaciones de mejora continua. Cada actualización es verificada exhaustivamente antes de llegar al entorno de producción del Cliente. En caso de incidencia prolongada (más de 4 horas continuas por causa atribuible a GenyX), el Cliente será notificado por el canal que tenga registrado y se le proporcionará un reporte de la causa raíz y las acciones tomadas.</p>
             <h2 style={H2}>12. Modelo de Suscripcion</h2>
             <p style={P}>GenyX no cobra comision por transaccion. El Cliente paga una <strong>Suscripcion Mensual Fija</strong> segun el plan contratado. Los detalles del monto, forma de pago y vigencia se especifican en el Contrato de Servicios firmado por ambas partes. El plan contratado puede actualizarse (upgrade) en cualquier momento; el downgrade aplica al siguiente ciclo de facturacion.</p>
             <p style={{ ...P, marginTop: 24, fontSize: 11, color: '#a8a29e' }}>Consultas: legal@genyxsystems.com</p>
@@ -3685,6 +3586,20 @@ function DashboardPreview() {
   );
 }
 
+// ── FAQItem (proper component — fixes hooks-in-map violation) ────────────────
+function FAQItem({ question, answer }) {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <div style={{ borderBottom:'1px solid rgba(255,255,255,0.07)', padding:'20px 0' }}>
+      <div onClick={() => setOpen(!open)} style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', cursor:'pointer', gap:16 }}>
+        <span style={{ fontWeight:700, fontSize:15, color:'#f1f5f9', lineHeight:1.5 }}>{question}</span>
+        <span style={{ color:'#6366f1', fontWeight:800, fontSize:18, flexShrink:0, marginTop:1 }}>{open ? '−' : '+'}</span>
+      </div>
+      {open && <p style={{ color:'#64748b', fontSize:14, lineHeight:1.8, marginTop:14, paddingRight:32 }}>{answer}</p>}
+    </div>
+  );
+}
+
 // ── 4. Guarantee Seal ───────────────────────────────────────────────────────
 function GuaranteeSeal() {
   return (
@@ -3819,14 +3734,14 @@ function GenyXLandingPage() {
         {/* Hero Badge */}
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(99,102,241,0.12)', border:'1px solid rgba(99,102,241,0.4)', borderRadius:30, padding:'6px 20px', marginBottom:14, fontSize:11, fontWeight:800, color:'#818cf8', letterSpacing:'.1em', textTransform:'uppercase' }}>
           <span style={{ width:6, height:6, borderRadius:'50%', background:'#6366f1', display:'inline-block', boxShadow:'0 0 8px #6366f1' }} />
-          8 AGENTES DE IA OPERANDO TU NEGOCIO
+          TU EQUIPO DE AGENTES DE IA OPERANDO TU NEGOCIO
         </div>
         <div style={C.badge}><span style={C.dot} />Marketing · Captación · Venta · Cierre · Entrega · Seguimiento · Analítica · Finanzas</div>
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(74,222,128,0.1)', border:'1px solid rgba(74,222,128,0.35)', color:'#4ade80', fontSize:12, fontWeight:700, padding:'7px 22px', borderRadius:30, marginBottom:16 }}>
           &#x2713; Activo en 48h · Respuesta en segundos · Cero comisión por venta
         </div>
         <h1 style={C.h1}>¿Cuántas decisiones en tu negocio<br /><span style={C.h1accent}>tomas sin datos?</span></h1>
-        <p style={C.sub}>GenyX funciona como tu departamento de ventas digital. 8 agentes de inteligencia artificial que operan 24/7 bajo nuestra supervisión, configurados con el ADN de tu marca. Atraen clientes, cierran ventas dentro del chat, recuperan pedidos abandonados, coordinan entregas, y cada lunes a las 8am te envían un reporte basado en lo que realmente pasó en tus ventas para que tomes mejores decisiones.</p>
+        <p style={C.sub}>GenyX funciona como tu departamento de ventas digital. Tu equipo de agentes de IA según el plan que elijas, operando 24/7 bajo nuestra supervisión, configurados con el ADN de tu marca. Atraen clientes, cierran ventas dentro del chat, recuperan pedidos abandonados, coordinan entregas, y cada lunes a las 8am te envían un reporte basado en lo que realmente pasó en tus ventas para que tomes mejores decisiones.</p>
         <div style={C.btns}>
           <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={C.primary}>Cuéntame de tu negocio →</a>
           <a href="/simulador" style={C.secondary}>Probar simulador</a>
@@ -3881,7 +3796,7 @@ function GenyXLandingPage() {
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
           {[
-            ['📣', 'Marketing', 'Publica contenido basado en datos reales de ventas. Reactiva clientes inactivos.'],
+            ['📣', 'Marketing', 'Genera contenido visual y captions con tu ADN de marca, listos para publicar. Reactiva clientes inactivos vía WhatsApp.'],
             ['🎯', 'Captación', 'Atrae clientes a tu WhatsApp directo desde redes, web y buscadores.'],
             ['💬', 'Venta', 'Atiende en segundos con la personalidad de tu marca. Recomienda complementos.'],
             ['💳', 'Cierre', 'Cobra dentro del chat. Sin fricción. Sin que el cliente salga de WhatsApp.'],
@@ -4181,18 +4096,9 @@ function GenyXLandingPage() {
           ['¿Por qué GenyX y no contratar un vendedor?', 'Contratar un vendedor implica semanas de búsqueda, entrevistas, capacitación, nómina, IMSS, aguinaldo y reemplazos cuando se va. GenyX se activa en 48 horas, no se enferma, no renuncia, no cobra comisión y atiende a todos tus clientes al mismo tiempo — por un costo mensual fijo.'],
           ['¿Necesito conocimientos técnicos?', 'Ninguno. Tú nos das la información de tu negocio y nosotros hacemos todo lo demás. Solo tienes que revisar tu mando de control y contar tus ventas.'],
           ['¿Puedo ver una demo en vivo antes de decidir?', 'Sí. Te mostramos el sistema funcionando con datos de tu negocio en 15 minutos por WhatsApp. Sin compromiso. Si no es para ti, te lo decimos con honestidad.'],
-        ].map(([q, a], i) => {
-          const [open, setOpen] = React.useState(false);
-          return (
-            <div key={i} style={{ borderBottom:'1px solid rgba(255,255,255,0.07)', padding:'20px 0' }}>
-              <div onClick={() => setOpen(!open)} style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', cursor:'pointer', gap:16 }}>
-                <span style={{ fontWeight:700, fontSize:15, color:'#f1f5f9', lineHeight:1.5 }}>{q}</span>
-                <span style={{ color:'#6366f1', fontWeight:800, fontSize:18, flexShrink:0, marginTop:1 }}>{open ? '−' : '+'}</span>
-              </div>
-              {open && <p style={{ color:'#64748b', fontSize:14, lineHeight:1.8, marginTop:14, paddingRight:32 }}>{a}</p>}
-            </div>
-          );
-        })}
+        ].map(([q, a], i) => (
+          <FAQItem key={i} question={q} answer={a} />
+        ))}
       </section>
 
       {/* ── Guarantee Seal ── */}
@@ -4432,7 +4338,8 @@ export default function GenyXOperatorDashboard() {
             <div style={{ width: 30, height: 30, border: '2px solid #6366f1', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 800, color: '#818cf8' }}>G</div>
             <div>
               <p style={{ fontWeight: 700, fontSize: 13, color: '#fff', letterSpacing: '.03em' }}>Geny<span style={{ color: '#818cf8' }}>X</span></p>
-              <p style={{ fontSize: 10, color: '#475569', fontFamily: 'monospace' }}>Operator Control Center</p>
+              <p style={{ fontSize: 10, color: '#475569', fontFamily: 'monospace' }}>Centro de Mando GenyX</p>
+              <p style={{ fontSize: 9, color: '#475569', fontStyle: 'italic' }}>Inteligencia de negocio</p>
             </div>
           </div>
         </div>
