@@ -3742,7 +3742,7 @@ function GenyXLandingPage() {
   <svg title="Facebook" width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047v-2.66c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.93-1.956 1.886v2.265h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
   <svg title="Web" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="1.5" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
   <svg title="Voz" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-</span></>, 'Disponible Donde Ya Están Tus Clientes', 'Un solo agente atendiendo en WhatsApp, tu sitio web, Instagram, Facebook y por llamada telefónica. Sin que tú tengas que estar en todos lados.'],
+</span></>, 'Un solo agente atendiendo en WhatsApp, tu sitio web, Instagram, Facebook y por llamada telefónica. Sin que tú tengas que estar en todos lados.'],
     [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="M7 16V12m4 4V8m4 8V5"/></svg>, 'Centro de Mando', 'Pedidos, ventas, catálogo y métricas de tu negocio desde un solo panel — en tu celular o computadora. Sabes exactamente qué se vendió, cuándo y cuánto.'],
     [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 4h18l-7 9v6l-4-2v-4L3 4z"/></svg>, 'Blindaje Anti-Errores', 'Tu agente nunca inventa precios, nunca ofrece productos que no tienes y nunca cobra de más. Tu catálogo y tus reglas se respetan siempre — sin excepciones.'],
     [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>, 'En vivo en 48 horas', 'Una sesión de 45 minutos para entender tu negocio, nosotros configuramos todo, y en 2 días tu agente ya está vendiendo. Sin meses de espera ni consultores caros.'],
@@ -3812,7 +3812,7 @@ function GenyXLandingPage() {
           {[['Soluciones', '#soluciones'], ['Proceso', '#proceso']].map(([l, h]) => (
             <a key={l} href={h} style={C.navLink} onMouseOver={e => e.target.style.color = '#fff'} onMouseOut={e => e.target.style.color = '#64748b'}>{l}</a>
           ))}
-          <a href="https://wa.me/523340026694?text=Hola%20quiero%20conocer%20informaci%C3%B3n%20sobre%20como%20la%20herramienta%20GenyX%20puede%20ayudarme%20a%20tomar%20decisiones%20m%C3%A1s%20informadas" style={C.demoCta}>Cuéntame de tu negocio →</a>
+          <a href="https://wa.me/523340026694?text=Hola%20quiero%20conocer%20informaci%C3%B3n%20sobre%20c%C3%B3mo%20la%20herramienta%20GenyX%20puede%20ayudarme%20a%20tomar%20decisiones%20m%C3%A1s%20informadas" style={C.demoCta}>Cuéntame de tu negocio →</a>
         </div>
       </nav>
 
@@ -3829,7 +3829,7 @@ function GenyXLandingPage() {
         <h1 style={C.h1}>¿Cuántas decisiones en tu negocio<br /><span style={C.h1accent}>tomas sin datos?</span></h1>
         <p style={C.sub}>GenyX es una herramienta de 8 agentes de inteligencia artificial que opera tu departamento de ventas mientras tú duermes. Atraen clientes, cierran ventas dentro del chat, recuperan pedidos abandonados, coordinan entregas, y cada lunes a las 8am nuestro agente de inteligencia financiera te envía un reporte basado en lo que realmente pasó en tus ventas para que tomes mejores decisiones.</p>
         <div style={C.btns}>
-          <a href="https://wa.me/523340026694?text=Hola%20quiero%20conocer%20informaci%C3%B3n%20sobre%20como%20la%20herramienta%20GenyX%20puede%20ayudarme%20a%20tomar%20decisiones%20m%C3%A1s%20informadas" style={C.primary}>Cuéntame de tu negocio →</a>
+          <a href="https://wa.me/523340026694?text=Hola%20quiero%20conocer%20informaci%C3%B3n%20sobre%20c%C3%B3mo%20la%20herramienta%20GenyX%20puede%20ayudarme%20a%20tomar%20decisiones%20m%C3%A1s%20informadas" style={C.primary}>Cuéntame de tu negocio →</a>
           <a href="/simulador" style={C.secondary}>Probar simulador</a>
         </div>
       </section>
@@ -3892,17 +3892,23 @@ function GenyXLandingPage() {
             ['🔔', 'Seguimiento', 'Recupera pedidos abandonados. Reactiva clientes que no han vuelto.'],
             ['📊', 'Analítica', 'Cada lunes a las 8am: KPIs, top productos, hora pico, recomendaciones.'],
             ['💰', 'Finanzas', 'Margen por producto. Punto de equilibrio. Utilidad real. Proyección mensual.'],
-          ].map(([ico, name, desc], i) => (
-            <div key={name} style={{ background: i < 5 ? 'rgba(99,102,241,0.06)' : 'rgba(255,255,255,0.03)', border: `1px solid ${i < 5 ? 'rgba(99,102,241,0.25)' : 'rgba(255,255,255,0.08)'}`, borderRadius: 12, padding: '18px 16px', transition: 'all 0.2s', position: 'relative' }}
+          ].map(([ico, name, desc], i) => {
+            const PLAN_TAG = { 0: 'AUTONOMY', 4: 'GROWTH+', 7: 'GROWTH+' };
+            const STARTER_INDICES = [1, 2, 3, 5, 6];
+            const isStarter = STARTER_INDICES.includes(i);
+            const tag = PLAN_TAG[i];
+            return (
+            <div key={name} style={{ background: isStarter ? 'rgba(99,102,241,0.06)' : 'rgba(255,255,255,0.03)', border: `1px solid ${isStarter ? 'rgba(99,102,241,0.25)' : 'rgba(255,255,255,0.08)'}`, borderRadius: 12, padding: '18px 16px', transition: 'all 0.2s', position: 'relative' }}
               onMouseOver={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.5)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-              onMouseOut={e => { e.currentTarget.style.borderColor = i < 5 ? 'rgba(99,102,241,0.25)' : 'rgba(255,255,255,0.08)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
+              onMouseOut={e => { e.currentTarget.style.borderColor = isStarter ? 'rgba(99,102,241,0.25)' : 'rgba(255,255,255,0.08)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
               <div style={{ fontSize: 24, marginBottom: 8 }}>{ico}</div>
               <div style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9', marginBottom: 4 }}>{name}</div>
               <div style={{ fontSize: 11, color: '#64748b', lineHeight: 1.6 }}>{desc}</div>
-              {i >= 7 && <div style={{ position: 'absolute', top: 8, right: 8, fontSize: 8, fontWeight: 700, color: '#c084fc', background: 'rgba(192,132,252,0.12)', padding: '2px 6px', borderRadius: 4, letterSpacing: '.04em' }}>AUTONOMY</div>}
-              {i >= 5 && i < 7 && <div style={{ position: 'absolute', top: 8, right: 8, fontSize: 8, fontWeight: 700, color: '#818cf8', background: 'rgba(99,102,241,0.12)', padding: '2px 6px', borderRadius: 4, letterSpacing: '.04em' }}>GROWTH+</div>}
+              {tag === 'AUTONOMY' && <div style={{ position: 'absolute', top: 8, right: 8, fontSize: 8, fontWeight: 700, color: '#c084fc', background: 'rgba(192,132,252,0.12)', padding: '2px 6px', borderRadius: 4, letterSpacing: '.04em' }}>AUTONOMY</div>}
+              {tag === 'GROWTH+' && <div style={{ position: 'absolute', top: 8, right: 8, fontSize: 8, fontWeight: 700, color: '#818cf8', background: 'rgba(99,102,241,0.12)', padding: '2px 6px', borderRadius: 4, letterSpacing: '.04em' }}>GROWTH+</div>}
             </div>
-          ))}
+          );
+          })}
         </div>
         <div style={{ textAlign: 'center', marginTop: 20 }}>
           <p style={{ fontSize: 12, color: '#64748b' }}><span style={{ color: '#818cf8', fontWeight: 700 }}>STARTER</span> = 5 agentes &nbsp;·&nbsp; <span style={{ color: '#818cf8', fontWeight: 700 }}>GROWTH</span> = 7 agentes &nbsp;·&nbsp; <span style={{ color: '#c084fc', fontWeight: 700 }}>AUTONOMY</span> = 8 agentes</p>
@@ -4022,16 +4028,16 @@ function GenyXLandingPage() {
       <section style={{ padding:'0 24px 100px', maxWidth:960, margin:'0 auto' }}>
         <div style={{ background:'linear-gradient(135deg,rgba(99,102,241,0.08),rgba(139,92,246,0.08))', border:'1px solid rgba(99,102,241,0.2)', borderRadius:24, padding:'40px 48px', display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))', gap:40, alignItems:'center' }}>
           <div>
-            <div style={{ fontSize:12, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12 }}>NO ES UN CONTESTADOR AUTOMATICO</div>
+            <div style={{ fontSize:12, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12 }}>NO ES UN CONTESTADOR AUTOMÁTICO</div>
             <h2 style={{ fontSize:32, fontWeight:900, color:'#f1f5f9', lineHeight:1.2, marginBottom:16 }}>Agente con<br /><span style={{ background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>ADN de tu Marca</span></h2>
-            <p style={{ color:'#64748b', lineHeight:1.8, fontSize:14 }}>No solo "da información". Tu agente entiende regionalismos, interpreta notas de voz, lee entre lineas y guia al cliente hacia la compra — con la personalidad y calidez de tu negocio.</p>
+            <p style={{ color:'#64748b', lineHeight:1.8, fontSize:14 }}>No solo "da información". Tu agente entiende regionalismos, interpreta notas de voz, lee entre líneas y guía al cliente hacia la compra — con la personalidad y calidez de tu negocio.</p>
           </div>
           <div style={{ display:'flex', flexDirection:'column', gap:14 }}>
             {[
               [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>, 'Entiende notas de voz', 'Transcribe y responde audios de WhatsApp en segundos'],
-              [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>, 'Habla como tu cliente', 'Regionalismos, abreviaciones y hasta emojis — sin respuestas roboticas'],
+              [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>, 'Habla como tu cliente', 'Regionalismos, abreviaciones y hasta emojis — sin respuestas robóticas'],
               [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>, 'Asesora, no solo informa', 'Detecta lo que el cliente necesita y recomienda antes de que pregunte'],
-              [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>, 'Cierra, no solo responde', 'Lleva al cliente del interés al carrito sin fricción ni esfuerzo humano. Y lo hace en segundos. Garantizado.'],
+              [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>, 'Cierra, no solo responde', 'Lleva al cliente del interés al carrito sin fricción ni esfuerzo humano. Responde en segundos a tus clientes.'],
             ].map(([ico, t, d]) => (
               <div key={t} style={{ display:'flex', gap:14, alignItems:'flex-start' }}>
                 <div style={{ fontSize:22, flexShrink:0, marginTop:2 }}>{ico}</div>
@@ -4168,8 +4174,8 @@ function GenyXLandingPage() {
           ['¿Por qué GenyX y no un bot genérico?', 'Un bot genérico responde preguntas. GenyX cierra ventas. Atiende a tu cliente, arma su pedido, genera el cobro y te avisa cuando el dinero ya está en tu cuenta. Sin complicaciones, sin intervención humana.'],
           ['¿Por qué GenyX y no contratar un vendedor?', 'Contratar un vendedor implica semanas de búsqueda, entrevistas, capacitación, nómina, IMSS, aguinaldo y reemplazos cuando se va. GenyX se activa en 48 horas, no se enferma, no renuncia, no cobra comisión y atiende a todos tus clientes al mismo tiempo — por un costo mensual fijo.'],
           ['¿Para quién es GenyX?', 'Para dueños de negocio que quieren vender más sin contratar más gente. Si tienes clientes que te escriben por WhatsApp, Instagram o tu página web y quieres que esos mensajes se conviertan en dinero — sin que tú tengas que estar al pendiente — GenyX es para ti.'],
-          ['¿Qué pasa si el sistema falla?', 'Cada actualización pasa cientos de pruebas de calidad antes de llegar a tu negocio. Monitoreamos el sistema 24/7 y respondemos ante cualquier incidencia en minutos.'],
-          ['¿GenyX cobra comisión por cada venta que cierra?', 'No. Jamas. Tu costo es fijo cada mes — sin importar si vendes $30,000 o $300,000. Lo que ganas es tuyo.'],
+          ['¿Qué pasa si el sistema falla?', 'Cada actualización pasa cientos de pruebas de calidad antes de llegar a tu negocio. Monitoreamos el sistema 24/7 y respondemos ante cualquier incidencia en minutos. Tu agente queda en pausa controlada hasta que la incidencia se resuelve.'],
+          ['¿GenyX cobra comisión por cada venta que cierra?', 'No. Jamás. Tu costo es fijo cada mes — sin importar si vendes $30,000 o $300,000. Lo que ganas es tuyo.'],
           ['¿Cuánto tarda en activarse?', 'Una sesión de 45 minutos para entender tu negocio. Nosotros configuramos todo. En menos de 48 horas tu agente está atendiendo clientes y cerrando ventas.'],
           ['¿Necesito conocimientos técnicos?', 'Ninguno. Tú nos das la información de tu negocio y nosotros hacemos todo lo demás. Solo tienes que revisar tu mando de control y contar tus ventas.'],
           ['¿Puedo ver una demo en vivo antes de decidir?', 'Sí. Te mostramos el sistema funcionando con datos de tu negocio en 15 minutos por WhatsApp. Sin compromiso. Si no es para ti, te lo decimos con honestidad.'],
@@ -4195,7 +4201,7 @@ function GenyXLandingPage() {
         <div style={C.ctaBox}>
           <h2 style={C.ctaH}>¿Listo para tomar mejores decisiones?</h2>
           <p style={C.ctaSub}>Cuéntanos de tu negocio. Sin compromiso. Si GenyX no es la solución correcta para ti, te lo decimos con honestidad.</p>
-          <a href="https://wa.me/523340026694?text=Hola%20quiero%20conocer%20informaci%C3%B3n%20sobre%20como%20la%20herramienta%20GenyX%20puede%20ayudarme%20a%20tomar%20decisiones%20m%C3%A1s%20informadas" style={{ ...C.ctaBtn, display:'inline-flex', alignItems:'center', gap:10, marginBottom:14 }}>Cuéntame de tu negocio y exploremos cómo GenyX puede ayudarte →</a>
+          <a href="https://wa.me/523340026694?text=Hola%20quiero%20conocer%20informaci%C3%B3n%20sobre%20c%C3%B3mo%20la%20herramienta%20GenyX%20puede%20ayudarme%20a%20tomar%20decisiones%20m%C3%A1s%20informadas" style={{ ...C.ctaBtn, display:'inline-flex', alignItems:'center', gap:10, marginBottom:14 }}>Cuéntame de tu negocio y exploremos cómo GenyX puede ayudarte →</a>
           <p style={{ color:'#64748b', fontSize:13 }}>o si prefieres: <a href="mailto:hola@genyxsystems.com" style={{ color:'#818cf8', textDecoration:'none' }}>hola@genyxsystems.com</a></p>
         </div>
       </div>
