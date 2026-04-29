@@ -3932,6 +3932,45 @@ function GenyXLandingPage() {
         </div>
       </section>
 
+      {/* ── Reporte del Lunes ── */}
+      <section style={{ padding: '0 24px 100px', maxWidth: 720, margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: 40 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>EL REPORTE DEL LUNES</div>
+          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>El email que recibes<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>cada lunes a las 8am</span></h2>
+          <p style={{ color: '#64748b', fontSize: 15, maxWidth: 520, margin: '0 auto' }}>Un reporte real, basado en lo que pasó en tus ventas — no en suposiciones.</p>
+        </div>
+        {/* Email mock-up */}
+        <div style={{ background: '#fff', borderRadius: 16, boxShadow: '0 8px 40px rgba(0,0,0,0.25)', overflow: 'hidden', maxWidth: 560, margin: '0 auto' }}>
+          {/* Email header */}
+          <div style={{ background: '#f8fafc', padding: '18px 24px', borderBottom: '1px solid #e2e8f0' }}>
+            <div style={{ fontSize: 12, color: '#64748b', marginBottom: 4 }}><strong style={{ color: '#334155' }}>De:</strong> Tu Agente de Inteligencia Financiera GenyX</div>
+            <div style={{ fontSize: 12, color: '#64748b', marginBottom: 4 }}><strong style={{ color: '#334155' }}>Para:</strong> Patricia &lt;patricia@panaderiapaty.com&gt;</div>
+            <div style={{ fontSize: 12, color: '#64748b' }}><strong style={{ color: '#334155' }}>Asunto:</strong> Tu reporte semanal — 21-27 abril</div>
+          </div>
+          {/* Email body */}
+          <div style={{ padding: '28px 24px', color: '#334155', fontSize: 14, lineHeight: 1.8 }}>
+            <p style={{ marginBottom: 16 }}>Hola Patricia,</p>
+            <p style={{ marginBottom: 20 }}>Esta semana procesaste <strong>47 pedidos</strong>. <strong>$34,800 MXN</strong> en ventas. Margen promedio: <strong>49%</strong>.</p>
+            <div style={{ background: '#f8fafc', borderRadius: 12, padding: '16px 20px', marginBottom: 20, display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <div>📦 <strong>Producto estrella:</strong> Hogaza (vendida 23 veces, 64% de margen)</div>
+              <div>⏰ <strong>Hora pico:</strong> Sábado de 7-9am</div>
+              <div>👥 <strong>Cliente top:</strong> Sra. González — 4 pedidos esta semana</div>
+              <div>💤 <strong>Inactivos:</strong> 12 clientes no han pedido en 60+ días</div>
+            </div>
+            <p style={{ fontWeight: 700, marginBottom: 10, color: '#1e293b' }}>Sugerencias basadas en tus datos:</p>
+            <div style={{ paddingLeft: 8, display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 20 }}>
+              <div style={{ color: '#475569' }}>→ Considera aumentar producción de Hogaza un 20% para sábados</div>
+              <div style={{ color: '#475569' }}>→ Los 12 clientes inactivos ya recibieron mensaje de reactivación</div>
+              <div style={{ color: '#475569' }}>→ Tu margen subió 3% vs semana pasada</div>
+            </div>
+            <p style={{ color: '#64748b' }}>Que tengas una semana increíble.</p>
+          </div>
+        </div>
+        <div style={{ textAlign: 'center', marginTop: 28 }}>
+          <p style={{ color: '#94a3b8', fontSize: 14, fontStyle: 'italic', lineHeight: 1.7 }}>Esto es lo que GenyX te entrega cada semana — para que tomes decisiones con datos, no con corazonadas.</p>
+        </div>
+      </section>
+
       {/* ── GenyX vs Empleado ── */}
       <section style={{ padding: '0 24px 100px', maxWidth: 800, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
@@ -4094,7 +4133,7 @@ function GenyXLandingPage() {
             ))}
           </div>
           <p style={{ fontSize:13, color:'#64748b', marginBottom:24 }}>Cero comisión por venta. Sin contratos de permanencia.</p>
-          <a href="#contacto" style={{ display:'inline-block', background:'linear-gradient(135deg,#6366f1,#8b5cf6)', color:'#fff', padding:'14px 36px', borderRadius:12, fontSize:14, fontWeight:700, textDecoration:'none', boxShadow:'0 0 28px rgba(99,102,241,0.3)' }}>Conoce qué plan es para ti →</a>
+          <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={{ display:'inline-block', background:'linear-gradient(135deg,#6366f1,#8b5cf6)', color:'#fff', padding:'14px 36px', borderRadius:12, fontSize:14, fontWeight:700, textDecoration:'none', boxShadow:'0 0 28px rgba(99,102,241,0.3)' }}>Conoce qué plan es para ti →</a>
         </div>
       </section>
 
@@ -4121,12 +4160,14 @@ function GenyXLandingPage() {
           <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9' }}>Todo lo que necesitas saber</h2>
         </div>
         {[
-          ['¿Por qué GenyX y no un bot genérico?', 'Un bot genérico responde preguntas. GenyX cierra ventas. Atiende a tu cliente, arma su pedido, genera el cobro y te avisa cuando el dinero ya está en tu cuenta. Sin complicaciones, sin intervención humana.'],
-          ['¿Por qué GenyX y no contratar un vendedor?', 'Contratar un vendedor implica semanas de búsqueda, entrevistas, capacitación, nómina, IMSS, aguinaldo y reemplazos cuando se va. GenyX se activa en 48 horas, no se enferma, no renuncia, no cobra comisión y atiende a todos tus clientes al mismo tiempo — por un costo mensual fijo.'],
-          ['¿Para quién es GenyX?', 'Para dueños de negocio que quieren vender más sin contratar más gente. Si tienes clientes que te escriben por WhatsApp, Instagram o tu página web y quieres que esos mensajes se conviertan en dinero — sin que tú tengas que estar al pendiente — GenyX es para ti.'],
-          ['¿Qué pasa si el sistema falla?', 'Cada actualización pasa cientos de pruebas de calidad antes de llegar a tu negocio. Monitoreamos el sistema 24/7 y respondemos ante cualquier incidencia en minutos. Tu agente queda en pausa controlada hasta que la incidencia se resuelve.'],
+          ['¿Cuánto cuesta GenyX?', 'Tres planes según el tamaño de tu negocio: Starter $3,500 MXN/mes (5 agentes, 0-10 empleados), Growth $7,500 MXN/mes (7 agentes, 11-50 empleados), Autonomy $12,500 MXN/mes (8 agentes, 51+). Cada plan incluye una instalación inicial de un solo pago al firmar.'],
+          ['¿Cómo cobran y facturan?', 'Cobramos vía transferencia bancaria al inicio del mes. Te enviamos factura electrónica a tu RFC al confirmar el pago. La instalación se cobra una sola vez al firmar el contrato.'],
           ['¿GenyX cobra comisión por cada venta que cierra?', 'No. Jamás. Tu costo es fijo cada mes — sin importar si vendes $30,000 o $300,000. Lo que ganas es tuyo.'],
           ['¿Cuánto tarda en activarse?', 'Una sesión de 45 minutos para entender tu negocio. Nosotros configuramos todo. En menos de 48 horas tu agente está atendiendo clientes y cerrando ventas.'],
+          ['¿Qué pasa si el sistema falla?', 'Cada actualización pasa cientos de pruebas de calidad antes de llegar a tu negocio. Monitoreamos el sistema 24/7 y respondemos ante cualquier incidencia en minutos. Tu agente queda en pausa controlada hasta que la incidencia se resuelve.'],
+          ['¿Para quién es GenyX?', 'Para dueños de negocio que quieren vender más sin contratar más gente. Si tienes clientes que te escriben por WhatsApp, Instagram o tu página web y quieres que esos mensajes se conviertan en dinero — sin que tú tengas que estar al pendiente — GenyX es para ti.'],
+          ['¿Por qué GenyX y no un bot genérico?', 'Un bot genérico responde preguntas. GenyX cierra ventas. Atiende a tu cliente, arma su pedido, genera el cobro y te avisa cuando el dinero ya está en tu cuenta. Sin complicaciones, sin intervención humana.'],
+          ['¿Por qué GenyX y no contratar un vendedor?', 'Contratar un vendedor implica semanas de búsqueda, entrevistas, capacitación, nómina, IMSS, aguinaldo y reemplazos cuando se va. GenyX se activa en 48 horas, no se enferma, no renuncia, no cobra comisión y atiende a todos tus clientes al mismo tiempo — por un costo mensual fijo.'],
           ['¿Necesito conocimientos técnicos?', 'Ninguno. Tú nos das la información de tu negocio y nosotros hacemos todo lo demás. Solo tienes que revisar tu mando de control y contar tus ventas.'],
           ['¿Puedo ver una demo en vivo antes de decidir?', 'Sí. Te mostramos el sistema funcionando con datos de tu negocio en 15 minutos por WhatsApp. Sin compromiso. Si no es para ti, te lo decimos con honestidad.'],
         ].map(([q, a], i) => {
