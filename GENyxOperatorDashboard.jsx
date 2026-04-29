@@ -3827,7 +3827,7 @@ function GenyXLandingPage() {
           &#x2713; Activo en 48h · Respuesta en segundos · Cero comisión por venta
         </div>
         <h1 style={C.h1}>¿Cuántas decisiones en tu negocio<br /><span style={C.h1accent}>tomas sin datos?</span></h1>
-        <p style={C.sub}>GenyX es una herramienta de 8 agentes de inteligencia artificial que opera tu departamento de ventas mientras tú duermes. Atraen clientes, cierran ventas dentro del chat, recuperan pedidos abandonados, coordinan entregas, y cada lunes a las 8am nuestro agente de inteligencia financiera te envía un reporte basado en lo que realmente pasó en tus ventas para que tomes mejores decisiones.</p>
+        <p style={C.sub}>GenyX funciona como tu departamento de ventas digital. 8 agentes de inteligencia artificial que atraen clientes, cierran ventas dentro del chat, recuperan pedidos abandonados, coordinan entregas, y cada lunes a las 8am te envían un reporte basado en lo que realmente pasó en tus ventas para que tomes mejores decisiones.</p>
         <div style={C.btns}>
           <a href="https://wa.me/523340026694?text=Hola%20quiero%20conocer%20informaci%C3%B3n%20sobre%20c%C3%B3mo%20la%20herramienta%20GenyX%20puede%20ayudarme%20a%20tomar%20decisiones%20m%C3%A1s%20informadas" style={C.primary}>Cuéntame de tu negocio →</a>
           <a href="/simulador" style={C.secondary}>Probar simulador</a>
@@ -4089,8 +4089,8 @@ function GenyXLandingPage() {
       {/* ── Ventajas Competitivas ── */}
       <section style={{ padding:'0 24px 100px', maxWidth:1000, margin:'0 auto' }}>
         <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12, textAlign:'center' }}>POR QUÉ GenyX</div>
-        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:12, textAlign:'center' }}>No somos un bot genérico.<br /><span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Somos tu departamento de ventas.</span></h2>
-        <p style={{ color:'#64748b', marginBottom:48, textAlign:'center', fontSize:15, maxWidth:600, margin:'0 auto 48px' }}>El mercado tiene bots que responden preguntas. GenyX opera tu departamento de ventas completo — con tu catálogo, tus reglas y resultados que puedes medir.</p>
+        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:12, textAlign:'center' }}>No somos un bot genérico.<br /><span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Funcionamos como tu departamento de ventas digital.</span></h2>
+        <p style={{ color:'#64748b', marginBottom:48, textAlign:'center', fontSize:15, maxWidth:600, margin:'0 auto 48px' }}>El mercado tiene bots que responden preguntas. GenyX funciona como tu departamento de ventas digital — con tu catálogo, tus reglas y resultados que puedes medir.</p>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:16 }}>
           {[
             ['🔒', 'Nunca cobra de más, nunca inventa precios', 'Tu agente respeta tu catálogo al 100%. Si no lo vendes, no lo ofrece. Si cuesta $120, cobra $120. Cero errores, cero sorpresas para tu cliente.'],
