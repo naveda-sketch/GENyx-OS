@@ -3845,33 +3845,17 @@ function GenyXLandingPage() {
         </div>
       </section>
 
-      {/* ── Social Proof Bar ── */}
-      <div style={{ padding: '0 24px 60px', maxWidth: 800, margin: '0 auto' }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 32, flexWrap: 'wrap', padding: '20px 0', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-          {[['🏪', 'Negocios con 2-3 sucursales'], ['🍽️', 'Restaurantes y cafeterías'], ['🏥', 'Clínicas y consultorios'], ['💇', 'Estéticas y spas'], ['🏠', 'Inmobiliarias']].map(([icon, label]) => (
-            <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 6, opacity: 0.6, transition: 'opacity 0.2s' }}
-              onMouseOver={e => e.currentTarget.style.opacity = '1'}
-              onMouseOut={e => e.currentTarget.style.opacity = '0.6'}>
-              <span style={{ fontSize: 16 }}>{icon}</span>
-              <span style={{ fontSize: 11, color: '#94a3b8', fontWeight: 600 }}>{label}</span>
-            </div>
-          ))}
+      {/* ── El Problema (PAS: Pain first) ── */}
+      <section style={{ padding: '0 24px 100px', maxWidth: 720, margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: 40 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#ef4444', letterSpacing: '.1em', marginBottom: 12 }}>EL PROBLEMA</div>
+          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>Estás volando a ciegas.<br /><span style={{ background: 'linear-gradient(135deg,#ef4444,#f97316)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Y volar a ciegas es caro.</span></h2>
         </div>
-      </div>
-
-      <section id="soluciones" style={C.section()}>
-        <div style={C.sHead}>
-          <h2 style={C.sH2}>¿Qué resuelve GenyX?</h2>
-          <p style={C.sP}>Todo lo que necesitas para vender 24/7 sin contratar a nadie.</p>
-        </div>
-        <div style={C.grid6}>
-          {features.map(([ico, t, d], fi) => (
-            <div key={fi} style={C.card} onMouseOver={e => hoverCard(e, true)} onMouseOut={e => hoverCard(e, false)}>
-              <div style={C.cardIcon}>{ico}</div>
-              <h3 style={C.cardH}>{t}</h3>
-              <p style={C.cardP}>{d}</p>
-            </div>
-          ))}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>El <strong style={{ color: '#f1f5f9' }}>78% de tus clientes compra con el primero que responde.</strong> Si no estás respondiendo en segundos, se van con tu competencia.</p>
+          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>El <strong style={{ color: '#f1f5f9' }}>55% de las ventas se pierden al momento de cobrar</strong> — le mandas un número de cuenta, el cliente sale de la app, y en el camino se arrepiente.</p>
+          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>Y si vendes por plataformas de delivery, estás pagando <strong style={{ color: '#f1f5f9' }}>entre 25% y 30% de comisión por cada pedido.</strong> Con 10 pedidos al día, son más de <strong style={{ color: '#f1f5f9' }}>$20,000 al mes</strong> que se van en comisiones.</p>
+          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>Mientras tanto, <strong style={{ color: '#f1f5f9' }}>solo 3 de cada 10 negocios en México usan internet para vender.</strong> Los que ya lo hacen bien reportan hasta <strong style={{ color: '#f1f5f9' }}>57% más ingresos.</strong></p>
         </div>
       </section>
 
@@ -3917,20 +3901,6 @@ function GenyXLandingPage() {
 
       {/* ── WhatsApp Simulator ── */}
       <WhatsAppSimulator />
-
-      {/* ── El Problema (datos duros como párrafos) ── */}
-      <section style={{ padding: '0 24px 100px', maxWidth: 720, margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: 40 }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#ef4444', letterSpacing: '.1em', marginBottom: 12 }}>EL PROBLEMA</div>
-          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>Estás volando a ciegas.<br /><span style={{ background: 'linear-gradient(135deg,#ef4444,#f97316)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Y volar a ciegas es caro.</span></h2>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>El <strong style={{ color: '#f1f5f9' }}>78% de tus clientes compra con el primero que responde.</strong> Si no estás respondiendo en segundos, se van con tu competencia.</p>
-          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>El <strong style={{ color: '#f1f5f9' }}>55% de las ventas se pierden al momento de cobrar</strong> — le mandas un número de cuenta, el cliente sale de la app, y en el camino se arrepiente.</p>
-          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>Y si vendes por plataformas de delivery, estás pagando <strong style={{ color: '#f1f5f9' }}>entre 25% y 30% de comisión por cada pedido.</strong> Con 10 pedidos al día, son más de <strong style={{ color: '#f1f5f9' }}>$20,000 al mes</strong> que se van en comisiones.</p>
-          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>Mientras tanto, <strong style={{ color: '#f1f5f9' }}>solo 3 de cada 10 negocios en México usan internet para vender.</strong> Los que ya lo hacen bien reportan hasta <strong style={{ color: '#f1f5f9' }}>57% más ingresos.</strong></p>
-        </div>
-      </section>
 
       {/* ── Aprendizaje Continuo ── */}
       <section style={{ padding: '0 24px 100px', maxWidth: 800, margin: '0 auto' }}>
@@ -4089,7 +4059,6 @@ function GenyXLandingPage() {
             ['💪', 'Tu negocio no depende de una persona', 'Un vendedor se enferma, renuncia, pide aumento o tiene un mal día. GenyX no. Atiende a todos tus clientes al mismo tiempo, los 365 días del año, desde el primer mensaje hasta el cobro.'],
             ['🎯', 'Hecho a la medida de tu negocio', 'Tu catálogo. Tus precios. Tu personalidad de marca. Tu zona de entrega. Todo configurado para ti. Funciona como si lo hubiera entrenado tu mejor vendedor.'],
             ['⚡', 'De cero a vendiendo en 48 horas', 'Una sesión de 45 minutos para entender tu negocio. Nosotros hacemos todo. En 2 días tu agente ya está cerrando ventas mientras tú haces lo que mejor sabes hacer.'],
-            ['🏆', 'Sin contratos — te quedas porque funciona', 'No hay letra chiquita ni contratos de permanencia. Te quedas porque ves resultados reales en tu cuenta bancaria, no porque firmaste un papel.'],
           ].map(([ico, t, d]) => (
             <div key={t} style={{ background:'rgba(255,255,255,0.03)', border:'1px solid rgba(99,102,241,0.15)', borderRadius:16, padding:'24px 22px', transition:'all 0.25s' }}
               onMouseOver={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.45)'; e.currentTarget.style.background='rgba(99,102,241,0.06)'; }}
@@ -4099,25 +4068,6 @@ function GenyXLandingPage() {
               <div style={{ fontSize:13, color:'#64748b', lineHeight:1.75 }}>{d}</div>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* ── Comparación: ¿Por qué GenyX y no otro? ── */}
-      <section style={{ padding:'0 24px 100px', maxWidth:800, margin:'0 auto', textAlign:'center' }}>
-        <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12 }}>LA DIFERENCIA</div>
-        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:32 }}>¿Por qué GenyX y no otro?</h2>
-        <div style={{ textAlign:'left', background:'rgba(255,255,255,0.03)', border:'1px solid rgba(99,102,241,0.15)', borderRadius:20, padding:'36px 32px', marginBottom:32 }}>
-          <p style={{ color:'#94a3b8', fontSize:15, lineHeight:2, marginBottom:16 }}>Un bot de opciones dice <em>"escribe 1 para ventas"</em>.<br />Tu cliente escribe <em>"quiero una pizza"</em> y el bot no entiende.</p>
-          <p style={{ color:'#94a3b8', fontSize:15, lineHeight:2, marginBottom:16 }}>Un CRM organiza a tus vendedores.<br />Pero necesitas vendedores.</p>
-          <p style={{ color:'#f1f5f9', fontSize:18, fontWeight:800, lineHeight:2, marginBottom:24 }}>GenyX <span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>ES</span> el vendedor.<br />Atiende, recomienda, cobra y confirma.<br />En segundos. A las 3am. Sin sueldo.</p>
-          <div style={{ display:'flex', flexDirection:'column', gap:10 }}>
-            {['100% de tus mensajes atendidos en menos de 5 segundos','Cada actualización pasa cientos de pruebas de calidad antes de llegar a tu negocio','Cero comisión por venta — tus márgenes son tuyos','Tu agente nunca inventa precios ni cobra de más'].map(item => (
-              <div key={item} style={{ display:'flex', alignItems:'center', gap:10 }}>
-                <span style={{ color:'#4ade80', fontWeight:800, fontSize:16 }}>✓</span>
-                <span style={{ color:'#94a3b8', fontSize:14 }}>{item}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
