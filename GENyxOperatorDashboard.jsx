@@ -3827,7 +3827,7 @@ function GenyXLandingPage() {
           &#x2713; Activo en 48h · Respuesta en segundos · Cero comisión por venta
         </div>
         <h1 style={C.h1}>¿Cuántas decisiones en tu negocio<br /><span style={C.h1accent}>tomas sin datos?</span></h1>
-        <p style={C.sub}>GenyX funciona como tu departamento de ventas digital. 8 agentes de inteligencia artificial que atraen clientes, cierran ventas dentro del chat, recuperan pedidos abandonados, coordinan entregas, y cada lunes a las 8am te envían un reporte basado en lo que realmente pasó en tus ventas para que tomes mejores decisiones.</p>
+        <p style={C.sub}>GenyX funciona como tu departamento de ventas digital. 8 agentes de inteligencia artificial que operan 24/7 bajo nuestra supervisión, configurados con el ADN de tu marca. Atraen clientes, cierran ventas dentro del chat, recuperan pedidos abandonados, coordinan entregas, y cada lunes a las 8am te envían un reporte basado en lo que realmente pasó en tus ventas para que tomes mejores decisiones.</p>
         <div style={C.btns}>
           <a href="https://wa.me/523340026694?text=Hola%20quiero%20conocer%20informaci%C3%B3n%20sobre%20c%C3%B3mo%20la%20herramienta%20GenyX%20puede%20ayudarme%20a%20tomar%20decisiones%20m%C3%A1s%20informadas" style={C.primary}>Cuéntame de tu negocio →</a>
           <a href="/simulador" style={C.secondary}>Probar simulador</a>
