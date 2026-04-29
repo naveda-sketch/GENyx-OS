@@ -3935,39 +3935,37 @@ function GenyXLandingPage() {
       <section style={{ padding: '0 24px 100px', maxWidth: 720, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>EL REPORTE DEL LUNES</div>
-          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>El email que recibes<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>cada lunes a las 8am</span></h2>
-          <p style={{ color: '#64748b', fontSize: 15, maxWidth: 520, margin: '0 auto' }}>Un reporte real, basado en lo que pasó en tus ventas — no en suposiciones.</p>
+          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>Cada lunes a las 8am,<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>tu reporte</span></h2>
+          <p style={{ color: '#64748b', fontSize: 15, maxWidth: 520, margin: '0 auto' }}>Esto es exactamente lo que vas a recibir — con TUS números reales.</p>
         </div>
         {/* Email mock-up */}
         <div style={{ background: '#fff', borderRadius: 16, boxShadow: '0 8px 40px rgba(0,0,0,0.25)', overflow: 'hidden', maxWidth: 560, margin: '0 auto' }}>
           {/* Email header */}
           <div style={{ background: '#f8fafc', padding: '18px 24px', borderBottom: '1px solid #e2e8f0' }}>
             <div style={{ fontSize: 12, color: '#64748b', marginBottom: 4 }}><strong style={{ color: '#334155' }}>De:</strong> Tu Agente de Inteligencia Financiera GenyX</div>
-            <div style={{ fontSize: 12, color: '#64748b', marginBottom: 4 }}><strong style={{ color: '#334155' }}>Para:</strong> Patricia &lt;patricia@panaderiapaty.com&gt;</div>
-            <div style={{ fontSize: 12, color: '#64748b' }}><strong style={{ color: '#334155' }}>Asunto:</strong> Tu reporte semanal — 21-27 abril</div>
+            <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 4 }}><strong style={{ color: '#334155' }}>Para:</strong> <span style={{ color: '#94a3b8' }}>[Tu negocio]</span></div>
+            <div style={{ fontSize: 12, color: '#94a3b8' }}><strong style={{ color: '#334155' }}>Asunto:</strong> Tu reporte semanal — <span style={{ color: '#94a3b8' }}>[Fecha]</span></div>
           </div>
           {/* Email body */}
           <div style={{ padding: '28px 24px', color: '#334155', fontSize: 14, lineHeight: 1.8 }}>
-            <p style={{ marginBottom: 16 }}>Hola Patricia,</p>
-            <p style={{ marginBottom: 20 }}>Esta semana procesaste <strong>47 pedidos</strong>. <strong>$34,800 MXN</strong> en ventas. Margen promedio: <strong>49%</strong>.</p>
-            <div style={{ background: '#f8fafc', borderRadius: 12, padding: '16px 20px', marginBottom: 20, display: 'flex', flexDirection: 'column', gap: 8 }}>
-              <div>📦 <strong>Producto estrella:</strong> Hogaza (vendida 23 veces, 64% de margen)</div>
-              <div>⏰ <strong>Hora pico:</strong> Sábado de 7-9am</div>
-              <div>👥 <strong>Cliente top:</strong> Sra. González — 4 pedidos esta semana</div>
-              <div>💤 <strong>Inactivos:</strong> 12 clientes no han pedido en 60+ días</div>
+            <p style={{ marginBottom: 16 }}>Hola <span style={{ color: '#94a3b8' }}>[Tu nombre]</span>,</p>
+            <p style={{ marginBottom: 20 }}>Esta semana procesaste <strong style={{ color: '#94a3b8' }}>[X pedidos/citas/leads]</strong>. <strong style={{ color: '#94a3b8' }}>[$X MXN]</strong> en ventas. Margen promedio: <strong style={{ color: '#94a3b8' }}>[X%]</strong>.</p>
+            <div style={{ background: '#f8fafc', borderRadius: 12, padding: '16px 20px', marginBottom: 20, display: 'flex', flexDirection: 'column', gap: 10 }}>
+              <div>📊 <strong>Tu producto o servicio estrella</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ cuánto vendió y a qué margen</span></div>
+              <div>⏰ <strong>Tu hora pico real</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ qué día de la semana concentra más demanda</span></div>
+              <div>👥 <strong>Tu cliente más recurrente</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ cuántas veces te compró</span></div>
+              <div>💤 <strong>Tus clientes inactivos</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ cuántos llevan 60+ días sin volver</span></div>
             </div>
             <p style={{ fontWeight: 700, marginBottom: 10, color: '#1e293b' }}>Sugerencias basadas en tus datos:</p>
-            <div style={{ paddingLeft: 8, display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 20 }}>
-              <div style={{ color: '#475569' }}>→ Considera aumentar producción de Hogaza un 20% para sábados</div>
-              <div style={{ color: '#475569' }}>→ Los 12 clientes inactivos ya recibieron mensaje de reactivación</div>
-              <div style={{ color: '#475569' }}>→ Tu margen subió 3% vs semana pasada</div>
+            <div style={{ paddingLeft: 8, display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 20 }}>
+              <div style={{ color: '#475569' }}>→ Recomendaciones de producción o agenda según los patrones que detectamos</div>
+              <div style={{ color: '#475569' }}>→ Las acciones automáticas que ya tomamos con tus clientes inactivos esta semana</div>
+              <div style={{ color: '#475569' }}>→ Cómo evolucionaron tus métricas vs la semana pasada</div>
             </div>
             <p style={{ color: '#64748b' }}>Que tengas una semana increíble.</p>
           </div>
         </div>
-        <div style={{ textAlign: 'center', marginTop: 28 }}>
-          <p style={{ color: '#94a3b8', fontSize: 14, fontStyle: 'italic', lineHeight: 1.7 }}>Esto es lo que GenyX te entrega cada semana — para que tomes decisiones con datos, no con corazonadas.</p>
-        </div>
+        <p style={{ color: '#94a3b8', fontSize: 15, fontStyle: 'italic', textAlign: 'center', lineHeight: 1.7, maxWidth: 560, margin: '28px auto 0' }}>Cuando seas cliente, este email tendrá tus números reales — los que estás dejando sobre la mesa hoy por no tenerlos.</p>
       </section>
 
       {/* ── GenyX vs Empleado ── */}
