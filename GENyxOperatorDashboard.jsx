@@ -3676,11 +3676,6 @@ function DashboardPreview() {
       </div>
       <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(99,102,241,0.3)', boxShadow: '0 32px 80px rgba(99,102,241,0.15), 0 0 0 1px rgba(99,102,241,0.1)' }}>
         <img src="/dashboard-preview.png" alt="Centro de Mando GenyX — Panel de control en tiempo real" style={{ width: '100%', display: 'block' }} loading="lazy" />
-        {/* Logo overlay — covers old logo baked into the PNG */}
-        <div style={{ position: 'absolute', top: '4.5%', left: '3.5%', background: '#0c0f1a', padding: '4px 10px', borderRadius: 6, display: 'flex', alignItems: 'center', gap: 6, zIndex: 2 }}>
-          <img src="/genyx-logo.png" alt="GenyX" style={{ width: 22, height: 22, borderRadius: 3 }} />
-          <span style={{ color: '#f1f5f9', fontSize: 13, fontWeight: 700, letterSpacing: '-0.3px' }}>Geny<span style={{ color: '#818cf8' }}>X</span></span>
-        </div>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 60%, rgba(5,5,8,0.9) 100%)' }} />
         <div style={{ position: 'absolute', bottom: 20, left: 0, right: 0, textAlign: 'center' }}>
           <span style={{ background: 'rgba(99,102,241,0.2)', border: '1px solid rgba(99,102,241,0.4)', color: '#a5b4fc', padding: '8px 20px', borderRadius: 20, fontSize: 12, fontWeight: 700 }}>📊 Panel en vivo desde el día 1</span>
