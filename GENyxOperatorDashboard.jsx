@@ -33,10 +33,11 @@ const TABS = [
   { id: 'reporte',      label: '📧 Reporte Lunes' },
   { id: 'data',         label: '📈 DATA' },
   { id: 'expedientes',  label: '🗄️ Expedientes' },
-  { id: 'manuales',     label: '📚 Manuales' },
   { id: 'onboarding',   label: '🚀 Onboarding' },
-  { id: 'farmacopeia',  label: '💊 Farmacopeia' },
 ];
+// TABS ocultos (datos se conservan, acceso futuro):
+// { id: 'manuales',     label: '📚 Manuales' },
+// { id: 'farmacopeia',  label: '💊 Farmacopeia' },
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // TAB: FARMACOPEIA — Base de conocimiento de bugs y soluciones
@@ -263,13 +264,14 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
       }).catch(() => {});
   }, []);
 
+  const CLIENT_ORDER = {'genyx-hub':0,'panaderia-paty':1,'kovay-resort':2,'carnivor':3};
   const clientKPIs = useMemo(() => {
     return tenants.map(t => {
       const org = orgSettings[t.slug] || {};
       const totalRevenue  = parseFloat(org.total_revenue)    || 0;
       const subscription  = parseFloat(org.plan_monthly_fee) || 3500;
       return { ...t, ...org, revenueMonth: totalRevenue, subscription };
-    });
+    }).sort((a, b) => (CLIENT_ORDER[a.slug] ?? 99) - (CLIENT_ORDER[b.slug] ?? 99));
   }, [tenants, orgSettings]);
 
   const handleSaveSettings = async (slug) => {
