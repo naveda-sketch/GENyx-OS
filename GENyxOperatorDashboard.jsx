@@ -358,7 +358,7 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
               {/* Card Header */}
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
                 <div>
-                  <p style={{ ...MONO, color: '#64748b', marginBottom: 4 }}>CLIENTE {String(i + 1).padStart(3, '0')}</p>
+                  <p style={{ ...MONO, color: '#64748b', marginBottom: 4 }}>CLIENTE {({'genyx-hub':'000','panaderia-paty':'001','kovay-resort':'002','carnivor-catering':'003'})[t.slug] || String(i + 1).padStart(3, '0')}</p>
                   <h3 style={{ fontWeight: 700, fontSize: 16, color: '#f1f5f9' }}>{t.name || t.slug}</h3>
                   <p style={{ fontSize: 12, color: '#64748b', marginTop: 2 }}>{t.industry || 'Artesanal'}</p>
                 </div>
@@ -392,9 +392,15 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
                 ) : (
                   <span title="Sin URL configurada" style={{ ...BTN_SM_GHOST, opacity: 0.35, cursor: 'not-allowed' }}>🌐 Web</span>
                 )}
-                <button onClick={() => window.open(`https://mando.genyxsystems.com/${t.slug}`, '_blank', 'noopener,noreferrer')} style={BTN_SM_BLUE}>
-                  Dashboard →
-                </button>
+                {t.slug === 'panaderia-paty' ? (
+                  <button onClick={() => window.open(`https://mando.genyxsystems.com/${t.slug}`, '_blank', 'noopener,noreferrer')} style={BTN_SM_BLUE}>
+                    Dashboard →
+                  </button>
+                ) : (
+                  <span title="Mando no disponible aún" style={{ ...BTN_SM_BLUE, opacity: 0.35, cursor: 'not-allowed', background: 'rgba(99,102,241,0.15)' }}>
+                    Dashboard →
+                  </span>
+                )}
                 <button onClick={() => setEditingModulesFor(t)} style={BTN_SM_GHOST}>⚙️ Módulos</button>
               </div>
             </div>
@@ -1540,7 +1546,7 @@ const TabExpedientes = ({ tenants }) => {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
                   <div>
                     <p style={{ ...MONO, fontSize: 9, color: isGenyX ? '#6366f1' : '#64748b', marginBottom: 3 }}>
-                      {isGenyX ? 'CLIENTE 000' : `CLIENTE ${String(i).padStart(3, '0')}`}
+                      {isGenyX ? 'CLIENTE 000' : `CLIENTE ${({'panaderia-paty':'001','kovay-resort':'002','carnivor-catering':'003'})[id] || String(i).padStart(3, '0')}`}
                     </p>
                     <p style={{ fontWeight: 700, fontSize: 13, color: isGenyX ? '#a5b4fc' : '#f1f5f9' }}>{c.name || c.slug}</p>
                   </div>
