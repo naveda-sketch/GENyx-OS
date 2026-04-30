@@ -2719,6 +2719,111 @@ function useTenantConfig(slug) {
   return { config, cfgLoading, cfgError };
 }
 
+// ── Lazy Migration: recetas localStorage → backend (Fase 3 T3) ──────────────
+async function migrateRecipesIfNeeded(slug, token) {
+  // 1. Leer del backend
+  const backendResp = await fetch(`${BACKEND}/api/client/${slug}/recipes`, {
+    headers: { 'X-Dashboard-Token': token }
+  });
+  if (!backendResp.ok) throw new Error('Backend unreachable');
+  const { recipes: backendRecipes } = await backendResp.json();
+
+  // 2. Leer de localStorage
+  const localKey = `${slug}_cost`;
+  const localData = JSON.parse(localStorage.getItem(localKey) || '{"recs":[]}');
+  const localRecs = localData.recs || [];
+  if (localRecs.length === 0) return { allMigrated: true, count: 0 };
+
+  // 3. Identificar faltantes
+  const backendNames = new Set(backendRecipes.map(r => r.recipe_name));
+  const toMigrate = localRecs.filter(r => !backendNames.has(r.name));
+  if (toMigrate.length === 0) return { allMigrated: true, count: 0 };
+
+  // 4. Subir con doble validación
+  const uploaded = [], failed = [];
+  for (const recipe of toMigrate) {
+    try {
+      const resp = await fetch(`${BACKEND}/api/client/${slug}/recipes`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Dashboard-Token': token },
+        body: JSON.stringify({ recipe_name: recipe.name, recipe_data: recipe })
+      });
+      if (!resp.ok) throw new Error(`Upload failed: ${resp.status}`);
+      const saved = await resp.json();
+      if (!saved.id) throw new Error('No ID returned');
+      // Doble validación: re-leer y verificar
+      const verifyResp = await fetch(`${BACKEND}/api/client/${slug}/recipes`, {
+        headers: { 'X-Dashboard-Token': token }
+      });
+      const { recipes: verifyList } = await verifyResp.json();
+      const stored = verifyList.find(r => r.id === saved.id);
+      if (!stored) throw new Error('Recipe not found after upload');
+      uploaded.push(saved);
+    } catch (e) {
+      console.error(`[MIGRATION] Failed for ${recipe.name}:`, e);
+      failed.push({ name: recipe.name, error: e.message });
+    }
+  }
+
+  // 5. NO eliminar localStorage (Regla Inviolable #1). Marcar timestamp.
+  localStorage.setItem(`${localKey}_migrated_at`, new Date().toISOString());
+  return {
+    allMigrated: failed.length === 0,
+    partialFailure: failed.length > 0 && uploaded.length > 0,
+    totalFailure: uploaded.length === 0 && toMigrate.length > 0,
+    uploaded: uploaded.length, failed: failed.length, failures: failed
+  };
+}
+
+// ── Lazy Migration: expediente localStorage → backend (Fase 3 T4) ────────────
+async function migrateExpedienteIfNeeded(slug, token) {
+  // 1. Leer del backend
+  const backendResp = await fetch(`${BACKEND}/api/client/${slug}/expediente`, {
+    headers: { 'X-Dashboard-Token': token }
+  });
+  if (!backendResp.ok) throw new Error('Backend unreachable');
+  const { sections: backendSections } = await backendResp.json();
+
+  // 2. Leer de localStorage
+  const expKey = `${slug}_exp`;
+  const localExp = JSON.parse(localStorage.getItem(expKey) || '{}');
+  const localKeys = Object.keys(localExp);
+  if (localKeys.length === 0) return { allMigrated: true, count: 0 };
+
+  // 3. Identificar faltantes (fields not yet in backend)
+  const backendFields = new Set();
+  Object.entries(backendSections || {}).forEach(([sec, fields]) => {
+    Object.keys(fields).forEach(f => backendFields.add(`${sec}:${f}`));
+  });
+  const toMigrate = localKeys.filter(k => !backendFields.has(`docs:${k}`));
+  if (toMigrate.length === 0) return { allMigrated: true, count: 0 };
+
+  // 4. Subir cada campo
+  const uploaded = [], failed = [];
+  for (const fieldId of toMigrate) {
+    try {
+      const resp = await fetch(`${BACKEND}/api/client/${slug}/expediente/docs/${fieldId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', 'X-Dashboard-Token': token },
+        body: JSON.stringify({ completed: !!localExp[fieldId] })
+      });
+      if (!resp.ok) throw new Error(`Upload failed: ${resp.status}`);
+      uploaded.push(fieldId);
+    } catch (e) {
+      console.error(`[MIGRATION] Expediente failed for ${fieldId}:`, e);
+      failed.push({ field: fieldId, error: e.message });
+    }
+  }
+
+  // 5. NO eliminar localStorage
+  localStorage.setItem(`${expKey}_migrated_at`, new Date().toISOString());
+  return {
+    allMigrated: failed.length === 0,
+    partialFailure: failed.length > 0 && uploaded.length > 0,
+    uploaded: uploaded.length, failed: failed.length
+  };
+}
+
 function MandoClientView({ slug }) {
   // ── Tenant Config (Fase 3: multi-tenant dinámico)
   const { config, cfgLoading, cfgError } = useTenantConfig(slug);
@@ -2804,6 +2909,45 @@ function MandoClientView({ slug }) {
     try { const r = await fetch(`${BACKEND}/api/dashboard/${slug}/orders`, { headers: { 'X-Dashboard-Token': token } }); if (r.ok) setOrders(await r.json()); } catch {}
   }, [token, slug]);
   useEffect(() => { fetchOrders(); const t = setInterval(fetchOrders, 30000); return () => clearInterval(t); }, [fetchOrders]);
+
+  // ── Fase 3 T3: Lazy migration recetas (runs once per session after login)
+  useEffect(() => {
+    if (!token) return;
+    const flagKey = `recipes_migrated_${slug}`;
+    if (sessionStorage.getItem(flagKey)) return;
+    migrateRecipesIfNeeded(slug, token)
+      .then(result => {
+        sessionStorage.setItem(flagKey, '1');
+        if (result.uploaded > 0 && result.allMigrated) {
+          console.log(`[MIGRATION] ✅ ${result.uploaded} recetas migradas al backend`);
+        } else if (result.partialFailure) {
+          console.warn('[MIGRATION] ⚠️ Algunas recetas no se sincronizaron:', result);
+        }
+      })
+      .catch(err => {
+        console.error('[MIGRATION] Error (degradando a localStorage):', err);
+        // NO bloquear UI (Regla Inviolable #2)
+      });
+  }, [token, slug]);
+
+  // ── Fase 3 T4: Lazy migration expediente (runs once per session after login)
+  useEffect(() => {
+    if (!token) return;
+    const flagKey = `expediente_migrated_${slug}`;
+    if (sessionStorage.getItem(flagKey)) return;
+    migrateExpedienteIfNeeded(slug, token)
+      .then(result => {
+        sessionStorage.setItem(flagKey, '1');
+        if (result.uploaded > 0 && result.allMigrated) {
+          console.log(`[MIGRATION] ✅ ${result.uploaded} campos de expediente migrados al backend`);
+        } else if (result.partialFailure) {
+          console.warn('[MIGRATION] ⚠️ Expediente parcialmente migrado:', result);
+        }
+      })
+      .catch(err => {
+        console.error('[MIGRATION] Expediente error (degradando a localStorage):', err);
+      });
+  }, [token, slug]);
 
   const updateProdStatus = async (orderId, newStatus) => {
     setUpdating(orderId);
