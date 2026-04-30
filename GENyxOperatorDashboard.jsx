@@ -358,7 +358,7 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
               {/* Card Header */}
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
                 <div>
-                  <p style={{ ...MONO, color: '#64748b', marginBottom: 4 }}>CLIENTE {({'genyx-hub':'000','panaderia-paty':'001','kovay-resort':'002','carnivor-catering':'003'})[t.slug] || String(i + 1).padStart(3, '0')}</p>
+                  <p style={{ ...MONO, color: '#64748b', marginBottom: 4 }}>CLIENTE {({'genyx-hub':'000','panaderia-paty':'001','kovay-resort':'002','carnivor':'003'})[t.slug] || String(i + 1).padStart(3, '0')}</p>
                   <h3 style={{ fontWeight: 700, fontSize: 16, color: '#f1f5f9' }}>{t.name || t.slug}</h3>
                   <p style={{ fontSize: 12, color: '#64748b', marginTop: 2 }}>{t.industry || 'Artesanal'}</p>
                 </div>
@@ -1546,7 +1546,7 @@ const TabExpedientes = ({ tenants }) => {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
                   <div>
                     <p style={{ ...MONO, fontSize: 9, color: isGenyX ? '#6366f1' : '#64748b', marginBottom: 3 }}>
-                      {isGenyX ? 'CLIENTE 000' : `CLIENTE ${({'panaderia-paty':'001','kovay-resort':'002','carnivor-catering':'003'})[id] || String(i).padStart(3, '0')}`}
+                      {isGenyX ? 'CLIENTE 000' : `CLIENTE ${({'panaderia-paty':'001','kovay-resort':'002','carnivor':'003'})[id] || String(i).padStart(3, '0')}`}
                     </p>
                     <p style={{ fontWeight: 700, fontSize: 13, color: isGenyX ? '#a5b4fc' : '#f1f5f9' }}>{c.name || c.slug}</p>
                   </div>
@@ -4824,11 +4824,14 @@ export default function GenyXOperatorDashboard() {
       </header>
 
       {/* Tabs */}
-      <nav style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '0 28px', display: 'flex', gap: 4, overflowX: 'auto' }}>
-        {TABS.map(t => (
-          <button key={t.id} onClick={() => setTab(t.id)} style={{ padding: '12px 18px', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em', border: 'none', background: 'none', cursor: 'pointer', color: tab === t.id ? '#6366f1' : '#475569', borderBottom: `2px solid ${tab === t.id ? '#6366f1' : 'transparent'}`, transition: 'all 0.2s', whiteSpace: 'nowrap' }}>{t.label}</button>
-        ))}
-      </nav>
+      <div style={{ position: 'relative' }}>
+        <nav style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '0 28px', display: 'flex', gap: 4, overflowX: 'auto', scrollbarWidth: 'thin', scrollbarColor: 'rgba(99,102,241,0.4) transparent', WebkitOverflowScrolling: 'touch' }}>
+          {TABS.map(t => (
+            <button key={t.id} onClick={() => setTab(t.id)} style={{ padding: '12px 18px', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em', border: 'none', background: 'none', cursor: 'pointer', color: tab === t.id ? '#6366f1' : '#475569', borderBottom: `2px solid ${tab === t.id ? '#6366f1' : 'transparent'}`, transition: 'all 0.2s', whiteSpace: 'nowrap' }}>{t.label}</button>
+          ))}
+        </nav>
+        <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 60, background: 'linear-gradient(90deg, transparent, #060912)', pointerEvents: 'none', borderBottom: '1px solid rgba(255,255,255,0.06)' }} />
+      </div>
 
       {/* —— Selector global de cliente —— */}
       <div style={{ padding: '10px 28px', background: 'rgba(99,102,241,0.04)', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', gap: 10 }}>
