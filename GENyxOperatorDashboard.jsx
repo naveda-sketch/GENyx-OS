@@ -2046,130 +2046,110 @@ const EXPEDIENTE_DOCS = [
 
 
 
-// ── Términos de Compra — Panadería Paty HomeBakery ───────────────────────────
-function PatyTermsPage() {
+// ── Términos de Uso — Mando Cliente (genérico, sin hardcodes) ────────────────
+function ClientTermsPage() {
   const LS = { fontFamily: 'Inter, sans-serif', minHeight: '100vh', background: '#faf9f7', color: '#292524', padding: '40px 20px', maxWidth: 680, margin: '0 auto' };
-  const H1 = { fontSize: 22, fontWeight: 800, color: '#78350f', marginBottom: 6 };
+  const H1 = { fontSize: 22, fontWeight: 800, color: '#4f46e5', marginBottom: 6 };
   const H2 = { fontSize: 14, fontWeight: 700, color: '#44403c', margin: '22px 0 8px', borderBottom: '1px solid #e7e5e4', paddingBottom: 6 };
   const P  = { fontSize: 13, lineHeight: 1.75, color: '#57534e', marginBottom: 10 };
-  const HL = { color: '#78350f', fontWeight: 700 };
-  const TR = { fontSize: 12, color: '#57534e', borderBottom: '1px solid #e7e5e4' };
-  const TH = { fontSize: 11, fontWeight: 700, color: '#44403c', padding: '8px 12px', background: '#f5f5f4', textAlign: 'left' };
-  const TD = { fontSize: 12, color: '#57534e', padding: '8px 12px' };
-  const rows = [
-    ['Pan de masa madre (Hogaza, Baguette, Pan de Caja)', '2 dias habiles'],
-    ['Pan dulce, roles, galletas', '1 dia habil'],
-    ['Bebidas naturales (shots, jugos)', '1 dia habil'],
-  ];
-  const refund = [
-    ['Cancelacion antes de iniciar la preparacion', 'Reembolso total en 3-5 dias habiles'],
-    ['Cancelacion despues de iniciar la preparacion', 'Sin reembolso (producto artesanal perecedero)'],
-    ['Producto llegó dañado o incorrecto', 'Reposicion del producto o reembolso total'],
-    ['Error de entrega por datos incorrectos del cliente', 'Sin reembolso'],
-  ];
+  const HL = { color: '#4f46e5', fontWeight: 700 };
   return (
     <div style={{ background: '#faf9f7', minHeight: '100vh' }}>
       <div style={LS}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 28 }}>
-          <a href="/" style={{ color: '#78350f', fontSize: 13, textDecoration: 'none' }}>&#x2190; Inicio</a>
+          <a href="/" style={{ color: '#4f46e5', fontSize: 13, textDecoration: 'none' }}>&#x2190; Inicio</a>
         </div>
-        <h1 style={H1}>Terminos y Condiciones de Compra</h1>
-        <p style={{ ...P, color: '#a8a29e', fontSize: 11 }}>Panaderia Paty HomeBakery &middot; Version 1.0 &middot; Marzo 2026</p>
+        <h1 style={H1}>Términos y Condiciones del Mando Cliente</h1>
+        <p style={{ ...P, color: '#a8a29e', fontSize: 11 }}>GenyX Systems · Versión 3.0 · Abril 2026</p>
 
-        <h2 style={H2}>1. Quienes Somos</h2>
-        <p style={P}><span style={HL}>Panaderia Paty HomeBakery</span> — panaderia artesanal. Magnolias 111, Bugambilias, Zapopan, Jalisco. WhatsApp: <span style={HL}>+52 (33) 2622-0697</span></p>
+        <h2 style={H2}>1. Definición del Servicio</h2>
+        <p style={P}><span style={HL}>GenyX Mando</span> es la interfaz de gestión del departamento de ventas digital provisto por GenyX Systems bajo el modelo IVaaS (Infraestructura de Ventas como Servicio). El Mando permite al Cliente monitorear pedidos, configurar su bot de ventas, acceder a reportes y usar herramientas IA.</p>
 
-        <h2 style={H2}>2. Confirmacion de Pedidos</h2>
-        <p style={P}>El pedido queda confirmado unicamente cuando se recibe el pago completo mediante el link de Stripe. Nos reservamos el derecho de cancelar por fuerza mayor con reembolso total.</p>
+        <h2 style={H2}>2. Acceso y Seguridad</h2>
+        <p style={P}>El Cliente accede mediante un <span style={HL}>PIN personal de 4 dígitos</span>. Es responsabilidad del Cliente mantener la confidencialidad de sus credenciales. GenyX no almacena el PIN en texto plano.</p>
 
-        <h2 style={H2}>3. Tiempos de Preparacion</h2>
-        <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: 12 }}>
-          <thead><tr><th style={TH}>Producto</th><th style={TH}>Preparacion</th></tr></thead>
-          <tbody>{rows.map(([p, t]) => <tr key={p} style={TR}><td style={TD}>{p}</td><td style={{ ...TD, fontWeight: 700 }}>{t}</td></tr>)}</tbody>
-        </table>
-        <p style={{ ...P, fontSize: 12 }}>Un pedido = una fecha de entrega. Productos con fechas distintas requieren pedidos separados.</p>
+        <h2 style={H2}>3. Modelo de Cobro</h2>
+        <p style={P}>El servicio funciona con <span style={HL}>Suscripción Mensual Fija</span> según el plan contratado (Starter / Growth / Autonomy). GenyX no retiene ni procesa fondos de los compradores del Cliente. Los pagos del comprador final van directamente al Cliente vía Stripe. Sin permanencia mínima.</p>
 
-        <h2 style={H2}>4. Entrega</h2>
-        <p style={P}>
-          <span style={HL}>Recoleccion en tienda:</span> Magnolias 111, Bugambilias. Sin costo.<br />
-          <span style={HL}>Domicilio:</span> Costo segun kilometros desde tienda (gratis primeros 5 km). Paty no se hace responsable por demoras del servicio de mensajeria una vez recogido el pedido.
-        </p>
+        <h2 style={H2}>4. Cancelación</h2>
+        <p style={P}>El Cliente puede cancelar en cualquier momento con <span style={HL}>30 días naturales de aviso</span> a hola@genyxsystems.com. Al terminar: (i) GenyX entrega export CSV de datos en 15 días; (ii) datos eliminados de servidores en 60 días.</p>
 
-        <h2 style={H2}>5. Precios y Pago</h2>
-        <p style={P}>Precios en pesos MXN. Pago exclusivo por link de <span style={HL}>Stripe</span> (tarjeta). No se aceptan efectivo ni transferencias. El link vence en 24 horas.</p>
+        <h2 style={H2}>5. IA y Limitación de Responsabilidad</h2>
+        <p style={P}>El bot opera con IA generativa de naturaleza probabilística. GenyX <span style={HL}>no garantiza precisión del 100%</span>. La responsabilidad máxima se limita a los 3 meses de suscripción pagados anteriores al evento.</p>
 
-        <h2 style={H2}>6. Cancelaciones y Reembolsos</h2>
-        <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: 12 }}>
-          <thead><tr><th style={TH}>Escenario</th><th style={TH}>Politica</th></tr></thead>
-          <tbody>{refund.map(([s, p]) => <tr key={s} style={TR}><td style={TD}>{s}</td><td style={TD}>{p}</td></tr>)}</tbody>
-        </table>
-        <p style={{ ...P, fontSize: 12 }}>Reporta problemas al WhatsApp dentro de las primeras 2 horas de recibir tu pedido.</p>
+        <h2 style={H2}>6. Fuerza Mayor</h2>
+        <p style={P}>GenyX no responde por interrupciones de Meta/WhatsApp, OpenAI, Stripe, Render, Vercel u otros proveedores de infraestructura.</p>
 
-        <h2 style={H2}>7. Alergenos y Seguridad Alimentaria</h2>
-        <p style={P}>Elaboramos en cocina artesanal con: <span style={HL}>gluten (trigo), lacteos, huevo, frutos secos y semillas</span>. Informa tus alergias antes del pedido. Paty no se hace responsable por reacciones por informacion incorrecta del cliente.</p>
+        <h2 style={H2}>7. Propiedad Intelectual</h2>
+        <p style={P}>El código, algoritmos, prompts y flujos son propiedad exclusiva de GenyX. El Cliente retiene derechos sobre su catálogo, recetas y marca.</p>
 
-        <h2 style={H2}>8. Calidad y Conservacion</h2>
-        <p style={P}>Productos artesanales sin conservadores artificiales. Consume segun indicaciones del empaque. Una vez entregado en condiciones optimas, la conservacion es responsabilidad del cliente.</p>
+        <h2 style={H2}>8. Privacidad</h2>
+        <p style={P}>Al usar el Mando aceptas nuestro <a href="/client-privacidad" style={{ color: '#4f46e5' }}>Aviso de Privacidad</a> conforme a LFPDPPP.</p>
 
-        <h2 style={H2}>9. Privacidad</h2>
-        <p style={P}>Al comprar aceptas nuestro <a href="/paty-privacidad" style={{ color: '#78350f' }}>Aviso de Privacidad</a> conforme a LFPDPPP.</p>
+        <h2 style={H2}>9. Jurisdicción</h2>
+        <p style={P}>Ley aplicable: México. Jurisdicción: Guadalajara, Jalisco.</p>
 
-        <h2 style={H2}>10. Jurisdiccion</h2>
-        <p style={P}>Ley aplicable: Mexico. Jurisdiccion: Guadalajara, Jalisco.</p>
-
-        <p style={{ ...P, marginTop: 32, fontSize: 11, color: '#a8a29e', borderTop: '1px solid #e7e5e4', paddingTop: 16 }}>Panaderia Paty HomeBakery &middot; +52 (33) 2622-0697 &middot; Magnolias 111, Bugambilias, Zapopan, Jal.</p>
+        <p style={{ ...P, marginTop: 32, fontSize: 11, color: '#a8a29e', borderTop: '1px solid #e7e5e4', paddingTop: 16 }}>GenyX Systems · hola@genyxsystems.com · Guadalajara, Jalisco</p>
       </div>
     </div>
   );
 }
 
-// ── Aviso de Privacidad — Panadería Paty HomeBakery (para compradores) ────────
-function PatyPrivacyPage() {
+// ── Aviso de Privacidad — Mando Cliente (genérico, sin hardcodes) ─────────────
+function ClientPrivacyPage() {
   const LS = { fontFamily: 'Inter, sans-serif', minHeight: '100vh', background: '#faf9f7', color: '#292524', padding: '40px 20px', maxWidth: 680, margin: '0 auto' };
-  const H1 = { fontSize: 22, fontWeight: 800, color: '#78350f', marginBottom: 6 };
+  const H1 = { fontSize: 22, fontWeight: 800, color: '#4f46e5', marginBottom: 6 };
   const H2 = { fontSize: 14, fontWeight: 700, color: '#44403c', margin: '22px 0 8px', borderBottom: '1px solid #e7e5e4', paddingBottom: 6 };
   const P  = { fontSize: 13, lineHeight: 1.75, color: '#57534e', marginBottom: 10 };
-  const HL = { color: '#78350f', fontWeight: 700 };
+  const HL = { color: '#4f46e5', fontWeight: 700 };
   return (
     <div style={{ background: '#faf9f7', minHeight: '100vh' }}>
       <div style={LS}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 28 }}>
-          <a href="/" style={{ color: '#78350f', fontSize: 13, textDecoration: 'none' }}>&#x2190; Inicio</a>
+          <a href="/" style={{ color: '#4f46e5', fontSize: 13, textDecoration: 'none' }}>&#x2190; Inicio</a>
         </div>
         <h1 style={H1}>Aviso de Privacidad</h1>
-        <p style={{ ...P, color: '#a8a29e', fontSize: 11 }}>Panaderia Paty HomeBakery &middot; Version 1.0 &middot; Ultima actualizacion: Marzo 2026 &middot; Conforme a LFPDPPP</p>
+        <p style={{ ...P, color: '#a8a29e', fontSize: 11 }}>GenyX Systems · Versión 3.0 · Abril 2026 · Conforme a LFPDPPP</p>
+
         <h2 style={H2}>1. Responsable del Tratamiento</h2>
-        <p style={P}><span style={HL}>Panaderia Paty HomeBakery</span>, un negocio de produccion artesanal de alimentos con base en Guadalajara, Jalisco, Mexico.<br />Contacto: <span style={HL}>paty@patyhomebakery.com</span></p>
-        <h2 style={H2}>2. Datos Personales que Recopilamos</h2>
-        <p style={P}>Al realizar un pedido a traves de WhatsApp o nuestra pagina web, recopilamos:<br />
-          &bull; <span style={HL}>Nombre</span> — para personalizar tu pedido<br />
-          &bull; <span style={HL}>Numero de WhatsApp</span> — para confirmar y coordinar tu entrega<br />
-          &bull; <span style={HL}>Direccion de entrega</span> — unicamente cuando solicitas envio a domicilio<br />
-          &bull; <span style={HL}>Historial de pedidos</span> — para agilizar compras futuras
+        <p style={P}><span style={HL}>GenyX Systems</span>, representado por Erick Naveda, Guadalajara, Jalisco, México. Contacto: <span style={HL}>privacidad@genyxsystems.com</span></p>
+
+        <h2 style={H2}>2. Datos que Recopilamos</h2>
+        <p style={P}>Al usar el Mando Cliente recopilamos:<br />
+          &bull; <span style={HL}>Nombre del negocio y datos del responsable</span> — para configurar el servicio<br />
+          &bull; <span style={HL}>PIN de acceso</span> — hash almacenado, nunca en texto plano<br />
+          &bull; <span style={HL}>Historial de pedidos y métricas</span> — para generar reportes<br />
+          &bull; <span style={HL}>Catálogo y recetas</span> — para operar el bot de ventas
         </p>
-        <h2 style={H2}>3. Para Que Usamos Tus Datos</h2>
+
+        <h2 style={H2}>3. Finalidades</h2>
         <p style={P}>
-          &bull; Procesar y confirmar tu pedido de pan artesanal<br />
-          &bull; Coordinar la entrega o recoleccion en tienda<br />
-          &bull; Enviarte el link de pago seguro (Stripe)<br />
-          &bull; Notificarte cuando tu pedido este listo<br />
-          &bull; Atender dudas o cambios en tu pedido
+          &bull; Operar el servicio IVaaS (bot, Mando, reportes)<br />
+          &bull; Generar links de pago seguros vía Stripe<br />
+          &bull; Enviar reportes semanales al Cliente<br />
+          &bull; Cumplimiento legal y fiscal
         </p>
-        <h2 style={H2}>4. Con Quien Compartimos Tus Datos</h2>
+
+        <h2 style={H2}>4. Terceros con Acceso</h2>
         <p style={P}>
-          &bull; <span style={HL}>GenyX Systems</span> — plataforma tecnologica que opera el asistente de ventas. Solo procesa tus mensajes para gestionar el pedido.<br />
-          &bull; <span style={HL}>Stripe</span> — procesador de pagos seguro. Tus datos de pago nunca pasan por nosotros.<br />
-          Ningun otro tercero tiene acceso a tus datos.
+          &bull; <span style={HL}>Stripe</span> — procesamiento de pagos (datos de pago nunca pasan por GenyX)<br />
+          &bull; <span style={HL}>Meta Platforms</span> — WhatsApp Business API<br />
+          &bull; <span style={HL}>OpenAI</span> — procesamiento de lenguaje (datos anonimizados)<br />
+          &bull; <span style={HL}>Render / Vercel</span> — infraestructura cloud
         </p>
-        <h2 style={H2}>5. Tus Derechos (ARCO)</h2>
-        <p style={P}>Puedes ejercer tus derechos de Acceso, Rectificacion, Cancelacion u Oposicion enviando un mensaje por WhatsApp al <span style={HL}>+52 (33) 2622-0697</span> o escribiendo a <span style={HL}>paty@patyhomebakery.com</span>. Respondemos en un maximo de 5 dias habiles.</p>
-        <h2 style={H2}>6. Seguridad</h2>
-        <p style={P}>Tus datos se almacenan en servidores con acceso restringido. No vendemos ni compartimos tu informacion con fines publicitarios.</p>
-        <p style={{ ...P, marginTop: 32, fontSize: 11, color: '#a8a29e', borderTop: '1px solid #e7e5e4', paddingTop: 16 }}>Panaderia Paty HomeBakery &middot; Guadalajara, Jalisco, Mexico &middot; paty@patyhomebakery.com</p>
+
+        <h2 style={H2}>5. Derechos ARCO</h2>
+        <p style={P}>Acceso, Rectificación, Cancelación u Oposición: envía solicitud a <span style={HL}>privacidad@genyxsystems.com</span>. Respuesta en máximo 20 días hábiles.</p>
+
+        <h2 style={H2}>6. Cookies y Storage</h2>
+        <p style={P}>Solo usamos session storage y cookies técnicas estrictamente necesarias. No usamos cookies publicitarias ni de rastreo.</p>
+
+        <p style={{ ...P, marginTop: 32, fontSize: 11, color: '#a8a29e', borderTop: '1px solid #e7e5e4', paddingTop: 16 }}>privacidad@genyxsystems.com · GenyX Systems · Guadalajara, Jalisco</p>
       </div>
     </div>
   );
 }
+
 
 // ── Legal Pages (✕ /terminos ✕ /privacidad) ────────────────────────────────
 function LegalPage({ tipo }) {
@@ -2963,6 +2943,8 @@ function MandoClientView({ slug }) {
   const [loading, setLoading]     = useState(false);
   const [error, setError]         = useState('');
   const [termsAccepted, setTermsAccepted] = useState(false);
+  const [showTcModal, setShowTcModal] = useState(false);
+  const [tcAccepting, setTcAccepting] = useState(false);
   // ── Navigation
   const [tab, setTab] = useState('pedidos');
   // ── Pedidos
@@ -3033,6 +3015,17 @@ function MandoClientView({ slug }) {
     try { const r = await fetch(`${BACKEND}/api/dashboard/${slug}/orders`, { headers: { 'X-Dashboard-Token': token } }); if (r.ok) setOrders(await r.json()); } catch {}
   }, [token, slug]);
   useEffect(() => { fetchOrders(); const t = setInterval(fetchOrders, 30000); return () => clearInterval(t); }, [fetchOrders]);
+
+  // ── Fase 3 T8: Check T&C acceptance (runs once after login)
+  useEffect(() => {
+    if (!token) return;
+    fetch(`${BACKEND}/api/client/${slug}/tc-accepted`, {
+      headers: { 'X-Dashboard-Token': token }
+    })
+      .then(r => r.json())
+      .then(d => { if (!d.accepted) setShowTcModal(true); })
+      .catch(e => console.warn('[T&C] Check failed:', e));
+  }, [token, slug]);
 
   // ── Fase 3 T3: Lazy migration recetas (runs once per session after login)
   useEffect(() => {
@@ -4222,6 +4215,67 @@ function MandoClientView({ slug }) {
 
         <p style={{ textAlign: 'center', color: '#c4b5a5', fontSize: 10, marginTop: 20 }}>GenyX · {slug} · Actualiza cada 30s</p>
       </main>
+
+      {/* ═══ T&C ACCEPTANCE MODAL (Fase 3 T8) ═══ */}
+      {showTcModal && (
+        <div style={{
+          position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+          background: 'rgba(0,0,0,0.6)', zIndex: 9999,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          padding: 16,
+        }}>
+          <div style={{
+            background: '#fff', borderRadius: 18, padding: '28px 24px',
+            maxWidth: 440, width: '100%', maxHeight: '85vh', overflowY: 'auto',
+            boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
+          }}>
+            <div style={{ textAlign: 'center', marginBottom: 16 }}>
+              <div style={{ fontSize: 40, marginBottom: 8 }}>📋</div>
+              <h2 style={{ fontSize: 18, fontWeight: 800, color: '#1e293b', margin: 0 }}>Términos y Condiciones</h2>
+              <p style={{ fontSize: 12, color: '#64748b', marginTop: 4 }}>GenyX Systems · Abril 2026</p>
+            </div>
+
+            <div style={{ fontSize: 12, lineHeight: 1.7, color: '#44403c', background: '#f8fafc', borderRadius: 12, padding: 16, marginBottom: 16, maxHeight: 240, overflowY: 'auto', border: '1px solid #e2e8f0' }}>
+              <p style={{ fontWeight: 700, marginBottom: 8 }}>Al usar el Mando Cliente aceptas que:</p>
+              <p>• <b>GenyX Mando</b> es la interfaz de gestión de tu departamento de ventas digital (IVaaS).</p>
+              <p>• El servicio funciona con <b>suscripción mensual fija</b>. Sin permanencia mínima.</p>
+              <p>• El bot opera con IA generativa — <b>no garantizamos precisión del 100%</b>.</p>
+              <p>• GenyX <b>no retiene fondos</b> de tus compradores; van directo a tu cuenta Stripe.</p>
+              <p>• Puedes cancelar con 30 días de aviso a hola@genyxsystems.com.</p>
+              <p>• Tus datos se tratan conforme a la <b>LFPDPPP</b>.</p>
+              <p style={{ marginTop: 8, fontSize: 11, color: '#6366f1' }}>
+                Lee los documentos completos: <a href="/client-terminos" target="_blank" style={{ color: '#4f46e5' }}>Términos</a> · <a href="/client-privacidad" target="_blank" style={{ color: '#4f46e5' }}>Privacidad</a>
+              </p>
+            </div>
+
+            <button
+              disabled={tcAccepting}
+              onClick={async () => {
+                setTcAccepting(true);
+                try {
+                  await fetch(`${BACKEND}/api/client/${slug}/tc-accept`, {
+                    method: 'POST',
+                    headers: { 'X-Dashboard-Token': token },
+                  });
+                  setShowTcModal(false);
+                } catch (e) {
+                  console.error('[T&C] Accept failed:', e);
+                } finally {
+                  setTcAccepting(false);
+                }
+              }}
+              style={{
+                width: '100%', padding: 14, borderRadius: 12, border: 'none',
+                background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', color: '#fff',
+                fontSize: 15, fontWeight: 700, cursor: tcAccepting ? 'wait' : 'pointer',
+                opacity: tcAccepting ? 0.6 : 1, transition: 'all .2s',
+              }}
+            >
+              {tcAccepting ? '⏳ Aceptando…' : '✅ Acepto los Términos y Condiciones'}
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -5125,8 +5179,8 @@ export default function GenyXOperatorDashboard() {
   // ―― Ticket de compra post-Stripe (?pago=exitoso&sid=cs_live_...) ―――――
   const _qp = new URLSearchParams(window.location.search);
   if (_qp.get('pago') === 'exitoso') return <TicketPage sid={_qp.get('sid')} />;
-  if (path === '/paty-terminos') return <PatyTermsPage />;
-  if (path === '/paty-privacidad') return <PatyPrivacyPage />;
+  if (path === '/client-terminos' || path === '/paty-terminos') return <ClientTermsPage />;
+  if (path === '/client-privacidad' || path === '/paty-privacidad') return <ClientPrivacyPage />;
   if (_qp.get('pago') === 'cancelado') {
     const cancelSlug = _qp.get('slug') || '';
     const cancelTenantData = cancelSlug ? tenants.find(t => t.slug === cancelSlug) : null;
