@@ -2321,47 +2321,68 @@ function EditarMenuCompacto({ catalog, catLoading, slug, pin, fetchCatalog }) {
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
-// 📸 FOTO LAB — Módulo de Fotografía Editorial IA
-// Paty sube una foto de su producto → elige estilo → la IA mejora/genera
-// + captions para redes sociales. Mobile-first, Safari-safe.
+// 📸 FOTO LAB v2 — 6 Presets Editoriales IA (Fase 3: multi-tenant, sin hardcodes)
 // ══════════════════════════════════════════════════════════════════════════════
 
-const FOTO_PERSPECTIVES = [
-  { id: 'normal', label: '📐 Normal (45°)', prompt: 'Shot at a classic 45-degree food photography angle, eye-catching perspective' },
-  { id: 'zenital', label: '🔽 Zenital', prompt: 'Top-down flat lay photography, shot from directly overhead, perfectly centered' },
-];
-const FOTO_BACKGROUNDS = [
-  { id: 'madera', label: '🪵 Madera Rústica', prompt: 'dark weathered rustic wooden table, deep wood grain textures' },
-  { id: 'marmol', label: '⬜ Mármol Blanco', prompt: 'clean white Carrara marble countertop, minimalist aesthetic' },
-  { id: 'pizarra', label: '🪨 Piedra Pizarra', prompt: 'dark slate stone surface, moody and artisanal' },
-  { id: 'tabla', label: '🔪 Tabla Vintage', prompt: 'antique heavy wooden cutting board with knife marks, rustic charm' },
-];
-const FOTO_LIGHTING = [
-  { id: 'natural', label: '☀️ Natural Suave', prompt: 'soft natural morning light streaming from a side window, diffused soft shadows' },
-  { id: 'golden', label: '🌅 Atardecer', prompt: 'warm golden hour sunlight, creating deep rich amber tones on the crust' },
-  { id: 'dramatic', label: '🎭 Dramática', prompt: 'chiaroscuro lighting, moody dark shadows, high contrast directional spotlight' },
-  { id: 'commercial', label: '💡 Comercial', prompt: 'even bright studio lighting, commercial food photography, well-lit without harsh shadows' },
-];
-const FOTO_PROPS = [
-  { id: 'none', label: '❌ Ninguno', prompt: '' },
-  { id: 'harina', label: '🌾 Harina', prompt: 'a light dusting of white flour scattered organically on the surface' },
-  { id: 'textil', label: '🧶 Textiles', prompt: 'a casual folded linen napkin draped softly in the blurred background' },
-  { id: 'ingredientes', label: '🫙 Ingredientes', prompt: 'small rustic ceramic bowls with raw wheat grains and coarse sea salt in the blurred background' },
-  { id: 'herramientas', label: '🔪 Herramientas', prompt: 'an elegant vintage bread knife resting softly on the side in the blurred background' },
-];
-const FOTO_STYLES = [
-  { id: 'kinfolk', label: '📖 Kinfolk', prompt: 'high-end magazine aesthetic, Kinfolk style, desaturated greens, rich browns, ultra-sharp focus, shallow depth of field with beautiful bokeh' },
-  { id: 'warm', label: '🧈 Tonos Cálidos', prompt: 'warm color grading, butter-like tones, cozy atmosphere, highly detailed textures' },
-  { id: 'commercial', label: '📸 Comercial Nítido', prompt: 'hyper-realistic commercial food photography, crisp edges, vibrant contrast, 8k resolution' },
+const FOTOLAB_PRESETS = [
+  {
+    id: 'editorial',
+    icon: '📸',
+    label: 'Editorial Pro',
+    desc: 'Tu foto → portada de revista',
+    requiresImage: true,
+    buildPrompt: (product) =>
+      `Transform this food photo into professional editorial photography${product ? ` of "${product}"` : ''}. Soft natural morning light from a side window. Place the product on a clean marble surface. Kinfolk magazine aesthetic, desaturated tones, ultra-sharp focus, shallow depth of field with beautiful bokeh. Make the product the absolute hero. 4K, photorealistic.`,
+  },
+  {
+    id: 'generate',
+    icon: '✨',
+    label: 'Generar desde Cero',
+    desc: 'Sin foto, solo elige producto',
+    requiresImage: false,
+    buildPrompt: (product) =>
+      `Professional food photography of${product ? ` "${product}"` : ' an artisan product'}. Top-down 45-degree angle. Placed on dark weathered rustic wooden table with deep wood grain textures. Warm golden hour sunlight creating rich amber tones. A casual folded linen napkin draped softly in the blurred background. Hyper-realistic commercial photography, crisp edges, vibrant contrast, 8K resolution.`,
+  },
+  {
+    id: 'caption',
+    icon: '📝',
+    label: 'Captions IA',
+    desc: 'Genera textos para redes',
+    requiresImage: true,
+    buildPrompt: (product) =>
+      `You are a social media expert for a small business. Analyze this product photo${product ? ` of "${product}"` : ''} and write exactly 3 Instagram/Facebook caption variants in Spanish.\nEach caption must include: engaging text (2-3 sentences), relevant emojis, 5 hashtags, and a call to action.\nFormat: Number each caption 1), 2), 3). Write captions that feel warm, authentic, and inviting.`,
+  },
+  {
+    id: 'menucard',
+    icon: '🍽️',
+    label: 'Card de Menú',
+    desc: 'Foto estilo carta/menú digital',
+    requiresImage: true,
+    buildPrompt: (product) =>
+      `Transform this food photo into a clean, appetizing menu card image${product ? ` of "${product}"` : ''}. Even bright studio lighting, commercial food photography style, well-lit without harsh shadows. White or light neutral background. The product centered and beautifully styled. Clean composition for digital menu display. 4K, photorealistic.`,
+  },
+  {
+    id: 'story',
+    icon: '📱',
+    label: 'Stories/Reels',
+    desc: 'Vertical 9:16 para historias',
+    requiresImage: true,
+    buildPrompt: (product) =>
+      `Transform this food photo into a vibrant, eye-catching vertical 9:16 aspect ratio image perfect for Instagram Stories${product ? ` featuring "${product}"` : ''}. Dynamic close-up angle. Dramatic chiaroscuro lighting with moody shadows and high contrast. Bold warm color grading. Ultra-high detail, photorealistic. The product must dominate the frame.`,
+  },
+  {
+    id: 'pack',
+    icon: '📦',
+    label: 'Empaque / eCommerce',
+    desc: 'Fondo limpio para tienda online',
+    requiresImage: true,
+    buildPrompt: (product) =>
+      `Transform this product photo into a professional eCommerce listing image${product ? ` of "${product}"` : ''}. Pure white background, even bright studio lighting. Product centered, clean shadows, no distractions. Commercial product photography style. Crisp edges, vibrant natural colors, 8K resolution, photorealistic.`,
+  },
 ];
 
 function TabFotoLab({ slug, token }) {
-  const [mode, setMode] = useState('enhance');
-  const [perspective, setPerspective] = useState('normal');
-  const [background, setBackground] = useState('madera');
-  const [lighting, setLighting] = useState('natural');
-  const [props, setProps] = useState('none');
-  const [style, setStyle] = useState('kinfolk');
+  const [preset, setPreset] = useState('editorial');
   const [product, setProduct] = useState('');
   const [products, setProducts] = useState([]);
   const [freePrompt, setFreePrompt] = useState('');
@@ -2375,6 +2396,7 @@ function TabFotoLab({ slug, token }) {
   const [error, setError] = useState('');
 
   const log = (m) => setLogs(p => [...p, `[${new Date().toLocaleTimeString()}] ${m}`]);
+  const activePreset = FOTOLAB_PRESETS.find(p => p.id === preset) || FOTOLAB_PRESETS[0];
 
   // Fetch catalog on mount
   useEffect(() => {
@@ -2406,7 +2428,6 @@ function TabFotoLab({ slug, token }) {
         canvas.width = w; canvas.height = h;
         canvas.getContext('2d').drawImage(img, 0, 0, w, h);
         const b64 = canvas.toDataURL('image/jpeg', 0.8).split(',')[1];
-        const blob = canvas.toBlob ? null : null; // will create blob from b64
         log(`🗜️ Comprimida: ${img.width}x${img.height} → ${w}x${h} (JPEG 0.8)`);
         resolve({ b64, w, h, name: file.name });
       };
@@ -2422,7 +2443,6 @@ function TabFotoLab({ slug, token }) {
     setCaptions('');
     log(`📷 Archivo: ${file.name} (${(file.size/1024).toFixed(0)}KB)`);
     const compressed = await compressImage(file);
-    // Safari-safe: create blob URL instead of using b64 directly
     const byteChars = atob(compressed.b64);
     const byteArr = new Uint8Array(byteChars.length);
     for (let i = 0; i < byteChars.length; i++) byteArr[i] = byteChars.charCodeAt(i);
@@ -2434,38 +2454,13 @@ function TabFotoLab({ slug, token }) {
   const onDrop = (e) => { e.preventDefault(); handleFile(e.dataTransfer?.files?.[0]); };
   const onDragOver = (e) => e.preventDefault();
 
-  // ── Build prompt ───────────────────────────────────────────────────────────
-  const buildPrompt = () => {
-    if (mode === 'caption') {
-      return `You are a social media expert for "Panadería Paty", an artisan Mexican bakery. 
-Analyze this product photo${product ? ` of "${product}"` : ''} and write exactly 3 Instagram/Facebook caption variants in Spanish.
-Each caption must include: engaging text (2-3 sentences), relevant emojis, 5 hashtags, and a call to action.
-Format: Number each caption 1), 2), 3). Write captions that feel warm, authentic, and appetizing.
-Focus on Mexican bakery culture, artisan quality, and homemade tradition.`;
-    }
-    if (mode === 'generate') {
-      const p = FOTO_PERSPECTIVES.find(x => x.id === perspective);
-      const b = FOTO_BACKGROUNDS.find(x => x.id === background);
-      const l = FOTO_LIGHTING.find(x => x.id === lighting);
-      const pr = FOTO_PROPS.find(x => x.id === props);
-      const s = FOTO_STYLES.find(x => x.id === style);
-      return `Professional food photography of${product ? ` "${product}" from` : ' artisan bread from'} Panadería Paty, an artisan Mexican bakery. ${p.prompt}. Placed on ${b.prompt}. ${l.prompt}. ${pr.prompt ? pr.prompt + '.' : ''} ${s.prompt}. Ultra-high detail, 4K resolution, photorealistic.${freePrompt ? ' ' + freePrompt : ''}`;
-    }
-    // enhance
-    const p = FOTO_PERSPECTIVES.find(x => x.id === perspective);
-    const b = FOTO_BACKGROUNDS.find(x => x.id === background);
-    const l = FOTO_LIGHTING.find(x => x.id === lighting);
-    const pr = FOTO_PROPS.find(x => x.id === props);
-    const s = FOTO_STYLES.find(x => x.id === style);
-    return `Transform this food photo into professional editorial photography${product ? ` of "${product}"` : ''}. ${p.prompt}. Change the background/surface to ${b.prompt}. Apply ${l.prompt}. ${pr.prompt ? 'Add ' + pr.prompt + '.' : ''} ${s.prompt}. Make the bread/pastry the absolute hero of the image. Ultra-high detail, photorealistic result.${freePrompt ? ' ' + freePrompt : ''}`;
-  };
-
   // ── Generate ───────────────────────────────────────────────────────────────
   const handleGenerate = async () => {
-    if (mode !== 'generate' && !srcImg) { setError('Sube una foto primero'); return; }
+    if (activePreset.requiresImage && !srcImg) { setError('Sube una foto primero'); return; }
     setLoading(true); setError(''); setResultImg(null); setCaptions('');
-    const prompt = buildPrompt();
-    log(`🚀 Enviando a Gemini (mode=${mode})…`);
+    const prompt = activePreset.buildPrompt(product) + (freePrompt ? ' ' + freePrompt : '');
+    const mode = preset === 'caption' ? 'caption' : preset === 'generate' ? 'generate' : 'enhance';
+    log(`🚀 Enviando a Gemini (preset=${preset})…`);
     log(`📝 Prompt: ${prompt.substring(0, 120)}…`);
     try {
       const resp = await fetch(`${BACKEND}/api/gemini/generate`, {
@@ -2484,7 +2479,6 @@ Focus on Mexican bakery culture, artisan quality, and homemade tradition.`;
       }
       const data = await resp.json();
       if (data.image) {
-        // Safari-safe: convert b64 → Blob → ObjectURL
         const bytes = atob(data.image.data);
         const arr = new Uint8Array(bytes.length);
         for (let i = 0; i < bytes.length; i++) arr[i] = bytes.charCodeAt(i);
@@ -2513,7 +2507,7 @@ Focus on Mexican bakery culture, artisan quality, and homemade tradition.`;
   const handleDownload = () => {
     if (!resultImg) return;
     const ext = resultImg.mime?.includes('png') ? 'png' : 'jpg';
-    const name = `paty_${(product || 'foto').replace(/\s+/g, '_').toLowerCase()}_${new Date().toISOString().slice(0,10)}.${ext}`;
+    const name = `genyx_${(product || 'foto').replace(/\s+/g, '_').toLowerCase()}_${new Date().toISOString().slice(0,10)}.${ext}`;
     const a = document.createElement('a');
     a.href = resultImg.url;
     a.download = name;
@@ -2532,31 +2526,39 @@ Focus on Mexican bakery culture, artisan quality, and homemade tradition.`;
   // ── Styles ─────────────────────────────────────────────────────────────────
   const SEL = { width: '100%', padding: '8px 10px', borderRadius: 8, border: '1px solid #d4c9be', fontSize: 13, background: '#faf8f5', color: '#44403c', appearance: 'none', WebkitAppearance: 'none' };
   const LBL = { fontSize: 11, fontWeight: 600, color: '#78716c', marginBottom: 4, display: 'block' };
-  const BTN_PRIMARY = { width: '100%', padding: '14px', borderRadius: 12, border: 'none', background: 'linear-gradient(135deg, #92400e, #b45309)', color: '#fff', fontSize: 15, fontWeight: 700, cursor: 'pointer', letterSpacing: '.02em', transition: 'all 0.2s', opacity: loading ? 0.6 : 1 };
+  const BTN_PRIMARY = { width: '100%', padding: '14px', borderRadius: 12, border: 'none', background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', color: '#fff', fontSize: 15, fontWeight: 700, cursor: 'pointer', letterSpacing: '.02em', transition: 'all 0.2s', opacity: loading ? 0.6 : 1 };
   const CARD_S = { background: '#fff', borderRadius: 14, padding: 16, border: '1px solid #f0ebe4', marginBottom: 12 };
 
   return (
     <>
       <h2 style={{ fontSize: 15, fontWeight: 700, marginBottom: 4, color: '#44403c', display: 'flex', alignItems: 'center', gap: 6 }}>
-        📸 Foto Lab <span style={{ fontSize: 10, fontWeight: 400, color: '#a8a29e' }}>IA Editorial</span>
+        📸 Foto Lab <span style={{ fontSize: 10, fontWeight: 400, color: '#a8a29e' }}>v2 · 6 Presets IA</span>
       </h2>
 
-      {/* ── Mode selector ── */}
-      <div style={{ display: 'flex', gap: 4, marginBottom: 12 }}>
-        {[
-          { id: 'enhance', icon: '🔄', label: 'Mejorar' },
-          { id: 'generate', icon: '✨', label: 'Generar' },
-          { id: 'caption', icon: '📝', label: 'Captions' },
-        ].map(m => (
-          <button key={m.id} onClick={() => setMode(m.id)}
-            style={{ flex: 1, padding: '10px 6px', borderRadius: 10, border: mode === m.id ? '2px solid #92400e' : '1px solid #e7e0d8', background: mode === m.id ? '#fef3c7' : '#fff', cursor: 'pointer', fontSize: 12, fontWeight: 600, color: mode === m.id ? '#92400e' : '#78716c', transition: 'all .15s' }}>
-            {m.icon} {m.label}
+      {/* ── Preset Cards ── */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 6, marginBottom: 14 }}>
+        {FOTOLAB_PRESETS.map(p => (
+          <button key={p.id} onClick={() => setPreset(p.id)}
+            style={{
+              padding: '10px 6px', borderRadius: 10, cursor: 'pointer', fontSize: 11, fontWeight: 600, textAlign: 'center', transition: 'all .15s',
+              border: preset === p.id ? '2px solid #6366f1' : '1px solid #e7e0d8',
+              background: preset === p.id ? '#eef2ff' : '#fff',
+              color: preset === p.id ? '#4f46e5' : '#78716c',
+            }}>
+            <div style={{ fontSize: 20, marginBottom: 2 }}>{p.icon}</div>
+            {p.label}
           </button>
         ))}
       </div>
 
-      {/* ── Upload zone ── */}
-      {mode !== 'generate' && (
+      {/* Preset description */}
+      <div style={{ ...CARD_S, padding: '8px 12px', background: '#f8fafc', fontSize: 12, color: '#64748b' }}>
+        {activePreset.icon} <b>{activePreset.label}</b> — {activePreset.desc}
+        {!activePreset.requiresImage && <span style={{ display: 'block', marginTop: 4, fontSize: 11, color: '#22c55e', fontWeight: 600 }}>✅ No necesita foto</span>}
+      </div>
+
+      {/* ── Upload zone (only if preset requires image) ── */}
+      {activePreset.requiresImage && (
         <div style={CARD_S}>
           <div
             onDrop={onDrop} onDragOver={onDragOver}
@@ -2592,53 +2594,17 @@ Focus on Mexican bakery culture, artisan quality, and homemade tradition.`;
         </select>
       </div>
 
-      {/* ── Style Controls (not for caption mode) ── */}
-      {mode !== 'caption' && (
-        <div style={CARD_S}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 10 }}>
-            <div>
-              <label style={LBL}>Perspectiva</label>
-              <select value={perspective} onChange={e => setPerspective(e.target.value)} style={SEL}>
-                {FOTO_PERSPECTIVES.map(o => <option key={o.id} value={o.id}>{o.label}</option>)}
-              </select>
-            </div>
-            <div>
-              <label style={LBL}>Fondo</label>
-              <select value={background} onChange={e => setBackground(e.target.value)} style={SEL}>
-                {FOTO_BACKGROUNDS.map(o => <option key={o.id} value={o.id}>{o.label}</option>)}
-              </select>
-            </div>
-            <div>
-              <label style={LBL}>Iluminación</label>
-              <select value={lighting} onChange={e => setLighting(e.target.value)} style={SEL}>
-                {FOTO_LIGHTING.map(o => <option key={o.id} value={o.id}>{o.label}</option>)}
-              </select>
-            </div>
-            <div>
-              <label style={LBL}>Props</label>
-              <select value={props} onChange={e => setProps(e.target.value)} style={SEL}>
-                {FOTO_PROPS.map(o => <option key={o.id} value={o.id}>{o.label}</option>)}
-              </select>
-            </div>
-          </div>
-          <div style={{ marginTop: 10 }}>
-            <label style={LBL}>Estilo Visual</label>
-            <select value={style} onChange={e => setStyle(e.target.value)} style={SEL}>
-              {FOTO_STYLES.map(o => <option key={o.id} value={o.id}>{o.label}</option>)}
-            </select>
-          </div>
-          <div style={{ marginTop: 10 }}>
-            <label style={LBL}>Instrucciones extra (opcional)</label>
-            <input type="text" value={freePrompt} onChange={e => setFreePrompt(e.target.value)}
-              placeholder="Ej: sin gluten, con cafe al lado..."
-              style={{ ...SEL, fontSize: 12 }} />
-          </div>
-        </div>
-      )}
+      {/* ── Free prompt (optional) ── */}
+      <div style={CARD_S}>
+        <label style={LBL}>Instrucciones extra (opcional)</label>
+        <input type="text" value={freePrompt} onChange={e => setFreePrompt(e.target.value)}
+          placeholder="Ej: sin gluten, con café al lado, fondo azul..."
+          style={{ ...SEL, fontSize: 12 }} />
+      </div>
 
       {/* ── Generate button ── */}
       <button onClick={handleGenerate} disabled={loading} style={BTN_PRIMARY}>
-        {loading ? '⏳ Procesando con IA…' : mode === 'enhance' ? '🔄 Mejorar Foto' : mode === 'generate' ? '✨ Generar Imagen' : '📝 Generar Captions'}
+        {loading ? '⏳ Procesando con IA…' : `${activePreset.icon} ${activePreset.label}`}
       </button>
 
       {error && <div style={{ marginTop: 10, padding: 10, borderRadius: 8, background: '#fef2f2', color: '#dc2626', fontSize: 12, border: '1px solid #fca5a5' }}>⚠️ {error}</div>}
@@ -2646,10 +2612,10 @@ Focus on Mexican bakery culture, artisan quality, and homemade tradition.`;
       {/* ── Result ── */}
       {resultImg && (
         <div style={{ ...CARD_S, marginTop: 14, textAlign: 'center' }}>
-          <div style={{ fontSize: 12, fontWeight: 600, color: '#92400e', marginBottom: 8 }}>✨ Resultado</div>
+          <div style={{ fontSize: 12, fontWeight: 600, color: '#6366f1', marginBottom: 8 }}>✨ Resultado</div>
           <img src={resultImg.url} alt="Resultado IA" style={{ maxWidth: '100%', maxHeight: 400, borderRadius: 12, objectFit: 'contain', boxShadow: '0 4px 20px rgba(0,0,0,.12)' }} />
           <div style={{ display: 'flex', gap: 8, marginTop: 12, justifyContent: 'center' }}>
-            <button onClick={handleDownload} style={{ padding: '10px 20px', borderRadius: 10, border: '1px solid #92400e', background: '#fff', color: '#92400e', fontSize: 12, fontWeight: 600, cursor: 'pointer' }}>⬇️ Descargar</button>
+            <button onClick={handleDownload} style={{ padding: '10px 20px', borderRadius: 10, border: '1px solid #6366f1', background: '#fff', color: '#6366f1', fontSize: 12, fontWeight: 600, cursor: 'pointer' }}>⬇️ Descargar</button>
             <button onClick={handleGenerate} disabled={loading} style={{ padding: '10px 20px', borderRadius: 10, border: '1px solid #d4c9be', background: '#fff', color: '#78716c', fontSize: 12, fontWeight: 600, cursor: 'pointer' }}>🔄 Regenerar</button>
           </div>
         </div>
@@ -2658,7 +2624,7 @@ Focus on Mexican bakery culture, artisan quality, and homemade tradition.`;
       {/* ── Captions ── */}
       {captions && (
         <div style={{ ...CARD_S, marginTop: 14 }}>
-          <div style={{ fontSize: 12, fontWeight: 600, color: '#92400e', marginBottom: 8 }}>📝 Captions para Redes</div>
+          <div style={{ fontSize: 12, fontWeight: 600, color: '#6366f1', marginBottom: 8 }}>📝 Captions para Redes</div>
           {captions.split(/\n\n+|\d+\)/).filter(Boolean).map((c, i) => (
             <div key={i} style={{ padding: 12, background: '#faf8f5', borderRadius: 10, marginBottom: 8, fontSize: 13, color: '#44403c', lineHeight: 1.5, position: 'relative', whiteSpace: 'pre-wrap' }}>
               {c.trim()}
