@@ -2654,6 +2654,164 @@ function TabFotoLab({ slug, token }) {
   );
 }
 
+// ══════════════════════════════════════════════════════════════════════════════
+// 🤖 TAB MIS AGENTES — Vista cliente (Fase 3 T6)
+// ══════════════════════════════════════════════════════════════════════════════
+
+const CLIENT_AGENT_DEFS = {
+  marketing:    { icon: '📢', name: 'Marketing',    desc: 'Campañas y contenido' },
+  captacion:    { icon: '🎣', name: 'Captación',    desc: 'Atrae leads nuevos' },
+  venta:        { icon: '🛒', name: 'Venta',        desc: 'Cierra pedidos por WhatsApp' },
+  cierre:       { icon: '🤝', name: 'Cierre',       desc: 'Confirmación y pago' },
+  entrega:      { icon: '🚚', name: 'Entrega',      desc: 'Logística y seguimiento' },
+  seguimiento:  { icon: '💬', name: 'Seguimiento',  desc: 'Reactivación y postventa' },
+  analitica:    { icon: '📊', name: 'Analítica',    desc: 'KPIs y reportes' },
+  finanzas:     { icon: '💰', name: 'Finanzas',     desc: 'Costos y rentabilidad' },
+};
+
+const STATUS_COLORS = {
+  active:   { bg: '#f0fdf4', border: '#86efac', text: '#16a34a', label: '● Activo' },
+  warning:  { bg: '#fffbeb', border: '#fcd34d', text: '#d97706', label: '⚠ Atención' },
+  error:    { bg: '#fef2f2', border: '#fca5a5', text: '#dc2626', label: '✕ Error' },
+  inactive: { bg: '#f8fafc', border: '#e2e8f0', text: '#94a3b8', label: '○ No incluido' },
+};
+
+function TabMisAgentes({ slug, token }) {
+  const [agents, setAgents] = useState(null);
+  const [plan, setPlan] = useState('starter');
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!token) return;
+    fetch(`${BACKEND}/api/client/${slug}/agents`, {
+      headers: { 'X-Dashboard-Token': token }
+    })
+      .then(r => r.json())
+      .then(d => { setAgents(d.agents || {}); setPlan(d.plan || 'starter'); setLoading(false); })
+      .catch(() => setLoading(false));
+  }, [slug, token]);
+
+  if (loading) return <div style={{ textAlign: 'center', padding: 40, color: '#94a3b8' }}>⏳ Cargando agentes…</div>;
+
+  return (
+    <>
+      <h2 style={{ fontSize: 15, fontWeight: 700, marginBottom: 4, color: '#44403c' }}>
+        🤖 Mis Agentes <span style={{ fontSize: 10, fontWeight: 400, color: '#a8a29e' }}>Plan {plan}</span>
+      </h2>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 10, marginTop: 12 }}>
+        {Object.entries(CLIENT_AGENT_DEFS).map(([id, def]) => {
+          const status = (agents && agents[id]) || 'inactive';
+          const sc = STATUS_COLORS[status] || STATUS_COLORS.inactive;
+          const isIncluded = status !== 'inactive';
+          return (
+            <div key={id} style={{
+              background: sc.bg, border: `1.5px solid ${sc.border}`, borderRadius: 14,
+              padding: '14px 12px', opacity: isIncluded ? 1 : 0.55, transition: 'all .2s',
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
+                <span style={{ fontSize: 22 }}>{def.icon}</span>
+                <span style={{ fontSize: 10, fontWeight: 700, color: sc.text, background: `${sc.text}14`, padding: '2px 8px', borderRadius: 20 }}>
+                  {sc.label}
+                </span>
+              </div>
+              <div style={{ fontSize: 13, fontWeight: 700, color: '#1e293b' }}>{def.name}</div>
+              <div style={{ fontSize: 11, color: '#64748b', marginTop: 2 }}>{def.desc}</div>
+              {!isIncluded && (
+                <div style={{ marginTop: 8, fontSize: 10, color: '#6366f1', fontWeight: 600, padding: '4px 8px', background: '#eef2ff', borderRadius: 8, textAlign: 'center' }}>
+                  Disponible en plan superior →
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+      <div style={{ marginTop: 16, padding: '12px 14px', background: '#f8fafc', borderRadius: 12, border: '1px solid #e2e8f0', fontSize: 12, color: '#64748b', textAlign: 'center' }}>
+        💡 Tu plan <b>{plan}</b> incluye {agents ? Object.values(agents).filter(s => s !== 'inactive').length : 0} de 8 agentes. ¿Quieres más? <b>hola@genyxsystems.com</b>
+      </div>
+    </>
+  );
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// 📧 TAB REPORTE DEL LUNES — Vista cliente (Fase 3 T7)
+// ══════════════════════════════════════════════════════════════════════════════
+
+function TabReporteLunesCliente({ slug, token }) {
+  const [reports, setReports] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [expanded, setExpanded] = useState(null);
+
+  useEffect(() => {
+    if (!token) return;
+    fetch(`${BACKEND}/api/client/${slug}/weekly-reports`, {
+      headers: { 'X-Dashboard-Token': token }
+    })
+      .then(r => r.json())
+      .then(d => { setReports(d.reports || []); setLoading(false); })
+      .catch(() => setLoading(false));
+  }, [slug, token]);
+
+  if (loading) return <div style={{ textAlign: 'center', padding: 40, color: '#94a3b8' }}>⏳ Cargando reportes…</div>;
+
+  if (!reports || reports.length === 0) {
+    return (
+      <div style={{ textAlign: 'center', padding: 60, color: '#64748b' }}>
+        <div style={{ fontSize: 56, marginBottom: 16 }}>📧</div>
+        <h3 style={{ fontSize: 18, color: '#1e293b', marginBottom: 8, fontWeight: 700 }}>Aún no hay reportes</h3>
+        <p style={{ fontSize: 13, lineHeight: 1.6, maxWidth: 360, margin: '0 auto' }}>
+          Tu reporte semanal se genera automáticamente cada lunes con un resumen de ventas, KPIs y recomendaciones IA para tu negocio.
+        </p>
+        <div style={{ marginTop: 20, padding: '10px 16px', background: '#eef2ff', borderRadius: 10, fontSize: 12, color: '#4f46e5', fontWeight: 600, display: 'inline-block' }}>
+          📅 Próximo reporte: lunes
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <h2 style={{ fontSize: 15, fontWeight: 700, marginBottom: 4, color: '#44403c' }}>
+        📧 Reportes Semanales <span style={{ fontSize: 10, fontWeight: 400, color: '#a8a29e' }}>{reports.length} disponibles</span>
+      </h2>
+      <div style={{ marginTop: 12 }}>
+        {reports.map((report, idx) => {
+          const isOpen = expanded === report.id;
+          const data = report.report_data || {};
+          const recs = Array.isArray(report.recommendations) ? report.recommendations : [];
+          return (
+            <div key={report.id} style={{
+              background: '#fff', borderRadius: 12, border: '1px solid #f0ebe4',
+              marginBottom: 10, overflow: 'hidden', transition: 'all .2s',
+            }}>
+              <button onClick={() => setExpanded(isOpen ? null : report.id)} style={{
+                width: '100%', padding: '12px 14px', display: 'flex', justifyContent: 'space-between',
+                alignItems: 'center', border: 'none', background: 'none', cursor: 'pointer',
+                fontSize: 13, fontWeight: 600, color: '#1e293b', textAlign: 'left',
+              }}>
+                <span>📊 Semana {report.week_start || `#${reports.length - idx}`}</span>
+                <span style={{ fontSize: 11, color: '#94a3b8' }}>{isOpen ? '▼' : '▶'} {report.created_at?.slice(0, 10)}</span>
+              </button>
+              {isOpen && (
+                <div style={{ padding: '0 14px 14px', fontSize: 12, color: '#44403c', lineHeight: 1.6 }}>
+                  {data.total_orders != null && <div>📦 Pedidos: <b>{data.total_orders}</b></div>}
+                  {data.total_revenue != null && <div>💰 Ingresos: <b>${Number(data.total_revenue).toLocaleString('es-MX')}</b></div>}
+                  {data.ticket_promedio != null && <div>🎟️ Ticket Promedio: <b>${Number(data.ticket_promedio).toLocaleString('es-MX')}</b></div>}
+                  {recs.length > 0 && (
+                    <div style={{ marginTop: 10, padding: '8px 12px', background: '#eef2ff', borderRadius: 8, border: '1px solid #c7d2fe' }}>
+                      <div style={{ fontWeight: 700, color: '#4f46e5', marginBottom: 4 }}>💡 Recomendaciones IA:</div>
+                      {recs.map((rec, ri) => <div key={ri} style={{ marginTop: 4 }}>• {typeof rec === 'string' ? rec : rec.text || JSON.stringify(rec)}</div>)}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </>
+  );
+}
+
 // ── Utility: derive brand accent from brand_color ────────────────────────────
 function lighten(hex, percent = 20) {
   if (!hex || !hex.startsWith('#')) return '#8b5cf6';
@@ -4051,11 +4209,11 @@ function MandoClientView({ slug }) {
         {/* ═══ TAB: FOTO LAB ═══ */}
         {tab === 'foto' && <TabFotoLab slug={slug} token={token} />}
 
-        {/* ═══ TAB: MIS AGENTES (Fase 3 T6 — stub until built) ═══ */}
-        {tab === 'misAgentes' && <TabPlaceholder placeholder="Mis Agentes" />}
+        {/* ═══ TAB: MIS AGENTES (Fase 3 T6) ═══ */}
+        {tab === 'misAgentes' && <TabMisAgentes slug={slug} token={token} />}
 
-        {/* ═══ TAB: REPORTE DEL LUNES (Fase 3 T7 — stub until built) ═══ */}
-        {tab === 'reporteLunes' && <TabPlaceholder placeholder="Reporte del Lunes" />}
+        {/* ═══ TAB: REPORTE DEL LUNES (Fase 3 T7) ═══ */}
+        {tab === 'reporteLunes' && <TabReporteLunesCliente slug={slug} token={token} />}
 
         {/* ═══ TABS PLACEHOLDER: módulos no construidos ═══ */}
         {['citas', 'leads', 'pacientes', 'reservas', 'cursos'].includes(tab) && (
