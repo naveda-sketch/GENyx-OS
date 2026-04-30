@@ -3600,44 +3600,7 @@ function FAQItem({ question, answer }) {
   );
 }
 
-// ── 4. Guarantee Seal ───────────────────────────────────────────────────────
-function GuaranteeSeal() {
-  return (
-    <section style={{ padding: '0 24px 100px', maxWidth: 640, margin: '0 auto', textAlign: 'center' }}>
-      <div style={{
-        background: 'linear-gradient(135deg, rgba(74,222,128,0.06), rgba(34,197,94,0.04))',
-        border: '2px solid rgba(74,222,128,0.25)',
-        borderRadius: 24,
-        padding: '48px 40px',
-        position: 'relative',
-        overflow: 'hidden',
-      }}>
-        {/* Shield icon */}
-        <div style={{ fontSize: 56, marginBottom: 16 }}>🛡️</div>
-        <h3 style={{ fontSize: 28, fontWeight: 900, color: '#4ade80', marginBottom: 12, letterSpacing: '-0.5px' }}>Garantía GenyX</h3>
-        <p style={{ fontSize: 18, color: '#f1f5f9', fontWeight: 700, lineHeight: 1.6, marginBottom: 8 }}>
-          Si tu agente falla más de 3 veces en un mes,<br />
-          <span style={{ background: 'linear-gradient(135deg, #4ade80, #22c55e)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontSize: 22 }}>ese mes es sin costo.</span>
-        </p>
-        <p style={{ color: '#64748b', fontSize: 14, lineHeight: 1.7, maxWidth: 420, margin: '0 auto' }}>
-          Cada actualización es verificada exhaustivamente antes de llegar a tu negocio. Tú nunca eres el conejillo de indias — eres el beneficiario de un sistema probado.
-        </p>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: 20, marginTop: 24, flexWrap: 'wrap' }}>
-          {[
-            ['✓ 100%', 'mensajes atendidos'],
-            ['✓ < 5s', 'tiempo de respuesta'],
-            ['✓ 365', 'días al año'],
-          ].map(([val, label]) => (
-            <div key={label} style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 18, fontWeight: 800, color: '#4ade80' }}>{val}</div>
-              <div style={{ fontSize: 10, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.05em' }}>{label}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+
 
 // ── GenyX Landing Page — Diseño Aprobado (genyxsystems.com) ────────
 function GenyXLandingPage() {
@@ -3744,13 +3707,13 @@ function GenyXLandingPage() {
         <p style={C.sub}>GenyX funciona como tu departamento de ventas digital. Tu equipo de agentes de IA según el plan que elijas, operando 24/7 bajo nuestra supervisión, configurados con el ADN de tu marca. Atraen clientes, cierran ventas dentro del chat, recuperan pedidos abandonados, coordinan entregas, y cada lunes a las 8am te envían un reporte basado en lo que realmente pasó en tus ventas para que tomes mejores decisiones.</p>
         <div style={C.btns}>
           <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={C.primary}>Cuéntame de tu negocio →</a>
-          <a href="/simulador" style={C.secondary}>Probar simulador</a>
+          <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20probar%20el%20simulador%20de%20GenyX" style={C.secondary}>Probar simulador</a>
         </div>
       </section>
 
       <section style={C.stats}>
         <div style={C.statsGrid}>
-          {[['< 5s', 'Tu cliente recibe respuesta'], ['24/7', 'Incluye fines de semana y días festivos'], ['$0', 'Comisión por venta — lo que vendes es tuyo'], ['48h', 'De la sesión a vendiendo']].map(([v, l], i) => (
+          {[['Segundos', 'Tu cliente recibe respuesta'], ['24/7', 'Incluye fines de semana y días festivos'], ['$0', 'Comisión por venta — lo que vendes es tuyo'], ['48h', 'De la sesión a vendiendo']].map(([v, l], i) => (
             <div key={i} style={C.statCell(i)}>
               <p style={C.statVal}>{v}</p>
               <p style={C.statLbl}>{l}</p>
@@ -3758,6 +3721,9 @@ function GenyXLandingPage() {
           ))}
         </div>
       </section>
+
+      {/* ── Trust Badges (Stack tecnológico) ── */}
+      <TrustBadges />
 
       {/* ── El Reto ── */}
       <section style={{ padding: '0 24px 100px', maxWidth: 720, margin: '0 auto' }}>
@@ -3856,7 +3822,7 @@ function GenyXLandingPage() {
         </div>
         <div style={{ textAlign: 'center', marginTop: 24 }}>
           <p style={{ color: '#94a3b8', fontSize: 14, marginBottom: 14 }}>¿Quieres ver cómo se vería un día de tu negocio con GenyX operando?</p>
-          <a href="/simulador" style={{ display: 'inline-block', background: 'transparent', border: '1px solid rgba(99,102,241,0.5)', color: '#818cf8', padding: '12px 28px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', transition: 'all .2s' }}>Probar el simulador con tus productos reales →</a>
+          <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20probar%20el%20simulador%20de%20GenyX" style={{ display: 'inline-block', background: 'transparent', border: '1px solid rgba(99,102,241,0.5)', color: '#818cf8', padding: '12px 28px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', transition: 'all .2s' }}>Probar el simulador con tus productos reales →</a>
         </div>
       </section>
 
@@ -4016,7 +3982,7 @@ function GenyXLandingPage() {
       <section style={{ padding:'0 24px 100px', maxWidth:1000, margin:'0 auto' }}>
         <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12, textAlign:'center' }}>POR QUÉ GenyX</div>
         <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:12, textAlign:'center' }}>No somos un bot genérico.<br /><span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Funcionamos como tu departamento de ventas digital.</span></h2>
-        <p style={{ color:'#64748b', marginBottom:48, textAlign:'center', fontSize:15, maxWidth:600, margin:'0 auto 48px' }}>El mercado tiene bots que responden preguntas. GenyX funciona como tu departamento de ventas digital — con tu catálogo, tus reglas y resultados que puedes medir.</p>
+        <p style={{ color:'#64748b', marginBottom:48, textAlign:'center', fontSize:15, maxWidth:600, margin:'0 auto 48px' }}>El mercado tiene bots que responden preguntas. GenyX cierra ventas — con tu catálogo, tus reglas y resultados que puedes medir.</p>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:16 }}>
           {[
             ['🔒', 'Nunca cobra de más, nunca inventa precios', 'Tu agente respeta tu catálogo al 100%. Si no lo vendes, no lo ofrece. Si cuesta $120, cobra $120. Cero errores, cero sorpresas para tu cliente.'],
@@ -4090,7 +4056,7 @@ function GenyXLandingPage() {
           ['¿Cómo cobran y facturan?', 'Cobramos vía transferencia bancaria al inicio del mes. Te enviamos factura electrónica a tu RFC al confirmar el pago. La instalación se cobra una sola vez al firmar el contrato.'],
           ['¿GenyX cobra comisión por cada venta que cierra?', 'No. Jamás. Tu costo es fijo cada mes — sin importar si vendes $30,000 o $300,000. Lo que ganas es tuyo.'],
           ['¿Cuánto tarda en activarse?', 'Una sesión de 45 minutos para entender tu negocio. Nosotros configuramos todo. En menos de 48 horas tu agente está atendiendo clientes y cerrando ventas.'],
-          ['¿Qué pasa si el sistema falla?', 'Cada actualización pasa cientos de pruebas de calidad antes de llegar a tu negocio. Monitoreamos el sistema 24/7 y respondemos ante cualquier incidencia en minutos. Tu agente queda en pausa controlada hasta que la incidencia se resuelve.'],
+          ['¿Qué pasa si el sistema falla?', 'Cada actualización pasa por pruebas de calidad antes de llegar a tu negocio. Monitoreamos el sistema activamente y atendemos cualquier incidencia lo antes posible. Si se presenta un problema mayor, tu agente queda en pausa controlada y te avisamos directamente hasta que se resuelva.'],
           ['¿Para quién es GenyX?', 'Para dueños de negocio que quieren vender más sin contratar más gente. Si tienes clientes que te escriben por WhatsApp, Instagram o tu página web y quieres que esos mensajes se conviertan en dinero — sin que tú tengas que estar al pendiente — GenyX es para ti.'],
           ['¿Por qué GenyX y no un bot genérico?', 'Un bot genérico responde preguntas. GenyX cierra ventas. Atiende a tu cliente, arma su pedido, genera el cobro y te avisa cuando el dinero ya está en tu cuenta. Sin complicaciones, sin intervención humana.'],
           ['¿Por qué GenyX y no contratar un vendedor?', 'Contratar un vendedor implica semanas de búsqueda, entrevistas, capacitación, nómina, IMSS, aguinaldo y reemplazos cuando se va. GenyX se activa en 48 horas, no se enferma, no renuncia, no cobra comisión y atiende a todos tus clientes al mismo tiempo — por un costo mensual fijo.'],
@@ -4101,15 +4067,14 @@ function GenyXLandingPage() {
         ))}
       </section>
 
-      {/* ── Guarantee Seal ── */}
-      {/* Guarantee section removed - pending redesign */}
+
 
 
       <div id="contacto" style={C.ctaSec}>
         <div style={C.ctaBox}>
           <h2 style={C.ctaH}>¿Listo para tomar mejores decisiones?</h2>
           <p style={C.ctaSub}>Cuéntanos de tu negocio. Sin compromiso. Si GenyX no es la solución correcta para ti, te lo decimos con honestidad.</p>
-          <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={{ ...C.ctaBtn, display:'inline-flex', alignItems:'center', gap:10, marginBottom:14 }}>Cuéntame de tu negocio →</a>
+          <a href="https://wa.me/523340026694?text=Hola%2C%20me%20interesa%20GenyX%20para%20mi%20negocio.%20%C2%BFCuando%20podemos%20hablar%3F" style={{ ...C.ctaBtn, display:'inline-flex', alignItems:'center', gap:10, marginBottom:14 }}>Cuéntame de tu negocio →</a>
           <p style={{ color:'#64748b', fontSize:13 }}>o si prefieres: <a href="mailto:hola@genyxsystems.com" style={{ color:'#818cf8', textDecoration:'none' }}>hola@genyxsystems.com</a></p>
         </div>
       </div>
