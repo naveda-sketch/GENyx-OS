@@ -28,6 +28,9 @@ const TABS = [
   { id: 'clientes',     label: '🏢 Clientes' },
   { id: 'herramientas', label: '🛠️ Herramientas' },
   { id: 'analista',     label: '📊 Analista' },
+  { id: 'agentes',      label: '🤖 Agentes' },
+  { id: 'bitacora',     label: '📅 Bitácora' },
+  { id: 'reporte',      label: '📧 Reporte Lunes' },
   { id: 'data',         label: '📈 DATA' },
   { id: 'expedientes',  label: '🗄️ Expedientes' },
   { id: 'manuales',     label: '📚 Manuales' },
@@ -149,12 +152,104 @@ const TabFarmacopeia = () => {
 // ═══════════════════════════════════════════════════════════════════════════════
 // TAB: CLIENTES
 // ═══════════════════════════════════════════════════════════════════════════════
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// MÓDULOS — Definiciones + Editor Modal
+// ═══════════════════════════════════════════════════════════════════════════════
+const MODULES_DEFS = [
+  { id: 'inventario',   icon: '📦', name: 'Inventario' },
+  { id: 'costeador',    icon: '💰', name: 'Costeador' },
+  { id: 'citas',        icon: '📅', name: 'Citas' },
+  { id: 'fotolab',      icon: '📸', name: 'Foto Lab' },
+  { id: 'leads',        icon: '🎯', name: 'Pipeline de Leads' },
+  { id: 'pacientes',    icon: '🏥', name: 'Historial Pacientes' },
+  { id: 'expediente',   icon: '📋', name: 'Expediente Digital' },
+  { id: 'kpis',         icon: '📊', name: 'KPIs en Vivo' },
+  { id: 'reporteLunes', icon: '📧', name: 'Reporte del Lunes' },
+  { id: 'misAgentes',   icon: '🤖', name: 'Mis Agentes' },
+  { id: 'reservas',     icon: '🍽️', name: 'Reservas' },
+  { id: 'cursos',       icon: '🎓', name: 'Catálogo de Cursos' },
+];
+
+function ModulesEditorModal({ tenant, onClose, onSave }) {
+  const [modules, setModules] = useState(() => {
+    const current = tenant.modules || {};
+    const init = {};
+    MODULES_DEFS.forEach(m => { init[m.id] = current[m.id] === true; });
+    return init;
+  });
+  const [saving, setSaving] = useState(false);
+  const [saveMsg, setSaveMsg] = useState('');
+
+  const toggle = (id) => setModules(p => ({ ...p, [id]: !p[id] }));
+  const activeCount = Object.values(modules).filter(Boolean).length;
+
+  const handleSave = async () => {
+    setSaving(true);
+    try {
+      const r = await fetch(`${BACKEND}/api/admin/organizations/${tenant.slug}/modules`, {
+        method: 'PUT',
+        headers: { ...getAH(), 'Content-Type': 'application/json' },
+        body: JSON.stringify({ modules }),
+      });
+      if (r.ok) {
+        setSaveMsg('✅ Guardado');
+        setTimeout(() => { onSave(modules); onClose(); }, 800);
+      } else setSaveMsg('❌ Error al guardar');
+    } catch { setSaveMsg('❌ Sin conexión'); }
+    setSaving(false);
+  };
+
+  return (
+    <div onClick={onClose} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(4px)', zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
+      <div onClick={e => e.stopPropagation()} style={{ background: '#0c1220', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 16, padding: 28, maxWidth: 500, width: '100%', maxHeight: '85vh', overflowY: 'auto' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 20 }}>
+          <div>
+            <h3 style={{ fontSize: 16, fontWeight: 700, color: '#f1f5f9' }}>⚙️ Módulos · {tenant.name || tenant.slug}</h3>
+            <p style={{ fontSize: 12, color: '#64748b', marginTop: 4 }}>{activeCount} de {MODULES_DEFS.length} activos</p>
+          </div>
+          <button onClick={onClose} style={{ background: 'none', border: 'none', color: '#64748b', fontSize: 20, cursor: 'pointer' }}>✕</button>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 8, marginBottom: 20 }}>
+          {MODULES_DEFS.map(m => (
+            <div key={m.id} onClick={() => toggle(m.id)} style={{
+              background: modules[m.id] ? 'rgba(99,102,241,0.1)' : 'rgba(255,255,255,0.03)',
+              border: `1px solid ${modules[m.id] ? 'rgba(99,102,241,0.4)' : 'rgba(255,255,255,0.06)'}`,
+              borderRadius: 10, padding: '10px 12px', cursor: 'pointer',
+              display: 'flex', alignItems: 'center', gap: 10, transition: 'all 0.15s'
+            }}>
+              <span style={{ fontSize: 18 }}>{m.icon}</span>
+              <span style={{ fontSize: 13, color: modules[m.id] ? '#a5b4fc' : '#64748b', fontWeight: 600, flex: 1 }}>{m.name}</span>
+              <span style={{ width: 18, height: 18, borderRadius: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12,
+                background: modules[m.id] ? '#6366f1' : 'rgba(255,255,255,0.06)', color: '#fff' }}>
+                {modules[m.id] ? '✓' : ''}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: 16 }}>
+          {saveMsg ? <span style={{ fontSize: 12, color: saveMsg.startsWith('✅') ? '#4ade80' : '#f87171' }}>{saveMsg}</span> : <span />}
+          <div style={{ display: 'flex', gap: 8 }}>
+            <button onClick={onClose} style={BTN_SM_GHOST}>Cancelar</button>
+            <button onClick={handleSave} disabled={saving} style={{ ...BTN_SM_BLUE, opacity: saving ? 0.5 : 1 }}>
+              {saving ? '⏳...' : '💾 Guardar'}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, selectedSlug }) => {
   const [orgSettings, setOrgSettings] = useState({});
   const [expanded, setExpanded] = useState(null);
   const [savingSlug, setSavingSlug] = useState(null);
   const [localEdits, setLocalEdits] = useState({});
   const [onboardingUrl, setOnboardingUrl] = useState(null);
+  const [editingModulesFor, setEditingModulesFor] = useState(null);
 
   useEffect(() => {
     if (!isAuthed()) return;
@@ -211,6 +306,7 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
   );
 
   return (
+    <>
     <section>
       {onboardingUrl && (
         <div style={{ ...CARD, background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.3)', marginBottom: 20 }}>
@@ -241,8 +337,8 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
             <span style={{ background: 'rgba(99,102,241,0.15)', color: '#818cf8', border: '1px solid rgba(99,102,241,0.3)', padding: '2px 10px', borderRadius: 12, fontSize: 10, fontWeight: 700, textTransform: 'uppercase' }}>OPERADOR</span>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginBottom: 16 }}>
-            <KpiMini label="Revenue plataforma" value={$$( clientKPIs.reduce((s,t)=>s+(t.revenueMonth||0),0) )} />
-            <KpiMini label="Comisión GenyX" value={$$( clientKPIs.reduce((s,t)=>s+(t.commission||0),0) )} />
+            <KpiMini label="Volumen procesado" value={$$( clientKPIs.reduce((s,t)=>s+(t.revenueMonth||0),0) )} />
+            <KpiMini label="MRR Total" value={$$( clientKPIs.reduce((s,t)=>s+(parseFloat(t.plan_monthly_fee)||3500),0) )} />
             <KpiMini label="Clientes activos" value={ tenants.filter(t=>t.status==='active').length } />
           </div>
           <div style={{ borderTop: '1px solid rgba(99,102,241,0.15)', paddingTop: 12, display: 'flex', gap: 8 }}>
@@ -285,8 +381,8 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
               {/* KPIs */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginBottom: 16 }}>
                 <KpiMini label="Ingresos/mes" value={$$(t.revenueMonth)} />
-                <KpiMini label={`GenyX (${t.fee_percent || 8}%)`} value={$$(t.commission)} />
-                <KpiMini label="→ Al cliente" value={$$(t.pending)} />
+                <KpiMini label="Plan contratado" value={t.plan_name || `$${(parseFloat(t.plan_monthly_fee) || 3500).toLocaleString('es-MX')}/mes`} />
+                <KpiMini label="Próximo cobro" value={t.next_billing_date ? fmt(t.next_billing_date) : '—'} />
               </div>
 
               {/* Actions */}
@@ -299,12 +395,24 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
                 <button onClick={() => window.open(`https://mando.genyxsystems.com/${t.slug}`, '_blank', 'noopener,noreferrer')} style={BTN_SM_BLUE}>
                   Dashboard →
                 </button>
+                <button onClick={() => setEditingModulesFor(t)} style={BTN_SM_GHOST}>⚙️ Módulos</button>
               </div>
             </div>
           );
         })}
       </div>
     </section>
+
+      {editingModulesFor && (
+        <ModulesEditorModal
+          tenant={editingModulesFor}
+          onClose={() => setEditingModulesFor(null)}
+          onSave={(newModules) => {
+            setOrgSettings(prev => ({ ...prev, [editingModulesFor.slug]: { ...(prev[editingModulesFor.slug] || {}), modules: newModules } }));
+          }}
+        />
+      )}
+    </>
   );
 };
 
@@ -506,6 +614,41 @@ const TabData = ({ tenants, orders }) => {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
+// COMPONENTE: PanicConfirmBlock — Requiere typing "PÁNICO" para confirmar
+// ═══════════════════════════════════════════════════════════════════════════════
+function PanicConfirmBlock({ tenantName, onPanic, panicStatus }) {
+  const [confirmation, setConfirmation] = useState('');
+  const isConfirmed = confirmation === 'PÁNICO';
+  return (
+    <div style={{ marginTop: 12 }}>
+      <p style={{ fontSize: 12, color: '#fca5a5', marginBottom: 8 }}>
+        ⚠️ Vas a afectar el bot de <strong style={{ color: '#f87171' }}>{tenantName}</strong>. Escribe <code style={{ color: '#f87171', background: 'rgba(239,68,68,0.15)', padding: '1px 6px', borderRadius: 4 }}>PÁNICO</code> para confirmar:
+      </p>
+      <input type="text" value={confirmation} onChange={e => setConfirmation(e.target.value)}
+        placeholder="Escribe PÁNICO para confirmar..."
+        style={{ width: '100%', boxSizing: 'border-box', background: '#0f172a',
+          border: `1.5px solid ${isConfirmed ? '#22c55e' : 'rgba(239,68,68,0.4)'}`,
+          color: isConfirmed ? '#22c55e' : '#fca5a5', padding: '10px 14px', borderRadius: 8,
+          fontSize: 14, fontWeight: 700, letterSpacing: '.1em', textAlign: 'center',
+          marginBottom: 12, outline: 'none', fontFamily: 'monospace' }} />
+      <div style={{ display: 'flex', gap: 10 }}>
+        <button onClick={() => { if (isConfirmed) { onPanic('suspend'); setConfirmation(''); } }}
+          disabled={!isConfirmed}
+          style={{ ...BTN_SM_RED, opacity: isConfirmed ? 1 : 0.4, fontSize: 12, padding: '8px 18px', cursor: isConfirmed ? 'pointer' : 'not-allowed' }}>
+          ⏸ Suspender Bot
+        </button>
+        <button onClick={() => { if (isConfirmed) { onPanic('reactivate'); setConfirmation(''); } }}
+          disabled={!isConfirmed}
+          style={{ ...BTN_SM_GREEN, opacity: isConfirmed ? 1 : 0.4, fontSize: 12, padding: '8px 18px', cursor: isConfirmed ? 'pointer' : 'not-allowed' }}>
+          ▶ Reactivar Bot
+        </button>
+      </div>
+      {panicStatus && <p style={{ marginTop: 10, fontSize: 12, ...MONO, color: panicStatus.startsWith('✅') ? '#4ade80' : '#f87171' }}>{panicStatus}</p>}
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
 // TAB: HERRAMIENTAS
 // ═══════════════════════════════════════════════════════════════════════════════
 const TabHerramientas = ({ health, orders, tenants, selectedSlug }) => {
@@ -675,17 +818,8 @@ const TabHerramientas = ({ health, orders, tenants, selectedSlug }) => {
             {tenants.map(t => <option key={t.slug} value={t.slug}>{t.name || t.slug} ({t.status})</option>)}
           </select>
         </div>
-        <div style={{ display: 'flex', gap: 10 }}>
-          <button onClick={() => handlePanic('suspend')} disabled={!panicSlug}
-            style={{ ...BTN_SM_RED, opacity: panicSlug ? 1 : 0.5, fontSize: 12, padding: '8px 18px' }}>
-            ⏸ Suspender Bot
-          </button>
-          <button onClick={() => handlePanic('reactivate')} disabled={!panicSlug}
-            style={{ ...BTN_SM_GREEN, opacity: panicSlug ? 1 : 0.5, fontSize: 12, padding: '8px 18px' }}>
-            ▶ Reactivar Bot
-          </button>
-        </div>
-        {panicStatus && <p style={{ marginTop: 10, fontSize: 12, ...MONO, color: panicStatus.startsWith('✅') ? '#4ade80' : '#f87171' }}>{panicStatus}</p>}
+        {panicSlug && <PanicConfirmBlock tenantName={tenants.find(t => t.slug === panicSlug)?.name || panicSlug} onPanic={handlePanic} panicStatus={panicStatus} />}
+        {!panicSlug && <p style={{ fontSize: 12, color: '#475569', fontStyle: 'italic' }}>Selecciona un cliente para habilitar las acciones.</p>}
       </div>
 
       {/* ── Reset Sesión ── */}
@@ -751,7 +885,8 @@ const TabAnalista = ({ tenants, orders, selectedSlug, setSelectedSlug }) => {
       const t = o.clone_id?.replace('-sales', '') || 'sin-tenant';
       byTenant[t] = (byTenant[t] || 0) + parseFloat(od.total_estimated || od.total || 0);
     });
-    return { totalOrders, totalRevenue, commission: totalRevenue * 0.08, byTenant };
+    const mrrTotal = tenants.reduce((s, t) => s + (parseFloat(t.plan_monthly_fee) || 3500), 0);
+    return { totalOrders, totalRevenue, mrrTotal, byTenant };
   })();
 
   return (
@@ -768,7 +903,7 @@ const TabAnalista = ({ tenants, orders, selectedSlug, setSelectedSlug }) => {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: 12 }}>
             <KpiCard label="Órdenes plataforma" value={platformStats.totalOrders} icon="📋" />
             <KpiCard label="Revenue total" value={$$(platformStats.totalRevenue)} icon="💰" />
-            <KpiCard label="Comisión GenyX (8%)" value={$$(platformStats.commission)} icon="🏷️" />
+            <KpiCard label="MRR Total" value={$$(platformStats.mrrTotal)} icon="💰" />
             <KpiCard label="Clientes activos" value={tenants.filter(t => t.status === 'active').length} icon="🏢" />
           </div>
           {Object.keys(platformStats.byTenant).length > 0 && (
@@ -844,6 +979,378 @@ const TabAnalista = ({ tenants, orders, selectedSlug, setSelectedSlug }) => {
             </div>
           )}
         </div>
+      )}
+    </section>
+  );
+};
+
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// TAB: AGENTES — Matriz tenants × 8 agentes con status dots
+// ═══════════════════════════════════════════════════════════════════════════════
+const AGENT_DEFS = [
+  { id: 'marketing',   icon: '📣', name: 'Mkt',  plan: 'AUTONOMY' },
+  { id: 'captacion',   icon: '🎯', name: 'Cap',  plan: 'STARTER'  },
+  { id: 'venta',       icon: '💬', name: 'Vta',  plan: 'STARTER'  },
+  { id: 'cierre',      icon: '💳', name: 'Cie',  plan: 'STARTER'  },
+  { id: 'entrega',     icon: '🚚', name: 'Ent',  plan: 'GROWTH'   },
+  { id: 'seguimiento', icon: '🔔', name: 'Seg',  plan: 'STARTER'  },
+  { id: 'analitica',   icon: '📊', name: 'Ana',  plan: 'STARTER'  },
+  { id: 'finanzas',    icon: '💰', name: 'Fin',  plan: 'GROWTH'   },
+];
+
+const AGENT_STATUS_DOTS = {
+  active:   { color: '#22c55e', label: '🟢 Activo' },
+  warning:  { color: '#eab308', label: '🟡 Advertencia' },
+  error:    { color: '#ef4444', label: '🔴 Error' },
+  locked:   { color: '#6b7280', label: '🔒 No incluido' },
+  inactive: { color: '#94a3b8', label: '⚪ Inactivo' },
+};
+
+const TabAgentes = ({ tenants }) => {
+  const [agentData, setAgentData] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (!isAuthed() || tenants.length === 0) return;
+    setLoading(true);
+    Promise.all(tenants.map(t =>
+      fetch(`${BACKEND}/api/admin/agents/${t.slug}`, { headers: getAH() })
+        .then(r => r.ok ? r.json() : null)
+        .then(d => ({ slug: t.slug, agents: d?.agents || {} }))
+        .catch(() => ({ slug: t.slug, agents: {} }))
+    )).then(results => {
+      const map = {};
+      results.forEach(r => { map[r.slug] = r.agents; });
+      setAgentData(map);
+      setLoading(false);
+    });
+  }, [tenants]);
+
+  const getDot = (tenantPlan, agentDef, status) => {
+    const plan = (tenantPlan || 'STARTER').toUpperCase();
+    const available =
+      (agentDef.plan === 'STARTER') ||
+      (agentDef.plan === 'GROWTH' && ['GROWTH','AUTONOMY'].includes(plan)) ||
+      (agentDef.plan === 'AUTONOMY' && plan === 'AUTONOMY');
+    if (!available) return 'locked';
+    if (status === 'active') return 'active';
+    if (status === 'warning') return 'warning';
+    if (status === 'error') return 'error';
+    return 'inactive';
+  };
+
+  if (loading) return <Spinner />;
+
+  return (
+    <section>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 24, flexWrap: 'wrap' }}>
+        <h2 style={{ ...H2, margin: 0 }}>🤖 Matriz de Agentes</h2>
+        <span style={MONO}>{tenants.length} cliente(s) × 8 agentes</span>
+      </div>
+
+      <div style={{ overflowX: 'auto', marginBottom: 24 }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
+          <thead>
+            <tr>
+              <th style={{ textAlign: 'left', padding: '10px 12px', color: '#64748b', borderBottom: '1px solid rgba(255,255,255,0.08)', fontWeight: 600, minWidth: 140 }}>Cliente</th>
+              {AGENT_DEFS.map(a => (
+                <th key={a.id} style={{ textAlign: 'center', padding: '10px 6px', color: '#64748b', borderBottom: '1px solid rgba(255,255,255,0.08)', fontWeight: 600, minWidth: 50 }}>
+                  <div>{a.icon}</div>
+                  <div style={{ fontSize: 10 }}>{a.name}</div>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {tenants.map((t, i) => {
+              const status = agentData[t.slug] || {};
+              return (
+                <tr key={t.slug} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+                  <td style={{ padding: '10px 12px' }}>
+                    <div style={{ fontWeight: 600, color: '#f1f5f9', fontSize: 13 }}>{t.name || t.slug}</div>
+                    <div style={{ fontSize: 10, color: '#64748b' }}>{(t.plan_name || 'Starter').toUpperCase()}</div>
+                  </td>
+                  {AGENT_DEFS.map(a => {
+                    const dotKey = getDot(t.plan_name, a, status[a.id]);
+                    const dot = AGENT_STATUS_DOTS[dotKey];
+                    return (
+                      <td key={a.id} style={{ textAlign: 'center', padding: '10px 6px' }}>
+                        <div title={dot.label} style={{ width: 14, height: 14, borderRadius: '50%', background: dot.color, margin: '0 auto', opacity: dotKey === 'locked' ? 0.4 : 1, boxShadow: dotKey === 'active' ? `0 0 8px ${dot.color}` : 'none' }} />
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Leyenda */}
+      <div style={{ ...CARD, padding: '12px 16px' }}>
+        <span style={{ fontSize: 11, color: '#64748b', marginRight: 12 }}>Leyenda:</span>
+        <div style={{ display: 'inline-flex', gap: 16, flexWrap: 'wrap' }}>
+          {Object.entries(AGENT_STATUS_DOTS).map(([key, { color, label }]) => (
+            <span key={key} style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 11, color: '#94a3b8' }}>
+              <span style={{ width: 10, height: 10, borderRadius: '50%', background: color, display: 'inline-block', opacity: key === 'locked' ? 0.4 : 1 }} />
+              {label}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// TAB: BITÁCORA — Editor markdown con tags y filtros
+// ═══════════════════════════════════════════════════════════════════════════════
+const BITACORA_TAGS = [
+  { id: 'incidencia', label: '🚨 Incidencia', color: '#ef4444' },
+  { id: 'decision',   label: '🎯 Decisión',   color: '#6366f1' },
+  { id: 'cliente',    label: '🏢 Cliente',    color: '#22c55e' },
+  { id: 'tecnico',    label: '⚙️ Técnico',    color: '#eab308' },
+  { id: 'comercial',  label: '💼 Comercial',  color: '#c084fc' },
+];
+
+const TabBitacora = () => {
+  const [entries, setEntries] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [filter, setFilter] = useState('');
+  const [tagFilter, setTagFilter] = useState(null);
+  const [draft, setDraft] = useState({ title: '', body: '', tag: 'incidencia' });
+  const [saving, setSaving] = useState(false);
+  const [showEditor, setShowEditor] = useState(false);
+
+  const loadEntries = useCallback(() => {
+    if (!isAuthed()) return;
+    setLoading(true);
+    fetch(`${BACKEND}/api/admin/bitacora`, { headers: getAH() })
+      .then(r => r.ok ? r.json() : { entries: [] })
+      .then(d => setEntries(d.entries || []))
+      .catch(() => setEntries([]))
+      .finally(() => setLoading(false));
+  }, []);
+
+  useEffect(loadEntries, [loadEntries]);
+
+  const handleSave = async () => {
+    if (!draft.title.trim() || !draft.body.trim()) return;
+    setSaving(true);
+    try {
+      const r = await fetch(`${BACKEND}/api/admin/bitacora`, {
+        method: 'POST',
+        headers: { ...getAH(), 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: draft.title.trim(), body: draft.body.trim(), tag: draft.tag, created_at: new Date().toISOString() }),
+      });
+      if (r.ok) { setDraft({ title: '', body: '', tag: 'incidencia' }); setShowEditor(false); loadEntries(); }
+    } finally { setSaving(false); }
+  };
+
+  const handleDelete = async (id) => {
+    if (!confirm('¿Eliminar esta entrada de bitácora?')) return;
+    await fetch(`${BACKEND}/api/admin/bitacora/${id}`, { method: 'DELETE', headers: getAH() }).catch(() => {});
+    loadEntries();
+  };
+
+  const filtered = entries.filter(e => {
+    if (tagFilter && e.tag !== tagFilter) return false;
+    if (!filter.trim()) return true;
+    const q = filter.toLowerCase();
+    return e.title?.toLowerCase().includes(q) || e.body?.toLowerCase().includes(q);
+  });
+
+  return (
+    <section>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20, flexWrap: 'wrap' }}>
+        <h2 style={{ ...H2, margin: 0 }}>📅 Bitácora Operativa</h2>
+        <span style={MONO}>{entries.length} entrada(s)</span>
+        <button onClick={() => setShowEditor(!showEditor)} style={{ ...BTN_SM_BLUE, marginLeft: 'auto' }}>
+          {showEditor ? '✕ Cerrar' : '+ Nueva entrada'}
+        </button>
+      </div>
+
+      {/* Editor */}
+      {showEditor && (
+        <div style={{ ...CARD, marginBottom: 20, border: '1px solid rgba(99,102,241,0.3)' }}>
+          <input placeholder="Título de la entrada..." value={draft.title}
+            onChange={e => setDraft(p => ({ ...p, title: e.target.value }))}
+            style={{ ...INPUT, marginBottom: 10, fontWeight: 600 }} />
+          <textarea placeholder="Descripción detallada..." value={draft.body}
+            onChange={e => setDraft(p => ({ ...p, body: e.target.value }))}
+            style={{ ...INPUT, height: 120, resize: 'vertical', marginBottom: 10, fontFamily: 'monospace', fontSize: 12 }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+            <span style={{ fontSize: 11, color: '#64748b' }}>Tag:</span>
+            {BITACORA_TAGS.map(t => (
+              <button key={t.id} onClick={() => setDraft(p => ({ ...p, tag: t.id }))}
+                style={{ padding: '4px 10px', borderRadius: 6, fontSize: 11, fontWeight: 600, cursor: 'pointer',
+                  border: `1px solid ${draft.tag === t.id ? t.color : 'rgba(255,255,255,0.1)'}`,
+                  background: draft.tag === t.id ? `${t.color}15` : 'transparent',
+                  color: draft.tag === t.id ? t.color : '#94a3b8' }}>{t.label}</button>
+            ))}
+            <button onClick={handleSave} disabled={saving || !draft.title.trim() || !draft.body.trim()}
+              style={{ ...BTN_SM_BLUE, marginLeft: 'auto', opacity: (!draft.title.trim() || !draft.body.trim()) ? 0.4 : 1 }}>
+              {saving ? '⏳...' : '💾 Guardar'}
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Filtros */}
+      <div style={{ display: 'flex', gap: 8, marginBottom: 20, flexWrap: 'wrap', alignItems: 'center' }}>
+        <input placeholder="🔍 Buscar..." value={filter} onChange={e => setFilter(e.target.value)}
+          style={{ ...INPUT, flex: 1, minWidth: 180, maxWidth: 300 }} />
+        <button onClick={() => setTagFilter(null)}
+          style={{ ...BTN_SM_GHOST, opacity: !tagFilter ? 1 : 0.5, fontSize: 11 }}>Todos</button>
+        {BITACORA_TAGS.map(t => (
+          <button key={t.id} onClick={() => setTagFilter(tagFilter === t.id ? null : t.id)}
+            style={{ padding: '6px 10px', borderRadius: 6, fontSize: 11, fontWeight: 600, cursor: 'pointer',
+              border: `1px solid ${tagFilter === t.id ? t.color : 'rgba(255,255,255,0.1)'}`,
+              background: tagFilter === t.id ? `${t.color}20` : 'transparent',
+              color: tagFilter === t.id ? t.color : '#94a3b8' }}>{t.label}</button>
+        ))}
+      </div>
+
+      {/* Entradas */}
+      {loading ? <Spinner /> : filtered.length === 0 ? (
+        <Empty icon="📅" msg="No hay entradas en la bitácora." sub={entries.length === 0 ? 'Crea la primera con el botón + arriba' : 'Sin resultados para este filtro'} />
+      ) : (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          {filtered.map(e => {
+            const tagDef = BITACORA_TAGS.find(t => t.id === e.tag) || BITACORA_TAGS[0];
+            return (
+              <div key={e.id} style={{ ...CARD, padding: '14px 18px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
+                  <div>
+                    <span style={{ fontWeight: 700, fontSize: 14, color: '#f1f5f9' }}>{e.title}</span>
+                    <div style={{ display: 'flex', gap: 8, marginTop: 4, alignItems: 'center' }}>
+                      <span style={{ fontSize: 10, padding: '2px 8px', borderRadius: 4, background: `${tagDef.color}20`, color: tagDef.color, fontWeight: 600 }}>{tagDef.label}</span>
+                      <span style={{ fontSize: 10, color: '#64748b' }}>{e.created_at ? fmt(e.created_at) : '—'}</span>
+                    </div>
+                  </div>
+                  <button onClick={() => handleDelete(e.id)}
+                    style={{ background: 'none', border: 'none', color: '#64748b', cursor: 'pointer', fontSize: 14, padding: 4 }} title="Eliminar">🗑</button>
+                </div>
+                <p style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.7, whiteSpace: 'pre-wrap' }}>{e.body}</p>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </section>
+  );
+};
+
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// TAB: REPORTE DEL LUNES — Preview ONLY (sin envío real)
+// ═══════════════════════════════════════════════════════════════════════════════
+const TabReporteLunes = ({ tenants }) => {
+  const [selectedSlug, setSelectedSlug] = useState('');
+  const [report, setReport] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const loadPreview = async (slug) => {
+    if (!slug) { setReport(null); return; }
+    setLoading(true);
+    try {
+      const r = await fetch(`${BACKEND}/api/admin/weekly-report-preview/${slug}`, { headers: getAH() });
+      if (r.ok) setReport(await r.json());
+      else setReport({ error: 'No hay datos suficientes para generar el reporte aún.' });
+    } catch (e) { setReport({ error: 'Error de conexión: ' + e.message }); }
+    setLoading(false);
+  };
+
+  useEffect(() => { if (selectedSlug) loadPreview(selectedSlug); }, [selectedSlug]);
+
+  return (
+    <section>
+      <div style={{ marginBottom: 24 }}>
+        <h2 style={{ ...H2, margin: 0, marginBottom: 6 }}>📧 Reporte del Lunes — Preview</h2>
+        <p style={{ fontSize: 12, color: '#64748b', marginBottom: 16 }}>
+          Vista previa del email semanal. Esta vista NO envía emails — solo simula cómo se verá.
+        </p>
+        <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
+          <label style={LABEL}>Selecciona cliente:</label>
+          <select value={selectedSlug} onChange={e => setSelectedSlug(e.target.value)} style={{ ...INPUT, maxWidth: 280 }}>
+            <option value="">— Selecciona un cliente —</option>
+            {tenants.map(t => <option key={t.slug} value={t.slug}>{t.name || t.slug}</option>)}
+          </select>
+        </div>
+      </div>
+
+      {loading && <Spinner />}
+
+      {report?.error && (
+        <div style={{ ...CARD, border: '1px solid rgba(234,179,8,0.3)', padding: '20px 24px' }}>
+          <p style={{ color: '#fbbf24', fontSize: 14 }}>⚠️ {report.error}</p>
+        </div>
+      )}
+
+      {report && !report.error && (
+        <>
+          {/* Email mock-up */}
+          <div style={{ ...CARD, overflow: 'hidden', border: '1px solid rgba(99,102,241,0.2)' }}>
+            {/* Email header */}
+            <div style={{ background: 'rgba(99,102,241,0.08)', padding: '14px 20px', borderBottom: '1px solid rgba(255,255,255,0.06)', fontSize: 12 }}>
+              <p style={{ color: '#64748b' }}><strong style={{ color: '#94a3b8' }}>De:</strong> Tu Agente de Inteligencia Financiera GenyX</p>
+              <p style={{ color: '#64748b' }}><strong style={{ color: '#94a3b8' }}>Para:</strong> {report.email || '—'}</p>
+              <p style={{ color: '#64748b' }}><strong style={{ color: '#94a3b8' }}>Asunto:</strong> Tu reporte semanal — {report.fecha || new Date().toLocaleDateString('es-MX')}</p>
+            </div>
+            {/* Email body */}
+            <div style={{ padding: '24px 20px' }}>
+              <p style={{ fontSize: 16, fontWeight: 700, color: '#f1f5f9', marginBottom: 20 }}>Hola {report.nombre || 'cliente'},</p>
+              <p style={{ fontSize: 14, color: '#94a3b8', lineHeight: 1.8, marginBottom: 24 }}>
+                Esta semana procesaste <strong style={{ color: '#f1f5f9' }}>{report.pedidos || 0} pedidos</strong>.{' '}
+                <strong style={{ color: '#4ade80' }}>${(report.revenue || 0).toLocaleString('es-MX')} MXN</strong> en ventas.{' '}
+                Margen promedio: <strong style={{ color: '#fbbf24' }}>{report.margen || 0}%</strong>.
+              </p>
+
+              {/* KPI cards */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 10, marginBottom: 24 }}>
+                <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 10, padding: '12px 14px', textAlign: 'center' }}>
+                  <p style={{ fontSize: 11, color: '#64748b', marginBottom: 4 }}>📊 Producto estrella</p>
+                  <p style={{ fontSize: 14, fontWeight: 700, color: '#f1f5f9' }}>{report.producto_estrella?.name || '—'}</p>
+                  <p style={{ fontSize: 10, color: '#64748b' }}>×{report.producto_estrella?.qty || 0} · {report.producto_estrella?.margen || 0}% margen</p>
+                </div>
+                <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 10, padding: '12px 14px', textAlign: 'center' }}>
+                  <p style={{ fontSize: 11, color: '#64748b', marginBottom: 4 }}>⏰ Hora pico</p>
+                  <p style={{ fontSize: 14, fontWeight: 700, color: '#f1f5f9' }}>{report.hora_pico || '—'}</p>
+                  <p style={{ fontSize: 10, color: '#64748b' }}>Día: {report.dia_pico || '—'}</p>
+                </div>
+                <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 10, padding: '12px 14px', textAlign: 'center' }}>
+                  <p style={{ fontSize: 11, color: '#64748b', marginBottom: 4 }}>👥 Cliente top</p>
+                  <p style={{ fontSize: 14, fontWeight: 700, color: '#f1f5f9' }}>{report.cliente_top?.name || '—'}</p>
+                  <p style={{ fontSize: 10, color: '#64748b' }}>{report.cliente_top?.compras || 0} compras</p>
+                </div>
+                <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 10, padding: '12px 14px', textAlign: 'center' }}>
+                  <p style={{ fontSize: 11, color: '#64748b', marginBottom: 4 }}>💤 Inactivos</p>
+                  <p style={{ fontSize: 14, fontWeight: 700, color: '#f1f5f9' }}>{report.inactivos || 0}</p>
+                  <p style={{ fontSize: 10, color: '#64748b' }}>60+ días sin volver</p>
+                </div>
+              </div>
+
+              {report.sugerencias && report.sugerencias.length > 0 && (
+                <div style={{ marginBottom: 20 }}>
+                  <p style={{ fontSize: 13, fontWeight: 700, color: '#818cf8', marginBottom: 8 }}>Sugerencias basadas en tus datos:</p>
+                  {report.sugerencias.map((s, i) => (
+                    <p key={i} style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.7, paddingLeft: 12 }}>→ {s}</p>
+                  ))}
+                </div>
+              )}
+
+              <p style={{ fontSize: 14, color: '#94a3b8', fontStyle: 'italic' }}>Que tengas una semana increíble. 🚀</p>
+            </div>
+          </div>
+
+          {/* Banner no-envío */}
+          <div style={{ marginTop: 16, padding: '14px 20px', background: 'rgba(234,179,8,0.08)', border: '1px solid rgba(234,179,8,0.25)', borderRadius: 10, textAlign: 'center' }}>
+            <p style={{ fontSize: 13, fontWeight: 700, color: '#fbbf24', marginBottom: 4 }}>⚠️ MODO PREVIEW</p>
+            <p style={{ fontSize: 12, color: '#64748b' }}>El envío automático cada lunes 8am se habilita en Fase 4 (Resend integration).</p>
+          </div>
+        </>
       )}
     </section>
   );
@@ -1441,7 +1948,7 @@ function AdminLoginScreen({ onAuth }) {
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div style={{ width: 52, height: 52, border: '2px solid #6366f1', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, fontWeight: 900, color: '#818cf8', marginBottom: 16, fontFamily: 'JetBrains Mono, monospace' }}>G</div>
           <h1 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', letterSpacing: '.02em', margin: 0 }}>Geny<span style={{ color: '#818cf8' }}>X</span></h1>
-          <p style={{ fontSize: 11, color: '#334155', fontFamily: 'JetBrains Mono, monospace', marginTop: 6, letterSpacing: '.08em' }}>CENTRO DE MANDO GENYX</p>
+          <p style={{ fontSize: 11, color: '#334155', fontFamily: 'JetBrains Mono, monospace', marginTop: 6, letterSpacing: '.08em' }}>CENTRO DE MANDO · INTELIGENCIA DE NEGOCIO</p>
         </div>
         {/* Card */}
         <div style={{ background: '#0c1220', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 16, padding: '32px 28px', boxShadow: '0 0 40px rgba(99,102,241,0.08)' }}>
@@ -4235,16 +4742,22 @@ export default function GenyXOperatorDashboard() {
   if (_qp.get('pago') === 'exitoso') return <TicketPage sid={_qp.get('sid')} />;
   if (path === '/paty-terminos') return <PatyTermsPage />;
   if (path === '/paty-privacidad') return <PatyPrivacyPage />;
-  if (_qp.get('pago') === 'cancelado') return (
-    <div style={{ minHeight:'100vh', background:'#05080f', display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Inter',sans-serif" }}>
-      <div style={{ textAlign:'center', padding:40, maxWidth:440 }}>
-        <div style={{ fontSize:52, marginBottom:20 }}>⚠️</div>
-        <h1 style={{ color:'#f1f5f9', fontSize:24, fontWeight:800, marginBottom:12 }}>Pago no completado</h1>
-        <p style={{ color:'#64748b', lineHeight:1.7, marginBottom:32 }}>No te preocupes — tu carrito sigue guardado. Regresa al chat de WhatsApp y genera un nuevo link cuando estés listo.</p>
-        <a href="https://wa.me/523326220697" style={{ display:'inline-block', background:'linear-gradient(135deg,#25d366,#128c7e)', color:'#fff', padding:'14px 32px', borderRadius:30, fontWeight:700, fontSize:14, textDecoration:'none' }}>← Volver al Chat de Paty</a>
+  if (_qp.get('pago') === 'cancelado') {
+    const cancelSlug = _qp.get('slug') || '';
+    const cancelTenantData = cancelSlug ? tenants.find(t => t.slug === cancelSlug) : null;
+    const cancelPhone = cancelTenantData?.whatsapp || '523340026694';
+    const cancelName = cancelTenantData?.name || 'tu negocio';
+    return (
+      <div style={{ minHeight:'100vh', background:'#05080f', display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Inter',sans-serif" }}>
+        <div style={{ textAlign:'center', padding:40, maxWidth:440 }}>
+          <div style={{ fontSize:52, marginBottom:20 }}>⚠️</div>
+          <h1 style={{ color:'#f1f5f9', fontSize:24, fontWeight:800, marginBottom:12 }}>Pago no completado</h1>
+          <p style={{ color:'#64748b', lineHeight:1.7, marginBottom:32 }}>No te preocupes — tu carrito sigue guardado. Regresa al chat de WhatsApp y genera un nuevo link cuando estés listo.</p>
+          <a href={`https://wa.me/${cancelPhone}`} style={{ display:'inline-block', background:'linear-gradient(135deg,#25d366,#128c7e)', color:'#fff', padding:'14px 32px', borderRadius:30, fontWeight:700, fontSize:14, textDecoration:'none' }}>← Volver al Chat de {cancelName}</a>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 
   // ―― www.genyxsystems.com (o cualquier dominio no-mando) → Landing Page ―――
   if (!IS_MANDO && !IS_LOCAL && !IS_OS) return <GenyXLandingPage />;
@@ -4332,6 +4845,9 @@ export default function GenyXOperatorDashboard() {
         {tab === 'clientes'     && <TabClientes     tenants={tenants} orders={orders} loading={loading} onToggleStatus={handleToggleStatus} statusLoading={statusLoading} selectedSlug={selectedSlug} />}
         {tab === 'herramientas' && <TabHerramientas  health={health}   orders={orders} tenants={tenants}  selectedSlug={selectedSlug} />}
         {tab === 'analista'     && <TabAnalista      tenants={tenants} orders={orders}  selectedSlug={selectedSlug} setSelectedSlug={setSelectedSlug} />}
+        {tab === 'agentes'      && <TabAgentes       tenants={tenants} />}
+        {tab === 'bitacora'     && <TabBitacora />}
+        {tab === 'reporte'      && <TabReporteLunes tenants={tenants} />}
         {tab === 'data'         && <TabData          tenants={tenants} orders={orders}  selectedSlug={selectedSlug} />}
         {tab === 'expedientes'  && <TabExpedientes   tenants={tenants} selectedSlug={selectedSlug} />}
         {tab === 'manuales'     && <TabManuales />}
