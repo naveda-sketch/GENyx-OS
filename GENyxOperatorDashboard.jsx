@@ -2662,7 +2662,45 @@ Focus on Mexican bakery culture, artisan quality, and homemade tradition.`;
   );
 }
 
+// ── Utility: derive brand accent from brand_color ────────────────────────────
+function lighten(hex, percent = 20) {
+  if (!hex || !hex.startsWith('#')) return '#8b5cf6';
+  const num = parseInt(hex.replace('#', ''), 16);
+  const r = Math.min(255, ((num >> 16) & 0xff) + Math.round(255 * percent / 100));
+  const g = Math.min(255, ((num >> 8) & 0xff) + Math.round(255 * percent / 100));
+  const b = Math.min(255, (num & 0xff) + Math.round(255 * percent / 100));
+  return '#' + ((r << 16) | (g << 8) | b).toString(16).padStart(6, '0');
+}
+
+// ── Hook: carga config pública del tenant (sin auth) ─────────────────────────
+function useTenantConfig(slug) {
+  const [config, setConfig] = useState(null);
+  const [cfgLoading, setCfgLoading] = useState(true);
+  const [cfgError, setCfgError] = useState(null);
+
+  useEffect(() => {
+    if (!slug) return;
+    setCfgLoading(true);
+    fetch(`${BACKEND}/api/public/tenants/${slug}/config`)
+      .then(r => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      })
+      .then(d => { setConfig(d); setCfgLoading(false); })
+      .catch(e => { setCfgError(e.message); setCfgLoading(false); });
+  }, [slug]);
+
+  return { config, cfgLoading, cfgError };
+}
+
 function MandoClientView({ slug }) {
+  // ── Tenant Config (Fase 3: multi-tenant dinámico)
+  const { config, cfgLoading, cfgError } = useTenantConfig(slug);
+  const brandColor  = config?.brand_color || '#6366f1';
+  const brandAccent = lighten(brandColor, 20);
+  const tenantName  = config?.business_name || slug;
+  const tenantLogo  = config?.logo_url || '/genyx-fallback-icon.png';
+
   // ── Auth
   const [pin, setPin]             = useState('');
   const [token, setToken]         = useState(null);
@@ -2855,13 +2893,32 @@ function MandoClientView({ slug }) {
   const BTN  = (bg, color = '#fff') => ({ padding: '9px 16px', background: bg, color, border: 'none', borderRadius: 9, fontSize: 13, fontWeight: 700, cursor: 'pointer' });
   const INP  = { padding: '9px 12px', border: '1.5px solid #e7e0d8', borderRadius: 8, fontSize: 13, outline: 'none', background: '#fff' };
 
+  // ── Loading state (Fase 3: tenant config loading)
+  if (cfgLoading) return (
+    <div style={{ minHeight:'100vh', display:'flex', alignItems:'center', justifyContent:'center', background:'#faf7f2', color:'#64748b', fontFamily:"'Inter', system-ui, sans-serif" }}>
+      <div style={{ textAlign:'center' }}>
+        <div style={{ fontSize:28, marginBottom:12 }}>⏳</div>
+        <div style={{ fontSize:14, fontWeight:600 }}>Cargando tu Mando...</div>
+      </div>
+    </div>
+  );
+
+  // ── Error state (Fase 3: tenant config error)
+  if (cfgError) return (
+    <div style={{ minHeight:'100vh', display:'flex', alignItems:'center', justifyContent:'center', background:'#faf7f2', color:'#ef4444', fontFamily:"'Inter', system-ui, sans-serif", flexDirection:'column', gap:12 }}>
+      <div style={{ fontSize:28 }}>⚠️</div>
+      <div style={{ fontSize:14, fontWeight:700 }}>No se pudo cargar tu Mando.</div>
+      <div style={{ fontSize:12, color:'#64748b' }}>Verifica tu conexión o contacta soporte: hola@genyxsystems.com</div>
+    </div>
+  );
+
   // ── Login
   if (!token) return (
     <div style={{ ...CS, alignItems: 'center', justifyContent: 'center' }}>
       <div style={{ width: '100%', maxWidth: 360, padding: 24 }}>
         <div style={{ textAlign: 'center', marginBottom: 28 }}>
-          <img src="/paty-icon.png" alt="Paty HomeBakery" style={{ width: 80, height: 80, borderRadius: 16, marginBottom: 12 }} />
-          <h1 style={{ fontSize: 20, fontWeight: 800, color: '#1a1208' }}>Paty HomeBakery</h1>
+          <img src={tenantLogo} alt={tenantName} style={{ width: 80, height: 80, borderRadius: 16, marginBottom: 12 }} />
+          <h1 style={{ fontSize: 20, fontWeight: 800, color: '#1a1208' }}>{tenantName}</h1>
           <p style={{ color: '#78716c', fontSize: 13, marginTop: 4 }}>Centro de Mando</p>
         </div>
         <div style={CARD}>
@@ -2876,19 +2933,19 @@ function MandoClientView({ slug }) {
                 id={`terms-${slug}`}
                 checked={termsAccepted}
                 onChange={e => setTermsAccepted(e.target.checked)}
-                style={{ marginTop: 2, width: 16, height: 16, accentColor: '#92400e', cursor: 'pointer', flexShrink: 0 }}
+                style={{ marginTop: 2, width: 16, height: 16, accentColor: brandColor, cursor: 'pointer', flexShrink: 0 }}
               />
               <label htmlFor={`terms-${slug}`} style={{ fontSize: 11, color: '#78716c', lineHeight: 1.5, cursor: 'pointer' }}>
                 He leído y acepto los{' '}
-                <a href="/terminos" target="_blank" rel="noopener noreferrer" style={{ color: '#92400e', fontWeight: 700 }}>Términos y Condiciones</a>{' '}
+                <a href="/terminos" target="_blank" rel="noopener noreferrer" style={{ color: brandColor, fontWeight: 700 }}>Términos y Condiciones</a>{' '}
                 y el{' '}
-                <a href="/privacidad" target="_blank" rel="noopener noreferrer" style={{ color: '#92400e', fontWeight: 700 }}>Aviso de Privacidad</a>{' '}
+                <a href="/privacidad" target="_blank" rel="noopener noreferrer" style={{ color: brandColor, fontWeight: 700 }}>Aviso de Privacidad</a>{' '}
                 de GenyX Systems.
               </label>
             </div>
             {error && <p style={{ color: '#dc2626', fontSize: 12, marginBottom: 10, textAlign: 'center' }}>{error}</p>}
             <button type="submit" disabled={loading || !termsAccepted}
-              style={{ ...BTN('#92400e'), width: '100%', padding: 13, fontSize: 15, opacity: (loading || !termsAccepted) ? 0.5 : 1, cursor: !termsAccepted ? 'not-allowed' : 'pointer' }}>
+              style={{ ...BTN(brandColor), width: '100%', padding: 13, fontSize: 15, opacity: (loading || !termsAccepted) ? 0.5 : 1, cursor: !termsAccepted ? 'not-allowed' : 'pointer' }}>
               {loading ? 'Entrando…' : 'Entrar ✓'}
             </button>
           </form>
@@ -2906,12 +2963,12 @@ function MandoClientView({ slug }) {
   return (
     <div style={CS}>
       {/* Header */}
-      <header style={{ background: '#92400e', color: '#fff', padding: '12px 20px 0', position: 'sticky', top: 0, zIndex: 10 }}>
+      <header style={{ background: brandColor, color: '#fff', padding: '12px 20px 0', position: 'sticky', top: 0, zIndex: 10 }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <img src="/paty-icon.png" alt="" style={{ width: 32, height: 32, borderRadius: 8 }} />
+            <img src={tenantLogo} alt="" style={{ width: 32, height: 32, borderRadius: 8 }} />
             <div>
-              <div style={{ fontWeight: 800, fontSize: 14 }}>{name || 'Mi Panadería'}</div>
+              <div style={{ fontWeight: 800, fontSize: 14 }}>{name || tenantName}</div>
               <div style={{ fontSize: 9, opacity: .7 }}>Centro de Mando</div>
             </div>
           </div>
@@ -2983,11 +3040,11 @@ function MandoClientView({ slug }) {
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
                   <span style={{ color: '#78716c', fontSize: 11 }}>{fmt(o.created_at)}</span>
-                  <span style={{ fontWeight: 800, color: '#92400e', fontSize: 15 }}>${Number(total).toLocaleString('es-MX')} MXN</span>
+                  <span style={{ fontWeight: 800, color: brandColor, fontSize: 15 }}>${Number(total).toLocaleString('es-MX')} MXN</span>
                 </div>
                 {/* ── Expandable ticket completo ── */}
                 <details style={{ marginTop: 8 }}>
-                  <summary style={{ fontSize: 11, color: '#92400e', cursor: 'pointer', fontWeight: 700, padding: '6px 0', userSelect: 'none' }}>
+                  <summary style={{ fontSize: 11, color: brandColor, cursor: 'pointer', fontWeight: 700, padding: '6px 0', userSelect: 'none' }}>
                     🎫 Ver ticket completo ▾
                   </summary>
                   <div style={{ background: '#fff9f5', border: '1px dashed #e7d5c0', borderRadius: 8, padding: '12px', marginTop: 6, fontSize: 12 }}>
@@ -2999,7 +3056,7 @@ function MandoClientView({ slug }) {
                     {items.map((it, i) => (
                       <div key={i} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 3 }}>
                         <span>{it.nombre || it.name} ×{it.cantidad || it.qty || 1}</span>
-                        <b style={{ color: '#92400e' }}>${((it.subtotal || it.precio || it.price || 0)).toLocaleString('es-MX')}</b>
+                        <b style={{ color: brandColor }}>${((it.subtotal || it.precio || it.price || 0)).toLocaleString('es-MX')}</b>
                       </div>
                     ))}
                     <div style={{ borderTop: '1px solid #e7d5c0', marginTop: 8, paddingTop: 8 }}>
@@ -3089,12 +3146,12 @@ function MandoClientView({ slug }) {
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 14 }}>
                   <div style={{ ...CARD, textAlign: 'center', margin: 0 }}>
                     <div style={{ fontSize: 11, color: '#78716c', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 6 }}>🎫 Ticket Promedio</div>
-                    <div style={{ fontSize: 28, fontWeight: 800, color: '#92400e' }}>${(analytics.ticket_promedio || 0).toLocaleString('es-MX')}</div>
+                    <div style={{ fontSize: 28, fontWeight: 800, color: brandColor }}>${(analytics.ticket_promedio || 0).toLocaleString('es-MX')}</div>
                     <div style={{ fontSize: 10, color: '#a8a29e', marginTop: 4 }}>MXN por pedido</div>
                   </div>
                   <div style={{ ...CARD, textAlign: 'center', margin: 0 }}>
                     <div style={{ fontSize: 11, color: '#78716c', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 6 }}>📦 Total Pedidos</div>
-                    <div style={{ fontSize: 28, fontWeight: 800, color: '#92400e' }}>{analytics.total_orders || 0}</div>
+                    <div style={{ fontSize: 28, fontWeight: 800, color: brandColor }}>{analytics.total_orders || 0}</div>
                     <div style={{ fontSize: 10, color: '#a8a29e', marginTop: 4 }}>en el histórico</div>
                   </div>
                 </div>
@@ -3110,7 +3167,7 @@ function MandoClientView({ slug }) {
                   const revenue = filtered.reduce((s, o) => s + (parseFloat(o.total || o.total_estimated || 0) || 0), 0);
                   const labels  = { day: 'Hoy', week: 'Esta Semana', month: 'Este Mes' };
                   return (
-                    <div style={{ background: 'linear-gradient(135deg,#92400e 0%,#b45309 100%)', borderRadius: 14, padding: '14px 16px', marginBottom: 14, color: '#fff' }}>
+                    <div style={{ background: `linear-gradient(135deg,${brandColor} 0%,${brandAccent} 100%)`, borderRadius: 14, padding: '14px 16px', marginBottom: 14, color: '#fff' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
                         <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.07em', textTransform: 'uppercase' }}>💵 Ingresos</div>
                         <div style={{ display: 'flex', gap: 4 }}>
@@ -3118,7 +3175,7 @@ function MandoClientView({ slug }) {
                             <button key={p} onClick={() => setKpiPeriod(p)}
                               style={{ fontSize: 10, padding: '3px 9px', borderRadius: 12, border: 'none', cursor: 'pointer', fontWeight: 700,
                                 background: kpiPeriod === p ? '#fff' : 'rgba(255,255,255,0.22)',
-                                color:      kpiPeriod === p ? '#92400e' : '#fff' }}>
+                                color:      kpiPeriod === p ? brandColor : '#fff' }}>
                               {labels[p]}
                             </button>
                           ))}
@@ -3135,8 +3192,8 @@ function MandoClientView({ slug }) {
                   <div style={{ fontSize: 12, fontWeight: 700, color: '#44403c', marginBottom: 10 }}>🏆 Top Productos</div>
                   {(analytics.top_productos || []).map((p, i) => (
                     <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '7px 0', borderBottom: i < (analytics.top_productos.length - 1) ? '1px solid #f5f0ea' : 'none' }}>
-                      <span style={{ fontSize: 13 }}><b style={{ color: '#92400e' }}>#{i + 1}</b> {p.name}</span>
-                      <span style={{ background: '#faf0e6', color: '#92400e', padding: '2px 10px', borderRadius: 20, fontSize: 12, fontWeight: 700 }}>{p.qty} vendidos</span>
+                      <span style={{ fontSize: 13 }}><b style={{ color: brandColor }}>#{i + 1}</b> {p.name}</span>
+                      <span style={{ background: '#faf0e6', color: brandColor, padding: '2px 10px', borderRadius: 20, fontSize: 12, fontWeight: 700 }}>{p.qty} vendidos</span>
                     </div>
                   ))}
                   {(!analytics.top_productos || analytics.top_productos.length === 0) && <p style={{ color: '#a8a29e', fontSize: 13 }}>Sin datos de productos aún.</p>}
@@ -3148,7 +3205,7 @@ function MandoClientView({ slug }) {
               </>)}
             </>
           )}
-          {!analyticsLoading && !analytics && <button onClick={fetchAnalytics} style={{ ...BTN('#92400e'), width: '100%' }}>Cargar KPIs</button>}
+          {!analyticsLoading && !analytics && <button onClick={fetchAnalytics} style={{ ...BTN(brandColor), width: '100%' }}>Cargar KPIs</button>}
 
           {/* ─── HERO: ROI del sistema este mes ─── */}
           {(() => {
@@ -3170,7 +3227,7 @@ function MandoClientView({ slug }) {
             return (
               <div style={{ marginTop: 18, borderRadius: 16, overflow: 'hidden', boxShadow: '0 4px 24px rgba(146,64,14,0.18)' }}>
                 {/* Header */}
-                <div style={{ background: 'linear-gradient(135deg, #78350f 0%, #92400e 60%, #b45309 100%)', padding: '16px 20px 12px' }}>
+                <div style={{ background: `linear-gradient(135deg, ${brandColor} 0%, ${brandAccent} 100%)`, padding: '16px 20px 12px' }}>
                   <div style={{ fontSize: 10, fontWeight: 700, color: 'rgba(255,255,255,0.7)', letterSpacing: '.1em', textTransform: 'uppercase', marginBottom: 4 }}>🤖 Tu Clon Digital este mes</div>
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
                     <div style={{ fontSize: monthRevenue >= 100000 ? 28 : 36, fontWeight: 900, color: '#fff', letterSpacing: '-.02em', lineHeight: 1 }}>
@@ -3213,7 +3270,7 @@ function MandoClientView({ slug }) {
                   </div>
                 )}
                 {/* Footer */}
-                <div style={{ background: '#fef3c7', padding: '8px 20px', fontSize: 10, color: '#92400e', fontWeight: 600, textAlign: 'center' }}>
+                <div style={{ background: '#fef3c7', padding: '8px 20px', fontSize: 10, color: brandColor, fontWeight: 600, textAlign: 'center' }}>
                   {roi >= 300 ? '🏆 Tu sistema trabaja más duro que cualquier vendedor. ¡Excelente mes!' :
                    roi >= 100 ? '📈 Tu sistema ya se pagó solo. Todo lo demás es ganancia pura.' :
                    monthRevenue > 0 ? '🚀 El sistema está arrancando. Las ventas irán creciendo.' :
@@ -3240,7 +3297,7 @@ function MandoClientView({ slug }) {
               <select value={newProd.unit} onChange={e => setNewProd(p => ({ ...p, unit: e.target.value }))} style={{ ...INP }}>
                 {['pza', 'kg', 'lt', 'paq', 'caja', 'bolsa'].map(u => <option key={u}>{u}</option>)}
               </select>
-              <button onClick={addInventoryItem} style={BTN('#92400e')}>Guardar</button>
+              <button onClick={addInventoryItem} style={BTN(brandColor)}>Guardar</button>
             </div>
           </div>
           {invLoading && <div style={{ textAlign: 'center', color: '#a8a29e', padding: 30 }}>Cargando…</div>}
@@ -3258,10 +3315,10 @@ function MandoClientView({ slug }) {
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                   <input type="number" value={stockVal}
                     onChange={e => setEditStock(prev => ({ ...prev, [item.product_name]: e.target.value }))}
-                    style={{ ...INP, width: 70, textAlign: 'center', border: `1.5px solid ${isEditing ? '#92400e' : '#e7e0d8'}` }} />
+                    style={{ ...INP, width: 70, textAlign: 'center', border: `1.5px solid ${isEditing ? brandColor : '#e7e0d8'}` }} />
                   <span style={{ color: '#78716c', fontSize: 12 }}>{item.unit}</span>
                   <span style={{ color: stockColor, fontWeight: 800, fontSize: 12 }}>{item.stock <= 0 ? '🔴 Agotado' : item.stock <= 3 ? '🟡 Bajo' : '🟢 OK'}</span>
-                  {isEditing && <button onClick={() => patchInventory(item.product_name, stockVal, item.unit)} style={BTN('#92400e', '#fff')}>Guardar</button>} <button onClick={() => deleteInventory(item.product_name)} style={{ padding: '5px 10px', background: '#fef2f2', border: '1px solid #fca5a5', borderRadius: 7, cursor: 'pointer', fontSize: 12, color: '#dc2626', fontWeight: 700, marginLeft: 4 }}>🗑</button>
+                  {isEditing && <button onClick={() => patchInventory(item.product_name, stockVal, item.unit)} style={BTN(brandColor, '#fff')}>Guardar</button>} <button onClick={() => deleteInventory(item.product_name)} style={{ padding: '5px 10px', background: '#fef2f2', border: '1px solid #fca5a5', borderRadius: 7, cursor: 'pointer', fontSize: 12, color: '#dc2626', fontWeight: 700, marginLeft: 4 }}>🗑</button>
                 </div>
               </div>
             );
@@ -3284,7 +3341,7 @@ function MandoClientView({ slug }) {
               <button key={k} onClick={() => setCostMode(k)} style={{
                 flex: 1, padding: '9px 0', borderRadius: 9, border: 'none', cursor: 'pointer',
                 fontWeight: 700, fontSize: 13, transition: 'all .2s',
-                background: costMode === k ? '#92400e' : 'transparent',
+                background: costMode === k ? brandColor : 'transparent',
                 color: costMode === k ? '#fff' : '#78716c'
               }}>{lbl}</button>
             ))}
@@ -3320,7 +3377,7 @@ function MandoClientView({ slug }) {
                       <div style={{
                         maxWidth: '88%', padding: '10px 14px', fontSize: 13, lineHeight: 1.55, whiteSpace: 'pre-wrap',
                         borderRadius: msg.role === 'user' ? '14px 14px 4px 14px' : '14px 14px 14px 4px',
-                        background: msg.role === 'user' ? '#92400e' : '#fff',
+                        background: msg.role === 'user' ? brandColor : '#fff',
                         color: msg.role === 'user' ? '#fff' : '#44403c',
                         boxShadow: '0 1px 6px rgba(0,0,0,0.08)'
                       }}>{msg.content}</div>
@@ -3338,7 +3395,7 @@ function MandoClientView({ slug }) {
                     placeholder="Ej: Costéame la hogaza con semillas: 500g harina $18/kg..."
                     style={{ flex: 1, padding: '12px 14px', border: 'none', outline: 'none', fontSize: 13 }} />
                   <button onClick={sendAiMsg} disabled={aiLoading || !aiInput.trim()}
-                    style={{ padding: '12px 20px', background: aiInput.trim() ? '#92400e' : '#d4c9be', color: '#fff', border: 'none', cursor: 'pointer', fontWeight: 800, fontSize: 15 }}>▶</button>
+                    style={{ padding: '12px 20px', background: aiInput.trim() ? brandColor : '#d4c9be', color: '#fff', border: 'none', cursor: 'pointer', fontWeight: 800, fontSize: 15 }}>▶</button>
                 </div>
                 <p style={{ fontSize: 11, color: '#a8a29e', textAlign: 'center', marginTop: 8 }}>
                   💡 Tip: registra tus ingredientes con precios para que los costeos usen datos reales.<br />
@@ -3356,12 +3413,12 @@ function MandoClientView({ slug }) {
           {showInfo && (
             <div onClick={() => setShowInfo(null)} style={{ position: 'fixed', inset: 0, zIndex: 50, background: 'rgba(0,0,0,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24 }}>
               <div style={{ background: '#fff', borderRadius: 14, padding: 20, maxWidth: 340, width: '100%' }} onClick={e => e.stopPropagation()}>
-                <div style={{ fontWeight: 800, fontSize: 14, color: '#92400e', marginBottom: 8 }}>{showInfo.title}</div>
+                <div style={{ fontWeight: 800, fontSize: 14, color: brandColor, marginBottom: 8 }}>{showInfo.title}</div>
                 <div style={{ fontSize: 13, color: '#44403c', lineHeight: 1.6 }}>{showInfo.text}</div>
                 <div style={{ marginTop: 12, padding: '8px 12px', background: '#faf0e6', borderRadius: 8, fontSize: 12, color: '#78400e' }}>
                   <b>Ejemplo:</b> {showInfo.ex}
                 </div>
-                <button onClick={() => setShowInfo(null)} style={{ marginTop: 12, width: '100%', padding: 9, background: '#92400e', color: '#fff', border: 'none', borderRadius: 8, fontWeight: 700, cursor: 'pointer' }}>Entendido ✓</button>
+                <button onClick={() => setShowInfo(null)} style={{ marginTop: 12, width: '100%', padding: 9, background: brandColor, color: '#fff', border: 'none', borderRadius: 8, fontWeight: 700, cursor: 'pointer' }}>Entendido ✓</button>
               </div>
             </div>
           )}
@@ -3371,7 +3428,7 @@ function MandoClientView({ slug }) {
             const INP = { padding: '8px 11px', border: '1.5px solid #e7e0d8', borderRadius: 8, fontSize: 13, outline: 'none', background: '#fff' };
             const BTN = (bg, col='#fff') => ({ padding: '8px 14px', background: bg, color: col, border: 'none', borderRadius: 8, fontSize: 13, fontWeight: 700, cursor: 'pointer' });
             const INFO = (info) => (
-              <button onClick={() => setShowInfo(info)} style={{ background: 'none', border: '1.5px solid #d4c9be', color: '#92400e', borderRadius: '50%', width: 18, height: 18, fontSize: 10, fontWeight: 900, cursor: 'pointer', lineHeight: '16px', padding: 0, flexShrink: 0 }}>i</button>
+              <button onClick={() => setShowInfo(info)} style={{ background: 'none', border: '1.5px solid #d4c9be', color: brandColor, borderRadius: '50%', width: 18, height: 18, fontSize: 10, fontWeight: 900, cursor: 'pointer', lineHeight: '16px', padding: 0, flexShrink: 0 }}>i</button>
             );
             const SECHEAD = (title, info) => (
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
@@ -3389,15 +3446,15 @@ function MandoClientView({ slug }) {
 
             return (<>
               {/* 0. Selector de Producto — siempre primero */}
-              <div style={{ ...CARD, border: '2.5px solid #92400e', background: 'linear-gradient(135deg,#fdf6ee 0%,#fff9f3 100%)' }}>
+              <div style={{ ...CARD, border: `2.5px solid ${brandColor}`, background: 'linear-gradient(135deg,#fdf6ee 0%,#fff9f3 100%)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
-                  <span style={{ fontSize: 14, fontWeight: 900, color: '#92400e' }}>📖 Recetas del Menú</span>
+                  <span style={{ fontSize: 14, fontWeight: 900, color: brandColor }}>📖 Recetas del Menú</span>
                   {INFO({ title: 'Recetas del Menú', text: 'Comienza seleccionando qué producto de tu menú quieres costear. Una vez seleccionado, el sistema te guía: ingredientes (MPD), mano de obra (MOD), costos indirectos (CIF) y margen de ganancia.', ex: 'Selecciona "Hogaza Natural" → llena la receta → obtén el precio de venta recomendado.' })}
                 </div>
                 <div style={{ fontSize: 12, color: '#78716c', marginBottom: 10 }}>¿Qué producto de tu menú vas a costear hoy?</div>
                 {menuItems.length > 0 ? (
                   <select value={recName} onChange={e => setRecName(e.target.value)}
-                    style={{ ...INP, width: '100%', fontSize: 14, fontWeight: 600, boxSizing: 'border-box', borderColor: recName ? '#92400e' : '#e7e0d8' }}>
+                    style={{ ...INP, width: '100%', fontSize: 14, fontWeight: 600, boxSizing: 'border-box', borderColor: recName ? brandColor : '#e7e0d8' }}>
                     <option value="">-- Selecciona un producto de tu menú --</option>
                     {menuItems.map(p => <option key={p}>{p}</option>)}
                   </select>
@@ -3410,17 +3467,17 @@ function MandoClientView({ slug }) {
                   </div>
                 )}
                 {recName && (
-                  <div style={{ marginTop: 10, padding: '8px 14px', background: '#fff7ed', borderRadius: 9, fontSize: 13, color: '#92400e', fontWeight: 800, border: '1.5px solid #fed7aa' }}>
+                  <div style={{ marginTop: 10, padding: '8px 14px', background: '#fff7ed', borderRadius: 9, fontSize: 13, color: brandColor, fontWeight: 800, border: '1.5px solid #fed7aa' }}>
                     ✏️ Costeando: {recName}
                   </div>
                 )}
               </div>
 
               {/* Demo Hogaza Natural */}
-              <div style={{ padding: '10px 14px', background: 'linear-gradient(90deg,#92400e18,#fed7aa22)', borderRadius: 12, marginBottom: 14, border: '1.5px dashed #d97706', display: 'flex', alignItems: 'center', gap: 12 }}>
+              <div style={{ padding: '10px 14px', background: `linear-gradient(90deg,${brandColor}18,${brandAccent}22)`, borderRadius: 12, marginBottom: 14, border: '1.5px dashed #d97706', display: 'flex', alignItems: 'center', gap: 12 }}>
                 <span style={{ fontSize: 22 }}>🍞</span>
                 <div style={{ flex: 1 }}>
-                  <div style={{ fontSize: 12, fontWeight: 800, color: '#92400e' }}>¿Primera vez? Carga un ejemplo real</div>
+                  <div style={{ fontSize: 12, fontWeight: 800, color: brandColor }}>¿Primera vez? Carga un ejemplo real</div>
                   <div style={{ fontSize: 11, color: '#78716c' }}>Hogaza Natural — valores calibrados para verificar que $85 es el precio correcto</div>
                 </div>
                 <button onClick={() => {
@@ -3439,7 +3496,7 @@ function MandoClientView({ slug }) {
                   ]);
                   setModRate(60); setModHours(2); setBatchUnits(8);
                   setCifPct(20); setOpEx(4); setMargin(63);
-                }} style={{ padding: '7px 14px', background: '#92400e', color: '#fff', border: 'none', borderRadius: 9, fontSize: 12, fontWeight: 800, cursor: 'pointer', whiteSpace: 'nowrap' }}>Cargar demo →</button>
+                }} style={{ padding: '7px 14px', background: brandColor, color: '#fff', border: 'none', borderRadius: 9, fontSize: 12, fontWeight: 800, cursor: 'pointer', whiteSpace: 'nowrap' }}>Cargar demo →</button>
               </div>
 
               {/* 1. MPD */}
@@ -3459,12 +3516,12 @@ function MandoClientView({ slug }) {
                     if (!newIng.name.trim() || !newIng.cost) return;
                     const next = [...ings.filter(i => i.name !== newIng.name.trim()), { name: newIng.name.trim(), unit: newIng.unit, cost: parseFloat(newIng.cost) }];
                     saveIngs(next); setNewIng({ name: '', unit: 'pz', cost: '' });
-                  }} style={BTN('#92400e')}>+ Agregar</button>
+                  }} style={BTN(brandColor)}>+ Agregar</button>
                 </div>
                 {ings.length === 0 && <p style={{ fontSize: 12, color: '#a8a29e' }}>Sin ingredientes aún — agrega los materiales de tu menú.</p>}
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                   {ings.map(ing => (
-                    <span key={ing.name} style={{ background: '#faf0e6', color: '#92400e', border: '1px solid #e7d5c0', padding: '4px 10px', borderRadius: 20, fontSize: 12, display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <span key={ing.name} style={{ background: '#faf0e6', color: brandColor, border: '1px solid #e7d5c0', padding: '4px 10px', borderRadius: 20, fontSize: 12, display: 'flex', alignItems: 'center', gap: 6 }}>
                       <b>{ing.name}</b> — ${ing.cost}/{ing.unit}
                       <span onClick={() => saveIngs(ings.filter(i => i.name !== ing.name))} style={{ cursor: 'pointer', color: '#dc2626', fontWeight: 700 }}>×</span>
                     </span>
@@ -3472,7 +3529,7 @@ function MandoClientView({ slug }) {
                 </div>
                                 {/* 🧾 Calculadora de Factura — Nivel 1 */}
                                 <details style={{ marginTop: 12 }}>
-                                  <summary style={{ fontSize: 11, fontWeight: 800, color: '#92400e', cursor: 'pointer', userSelect: 'none' }}>
+                                  <summary style={{ fontSize: 11, fontWeight: 800, color: brandColor, cursor: 'pointer', userSelect: 'none' }}>
                                     🧾 Calculadora de Factura → Nivel 1: precio total ÷ cantidad = costo/unidad exacto
                                   </summary>
                                   <div style={{ marginTop: 8, background: '#fef9f3', borderRadius: 10, padding: 12, border: '1px dashed #fed7aa' }}>
@@ -3551,12 +3608,12 @@ function MandoClientView({ slug }) {
                   <label style={{ fontSize: 12, color: '#78716c', fontWeight: 600 }}>CIF = % de (MPD + MOD)</label>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                     <input type="range" min={0} max={40} value={cifPct} onChange={e => setCifPct(Number(e.target.value))} style={{ width: 120 }} />
-                    <span style={{ fontWeight: 800, color: '#92400e', fontSize: 14 }}>{cifPct}%</span>
+                    <span style={{ fontWeight: 800, color: brandColor, fontSize: 14 }}>{cifPct}%</span>
                   </div>
                 </div>
                 {/* Guía práctica CIF */}
                 <div style={{ background: '#fef9f3', borderRadius: 10, padding: '10px 12px', border: '1px solid #fed7aa' }}>
-                  <div style={{ fontSize: 11, color: '#92400e', fontWeight: 800, marginBottom: 8 }}>🧮 ¿No sabes tu %? Elige tu perfil de producción:</div>
+                  <div style={{ fontSize: 11, color: brandColor, fontWeight: 800, marginBottom: 8 }}>🧮 ¿No sabes tu %? Elige tu perfil de producción:</div>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 6 }}>
                     {[
                       { icon: '🏠', tipo: 'Cocina en casa', gas: '$400–600/mes', luz: '$200–350/mes', prod: '40–80 pzas', rango: '12–18%', pct: 15 },
@@ -3579,7 +3636,7 @@ function MandoClientView({ slug }) {
                 </div>
                 {/* GI Real toggle */}
                 <div style={{ marginTop: 12 }}>
-                  <label style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer', fontSize: 12, fontWeight: 700, color: '#92400e' }}>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer', fontSize: 12, fontWeight: 700, color: brandColor }}>
                     <input type="checkbox" checked={useGiReal} onChange={e => setUseGiReal(e.target.checked)} />
                     Calcular GI desde costos reales (más preciso)
                   </label>
@@ -3657,7 +3714,7 @@ function MandoClientView({ slug }) {
                     {INFO({ title: '4. Merma e Imprevistos', text: 'Porcentaje que cubre ingredientes que se pierden durante la preparación, quemaduras, descarte de presentación imperfecta y cualquier imprevisto. Se aplica sobre el Costo de Producción (MPD+MOD+CIF).', ex: '5% de merma sobre un costo de $20 = $1 de reserva → Costo ajustado $21 antes de margen.' })}
                   </div>
                   <input type="range" min={0} max={15} value={merma} onChange={e => setMerma(Number(e.target.value))} style={{ flex: 1 }} />
-                  <span style={{ fontWeight: 800, color: '#92400e', fontSize: 14, minWidth: 36 }}>{merma}%</span>
+                  <span style={{ fontWeight: 800, color: brandColor, fontSize: 14, minWidth: 36 }}>{merma}%</span>
                 </div>
 
                 {/* Gastos Operativos — líneas individuales */}
@@ -3673,7 +3730,7 @@ function MandoClientView({ slug }) {
                         <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: 12, color: '#44403c', marginBottom: 3 }}>
                           <span>{it.name}</span>
                           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                            <span style={{ fontWeight: 700, color: '#92400e' }}>${Number(it.cost).toFixed(2)}</span>
+                            <span style={{ fontWeight: 700, color: brandColor }}>${Number(it.cost).toFixed(2)}</span>
                             <span onClick={() => { const n = opExItems.filter((_,j)=>j!==i); setOpExItems(n); setOpEx(n.reduce((s,x)=>s+Number(x.cost),0)); }}
                               style={{ cursor: 'pointer', color: '#dc2626', fontWeight: 700, fontSize: 13 }}>×</span>
                           </div>
@@ -3681,7 +3738,7 @@ function MandoClientView({ slug }) {
                       ))}
                       <div style={{ borderTop: '1px solid #e7d5c0', marginTop: 6, paddingTop: 6, display: 'flex', justifyContent: 'space-between', fontSize: 12, fontWeight: 800 }}>
                         <span>Total GO/unidad</span>
-                        <span style={{ color: '#92400e' }}>${opEx.toFixed(2)}</span>
+                        <span style={{ color: brandColor }}>${opEx.toFixed(2)}</span>
                       </div>
                     </div>
                   )}
@@ -3700,7 +3757,7 @@ function MandoClientView({ slug }) {
                       setOpExItems(next);
                       setOpEx(next.reduce((s, x) => s + Number(x.cost), 0));
                       setNewOpEx({ name: '', cost: '' });
-                    }} style={BTN('#92400e')}>+ Agregar</button>
+                    }} style={BTN(brandColor)}>+ Agregar</button>
                   </div>
                   {opExItems.length === 0 && <p style={{ fontSize: 11, color: '#a8a29e', marginTop: 5 }}>Agrega tus gastos: empaque, etiqueta, comisión de pago, etc.</p>}
                 </div>
@@ -3712,20 +3769,20 @@ function MandoClientView({ slug }) {
                     {INFO({ title: '6. Precio de Venta con Margen', text: 'El margen se aplica SOBRE el costo total. Fórmula: Precio = Costo Total ÷ (1 - Margen%). Un margen del 50% significa que de cada peso que cobras, 50 centavos son ganancia neta.', ex: 'Costo Total $27 con margen 50% → Precio = $27 / (1-0.50) = $54. Tu ganancia = $27.' })}
                   </div>
                   <input type="range" min={20} max={80} value={margin} onChange={e => setMargin(Number(e.target.value))} style={{ flex: 1 }} />
-                  <span style={{ fontWeight: 800, color: '#92400e', fontSize: 14 }}>{margin}%</span>
+                  <span style={{ fontWeight: 800, color: brandColor, fontSize: 14 }}>{margin}%</span>
                 </div>
 
                 <button disabled={!recName.trim() || recItems.length === 0} onClick={() => {
                   const rec = { name: recName.trim(), items: recItems };
                   const next = [...recs.filter(r => r.name !== rec.name), rec];
                   saveRecs(next); setRecName(''); setRecItems([]);
-                }} style={{ ...BTN('#92400e'), opacity: (!recName.trim() || recItems.length === 0) ? 0.5 : 1 }}>Guardar Receta</button>
+                }} style={{ ...BTN(brandColor), opacity: (!recName.trim() || recItems.length === 0) ? 0.5 : 1 }}>Guardar Receta</button>
               </div>
 
               {/* Resultados: acordeón por receta */}
               {recs.length > 0 && (
                 <div>
-                  <div style={{ fontSize: 11, color: '#92400e', fontWeight: 800, marginBottom: 8, letterSpacing: '.04em', textTransform: 'uppercase' }}>📊 Recetas Guardadas ({recs.length}) — haz clic para ver el desglose</div>
+                  <div style={{ fontSize: 11, color: brandColor, fontWeight: 800, marginBottom: 8, letterSpacing: '.04em', textTransform: 'uppercase' }}>📊 Recetas Guardadas ({recs.length}) — haz clic para ver el desglose</div>
                   {recs.map(rec => {
                     const mpd      = calcCost(rec);
                     const mod      = modRate * modHours / batchUnits;
@@ -3747,7 +3804,7 @@ function MandoClientView({ slug }) {
                         <div onClick={() => setExpandedRec(isOpen ? null : rec.name)}
                           style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', userSelect: 'none' }}>
                           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                            <span style={{ fontSize: 11, color: '#92400e' }}>{isOpen ? '▼' : '▶'}</span>
+                            <span style={{ fontSize: 11, color: brandColor }}>{isOpen ? '▼' : '▶'}</span>
                             <span style={{ fontWeight: 800, fontSize: 13, color: '#1a1208' }}>{rec.name}</span>
                           </div>
                           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -3787,8 +3844,8 @@ function MandoClientView({ slug }) {
                                   <div style={{ fontSize: 10, color: '#6b7280' }}>redondeado al $5</div>
                                 </div>
                                 <div style={{ background: '#faf0e6', borderRadius: 10, padding: '10px 12px', textAlign: 'center', border: '1.5px solid #e7d5c0' }}>
-                                  <div style={{ fontSize: 10, color: '#92400e', fontWeight: 700, textTransform: 'uppercase' }}>📈 Tu Ganancia ({margin}%)</div>
-                                  <div style={{ fontSize: 24, fontWeight: 900, color: '#92400e' }}>${(priceFmt - costoTotal).toFixed(2)}</div>
+                                  <div style={{ fontSize: 10, color: brandColor, fontWeight: 700, textTransform: 'uppercase' }}>📈 Tu Ganancia ({margin}%)</div>
+                                  <div style={{ fontSize: 24, fontWeight: 900, color: brandColor }}>${(priceFmt - costoTotal).toFixed(2)}</div>
                                   <div style={{ fontSize: 10, color: '#6b7280' }}>por unidad</div>
                                 </div>
                               </div>
@@ -3796,7 +3853,7 @@ function MandoClientView({ slug }) {
                               <div style={{ marginTop: 10, padding: '10px 13px', background: sbg, borderRadius: 10, border: `1.5px solid ${sbd}` }}>
                                 <div style={{ fontWeight: 800, fontSize: 12, color: '#1a1208', marginBottom: 5 }}>{sl}</div>
                                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 4, fontSize: 11, color: '#44403c' }}>
-                                  <div>Margen real: <b style={{ color: '#92400e' }}>{rMgn}%</b></div>
+                                  <div>Margen real: <b style={{ color: brandColor }}>{rMgn}%</b></div>
                                   <div>Ganancia: <b style={{ color: '#15803d' }}>${(priceFmt - costoTotal).toFixed(2)} MXN</b></div>
                                 </div>
                                 <div style={{ fontSize: 10, color: '#44403c', marginTop: 5, borderTop: `1px solid ${sbd}`, paddingTop: 4 }}>{stip}</div>
