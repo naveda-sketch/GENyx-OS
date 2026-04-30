@@ -1994,14 +1994,40 @@ const PROD_STATUS = {
   en_produccion: { label: '🟡 En Proceso', color: '#d97706', bg: '#fffbeb', next: 'entregado',     nextLabel: 'Marcar Entregado ✓' },
   entregado:     { label: '✅ Entregado',   color: '#16a34a', bg: '#f0fdf4', next: null,           nextLabel: null },
 };
-const MANDO_TABS = [
-  { id: 'pedidos', label: '🚦 Pedidos' },
-  { id: 'kpis',    label: '📊 KPIs' },
-  { id: 'inv',     label: '📦 Inventario' },
-  { id: 'cost',    label: '💰 Costeador' },
-  { id: 'exp',     label: '📋 Expediente' },
-  { id: 'foto',    label: '📸 Foto Lab' },
-];
+// ── TabPlaceholder: módulos no construidos aún ───────────────────────────────
+function TabPlaceholder({ placeholder = 'Este módulo' }) {
+  return (
+    <div style={{ padding: 60, textAlign: 'center', color: '#64748b' }}>
+      <div style={{ fontSize: 56, marginBottom: 16 }}>🚧</div>
+      <h3 style={{ fontSize: 20, color: '#1a1208', marginBottom: 10, fontWeight: 700 }}>
+        {placeholder} próximamente
+      </h3>
+      <p style={{ fontSize: 14, lineHeight: 1.6, maxWidth: 400, margin: '0 auto' }}>
+        Este módulo está siendo construido para tu industria. Te avisaremos cuando esté disponible.
+      </p>
+    </div>
+  );
+}
+
+// ── TAB_REGISTRY: 12 módulos del ecosistema Mando ────────────────────────────
+const TAB_REGISTRY = {
+  pedidos:      { icon: '🚦', label: 'Pedidos' },
+  kpis:         { icon: '📊', label: 'KPIs' },
+  inventario:   { icon: '📦', label: 'Inventario' },
+  costeador:    { icon: '💰', label: 'Costeador' },
+  expediente:   { icon: '📋', label: 'Expediente' },
+  fotolab:      { icon: '📸', label: 'Foto Lab' },
+  misAgentes:   { icon: '🤖', label: 'Mis Agentes' },
+  reporteLunes: { icon: '📧', label: 'Reporte' },
+  citas:        { icon: '📅', label: 'Citas',      placeholder: 'Citas y agenda' },
+  leads:        { icon: '🎯', label: 'Leads',      placeholder: 'Pipeline de Leads' },
+  pacientes:    { icon: '🏥', label: 'Pacientes',  placeholder: 'Historial de Pacientes' },
+  reservas:     { icon: '🍽️', label: 'Reservas',    placeholder: 'Reservas' },
+  cursos:       { icon: '🎓', label: 'Cursos',     placeholder: 'Catálogo de Cursos' },
+};
+
+// ── Legacy alias for backward compat (tab rendering uses TAB_REGISTRY now)
+const MANDO_TABS = Object.entries(TAB_REGISTRY).map(([id, def]) => ({ id, ...def }));
 const EXPEDIENTE_DOCS = [
   { label: 'INE / Pasaporte', key: 'ine' },
   { label: 'Comprobante de domicilio', key: 'dom' },
@@ -2974,12 +3000,27 @@ function MandoClientView({ slug }) {
           </div>
           <button onClick={fetchOrders} style={{ background: 'rgba(255,255,255,0.18)', border: 'none', color: '#fff', padding: '5px 12px', borderRadius: 7, fontSize: 12, cursor: 'pointer' }}>⟳</button>
         </div>
-        {/* Tabs */}
-        <div style={{ display: 'flex', gap: 2, overflowX: 'auto', paddingBottom: 0 }}>
-          {MANDO_TABS.map(t => (
-            <button key={t.id} onClick={() => setTab(t.id)} style={{ padding: '8px 14px', fontSize: 11, fontWeight: 600, border: 'none', background: 'none', cursor: 'pointer', color: tab === t.id ? '#fff' : 'rgba(255,255,255,0.55)', borderBottom: `2px solid ${tab === t.id ? '#fff' : 'transparent'}`, whiteSpace: 'nowrap', letterSpacing: '.03em' }}>{t.label}</button>
-          ))}
-        </div>
+        {/* Tabs — dynamic per config.modules (Fase 3) */}
+        {(() => {
+          // Map module keys → legacy tab IDs used in render sections below
+          const MODULE_TAB_MAP = {
+            pedidos: 'pedidos', kpis: 'kpis', inventario: 'inv', costeador: 'cost',
+            expediente: 'exp', fotolab: 'foto', misAgentes: 'misAgentes',
+            reporteLunes: 'reporteLunes', citas: 'citas', leads: 'leads',
+            pacientes: 'pacientes', reservas: 'reservas', cursos: 'cursos',
+          };
+          const modules = config?.modules || {};
+          // pedidos is always visible (core functionality)
+          const activeMods = ['pedidos', ...Object.keys(TAB_REGISTRY).filter(k => k !== 'pedidos' && modules[k] === true)];
+          const tabs = activeMods.map(k => ({ tabId: MODULE_TAB_MAP[k] || k, ...TAB_REGISTRY[k] }));
+          return (
+            <div style={{ display: 'flex', gap: 2, overflowX: 'auto', paddingBottom: 0 }}>
+              {tabs.map(t => (
+                <button key={t.tabId} onClick={() => setTab(t.tabId)} style={{ padding: '8px 14px', fontSize: 11, fontWeight: 600, border: 'none', background: 'none', cursor: 'pointer', color: tab === t.tabId ? '#fff' : 'rgba(255,255,255,0.55)', borderBottom: `2px solid ${tab === t.tabId ? '#fff' : 'transparent'}`, whiteSpace: 'nowrap', letterSpacing: '.03em' }}>{t.icon} {t.label}</button>
+              ))}
+            </div>
+          );
+        })()}
       </header>
 
       <main style={{ padding: 18, maxWidth: 720, margin: '0 auto', width: '100%', flex: 1 }}>
@@ -3899,6 +3940,17 @@ function MandoClientView({ slug }) {
 
         {/* ═══ TAB: FOTO LAB ═══ */}
         {tab === 'foto' && <TabFotoLab slug={slug} token={token} />}
+
+        {/* ═══ TAB: MIS AGENTES (Fase 3 T6 — stub until built) ═══ */}
+        {tab === 'misAgentes' && <TabPlaceholder placeholder="Mis Agentes" />}
+
+        {/* ═══ TAB: REPORTE DEL LUNES (Fase 3 T7 — stub until built) ═══ */}
+        {tab === 'reporteLunes' && <TabPlaceholder placeholder="Reporte del Lunes" />}
+
+        {/* ═══ TABS PLACEHOLDER: módulos no construidos ═══ */}
+        {['citas', 'leads', 'pacientes', 'reservas', 'cursos'].includes(tab) && (
+          <TabPlaceholder placeholder={TAB_REGISTRY[tab]?.placeholder || TAB_REGISTRY[tab]?.label || tab} />
+        )}
 
         <p style={{ textAlign: 'center', color: '#c4b5a5', fontSize: 10, marginTop: 20 }}>GenyX · {slug} · Actualiza cada 30s</p>
       </main>
