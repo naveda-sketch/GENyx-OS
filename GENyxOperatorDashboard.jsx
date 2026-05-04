@@ -26,6 +26,7 @@ const StatusBadge = ({ s }) => {
 // ── Tabs ─────────────────────────────────────────────────────────────────────
 const TABS = [
   { id: 'clientes',     label: '🏢 Clientes' },
+  { id: 'marketing',    label: '📢 Marketing' },
   { id: 'herramientas', label: '🛠️ Herramientas' },
   { id: 'analista',     label: '📊 Analista' },
   { id: 'agentes',      label: '🤖 Agentes' },
@@ -1902,6 +1903,290 @@ TU SALUDO OFICIAL:
 // ═══════════════════════════════════════════════════════════════════════════════
 // MICRO COMPONENTS
 // ═══════════════════════════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════════════════════════════════
+// TAB: MARKETING — Agente 1 Panel (Estrategia + OTP + Log)
+// ═══════════════════════════════════════════════════════════════════════════════
+const TabMarketing = ({ selectedSlug }) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [otpCode, setOtpCode] = useState('');
+  const [otpStatus, setOtpStatus] = useState('');
+  const [generating, setGenerating] = useState(false);
+  const [genResult, setGenResult] = useState(null);
+  const [rejectReason, setRejectReason] = useState('');
+  const [showReject, setShowReject] = useState(false);
+
+  const slug = selectedSlug || 'panaderia-paty';
+
+  const fetchDashboard = useCallback(async () => {
+    setLoading(true);
+    try {
+      const r = await fetch(`${BACKEND}/api/client/${slug}/marketing/dashboard`, { headers: getAH() });
+      if (r.ok) setData(await r.json());
+    } catch (e) { console.error('Marketing fetch error:', e); }
+    setLoading(false);
+  }, [slug]);
+
+  useEffect(() => { if (isAuthed()) fetchDashboard(); }, [fetchDashboard]);
+
+  const handleGenerate = async () => {
+    setGenerating(true); setGenResult(null);
+    try {
+      const r = await fetch(`${BACKEND}/api/client/${slug}/marketing/generate`, {
+        method: 'POST', headers: getAH(),
+      });
+      const d = await r.json();
+      if (r.ok) {
+        setGenResult(d);
+        fetchDashboard();
+      } else setGenResult({ error: d.detail || 'Error' });
+    } catch { setGenResult({ error: 'Error de conexión' }); }
+    setGenerating(false);
+  };
+
+  const handleApprove = async () => {
+    if (otpCode.length !== 6) { setOtpStatus('Código de 6 dígitos requerido.'); return; }
+    setOtpStatus('Verificando...');
+    try {
+      const r = await fetch(`${BACKEND}/api/client/${slug}/marketing/approve`, {
+        method: 'POST', headers: getAH(),
+        body: JSON.stringify({ otp_code: otpCode }),
+      });
+      const d = await r.json();
+      setOtpStatus(r.ok ? `✅ ${d.message}` : `❌ ${d.detail || 'Error'}`);
+      if (r.ok) { setOtpCode(''); fetchDashboard(); }
+    } catch { setOtpStatus('❌ Error de conexión'); }
+    setTimeout(() => setOtpStatus(''), 5000);
+  };
+
+  const handleReject = async () => {
+    try {
+      const r = await fetch(`${BACKEND}/api/client/${slug}/marketing/reject`, {
+        method: 'POST', headers: getAH(),
+        body: JSON.stringify({ reason: rejectReason || 'Rechazada por el operador' }),
+      });
+      if (r.ok) { setShowReject(false); setRejectReason(''); fetchDashboard(); }
+    } catch {}
+  };
+
+  if (!isAuthed()) return <Empty icon="🔒" msg="Inicia sesión para ver Marketing." />;
+  if (loading) return <Spinner />;
+  if (!data) return <Empty icon="📢" msg="No se pudo cargar el panel de Marketing." />;
+
+  const { agent_status, strategy, recent_log, config, stats } = data;
+  const strat = strategy?.strategy || {};
+  const cal = strat.calendar || [];
+  const fund = strat.fundamento || [];
+  const isPending = strategy?.status === 'pending';
+  const isApproved = strategy?.status === 'approved';
+
+  const TYPE_EMOJI = { product_star: '🏆', wa_status: '📱', promo: '🎉', social_proof: '⭐', reactivation: '📣', urgency: '🔥' };
+  const STATUS_COLOR = { executed: '#4ade80', skipped: '#fbbf24', failed: '#f87171', pending: '#818cf8' };
+
+  return (
+    <section>
+      {/* ── Header con status ── */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
+        <div>
+          <h2 style={{ fontSize: 18, fontWeight: 700, color: '#f1f5f9' }}>📢 Agente 1 — Marketing</h2>
+          <p style={{ fontSize: 12, color: '#64748b', marginTop: 4 }}>
+            Estrategia semanal autónoma · {slug}
+          </p>
+        </div>
+        <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          <span style={{
+            background: agent_status === 'active' ? 'rgba(74,222,128,0.1)' : 'rgba(239,68,68,0.1)',
+            color: agent_status === 'active' ? '#4ade80' : '#f87171',
+            border: `1px solid ${agent_status === 'active' ? 'rgba(74,222,128,0.3)' : 'rgba(239,68,68,0.3)'}`,
+            padding: '4px 12px', borderRadius: 20, fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em'
+          }}>
+            {agent_status === 'active' ? '🟢 Activo' : '🔴 Suspendido'}
+          </span>
+          <button onClick={fetchDashboard} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', color: '#94a3b8', width: 28, height: 28, borderRadius: 6, cursor: 'pointer', fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>↺</button>
+        </div>
+      </div>
+
+      {/* ── KPIs ── */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 24 }}>
+        {[
+          { label: 'Estrategias', value: stats.total_strategies, icon: '📋', color: '#818cf8' },
+          { label: 'Ejecutadas', value: stats.actions_executed, icon: '✅', color: '#4ade80' },
+          { label: 'Omitidas', value: stats.actions_skipped, icon: '⏭️', color: '#fbbf24' },
+          { label: 'Fallidas', value: stats.actions_failed, icon: '❌', color: '#f87171' },
+        ].map((kpi, i) => (
+          <div key={i} style={{ background: 'rgba(19,25,40,0.9)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: '16px 12px', textAlign: 'center' }}>
+            <div style={{ fontSize: 22, marginBottom: 4 }}>{kpi.icon}</div>
+            <div style={{ fontSize: 20, fontWeight: 800, color: kpi.color }}>{kpi.value}</div>
+            <div style={{ fontSize: 10, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.05em' }}>{kpi.label}</div>
+          </div>
+        ))}
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: 20, alignItems: 'start' }}>
+        {/* ── COL IZQUIERDA: Estrategia ── */}
+        <div>
+          {/* Estrategia vigente */}
+          {strategy?.exists ? (
+            <div style={{ background: 'rgba(19,25,40,0.9)', border: `1px solid ${isPending ? 'rgba(251,191,36,0.3)' : isApproved ? 'rgba(74,222,128,0.3)' : 'rgba(255,255,255,0.07)'}`, borderRadius: 14, padding: '20px 22px', marginBottom: 20 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
+                <div>
+                  <h3 style={{ fontWeight: 700, fontSize: 14, color: '#f1f5f9' }}>📅 Semana {strategy.week_start} → {strategy.week_end}</h3>
+                  <p style={{ fontSize: 11, color: '#64748b', marginTop: 2 }}>Generada: {strategy.created_at ? new Date(strategy.created_at + 'Z').toLocaleString('es-MX') : '—'}</p>
+                </div>
+                <span style={{
+                  padding: '4px 10px', borderRadius: 12, fontSize: 10, fontWeight: 700, textTransform: 'uppercase',
+                  background: isPending ? 'rgba(251,191,36,0.1)' : isApproved ? 'rgba(74,222,128,0.1)' : 'rgba(239,68,68,0.1)',
+                  color: isPending ? '#fbbf24' : isApproved ? '#4ade80' : '#f87171',
+                  border: `1px solid ${isPending ? 'rgba(251,191,36,0.3)' : isApproved ? 'rgba(74,222,128,0.3)' : 'rgba(239,68,68,0.3)'}`,
+                }}>{strategy.status}</span>
+              </div>
+
+              {/* Fundamento */}
+              {fund.length > 0 && (
+                <div style={{ background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.15)', borderRadius: 10, padding: '12px 14px', marginBottom: 16 }}>
+                  <p style={{ fontFamily: 'monospace', fontSize: 9, color: '#818cf8', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '.06em' }}>📊 Fundamento (datos reales)</p>
+                  {fund.map((f, i) => <p key={i} style={{ fontSize: 12, color: '#a5b4fc', lineHeight: 1.5 }}>• {f}</p>)}
+                </div>
+              )}
+
+              {/* Calendario L-S */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                {cal.map((entry, i) => (
+                  <div key={i} style={{ display: 'flex', gap: 12, padding: '10px 12px', background: 'rgba(15,23,42,0.5)', borderRadius: 8, alignItems: 'flex-start' }}>
+                    <div style={{ minWidth: 40, textAlign: 'center' }}>
+                      <span style={{ fontSize: 20 }}>{TYPE_EMOJI[entry.type] || '📌'}</span>
+                      <p style={{ fontSize: 9, color: '#64748b', marginTop: 2 }}>{entry.day_name?.substring(0, 3)}</p>
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <p style={{ fontSize: 12, fontWeight: 600, color: '#e2e8f0', marginBottom: 2 }}>{entry.label}</p>
+                      <p style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.4, fontStyle: 'italic' }}>"{entry.caption}"</p>
+                      <div style={{ display: 'flex', gap: 4, marginTop: 6 }}>
+                        {(entry.channels || []).map((ch, j) => (
+                          <span key={j} style={{ fontSize: 9, padding: '1px 6px', borderRadius: 4, background: 'rgba(99,102,241,0.1)', color: '#818cf8', fontFamily: 'monospace' }}>{ch}</span>
+                        ))}
+                      </div>
+                    </div>
+                    <span style={{ fontSize: 10, color: '#475569', fontFamily: 'monospace', whiteSpace: 'nowrap' }}>{entry.date}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Aprobación OTP */}
+              {isPending && (
+                <div style={{ marginTop: 16, padding: '16px', background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.2)', borderRadius: 10 }}>
+                  <p style={{ fontSize: 12, fontWeight: 700, color: '#fbbf24', marginBottom: 10 }}>🔑 Aprobar Estrategia (OTP)</p>
+                  <div style={{ display: 'flex', gap: 8 }}>
+                    <input
+                      value={otpCode}
+                      onChange={e => setOtpCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
+                      placeholder="Código de 6 dígitos"
+                      maxLength={6}
+                      style={{ flex: 1, background: '#1e293b', border: '1px solid rgba(251,191,36,0.3)', color: '#fbbf24', padding: '10px 14px', borderRadius: 8, fontSize: 16, fontWeight: 700, fontFamily: 'monospace', letterSpacing: '.2em', textAlign: 'center', outline: 'none' }}
+                    />
+                    <button onClick={handleApprove} disabled={otpCode.length !== 6}
+                      style={{ background: '#14532d', color: '#86efac', padding: '10px 20px', borderRadius: 8, fontSize: 13, fontWeight: 700, cursor: otpCode.length === 6 ? 'pointer' : 'not-allowed', border: '1px solid rgba(34,197,94,0.3)', opacity: otpCode.length === 6 ? 1 : 0.4 }}>
+                      ✅ Aprobar
+                    </button>
+                    <button onClick={() => setShowReject(!showReject)}
+                      style={{ background: '#7f1d1d', color: '#fca5a5', padding: '10px 14px', borderRadius: 8, fontSize: 12, fontWeight: 600, cursor: 'pointer', border: '1px solid rgba(239,68,68,0.3)' }}>
+                      ❌
+                    </button>
+                  </div>
+                  {otpStatus && <p style={{ fontSize: 12, marginTop: 8, color: otpStatus.startsWith('✅') ? '#4ade80' : '#f87171' }}>{otpStatus}</p>}
+                  {showReject && (
+                    <div style={{ marginTop: 10, display: 'flex', gap: 8 }}>
+                      <input value={rejectReason} onChange={e => setRejectReason(e.target.value)}
+                        placeholder="Motivo del rechazo (opcional)"
+                        style={{ flex: 1, background: '#1e293b', border: '1px solid rgba(239,68,68,0.3)', color: '#fca5a5', padding: '8px 12px', borderRadius: 8, fontSize: 12, outline: 'none' }} />
+                      <button onClick={handleReject}
+                        style={{ background: '#7f1d1d', color: '#fca5a5', padding: '8px 14px', borderRadius: 8, fontSize: 12, fontWeight: 600, cursor: 'pointer', border: '1px solid rgba(239,68,68,0.3)' }}>
+                        Rechazar
+                      </button>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          ) : (
+            <div style={{ background: 'rgba(19,25,40,0.9)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: '40px 22px', textAlign: 'center' }}>
+              <p style={{ fontSize: 36, marginBottom: 10 }}>📋</p>
+              <p style={{ fontSize: 14, color: '#64748b' }}>No hay estrategia generada aún.</p>
+              <p style={{ fontSize: 12, color: '#475569', marginTop: 4 }}>Genera una para esta semana.</p>
+            </div>
+          )}
+
+          {/* Botón generar */}
+          <button onClick={handleGenerate} disabled={generating}
+            style={{ width: '100%', background: 'linear-gradient(135deg, #4f46e5, #7c3aed)', color: '#fff', padding: '14px', borderRadius: 10, fontSize: 14, fontWeight: 700, cursor: generating ? 'wait' : 'pointer', border: 'none', opacity: generating ? 0.6 : 1, marginBottom: 8, transition: 'opacity 0.2s' }}>
+            {generating ? '⏳ Generando estrategia con IA...' : '🤖 Generar Estrategia Semanal'}
+          </button>
+          {genResult && (
+            <div style={{ background: genResult.error ? 'rgba(239,68,68,0.08)' : 'rgba(74,222,128,0.08)', border: `1px solid ${genResult.error ? 'rgba(239,68,68,0.2)' : 'rgba(74,222,128,0.2)'}`, borderRadius: 10, padding: '12px 14px', marginBottom: 16 }}>
+              <p style={{ fontSize: 12, color: genResult.error ? '#f87171' : '#4ade80', fontWeight: 600 }}>
+                {genResult.error ? `❌ ${genResult.error}` : `✅ ${genResult.message}`}
+              </p>
+              {genResult.otp_code && (
+                <p style={{ fontSize: 14, fontFamily: 'monospace', color: '#fbbf24', marginTop: 6, fontWeight: 700, letterSpacing: '.15em' }}>
+                  OTP: {genResult.otp_code}
+                </p>
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* ── COL DERECHA: Config + Log ── */}
+        <div>
+          {/* Config */}
+          <div style={{ background: 'rgba(19,25,40,0.9)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: '16px 18px', marginBottom: 16 }}>
+            <h4 style={{ fontWeight: 700, fontSize: 12, color: '#94a3b8', marginBottom: 12, textTransform: 'uppercase', letterSpacing: '.06em' }}>⚙️ Configuración</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span style={{ fontSize: 11, color: '#64748b' }}>Teléfono dueño</span>
+                <span style={{ fontSize: 12, color: config.notify_phone ? '#e2e8f0' : '#f87171', fontFamily: 'monospace' }}>{config.notify_phone || '⚠️ No configurado'}</span>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span style={{ fontSize: 11, color: '#64748b' }}>Email</span>
+                <span style={{ fontSize: 12, color: config.owner_email ? '#e2e8f0' : '#475569', fontFamily: 'monospace' }}>{config.owner_email || '—'}</span>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span style={{ fontSize: 11, color: '#64748b' }}>Redes</span>
+                <span style={{ fontSize: 11, color: '#818cf8' }}>{config.social_url ? '✅ Vinculada' : '—'}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Log reciente */}
+          <div style={{ background: 'rgba(19,25,40,0.9)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: '16px 18px' }}>
+            <h4 style={{ fontWeight: 700, fontSize: 12, color: '#94a3b8', marginBottom: 12, textTransform: 'uppercase', letterSpacing: '.06em' }}>📜 Historial reciente</h4>
+            {recent_log.length === 0 ? (
+              <p style={{ fontSize: 12, color: '#475569', textAlign: 'center', padding: '16px 0' }}>Sin acciones registradas</p>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 6, maxHeight: 400, overflowY: 'auto' }}>
+                {recent_log.map((entry, i) => (
+                  <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 10px', background: 'rgba(15,23,42,0.5)', borderRadius: 8 }}>
+                    <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                      <span style={{ fontSize: 14 }}>{TYPE_EMOJI[entry.type] || '📌'}</span>
+                      <div>
+                        <p style={{ fontSize: 11, fontWeight: 600, color: '#e2e8f0' }}>{entry.type}</p>
+                        <p style={{ fontSize: 9, color: '#475569', fontFamily: 'monospace' }}>{entry.executed_at ? new Date(entry.executed_at + 'Z').toLocaleString('es-MX', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : '—'}</p>
+                      </div>
+                    </div>
+                    <span style={{ fontSize: 9, padding: '2px 8px', borderRadius: 4, fontWeight: 700, textTransform: 'uppercase',
+                      background: `${STATUS_COLOR[entry.status] || '#64748b'}15`,
+                      color: STATUS_COLOR[entry.status] || '#64748b',
+                      border: `1px solid ${STATUS_COLOR[entry.status] || '#64748b'}30`,
+                    }}>{entry.status}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Spinner = () => <div style={{ display: 'flex', justifyContent: 'center', padding: 60 }}><div style={{ width: 32, height: 32, border: '2px solid #3b82f6', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} /></div>;
 const Empty = ({ icon, msg, sub }) => <div style={{ textAlign: 'center', padding: '60px 24px', color: '#475569' }}><p style={{ fontSize: 36, marginBottom: 10 }}>{icon}</p><p style={{ fontSize: 14 }}>{msg}</p>{sub && <p style={{ fontSize: 12, marginTop: 8, color: '#f59e0b' }}>⚠️ {sub}</p>}</div>;
 const KpiCard = ({ label, value, icon }) => <div style={{ ...CARD, textAlign: 'center', padding: '16px 12px' }}><p style={{ fontSize: 22, marginBottom: 4 }}>{icon}</p><p style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9' }}>{value}</p><p style={{ fontSize: 11, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.05em' }}>{label}</p></div>;
@@ -5293,6 +5578,7 @@ export default function GenyXOperatorDashboard() {
         {tab === 'data'         && <TabData          tenants={tenants} orders={orders}  selectedSlug={selectedSlug} />}
         {tab === 'expedientes'  && <TabExpedientes   tenants={tenants} selectedSlug={selectedSlug} />}
         {tab === 'manuales'     && <TabManuales />}
+        {tab === 'marketing'    && <TabMarketing selectedSlug={selectedSlug} />}
         {tab === 'onboarding'   && <TabOnboarding />}
         {tab === 'farmacopeia'  && <TabFarmacopeia />}
       </main>
