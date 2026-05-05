@@ -4580,7 +4580,7 @@ function GenyXConciergeWidget() {
   const inpRef = React.useRef(null);
 
   React.useEffect(() => { const t = setTimeout(() => setPulse(false), 8000); return () => clearTimeout(t); }, []);
-  React.useEffect(() => { if (open && msgs.length === 0) addBot('Hola, bienvenido a GenyX.\n\nSi llegaste hasta aquí, algo en tu negocio quieres mejorar.\n\n¿Qué es lo que más te gustaría?'); }, [open]);
+  React.useEffect(() => { if (open && msgs.length === 0) addBot('Hola, bienvenido a GenyX.\n\nSi llegaste hasta aquí, algo en tu negocio no está funcionando como quisieras.\n\n¿Cuál es el reto más grande que enfrentas ahora mismo?'); }, [open]);
   React.useEffect(() => { botRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [msgs, typing]);
   React.useEffect(() => { if (open && phase !== 'done') setTimeout(() => inpRef.current?.focus(), 150); }, [open, phase]);
 
@@ -4814,43 +4814,75 @@ function FAQItem({ question, answer }) {
 // 📋 PLANES PAGE — /planes — Detalle completo de planes §5.2
 // ══════════════════════════════════════════════════════════════════════════════
 function PlanesPage() {
-  const S = { page: { minHeight: '100vh', background: '#05080f', fontFamily: "'Inter',sans-serif", color: '#cbd5e1', padding: '60px 24px 80px' }, container: { maxWidth: 900, margin: '0 auto' }, h1: { fontSize: 40, fontWeight: 900, color: '#f1f5f9', marginBottom: 8, textAlign: 'center' }, sub: { fontSize: 15, color: '#64748b', textAlign: 'center', marginBottom: 48, maxWidth: 640, margin: '0 auto 48px' }, section: { marginBottom: 48 }, sTitle: { fontSize: 18, fontWeight: 800, color: '#a5b4fc', marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }, card: { background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.2)', borderRadius: 16, padding: '24px 28px', marginBottom: 16 }, li: { fontSize: 14, color: '#cbd5e1', lineHeight: 1.8, marginBottom: 6 }, table: { width: '100%', borderCollapse: 'collapse', fontSize: 13 }, th: { textAlign: 'left', padding: '10px 12px', borderBottom: '2px solid rgba(99,102,241,0.3)', color: '#818cf8', fontWeight: 700, fontSize: 12 }, td: { padding: '10px 12px', borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#cbd5e1' }, tdH: { padding: '10px 12px', borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#f1f5f9', fontWeight: 700 }, note: { fontSize: 12, color: '#64748b', fontStyle: 'italic', marginTop: 16, lineHeight: 1.7 } };
+  const S = { page: { minHeight: '100vh', background: '#05080f', fontFamily: "'Inter',sans-serif", color: '#cbd5e1', padding: '60px 24px 80px' }, container: { maxWidth: 960, margin: '0 auto' }, h1: { fontSize: 38, fontWeight: 900, color: '#f1f5f9', marginBottom: 8, textAlign: 'center' }, sub: { fontSize: 15, color: '#64748b', textAlign: 'center', maxWidth: 640, margin: '0 auto 48px' }, section: { marginBottom: 48 }, sTitle: { fontSize: 18, fontWeight: 800, color: '#a5b4fc', marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }, card: { background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.2)', borderRadius: 16, padding: '24px 28px', marginBottom: 16 }, li: { fontSize: 14, color: '#cbd5e1', lineHeight: 1.8, marginBottom: 6 }, table: { width: '100%', borderCollapse: 'collapse', fontSize: 13 }, th: { textAlign: 'left', padding: '10px 12px', borderBottom: '2px solid rgba(99,102,241,0.3)', color: '#818cf8', fontWeight: 700, fontSize: 12 }, td: { padding: '10px 12px', borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#cbd5e1' }, tdH: { padding: '10px 12px', borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#f1f5f9', fontWeight: 700 }, note: { fontSize: 12, color: '#64748b', fontStyle: 'italic', marginTop: 16, lineHeight: 1.7 } };
 
   return (
     <div style={S.page}>
       <div style={S.container}>
-        {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 12 }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.12em', marginBottom: 12 }}>DETALLE DE PLANES</div>
         </div>
-        <h1 style={S.h1}>3 planes. 8 agentes. <span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Tu dirección comercial.</span></h1>
-        <p style={S.sub}>La diferencia entre planes no está en los agentes — los 8 siempre están. La diferencia está en el volumen de tu operación.</p>
+        <h1 style={S.h1}>Tres planes según el tamaño de tu negocio.</h1>
+        <p style={S.sub}>Todos los planes incluyen los 8 agentes — pronto 10. Lo que varía es la cuota de operación proactiva según el volumen de tu negocio.</p>
 
-        {/* ── Tabla de Planes ── */}
+        {/* §5.1 Resumen de planes */}
         <div style={S.section}>
-          <div style={S.sTitle}>📊 Comparativa de planes</div>
+          <div style={S.sTitle}>📊 Estructura de planes</div>
           <div style={{ overflowX: 'auto' }}>
             <table style={S.table}>
-              <thead>
-                <tr>
-                  <th style={S.th}></th>
-                  <th style={S.th}>ESENCIAL</th>
-                  <th style={S.th}>PROFESIONAL</th>
-                  <th style={S.th}>ENTERPRISE</th>
-                </tr>
-              </thead>
+              <thead><tr>
+                <th style={S.th}></th>
+                <th style={S.th}>ESENCIAL</th>
+                <th style={{ ...S.th, color: '#c084fc' }}>PROFESIONAL ★</th>
+                <th style={S.th}>ENTERPRISE</th>
+              </tr></thead>
               <tbody>
                 {[
-                  ['Suscripción mensual', '$9,900 MXN', '$18,900 MXN', '$34,900 MXN'],
-                  ['Instalación (una vez)', '$12,000 MXN', '$18,000 MXN', '$30,000 MXN'],
-                  ['Agentes de IA', '8 agentes', '8 agentes', '8 agentes'],
-                  ['Productos en catálogo', 'Hasta 30', 'Hasta 100', 'Ilimitados'],
-                  ['Conversaciones/mes (MAOs)', 'Hasta 300', 'Hasta 1,000', 'Ilimitadas'],
-                  ['Sucursales', '1', 'Hasta 3', 'Ilimitadas'],
-                  ['Canales de venta', 'WhatsApp + Web', 'WhatsApp + Web', 'WhatsApp + Web'],
-                  ['Reporte del Lunes', '✓', '✓', '✓'],
-                  ['Estrategia semanal con 2FA', '✓', '✓', '✓'],
-                  ['Soporte', 'WhatsApp L-V', 'Prioritario L-S', 'Dedicado 24/7'],
+                  ['Cuota mensual', '$9,900 MXN', '$18,900 MXN', '$34,900 MXN'],
+                  ['Setup inicial (una vez)', '$12,000 MXN', '$18,000 MXN', '$30,000 MXN'],
+                  ['Negocio ideal', '$200K–$700K MXN/mes', '$700K–$2M MXN/mes', '$2M–$5M MXN/mes'],
+                  ['Empleados aproximados', '5 – 15', '15 – 50', '50 – 100'],
+                  ['Agentes de IA', '8 (pronto 10)', '8 (pronto 10)', '8 (pronto 10)'],
+                ].map(([label, ...vals]) => (
+                  <tr key={label}>
+                    <td style={S.tdH}>{label}</td>
+                    {vals.map((v, i) => <td key={i} style={S.td}>{v}</td>)}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p style={S.note}>★ Plan más popular. Cero comisión por venta. Sin permanencia mínima — cancelas cuando quieras. Contrato legal transparente firmado al alta.</p>
+        </div>
+
+        {/* §5.2 Lo que SIEMPRE incluye */}
+        <div style={S.section}>
+          <div style={S.sTitle}>✅ Lo que siempre incluye tu plan</div>
+          <div style={{ overflowX: 'auto' }}>
+            <table style={S.table}>
+              <thead><tr>
+                <th style={S.th}>Función</th>
+                <th style={S.th}>Esencial</th>
+                <th style={{ ...S.th, color: '#c084fc' }}>Profesional</th>
+                <th style={S.th}>Enterprise</th>
+              </tr></thead>
+              <tbody>
+                {[
+                  ['Conversaciones inbound', 'Sin límite', 'Sin límite', 'Sin límite'],
+                  ['Cobro Stripe en chat', 'Sin límite', 'Sin límite', 'Sin límite'],
+                  ['Recuperación de carritos', '200 mensajes', '400 mensajes', '600 mensajes'],
+                  ['Reactivación de inactivos', '100 mensajes', '200 mensajes', '300 mensajes'],
+                  ['Confirmaciones / recordatorios', '100 mensajes', '200 mensajes', '300 mensajes'],
+                  ['FotoLab (Gemini)', '30 imágenes', '60 imágenes', '100 imágenes'],
+                  ['Costeador manual (ABC)', 'Sin límite', 'Sin límite', 'Sin límite'],
+                  ['Costeador IA (chat ABC)', '250 análisis', '500 análisis', 'Sin límite'],
+                  ['Reporte 5am del Lunes', '4 / mes', '4 + Mensual', '4 + Mensual + Trimestral'],
+                  ['Mesa de Estrategia Viernes 6pm', '4 / mes', '4 + Mensual', '4 + Mensual + Sesión'],
+                  ['Daily summary + Daily status', 'Incluido', 'Incluido', 'Incluido'],
+                  ['Mando del operador', 'Incluido', 'Incluido', 'Incluido'],
+                  ['Landing page', 'Incluido', 'Incluido', 'Incluido'],
+                  ['Soporte WhatsApp', 'L-V 9am–7pm', 'L-S prioritario', '24/7'],
+                  ['Sesión 1:1 con el fundador', '—', '—', 'Trimestral'],
                 ].map(([label, ...vals]) => (
                   <tr key={label}>
                     <td style={S.tdH}>{label}</td>
@@ -4862,98 +4894,104 @@ function PlanesPage() {
           </div>
         </div>
 
-        {/* ── Lo que siempre incluye cada plan ── */}
+        {/* §5.4 Setup */}
         <div style={S.section}>
-          <div style={S.sTitle}>✅ Lo que siempre incluye tu plan</div>
-          <div style={S.card}>
-            {[
-              'Los 8 agentes de IA interconectados (Marketing, Captación, Venta, Cierre, Entrega, Seguimiento, Analítica, Finanzas)',
-              'Bot de ventas configurado con el ADN de tu marca',
-              'Centro de Mando (dashboard) con pedidos, inventario y KPIs',
-              'Reporte del Lunes: inteligencia financiera y de marketing',
-              'Estrategia semanal autónoma con autorización 2FA',
-              'Cobro dentro del chat (Stripe)',
-              'Seguimiento automatizado a carritos abandonados y clientes inactivos',
-              'Exportación de base de datos de clientes (CSV)',
-              'Cero comisión por venta — tu margen es tuyo',
-              'Sin permanencia mínima — cancelas cuando quieras',
-            ].map(item => (
-              <div key={item} style={S.li}><span style={{ color: '#4ade80', marginRight: 8 }}>✓</span>{item}</div>
-            ))}
+          <div style={S.sTitle}>🔧 Lo que incluye la instalación (Setup)</div>
+          <div style={{ overflowX: 'auto' }}>
+            <table style={S.table}>
+              <thead><tr>
+                <th style={S.th}>Componente</th>
+                <th style={S.th}>Esencial</th>
+                <th style={{ ...S.th, color: '#c084fc' }}>Profesional</th>
+                <th style={S.th}>Enterprise</th>
+              </tr></thead>
+              <tbody>
+                {[
+                  ['Onboarding asistido', '✓', '✓', 'Personal con Erick'],
+                  ['Migración de catálogo', 'Hasta 50 SKU', 'Hasta 200 SKU', 'Sin límite'],
+                  ['Imágenes FotoLab', '30 imágenes', '60 imágenes', '100 imágenes'],
+                  ['Landing page', '✓', '✓', '✓ con A/B testing'],
+                  ['Plantillas Meta registradas', 'Hasta 5', 'Hasta 10', 'Hasta 20'],
+                  ['Módulos del mando', '✓', '✓', 'Multi-sucursal'],
+                  ['Tests antes del go-live', '✓', '✓', '✓'],
+                  ['Programa primera semana', 'Automático', 'Híbrido', 'Personal con Erick'],
+                ].map(([label, ...vals]) => (
+                  <tr key={label}>
+                    <td style={S.tdH}>{label}</td>
+                    {vals.map((v, i) => <td key={i} style={S.td}>{v}</td>)}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
+          <p style={S.note}>El Setup se cobra una sola vez al firmar. Escala con el plan porque la complejidad del onboarding también escala.</p>
         </div>
 
-        {/* ── Lo que incluye la instalación ── */}
-        <div style={S.section}>
-          <div style={S.sTitle}>🔧 Lo que incluye la instalación (set-up)</div>
-          <div style={S.card}>
-            {[
-              'Sesión de onboarding de 45 minutos para entender tu negocio',
-              'Configuración completa del ADN de tu marca (personalidad, tono, reglas)',
-              'Carga de tu catálogo de productos o servicios',
-              'Integración con tu número de WhatsApp Business',
-              'Configuración de pasarela de pago (Stripe)',
-              'Pruebas de calidad antes de activar',
-              'Activación en menos de 48 horas',
-            ].map(item => (
-              <div key={item} style={S.li}><span style={{ color: '#818cf8', marginRight: 8 }}>→</span>{item}</div>
-            ))}
-            <p style={S.note}>La instalación se cobra una sola vez al firmar el contrato de prestación de servicios.</p>
-          </div>
-        </div>
-
-        {/* ── Política de uso justo ── */}
+        {/* §5.6 Fair Use */}
         <div style={S.section}>
           <div style={S.sTitle}>⚖️ Política de uso justo</div>
           <div style={S.card}>
-            <p style={{ ...S.li, marginBottom: 16 }}>GenyX incluye un límite mensual de conversaciones activas (MAOs) según el plan contratado. Este límite protege la calidad del servicio para todos los clientes.</p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12, marginBottom: 16 }}>
-              {[
-                ['Esencial', '300 MAOs/mes', 'Para negocios que reciben hasta ~10 conversaciones por día.'],
-                ['Profesional', '1,000 MAOs/mes', 'Para negocios con flujo constante de clientes.'],
-                ['Enterprise', 'Ilimitadas', 'Sin restricción. Para operaciones de alto volumen.'],
-              ].map(([plan, limit, desc]) => (
-                <div key={plan} style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 12, padding: '16px 14px' }}>
-                  <div style={{ fontWeight: 700, color: '#a5b4fc', fontSize: 13, marginBottom: 4 }}>{plan}</div>
-                  <div style={{ fontWeight: 800, color: '#f1f5f9', fontSize: 16, marginBottom: 6 }}>{limit}</div>
-                  <div style={{ fontSize: 11, color: '#64748b', lineHeight: 1.6 }}>{desc}</div>
-                </div>
-              ))}
+            <p style={{ ...S.li, marginBottom: 16, fontWeight: 700, color: '#4ade80' }}>El bot nunca deja de responder conversaciones inbound. Las conversaciones donde el cliente inicia son ilimitadas y no consumen bolsa.</p>
+            <p style={{ ...S.li, marginBottom: 16 }}>Lo único que se pausa al exceder la bolsa mensual es la operación proactiva:</p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
+              <div>
+                <div style={{ fontWeight: 700, color: '#f87171', fontSize: 13, marginBottom: 8 }}>Se pausa al agotar bolsa</div>
+                {['Recuperación de carritos abandonados', 'Reactivación de clientes inactivos', 'Campañas y promociones outbound', 'FotoLab adicional al cupo'].map(item => (
+                  <div key={item} style={{ ...S.li, fontSize: 13 }}>⏸ {item}</div>
+                ))}
+              </div>
+              <div>
+                <div style={{ fontWeight: 700, color: '#4ade80', fontSize: 13, marginBottom: 8 }}>Sigue operando normalmente</div>
+                {['Bot responde toda conversación inbound', 'Cobro Stripe en chat', 'Reporte 5am del Lunes', 'Mesa de Estrategia Viernes 6pm', 'Mando del operador y daily summary'].map(item => (
+                  <div key={item} style={{ ...S.li, fontSize: 13 }}>✓ {item}</div>
+                ))}
+              </div>
             </div>
-            <p style={S.note}>MAO = Mensaje Activo de Operación. Cada conversación con un cliente único en un período de 24 horas cuenta como 1 MAO. Si el cliente escribe 10 mensajes dentro de la misma sesión de 24h, solo cuenta como 1 MAO.</p>
           </div>
         </div>
 
-        {/* ── Excedentes ── */}
+        {/* §5.3 Excedentes y Add-ons */}
         <div style={S.section}>
-          <div style={S.sTitle}>📈 Excedentes</div>
+          <div style={S.sTitle}>📈 Recargas y excedentes</div>
           <div style={S.card}>
-            <p style={{ ...S.li, marginBottom: 12 }}>Si tu operación crece y superas los límites de tu plan, no cortamos el servicio. Te avisamos y te ofrecemos escalar:</p>
-            {[
-              'Al llegar al 80% del límite mensual, recibes una notificación en tu Mando.',
-              'Al llegar al 100%, GenyX sigue operando sin interrupción durante 48 horas adicionales.',
-              'Si el excedente es recurrente (2+ meses), te recomendamos el plan superior.',
-              'Excedentes puntuales no generan cargo adicional — la política es de buena fe.',
-              'Si el patrón de uso excede consistentemente el plan, GenyX se reserva el derecho de solicitar la migración al plan correspondiente.',
-            ].map(item => (
-              <div key={item} style={S.li}><span style={{ color: '#fbbf24', marginRight: 8 }}>⚡</span>{item}</div>
-            ))}
+            <p style={{ ...S.li, marginBottom: 16 }}>Cuando se exceden las cuotas incluidas, las funciones proactivas se pausan. El inbound continúa. El cliente recarga desde su Mando con confirmación explícita:</p>
+            <table style={{ ...S.table, marginBottom: 16 }}>
+              <thead><tr>
+                <th style={S.th}>Concepto</th>
+                <th style={S.th}>Precio</th>
+              </tr></thead>
+              <tbody>
+                {[
+                  ['Costeador IA — análisis adicional', '$5 MXN por análisis'],
+                  ['FotoLab — imagen adicional', '$1 MXN por imagen (prepago)'],
+                  ['Bolsa Marketing — Chica', '$300 MXN → 250 mensajes'],
+                  ['Bolsa Marketing — Media', '$850 MXN → 700 mensajes'],
+                  ['Bolsa Marketing — Grande', '$2,100 MXN → 1,800 mensajes'],
+                ].map(([label, price]) => (
+                  <tr key={label}>
+                    <td style={S.tdH}>{label}</td>
+                    <td style={S.td}>{price}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p style={S.note}>El saldo no caduca mientras el cliente esté activo. Sin autocobro silencioso — toda recarga requiere confirmación explícita.</p>
           </div>
         </div>
 
-        {/* ── Add-ons ── */}
+        {/* Herramientas por industria */}
         <div style={S.section}>
-          <div style={S.sTitle}>🧩 Herramientas especializadas (por industria)</div>
+          <div style={S.sTitle}>🧩 Herramientas por industria</div>
           <div style={S.card}>
-            <p style={{ ...S.li, marginBottom: 16 }}>Además de los 8 agentes, activamos herramientas según tu industria — solo las que tu negocio realmente usa:</p>
+            <p style={{ ...S.li, marginBottom: 16 }}>Además de los 8 agentes, activamos herramientas según tu industria:</p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 10, marginBottom: 16 }}>
               {[
                 ['📦 Inventario', 'Control de stock en tiempo real'],
                 ['💰 Costeador', 'Margen y punto de equilibrio por producto'],
                 ['📸 Foto Lab', 'Fotografía de producto con IA'],
                 ['📅 Citas', 'Agenda y confirmación automática'],
-                ['🏥 Historial Pacientes', 'Para clínicas y consultorios'],
-                ['🏠 Pipeline Inmuebles', 'Para inmobiliarias'],
+                ['🏥 Historial Pacientes', 'Clínicas y consultorios'],
+                ['🏠 Pipeline Inmuebles', 'Inmobiliarias'],
               ].map(([name, desc]) => (
                 <div key={name} style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 10, padding: '12px 14px' }}>
                   <div style={{ fontWeight: 700, color: '#f1f5f9', fontSize: 13, marginBottom: 4 }}>{name}</div>
@@ -4961,22 +4999,21 @@ function PlanesPage() {
                 </div>
               ))}
             </div>
-            <p style={S.note}>Las herramientas se activan sin costo adicional según tu plan e industria. Cuando hablemos de tu negocio, te decimos exactamente cuáles activamos para ti.</p>
+            <p style={S.note}>Las herramientas se activan sin costo adicional según tu plan e industria.</p>
           </div>
         </div>
 
-        {/* ── CTA ── */}
+        {/* CTA */}
         <div style={{ textAlign: 'center', marginTop: 32, padding: '40px 24px', background: 'linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.06))', borderRadius: 20, border: '1px solid rgba(99,102,241,0.2)' }}>
-          <h2 style={{ fontSize: 28, fontWeight: 900, color: '#f1f5f9', marginBottom: 12 }}>¿Cuál es el plan para ti?</h2>
+          <h2 style={{ fontSize: 28, fontWeight: 900, color: '#f1f5f9', marginBottom: 12 }}>¿Cuál es el plan para tu negocio?</h2>
           <p style={{ color: '#64748b', fontSize: 14, marginBottom: 24 }}>En 15 minutos te decimos qué plan se ajusta a tu operación — sin compromiso.</p>
           <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20qu%C3%A9%20plan%20de%20GenyX%20es%20para%20mi%20negocio" style={{ display: 'inline-block', background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '14px 36px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 28px rgba(99,102,241,0.3)' }}>Hablar con GenyX →</a>
           <div style={{ marginTop: 16 }}><a href="/" style={{ color: '#818cf8', fontSize: 13, textDecoration: 'none' }}>← Volver al inicio</a></div>
         </div>
 
-        {/* Footer */}
         <div style={{ textAlign: 'center', marginTop: 48, paddingTop: 24, borderTop: '1px solid rgba(255,255,255,0.05)' }}>
           <p style={{ fontSize: 11, color: '#475569' }}>GenyX Systems · Precios en MXN · IVA no incluido</p>
-          <p style={{ fontSize: 11, color: '#334155', marginTop: 4 }}>Última actualización: Mayo 2026</p>
+          <p style={{ fontSize: 11, color: '#334155', marginTop: 4 }}>Matriz v3 — Mayo 2026</p>
         </div>
       </div>
     </div>
@@ -5085,7 +5122,7 @@ function GenyXLandingPage() {
           &#x2713; Activo en 48h · Respuesta en segundos · Cero comisión por venta
         </div>
         <h1 style={C.h1}>¿Cuántas decisiones en tu negocio<br /><span style={C.h1accent}>tomas sin datos?</span></h1>
-        <p style={C.sub}>GenyX opera tu dirección comercial con 8 agentes de IA. Optimizan todo tu ciclo de ingresos: generan demanda, cierran ventas, coordinan entregas, miden resultados y diseñan estrategia financiera y de marketing — de manera autónoma, con datos reales de tus ventas.</p>
+        <p style={C.sub}>GenyX te ayuda a operar tu negocio con menos personas y más datos — desde la atracción del cliente hasta tu estrategia financiera. 8 agentes de IA, pronto 10, operan dos capas: la operativa (atender, vender, cobrar, entregar) y la estratégica (planear tus finanzas y tu marketing con datos reales). El fundador toma la decisión. La IA hace el trabajo.</p>
         <div style={C.btns}>
           <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={C.primary}>Cuéntame de tu negocio →</a>
           <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20probar%20el%20simulador%20de%20GenyX" style={C.secondary}>Probar simulador</a>
@@ -5122,7 +5159,7 @@ function GenyXLandingPage() {
       <section style={{ padding: '0 24px 100px', maxWidth: 900, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>TU DIRECCIÓN COMERCIAL — 90% AUTÓNOMA</div>
-          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>8 agentes de IA.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>El equipo responsable de generar ingresos, cerrar ventas, coordinar la postventa y medir resultados.</span></h2>
+          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>8 agentes de IA — pronto 10.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>El equipo responsable de generar ingresos, cerrar ventas, coordinar la postventa y medir resultados.</span></h2>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 32 }}>
           {[
@@ -5148,7 +5185,7 @@ function GenyXLandingPage() {
       <section style={{ padding: '0 24px 100px', maxWidth: 1000, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>LA SOLUCIÓN</div>
-          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>8 agentes de IA.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Un equipo completo.</span></h2>
+          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>8 agentes de IA — pronto 10.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Un equipo completo.</span></h2>
           <p style={{ color: '#64748b', fontSize: 14, maxWidth: 520, margin: '0 auto' }}>Cada agente se encarga de una función clave de tu negocio. Trabajan juntos, comparten información y operan 24/7 sin que tú supervises.</p>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
@@ -5397,10 +5434,10 @@ function GenyXLandingPage() {
           <p style={{ color:'#64748b', lineHeight:1.8, marginBottom:32, fontSize:15 }}>GenyX opera bajo un modelo de <strong style={{ color:'#a5b4fc' }}>Fee de instalación + Suscripción mensual fija</strong>. Sin importar cuánto vendas en el mes, tu costo no cambia. Tus márgenes son tuyos.</p>
           <div style={{ display:'flex', justifyContent:'center', gap:16, flexWrap:'wrap', marginBottom:24 }}>
             {[
-              ['ESENCIAL','$9,900','MXN/mes','Setup: $12,000','8 agentes','Hasta 30 productos','Hasta 300 conversaciones/mes','1 sucursal','Para negocios que están armando su sistema de ventas.'],
-              ['PROFESIONAL','$18,900','MXN/mes','Setup: $18,000','8 agentes','Hasta 100 productos','Hasta 1,000 conversaciones/mes','Hasta 3 sucursales','El plan más elegido. Para negocios que necesitan escalar sin contratar.'],
-              ['ENTERPRISE','$34,900','MXN/mes','Setup: $30,000','8 agentes','Productos ilimitados','Conversaciones ilimitadas','Sucursales ilimitadas','Para operaciones que prefieren la autonomía completa.'],
-            ].map(([plan, price, period, setup, agents, products, convos, locations, desc]) => (
+              ['ESENCIAL','$9,900','MXN/mes','Setup: $12,000','8 agentes (pronto 10)','200 msgs carritos · 100 reactivación','30 imágenes FotoLab · 250 Costeador IA','Soporte L-V 9am–7pm','Negocios de 5-15 empleados · $200K-$700K/mes.'],
+              ['PROFESIONAL','$18,900','MXN/mes','Setup: $18,000','8 agentes (pronto 10)','400 msgs carritos · 200 reactivación','60 imágenes FotoLab · 500 Costeador IA','Soporte L-S prioritario','Negocios de 15-50 empleados · $700K-$2M/mes. ★ Más elegido.'],
+              ['ENTERPRISE','$34,900','MXN/mes','Setup: $30,000','8 agentes (pronto 10)','600 msgs carritos · 300 reactivación','100 imágenes FotoLab · Costeador ilimitado','Soporte 24/7 + sesión con Erick','Negocios de 50-100 empleados · $2M-$5M/mes.'],
+            ].map(([plan, price, period, setup, agents, outbound, tools, support, desc]) => (
               <div key={plan} style={{ background: plan === 'PROFESIONAL' ? 'rgba(99,102,241,0.12)' : 'rgba(255,255,255,0.04)', border: plan === 'PROFESIONAL' ? '2px solid rgba(99,102,241,0.5)' : '1px solid rgba(255,255,255,0.1)', borderRadius:16, padding:'24px 20px', minWidth:220, flex:'1 1 200px', maxWidth:290, position:'relative', textAlign:'left' }}>
                 {plan === 'PROFESIONAL' && <div style={{ position:'absolute', top:-10, left:'50%', transform:'translateX(-50%)', background:'linear-gradient(135deg,#6366f1,#8b5cf6)', color:'#fff', fontSize:9, fontWeight:800, padding:'3px 14px', borderRadius:20, letterSpacing:'.05em' }}>MÁS POPULAR</div>}
                 <div style={{ fontWeight:800, fontSize:13, color:'#818cf8', letterSpacing:'.06em', marginBottom:10 }}>{plan}</div>
@@ -5408,7 +5445,7 @@ function GenyXLandingPage() {
                 <div style={{ fontSize:12, color:'#64748b', marginBottom:8 }}>{period}</div>
                 <div style={{ fontSize:11, color:'#94a3b8', marginBottom:12 }}>{setup}</div>
                 <div style={{ display:'flex', flexDirection:'column', gap:4, marginBottom:12 }}>
-                  {[agents, products, convos, locations].map(item => (
+                  {[agents, outbound, tools, support].map(item => (
                     <div key={item} style={{ fontSize:11, color:'#94a3b8', display:'flex', alignItems:'center', gap:6 }}><span style={{ color:'#4ade80' }}>✓</span> {item}</div>
                   ))}
                 </div>
@@ -5416,7 +5453,7 @@ function GenyXLandingPage() {
               </div>
             ))}
           </div>
-          <p style={{ fontSize:13, color:'#94a3b8', marginBottom:8, lineHeight:1.7 }}>La diferencia entre planes no está en los agentes — los 8 siempre están.<br />La diferencia está en el volumen de tu operación: productos en catálogo, conversaciones mensuales y sucursales activas.</p>
+          <p style={{ fontSize:13, color:'#94a3b8', marginBottom:8, lineHeight:1.7 }}>La diferencia entre planes no está en los agentes — los 8 siempre están.<br />La diferencia está en el volumen de tu operación: bolsas de mensajes proactivos, herramientas y nivel de soporte. <a href="/planes" style={{ color:'#818cf8', textDecoration:'underline' }}>Ver detalle completo →</a></p>
           <p style={{ fontSize:13, color:'#64748b', marginBottom:24 }}>Cero comisión por venta. Sin permanencia mínima.</p>
           <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={{ display:'inline-block', background:'linear-gradient(135deg,#6366f1,#8b5cf6)', color:'#fff', padding:'14px 36px', borderRadius:12, fontSize:14, fontWeight:700, textDecoration:'none', boxShadow:'0 0 28px rgba(99,102,241,0.3)' }}>Conoce qué plan es para ti →</a>
         </div>
@@ -5451,7 +5488,7 @@ function GenyXLandingPage() {
           ['¿GenyX cobra comisión por cada venta que cierra?', 'No. Jamás. Tu costo es fijo cada mes — sin importar si vendes $30,000 o $300,000. Lo que ganas es tuyo.'],
           ['¿Cuánto tarda en activarse?', 'Una sesión de 45 minutos para entender tu negocio. Nosotros configuramos todo. En menos de 48 horas tu agente está atendiendo clientes y cerrando ventas.'],
           ['¿Qué pasa si el sistema falla?', 'Cada actualización pasa por pruebas de calidad antes de llegar a tu negocio. Monitoreamos el sistema activamente y atendemos cualquier incidencia lo antes posible. Si se presenta un problema mayor, tu agente queda en pausa controlada y te avisamos directamente hasta que se resuelva.'],
-          ['¿Para quién es GenyX?', 'GenyX es para dueños de negocio que quieren una dirección comercial operando 24/7 sin contratar más gente. No es solo un bot que responde — es un equipo de 8 agentes de IA que genera demanda, cierra ventas, coordina entregas, mide resultados y diseña estrategia financiera y de marketing — de manera autónoma, con datos reales de tus ventas. Respuestas a preguntas que hoy no tienes: ¿Cuál es tu producto más vendido? ¿A qué hora te escriben más? ¿Cuánto vendiste esta semana? ¿Quién es tu cliente más recurrente? Información de tu negocio que hoy no tienes — sin contratar un analista. Si tus clientes ya te escriben por WhatsApp y tú no das abasto para responderles bien, GenyX es para ti.'],
+          ['¿Para quién es GenyX?', 'GenyX es para dueños de negocio con 5 a 100 empleados que quieren operar con menos personas y más datos. No es solo un bot que responde — son 8 agentes de IA, pronto 10, que operan dos capas: la operativa (atender, vender, cobrar, entregar, dar seguimiento) y la estratégica (planear tus finanzas y tu marketing con datos reales). Cada viernes 6pm recibes la Mesa de Estrategia con la propuesta para la semana siguiente. Cada lunes 5am recibes el Reporte con tus números reales. El fundador toma la decisión. La IA hace el trabajo.'],
           ['¿Por qué GenyX y no un bot genérico?', 'Un bot genérico responde preguntas. GenyX cierra ventas. Atiende a tu cliente, arma su pedido, genera el cobro y te avisa cuando el dinero ya está en tu cuenta. Sin complicaciones, sin intervención humana.'],
           ['¿Por qué GenyX y no contratar un vendedor?', 'Contratar un vendedor implica semanas de búsqueda, entrevistas, capacitación, nómina, IMSS, aguinaldo y reemplazos cuando se va. GenyX se activa en 48 horas, no se enferma, no renuncia, no cobra comisión y atiende a todos tus clientes al mismo tiempo — por un costo mensual fijo.'],
           ['¿Necesito conocimientos técnicos?', 'Ninguno. Tú nos das la información de tu negocio y nosotros hacemos todo lo demás. Solo tienes que revisar tu mando de control y contar tus ventas.'],
