@@ -5062,7 +5062,7 @@ const SIM_AG_ICONS = {
   Cierre: () => simAgSvg([["rect",{x:1,y:4,width:22,height:16,rx:2,ry:2}],["line",{x1:1,y1:10,x2:23,y2:10}]],'ci'),
   Entrega: () => simAgSvg(['M16 16h6V8h-4l-3-3H1v11h3',["circle",{cx:6,cy:18,r:2}],["circle",{cx:18,cy:18,r:2}]],'en'),
   Seguimiento: () => simAgSvg(['M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9','M13.73 21a2 2 0 01-3.46 0'],'sg'),
-  'Analítica': () => simAgSvg([["line",{x1:18,y1:20,x2:18,y2:10}],["line",{x1:12,y1:20,x2:12,y2:4}],["line",{x1:6,y1:20,x2:6,y2:14}]],'an'),
+  'Analítica': () => simAgSvg(['M12 2a7 7 0 017 7c0 2.8-1.6 5.2-4 6.3V18H9v-2.7C6.6 14.2 5 11.8 5 9a7 7 0 017-7z',["line",{x1:9,y1:21,x2:15,y2:21}]],'an'),
   Finanzas: () => simAgSvg([["line",{x1:12,y1:1,x2:12,y2:23}],'M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6'],'fn'),
 };
 
@@ -5519,49 +5519,25 @@ function GenyXLandingPage() {
         </div>
       </section>
 
-      {/* ── Tu Dirección Comercial — 4 Columnas ── */}
-      <section style={{ padding: '0 24px 100px', maxWidth: 900, margin: '0 auto' }}>
+
+
+      {/* ── Tu Dirección Comercial: 8 Agentes + Industrias ── */}
+      <section id="industrias" style={{ padding: '0 24px 100px', maxWidth: 1000, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>TU DIRECCIÓN COMERCIAL — 90% AUTÓNOMA</div>
-          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>8 agentes de IA.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>El equipo que opera, mide y planea tu negocio.</span></h2>
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 32 }}>
-          {[
-            [() => simSvg(['M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4','M7 10l5 5 5-5','M12 15V3','M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9'],'lc1'), 'Captación y Marketing', 'Generación de demanda, visibilidad y primer contacto con el prospecto.'],
-            [() => simSvg(['M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z',['rect',{x:1,y:4,width:22,height:16,rx:2,ry:2}],['line',{x1:1,y1:10,x2:23,y2:10}]],'lc2'), 'Venta y Cierre', 'Gestión de la oportunidad, negociación y conversión final del interesado en cliente.'],
-            [() => simSvg(['M16 16h6V8h-4l-3-3H1v11h3',['circle',{cx:6,cy:18,r:2}],['circle',{cx:18,cy:18,r:2}],'M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9'],'lc3'), 'Entrega y Seguimiento', 'Coordinación logística con servicios de terceros y postventa para asegurar la satisfacción del cliente.'],
-            [() => simSvg([['line',{x1:18,y1:20,x2:18,y2:10}],['line',{x1:12,y1:20,x2:12,y2:4}],['line',{x1:6,y1:20,x2:6,y2:14}],['line',{x1:12,y1:1,x2:12,y2:23}],'M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6'],'lc4'), 'Analítica y Finanzas', 'Medición de KPIs como Customer Lifetime Value, margen por producto, punto de equilibrio y proyección mensual.'],
-          ].map(([icoFn, title, desc]) => (
-            <div key={title} style={{ background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.2)', borderRadius: 16, padding: '24px 20px', transition: 'all 0.25s' }}
-              onMouseOver={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.5)'; e.currentTarget.style.transform = 'translateY(-3px)'; }}
-              onMouseOut={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.2)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
-              <div style={{ width:48, height:48, borderRadius:12, background:'rgba(99,102,241,0.1)', border:'1px solid rgba(99,102,241,0.2)', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:10 }}>{icoFn()}</div>
-              <div style={{ fontWeight: 800, fontSize: 14, color: '#f1f5f9', marginBottom: 8 }}>{title}</div>
-              <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.7 }}>{desc}</div>
-            </div>
-          ))}
-        </div>
-        <p style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.8, textAlign: 'center', maxWidth: 640, margin: '0 auto' }}>Tú eres el director comercial de tu negocio. Con GenyX, solo inviertes el 10% de tu tiempo: leer la estrategia, aprobarla, y tomar las decisiones financieras y de marketing que el sistema diseñó con base en tus datos reales. El otro 90% lo ejecutan los agentes.</p>
-        <p style={{ color: '#64748b', fontSize: 13, lineHeight: 1.7, textAlign: 'center', maxWidth: 640, margin: '20px auto 0' }}>Además de los 8 agentes, activamos herramientas especializadas según tu industria: Inventario, Costeador, Citas, Foto Lab, Pipeline de Leads, Historial de Pacientes y más — solo las que tu negocio realmente usa.</p>
-      </section>
-
-      {/* ── 8 Agentes de IA ── */}
-      <section style={{ padding: '0 24px 100px', maxWidth: 1000, margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: 40 }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>LA SOLUCIÓN</div>
-          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>8 agentes de IA.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Un equipo completo.</span></h2>
-          <p style={{ color: '#64748b', fontSize: 14, maxWidth: 520, margin: '0 auto' }}>Cada agente se encarga de una función clave de tu negocio. Trabajan juntos, comparten información y operan 24/7 sin que tú supervises.</p>
+          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>8 agentes de IA.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Adaptados a tu industria.</span></h2>
+          <p style={{ color: '#64748b', fontSize: 14, maxWidth: 560, margin: '0 auto' }}>Cada agente se encarga de una función clave. Trabajan juntos, comparten información y operan 24/7 — configurados con las reglas de tu negocio.</p>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
           {[
-            ['Marketing', 'Genera contenido visual y captions con tu ADN de marca, listos para publicar. Reactiva clientes inactivos vía WhatsApp.', () => simSvg(['M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4','M7 10l5 5 5-5','M12 15V3'],'la1')],
-            ['Captación', 'Atrae clientes a tu WhatsApp directo desde redes, web y buscadores.', () => simSvg([['circle',{cx:12,cy:12,r:10}],'M12 8v8',['line',{x1:8,y1:12,x2:16,y2:12}]],'la2')],
-            ['Venta', 'Atiende en segundos con la personalidad de tu marca. Recomienda complementos.', () => simSvg(['M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z'],'la3')],
-            ['Cierre', 'Cobra dentro del chat. Sin fricción. Sin que el cliente salga de WhatsApp.', () => simSvg([['rect',{x:1,y:4,width:22,height:16,rx:2,ry:2}],['line',{x1:1,y1:10,x2:23,y2:10}]],'la4')],
-            ['Entrega', 'Coordina la logística de entrega en colaboración con servicios de terceros.', () => simSvg(['M16 16h6V8h-4l-3-3H1v11h3',['circle',{cx:6,cy:18,r:2}],['circle',{cx:18,cy:18,r:2}]],'la5')],
-            ['Seguimiento', 'Recupera pedidos abandonados. Reactiva clientes que no han vuelto.', () => simSvg(['M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9','M13.73 21a2 2 0 01-3.46 0'],'la6')],
-            ['Analítica', 'KPIs, top productos, hora pico, clientes inactivos y recomendaciones concretas.', () => simSvg([['line',{x1:18,y1:20,x2:18,y2:10}],['line',{x1:12,y1:20,x2:12,y2:4}],['line',{x1:6,y1:20,x2:6,y2:14}]],'la7')],
-            ['Finanzas', 'Margen por producto. Punto de equilibrio. Utilidad real. Proyección mensual.', () => simSvg([['line',{x1:12,y1:1,x2:12,y2:23}],'M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6'],'la8')],
+            ['Marketing', 'Contenido con tu ADN de marca. Reactiva clientes inactivos.', () => simSvg(['M19 4H5a2 2 0 00-2 2v14l4-4h12a2 2 0 002-2V6a2 2 0 00-2-2z','M12 10v.01','M8 10v.01','M16 10v.01'],'la1')],
+            ['Captación', 'Atrae clientes desde redes, web y buscadores a tu WhatsApp.', () => simSvg(['M12 22s8-4 8-10A8 8 0 004 12c0 6 8 10 8 10z',['circle',{cx:12,cy:12,r:3}]],'la2')],
+            ['Venta', 'Atiende en segundos con la personalidad de tu marca.', () => simSvg(['M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z'],'la3')],
+            ['Cierre', 'Cobra dentro del chat. Sin que el cliente salga de WhatsApp.', () => simSvg([['rect',{x:1,y:4,width:22,height:16,rx:2,ry:2}],['line',{x1:1,y1:10,x2:23,y2:10}]],'la4')],
+            ['Entrega', 'Coordina logística con servicios de terceros.', () => simSvg(['M16 16h6V8h-4l-3-3H1v11h3',['circle',{cx:6,cy:18,r:2}],['circle',{cx:18,cy:18,r:2}]],'la5')],
+            ['Seguimiento', 'Recupera pedidos abandonados y clientes inactivos.', () => simSvg(['M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9','M13.73 21a2 2 0 01-3.46 0'],'la6')],
+            ['Analítica', 'KPIs, top productos, hora pico y recomendaciones.', () => simSvg(['M12 2a7 7 0 017 7c0 2.8-1.6 5.2-4 6.3V18H9v-2.7C6.6 14.2 5 11.8 5 9a7 7 0 017-7z',['line',{x1:9,y1:21,x2:15,y2:21}],['line',{x1:10,y1:24,x2:14,y2:24}]],'la7')],
+            ['Finanzas', 'Margen, punto de equilibrio y proyección mensual.', () => simSvg([['line',{x1:12,y1:1,x2:12,y2:23}],'M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6'],'la8')],
           ].map(([name, desc, icoFn]) => (
             <div key={name} style={{ background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 12, padding: '18px 16px', transition: 'all 0.2s' }}
               onMouseOver={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.5)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
@@ -5572,9 +5548,32 @@ function GenyXLandingPage() {
             </div>
           ))}
         </div>
-        <div style={{ textAlign: 'center', marginTop: 20 }}>
-          <p style={{ fontSize: 14, color: '#a5b4fc', fontWeight: 700 }}>8 agentes. Todos los planes.</p>
-          <p style={{ fontSize: 11, color: '#475569', fontStyle: 'italic', marginTop: 8 }}>Los 8 agentes están interconectados — cada uno alimenta al siguiente para que tu dirección comercial opere sin fricciones.</p>
+
+        {/* ── Industrias integradas ── */}
+        <div style={{ marginTop: 40, textAlign: 'center' }}>
+          <p style={{ fontSize: 14, color: '#a5b4fc', fontWeight: 700, marginBottom: 6 }}>8 agentes. Todos los planes. Tu industria.</p>
+          <p style={{ fontSize: 12, color: '#475569', marginBottom: 24 }}>Tú diriges la estrategia (10% de tu tiempo). Los agentes ejecutan el otro 90%.</p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 10 }}>
+            {[
+              [() => simSvg(['M18 8h1a4 4 0 010 8h-1','M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z'],'ic1'), 'Restaurantes', '"No puedo estar en el teléfono y en la cocina"'],
+              [() => simSvg(['M22 12h-4l-3 9L9 3l-3 9H2'],'ic2'), 'Clínicas', '"Pierdo pacientes porque no contesto a tiempo"'],
+              [() => simSvg(['M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'],'ic3'), 'Belleza', '"Cancelaciones de último minuto"'],
+              [() => simSvg(['M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z','M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z'],'ic4'), 'Escuelas', '"Se interesan pero nunca se inscriben"'],
+              [() => simSvg([['rect',{x:3,y:3,width:18,height:18,rx:2,ry:2}],['line',{x1:3,y1:9,x2:21,y2:9}],['line',{x1:9,y1:21,x2:9,y2:9}]],'ic5'), 'Inmobiliarias', '"Pierdo tiempo con curiosos"'],
+              [() => simSvg(['M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z',['line',{x1:3,y1:6,x2:21,y2:6}],'M16 10a4 4 0 01-8 0'],'ic6'), 'Panaderías', '"Pierdo pedidos fuera de horario"'],
+            ].map(([icoFn, label, pain]) => (
+              <div key={label} style={{ background:'rgba(99,102,241,0.06)', border:'1px solid rgba(99,102,241,0.18)', borderRadius:12, padding:'12px 16px', display:'flex', alignItems:'center', gap:10, transition:'all .2s', cursor:'default', minWidth:200, flex:'1 1 auto', maxWidth:320 }}
+                onMouseOver={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.5)'; e.currentTarget.style.transform='translateY(-2px)'; }}
+                onMouseOut={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.18)'; e.currentTarget.style.transform='translateY(0)'; }}>
+                <div style={{ width:36, height:36, borderRadius:8, background:'rgba(99,102,241,0.1)', border:'1px solid rgba(99,102,241,0.15)', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0 }}>{icoFn()}</div>
+                <div style={{ textAlign:'left' }}>
+                  <div style={{ fontSize:12, fontWeight:700, color:'#f1f5f9' }}>{label}</div>
+                  <div style={{ fontSize:10, color:'#818cf8', fontStyle:'italic', lineHeight:1.4 }}>{pain}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p style={{ fontSize: 11, color: '#475569', fontStyle: 'italic', marginTop: 16 }}>Además activamos herramientas según tu industria: Inventario, Costeador, Citas, Foto Lab, Pipeline de Leads y más.</p>
         </div>
       </section>
 
@@ -5743,31 +5742,7 @@ function GenyXLandingPage() {
         </div>
       </section>
 
-      {/* ── Soluciones por Industria ── */}
-      <section id="industrias" style={{ padding:'0 24px 100px', maxWidth:1000, margin:'0 auto', textAlign:'center' }}>
-        <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12 }}>¿EN QUÉ INDUSTRIA ESTÁS?</div>
-        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:10 }}>Tu industria. Tus agentes. Tu operación.</h2>
-        <p style={{ color:'#64748b', marginBottom:40, fontSize:15 }}>8 agentes de IA que operan, miden y planean — adaptados a las reglas de tu industria.</p>
-        <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:16 }}>
-          {[
-            [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#gx1)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><defs><linearGradient id="gx1" x1="0" y1="0" x2="24" y2="24"><stop offset="0%" stopColor="#818cf8"/><stop offset="100%" stopColor="#c084fc"/></linearGradient></defs><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>,'Restaurantes y Comida','Te escriben 50 mensajes al día. No puedes con todos. GenyX atiende a todos al mismo tiempo, arma el pedido y cobra — mientras tú te enfocas en la cocina.','EL RETO: "No puedo estar en el teléfono y en la cocina al mismo tiempo"'],
-            [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#gx2)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><defs><linearGradient id="gx2" x1="0" y1="0" x2="24" y2="24"><stop offset="0%" stopColor="#818cf8"/><stop offset="100%" stopColor="#c084fc"/></linearGradient></defs><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>,'Clínicas y Consultorios','Tus pacientes quieren agendar cita por WhatsApp pero tu recepcionista no da abasto. GenyX agenda, confirma y cobra anticipo — para que dejes de perder pacientes por no contestar.','EL RETO: "Pierdo pacientes porque no contesto a tiempo"'],
-            [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#gx3)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><defs><linearGradient id="gx3" x1="0" y1="0" x2="24" y2="24"><stop offset="0%" stopColor="#818cf8"/><stop offset="100%" stopColor="#c084fc"/></linearGradient></defs><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>,'Belleza y Cuidado Personal','Tu agenda se llena pero pierdes clientes porque no confirmas a tiempo. GenyX agenda, confirma y manda recordatorio — ayuda a llenar tu agenda.','EL RETO: "Cancelaciones de último minuto y citas sin confirmar"'],
-            [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#gx4)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><defs><linearGradient id="gx4" x1="0" y1="0" x2="24" y2="24"><stop offset="0%" stopColor="#818cf8"/><stop offset="100%" stopColor="#c084fc"/></linearGradient></defs><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>,'Escuelas y Cursos','Los interesados preguntan precio y no vuelven a escribir. GenyX responde al instante, resuelve dudas y los guía hasta la inscripción.','EL RETO: "Se interesan pero nunca se inscriben"'],
-            [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#gx5)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><defs><linearGradient id="gx5" x1="0" y1="0" x2="24" y2="24"><stop offset="0%" stopColor="#818cf8"/><stop offset="100%" stopColor="#c084fc"/></linearGradient></defs><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>,'Inmobiliarias','Te llegan 50 leads de portales. 3 van en serio. GenyX filtra, califica leads y te entrega los más serios.','EL RETO: "Pierdo tiempo con curiosos que nunca van a comprar"'],
-            [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#gx6)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><defs><linearGradient id="gx6" x1="0" y1="0" x2="24" y2="24"><stop offset="0%" stopColor="#818cf8"/><stop offset="100%" stopColor="#c084fc"/></linearGradient></defs><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>,'Panaderías y Pastelerías','Tu cliente pide a las 10pm. Tú ya no estás. GenyX toma el pedido, cobra y lo tiene listo para cuando llegas a hornear.','EL RETO: "Pierdo pedidos porque no puedo contestar fuera de horario"'],
-          ].map(([icon, label, desc, pain]) => (
-            <div key={label} style={{ background:'rgba(6,9,18,0.8)', border:'1px solid rgba(99,102,241,0.2)', borderRadius:16, padding:'24px 20px', transition:'all .2s', cursor:'default', textAlign:'left' }}
-              onMouseOver={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.6)'; e.currentTarget.style.background='rgba(99,102,241,0.08)'; e.currentTarget.style.transform='translateY(-3px)'; }}
-              onMouseOut={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.2)'; e.currentTarget.style.background='rgba(6,9,18,0.8)'; e.currentTarget.style.transform='translateY(0)'; }}>
-              <div style={{ width: 48, height: 48, borderRadius: 12, background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>{icon}</div>
-              <div style={{ fontSize:15, color:'#f1f5f9', fontWeight:700, marginBottom:8 }}>{label}</div>
-              <div style={{ fontSize:12, color:'#64748b', lineHeight:1.7, marginBottom:12 }}>{desc}</div>
-              <div style={{ fontSize:11, color:'#818cf8', fontStyle:'italic', fontWeight:600, background:'rgba(99,102,241,0.08)', padding:'6px 10px', borderRadius:8, lineHeight:1.5 }}>{pain}</div>
-            </div>
-          ))}
-        </div>
-      </section>
+
 
       {/* ── Ventajas Competitivas ── */}
       <section style={{ padding:'0 24px 100px', maxWidth:1000, margin:'0 auto' }}>
