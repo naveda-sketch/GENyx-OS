@@ -5094,6 +5094,42 @@ function SimuladorGenyX() {
   const feedRef = React.useRef(null);
   const reducedMotion = React.useRef(typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches);
 
+  // ── ALL HOOKS MUST BE BEFORE ANY CONDITIONAL RETURNS ──
+  React.useEffect(() => {
+    if (phase !== 3 || !running) return;
+    const DUR = 55000, START_M = 300, END_M = 1430;
+    const id = setInterval(() => {
+      const elapsed = Date.now() - startRef.current;
+      const progress = Math.min(elapsed / DUR, 1);
+      const curMin = Math.round(START_M + progress * (END_M - START_M));
+      setSimTime2(curMin);
+      const toReveal = timeline.filter(e => e.time <= curMin);
+      setRevealed(prev => {
+        if (prev.length === toReveal.length) return prev;
+        const newOnes = toReveal.slice(prev.length);
+        let na=0, nc=0, ncb=0;
+        newOnes.forEach(ev => { if(ev.d){na+=(ev.d.a||0); nc+=(ev.d.c||0); ncb+=(ev.d.cb||0);} });
+        if (na||nc||ncb) setCounters(p => ({a:p.a+na, c:p.c+nc, cb:p.cb+ncb}));
+        const now = Date.now();
+        newOnes.forEach(ev => ev.agents.forEach(ag => setAgentActive(p => ({...p,[ag]:now}))));
+        return toReveal;
+      });
+      if (progress >= 1) { clearInterval(id); setRunning(false); setDone(true); setTimeout(() => setPhase(4), 2000); }
+    }, 80);
+    return () => clearInterval(id);
+  }, [phase, running, timeline]);
+
+  React.useEffect(() => {
+    if (phase !== 3) return;
+    const id = setInterval(() => {
+      const now = Date.now();
+      setAgentActive(p => { const n = {...p}; Object.keys(n).forEach(k => { if(now - n[k] > 3000) delete n[k]; }); return n; });
+    }, 500);
+    return () => clearInterval(id);
+  }, [phase]);
+
+  React.useEffect(() => { feedRef.current?.lastChild?.scrollIntoView({behavior:'smooth'}); }, [revealed]);
+
   // Styles
   const Z = {
     wrap: { padding:'80px 24px', maxWidth:960, margin:'0 auto' },
@@ -5108,6 +5144,8 @@ function SimuladorGenyX() {
     btn2: { background:'transparent', border:'1px solid rgba(99,102,241,0.5)', color:'#818cf8', padding:'12px 28px', borderRadius:12, fontSize:14, fontWeight:700, cursor:'pointer' },
     priv: { background:'rgba(74,222,128,0.08)', border:'1px solid rgba(74,222,128,0.25)', borderRadius:12, padding:'10px 16px', fontSize:12, color:'#4ade80', textAlign:'center', marginBottom:24 },
   };
+
+  const cfg = indKey ? SIM_IND[indKey] : null;
 
   // ── PHASE 1: Industry selection ──
   if (phase === 1) return (
@@ -5129,8 +5167,6 @@ function SimuladorGenyX() {
       </div>
     </section>
   );
-
-  const cfg = SIM_IND[indKey];
 
   // ── PHASE 2: Data inputs ──
   if (phase === 2) return (
@@ -5181,46 +5217,7 @@ function SimuladorGenyX() {
     </section>
   );
 
-  // ── PHASE 3: Animation ──
-  React.useEffect(() => {
-    if (phase !== 3 || !running) return;
-    const DUR = 55000, START_M = 300, END_M = 1430;
-    const id = setInterval(() => {
-      const elapsed = Date.now() - startRef.current;
-      const progress = Math.min(elapsed / DUR, 1);
-      const curMin = Math.round(START_M + progress * (END_M - START_M));
-      setSimTime2(curMin);
-      // reveal events
-      const toReveal = timeline.filter(e => e.time <= curMin);
-      setRevealed(prev => {
-        if (prev.length === toReveal.length) return prev;
-        const newOnes = toReveal.slice(prev.length);
-        // update counters
-        let na=0, nc=0, ncb=0;
-        newOnes.forEach(ev => { if(ev.d){na+=(ev.d.a||0); nc+=(ev.d.c||0); ncb+=(ev.d.cb||0);} });
-        if (na||nc||ncb) setCounters(p => ({a:p.a+na, c:p.c+nc, cb:p.cb+ncb}));
-        // activate agents
-        const now = Date.now();
-        newOnes.forEach(ev => ev.agents.forEach(ag => setAgentActive(p => ({...p,[ag]:now}))));
-        return toReveal;
-      });
-      if (progress >= 1) { clearInterval(id); setRunning(false); setDone(true); setTimeout(() => setPhase(4), 2000); }
-    }, 80);
-    return () => clearInterval(id);
-  }, [phase, running, timeline]);
 
-  // Clear agent glow after 3s
-  React.useEffect(() => {
-    if (phase !== 3) return;
-    const id = setInterval(() => {
-      const now = Date.now();
-      setAgentActive(p => { const n = {...p}; Object.keys(n).forEach(k => { if(now - n[k] > 3000) delete n[k]; }); return n; });
-    }, 500);
-    return () => clearInterval(id);
-  }, [phase]);
-
-  // Auto-scroll feed
-  React.useEffect(() => { feedRef.current?.lastChild?.scrollIntoView({behavior:'smooth'}); }, [revealed]);
 
   if (phase === 3) {
     const progress = (simTime2 - 300) / (1430 - 300);
