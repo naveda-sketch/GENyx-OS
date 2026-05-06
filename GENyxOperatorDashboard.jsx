@@ -5121,8 +5121,8 @@ function GenyXLandingPage() {
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(74,222,128,0.1)', border:'1px solid rgba(74,222,128,0.35)', color:'#4ade80', fontSize:12, fontWeight:700, padding:'7px 22px', borderRadius:30, marginBottom:16 }}>
           &#x2713; Activo en 48h · Respuesta en segundos · Cero comisión por venta
         </div>
-        <h1 style={C.h1}>¿Cuántas decisiones en tu negocio<br /><span style={C.h1accent}>tomas sin datos?</span></h1>
-        <p style={C.sub}>GenyX instala un equipo de 8 agentes de IA que automatizan el 90% de tu operación comercial — desde la primera conversación hasta tu estrategia financiera. Dos capas: la operativa (atender, vender, cobrar, entregar) y la estratégica (interpretar tus datos y planear tus finanzas y marketing). El fundador toma la decisión. La IA hace el trabajo.</p>
+        <h1 style={C.h1}>Instalamos 8 agentes de IA<br /><span style={C.h1accent}>que automatizan el 90% de tu operación comercial.</span></h1>
+        <p style={C.sub}>Desde la primera conversación hasta tu estrategia financiera. Dos capas: la operativa (atender, vender, cobrar, entregar) y la estratégica (interpretar tus datos y planear tus finanzas y marketing). El fundador toma la decisión. La IA hace el trabajo.</p>
         <div style={C.btns}>
           <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={C.primary}>Cuéntame de tu negocio →</a>
           <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20probar%20el%20simulador%20de%20GenyX" style={C.secondary}>Probar simulador</a>
@@ -5485,7 +5485,7 @@ function GenyXLandingPage() {
         {[
           ['¿Cuánto cuesta GenyX?', 'Tres planes según el volumen de tu operación: Esencial $9,900 MXN/mes, Profesional $18,900 MXN/mes, Enterprise $34,900 MXN/mes. Los tres planes incluyen los 8 agentes — la diferencia está en productos en catálogo, conversaciones mensuales y sucursales. Cada plan incluye una instalación inicial de un solo pago. Te ayudamos a elegir el correcto en una conversación de 15 minutos.'],
           ['¿Cómo cobran y facturan?', 'Cobramos vía transferencia bancaria al inicio del mes. Te enviamos factura electrónica a tu RFC al confirmar el pago. La instalación se cobra una sola vez al firmar el contrato.'],
-          ['¿GenyX cobra comisión por cada venta que cierra?', 'No. Jamás. Tu costo es fijo cada mes — sin importar si vendes $30,000 o $300,000. Lo que ganas es tuyo.'],
+          ['¿GenyX cobra comisión por cada venta que cierra?', 'No. Jamás. Tu costo es fijo cada mes — sin importar si vendes $30,000 o $300,000. Cero comisión.'],
           ['¿Cuánto tarda en activarse?', 'Una sesión de 45 minutos para entender tu negocio. Nosotros configuramos todo. En menos de 48 horas tu agente está atendiendo clientes y cerrando ventas.'],
           ['¿Qué pasa si el sistema falla?', 'Cada actualización pasa por pruebas de calidad antes de llegar a tu negocio. Monitoreamos el sistema activamente y atendemos cualquier incidencia lo antes posible. Si se presenta un problema mayor, tu agente queda en pausa controlada y te avisamos directamente hasta que se resuelva.'],
           ['¿Para quién es GenyX?', 'GenyX es para dueños de negocio con 5 a 100 empleados que quieren operar con menos personas y más datos. Son 8 agentes de IA que operan dos capas: la operativa (atender, vender, cobrar, entregar, dar seguimiento) y la estratégica (interpretar tus datos y planear tus finanzas y marketing). Cada viernes 6pm recibes la Mesa de Estrategia. Cada lunes 5am recibes el Reporte con tus números reales. El fundador toma la decisión. La IA hace el trabajo.'],
@@ -5623,7 +5623,7 @@ function TicketPage({ sid }) {
         <div style={S.ftr}>
           <div style={{ fontSize: 28, marginBottom: 4 }}>🍞</div>
           <div style={{ fontWeight: 800, fontSize: 15, color: '#1a1208' }}>Panadería Paty</div>
-          <div style={{ fontSize: 12, color: '#6b7280', marginTop: 2 }}>Guadalajara, Jalisco, México</div>
+          <div style={{ fontSize: 12, color: '#6b7280', marginTop: 2 }}>Magnolias 111, Bugambilias, Zapopan, Jal.</div>
           <div style={{ fontSize: 11, color: '#9ca3af', margin: '8px 0 12px' }}>Paty se pondrá en contacto contigo por WhatsApp para coordinar la entrega 📲</div>
           <button onClick={() => window.location.href = 'https://paty.genyxsystems.com'}
             style={{ background: '#25D366', color: '#fff', border: 'none', fontWeight: 800, fontSize: 14, padding: '12px 28px', borderRadius: 25, cursor: 'pointer' }}>
