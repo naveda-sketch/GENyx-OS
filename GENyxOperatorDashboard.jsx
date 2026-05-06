@@ -5024,17 +5024,17 @@ function PlanesPage() {
 // ═══ SIMULADOR GENYX — Constantes + Timeline Generator ═══
 
 const SIM_IND = {
-  restaurantes: { label:'Restaurantes y Comida', icon:'🍽️', reto:'No puedo estar en el teléfono y en la cocina al mismo tiempo', conv:0.35, margen:0.40, prod:'menú del día', unit:'pedido',
+  restaurantes: { label:'Restaurantes y Comida', icon:'🍽️', reto:'Tú en la cocina, GenyX en el chat — atendiendo a todos al mismo tiempo', conv:0.35, margen:0.40, prod:'menú del día', unit:'pedido',
     fields:[{key:'mensajes',label:'Mensajes que recibes al día',def:40,min:5,max:500},{key:'ticket',label:'Ticket promedio (pedido)',def:180,min:50,max:2000,pfx:'$'},{key:'empleados',label:'Empleados en tu equipo',def:8,min:1,max:100}]},
-  clinicas: { label:'Clínicas y Consultorios', icon:'⚕️', reto:'Pierdo pacientes porque no contesto a tiempo', conv:0.45, margen:0.55, prod:'consulta', unit:'cita',
+  clinicas: { label:'Clínicas y Consultorios', icon:'⚕️', reto:'GenyX agenda, confirma y cobra anticipo por ti', conv:0.45, margen:0.55, prod:'consulta', unit:'cita',
     fields:[{key:'mensajes',label:'Pacientes que escriben al día',def:20,min:3,max:200},{key:'ticket',label:'Anticipo o consulta promedio',def:400,min:100,max:5000,pfx:'$'},{key:'empleados',label:'Personal en consulta',def:3,min:1,max:30}]},
-  belleza: { label:'Belleza y Cuidado Personal', icon:'✨', reto:'Cancelaciones de último minuto y citas sin confirmar', conv:0.45, margen:0.60, prod:'servicio', unit:'cita',
+  belleza: { label:'Belleza y Cuidado Personal', icon:'✨', reto:'Confirmación y recordatorio automático para cada cita', conv:0.45, margen:0.60, prod:'servicio', unit:'cita',
     fields:[{key:'mensajes',label:'Solicitudes de cita al día',def:25,min:5,max:150},{key:'ticket',label:'Servicio promedio',def:450,min:100,max:3000,pfx:'$'},{key:'empleados',label:'Estilistas/operadoras',def:4,min:1,max:30}]},
-  escuelas: { label:'Escuelas y Cursos', icon:'📚', reto:'Se interesan pero nunca se inscriben', conv:0.15, margen:0.70, prod:'programa', unit:'inscripción',
+  escuelas: { label:'Escuelas y Cursos', icon:'📚', reto:'Del primer mensaje a la inscripción — GenyX guía al interesado', conv:0.15, margen:0.70, prod:'programa', unit:'inscripción',
     fields:[{key:'mensajes',label:'Interesados al día (leads)',def:30,min:5,max:500},{key:'ticket',label:'Valor promedio de inscripción',def:4500,min:500,max:50000,pfx:'$'},{key:'empleados',label:'Equipo administrativo',def:5,min:1,max:50}]},
-  inmobiliarias: { label:'Inmobiliarias', icon:'🏢', reto:'Pierdo tiempo con curiosos que nunca van a comprar', conv:0.08, margen:0.25, prod:'propiedad', unit:'cierre',
+  inmobiliarias: { label:'Inmobiliarias', icon:'🏢', reto:'Filtra, califica y te entrega los leads más serios', conv:0.08, margen:0.25, prod:'propiedad', unit:'cierre',
     fields:[{key:'mensajes',label:'Leads de portales/redes al día',def:50,min:10,max:500},{key:'ticket',label:'Comisión promedio por venta',def:80000,min:20000,max:500000,pfx:'$'},{key:'empleados',label:'Asesores activos',def:5,min:1,max:50}]},
-  panaderias: { label:'Panaderías y Pastelerías', icon:'🥖', reto:'Pierdo pedidos porque no puedo contestar fuera de horario', conv:0.40, margen:0.45, prod:'catálogo', unit:'pedido',
+  panaderias: { label:'Panaderías y Pastelerías', icon:'🥖', reto:'Toma pedidos y cobra 24/7 — incluso cuando tú ya no estás', conv:0.40, margen:0.45, prod:'catálogo', unit:'pedido',
     fields:[{key:'mensajes',label:'Mensajes que recibes al día',def:40,min:5,max:500},{key:'ticket',label:'Ticket promedio (pedido)',def:180,min:50,max:2000,pfx:'$'},{key:'empleados',label:'Empleados en tu equipo',def:8,min:1,max:100}]},
 };
 
@@ -5187,7 +5187,7 @@ function SimuladorGenyX() {
             onClick={() => { setIndKey(k); setInputs(Object.fromEntries(v.fields.map(f => [f.key, f.def]))); setPhase(2); }}>
             <div style={{ width:48, height:48, borderRadius:12, background:'rgba(99,102,241,0.1)', border:'1px solid rgba(99,102,241,0.2)', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:10 }}>{SIM_ICONS[k]()}</div>
             <div style={{ fontSize:15, fontWeight:700, color:'#f1f5f9', marginBottom:6 }}>{v.label}</div>
-            <div style={{ fontSize:12, color:'#818cf8', fontStyle:'italic' }}>"{v.reto}"</div>
+            <div style={{ fontSize:12, color:'#818cf8', fontStyle:'italic' }}>{v.reto}</div>
           </div>
         ))}
       </div>
@@ -5394,7 +5394,7 @@ function GenyXLandingPage() {
   }, []);
 
   const features = [
-    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 3h6m-3 0v3m-6 1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1zm2 4.5a1 1 0 1 0 2 0 1 1 0 0 0-2 0zm4 0a1 1 0 1 0 2 0 1 1 0 0 0-2 0zm-5 4h6"/></svg>, 'Tu Departamento de Ventas Completo', 'No es un bot genérico. Es tu agente de ventas: atiende con la personalidad de tu marca, cobra automático, te reporta cada semana y trabaja 24/7.'],
+    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 3h6m-3 0v3m-6 1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1zm2 4.5a1 1 0 1 0 2 0 1 1 0 0 0-2 0zm4 0a1 1 0 1 0 2 0 1 1 0 0 0-2 0zm-5 4h6"/></svg>, 'Tu Departamento de Ventas Completo', 'Tu agente de ventas: atiende con la personalidad de tu marca, cobra automático, te reporta cada semana y trabaja 24/7.'],
     [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/><path d="M5 15h4"/></svg>, 'Cobro Automatizado', 'Genera links de pago directamente en la conversación. El cliente paga en segundos desde WhatsApp, tú recibes la confirmación al instante y el dinero va a tu cuenta.'],
     [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="4" cy="19" r="2"/><circle cx="20" cy="19" r="2"/><path d="M12 7v3m0 0-6.5 7m6.5-7 6.5 7"/></svg>, <>Donde Ya Están Tus Clientes<span style={{display:"inline-flex",gap:8,verticalAlign:"middle",marginLeft:10,alignItems:"center"}}>
   <svg title="WhatsApp" width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#25D366"/><path fill="#fff" d="M17.5 14.38c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg>
@@ -5402,10 +5402,10 @@ function GenyXLandingPage() {
   <svg title="Facebook" width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047v-2.66c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.93-1.956 1.886v2.265h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
   <svg title="Web" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="1.5" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
   <svg title="Voz" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-</span></>, 'Un solo agente atendiendo en WhatsApp, tu sitio web, Instagram, Facebook y por llamada telefónica. Sin que tú tengas que estar en todos lados.'],
+</span></>, 'Un solo agente atendiendo en WhatsApp, tu sitio web, Instagram, Facebook y por llamada telefónica. Tú en un lugar. Tu agente en todos.'],
     [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="M7 16V12m4 4V8m4 8V5"/></svg>, 'Centro de Mando', 'Pedidos, ventas, catálogo y métricas de tu negocio desde un solo panel — en tu celular o computadora. Sabes exactamente qué se vendió, cuándo y cuánto.'],
-    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 4h18l-7 9v6l-4-2v-4L3 4z"/></svg>, 'Blindaje Anti-Errores', 'Tu agente nunca inventa precios, nunca ofrece productos que no tienes y nunca cobra de más. Tu catálogo y tus reglas se respetan siempre — sin excepciones.'],
-    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>, 'En vivo en 48 horas', 'Una sesión de 45 minutos para entender tu negocio, nosotros configuramos todo, y en 2 días tu agente ya está vendiendo. Sin meses de espera ni consultores caros.'],
+    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 4h18l-7 9v6l-4-2v-4L3 4z"/></svg>, 'Precisión Absoluta', 'Tu agente respeta tu catálogo, tus precios y tus reglas al 100%. Cada pedido sale exacto. Cada cobro es correcto.'],
+    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>, 'Vendiendo en 48 horas', 'Una sesión de 45 minutos para entender tu negocio, nosotros configuramos todo, y en 2 días tu agente ya está cerrando ventas.'],
   ];
   const steps = [
     ['01', 'Sesión de ADN', 'Te escuchamos. Entendemos tu negocio, menú, reglas de venta y personalidad de marca. 45 minutos.'],
@@ -5505,17 +5505,17 @@ function GenyXLandingPage() {
       </section>
 
 
-      {/* ── El Reto ── */}
+      {/* ── La Oportunidad ── */}
       <section style={{ padding: '0 24px 100px', maxWidth: 720, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>EL RETO</div>
-          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>Estás volando a ciegas.<br /><span style={{ background: 'linear-gradient(135deg,#ef4444,#f97316)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Y volar a ciegas es caro.</span></h2>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>LA OPORTUNIDAD</div>
+          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>Cada conversación es una venta.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Y tus datos lo demuestran.</span></h2>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>El <strong style={{ color: '#f1f5f9' }}>78% de tus clientes compra con el primero que responde.</strong> Si no estás respondiendo en segundos, se van con tu competencia.</p>
-          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>El <strong style={{ color: '#f1f5f9' }}>55% de las ventas se pierden al momento de cobrar</strong> — le mandas un número de cuenta, el cliente sale de la app, y en el camino se arrepiente.</p>
-          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>Y si vendes por plataformas de delivery, estás pagando <strong style={{ color: '#f1f5f9' }}>entre 25% y 30% de comisión por cada pedido.</strong> Con 10 pedidos al día, son más de <strong style={{ color: '#f1f5f9' }}>$20,000 al mes</strong> que se van en comisiones.</p>
-          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>Mientras tanto, <strong style={{ color: '#f1f5f9' }}>solo 3 de cada 10 negocios en México usan internet para vender.</strong> Los que ya lo hacen bien reportan hasta <strong style={{ color: '#f1f5f9' }}>57% más ingresos.</strong></p>
+          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>El <strong style={{ color: '#f1f5f9' }}>78% de los clientes compra con el primero que responde.</strong> Con GenyX, ese siempre eres tú — en segundos, 24/7.</p>
+          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>El cobro ocurre <strong style={{ color: '#f1f5f9' }}>dentro del chat: tu cliente paga en 2 toques</strong> desde WhatsApp. Tú recibes la confirmación al instante.</p>
+          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>Cada pedido directo por WhatsApp es <strong style={{ color: '#f1f5f9' }}>100% tuyo. Cero comisión. Cero intermediarios.</strong> Con 10 pedidos al día, eso son más de <strong style={{ color: '#f1f5f9' }}>$20,000 al mes</strong> que se quedan en tu bolsillo.</p>
+          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>Los negocios que ya venden digital reportan hasta <strong style={{ color: '#f1f5f9' }}>57% más ingresos.</strong> GenyX te lleva ahí — con 8 agentes trabajando desde el día uno.</p>
         </div>
       </section>
 
@@ -5555,12 +5555,12 @@ function GenyXLandingPage() {
           <p style={{ fontSize: 12, color: '#475569', marginBottom: 24 }}>Tú diriges la estrategia (10% de tu tiempo). Los agentes ejecutan el otro 90%.</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 10 }}>
             {[
-              [() => simSvg(['M18 8h1a4 4 0 010 8h-1','M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z'],'ic1'), 'Restaurantes', '"No puedo estar en el teléfono y en la cocina"'],
-              [() => simSvg(['M22 12h-4l-3 9L9 3l-3 9H2'],'ic2'), 'Clínicas', '"Pierdo pacientes porque no contesto a tiempo"'],
-              [() => simSvg(['M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'],'ic3'), 'Belleza', '"Cancelaciones de último minuto"'],
-              [() => simSvg(['M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z','M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z'],'ic4'), 'Escuelas', '"Se interesan pero nunca se inscriben"'],
-              [() => simSvg([['rect',{x:3,y:3,width:18,height:18,rx:2,ry:2}],['line',{x1:3,y1:9,x2:21,y2:9}],['line',{x1:9,y1:21,x2:9,y2:9}]],'ic5'), 'Inmobiliarias', '"Pierdo tiempo con curiosos"'],
-              [() => simSvg(['M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z',['line',{x1:3,y1:6,x2:21,y2:6}],'M16 10a4 4 0 01-8 0'],'ic6'), 'Panaderías', '"Pierdo pedidos fuera de horario"'],
+              [() => simSvg(['M18 8h1a4 4 0 010 8h-1','M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z'],'ic1'), 'Restaurantes', 'Tú en la cocina, GenyX en el chat'],
+              [() => simSvg(['M22 12h-4l-3 9L9 3l-3 9H2'],'ic2'), 'Clínicas', 'Agenda, confirma y cobra anticipo por ti'],
+              [() => simSvg(['M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'],'ic3'), 'Belleza', 'Confirmación y recordatorio automático'],
+              [() => simSvg(['M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z','M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z'],'ic4'), 'Escuelas', 'Del primer mensaje a la inscripción'],
+              [() => simSvg([['rect',{x:3,y:3,width:18,height:18,rx:2,ry:2}],['line',{x1:3,y1:9,x2:21,y2:9}],['line',{x1:9,y1:21,x2:9,y2:9}]],'ic5'), 'Inmobiliarias', 'Filtra, califica y te entrega leads serios'],
+              [() => simSvg(['M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z',['line',{x1:3,y1:6,x2:21,y2:6}],'M16 10a4 4 0 01-8 0'],'ic6'), 'Panaderías', 'Toma pedidos y cobra 24/7'],
             ].map(([icoFn, label, pain]) => (
               <div key={label} style={{ background:'rgba(99,102,241,0.06)', border:'1px solid rgba(99,102,241,0.18)', borderRadius:12, padding:'12px 16px', display:'flex', alignItems:'center', gap:10, transition:'all .2s', cursor:'default', minWidth:200, flex:'1 1 auto', maxWidth:320 }}
                 onMouseOver={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.5)'; e.currentTarget.style.transform='translateY(-2px)'; }}
@@ -5719,16 +5719,16 @@ function GenyXLandingPage() {
       <section style={{ padding:'0 24px 100px', maxWidth:960, margin:'0 auto' }}>
         <div style={{ background:'linear-gradient(135deg,rgba(99,102,241,0.08),rgba(139,92,246,0.08))', border:'1px solid rgba(99,102,241,0.2)', borderRadius:24, padding:'40px 48px', display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))', gap:40, alignItems:'center' }}>
           <div>
-            <div style={{ fontSize:12, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12 }}>NO ES UN CONTESTADOR AUTOMÁTICO</div>
-            <h2 style={{ fontSize:32, fontWeight:900, color:'#f1f5f9', lineHeight:1.2, marginBottom:16 }}>Es tu dirección comercial autónoma<br /><span style={{ background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>configurada con el ADN de tu marca</span></h2>
-            <p style={{ color:'#64748b', lineHeight:1.8, fontSize:14 }}>No solo "da información". Tu dirección comercial genera demanda, convierte prospectos en clientes, coordina la logística de entrega con tu equipo y mide cada resultado — todo con la personalidad y calidez de tu marca.</p>
+            <div style={{ fontSize:12, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12 }}>TU DIRECCIÓN COMERCIAL INTELIGENTE</div>
+            <h2 style={{ fontSize:32, fontWeight:900, color:'#f1f5f9', lineHeight:1.2, marginBottom:16 }}>Tu dirección comercial autónoma<br /><span style={{ background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>configurada con el ADN de tu marca</span></h2>
+            <p style={{ color:'#64748b', lineHeight:1.8, fontSize:14 }}>Tu dirección comercial genera demanda, convierte prospectos en clientes, coordina entregas con tu equipo y mide cada resultado — todo con la personalidad y calidez de tu marca.</p>
           </div>
           <div style={{ display:'flex', flexDirection:'column', gap:14 }}>
             {[
               [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>, 'Entiende notas de voz', 'Transcribe y responde audios de WhatsApp en segundos'],
               [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>, 'Habla como tu cliente', 'Regionalismos, abreviaciones y hasta emojis — sin respuestas robóticas'],
-              [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>, 'Asesora, no solo informa', 'Detecta lo que el cliente necesita y recomienda antes de que pregunte'],
-              [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>, 'Cierra, no solo responde', 'Lleva al cliente del interés al carrito sin fricción ni esfuerzo humano. Responde en segundos a tus clientes.'],
+              [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>, 'Asesora y recomienda', 'Detecta lo que el cliente necesita y recomienda antes de que pregunte'],
+              [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>, 'Del interés al cobro en una conversación', 'Lleva al cliente del interés al carrito de forma natural. Responde en segundos.'],
             ].map(([ico, t, d]) => (
               <div key={t} style={{ display:'flex', gap:14, alignItems:'flex-start' }}>
                 <div style={{ fontSize:22, flexShrink:0, marginTop:2 }}>{ico}</div>
@@ -5747,15 +5747,15 @@ function GenyXLandingPage() {
       {/* ── Ventajas Competitivas ── */}
       <section style={{ padding:'0 24px 100px', maxWidth:1000, margin:'0 auto' }}>
         <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12, textAlign:'center' }}>POR QUÉ GenyX</div>
-        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:12, textAlign:'center' }}>No somos un bot genérico.<br /><span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>GenyX opera tu dirección comercial.</span></h2>
-        <p style={{ color:'#64748b', marginBottom:48, textAlign:'center', fontSize:15, maxWidth:600, margin:'0 auto 48px' }}>El mercado tiene bots que responden preguntas. GenyX cierra ventas — con tu catálogo, tus reglas y resultados que puedes medir.</p>
+        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:12, textAlign:'center' }}>GenyX opera tu dirección comercial.<br /><span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Con tu catálogo. Con tus reglas.</span></h2>
+        <p style={{ color:'#64748b', marginBottom:48, textAlign:'center', fontSize:15, maxWidth:600, margin:'0 auto 48px' }}>8 agentes configurados con tu catálogo, tus precios y tu personalidad de marca. Miden resultados reales cada semana.</p>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:16 }}>
           {[
-            [() => simSvg([['rect',{x:3,y:11,width:18,height:11,rx:2,ry:2}],'M7 11V7a5 5 0 0110 0v4'],'lv1'), 'Nunca cobra de más, nunca inventa precios', 'Tu agente respeta tu catálogo al 100%. Si no lo vendes, no lo ofrece. Si cuesta $120, cobra $120. Cero errores, cero sorpresas para tu cliente.'],
-            [() => simSvg([['line',{x1:18,y1:20,x2:18,y2:10}],['line',{x1:12,y1:20,x2:12,y2:4}],['line',{x1:6,y1:20,x2:6,y2:14}],'M22 12h-4l-3 9L9 3l-3 9H2'],'lv2'), 'Reportes que te hacen tomar decisiones', '¿Cuál es tu producto más vendido? ¿A qué hora te escriben más? ¿Cuánto vendiste esta semana? Información de tu negocio que hoy no tienes — sin contratar un analista.'],
-            [() => simSvg([['path',{d:'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2'}],['circle',{cx:9,cy:7,r:4}],['path',{d:'M23 21v-2a4 4 0 00-3-3.87'}],['path',{d:'M16 3.13a4 4 0 010 7.75'}]],'lv3'), 'Tu negocio no depende de una persona', 'Un vendedor se enferma, renuncia, pide aumento o tiene un mal día. GenyX no. Atiende a todos tus clientes al mismo tiempo, los 365 días del año, desde el primer mensaje hasta el cobro.'],
+            [() => simSvg([['rect',{x:3,y:11,width:18,height:11,rx:2,ry:2}],'M7 11V7a5 5 0 0110 0v4'],'lv1'), 'Precios exactos. Siempre.', 'Tu agente respeta tu catálogo al 100%. Si cuesta $120, cobra $120. Exactitud total en cada pedido.'],
+            [() => simSvg([['line',{x1:18,y1:20,x2:18,y2:10}],['line',{x1:12,y1:20,x2:12,y2:4}],['line',{x1:6,y1:20,x2:6,y2:14}],'M22 12h-4l-3 9L9 3l-3 9H2'],'lv2'), 'Reportes que te hacen tomar decisiones', '¿Cuál es tu producto más vendido? ¿A qué hora te escriben más? ¿Cuánto vendiste esta semana? Información clara de tu negocio, cada lunes a las 5am.'],
+            [() => simSvg([['path',{d:'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2'}],['circle',{cx:9,cy:7,r:4}],['path',{d:'M23 21v-2a4 4 0 00-3-3.87'}],['path',{d:'M16 3.13a4 4 0 010 7.75'}]],'lv3'), 'Tu operación comercial siempre activa', 'Atiende a todos tus clientes al mismo tiempo, los 365 días del año, desde el primer mensaje hasta el cobro.'],
             [() => simSvg([['polygon',{points:'12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'}]],'lv4'), 'Hecho a la medida de tu negocio', 'Tu catálogo. Tus precios. Tu personalidad de marca. Tu zona de entrega. Todo configurado para ti. Funciona como si lo hubiera entrenado tu mejor vendedor.'],
-            [() => simSvg(['M13 2L3 14h9l-1 8 10-12h-9l1-8'],'lv5'), 'De cero a vendiendo en 48 horas', 'Una sesión de 45 minutos para entender tu negocio. Nosotros hacemos todo. En 2 días tu agente ya está cerrando ventas mientras tú haces lo que mejor sabes hacer.'],
+            [() => simSvg(['M13 2L3 14h9l-1 8 10-12h-9l1-8'],'lv5'), 'Vendiendo en 48 horas', 'Una sesión de 45 minutos para entender tu negocio. Nosotros hacemos todo. En 2 días tu agente ya está cerrando ventas.'],
           ].map(([icoFn, t, d]) => (
             <div key={t} style={{ background:'rgba(255,255,255,0.03)', border:'1px solid rgba(99,102,241,0.15)', borderRadius:16, padding:'24px 22px', transition:'all 0.25s' }}
               onMouseOver={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.45)'; e.currentTarget.style.background='rgba(99,102,241,0.06)'; }}
@@ -5829,12 +5829,12 @@ function GenyXLandingPage() {
           ['¿Cómo cobran y facturan?', 'Cobramos vía transferencia bancaria al inicio del mes. Te enviamos factura electrónica a tu RFC al confirmar el pago. La instalación se cobra una sola vez al firmar el contrato.'],
           ['¿GenyX cobra comisión por cada venta que cierra?', 'No. Jamás. Tu costo es fijo cada mes — sin importar si vendes $30,000 o $300,000. Cero comisión.'],
           ['¿Cuánto tarda en activarse?', 'Una sesión de 45 minutos para entender tu negocio. Nosotros configuramos todo. En menos de 48 horas tu agente está atendiendo clientes y cerrando ventas.'],
-          ['¿Qué pasa si el sistema falla?', 'Cada actualización pasa por pruebas de calidad antes de llegar a tu negocio. Monitoreamos el sistema activamente y atendemos cualquier incidencia lo antes posible. Si se presenta un problema mayor, tu agente queda en pausa controlada y te avisamos directamente hasta que se resuelva.'],
+          ['¿Cómo garantizan la estabilidad del sistema?', 'Cada actualización pasa por pruebas de calidad antes de llegar a tu negocio. Monitoreamos el sistema activamente y atendemos cualquier incidencia lo antes posible. Si se presenta un problema mayor, tu agente queda en pausa controlada y te avisamos directamente hasta que se resuelva.'],
           ['¿Para quién es GenyX?', 'GenyX es para dueños de negocio con 5 a 100 empleados que quieren operar con menos personas y más datos. Son 8 agentes de IA que operan dos capas: la operativa (atender, vender, cobrar, entregar, dar seguimiento) y la estratégica (interpretar tus datos y planear tus finanzas y marketing). Cada viernes 6pm recibes la Mesa de Estrategia. Cada lunes 5am recibes el Reporte con tus números reales. El fundador toma la decisión. La IA hace el trabajo.'],
-          ['¿Por qué GenyX y no un bot genérico?', 'Un bot genérico responde preguntas. GenyX cierra ventas. Atiende a tu cliente, arma su pedido, genera el cobro y te avisa cuando el dinero ya está en tu cuenta. Sin complicaciones, sin intervención humana.'],
-          ['¿Por qué GenyX y no contratar un vendedor?', 'Contratar un vendedor implica semanas de búsqueda, entrevistas, capacitación, nómina, IMSS, aguinaldo y reemplazos cuando se va. GenyX se activa en 48 horas, no se enferma, no renuncia, no cobra comisión y atiende a todos tus clientes al mismo tiempo — por un costo mensual fijo.'],
+          ['¿Qué incluye GenyX que otros servicios no tienen?', 'GenyX cierra ventas. Atiende a tu cliente, arma su pedido, genera el cobro y te avisa cuando el dinero ya está en tu cuenta. Además mide resultados, planea tu marketing y te entrega reportes financieros cada semana.'],
+          ['¿Cómo se compara el costo con un equipo tradicional?', 'Un equipo tradicional implica búsqueda, entrevistas, capacitación, nómina, IMSS, aguinaldo y reemplazos. GenyX se activa en 48 horas, atiende a todos tus clientes al mismo tiempo por un costo mensual fijo — y trabaja 24/7.'],
           ['¿Necesito conocimientos técnicos?', 'Ninguno. Tú nos das la información de tu negocio y nosotros hacemos todo lo demás. Solo tienes que revisar tu mando de control y contar tus ventas.'],
-          ['¿Puedo ver una demo en vivo antes de decidir?', 'Sí. Te mostramos el sistema funcionando con datos de tu negocio en 15 minutos por WhatsApp. Sin compromiso. Si no es para ti, te lo decimos con honestidad.'],
+          ['¿Puedo ver una demo en vivo antes de decidir?', 'Sí. Te mostramos el sistema funcionando con datos de tu negocio en 15 minutos por WhatsApp.'],
         ].map(([q, a], i) => (
           <FAQItem key={i} question={q} answer={a} />
         ))}
