@@ -2348,7 +2348,7 @@ function ClientTermsPage() {
         <p style={{ ...P, color: '#a8a29e', fontSize: 11 }}>GenyX Systems · Versión 3.0 · Abril 2026</p>
 
         <h2 style={H2}>1. Definición del Servicio</h2>
-        <p style={P}><span style={HL}>GenyX Mando</span> es la interfaz de gestión del dirección comercial autónoma provista por GenyX Systems. El Mando permite al Cliente monitorear pedidos, configurar su bot de ventas, acceder a reportes y usar herramientas IA.</p>
+        <p style={P}><span style={HL}>GenyX Mando</span> es la interfaz de gestión de la operación comercial autónoma provista por GenyX Systems. El Mando permite al Cliente monitorear pedidos, configurar su bot de ventas, acceder a reportes y usar herramientas IA.</p>
 
         <h2 style={H2}>2. Acceso y Seguridad</h2>
         <p style={P}>El Cliente accede mediante un <span style={HL}>PIN personal de 4 dígitos</span>. Es responsabilidad del Cliente mantener la confidencialidad de sus credenciales. GenyX no almacena el PIN en texto plano.</p>
@@ -2460,7 +2460,7 @@ function LegalPage({ tipo }) {
             <h2 style={H2}>1. Aceptación</h2>
             <p style={P}>Al activar el servicio o acceder al Centro de Mando, el Cliente acepta expresamente estos Términos y Condiciones, el Aviso de Privacidad y el Contrato de Servicios vigentes.</p>
             <h2 style={H2}>2. Descripción del Servicio</h2>
-            <p style={P}>GenyX Systems provee una plataforma <strong>IVaaS (Infraestructura de Ventas como Servicio)</strong>: una dirección comercial autónoma vía WhatsApp Business que incluye Agente de Ventas IA, Centro de Mando, cobro seguro por Stripe y análisis de datos. Los pagos de compradores finales van directamente al Cliente; GenyX cobra una suscripción mensual fija.</p>
+            <p style={P}>GenyX Systems provee una plataforma <strong>IVaaS (Infraestructura de Ventas como Servicio)</strong>: una operación comercial autónoma vía WhatsApp Business que incluye Agente de Ventas IA, Centro de Mando, cobro seguro por Stripe y análisis de datos. Los pagos de compradores finales van directamente al Cliente; GenyX cobra una suscripción mensual fija.</p>
             <h2 style={H2}>3. Cuentas y Seguridad</h2>
             <ul style={UL}>
               <li><span style={HL}>Credenciales:</span> El Cliente es único responsable de su PIN de acceso.</li>
@@ -4522,7 +4522,7 @@ function MandoClientView({ slug }) {
 
             <div style={{ fontSize: 12, lineHeight: 1.7, color: '#44403c', background: '#f8fafc', borderRadius: 12, padding: 16, marginBottom: 16, maxHeight: 240, overflowY: 'auto', border: '1px solid #e2e8f0' }}>
               <p style={{ fontWeight: 700, marginBottom: 8 }}>Al usar el Mando Cliente aceptas que:</p>
-              <p>• <b>GenyX Mando</b> es la interfaz de gestión de tu dirección comercial autónoma.</p>
+              <p>• <b>GenyX Mando</b> es la interfaz de gestión de tu operación comercial autónoma.</p>
               <p>• El servicio funciona con <b>suscripción mensual fija</b>. Sin permanencia mínima.</p>
               <p>• El bot opera con IA generativa — <b>no garantizamos precisión del 100%</b>.</p>
               <p>• GenyX <b>no retiene fondos</b> de tus compradores; van directo a tu cuenta Stripe.</p>
@@ -5479,7 +5479,7 @@ function GenyXLandingPage() {
         {/* Hero Badge */}
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(99,102,241,0.12)', border:'1px solid rgba(99,102,241,0.4)', borderRadius:30, padding:'6px 20px', marginBottom:14, fontSize:11, fontWeight:800, color:'#818cf8', letterSpacing:'.1em', textTransform:'uppercase' }}>
           <span style={{ width:6, height:6, borderRadius:'50%', background:'#6366f1', display:'inline-block', boxShadow:'0 0 8px #6366f1' }} />
-          UN EQUIPO DE AGENTES AUTÓNOMOS OPERANDO TU DIRECCIÓN COMERCIAL
+          TU OPERACIÓN COMERCIAL AUTÓNOMA — 8 AGENTES DE IA
         </div>
         <div style={C.badge}><span style={C.dot} />Marketing · Captación · Venta · Cierre · Entrega · Seguimiento · Analítica · Finanzas</div>
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(74,222,128,0.1)', border:'1px solid rgba(74,222,128,0.35)', color:'#4ade80', fontSize:12, fontWeight:700, padding:'7px 22px', borderRadius:30, marginBottom:16 }}>
@@ -5521,10 +5521,10 @@ function GenyXLandingPage() {
 
 
 
-      {/* ── Tu Dirección Comercial: 8 Agentes + Industrias ── */}
+      {/* ── Tu Operación Comercial: 8 Agentes + Industrias ── */}
       <section id="industrias" style={{ padding: '0 24px 100px', maxWidth: 1000, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>TU DIRECCIÓN COMERCIAL — 90% AUTÓNOMA</div>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>TU OPERACIÓN COMERCIAL — 90% AUTÓNOMA</div>
           <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>8 agentes de IA.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Adaptados a tu industria.</span></h2>
           <p style={{ color: '#64748b', fontSize: 14, maxWidth: 560, margin: '0 auto' }}>Cada agente se encarga de una función clave. Trabajan juntos, comparten información y operan 24/7 — configurados con las reglas de tu negocio.</p>
         </div>
@@ -5654,12 +5654,12 @@ function GenyXLandingPage() {
       <section style={{ padding: '0 24px 100px', maxWidth: 800, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>LA MATEMÁTICA</div>
-          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>El costo real de una dirección comercial<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>vs GenyX</span></h2>
+          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>El costo real de una operación comercial<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>vs GenyX</span></h2>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
-          {/* Dirección Comercial Humana */}
+          {/* Operación Comercial Humana */}
           <div style={{ background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: 20, padding: '32px 28px' }}>
-            <div style={{ fontSize: 13, fontWeight: 800, color: '#ef4444', letterSpacing: '.08em', marginBottom: 20 }}>DIRECCIÓN COMERCIAL CON PERSONAS</div>
+            <div style={{ fontSize: 13, fontWeight: 800, color: '#ef4444', letterSpacing: '.08em', marginBottom: 20 }}>OPERACIÓN COMERCIAL CON PERSONAS</div>
             {[['Community Manager', '$8,000 – $17,800'], ['SDR / Captación', '$10,000 – $22,000'], ['Ejecutivo de Ventas', '$12,000 – $30,000'], ['Cajero / Cobranza', '$7,500 – $18,000'], ['Coordinador Logístico', '$10,000 – $22,000'], ['Customer Success', '$8,500 – $20,000'], ['Analista de Datos', '$17,400 – $45,000'], ['Contador Junior', '$11,800 – $21,200']].map(([label, val]) => (
               <div key={label} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 12, color: '#94a3b8' }}>
                 <span>{label}</span><span style={{ fontWeight: 700, color: '#f1f5f9' }}>{val}</span>
@@ -5706,7 +5706,7 @@ function GenyXLandingPage() {
         </div>
         {/* Ahorro destacado */}
         <div style={{ textAlign: 'center', marginTop: 32, background: 'linear-gradient(135deg, rgba(74,222,128,0.08), rgba(34,197,94,0.04))', border: '2px solid rgba(74,222,128,0.3)', borderRadius: 20, padding: '32px 24px' }}>
-          <div style={{ fontSize: 14, color: '#cbd5e1', marginBottom: 12, lineHeight: 1.6 }}>GenyX no reemplaza a un empleado.<br /><strong style={{ color: '#f1f5f9' }}>Reemplaza a una dirección comercial completa.</strong></div>
+          <div style={{ fontSize: 14, color: '#cbd5e1', marginBottom: 12, lineHeight: 1.6 }}>GenyX no reemplaza a un empleado.<br /><strong style={{ color: '#f1f5f9' }}>Reemplaza a una operación comercial completa.</strong></div>
           <div style={{ fontSize: 56, fontWeight: 900, background: 'linear-gradient(135deg, #4ade80, #22c55e)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', lineHeight: 1.1 }}>Desde $9,900</div>
           <div style={{ fontSize: 14, color: '#94a3b8', marginTop: 8 }}>por mes — lo que en nómina formal cuesta entre $119K y $274K</div>
         </div>
@@ -5719,9 +5719,9 @@ function GenyXLandingPage() {
       <section style={{ padding:'0 24px 100px', maxWidth:960, margin:'0 auto' }}>
         <div style={{ background:'linear-gradient(135deg,rgba(99,102,241,0.08),rgba(139,92,246,0.08))', border:'1px solid rgba(99,102,241,0.2)', borderRadius:24, padding:'40px 48px', display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))', gap:40, alignItems:'center' }}>
           <div>
-            <div style={{ fontSize:12, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12 }}>TU DIRECCIÓN COMERCIAL INTELIGENTE</div>
-            <h2 style={{ fontSize:32, fontWeight:900, color:'#f1f5f9', lineHeight:1.2, marginBottom:16 }}>Tu dirección comercial autónoma<br /><span style={{ background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>configurada con el ADN de tu marca</span></h2>
-            <p style={{ color:'#64748b', lineHeight:1.8, fontSize:14 }}>Tu dirección comercial genera demanda, convierte prospectos en clientes, coordina entregas con tu equipo y mide cada resultado — todo con la personalidad y calidez de tu marca.</p>
+            <div style={{ fontSize:12, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12 }}>TU OPERACIÓN COMERCIAL INTELIGENTE</div>
+            <h2 style={{ fontSize:32, fontWeight:900, color:'#f1f5f9', lineHeight:1.2, marginBottom:16 }}>Tu operación comercial autónoma<br /><span style={{ background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>configurada con el ADN de tu marca</span></h2>
+            <p style={{ color:'#64748b', lineHeight:1.8, fontSize:14 }}>Tu operación comercial genera demanda, convierte prospectos en clientes, coordina entregas con tu equipo y mide cada resultado — todo con la personalidad y calidez de tu marca.</p>
           </div>
           <div style={{ display:'flex', flexDirection:'column', gap:14 }}>
             {[
@@ -5747,7 +5747,7 @@ function GenyXLandingPage() {
       {/* ── Ventajas Competitivas ── */}
       <section style={{ padding:'0 24px 100px', maxWidth:1000, margin:'0 auto' }}>
         <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12, textAlign:'center' }}>POR QUÉ GenyX</div>
-        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:12, textAlign:'center' }}>GenyX opera tu dirección comercial.<br /><span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Con tu catálogo. Con tus reglas.</span></h2>
+        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:12, textAlign:'center' }}>GenyX es tu operación comercial.<br /><span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Con tu catálogo. Con tus reglas.</span></h2>
         <p style={{ color:'#64748b', marginBottom:48, textAlign:'center', fontSize:15, maxWidth:600, margin:'0 auto 48px' }}>8 agentes configurados con tu catálogo, tus precios y tu personalidad de marca. Miden resultados reales cada semana.</p>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:16 }}>
           {[
@@ -5772,7 +5772,7 @@ function GenyXLandingPage() {
       <section style={{ padding:'0 24px 100px', maxWidth:960, margin:'0 auto', textAlign:'center' }}>
         <div style={{ background:'linear-gradient(135deg,rgba(99,102,241,0.06),rgba(139,92,246,0.06))', border:'1px solid rgba(99,102,241,0.2)', borderRadius:24, padding:'48px 40px' }}>
           <div style={{ fontSize:11, fontWeight:800, color:'#818cf8', letterSpacing:'.12em', textTransform:'uppercase', marginBottom:12 }}>Modelo de Inversión</div>
-          <h2 style={{ fontSize:32, fontWeight:900, color:'#f1f5f9', lineHeight:1.25, marginBottom:16 }}>3 planes. 8 agentes.<br /><span style={{ background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Tu dirección comercial operando de forma autónoma.</span></h2>
+          <h2 style={{ fontSize:32, fontWeight:900, color:'#f1f5f9', lineHeight:1.25, marginBottom:16 }}>3 planes. 8 agentes.<br /><span style={{ background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Tu operación comercial autónoma.</span></h2>
           <p style={{ color:'#64748b', lineHeight:1.8, marginBottom:32, fontSize:15 }}>GenyX opera bajo un modelo de <strong style={{ color:'#a5b4fc' }}>Fee de instalación + Suscripción mensual fija</strong>. Sin importar cuánto vendas en el mes, tu costo no cambia. Tus márgenes son tuyos.</p>
           <div style={{ display:'flex', justifyContent:'center', gap:16, flexWrap:'wrap', marginBottom:24 }}>
             {[
