@@ -4644,7 +4644,7 @@ function GenyXConciergeWidget() {
         </div>
       )}
       <button onClick={() => { setOpen(o => !o); setPulse(false); }} style={{ position:'fixed', bottom:28, right:28, zIndex:9999, width:54, height:54, borderRadius:'50%', background:open?BD:`linear-gradient(135deg,${BC},${BD})`, border:'none', cursor:'pointer', color:'#fff', fontSize:23, boxShadow:'0 4px 24px rgba(99,102,241,0.55)', transition:'all 0.25s', display:'flex', alignItems:'center', justifyContent:'center' }} aria-label="Chat con GenyX">
-        {open ? '×' : '💬'}
+        {open ? '×' : <svg width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>}
         {pulse && !open && (<span style={{ position:'absolute', top:-2, right:-2, width:14, height:14, background:'#4ade80', borderRadius:'50%', border:'2px solid #050508' }} />)}
       </button>
       <style>{`@keyframes gcb { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-5px)} }`}</style>
@@ -5331,14 +5331,14 @@ function SimuladorGenyX() {
       {/* Two columns: operation + strategy */}
       <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:20, marginBottom:32 }}>
         <div style={{ background:'rgba(99,102,241,0.06)', border:'1px solid rgba(99,102,241,0.2)', borderRadius:20, padding:'28px 24px' }}>
-          <div style={{ fontSize:12, fontWeight:800, color:'#818cf8', marginBottom:16, letterSpacing:'.08em' }}>🤖 LA OPERACIÓN (90% AUTÓNOMA)</div>
-          {[[`💬 ${msg} mensajes atendidos en segundos`],[`🛒 ${totalCierres} conversaciones cerraron compra (${Math.round(cfg.conv*100)}%)`],[`💰 ${simFmt(totalCobrado)} cobrado vía link de pago`],[`🔔 ${Math.max(1,Math.round(totalCierres*0.08))} clientes recuperados`],[`📦 ${totalCierres} entregas coordinadas`]].map(([t],i) => (
+          <div style={{ fontSize:12, fontWeight:800, color:'#818cf8', marginBottom:16, letterSpacing:'.08em' }}>LA OPERACIÓN (90% AUTÓNOMA)</div>
+          {[[`→ ${msg} mensajes atendidos en segundos`],[`→ ${totalCierres} conversaciones cerraron compra (${Math.round(cfg.conv*100)}%)`],[`→ ${simFmt(totalCobrado)} cobrado vía link de pago`],[`→ ${Math.max(1,Math.round(totalCierres*0.08))} clientes recuperados`],[`→ ${totalCierres} entregas coordinadas`]].map(([t],i) => (
             <div key={i} style={{ fontSize:13, color:'#94a3b8', padding:'6px 0', lineHeight:1.6 }}>{t}</div>
           ))}
         </div>
         <div style={{ background:'rgba(139,92,246,0.06)', border:'1px solid rgba(139,92,246,0.2)', borderRadius:20, padding:'28px 24px' }}>
-          <div style={{ fontSize:12, fontWeight:800, color:'#c084fc', marginBottom:16, letterSpacing:'.08em' }}>📊 LA ESTRATEGIA (10% DECIDES TÚ)</div>
-          {[['📋 Recibiste la Mesa de Estrategia del viernes 6pm'],['🔑 1 código OTP para aprobar el plan de la semana'],['⏱️ Tiempo estimado de decisión: 10–15 min'],['📈 Margen promedio en tu industria: ~'+Math.round(cfg.margen*100)+'%*']].map(([t],i) => (
+          <div style={{ fontSize:12, fontWeight:800, color:'#c084fc', marginBottom:16, letterSpacing:'.08em' }}>LA ESTRATEGIA (10% DECIDES TÚ)</div>
+          {[['→ Recibiste la Mesa de Estrategia del viernes 6pm'],['→ 1 código OTP para aprobar el plan de la semana'],['→ Tiempo estimado de decisión: 10–15 min'],['→ Margen promedio en tu industria: ~'+Math.round(cfg.margen*100)+'%*']].map(([t],i) => (
             <div key={i} style={{ fontSize:13, color:'#94a3b8', padding:'6px 0', lineHeight:1.6 }}>{t}</div>
           ))}
           <div style={{ fontSize:11, color:'#64748b', fontStyle:'italic', marginTop:8 }}>*Tu margen REAL lo calcula GenyX cuando cargas tus costos en el Costeador.</div>
@@ -5347,18 +5347,18 @@ function SimuladorGenyX() {
 
       {/* Comparison */}
       <div style={{ background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.07)', borderRadius:20, padding:'28px 24px', marginBottom:32 }}>
-        <div style={{ fontSize:12, fontWeight:800, color:'#64748b', marginBottom:16, letterSpacing:'.08em' }}>⚖️ COMPARATIVA</div>
+        <div style={{ fontSize:12, fontWeight:800, color:'#64748b', marginBottom:16, letterSpacing:'.08em' }}>COMPARATIVA</div>
         <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:20 }}>
           <div>
             <div style={{ fontSize:12, fontWeight:700, color:'#ef4444', marginBottom:10 }}>SIN GENYX (tradicional)</div>
-            {[[`❌ ~${Math.round(lossPct*100)}% de mensajes sin responder a tiempo`],['⏱️ 4–6 horas/día contestando WhatsApp'],['❌ Pago manual con fricción'],['❌ 0 visibilidad de margen ni hora pico'],['❌ Decisiones por intuición']].map(([t],i) => (
+            {[[`✗ ~${Math.round(lossPct*100)}% de mensajes sin responder a tiempo`],['✗ 4–6 horas/día contestando WhatsApp'],['✗ Pago manual con fricción'],['✗ 0 visibilidad de margen ni hora pico'],['✗ Decisiones por intuición']].map(([t],i) => (
               <div key={i} style={{ fontSize:12, color:'#94a3b8', padding:'4px 0' }}>{t}</div>
             ))}
             <div style={{ fontSize:14, fontWeight:800, color:'#ef4444', marginTop:10 }}>~{simFmt(sinCobrado)}/día</div>
           </div>
           <div>
             <div style={{ fontSize:12, fontWeight:700, color:'#4ade80', marginBottom:10 }}>CON GENYX</div>
-            {[['✅ 100% atendidos en segundos'],['✅ 90% operación automatizada'],['✅ Cobro dentro del chat'],['✅ Reporte semanal con tus datos'],['✅ Mesa de estrategia cada viernes']].map(([t],i) => (
+            {[['✓ 100% atendidos en segundos'],['✓ 90% operación automatizada'],['✓ Cobro dentro del chat'],['✓ Reporte semanal con tus datos'],['✓ Mesa de estrategia cada viernes']].map(([t],i) => (
               <div key={i} style={{ fontSize:12, color:'#94a3b8', padding:'4px 0' }}>{t}</div>
             ))}
             <div style={{ fontSize:14, fontWeight:800, color:'#4ade80', marginTop:10 }}>~{simFmt(totalCobrado)}/día</div>
@@ -5371,7 +5371,7 @@ function SimuladorGenyX() {
 
       {/* Disclaimer */}
       <div style={{ background:'rgba(251,191,36,0.06)', border:'1px solid rgba(251,191,36,0.2)', borderRadius:12, padding:'16px 20px', marginBottom:32, fontSize:12, color:'#fbbf24', lineHeight:1.7 }}>
-        ⚠️ Esta simulación es educativa. Las cifras usan promedios de tu industria. Los resultados reales dependen de tu propuesta, demanda local, ubicación y otras variables. <strong>No prometemos resultados específicos.</strong>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display:'inline', verticalAlign:'middle', marginRight:6 }}><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Esta simulación es educativa. Las cifras usan promedios de tu industria. Los resultados reales dependen de tu propuesta, demanda local, ubicación y otras variables. <strong>No prometemos resultados específicos.</strong>
       </div>
 
       {/* CTAs */}
@@ -5634,10 +5634,10 @@ function GenyXLandingPage() {
             <p style={{ marginBottom: 16 }}>Hola <span style={{ color: '#94a3b8' }}>[Tu nombre]</span>,</p>
             <p style={{ marginBottom: 20 }}>Esta semana procesaste <strong style={{ color: '#94a3b8' }}>[X pedidos/citas/leads]</strong>. <strong style={{ color: '#94a3b8' }}>[$X MXN]</strong> en ventas. Margen promedio: <strong style={{ color: '#94a3b8' }}>[X%]</strong>.</p>
             <div style={{ background: '#f8fafc', borderRadius: 12, padding: '16px 20px', marginBottom: 20, display: 'flex', flexDirection: 'column', gap: 10 }}>
-              <div>📊 <strong>Tu producto o servicio estrella</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ cuánto vendió y a qué margen</span></div>
-              <div>⏰ <strong>Tu hora pico real</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ qué día de la semana concentra más demanda</span></div>
-              <div>👥 <strong>Tu cliente más recurrente</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ cuántas veces te compró</span></div>
-              <div>💤 <strong>Tus clientes inactivos</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ cuántos llevan 60+ días sin volver</span></div>
+              <div><strong style={{ color:'#6366f1' }}>▎</strong> <strong>Tu producto o servicio estrella</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ cuánto vendió y a qué margen</span></div>
+              <div><strong style={{ color:'#6366f1' }}>▎</strong> <strong>Tu hora pico real</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ qué día de la semana concentra más demanda</span></div>
+              <div><strong style={{ color:'#6366f1' }}>▎</strong> <strong>Tu cliente más recurrente</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ cuántas veces te compró</span></div>
+              <div><strong style={{ color:'#6366f1' }}>▎</strong> <strong>Tus clientes inactivos</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ cuántos llevan 60+ días sin volver</span></div>
             </div>
             <p style={{ fontWeight: 700, marginBottom: 10, color: '#1e293b' }}>Sugerencias basadas en tus datos:</p>
             <div style={{ paddingLeft: 8, display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 20 }}>
@@ -5991,10 +5991,10 @@ function TicketPage({ sid }) {
           <div style={{ fontSize: 28, marginBottom: 4 }}>🍞</div>
           <div style={{ fontWeight: 800, fontSize: 15, color: '#1a1208' }}>Panadería Paty</div>
           <div style={{ fontSize: 12, color: '#6b7280', marginTop: 2 }}>Magnolias 111, Bugambilias, Zapopan, Jal.</div>
-          <div style={{ fontSize: 11, color: '#9ca3af', margin: '8px 0 12px' }}>Paty se pondrá en contacto contigo por WhatsApp para coordinar la entrega 📲</div>
+          <div style={{ fontSize: 11, color: '#9ca3af', margin: '8px 0 12px' }}>Paty se pondrá en contacto contigo por WhatsApp para coordinar la entrega</div>
           <button onClick={() => window.location.href = 'https://paty.genyxsystems.com'}
             style={{ background: '#25D366', color: '#fff', border: 'none', fontWeight: 800, fontSize: 14, padding: '12px 28px', borderRadius: 25, cursor: 'pointer' }}>
-            💬 Volver al chat
+            Volver al chat
           </button>
         </div>
       </div>
