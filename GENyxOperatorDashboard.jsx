@@ -5040,9 +5040,35 @@ const SIM_IND = {
 
 const SIM_LOSS = { pocos:0.10, medios:0.25, muchos:0.40, demasiados:0.55 };
 const SIM_LOSS_LABELS = ['pocos','medios','muchos','demasiados'];
+// SVG icon helper — gradient stroke icons matching the landing page design
+const simSvg = (paths, id) => React.createElement('svg', {width:28,height:28,viewBox:'0 0 24 24',fill:'none',strokeWidth:1.5,strokeLinecap:'round',strokeLinejoin:'round',stroke:`url(#sim${id})`}, React.createElement('defs',null,React.createElement('linearGradient',{id:`sim${id}`,x1:0,y1:0,x2:24,y2:24},React.createElement('stop',{offset:'0%',stopColor:'#818cf8'}),React.createElement('stop',{offset:'100%',stopColor:'#c084fc'}))), ...paths.map((d,i) => typeof d === 'string' ? React.createElement('path',{key:i,d}) : React.createElement(d[0],{key:i,...d[1]})));
+
+const SIM_ICONS = {
+  restaurantes: () => simSvg(['M18 8h1a4 4 0 010 8h-1','M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z',["line",{x1:6,y1:1,x2:6,y2:4}],["line",{x1:10,y1:1,x2:10,y2:4}],["line",{x1:14,y1:1,x2:14,y2:4}]],'r1'),
+  clinicas: () => simSvg(['M22 12h-4l-3 9L9 3l-3 9H2'],'r2'),
+  belleza: () => simSvg(['M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'],'r3'),
+  escuelas: () => simSvg(['M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z','M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z'],'r4'),
+  inmobiliarias: () => simSvg([["rect",{x:3,y:3,width:18,height:18,rx:2,ry:2}],["line",{x1:3,y1:9,x2:21,y2:9}],["line",{x1:9,y1:21,x2:9,y2:9}]],'r5'),
+  panaderias: () => simSvg(['M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z',["line",{x1:3,y1:6,x2:21,y2:6}],'M16 10a4 4 0 01-8 0'],'r6'),
+};
+
+// Agent SVG icons — minimal stroke icons
+const simAgSvg = (paths, id) => React.createElement('svg', {width:20,height:20,viewBox:'0 0 24 24',fill:'none',strokeWidth:1.8,strokeLinecap:'round',strokeLinejoin:'round',stroke:`url(#sag${id})`}, React.createElement('defs',null,React.createElement('linearGradient',{id:`sag${id}`,x1:0,y1:0,x2:24,y2:24},React.createElement('stop',{offset:'0%',stopColor:'#818cf8'}),React.createElement('stop',{offset:'100%',stopColor:'#c084fc'}))), ...paths.map((d,i) => typeof d === 'string' ? React.createElement('path',{key:i,d}) : React.createElement(d[0],{key:i,...d[1]})));
+
+const SIM_AG_ICONS = {
+  Marketing: () => simAgSvg(['M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4','M7 10l5 5 5-5','M12 15V3'],'mg'),
+  'Captación': () => simAgSvg([["circle",{cx:12,cy:12,r:10}],'M12 8v8',["line",{x1:8,y1:12,x2:16,y2:12}]],'cp'),
+  Venta: () => simAgSvg(['M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z'],'vt'),
+  Cierre: () => simAgSvg([["rect",{x:1,y:4,width:22,height:16,rx:2,ry:2}],["line",{x1:1,y1:10,x2:23,y2:10}]],'ci'),
+  Entrega: () => simAgSvg(['M16 16h6V8h-4l-3-3H1v11h3',["circle",{cx:6,cy:18,r:2}],["circle",{cx:18,cy:18,r:2}]],'en'),
+  Seguimiento: () => simAgSvg(['M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9','M13.73 21a2 2 0 01-3.46 0'],'sg'),
+  'Analítica': () => simAgSvg([["line",{x1:18,y1:20,x2:18,y2:10}],["line",{x1:12,y1:20,x2:12,y2:4}],["line",{x1:6,y1:20,x2:6,y2:14}]],'an'),
+  Finanzas: () => simAgSvg([["line",{x1:12,y1:1,x2:12,y2:23}],'M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6'],'fn'),
+};
+
 const SIM_AGENTS = [
-  {key:'Marketing',icon:'📣'},{key:'Captación',icon:'🎯'},{key:'Venta',icon:'💬'},{key:'Cierre',icon:'💳'},
-  {key:'Entrega',icon:'🚚'},{key:'Seguimiento',icon:'🔔'},{key:'Analítica',icon:'📊'},{key:'Finanzas',icon:'💰'},
+  {key:'Marketing'},{key:'Captación'},{key:'Venta'},{key:'Cierre'},
+  {key:'Entrega'},{key:'Seguimiento'},{key:'Analítica'},{key:'Finanzas'},
 ];
 
 function simFmt(n){return n.toLocaleString('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0})}
@@ -5059,20 +5085,20 @@ function genSimTimeline(indKey, inputs) {
   const mA=Math.round(msg*0.2), pA=Math.round(msg*0.3), eA=Math.round(msg*0.3), nA=msg-mA-pA-eA;
   let tA=0,tC=0,tCob=0;
   return [
-    {time:300,icon:'📊',text:'Reporte semanal generado y enviado',agents:['Analítica'],hi:true,d:{}},
-    {time:420,icon:'💰',text:`Revisión financiera: margen por ${c.prod} calculado`,agents:['Finanzas'],hi:false,d:{}},
-    {time:510,icon:'📣',text:'Promoción del día publicada en redes',agents:['Marketing'],hi:false,d:{}},
-    {time:542,icon:'💬',text:`Cliente pregunta por tu ${c.prod} — respuesta en 3 seg`,agents:['Captación','Venta'],hi:false,d:{a:(tA+=mA,mA)}},
-    {time:548,icon:'💳',text:`${mC} ${c.unit}s cobrados: ${simFmt(mC*tk)} vía link`,agents:['Cierre','Entrega'],hi:false,d:{c:(tC+=mC,mC),cb:(tCob+=mC*tk,mC*tk)}},
-    {time:615,icon:'🔔',text:`${react} clientes inactivos reactivados`,agents:['Seguimiento'],hi:false,d:{}},
-    {time:660,icon:'📊',text:'Producto en declive (4 sem) → propone campaña al fundador',agents:['Analítica','Marketing'],hi:true,d:{}},
-    {time:690,icon:'🔥',text:`Hora pico: ${pA} conversaciones → ${pC} cierres`,agents:['Venta','Cierre'],hi:false,d:{a:(tA+=pA,pA),c:(tC+=pC,pC),cb:(tCob+=pC*tk,pC*tk)}},
-    {time:795,icon:'🛒',text:`${carts} carritos abandonados recuperados`,agents:['Seguimiento','Cierre'],hi:false,d:{c:(tC+=carts,carts),cb:(tCob+=carts*tk,carts*tk)}},
-    {time:1050,icon:'💬',text:`Bloque vespertino: ${eA} mensajes → ${eC} cierres`,agents:['Venta','Cierre'],hi:false,d:{a:(tA+=eA,eA),c:(tC+=eC,eC),cb:(tCob+=eC*tk,eC*tk)}},
-    {time:1080,icon:'📋',text:'Mesa de Estrategia semanal',agents:['Marketing'],hi:true,
-      detail:`Marketing propone:\n• Campaña basada en tu producto top\n• Reactivar ${react} clientes inactivos\n• Ajuste según margen real\n\n⏳ Esperando tu aprobación (OTP)\nEsto es tu 10%: decides en 10-15 min.`},
-    {time:1367,icon:'🤖',text:`${U} nocturno sin intervención humana`,agents:['Venta','Cierre','Entrega'],hi:false,d:{a:(tA+=nA,nA),c:(tC+=nC,nC),cb:(tCob+=nC*tk,nC*tk)}},
-    {time:1430,icon:'📊',text:`Día cerrado — mañana 5am: siguiente reporte`,agents:['Analítica','Finanzas'],hi:true,d:{}},
+    {time:300,badge:'AN',text:'Reporte semanal generado y enviado',agents:['Analítica'],hi:true,d:{}},
+    {time:420,badge:'FN',text:`Revisión financiera: margen por ${c.prod} calculado`,agents:['Finanzas'],hi:false,d:{}},
+    {time:510,badge:'MK',text:'Promoción del día publicada en redes',agents:['Marketing'],hi:false,d:{}},
+    {time:542,badge:'CP',text:`Cliente pregunta por tu ${c.prod} — respuesta en 3 seg`,agents:['Captación','Venta'],hi:false,d:{a:(tA+=mA,mA)}},
+    {time:548,badge:'CI',text:`${mC} ${c.unit}s cobrados: ${simFmt(mC*tk)} vía link`,agents:['Cierre','Entrega'],hi:false,d:{c:(tC+=mC,mC),cb:(tCob+=mC*tk,mC*tk)}},
+    {time:615,badge:'SG',text:`${react} clientes inactivos reactivados`,agents:['Seguimiento'],hi:false,d:{}},
+    {time:660,badge:'AN',text:'Producto en declive (4 sem) → propone campaña al fundador',agents:['Analítica','Marketing'],hi:true,d:{}},
+    {time:690,badge:'VT',text:`Hora pico: ${pA} conversaciones → ${pC} cierres`,agents:['Venta','Cierre'],hi:false,d:{a:(tA+=pA,pA),c:(tC+=pC,pC),cb:(tCob+=pC*tk,pC*tk)}},
+    {time:795,badge:'SG',text:`${carts} carritos abandonados recuperados`,agents:['Seguimiento','Cierre'],hi:false,d:{c:(tC+=carts,carts),cb:(tCob+=carts*tk,carts*tk)}},
+    {time:1050,badge:'VT',text:`Bloque vespertino: ${eA} mensajes → ${eC} cierres`,agents:['Venta','Cierre'],hi:false,d:{a:(tA+=eA,eA),c:(tC+=eC,eC),cb:(tCob+=eC*tk,eC*tk)}},
+    {time:1080,badge:'MK',text:'Mesa de Estrategia semanal',agents:['Marketing'],hi:true,
+      detail:`Marketing propone:\n• Campaña basada en tu producto top\n• Reactivar ${react} clientes inactivos\n• Ajuste según margen real\n\nEsperando tu aprobación (OTP)\nEsto es tu 10%: decides en 10-15 min.`},
+    {time:1367,badge:'AI',text:`${U} nocturno sin intervención humana`,agents:['Venta','Cierre','Entrega'],hi:false,d:{a:(tA+=nA,nA),c:(tC+=nC,nC),cb:(tCob+=nC*tk,nC*tk)}},
+    {time:1430,badge:'AN',text:`Día cerrado — mañana 5am: siguiente reporte`,agents:['Analítica','Finanzas'],hi:true,d:{}},
   ];
 }
 
@@ -5128,7 +5154,7 @@ function SimuladorGenyX() {
     return () => clearInterval(id);
   }, [phase]);
 
-  React.useEffect(() => { feedRef.current?.lastChild?.scrollIntoView({behavior:'smooth'}); }, [revealed]);
+  React.useEffect(() => { if(feedRef.current) feedRef.current.scrollTop = feedRef.current.scrollHeight; }, [revealed]);
 
   // Styles
   const Z = {
@@ -5159,7 +5185,7 @@ function SimuladorGenyX() {
             onMouseOver={e => Object.assign(e.currentTarget.style, Z.cardHover)}
             onMouseOut={e => Object.assign(e.currentTarget.style, Z.cardOff)}
             onClick={() => { setIndKey(k); setInputs(Object.fromEntries(v.fields.map(f => [f.key, f.def]))); setPhase(2); }}>
-            <div style={{ fontSize:36, marginBottom:10 }}>{v.icon}</div>
+            <div style={{ width:48, height:48, borderRadius:12, background:'rgba(99,102,241,0.1)', border:'1px solid rgba(99,102,241,0.2)', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:10 }}>{SIM_ICONS[k]()}</div>
             <div style={{ fontSize:15, fontWeight:700, color:'#f1f5f9', marginBottom:6 }}>{v.label}</div>
             <div style={{ fontSize:12, color:'#818cf8', fontStyle:'italic' }}>"{v.reto}"</div>
           </div>
@@ -5171,10 +5197,10 @@ function SimuladorGenyX() {
   // ── PHASE 2: Data inputs ──
   if (phase === 2) return (
     <section id="simulador" style={Z.wrap}>
-      <div style={Z.label}>{cfg.icon} {cfg.label.toUpperCase()}</div>
+      <div style={{...Z.label, display:'flex', alignItems:'center', justifyContent:'center', gap:8}}>{SIM_ICONS[indKey]()} {cfg.label.toUpperCase()}</div>
       <h2 style={Z.h2}>Cuéntanos de tu negocio</h2>
       <p style={Z.sub}>Ajusta los valores. Los usaremos para simular un día completo con los 8 agentes.</p>
-      <div style={Z.priv}>🔒 Estos datos se quedan en tu navegador. No se envían a GenyX.</div>
+      <div style={{...Z.priv, display:'flex', alignItems:'center', justifyContent:'center', gap:8}}><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> Estos datos se quedan en tu navegador. No se envían a GenyX.</div>
       <div style={{ maxWidth:480, margin:'0 auto', display:'flex', flexDirection:'column', gap:20 }}>
         {cfg.fields.map(f => (
           <div key={f.key}>
@@ -5236,7 +5262,7 @@ function SimuladorGenyX() {
           </div>
           <div style={{ fontSize:11, color:'#475569', marginTop:6 }}>Viernes — Simulación de un día completo</div>
         </div>
-        <div style={Z.priv}>🔒 Estos datos se quedan en tu navegador. No se envían a GenyX.</div>
+        <div style={{...Z.priv, display:'flex', alignItems:'center', justifyContent:'center', gap:8}}><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> Estos datos se quedan en tu navegador. No se envían a GenyX.</div>
         {/* Main grid: feed + agents */}
         <div style={{ display:'grid', gridTemplateColumns:'1fr 280px', gap:20, marginBottom:20 }}>
           {/* Feed */}
@@ -5244,7 +5270,7 @@ function SimuladorGenyX() {
             {revealed.map((ev, i) => (
               <div key={i} style={{ background: ev.hi ? 'rgba(99,102,241,0.12)' : 'rgba(255,255,255,0.03)', border: ev.hi ? '1px solid rgba(99,102,241,0.4)' : '1px solid rgba(255,255,255,0.07)', borderRadius:12, padding: ev.hi ? '16px 14px' : '10px 14px', animation:'fadeIn .3s ease' }}>
                 <div style={{ display:'flex', alignItems:'center', gap:8, marginBottom: ev.detail ? 8 : 0 }}>
-                  <span style={{ fontSize: ev.hi ? 20 : 16 }}>{ev.icon}</span>
+                  <span style={{ display:'inline-flex', alignItems:'center', justifyContent:'center', width: ev.hi ? 28 : 22, height: ev.hi ? 28 : 22, borderRadius:'50%', background:'linear-gradient(135deg,rgba(99,102,241,0.25),rgba(192,132,252,0.25))', border:'1px solid rgba(99,102,241,0.4)', fontSize:9, fontWeight:800, color:'#a5b4fc', letterSpacing:'.02em', flexShrink:0 }}>{ev.badge}</span>
                   <span style={{ fontSize:11, color:'#818cf8', fontWeight:700, fontFamily:'monospace' }}>{simTime(ev.time)}</span>
                   <span style={{ fontSize:12, color: ev.hi ? '#f1f5f9' : '#94a3b8', fontWeight: ev.hi ? 700 : 400 }}>{ev.text}</span>
                 </div>
@@ -5263,7 +5289,7 @@ function SimuladorGenyX() {
                 const active = !!agentActive[ag.key];
                 return (
                   <div key={ag.key} style={{ background: active ? 'rgba(99,102,241,0.15)' : 'rgba(255,255,255,0.03)', border: active ? '1px solid rgba(99,102,241,0.5)' : '1px solid rgba(255,255,255,0.07)', borderRadius:12, padding:'14px 10px', textAlign:'center', transition:'all .3s' }}>
-                    <div style={{ fontSize:22, marginBottom:4 }}>{ag.icon}</div>
+                    <div style={{ marginBottom:4 }}>{SIM_AG_ICONS[ag.key]()}</div>
                     <div style={{ fontSize:10, fontWeight:700, color: active ? '#a5b4fc' : '#475569' }}>{ag.key}</div>
                   </div>
                 );
@@ -5273,7 +5299,7 @@ function SimuladorGenyX() {
         </div>
         {/* Counters */}
         <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:12 }}>
-          {[['💬',`${counters.a}`,`de ${inputs.mensajes} atendidos`],['🛒',`${counters.c}`,'cierres'],['💰',simFmt(counters.cb),'cobrado'],['⏱️','90%','operación autónoma']].map(([ic,v,l],i) => (
+          {[[SIM_AG_ICONS['Venta'](),`${counters.a}`,`de ${inputs.mensajes} atendidos`],[SIM_AG_ICONS['Cierre'](),`${counters.c}`,'cierres'],[SIM_AG_ICONS['Finanzas'](),simFmt(counters.cb),'cobrado'],[simAgSvg(['M13 2L3 14h9l-1 8 10-12h-9l1-8'],'tm'),'90%','operación autónoma']].map(([ic,v,l],i) => (
             <div key={i} style={{ background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.07)', borderRadius:12, padding:'16px 12px', textAlign:'center' }}>
               <div style={{ fontSize:16 }}>{ic}</div>
               <div style={{ fontSize:22, fontWeight:900, color:'#818cf8', transition:'all .4s' }}>{v}</div>
