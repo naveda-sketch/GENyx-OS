@@ -4580,7 +4580,7 @@ function GenyXConciergeWidget() {
   const inpRef = React.useRef(null);
 
   React.useEffect(() => { const t = setTimeout(() => setPulse(false), 8000); return () => clearTimeout(t); }, []);
-  React.useEffect(() => { if (open && msgs.length === 0) addBot('Hola, bienvenido a GenyX.\n\nSi llegaste hasta aquí, algo en tu negocio no está funcionando como quisieras.\n\n¿Cuál es el reto más grande que enfrentas ahora mismo?'); }, [open]);
+  React.useEffect(() => { if (open && msgs.length === 0) addBot('Hola, bienvenido a GenyX.\n\nSi llegaste hasta aquí, algo en tu negocio quieres mejorar.\n\n¿Cuál es el reto más grande que enfrentas ahora mismo?'); }, [open]);
   React.useEffect(() => { botRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [msgs, typing]);
   React.useEffect(() => { if (open && phase !== 'done') setTimeout(() => inpRef.current?.focus(), 150); }, [open, phase]);
 
@@ -4667,8 +4667,8 @@ function WhatsAppSimulator() {
     { from: 'bot', msg: 'Hola Ana! 👋 Con gusto te ayudo.\n\nTenemos disponible:\n🥖 Hogaza Natural — $120\n🍞 Pan Integral — $85\n🥐 Cuernos (6 pzs) — $75\n\n¿Qué te gustaría llevar?', delay: 1200 },
     { from: 'client', msg: '2 hogazas y unos cuernos porfa', delay: 2000 },
     { from: 'bot', msg: '¡Perfecto! Tu pedido queda así:\n\n🥖 Hogaza Natural × 2 — $240\n🥐 Cuernos (6 pzs) × 1 — $75\n\n💰 Total: $315 MXN\n\n¿Lo quieres a domicilio o pasas a recoger?', delay: 1500 },
-    { from: 'client', msg: 'A domicilio! Estoy en Col. Bugambilias', delay: 1800 },
-    { from: 'bot', msg: '📍 Col. Bugambilias — envío: $35 MXN\n\n💳 Total con envío: $350 MXN\n\nAquí tienes tu link de pago seguro 👇\n🔗 stripe.com/pay/paty-315...', delay: 1400 },
+    { from: 'client', msg: 'A domicilio! Estoy en mi colonia', delay: 1800 },
+    { from: 'bot', msg: '📍 Tu colonia — envío: $35 MXN\n\n💳 Total con envío: $350 MXN\n\nAquí tienes tu link de pago seguro 👇\n🔗 stripe.com/pay/paty-315...', delay: 1400 },
     { from: 'client', msg: 'Listo, ya pagué ✅', delay: 2200 },
     { from: 'bot', msg: '✅ ¡Pago confirmado, Ana!\n\n📋 Pedido #847 registrado\n🕐 Entrega mañana entre 9-11am\n\nPaty se pondrá en contacto contigo para coordinar. ¡Gracias por tu compra! 💛', delay: 1500 },
   ];
@@ -4823,7 +4823,7 @@ function PlanesPage() {
           <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.12em', marginBottom: 12 }}>DETALLE DE PLANES</div>
         </div>
         <h1 style={S.h1}>Tres planes según el tamaño de tu negocio.</h1>
-        <p style={S.sub}>Todos los planes incluyen los 8 agentes — pronto 10. Lo que varía es la cuota de operación proactiva según el volumen de tu negocio.</p>
+        <p style={S.sub}>Todos los planes incluyen los 8 agentes de IA. Lo que varía es la cuota de operación proactiva según el volumen de tu negocio.</p>
 
         {/* §5.1 Resumen de planes */}
         <div style={S.section}>
@@ -4842,7 +4842,7 @@ function PlanesPage() {
                   ['Setup inicial (una vez)', '$12,000 MXN', '$18,000 MXN', '$30,000 MXN'],
                   ['Negocio ideal', '$200K–$700K MXN/mes', '$700K–$2M MXN/mes', '$2M–$5M MXN/mes'],
                   ['Empleados aproximados', '5 – 15', '15 – 50', '50 – 100'],
-                  ['Agentes de IA', '8 (pronto 10)', '8 (pronto 10)', '8 (pronto 10)'],
+                  ['Agentes de IA', '8', '8', '8'],
                 ].map(([label, ...vals]) => (
                   <tr key={label}>
                     <td style={S.tdH}>{label}</td>
@@ -5104,7 +5104,7 @@ function GenyXLandingPage() {
           <img src="/genyx-logo.png" alt="GenyX — Inteligencia de negocio" style={{ width: 32, height: 32, borderRadius: 4 }} />
         </a>
         <div style={C.navLinks}>
-          {[['Soluciones', '#soluciones'], ['Proceso', '#proceso']].map(([l, h]) => (
+          {[['Soluciones', '#industrias'], ['Proceso', '#proceso']].map(([l, h]) => (
             <a key={l} href={h} style={C.navLink} onMouseOver={e => e.target.style.color = '#fff'} onMouseOut={e => e.target.style.color = '#64748b'}>{l}</a>
           ))}
           <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={C.demoCta}>Cuéntame de tu negocio →</a>
@@ -5122,7 +5122,7 @@ function GenyXLandingPage() {
           &#x2713; Activo en 48h · Respuesta en segundos · Cero comisión por venta
         </div>
         <h1 style={C.h1}>¿Cuántas decisiones en tu negocio<br /><span style={C.h1accent}>tomas sin datos?</span></h1>
-        <p style={C.sub}>GenyX te ayuda a operar tu negocio con menos personas y más datos — desde la atracción del cliente hasta tu estrategia financiera. 8 agentes de IA, pronto 10, operan dos capas: la operativa (atender, vender, cobrar, entregar) y la estratégica (planear tus finanzas y tu marketing con datos reales). El fundador toma la decisión. La IA hace el trabajo.</p>
+        <p style={C.sub}>GenyX instala un equipo de 8 agentes de IA que automatizan el 90% de tu operación comercial — desde la primera conversación hasta tu estrategia financiera. Dos capas: la operativa (atender, vender, cobrar, entregar) y la estratégica (interpretar tus datos y planear tus finanzas y marketing). El fundador toma la decisión. La IA hace el trabajo.</p>
         <div style={C.btns}>
           <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={C.primary}>Cuéntame de tu negocio →</a>
           <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20probar%20el%20simulador%20de%20GenyX" style={C.secondary}>Probar simulador</a>
@@ -5131,7 +5131,7 @@ function GenyXLandingPage() {
 
       <section style={C.stats}>
         <div style={C.statsGrid}>
-          {[['Segundos', 'Tu cliente recibe respuesta'], ['24/7', 'Incluye fines de semana y días festivos'], ['$0', 'Comisión por venta — lo que vendes es tuyo'], ['48h', 'De la sesión a vendiendo']].map(([v, l], i) => (
+          {[['Segundos', 'Tu cliente recibe respuesta'], ['24/7', 'Incluye fines de semana y días festivos'], ['$0', 'Comisión por venta'], ['48h', 'De la sesión a vendiendo']].map(([v, l], i) => (
             <div key={i} style={C.statCell(i)}>
               <p style={C.statVal}>{v}</p>
               <p style={C.statLbl}>{l}</p>
@@ -5159,7 +5159,7 @@ function GenyXLandingPage() {
       <section style={{ padding: '0 24px 100px', maxWidth: 900, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>TU DIRECCIÓN COMERCIAL — 90% AUTÓNOMA</div>
-          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>8 agentes de IA — pronto 10.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>El equipo responsable de generar ingresos, cerrar ventas, coordinar la postventa y medir resultados.</span></h2>
+          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>8 agentes de IA.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>El equipo que opera, mide y planea tu negocio.</span></h2>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 32 }}>
           {[
@@ -5185,7 +5185,7 @@ function GenyXLandingPage() {
       <section style={{ padding: '0 24px 100px', maxWidth: 1000, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>LA SOLUCIÓN</div>
-          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>8 agentes de IA — pronto 10.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Un equipo completo.</span></h2>
+          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>8 agentes de IA.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Un equipo completo.</span></h2>
           <p style={{ color: '#64748b', fontSize: 14, maxWidth: 520, margin: '0 auto' }}>Cada agente se encarga de una función clave de tu negocio. Trabajan juntos, comparten información y operan 24/7 sin que tú supervises.</p>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
@@ -5377,10 +5377,10 @@ function GenyXLandingPage() {
       </section>
 
       {/* ── Soluciones por Industria ── */}
-      <section style={{ padding:'0 24px 100px', maxWidth:1000, margin:'0 auto', textAlign:'center' }}>
+      <section id="industrias" style={{ padding:'0 24px 100px', maxWidth:1000, margin:'0 auto', textAlign:'center' }}>
         <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12 }}>¿EN QUÉ INDUSTRIA ESTÁS?</div>
-        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:10 }}>Tu industria. Tus agentes. Tu forma de vender.</h2>
-        <p style={{ color:'#64748b', marginBottom:40, fontSize:15 }}>Si tus clientes te escriben por WhatsApp y tú no das abasto para contestar — GenyX es para ti.</p>
+        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:10 }}>Tu industria. Tus agentes. Tu operación.</h2>
+        <p style={{ color:'#64748b', marginBottom:40, fontSize:15 }}>8 agentes de IA que operan, miden y planean — adaptados a las reglas de tu industria.</p>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:16 }}>
           {[
             [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#gx1)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><defs><linearGradient id="gx1" x1="0" y1="0" x2="24" y2="24"><stop offset="0%" stopColor="#818cf8"/><stop offset="100%" stopColor="#c084fc"/></linearGradient></defs><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>,'Restaurantes y Comida','Te escriben 50 mensajes al día. No puedes con todos. GenyX atiende a todos al mismo tiempo, arma el pedido y cobra — mientras tú te enfocas en la cocina.','EL RETO: "No puedo estar en el teléfono y en la cocina al mismo tiempo"'],
@@ -5434,9 +5434,9 @@ function GenyXLandingPage() {
           <p style={{ color:'#64748b', lineHeight:1.8, marginBottom:32, fontSize:15 }}>GenyX opera bajo un modelo de <strong style={{ color:'#a5b4fc' }}>Fee de instalación + Suscripción mensual fija</strong>. Sin importar cuánto vendas en el mes, tu costo no cambia. Tus márgenes son tuyos.</p>
           <div style={{ display:'flex', justifyContent:'center', gap:16, flexWrap:'wrap', marginBottom:24 }}>
             {[
-              ['ESENCIAL','$9,900','MXN/mes','Setup: $12,000','8 agentes (pronto 10)','200 msgs carritos · 100 reactivación','30 imágenes FotoLab · 250 Costeador IA','Soporte L-V 9am–7pm','Negocios de 5-15 empleados · $200K-$700K/mes.'],
-              ['PROFESIONAL','$18,900','MXN/mes','Setup: $18,000','8 agentes (pronto 10)','400 msgs carritos · 200 reactivación','60 imágenes FotoLab · 500 Costeador IA','Soporte L-S prioritario','Negocios de 15-50 empleados · $700K-$2M/mes. ★ Más elegido.'],
-              ['ENTERPRISE','$34,900','MXN/mes','Setup: $30,000','8 agentes (pronto 10)','600 msgs carritos · 300 reactivación','100 imágenes FotoLab · Costeador ilimitado','Soporte 24/7 + sesión con Erick','Negocios de 50-100 empleados · $2M-$5M/mes.'],
+              ['ESENCIAL','$9,900','MXN/mes','Setup: $12,000','8 agentes de IA','200 msgs carritos · 100 reactivación','30 imágenes FotoLab · 250 Costeador IA','Soporte L-V 9am–7pm','Negocios de 5-15 empleados · $200K-$700K/mes.'],
+              ['PROFESIONAL','$18,900','MXN/mes','Setup: $18,000','8 agentes de IA','400 msgs carritos · 200 reactivación','60 imágenes FotoLab · 500 Costeador IA','Soporte L-S prioritario','Negocios de 15-50 empleados · $700K-$2M/mes. ★ Más elegido.'],
+              ['ENTERPRISE','$34,900','MXN/mes','Setup: $30,000','8 agentes de IA','600 msgs carritos · 300 reactivación','100 imágenes FotoLab · Costeador ilimitado','Soporte 24/7 + sesión con Erick','Negocios de 50-100 empleados · $2M-$5M/mes.'],
             ].map(([plan, price, period, setup, agents, outbound, tools, support, desc]) => (
               <div key={plan} style={{ background: plan === 'PROFESIONAL' ? 'rgba(99,102,241,0.12)' : 'rgba(255,255,255,0.04)', border: plan === 'PROFESIONAL' ? '2px solid rgba(99,102,241,0.5)' : '1px solid rgba(255,255,255,0.1)', borderRadius:16, padding:'24px 20px', minWidth:220, flex:'1 1 200px', maxWidth:290, position:'relative', textAlign:'left' }}>
                 {plan === 'PROFESIONAL' && <div style={{ position:'absolute', top:-10, left:'50%', transform:'translateX(-50%)', background:'linear-gradient(135deg,#6366f1,#8b5cf6)', color:'#fff', fontSize:9, fontWeight:800, padding:'3px 14px', borderRadius:20, letterSpacing:'.05em' }}>MÁS POPULAR</div>}
@@ -5488,7 +5488,7 @@ function GenyXLandingPage() {
           ['¿GenyX cobra comisión por cada venta que cierra?', 'No. Jamás. Tu costo es fijo cada mes — sin importar si vendes $30,000 o $300,000. Lo que ganas es tuyo.'],
           ['¿Cuánto tarda en activarse?', 'Una sesión de 45 minutos para entender tu negocio. Nosotros configuramos todo. En menos de 48 horas tu agente está atendiendo clientes y cerrando ventas.'],
           ['¿Qué pasa si el sistema falla?', 'Cada actualización pasa por pruebas de calidad antes de llegar a tu negocio. Monitoreamos el sistema activamente y atendemos cualquier incidencia lo antes posible. Si se presenta un problema mayor, tu agente queda en pausa controlada y te avisamos directamente hasta que se resuelva.'],
-          ['¿Para quién es GenyX?', 'GenyX es para dueños de negocio con 5 a 100 empleados que quieren operar con menos personas y más datos. No es solo un bot que responde — son 8 agentes de IA, pronto 10, que operan dos capas: la operativa (atender, vender, cobrar, entregar, dar seguimiento) y la estratégica (planear tus finanzas y tu marketing con datos reales). Cada viernes 6pm recibes la Mesa de Estrategia con la propuesta para la semana siguiente. Cada lunes 5am recibes el Reporte con tus números reales. El fundador toma la decisión. La IA hace el trabajo.'],
+          ['¿Para quién es GenyX?', 'GenyX es para dueños de negocio con 5 a 100 empleados que quieren operar con menos personas y más datos. Son 8 agentes de IA que operan dos capas: la operativa (atender, vender, cobrar, entregar, dar seguimiento) y la estratégica (interpretar tus datos y planear tus finanzas y marketing). Cada viernes 6pm recibes la Mesa de Estrategia. Cada lunes 5am recibes el Reporte con tus números reales. El fundador toma la decisión. La IA hace el trabajo.'],
           ['¿Por qué GenyX y no un bot genérico?', 'Un bot genérico responde preguntas. GenyX cierra ventas. Atiende a tu cliente, arma su pedido, genera el cobro y te avisa cuando el dinero ya está en tu cuenta. Sin complicaciones, sin intervención humana.'],
           ['¿Por qué GenyX y no contratar un vendedor?', 'Contratar un vendedor implica semanas de búsqueda, entrevistas, capacitación, nómina, IMSS, aguinaldo y reemplazos cuando se va. GenyX se activa en 48 horas, no se enferma, no renuncia, no cobra comisión y atiende a todos tus clientes al mismo tiempo — por un costo mensual fijo.'],
           ['¿Necesito conocimientos técnicos?', 'Ninguno. Tú nos das la información de tu negocio y nosotros hacemos todo lo demás. Solo tienes que revisar tu mando de control y contar tus ventas.'],
@@ -5623,7 +5623,7 @@ function TicketPage({ sid }) {
         <div style={S.ftr}>
           <div style={{ fontSize: 28, marginBottom: 4 }}>🍞</div>
           <div style={{ fontWeight: 800, fontSize: 15, color: '#1a1208' }}>Panadería Paty</div>
-          <div style={{ fontSize: 12, color: '#6b7280', marginTop: 2 }}>Magnolias 111, Bugambilias, Zapopan, Jal.</div>
+          <div style={{ fontSize: 12, color: '#6b7280', marginTop: 2 }}>Guadalajara, Jalisco, México</div>
           <div style={{ fontSize: 11, color: '#9ca3af', margin: '8px 0 12px' }}>Paty se pondrá en contacto contigo por WhatsApp para coordinar la entrega 📲</div>
           <button onClick={() => window.location.href = 'https://paty.genyxsystems.com'}
             style={{ background: '#25D366', color: '#fff', border: 'none', fontWeight: 800, fontSize: 14, padding: '12px 28px', borderRadius: 25, cursor: 'pointer' }}>
