@@ -5021,6 +5021,347 @@ function PlanesPage() {
 }
 
 
+// ═══ SIMULADOR GENYX — Constantes + Timeline Generator ═══
+
+const SIM_IND = {
+  restaurantes: { label:'Restaurantes y Comida', icon:'🍽️', reto:'No puedo estar en el teléfono y en la cocina al mismo tiempo', conv:0.35, margen:0.40, prod:'menú del día', unit:'pedido',
+    fields:[{key:'mensajes',label:'Mensajes que recibes al día',def:40,min:5,max:500},{key:'ticket',label:'Ticket promedio (pedido)',def:180,min:50,max:2000,pfx:'$'},{key:'empleados',label:'Empleados en tu equipo',def:8,min:1,max:100}]},
+  clinicas: { label:'Clínicas y Consultorios', icon:'⚕️', reto:'Pierdo pacientes porque no contesto a tiempo', conv:0.45, margen:0.55, prod:'consulta', unit:'cita',
+    fields:[{key:'mensajes',label:'Pacientes que escriben al día',def:20,min:3,max:200},{key:'ticket',label:'Anticipo o consulta promedio',def:400,min:100,max:5000,pfx:'$'},{key:'empleados',label:'Personal en consulta',def:3,min:1,max:30}]},
+  belleza: { label:'Belleza y Cuidado Personal', icon:'✨', reto:'Cancelaciones de último minuto y citas sin confirmar', conv:0.45, margen:0.60, prod:'servicio', unit:'cita',
+    fields:[{key:'mensajes',label:'Solicitudes de cita al día',def:25,min:5,max:150},{key:'ticket',label:'Servicio promedio',def:450,min:100,max:3000,pfx:'$'},{key:'empleados',label:'Estilistas/operadoras',def:4,min:1,max:30}]},
+  escuelas: { label:'Escuelas y Cursos', icon:'📚', reto:'Se interesan pero nunca se inscriben', conv:0.15, margen:0.70, prod:'programa', unit:'inscripción',
+    fields:[{key:'mensajes',label:'Interesados al día (leads)',def:30,min:5,max:500},{key:'ticket',label:'Valor promedio de inscripción',def:4500,min:500,max:50000,pfx:'$'},{key:'empleados',label:'Equipo administrativo',def:5,min:1,max:50}]},
+  inmobiliarias: { label:'Inmobiliarias', icon:'🏢', reto:'Pierdo tiempo con curiosos que nunca van a comprar', conv:0.08, margen:0.25, prod:'propiedad', unit:'cierre',
+    fields:[{key:'mensajes',label:'Leads de portales/redes al día',def:50,min:10,max:500},{key:'ticket',label:'Comisión promedio por venta',def:80000,min:20000,max:500000,pfx:'$'},{key:'empleados',label:'Asesores activos',def:5,min:1,max:50}]},
+  panaderias: { label:'Panaderías y Pastelerías', icon:'🥖', reto:'Pierdo pedidos porque no puedo contestar fuera de horario', conv:0.40, margen:0.45, prod:'catálogo', unit:'pedido',
+    fields:[{key:'mensajes',label:'Mensajes que recibes al día',def:40,min:5,max:500},{key:'ticket',label:'Ticket promedio (pedido)',def:180,min:50,max:2000,pfx:'$'},{key:'empleados',label:'Empleados en tu equipo',def:8,min:1,max:100}]},
+};
+
+const SIM_LOSS = { pocos:0.10, medios:0.25, muchos:0.40, demasiados:0.55 };
+const SIM_LOSS_LABELS = ['pocos','medios','muchos','demasiados'];
+const SIM_AGENTS = [
+  {key:'Marketing',icon:'📣'},{key:'Captación',icon:'🎯'},{key:'Venta',icon:'💬'},{key:'Cierre',icon:'💳'},
+  {key:'Entrega',icon:'🚚'},{key:'Seguimiento',icon:'🔔'},{key:'Analítica',icon:'📊'},{key:'Finanzas',icon:'💰'},
+];
+
+function simFmt(n){return n.toLocaleString('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0})}
+function simTime(m){const h=Math.floor(m/60),mm=m%60,ap=h>=12?'PM':'AM',hh=h>12?h-12:h===0?12:h;return `${hh}:${String(mm).padStart(2,'0')} ${ap}`}
+
+function genSimTimeline(indKey, inputs) {
+  const c = SIM_IND[indKey], msg = inputs.mensajes, tk = inputs.ticket;
+  const cierres = Math.round(msg * c.conv);
+  const react = Math.max(1, Math.round(cierres * 0.08));
+  const carts = Math.max(1, Math.round(msg * 0.05));
+  const U = c.unit.charAt(0).toUpperCase() + c.unit.slice(1);
+  // distribute: morning 35%, peak 30%, evening 25%, night 10%
+  const mC=Math.round(cierres*0.35), pC=Math.round(cierres*0.30), eC=Math.round(cierres*0.25), nC=cierres-mC-pC-eC;
+  const mA=Math.round(msg*0.2), pA=Math.round(msg*0.3), eA=Math.round(msg*0.3), nA=msg-mA-pA-eA;
+  let tA=0,tC=0,tCob=0;
+  return [
+    {time:300,icon:'📊',text:'Reporte semanal generado y enviado',agents:['Analítica'],hi:true,d:{}},
+    {time:420,icon:'💰',text:`Revisión financiera: margen por ${c.prod} calculado`,agents:['Finanzas'],hi:false,d:{}},
+    {time:510,icon:'📣',text:'Promoción del día publicada en redes',agents:['Marketing'],hi:false,d:{}},
+    {time:542,icon:'💬',text:`Cliente pregunta por tu ${c.prod} — respuesta en 3 seg`,agents:['Captación','Venta'],hi:false,d:{a:(tA+=mA,mA)}},
+    {time:548,icon:'💳',text:`${mC} ${c.unit}s cobrados: ${simFmt(mC*tk)} vía link`,agents:['Cierre','Entrega'],hi:false,d:{c:(tC+=mC,mC),cb:(tCob+=mC*tk,mC*tk)}},
+    {time:615,icon:'🔔',text:`${react} clientes inactivos reactivados`,agents:['Seguimiento'],hi:false,d:{}},
+    {time:660,icon:'📊',text:'Producto en declive (4 sem) → propone campaña al fundador',agents:['Analítica','Marketing'],hi:true,d:{}},
+    {time:690,icon:'🔥',text:`Hora pico: ${pA} conversaciones → ${pC} cierres`,agents:['Venta','Cierre'],hi:false,d:{a:(tA+=pA,pA),c:(tC+=pC,pC),cb:(tCob+=pC*tk,pC*tk)}},
+    {time:795,icon:'🛒',text:`${carts} carritos abandonados recuperados`,agents:['Seguimiento','Cierre'],hi:false,d:{c:(tC+=carts,carts),cb:(tCob+=carts*tk,carts*tk)}},
+    {time:1050,icon:'💬',text:`Bloque vespertino: ${eA} mensajes → ${eC} cierres`,agents:['Venta','Cierre'],hi:false,d:{a:(tA+=eA,eA),c:(tC+=eC,eC),cb:(tCob+=eC*tk,eC*tk)}},
+    {time:1080,icon:'📋',text:'Mesa de Estrategia semanal',agents:['Marketing'],hi:true,
+      detail:`Marketing propone:\n• Campaña basada en tu producto top\n• Reactivar ${react} clientes inactivos\n• Ajuste según margen real\n\n⏳ Esperando tu aprobación (OTP)\nEsto es tu 10%: decides en 10-15 min.`},
+    {time:1367,icon:'🤖',text:`${U} nocturno sin intervención humana`,agents:['Venta','Cierre','Entrega'],hi:false,d:{a:(tA+=nA,nA),c:(tC+=nC,nC),cb:(tCob+=nC*tk,nC*tk)}},
+    {time:1430,icon:'📊',text:`Día cerrado — mañana 5am: siguiente reporte`,agents:['Analítica','Finanzas'],hi:true,d:{}},
+  ];
+}
+
+// ═══ SIMULADOR GENYX — Componente principal ═══
+
+function SimuladorGenyX() {
+  const [phase, setPhase] = React.useState(1);
+  const [indKey, setIndKey] = React.useState(null);
+  const [inputs, setInputs] = React.useState({});
+  const [loss, setLoss] = React.useState('medios');
+  const [timeline, setTimeline] = React.useState([]);
+  const [simTime2, setSimTime2] = React.useState(300);
+  const [revealed, setRevealed] = React.useState([]);
+  const [counters, setCounters] = React.useState({a:0,c:0,cb:0});
+  const [agentActive, setAgentActive] = React.useState({});
+  const [running, setRunning] = React.useState(false);
+  const [done, setDone] = React.useState(false);
+  const startRef = React.useRef(null);
+  const feedRef = React.useRef(null);
+  const reducedMotion = React.useRef(typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches);
+
+  // Styles
+  const Z = {
+    wrap: { padding:'80px 24px', maxWidth:960, margin:'0 auto' },
+    label: { fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12, textAlign:'center' },
+    h2: { fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:10, textAlign:'center', lineHeight:1.2 },
+    h2a: { background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' },
+    sub: { color:'#64748b', fontSize:14, textAlign:'center', maxWidth:520, margin:'0 auto 32px' },
+    card: { background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.07)', borderRadius:16, padding:'24px 20px', cursor:'pointer', transition:'all .25s', textAlign:'center' },
+    cardHover: { borderColor:'rgba(99,102,241,0.5)', background:'rgba(99,102,241,0.08)', transform:'translateY(-3px)' },
+    cardOff: { borderColor:'rgba(255,255,255,0.07)', background:'rgba(255,255,255,0.03)', transform:'translateY(0)' },
+    btn: { background:'linear-gradient(135deg,#6366f1,#8b5cf6)', color:'#fff', padding:'14px 32px', borderRadius:12, fontSize:14, fontWeight:700, border:'none', cursor:'pointer', boxShadow:'0 0 28px rgba(99,102,241,0.3)' },
+    btn2: { background:'transparent', border:'1px solid rgba(99,102,241,0.5)', color:'#818cf8', padding:'12px 28px', borderRadius:12, fontSize:14, fontWeight:700, cursor:'pointer' },
+    priv: { background:'rgba(74,222,128,0.08)', border:'1px solid rgba(74,222,128,0.25)', borderRadius:12, padding:'10px 16px', fontSize:12, color:'#4ade80', textAlign:'center', marginBottom:24 },
+  };
+
+  // ── PHASE 1: Industry selection ──
+  if (phase === 1) return (
+    <section id="simulador" style={Z.wrap}>
+      <div style={Z.label}>SIMULADOR INTERACTIVO</div>
+      <h2 style={Z.h2}>Mira cómo operarían los 8 agentes<br /><span style={Z.h2a}>en un día real de tu negocio.</span></h2>
+      <p style={Z.sub}>Elige tu industria, ingresa datos básicos y observa 24 horas de operación autónoma.</p>
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))', gap:14 }}>
+        {Object.entries(SIM_IND).map(([k, v]) => (
+          <div key={k} style={Z.card}
+            onMouseOver={e => Object.assign(e.currentTarget.style, Z.cardHover)}
+            onMouseOut={e => Object.assign(e.currentTarget.style, Z.cardOff)}
+            onClick={() => { setIndKey(k); setInputs(Object.fromEntries(v.fields.map(f => [f.key, f.def]))); setPhase(2); }}>
+            <div style={{ fontSize:36, marginBottom:10 }}>{v.icon}</div>
+            <div style={{ fontSize:15, fontWeight:700, color:'#f1f5f9', marginBottom:6 }}>{v.label}</div>
+            <div style={{ fontSize:12, color:'#818cf8', fontStyle:'italic' }}>"{v.reto}"</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+
+  const cfg = SIM_IND[indKey];
+
+  // ── PHASE 2: Data inputs ──
+  if (phase === 2) return (
+    <section id="simulador" style={Z.wrap}>
+      <div style={Z.label}>{cfg.icon} {cfg.label.toUpperCase()}</div>
+      <h2 style={Z.h2}>Cuéntanos de tu negocio</h2>
+      <p style={Z.sub}>Ajusta los valores. Los usaremos para simular un día completo con los 8 agentes.</p>
+      <div style={Z.priv}>🔒 Estos datos se quedan en tu navegador. No se envían a GenyX.</div>
+      <div style={{ maxWidth:480, margin:'0 auto', display:'flex', flexDirection:'column', gap:20 }}>
+        {cfg.fields.map(f => (
+          <div key={f.key}>
+            <div style={{ display:'flex', justifyContent:'space-between', marginBottom:8 }}>
+              <label style={{ fontSize:13, color:'#94a3b8', fontWeight:600 }}>{f.label}</label>
+              <span style={{ fontSize:14, fontWeight:800, color:'#f1f5f9' }}>{f.pfx||''}{inputs[f.key]?.toLocaleString('es-MX')}{f.key==='ticket'?' MXN':''}</span>
+            </div>
+            <input type="range" min={f.min} max={f.max} value={inputs[f.key]||f.def}
+              onChange={e => setInputs(p => ({...p, [f.key]: Number(e.target.value)}))}
+              style={{ width:'100%', accentColor:'#6366f1' }} />
+          </div>
+        ))}
+        {/* Loss slider */}
+        <div>
+          <div style={{ display:'flex', justifyContent:'space-between', marginBottom:8 }}>
+            <label style={{ fontSize:13, color:'#94a3b8', fontWeight:600 }}>¿Cuántos clientes sientes que pierdes?</label>
+            <span style={{ fontSize:14, fontWeight:800, color:'#f1f5f9' }}>{loss.charAt(0).toUpperCase()+loss.slice(1)} (~{Math.round(SIM_LOSS[loss]*100)}%)</span>
+          </div>
+          <input type="range" min={0} max={3} value={SIM_LOSS_LABELS.indexOf(loss)}
+            onChange={e => setLoss(SIM_LOSS_LABELS[Number(e.target.value)])}
+            style={{ width:'100%', accentColor:'#6366f1' }} />
+          <div style={{ display:'flex', justifyContent:'space-between', fontSize:11, color:'#475569', marginTop:4 }}>
+            {SIM_LOSS_LABELS.map(l => <span key={l}>{l}</span>)}
+          </div>
+        </div>
+        <div style={{ display:'flex', gap:12, justifyContent:'center', marginTop:16 }}>
+          <button style={Z.btn2} onClick={() => setPhase(1)}>← Cambiar industria</button>
+          <button style={Z.btn} onClick={() => {
+            const tl = genSimTimeline(indKey, inputs);
+            setTimeline(tl);
+            setRevealed([]);
+            setCounters({a:0,c:0,cb:0});
+            setAgentActive({});
+            setDone(false);
+            if (reducedMotion.current) { setRevealed(tl); const last = tl[tl.length-1]; setCounters({a:inputs.mensajes,c:Math.round(inputs.mensajes*cfg.conv),cb:Math.round(inputs.mensajes*cfg.conv)*inputs.ticket}); setDone(true); setPhase(4); }
+            else { setPhase(3); setRunning(true); startRef.current = Date.now(); }
+          }}>Comenzar simulación →</button>
+        </div>
+      </div>
+    </section>
+  );
+
+  // ── PHASE 3: Animation ──
+  React.useEffect(() => {
+    if (phase !== 3 || !running) return;
+    const DUR = 55000, START_M = 300, END_M = 1430;
+    const id = setInterval(() => {
+      const elapsed = Date.now() - startRef.current;
+      const progress = Math.min(elapsed / DUR, 1);
+      const curMin = Math.round(START_M + progress * (END_M - START_M));
+      setSimTime2(curMin);
+      // reveal events
+      const toReveal = timeline.filter(e => e.time <= curMin);
+      setRevealed(prev => {
+        if (prev.length === toReveal.length) return prev;
+        const newOnes = toReveal.slice(prev.length);
+        // update counters
+        let na=0, nc=0, ncb=0;
+        newOnes.forEach(ev => { if(ev.d){na+=(ev.d.a||0); nc+=(ev.d.c||0); ncb+=(ev.d.cb||0);} });
+        if (na||nc||ncb) setCounters(p => ({a:p.a+na, c:p.c+nc, cb:p.cb+ncb}));
+        // activate agents
+        const now = Date.now();
+        newOnes.forEach(ev => ev.agents.forEach(ag => setAgentActive(p => ({...p,[ag]:now}))));
+        return toReveal;
+      });
+      if (progress >= 1) { clearInterval(id); setRunning(false); setDone(true); setTimeout(() => setPhase(4), 2000); }
+    }, 80);
+    return () => clearInterval(id);
+  }, [phase, running, timeline]);
+
+  // Clear agent glow after 3s
+  React.useEffect(() => {
+    if (phase !== 3) return;
+    const id = setInterval(() => {
+      const now = Date.now();
+      setAgentActive(p => { const n = {...p}; Object.keys(n).forEach(k => { if(now - n[k] > 3000) delete n[k]; }); return n; });
+    }, 500);
+    return () => clearInterval(id);
+  }, [phase]);
+
+  // Auto-scroll feed
+  React.useEffect(() => { feedRef.current?.lastChild?.scrollIntoView({behavior:'smooth'}); }, [revealed]);
+
+  if (phase === 3) {
+    const progress = (simTime2 - 300) / (1430 - 300);
+    return (
+      <section id="simulador" style={Z.wrap}>
+        {/* Skip button */}
+        <div style={{ textAlign:'right', marginBottom:8 }}>
+          <button onClick={() => { setRunning(false); setRevealed(timeline); setCounters({a:inputs.mensajes,c:Math.round(inputs.mensajes*cfg.conv),cb:Math.round(inputs.mensajes*cfg.conv)*inputs.ticket}); setDone(true); setPhase(4); }}
+            style={{ background:'transparent', border:'none', color:'#64748b', fontSize:12, cursor:'pointer' }}>Saltar → ver resultado</button>
+        </div>
+        {/* Clock */}
+        <div style={{ textAlign:'center', marginBottom:20 }}>
+          <div style={{ fontSize:48, fontWeight:900, color:'#818cf8', fontFamily:'monospace' }}>{simTime(simTime2)}</div>
+          <div style={{ height:4, background:'rgba(255,255,255,0.06)', borderRadius:4, marginTop:8, maxWidth:400, margin:'8px auto' }}>
+            <div style={{ height:4, background:'linear-gradient(90deg,#6366f1,#c084fc)', borderRadius:4, width:`${progress*100}%`, transition:'width .08s' }} />
+          </div>
+          <div style={{ fontSize:11, color:'#475569', marginTop:6 }}>Viernes — Simulación de un día completo</div>
+        </div>
+        <div style={Z.priv}>🔒 Estos datos se quedan en tu navegador. No se envían a GenyX.</div>
+        {/* Main grid: feed + agents */}
+        <div style={{ display:'grid', gridTemplateColumns:'1fr 280px', gap:20, marginBottom:20 }}>
+          {/* Feed */}
+          <div ref={feedRef} style={{ maxHeight:400, overflowY:'auto', display:'flex', flexDirection:'column', gap:8, paddingRight:8 }}>
+            {revealed.map((ev, i) => (
+              <div key={i} style={{ background: ev.hi ? 'rgba(99,102,241,0.12)' : 'rgba(255,255,255,0.03)', border: ev.hi ? '1px solid rgba(99,102,241,0.4)' : '1px solid rgba(255,255,255,0.07)', borderRadius:12, padding: ev.hi ? '16px 14px' : '10px 14px', animation:'fadeIn .3s ease' }}>
+                <div style={{ display:'flex', alignItems:'center', gap:8, marginBottom: ev.detail ? 8 : 0 }}>
+                  <span style={{ fontSize: ev.hi ? 20 : 16 }}>{ev.icon}</span>
+                  <span style={{ fontSize:11, color:'#818cf8', fontWeight:700, fontFamily:'monospace' }}>{simTime(ev.time)}</span>
+                  <span style={{ fontSize:12, color: ev.hi ? '#f1f5f9' : '#94a3b8', fontWeight: ev.hi ? 700 : 400 }}>{ev.text}</span>
+                </div>
+                {ev.detail && <pre style={{ fontSize:11, color:'#a5b4fc', lineHeight:1.6, margin:'8px 0 0 28px', whiteSpace:'pre-wrap', fontFamily:'Inter,sans-serif' }}>{ev.detail}</pre>}
+                <div style={{ display:'flex', gap:4, marginTop:4, marginLeft:28 }}>
+                  {ev.agents.map(a => <span key={a} style={{ fontSize:9, color:'#818cf8', background:'rgba(99,102,241,0.15)', padding:'2px 8px', borderRadius:10 }}>{a}</span>)}
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* Agent panel */}
+          <div>
+            <div style={{ fontSize:11, fontWeight:700, color:'#64748b', marginBottom:10, letterSpacing:'.08em' }}>AGENTES</div>
+            <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:8 }}>
+              {SIM_AGENTS.map(ag => {
+                const active = !!agentActive[ag.key];
+                return (
+                  <div key={ag.key} style={{ background: active ? 'rgba(99,102,241,0.15)' : 'rgba(255,255,255,0.03)', border: active ? '1px solid rgba(99,102,241,0.5)' : '1px solid rgba(255,255,255,0.07)', borderRadius:12, padding:'14px 10px', textAlign:'center', transition:'all .3s' }}>
+                    <div style={{ fontSize:22, marginBottom:4 }}>{ag.icon}</div>
+                    <div style={{ fontSize:10, fontWeight:700, color: active ? '#a5b4fc' : '#475569' }}>{ag.key}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+        {/* Counters */}
+        <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:12 }}>
+          {[['💬',`${counters.a}`,`de ${inputs.mensajes} atendidos`],['🛒',`${counters.c}`,'cierres'],['💰',simFmt(counters.cb),'cobrado'],['⏱️','90%','operación autónoma']].map(([ic,v,l],i) => (
+            <div key={i} style={{ background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.07)', borderRadius:12, padding:'16px 12px', textAlign:'center' }}>
+              <div style={{ fontSize:16 }}>{ic}</div>
+              <div style={{ fontSize:22, fontWeight:900, color:'#818cf8', transition:'all .4s' }}>{v}</div>
+              <div style={{ fontSize:10, color:'#475569', textTransform:'uppercase', letterSpacing:'.06em' }}>{l}</div>
+            </div>
+          ))}
+        </div>
+        <style>{`@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}`}</style>
+      </section>
+    );
+  }
+
+  // ── PHASE 4: Summary ──
+  const msg = inputs.mensajes, tk = inputs.ticket;
+  const totalCierres = Math.round(msg * cfg.conv);
+  const totalCobrado = totalCierres * tk;
+  const lossPct = SIM_LOSS[loss];
+  const sinNoResp = Math.round(msg * lossPct);
+  const sinResp = msg - sinNoResp;
+  const sinCierres = Math.round(sinResp * cfg.conv * 0.7);
+  const sinCobrado = sinCierres * tk;
+  const diff = totalCobrado - sinCobrado;
+
+  return (
+    <section id="simulador" style={Z.wrap}>
+      <div style={Z.label}>RESULTADO DE TU SIMULACIÓN</div>
+      <h2 style={Z.h2}>Un día de tu negocio<br /><span style={Z.h2a}>con GenyX operando.</span></h2>
+
+      {/* Two columns: operation + strategy */}
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:20, marginBottom:32 }}>
+        <div style={{ background:'rgba(99,102,241,0.06)', border:'1px solid rgba(99,102,241,0.2)', borderRadius:20, padding:'28px 24px' }}>
+          <div style={{ fontSize:12, fontWeight:800, color:'#818cf8', marginBottom:16, letterSpacing:'.08em' }}>🤖 LA OPERACIÓN (90% AUTÓNOMA)</div>
+          {[[`💬 ${msg} mensajes atendidos en segundos`],[`🛒 ${totalCierres} conversaciones cerraron compra (${Math.round(cfg.conv*100)}%)`],[`💰 ${simFmt(totalCobrado)} cobrado vía link de pago`],[`🔔 ${Math.max(1,Math.round(totalCierres*0.08))} clientes recuperados`],[`📦 ${totalCierres} entregas coordinadas`]].map(([t],i) => (
+            <div key={i} style={{ fontSize:13, color:'#94a3b8', padding:'6px 0', lineHeight:1.6 }}>{t}</div>
+          ))}
+        </div>
+        <div style={{ background:'rgba(139,92,246,0.06)', border:'1px solid rgba(139,92,246,0.2)', borderRadius:20, padding:'28px 24px' }}>
+          <div style={{ fontSize:12, fontWeight:800, color:'#c084fc', marginBottom:16, letterSpacing:'.08em' }}>📊 LA ESTRATEGIA (10% DECIDES TÚ)</div>
+          {[['📋 Recibiste la Mesa de Estrategia del viernes 6pm'],['🔑 1 código OTP para aprobar el plan de la semana'],['⏱️ Tiempo estimado de decisión: 10–15 min'],['📈 Margen promedio en tu industria: ~'+Math.round(cfg.margen*100)+'%*']].map(([t],i) => (
+            <div key={i} style={{ fontSize:13, color:'#94a3b8', padding:'6px 0', lineHeight:1.6 }}>{t}</div>
+          ))}
+          <div style={{ fontSize:11, color:'#64748b', fontStyle:'italic', marginTop:8 }}>*Tu margen REAL lo calcula GenyX cuando cargas tus costos en el Costeador.</div>
+        </div>
+      </div>
+
+      {/* Comparison */}
+      <div style={{ background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.07)', borderRadius:20, padding:'28px 24px', marginBottom:32 }}>
+        <div style={{ fontSize:12, fontWeight:800, color:'#64748b', marginBottom:16, letterSpacing:'.08em' }}>⚖️ COMPARATIVA</div>
+        <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:20 }}>
+          <div>
+            <div style={{ fontSize:12, fontWeight:700, color:'#ef4444', marginBottom:10 }}>SIN GENYX (tradicional)</div>
+            {[[`❌ ~${Math.round(lossPct*100)}% de mensajes sin responder a tiempo`],['⏱️ 4–6 horas/día contestando WhatsApp'],['❌ Pago manual con fricción'],['❌ 0 visibilidad de margen ni hora pico'],['❌ Decisiones por intuición']].map(([t],i) => (
+              <div key={i} style={{ fontSize:12, color:'#94a3b8', padding:'4px 0' }}>{t}</div>
+            ))}
+            <div style={{ fontSize:14, fontWeight:800, color:'#ef4444', marginTop:10 }}>~{simFmt(sinCobrado)}/día</div>
+          </div>
+          <div>
+            <div style={{ fontSize:12, fontWeight:700, color:'#4ade80', marginBottom:10 }}>CON GENYX</div>
+            {[['✅ 100% atendidos en segundos'],['✅ 90% operación automatizada'],['✅ Cobro dentro del chat'],['✅ Reporte semanal con tus datos'],['✅ Mesa de estrategia cada viernes']].map(([t],i) => (
+              <div key={i} style={{ fontSize:12, color:'#94a3b8', padding:'4px 0' }}>{t}</div>
+            ))}
+            <div style={{ fontSize:14, fontWeight:800, color:'#4ade80', marginTop:10 }}>~{simFmt(totalCobrado)}/día</div>
+          </div>
+        </div>
+        {diff > 0 && <div style={{ textAlign:'center', marginTop:16, padding:'12px 20px', background:'rgba(74,222,128,0.08)', border:'1px solid rgba(74,222,128,0.2)', borderRadius:12 }}>
+          <span style={{ fontSize:14, color:'#4ade80', fontWeight:800 }}>Diferencia estimada: +{simFmt(diff)}/día*</span>
+        </div>}
+      </div>
+
+      {/* Disclaimer */}
+      <div style={{ background:'rgba(251,191,36,0.06)', border:'1px solid rgba(251,191,36,0.2)', borderRadius:12, padding:'16px 20px', marginBottom:32, fontSize:12, color:'#fbbf24', lineHeight:1.7 }}>
+        ⚠️ Esta simulación es educativa. Las cifras usan promedios de tu industria. Los resultados reales dependen de tu propuesta, demanda local, ubicación y otras variables. <strong>No prometemos resultados específicos.</strong>
+      </div>
+
+      {/* CTAs */}
+      <div style={{ display:'flex', gap:14, justifyContent:'center', flexWrap:'wrap' }}>
+        <a href="https://wa.me/523340026694?text=Hola%2C%20vi%20el%20simulador%20de%20GenyX%20y%20quiero%20saber%20m%C3%A1s" style={{ ...Z.btn, textDecoration:'none', display:'inline-block' }}>Quiero esto para mi negocio →</a>
+        <a href="/planes" style={{ ...Z.btn2, textDecoration:'none', display:'inline-block' }}>Ver planes</a>
+        <button style={{ ...Z.btn2, borderColor:'rgba(255,255,255,0.15)', color:'#64748b' }} onClick={() => { setPhase(1); setDone(false); }}>↺ Simular otra industria</button>
+      </div>
+    </section>
+  );
+}
+
+
 function GenyXLandingPage() {
   const [scrolled, setScrolled] = React.useState(false);
   React.useEffect(() => {
@@ -5125,7 +5466,7 @@ function GenyXLandingPage() {
         <p style={C.sub}>Desde la primera conversación hasta tu estrategia financiera. Dos capas: la operativa (atender, vender, cobrar, entregar) y la estratégica (interpretar tus datos y planear tus finanzas y marketing). El fundador toma la decisión. La IA hace el trabajo.</p>
         <div style={C.btns}>
           <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={C.primary}>Cuéntame de tu negocio →</a>
-          <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20probar%20el%20simulador%20de%20GenyX" style={C.secondary}>Probar simulador</a>
+          <a href="#simulador" style={C.secondary}>Probar simulador</a>
         </div>
       </section>
 
@@ -5217,6 +5558,9 @@ function GenyXLandingPage() {
       {/* ── WhatsApp Simulator ── */}
       <WhatsAppSimulator />
 
+      {/* ── Simulador Interactivo GenyX ── */}
+      <SimuladorGenyX />
+
       {/* ── Aprendizaje Continuo ── */}
       <section style={{ padding: '0 24px 100px', maxWidth: 800, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
@@ -5243,7 +5587,7 @@ function GenyXLandingPage() {
         </div>
         <div style={{ textAlign: 'center', marginTop: 24 }}>
           <p style={{ color: '#94a3b8', fontSize: 14, marginBottom: 14 }}>¿Quieres ver cómo se vería un día de tu negocio con GenyX operando?</p>
-          <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20probar%20el%20simulador%20de%20GenyX" style={{ display: 'inline-block', background: 'transparent', border: '1px solid rgba(99,102,241,0.5)', color: '#818cf8', padding: '12px 28px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', transition: 'all .2s' }}>Probar el simulador con tus productos reales →</a>
+          <a href="#simulador" style={{ display: 'inline-block', background: 'transparent', border: '1px solid rgba(99,102,241,0.5)', color: '#818cf8', padding: '12px 28px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', transition: 'all .2s' }}>Probar el simulador con tus productos reales →</a>
         </div>
       </section>
 
