@@ -2241,7 +2241,7 @@ function AdminLoginScreen({ onAuth }) {
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div style={{ width: 52, height: 52, border: '2px solid #6366f1', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, fontWeight: 900, color: '#818cf8', marginBottom: 16, fontFamily: 'JetBrains Mono, monospace' }}>G</div>
           <h1 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', letterSpacing: '.02em', margin: 0 }}>Geny<span style={{ color: '#818cf8' }}>X</span></h1>
-          <p style={{ fontSize: 11, color: '#334155', fontFamily: 'JetBrains Mono, monospace', marginTop: 6, letterSpacing: '.08em' }}>CENTRO DE MANDO · INTELIGENCIA DE NEGOCIO</p>
+          <p style={{ fontSize: 11, color: '#334155', fontFamily: 'JetBrains Mono, monospace', marginTop: 6, letterSpacing: '.08em' }}>CENTRO DE MANDO · TU OPERACIÓN COMERCIAL AUTÓNOMA</p>
         </div>
         {/* Card */}
         <div style={{ background: '#0c1220', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 16, padding: '32px 28px', boxShadow: '0 0 40px rgba(99,102,241,0.08)' }}>
@@ -5465,7 +5465,7 @@ function GenyXLandingPage() {
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
       <nav style={C.nav}>
         <a href="#" style={C.logo}>
-          <img src="/genyx-logo.png" alt="GenyX — Inteligencia de negocio" style={{ width: 32, height: 32, borderRadius: 4 }} />
+          <img src="/genyx-logo.png" alt="GenyX — Tu operación comercial autónoma" style={{ width: 32, height: 32, borderRadius: 4 }} />
         </a>
         <div style={C.navLinks}>
           {[['Soluciones', '#industrias'], ['Proceso', '#proceso']].map(([l, h]) => (
@@ -5854,7 +5854,7 @@ function GenyXLandingPage() {
 
       <GenyXConciergeWidget />
       <footer style={C.footer}>
-        <span style={C.ftrBrand}>GenyX © 2026 · Inteligencia de negocio</span>
+        <span style={C.ftrBrand}>GenyX © 2026 · Tu operación comercial autónoma</span>
         <div style={{ ...C.ftrLinks, paddingRight: 72 }}>
           <a href="/privacidad" style={C.ftrLink}>Privacidad</a>
           <a href="/terminos" style={C.ftrLink}>Términos</a>
@@ -6084,7 +6084,7 @@ export default function GenyXOperatorDashboard() {
             <div>
               <p style={{ fontWeight: 700, fontSize: 13, color: '#fff', letterSpacing: '.03em' }}>Geny<span style={{ color: '#818cf8' }}>X</span></p>
               <p style={{ fontSize: 10, color: '#475569', fontFamily: 'monospace' }}>Centro de Mando GenyX</p>
-              <p style={{ fontSize: 9, color: '#475569', fontStyle: 'italic' }}>Inteligencia de negocio</p>
+              <p style={{ fontSize: 9, color: '#475569', fontStyle: 'italic' }}>Tu operación comercial autónoma</p>
             </div>
           </div>
         </div>
