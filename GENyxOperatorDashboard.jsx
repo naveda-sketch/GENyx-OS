@@ -5527,15 +5527,15 @@ function GenyXLandingPage() {
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 32 }}>
           {[
-            ['📣', 'Captación y Marketing', 'Generación de demanda, visibilidad y primer contacto con el prospecto.'],
-            ['💼', 'Venta y Cierre', 'Gestión de la oportunidad, negociación y conversión final del interesado en cliente.'],
-            ['📦', 'Entrega y Seguimiento', 'Coordinación logística con servicios de terceros y postventa para asegurar la satisfacción del cliente.'],
-            ['📊', 'Analítica y Finanzas', 'Medición de KPIs como Customer Lifetime Value, margen por producto, punto de equilibrio y proyección mensual.'],
-          ].map(([ico, title, desc]) => (
+            [() => simSvg(['M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4','M7 10l5 5 5-5','M12 15V3','M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9'],'lc1'), 'Captación y Marketing', 'Generación de demanda, visibilidad y primer contacto con el prospecto.'],
+            [() => simSvg(['M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z',['rect',{x:1,y:4,width:22,height:16,rx:2,ry:2}],['line',{x1:1,y1:10,x2:23,y2:10}]],'lc2'), 'Venta y Cierre', 'Gestión de la oportunidad, negociación y conversión final del interesado en cliente.'],
+            [() => simSvg(['M16 16h6V8h-4l-3-3H1v11h3',['circle',{cx:6,cy:18,r:2}],['circle',{cx:18,cy:18,r:2}],'M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9'],'lc3'), 'Entrega y Seguimiento', 'Coordinación logística con servicios de terceros y postventa para asegurar la satisfacción del cliente.'],
+            [() => simSvg([['line',{x1:18,y1:20,x2:18,y2:10}],['line',{x1:12,y1:20,x2:12,y2:4}],['line',{x1:6,y1:20,x2:6,y2:14}],['line',{x1:12,y1:1,x2:12,y2:23}],'M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6'],'lc4'), 'Analítica y Finanzas', 'Medición de KPIs como Customer Lifetime Value, margen por producto, punto de equilibrio y proyección mensual.'],
+          ].map(([icoFn, title, desc]) => (
             <div key={title} style={{ background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.2)', borderRadius: 16, padding: '24px 20px', transition: 'all 0.25s' }}
               onMouseOver={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.5)'; e.currentTarget.style.transform = 'translateY(-3px)'; }}
               onMouseOut={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.2)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
-              <div style={{ fontSize: 28, marginBottom: 10 }}>{ico}</div>
+              <div style={{ width:48, height:48, borderRadius:12, background:'rgba(99,102,241,0.1)', border:'1px solid rgba(99,102,241,0.2)', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:10 }}>{icoFn()}</div>
               <div style={{ fontWeight: 800, fontSize: 14, color: '#f1f5f9', marginBottom: 8 }}>{title}</div>
               <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.7 }}>{desc}</div>
             </div>
@@ -5554,19 +5554,19 @@ function GenyXLandingPage() {
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
           {[
-            ['📣', 'Marketing', 'Genera contenido visual y captions con tu ADN de marca, listos para publicar. Reactiva clientes inactivos vía WhatsApp.'],
-            ['🎯', 'Captación', 'Atrae clientes a tu WhatsApp directo desde redes, web y buscadores.'],
-            ['💬', 'Venta', 'Atiende en segundos con la personalidad de tu marca. Recomienda complementos.'],
-            ['💳', 'Cierre', 'Cobra dentro del chat. Sin fricción. Sin que el cliente salga de WhatsApp.'],
-            ['🚚', 'Entrega', 'Coordina la logística de entrega en colaboración con servicios de terceros.'],
-            ['🔔', 'Seguimiento', 'Recupera pedidos abandonados. Reactiva clientes que no han vuelto.'],
-            ['📊', 'Analítica', 'KPIs, top productos, hora pico, clientes inactivos y recomendaciones concretas.'],
-            ['💰', 'Finanzas', 'Margen por producto. Punto de equilibrio. Utilidad real. Proyección mensual.'],
-          ].map(([ico, name, desc]) => (
+            ['Marketing', 'Genera contenido visual y captions con tu ADN de marca, listos para publicar. Reactiva clientes inactivos vía WhatsApp.', () => simSvg(['M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4','M7 10l5 5 5-5','M12 15V3'],'la1')],
+            ['Captación', 'Atrae clientes a tu WhatsApp directo desde redes, web y buscadores.', () => simSvg([['circle',{cx:12,cy:12,r:10}],'M12 8v8',['line',{x1:8,y1:12,x2:16,y2:12}]],'la2')],
+            ['Venta', 'Atiende en segundos con la personalidad de tu marca. Recomienda complementos.', () => simSvg(['M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z'],'la3')],
+            ['Cierre', 'Cobra dentro del chat. Sin fricción. Sin que el cliente salga de WhatsApp.', () => simSvg([['rect',{x:1,y:4,width:22,height:16,rx:2,ry:2}],['line',{x1:1,y1:10,x2:23,y2:10}]],'la4')],
+            ['Entrega', 'Coordina la logística de entrega en colaboración con servicios de terceros.', () => simSvg(['M16 16h6V8h-4l-3-3H1v11h3',['circle',{cx:6,cy:18,r:2}],['circle',{cx:18,cy:18,r:2}]],'la5')],
+            ['Seguimiento', 'Recupera pedidos abandonados. Reactiva clientes que no han vuelto.', () => simSvg(['M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9','M13.73 21a2 2 0 01-3.46 0'],'la6')],
+            ['Analítica', 'KPIs, top productos, hora pico, clientes inactivos y recomendaciones concretas.', () => simSvg([['line',{x1:18,y1:20,x2:18,y2:10}],['line',{x1:12,y1:20,x2:12,y2:4}],['line',{x1:6,y1:20,x2:6,y2:14}]],'la7')],
+            ['Finanzas', 'Margen por producto. Punto de equilibrio. Utilidad real. Proyección mensual.', () => simSvg([['line',{x1:12,y1:1,x2:12,y2:23}],'M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6'],'la8')],
+          ].map(([name, desc, icoFn]) => (
             <div key={name} style={{ background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 12, padding: '18px 16px', transition: 'all 0.2s' }}
               onMouseOver={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.5)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
               onMouseOut={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.25)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
-              <div style={{ fontSize: 24, marginBottom: 8 }}>{ico}</div>
+              <div style={{ width:40, height:40, borderRadius:10, background:'rgba(99,102,241,0.1)', border:'1px solid rgba(99,102,241,0.2)', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:8 }}>{icoFn()}</div>
               <div style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9', marginBottom: 4 }}>{name}</div>
               <div style={{ fontSize: 11, color: '#64748b', lineHeight: 1.6 }}>{desc}</div>
             </div>
@@ -5776,16 +5776,16 @@ function GenyXLandingPage() {
         <p style={{ color:'#64748b', marginBottom:48, textAlign:'center', fontSize:15, maxWidth:600, margin:'0 auto 48px' }}>El mercado tiene bots que responden preguntas. GenyX cierra ventas — con tu catálogo, tus reglas y resultados que puedes medir.</p>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:16 }}>
           {[
-            ['🔒', 'Nunca cobra de más, nunca inventa precios', 'Tu agente respeta tu catálogo al 100%. Si no lo vendes, no lo ofrece. Si cuesta $120, cobra $120. Cero errores, cero sorpresas para tu cliente.'],
-            ['📊', 'Reportes que te hacen tomar decisiones', '¿Cuál es tu producto más vendido? ¿A qué hora te escriben más? ¿Cuánto vendiste esta semana? Información de tu negocio que hoy no tienes — sin contratar un analista.'],
-            ['💪', 'Tu negocio no depende de una persona', 'Un vendedor se enferma, renuncia, pide aumento o tiene un mal día. GenyX no. Atiende a todos tus clientes al mismo tiempo, los 365 días del año, desde el primer mensaje hasta el cobro.'],
-            ['🎯', 'Hecho a la medida de tu negocio', 'Tu catálogo. Tus precios. Tu personalidad de marca. Tu zona de entrega. Todo configurado para ti. Funciona como si lo hubiera entrenado tu mejor vendedor.'],
-            ['⚡', 'De cero a vendiendo en 48 horas', 'Una sesión de 45 minutos para entender tu negocio. Nosotros hacemos todo. En 2 días tu agente ya está cerrando ventas mientras tú haces lo que mejor sabes hacer.'],
-          ].map(([ico, t, d]) => (
+            [() => simSvg([['rect',{x:3,y:11,width:18,height:11,rx:2,ry:2}],'M7 11V7a5 5 0 0110 0v4'],'lv1'), 'Nunca cobra de más, nunca inventa precios', 'Tu agente respeta tu catálogo al 100%. Si no lo vendes, no lo ofrece. Si cuesta $120, cobra $120. Cero errores, cero sorpresas para tu cliente.'],
+            [() => simSvg([['line',{x1:18,y1:20,x2:18,y2:10}],['line',{x1:12,y1:20,x2:12,y2:4}],['line',{x1:6,y1:20,x2:6,y2:14}],'M22 12h-4l-3 9L9 3l-3 9H2'],'lv2'), 'Reportes que te hacen tomar decisiones', '¿Cuál es tu producto más vendido? ¿A qué hora te escriben más? ¿Cuánto vendiste esta semana? Información de tu negocio que hoy no tienes — sin contratar un analista.'],
+            [() => simSvg([['path',{d:'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2'}],['circle',{cx:9,cy:7,r:4}],['path',{d:'M23 21v-2a4 4 0 00-3-3.87'}],['path',{d:'M16 3.13a4 4 0 010 7.75'}]],'lv3'), 'Tu negocio no depende de una persona', 'Un vendedor se enferma, renuncia, pide aumento o tiene un mal día. GenyX no. Atiende a todos tus clientes al mismo tiempo, los 365 días del año, desde el primer mensaje hasta el cobro.'],
+            [() => simSvg([['polygon',{points:'12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'}]],'lv4'), 'Hecho a la medida de tu negocio', 'Tu catálogo. Tus precios. Tu personalidad de marca. Tu zona de entrega. Todo configurado para ti. Funciona como si lo hubiera entrenado tu mejor vendedor.'],
+            [() => simSvg(['M13 2L3 14h9l-1 8 10-12h-9l1-8'],'lv5'), 'De cero a vendiendo en 48 horas', 'Una sesión de 45 minutos para entender tu negocio. Nosotros hacemos todo. En 2 días tu agente ya está cerrando ventas mientras tú haces lo que mejor sabes hacer.'],
+          ].map(([icoFn, t, d]) => (
             <div key={t} style={{ background:'rgba(255,255,255,0.03)', border:'1px solid rgba(99,102,241,0.15)', borderRadius:16, padding:'24px 22px', transition:'all 0.25s' }}
               onMouseOver={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.45)'; e.currentTarget.style.background='rgba(99,102,241,0.06)'; }}
               onMouseOut={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.15)'; e.currentTarget.style.background='rgba(255,255,255,0.03)'; }}>
-              <div style={{ fontSize:28, marginBottom:12 }}>{ico}</div>
+              <div style={{ width:48, height:48, borderRadius:12, background:'rgba(99,102,241,0.1)', border:'1px solid rgba(99,102,241,0.2)', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:12 }}>{icoFn()}</div>
               <div style={{ fontWeight:700, fontSize:15, color:'#f1f5f9', marginBottom:8 }}>{t}</div>
               <div style={{ fontSize:13, color:'#64748b', lineHeight:1.75 }}>{d}</div>
             </div>
