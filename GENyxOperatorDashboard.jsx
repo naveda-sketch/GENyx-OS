@@ -5385,6 +5385,74 @@ function SimuladorGenyX() {
 }
 
 
+// ── Landing Page Auth Gate ──────────────────────────────────────────────────
+// SHA-256 of the access password. To change password, run in browser console:
+//   crypto.subtle.digest('SHA-256', new TextEncoder().encode('YOUR_PASSWORD'))
+//     .then(b => Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2,'0')).join(''))
+const LANDING_PW_HASH = '85f81e67c0c5d1e61bf14d15951f2f4872a087fb351e35f360b8d9bad0be50a6'; // default: 'genyx2026'
+
+function LandingAuthGate({ children }) {
+  const [authed, setAuthed] = React.useState(sessionStorage.getItem('genyx_landing_auth') === 'true');
+  const [pw, setPw] = React.useState('');
+  const [error, setError] = React.useState(false);
+  const [checking, setChecking] = React.useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setChecking(true);
+    setError(false);
+    try {
+      const hashBuffer = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(pw));
+      const hashHex = Array.from(new Uint8Array(hashBuffer)).map(x => x.toString(16).padStart(2, '0')).join('');
+      if (hashHex === LANDING_PW_HASH) {
+        sessionStorage.setItem('genyx_landing_auth', 'true');
+        setAuthed(true);
+      } else {
+        setError(true);
+        setPw('');
+      }
+    } catch { setError(true); }
+    setChecking(false);
+  };
+
+  if (authed) return children;
+
+  return (
+    <div style={{ minHeight: '100vh', background: '#050508', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Inter', sans-serif" }}>
+      <div style={{ textAlign: 'center', maxWidth: 380, padding: '40px 32px' }}>
+        <div style={{ width: 56, height: 56, border: '2px solid #6366f1', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, fontWeight: 900, color: '#818cf8', margin: '0 auto 24px', borderRadius: 12 }}>G</div>
+        <h1 style={{ color: '#f1f5f9', fontSize: 24, fontWeight: 800, marginBottom: 8, letterSpacing: '-0.5px' }}>GenyX</h1>
+        <p style={{ color: '#475569', fontSize: 13, marginBottom: 32, lineHeight: 1.6 }}>Acceso restringido.<br />Ingresa tu clave para continuar.</p>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="password"
+            value={pw}
+            onChange={e => { setPw(e.target.value); setError(false); }}
+            placeholder="Clave de acceso"
+            autoFocus
+            style={{
+              width: '100%', padding: '14px 18px', borderRadius: 12, border: error ? '2px solid #ef4444' : '1px solid rgba(99,102,241,0.3)',
+              background: 'rgba(255,255,255,0.04)', color: '#f1f5f9', fontSize: 15, fontWeight: 500, outline: 'none',
+              boxSizing: 'border-box', transition: 'border-color 0.2s', marginBottom: 14,
+              fontFamily: "'Inter', sans-serif",
+            }}
+          />
+          {error && <p style={{ color: '#ef4444', fontSize: 12, marginBottom: 10, fontWeight: 600 }}>Clave incorrecta</p>}
+          <button type="submit" disabled={checking || !pw}
+            style={{
+              width: '100%', padding: '14px 24px', borderRadius: 12, border: 'none', cursor: 'pointer',
+              background: pw ? 'linear-gradient(135deg, #6366f1, #8b5cf6)' : 'rgba(255,255,255,0.06)',
+              color: pw ? '#fff' : '#475569', fontSize: 14, fontWeight: 700, transition: 'all 0.2s',
+              boxShadow: pw ? '0 0 28px rgba(99,102,241,0.25)' : 'none',
+            }}
+          >{checking ? 'Verificando...' : 'Acceder'}</button>
+        </form>
+        <p style={{ color: '#1e293b', fontSize: 10, marginTop: 40 }}>© 2026 GenyX Systems</p>
+      </div>
+    </div>
+  );
+}
+
 function GenyXLandingPage() {
   const [scrolled, setScrolled] = React.useState(false);
   React.useEffect(() => {
@@ -6052,7 +6120,7 @@ export default function GenyXOperatorDashboard() {
   }
 
   // ―― www.genyxsystems.com (o cualquier dominio no-mando) → Landing Page ―――
-  if (!IS_MANDO && !IS_LOCAL && !IS_OS) return <GenyXLandingPage />;
+  if (!IS_MANDO && !IS_LOCAL && !IS_OS) return <LandingAuthGate><GenyXLandingPage /></LandingAuthGate>;
 
   if (IS_MANDO && MANDO_SLUG) return <MandoClientView slug={MANDO_SLUG} />;
   if (IS_MANDO && !MANDO_SLUG && !adminKey) return <AdminLoginScreen onAuth={(k) => { sessionStorage.setItem('genyx_admin_key', k); setAdminKey(k); }} />;
