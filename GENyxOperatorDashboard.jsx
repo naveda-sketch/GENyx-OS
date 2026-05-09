@@ -5389,7 +5389,7 @@ function SimuladorGenyX() {
 // SHA-256 of the access password. To change password, run in browser console:
 //   crypto.subtle.digest('SHA-256', new TextEncoder().encode('YOUR_PASSWORD'))
 //     .then(b => Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2,'0')).join(''))
-const LANDING_PW_HASH = '85f81e67c0c5d1e61bf14d15951f2f4872a087fb351e35f360b8d9bad0be50a6'; // default: 'genyx2026'
+const LANDING_PW_HASH = '9014409f25e97eef6d7fd14f4e4b1efaf35a32634cd2e89299f10c6e195c0378';
 
 function LandingAuthGate({ children }) {
   const [authed, setAuthed] = React.useState(sessionStorage.getItem('genyx_landing_auth') === 'true');
