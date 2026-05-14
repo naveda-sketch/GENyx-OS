@@ -4565,6 +4565,51 @@ function MandoClientView({ slug }) {
   );
 }
 
+// ── PWA Install Banner ────────────────────────────────────────────────────
+function PWAInstallBanner() {
+  const [show, setShow] = React.useState(false);
+  const [dismissed, setDismissed] = React.useState(false);
+
+  React.useEffect(() => {
+    if (dismissed) return;
+    const check = () => { if (window.__pwaPrompt) setTimeout(() => setShow(true), 5000); };
+    if (window.__pwaPrompt) { setTimeout(() => setShow(true), 5000); return; }
+    window.addEventListener('pwa-ready', check);
+    return () => window.removeEventListener('pwa-ready', check);
+  }, [dismissed]);
+
+  if (!show || dismissed) return null;
+
+  const install = async () => {
+    const p = window.__pwaPrompt;
+    if (!p) return;
+    p.prompt();
+    const result = await p.userChoice;
+    if (result.outcome === 'accepted') setDismissed(true);
+    setShow(false);
+    window.__pwaPrompt = null;
+  };
+
+  return (
+    <div style={{
+      position: 'fixed', bottom: 90, left: 24, right: 90, zIndex: 9998,
+      background: 'linear-gradient(135deg, rgba(99,102,241,0.95), rgba(139,92,246,0.95))',
+      backdropFilter: 'blur(12px)', borderRadius: 16, padding: '14px 20px',
+      display: 'flex', alignItems: 'center', gap: 14, boxShadow: '0 12px 40px rgba(99,102,241,0.4)',
+      animation: 'slideUp .4s ease-out', maxWidth: 420,
+    }}>
+      <div style={{ width: 36, height: 36, borderRadius: 10, background: 'rgba(255,255,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, flexShrink: 0 }}>📲</div>
+      <div style={{ flex: 1 }}>
+        <div style={{ color: '#fff', fontWeight: 700, fontSize: 13 }}>Instala GenyX</div>
+        <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: 11 }}>Acceso rápido desde tu pantalla de inicio</div>
+      </div>
+      <button onClick={install} style={{ background: '#fff', color: '#6366f1', border: 'none', borderRadius: 8, padding: '7px 16px', fontSize: 12, fontWeight: 700, cursor: 'pointer', flexShrink: 0 }}>Instalar</button>
+      <button onClick={() => setDismissed(true)} style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.5)', cursor: 'pointer', fontSize: 16, padding: '2px 4px', flexShrink: 0 }}>×</button>
+      <style>{`@keyframes slideUp { from { opacity:0; transform:translateY(20px) } to { opacity:1; transform:translateY(0) } }`}</style>
+    </div>
+  );
+}
+
 // ── GenyX Concierge Web Widget (floating chat) ───────────────────────────
 function GenyXConciergeWidget() {
   const BURL = BACKEND;
@@ -5920,6 +5965,7 @@ function GenyXLandingPage() {
         </div>
       </div>
 
+      <PWAInstallBanner />
       <GenyXConciergeWidget />
       <footer style={C.footer}>
         <span style={C.ftrBrand}>GenyX © 2026 · Tu operación comercial autónoma</span>
