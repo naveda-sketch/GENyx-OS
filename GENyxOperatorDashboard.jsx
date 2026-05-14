@@ -4580,7 +4580,7 @@ function GenyXConciergeWidget() {
   const inpRef = React.useRef(null);
 
   React.useEffect(() => { const t = setTimeout(() => setPulse(false), 8000); return () => clearTimeout(t); }, []);
-  React.useEffect(() => { if (open && msgs.length === 0) addBot('Hola, bienvenido a GenyX.\n\nSi llegaste hasta aquí, algo en tu negocio quieres mejorar.\n\n¿Cuál es el reto más grande que enfrentas ahora mismo?'); }, [open]);
+  React.useEffect(() => { if (open && msgs.length === 0) addBot('Hola 👋 Bienvenido a GenyX.\n\nAyudamos a negocios como el tuyo a vender más con 8 agentes de IA.\n\n¿A qué se dedica tu negocio?'); }, [open]);
   React.useEffect(() => { botRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [msgs, typing]);
   React.useEffect(() => { if (open && phase !== 'done') setTimeout(() => inpRef.current?.focus(), 150); }, [open, phase]);
 
