@@ -995,7 +995,7 @@ const TabAnalista = ({ tenants, orders, selectedSlug, setSelectedSlug }) => {
 
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// TAB: AGENTES — Matriz tenants × 8 agentes con status dots
+// TAB: AGENTES — Matriz tenants × 9 agentes con status dots
 // ═══════════════════════════════════════════════════════════════════════════════
 const AGENT_DEFS = [
   { id: 'marketing',   icon: '📣', name: 'Mkt',  plan: 'AUTONOMY' },
@@ -1055,7 +1055,7 @@ const TabAgentes = ({ tenants }) => {
     <section>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 24, flexWrap: 'wrap' }}>
         <h2 style={{ ...H2, margin: 0 }}>🤖 Matriz de Agentes</h2>
-        <span style={MONO}>{tenants.length} cliente(s) × 8 agentes</span>
+        <span style={MONO}>{tenants.length} cliente(s) × 9 agentes</span>
       </div>
 
       <div style={{ overflowX: 'auto', marginBottom: 24 }}>
@@ -2288,7 +2288,7 @@ function TabPlaceholder({ placeholder = 'Este módulo' }) {
         {placeholder} próximamente
       </h3>
       <p style={{ fontSize: 14, lineHeight: 1.6, maxWidth: 400, margin: '0 auto' }}>
-        Este módulo está siendo construido para tu industria. Te avisaremos cuando esté disponible.
+        Este módulo está siendo construido para tu negocio. Te avisaremos cuando esté disponible.
       </p>
     </div>
   );
@@ -2991,7 +2991,7 @@ function TabMisAgentes({ slug, token }) {
         })}
       </div>
       <div style={{ marginTop: 16, padding: '12px 14px', background: '#f8fafc', borderRadius: 12, border: '1px solid #e2e8f0', fontSize: 12, color: '#64748b', textAlign: 'center' }}>
-        💡 Tu plan <b>{plan}</b> incluye {agents ? Object.values(agents).filter(s => s !== 'inactive').length : 0} de 8 agentes. ¿Quieres más? <b>hola@genyxsystems.com</b>
+        💡 Tu plan <b>{plan}</b> incluye {agents ? Object.values(agents).filter(s => s !== 'inactive').length : 0} de 9 agentes. ¿Quieres más? <b>hola@genyxsystems.com</b>
       </div>
     </>
   );
@@ -4625,7 +4625,7 @@ function GenyXConciergeWidget() {
   const inpRef = React.useRef(null);
 
   React.useEffect(() => { const t = setTimeout(() => setPulse(false), 8000); return () => clearTimeout(t); }, []);
-  React.useEffect(() => { if (open && msgs.length === 0) addBot('Hola 👋 Bienvenido a GenyX.\n\nAyudamos a negocios como el tuyo a vender más con 8 agentes de IA.\n\n¿A qué se dedica tu negocio?'); }, [open]);
+  React.useEffect(() => { if (open && msgs.length === 0) addBot('Hola 👋 Bienvenido a GenyX.\n\nAyudamos a negocios como el tuyo a vender más con 9 agentes de IA que se vuelven más inteligentes con el tiempo.\n\n¿A qué se dedica tu negocio?'); }, [open]);
   React.useEffect(() => { botRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [msgs, typing]);
   React.useEffect(() => { if (open && phase !== 'done') setTimeout(() => inpRef.current?.focus(), 150); }, [open, phase]);
 
@@ -4719,15 +4719,15 @@ function WhatsAppSimulator() {
   const chatRef = React.useRef(null);
 
   const SIM_AGENTS = [
-    { id:'A1', name:'Marketing', role:'Contenido' },
-    { id:'A2', name:'Captación', role:'Prospección' },
-    { id:'A3', name:'Ventas', role:'Atención' },
-    { id:'A4', name:'Cierre', role:'Pagos' },
-    { id:'A5', name:'Entrega', role:'Logística' },
-    { id:'A6', name:'Seguimiento', role:'Retención' },
-    { id:'A7', name:'Analítica', role:'KPIs' },
-    { id:'A8', name:'Finanzas', role:'Márgenes' },
-    { id:'CEO', name:'CEO Digital', role:'Briefings' },
+    { id:'A1', name:'Marketing', role:'Contenido', tip:'Genera contenido con tu ADN de marca. Publica en redes y reactiva clientes inactivos.' },
+    { id:'A2', name:'Captación', role:'Prospección', tip:'Atrae clientes a tu WhatsApp desde redes, web y búsquedas.' },
+    { id:'A3', name:'Ventas', role:'Atención', tip:'Atiende cada mensaje en segundos con la personalidad de tu marca.' },
+    { id:'A4', name:'Cierre', role:'Pagos', tip:'Genera links de pago y cobra dentro del chat — sin que el cliente salga.' },
+    { id:'A5', name:'Entrega', role:'Logística', tip:'Coordina logística y envía notificaciones de estado al cliente.' },
+    { id:'A6', name:'Seguimiento', role:'Retención', tip:'Recupera carritos abandonados y reactiva clientes que dejaron de comprar.' },
+    { id:'A7', name:'Analítica', role:'KPIs', tip:'Detecta tu producto estrella, hora pico y tendencias. Cada semana más inteligente.' },
+    { id:'A8', name:'Finanzas', role:'Márgenes', tip:'Calcula márgenes, punto de equilibrio y proyecciones con tus costos reales.' },
+    { id:'CEO', name:'CEO Digital', role:'Briefings', tip:'Consolida toda la información y te entrega un briefing diario con lo más importante.' },
   ];
 
   const SCENARIO = [
@@ -4735,10 +4735,10 @@ function WhatsAppSimulator() {
       bot:'¡Hola! 👋 Bienvenido a tu negocio. ¿Qué te gustaría ordenar hoy? Tenemos nuestro menú completo disponible. 🛒',
       agents:['A3'], logs:[{m:'A3 Ventas: sesión iniciada',c:'#4ade80'},{m:'A7 Analítica: nueva sesión',c:'#818cf8'}], delay:1200 },
     { trigger:/menu|que tienen|productos|catalogo|catálogo|ver/i,
-      bot:'📋 Productos disponibles:\n\n🥐 Producto A — $25\n🍞 Producto B — $120\n🍕 Producto C — $180\n🍪 Producto D (2 pzas) — $40\n☕ Producto E — $35\n\n¿Qué se te antoja? 😊',
+      bot:'📋 Productos disponibles:\n\n• Producto A — $25\n• Producto B — $120\n• Producto C — $180\n• Producto D (2 pzas) — $40\n• Producto E — $35\n\n¿Qué te gustaría ordenar? 😊',
       agents:['A3','A7'], logs:[{m:'A3 Ventas: catálogo presentado',c:'#4ade80'},{m:'A7 Analítica: consulta registrada',c:'#818cf8'}], delay:1500 },
     { trigger:/producto|quiero|dame|ordenar|pedir|2|uno|una/i,
-      bot:'¡Excelente elección! 🎉 Tu pedido:\n\n🥐 2 × Producto A — $50\n☕ 1 × Producto E — $35\n\n💰 Total: $85\n\n¿Confirmamos? Te envío el link de pago 💳',
+      bot:'¡Excelente elección! 🎉 Tu pedido:\n\n• 2 × Producto A — $50\n• 1 × Producto E — $35\n\n💰 Total: $85\n\n¿Confirmamos? Te envío el link de pago 💳',
       agents:['A3','A4','A7','A8'], logs:[{m:'A3 Ventas: orden — $85',c:'#4ade80'},{m:'A4 Cierre: link de pago',c:'#6366f1'},{m:'A7 Analítica: ticket → $85',c:'#818cf8'},{m:'A8 Finanzas: margen 62.3%',c:'#f59e0b'}], metrics:{orders:1,revenue:85}, delay:1800 },
     { trigger:/si|sí|confirmo|confirmar|pago|dale|ok/i,
       bot:'✅ ¡Pedido confirmado!\n\n💳 Link de pago generado.\n\nUna vez que pagues, te confirmo la hora de entrega. ¡Gracias! 🙌',
@@ -4785,10 +4785,11 @@ function WhatsAppSimulator() {
   const agCard = (ag) => {
     const on = activeAgents.has(ag.id), proc = processingAgents.has(ag.id);
     return (
-      <div key={ag.id} style={{ background: on?'rgba(99,102,241,0.06)':proc?'rgba(129,140,248,0.08)':'rgba(6,9,18,0.6)', border:`1px solid ${on?'rgba(99,102,241,0.3)':proc?'rgba(129,140,248,0.4)':'rgba(255,255,255,0.04)'}`, borderRadius:12, padding:14, display:'flex', flexDirection:'column', alignItems:'center', gap:8, transition:'all .4s cubic-bezier(.4,0,.2,1)', animation:proc?'simAgPulse 1.5s infinite':'none' }}>
+      <div key={ag.id} title={ag.tip} style={{ background: on?'rgba(99,102,241,0.06)':proc?'rgba(129,140,248,0.08)':'rgba(6,9,18,0.6)', border:`1px solid ${on?'rgba(99,102,241,0.3)':proc?'rgba(129,140,248,0.4)':'rgba(255,255,255,0.04)'}`, borderRadius:12, padding:14, display:'flex', flexDirection:'column', alignItems:'center', gap:8, transition:'all .4s cubic-bezier(.4,0,.2,1)', animation:proc?'simAgPulse 1.5s infinite':'none', cursor:'help', position:'relative' }}>
         <div style={{ width:42, height:42, borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', fontSize:11, fontWeight:800, background:on?'linear-gradient(135deg,#6366f1,#8b5cf6)':proc?'linear-gradient(135deg,#818cf8,#c084fc)':'rgba(255,255,255,0.05)', border:`2px solid ${on||proc?'transparent':'rgba(255,255,255,0.08)'}`, color:on||proc?'white':'#475569', boxShadow:on?'0 0 30px rgba(99,102,241,0.3)':proc?'0 0 30px rgba(129,140,248,0.3)':'none', transition:'all .4s' }}>{ag.id}</div>
         <div style={{ fontSize:10, fontWeight:600, color:on||proc?'#f1f5f9':'#475569', textAlign:'center' }}>{ag.name}</div>
         <div style={{ fontSize:9, color:on?'#818cf8':'#475569', textAlign:'center', opacity:on?1:0.7 }}>{ag.role}</div>
+        <div style={{ position:'absolute', top:4, right:6, fontSize:9, color:'#475569', opacity:0.6, cursor:'help' }}>ⓘ</div>
       </div>
     );
   };
@@ -4797,7 +4798,7 @@ function WhatsAppSimulator() {
     <section style={{ position:'relative', padding:'80px 24px', maxWidth:1300, margin:'0 auto' }} id="simulador-inmersivo">
       <div style={{ textAlign:'center', marginBottom:48 }}>
         <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', textTransform:'uppercase', marginBottom:12 }}>SIMULADOR EN VIVO</div>
-        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:10, letterSpacing:'-1px', lineHeight:1.15 }}>Escribe un mensaje y observa<br/><span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>cómo operan tus 8 agentes + tu CEO Digital.</span></h2>
+        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:10, letterSpacing:'-1px', lineHeight:1.15 }}>Escribe un mensaje y observa<br/><span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>cómo operan tus 9 agentes en tiempo real.</span></h2>
         <p style={{ color:'#94a3b8', fontSize:15, maxWidth:560, margin:'0 auto' }}>Esta es una simulación real de lo que GenyX hace con tu negocio. Cada mensaje activa agentes que procesan, ejecutan y generan tu briefing — en automático.</p>
       </div>
 
@@ -4922,7 +4923,7 @@ function PlanesPage() {
           <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.12em', marginBottom: 12 }}>DETALLE DE PLANES</div>
         </div>
         <h1 style={S.h1}>Tres planes según el tamaño de tu negocio.</h1>
-        <p style={S.sub}>Todos los planes incluyen los 8 agentes de IA. Lo que varía es la cuota de operación proactiva según el volumen de tu negocio.</p>
+        <p style={S.sub}>Todos los planes incluyen los 9 agentes de IA. Lo que varía es la cuota de operación proactiva según el volumen de tu negocio.</p>
 
         {/* §5.1 Resumen de planes */}
         <div style={S.section}>
@@ -4941,7 +4942,7 @@ function PlanesPage() {
                   ['Setup inicial (una vez)', '$12,000 MXN', '$18,000 MXN', '$30,000 MXN'],
                   ['Negocio ideal', '$200K–$700K MXN/mes', '$700K–$2M MXN/mes', '$2M–$5M MXN/mes'],
                   ['Empleados aproximados', '5 – 15', '15 – 50', '50 – 100'],
-                  ['Agentes de IA', '8', '8', '8'],
+                  ['Agentes de IA', '9', '9', '9'],
                 ].map(([label, ...vals]) => (
                   <tr key={label}>
                     <td style={S.tdH}>{label}</td>
@@ -5082,7 +5083,7 @@ function PlanesPage() {
         <div style={S.section}>
           <div style={S.sTitle}>🧩 Herramientas por industria</div>
           <div style={S.card}>
-            <p style={{ ...S.li, marginBottom: 16 }}>Además de los 8 agentes, activamos herramientas según tu industria:</p>
+            <p style={{ ...S.li, marginBottom: 16 }}>Además de los 9 agentes, activamos herramientas según tu negocio:</p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 10, marginBottom: 16 }}>
               {[
                 ['📦 Inventario', 'Control de stock en tiempo real'],
@@ -5122,34 +5123,19 @@ function PlanesPage() {
 
 // ═══ SIMULADOR GENYX — Constantes + Timeline Generator ═══
 
-const SIM_IND = {
-  restaurantes: { label:'Restaurantes y Comida', icon:'🍽️', reto:'Tú en la cocina, GenyX en el chat — atendiendo a todos al mismo tiempo', conv:0.35, margen:0.40, prod:'menú del día', unit:'pedido',
-    fields:[{key:'mensajes',label:'Mensajes que recibes al día',def:40,min:5,max:500},{key:'ticket',label:'Ticket promedio (pedido)',def:180,min:50,max:2000,pfx:'$'},{key:'empleados',label:'Empleados en tu equipo',def:8,min:1,max:100}]},
-  clinicas: { label:'Clínicas y Consultorios', icon:'⚕️', reto:'GenyX agenda, confirma y cobra anticipo por ti', conv:0.45, margen:0.55, prod:'consulta', unit:'cita',
-    fields:[{key:'mensajes',label:'Pacientes que escriben al día',def:20,min:3,max:200},{key:'ticket',label:'Anticipo o consulta promedio',def:400,min:100,max:5000,pfx:'$'},{key:'empleados',label:'Personal en consulta',def:3,min:1,max:30}]},
-  belleza: { label:'Belleza y Cuidado Personal', icon:'✨', reto:'Confirmación y recordatorio automático para cada cita', conv:0.45, margen:0.60, prod:'servicio', unit:'cita',
-    fields:[{key:'mensajes',label:'Solicitudes de cita al día',def:25,min:5,max:150},{key:'ticket',label:'Servicio promedio',def:450,min:100,max:3000,pfx:'$'},{key:'empleados',label:'Estilistas/operadoras',def:4,min:1,max:30}]},
-  escuelas: { label:'Escuelas y Cursos', icon:'📚', reto:'Del primer mensaje a la inscripción — GenyX guía al interesado', conv:0.15, margen:0.70, prod:'programa', unit:'inscripción',
-    fields:[{key:'mensajes',label:'Interesados al día (leads)',def:30,min:5,max:500},{key:'ticket',label:'Valor promedio de inscripción',def:4500,min:500,max:50000,pfx:'$'},{key:'empleados',label:'Equipo administrativo',def:5,min:1,max:50}]},
-  inmobiliarias: { label:'Inmobiliarias', icon:'🏢', reto:'Filtra, califica y te entrega los leads más serios', conv:0.08, margen:0.25, prod:'propiedad', unit:'cierre',
-    fields:[{key:'mensajes',label:'Leads de portales/redes al día',def:50,min:10,max:500},{key:'ticket',label:'Comisión promedio por venta',def:80000,min:20000,max:500000,pfx:'$'},{key:'empleados',label:'Asesores activos',def:5,min:1,max:50}]},
-  panaderias: { label:'Panaderías y Pastelerías', icon:'🥖', reto:'Toma pedidos y cobra 24/7 — incluso cuando tú ya no estás', conv:0.40, margen:0.45, prod:'catálogo', unit:'pedido',
-    fields:[{key:'mensajes',label:'Mensajes que recibes al día',def:40,min:5,max:500},{key:'ticket',label:'Ticket promedio (pedido)',def:180,min:50,max:2000,pfx:'$'},{key:'empleados',label:'Empleados en tu equipo',def:8,min:1,max:100}]},
+const SIM_CONFIG = {
+  label:'Tu Negocio', conv:0.30, margen:0.45, prod:'producto o servicio', unit:'venta',
+  fields:[
+    {key:'mensajes',label:'Mensajes que recibes al día',def:40,min:5,max:500},
+    {key:'ticket',label:'Ticket promedio',def:250,min:50,max:50000,pfx:'$'},
+    {key:'empleados',label:'Empleados en tu equipo',def:8,min:1,max:100}
+  ]
 };
 
 const SIM_LOSS = { pocos:0.10, medios:0.25, muchos:0.40, demasiados:0.55 };
 const SIM_LOSS_LABELS = ['pocos','medios','muchos','demasiados'];
 // SVG icon helper — gradient stroke icons matching the landing page design
 const simSvg = (paths, id) => React.createElement('svg', {width:28,height:28,viewBox:'0 0 24 24',fill:'none',strokeWidth:1.5,strokeLinecap:'round',strokeLinejoin:'round',stroke:`url(#sim${id})`}, React.createElement('defs',null,React.createElement('linearGradient',{id:`sim${id}`,x1:0,y1:0,x2:24,y2:24},React.createElement('stop',{offset:'0%',stopColor:'#818cf8'}),React.createElement('stop',{offset:'100%',stopColor:'#c084fc'}))), ...paths.map((d,i) => typeof d === 'string' ? React.createElement('path',{key:i,d}) : React.createElement(d[0],{key:i,...d[1]})));
-
-const SIM_ICONS = {
-  restaurantes: () => simSvg(['M18 8h1a4 4 0 010 8h-1','M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z',["line",{x1:6,y1:1,x2:6,y2:4}],["line",{x1:10,y1:1,x2:10,y2:4}],["line",{x1:14,y1:1,x2:14,y2:4}]],'r1'),
-  clinicas: () => simSvg(['M22 12h-4l-3 9L9 3l-3 9H2'],'r2'),
-  belleza: () => simSvg(['M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'],'r3'),
-  escuelas: () => simSvg(['M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z','M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z'],'r4'),
-  inmobiliarias: () => simSvg([["rect",{x:3,y:3,width:18,height:18,rx:2,ry:2}],["line",{x1:3,y1:9,x2:21,y2:9}],["line",{x1:9,y1:21,x2:9,y2:9}]],'r5'),
-  panaderias: () => simSvg(['M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z',["line",{x1:3,y1:6,x2:21,y2:6}],'M16 10a4 4 0 01-8 0'],'r6'),
-};
 
 // Agent SVG icons — minimal stroke icons
 const simAgSvg = (paths, id) => React.createElement('svg', {width:20,height:20,viewBox:'0 0 24 24',fill:'none',strokeWidth:1.8,strokeLinecap:'round',strokeLinejoin:'round',stroke:`url(#sag${id})`}, React.createElement('defs',null,React.createElement('linearGradient',{id:`sag${id}`,x1:0,y1:0,x2:24,y2:24},React.createElement('stop',{offset:'0%',stopColor:'#818cf8'}),React.createElement('stop',{offset:'100%',stopColor:'#c084fc'}))), ...paths.map((d,i) => typeof d === 'string' ? React.createElement('path',{key:i,d}) : React.createElement(d[0],{key:i,...d[1]})));
@@ -5173,8 +5159,8 @@ const SIM_AGENTS = [
 function simFmt(n){return n.toLocaleString('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0})}
 function simTime(m){const h=Math.floor(m/60),mm=m%60,ap=h>=12?'PM':'AM',hh=h>12?h-12:h===0?12:h;return `${hh}:${String(mm).padStart(2,'0')} ${ap}`}
 
-function genSimTimeline(indKey, inputs) {
-  const c = SIM_IND[indKey], msg = inputs.mensajes, tk = inputs.ticket;
+function genSimTimeline(inputs) {
+  const c = SIM_CONFIG, msg = inputs.mensajes, tk = inputs.ticket;
   const cierres = Math.round(msg * c.conv);
   const react = Math.max(1, Math.round(cierres * 0.08));
   const carts = Math.max(1, Math.round(msg * 0.05));
@@ -5201,12 +5187,410 @@ function genSimTimeline(indKey, inputs) {
   ];
 }
 
+// ═══ CENTRO DE MANDO — Simulador iPhone ═══
+
+function MandoSimulator() {
+  const [started, setStarted] = React.useState(false);
+  const [step, setStep] = React.useState(0);
+  const [kpis, setKpis] = React.useState({ pedidos: 0, ingresos: 0, margen: 0, ticket: 0 });
+  const [briefingLines, setBriefingLines] = React.useState([]);
+  const [agentsLit, setAgentsLit] = React.useState([]);
+  const [feedItems, setFeedItems] = React.useState([]);
+  const [showRec, setShowRec] = React.useState(false);
+  const [showCalendar, setShowCalendar] = React.useState(false);
+  const [hoveredAgent, setHoveredAgent] = React.useState(null);
+  const observerRef = React.useRef(null);
+  const sectionRef = React.useRef(null);
+  const reducedMotion = React.useRef(typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches);
+
+  const KPI_TARGETS = { pedidos: 12, ingresos: 4380, margen: 62.3, ticket: 365 };
+  const KPI_DELTAS = { pedidos: { val: 3, pct: '+3' }, ingresos: { val: 18, pct: '+18%' }, margen: { val: -1.2, pct: '-1.2%' }, ticket: { val: 8, pct: '+$8' } };
+  const KPI_SPARKS = {
+    pedidos: [8, 6, 11, 9, 14, 10, 12],
+    ingresos: [2800, 2100, 3900, 3200, 5100, 3700, 4380],
+    margen: [64, 63, 65, 62, 61, 63, 62.3],
+    ticket: [350, 350, 355, 360, 365, 370, 365],
+  };
+
+  const MANDO_AGENTS = [
+    { id: 'A1', icon: '📢', name: 'Marketing', color: '#f472b6', lastAction: 'WA Status publicado (48 vistas)', actions: 5 },
+    { id: 'A2', icon: '🎣', name: 'Captación', color: '#fb923c', lastAction: 'Lead nuevo: Restaurante Oaxaca', actions: 3 },
+    { id: 'A3', icon: '🛒', name: 'Ventas', color: '#4ade80', lastAction: 'Pedido #47 cerrado — $285', actions: 12 },
+    { id: 'A4', icon: '🤝', name: 'Cierre', color: '#60a5fa', lastAction: 'Pago confirmado Stripe — $180', actions: 8 },
+    { id: 'A5', icon: '🚚', name: 'Entrega', color: '#a78bfa', lastAction: 'Entrega #42 confirmada', actions: 6 },
+    { id: 'A6', icon: '💬', name: 'Seguimiento', color: '#2dd4bf', lastAction: '3 carritos recuperados hoy', actions: 9 },
+    { id: 'A7', icon: '📊', name: 'Analítica', color: '#818cf8', lastAction: 'Alerta: ticket promedio ▼12%', actions: 4 },
+    { id: 'A8', icon: '💰', name: 'Finanzas', color: '#fbbf24', lastAction: 'Margen bruto recalculado', actions: 2 },
+    { id: 'CEO', icon: '👔', name: 'CEO Digital', color: '#c084fc', lastAction: 'Briefing generado 7:15am', actions: 1 },
+  ];
+
+  const BRIEFING = [
+    '• Tu producto estrella hoy: Hogaza Natural (18 uds)',
+    '• Hora pico: 11am–1pm — 67% de tus pedidos',
+    '• 3 carritos abandonados recuperados por A6',
+    '• Margen bajó 1.2pts — A8 detectó aumento en harina',
+  ];
+
+  const RECOMMENDATION = '💡 Sube $5 la Hogaza para compensar el costo sin impactar demanda (LTV alto).';
+
+  const FEED = [
+    { time: '10:42', agent: 'A3', icon: '🛒', text: 'Pedido #47 cerrado — $285', color: '#4ade80' },
+    { time: '10:38', agent: 'A4', icon: '🤝', text: 'Pago confirmado Stripe — $180', color: '#60a5fa' },
+    { time: '10:15', agent: 'A6', icon: '💬', text: 'Carrito recuperado — Lupita', color: '#2dd4bf' },
+    { time: '09:50', agent: 'A1', icon: '📢', text: 'WA Status publicado (48 vistas)', color: '#f472b6' },
+    { time: '09:30', agent: 'A7', icon: '📊', text: 'Alerta: ticket promedio ▼12% vs ayer', color: '#818cf8' },
+    { time: '07:15', agent: 'CEO', icon: '👔', text: 'Briefing diario generado', color: '#c084fc' },
+    { time: '05:00', agent: 'A7', icon: '📊', text: 'Reporte semanal enviado', color: '#818cf8' },
+  ];
+
+  // ── Intersection Observer: auto-start when visible ──
+  React.useEffect(() => {
+    if (started || reducedMotion.current) return;
+    observerRef.current = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setStarted(true);
+        observerRef.current?.disconnect();
+      }
+    }, { threshold: 0.3 });
+    if (sectionRef.current) observerRef.current.observe(sectionRef.current);
+    return () => observerRef.current?.disconnect();
+  }, [started]);
+
+  // ── Animation sequence ──
+  React.useEffect(() => {
+    if (!started) return;
+    const timers = [];
+
+    // Reduced motion: show everything instantly
+    if (reducedMotion.current) {
+      setStep(6);
+      setKpis(KPI_TARGETS);
+      setBriefingLines(BRIEFING);
+      setShowRec(true);
+      setAgentsLit(MANDO_AGENTS.map(a => a.id));
+      setFeedItems(FEED);
+      setShowCalendar(true);
+      return;
+    }
+
+    // Step 1: KPI counter animation (0 → target in 1.5s)
+    timers.push(setTimeout(() => setStep(1), 400));
+    const kpiDur = 1500;
+    const kpiStart = Date.now();
+    const kpiFrame = () => {
+      const p = Math.min((Date.now() - kpiStart) / kpiDur, 1);
+      const ease = 1 - Math.pow(1 - p, 3); // ease-out cubic
+      setKpis({
+        pedidos: Math.round(KPI_TARGETS.pedidos * ease),
+        ingresos: Math.round(KPI_TARGETS.ingresos * ease),
+        margen: Math.round(KPI_TARGETS.margen * ease * 10) / 10,
+        ticket: Math.round(KPI_TARGETS.ticket * ease),
+      });
+      if (p < 1) requestAnimationFrame(kpiFrame);
+    };
+    timers.push(setTimeout(() => requestAnimationFrame(kpiFrame), 400));
+
+    // Step 2: Briefing lines appear one by one
+    timers.push(setTimeout(() => setStep(2), 2200));
+    BRIEFING.forEach((_, i) => {
+      timers.push(setTimeout(() => setBriefingLines(prev => [...prev, BRIEFING[i]]), 2400 + i * 700));
+    });
+
+    // Step 3: Recommendation appears
+    timers.push(setTimeout(() => { setStep(3); setShowRec(true); }, 5400));
+
+    // Step 4: Agents light up
+    timers.push(setTimeout(() => setStep(4), 6200));
+    MANDO_AGENTS.forEach((a, i) => {
+      timers.push(setTimeout(() => setAgentsLit(prev => [...prev, a.id]), 6400 + i * 200));
+    });
+
+    // Step 5: Feed items slide in
+    timers.push(setTimeout(() => setStep(5), 8600));
+    FEED.forEach((_, i) => {
+      timers.push(setTimeout(() => setFeedItems(prev => [...prev, FEED[i]]), 8800 + i * 500));
+    });
+
+    // Step 6: Calendar appears
+    timers.push(setTimeout(() => { setStep(6); setShowCalendar(true); }, 12500));
+
+    return () => timers.forEach(t => clearTimeout(t));
+  }, [started]);
+
+  // ── Sparkline SVG ──
+  const Sparkline = ({ data, color = '#818cf8', w = 60, h = 20 }) => {
+    const mn = Math.min(...data), mx = Math.max(...data), range = mx - mn || 1;
+    const pts = data.map((v, i) => `${(i / (data.length - 1)) * w},${h - ((v - mn) / range) * h}`).join(' ');
+    return (
+      <svg width={w} height={h} style={{ display: 'block' }}>
+        <polyline points={pts} fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.6" />
+      </svg>
+    );
+  };
+
+  // ── Get greeting based on current hour ──
+  const getGreeting = () => {
+    const h = new Date().getHours();
+    if (h < 12) return 'Buenos días';
+    if (h < 18) return 'Buenas tardes';
+    return 'Buenas noches';
+  };
+
+  // ── CSS Keyframes (injected once) ──
+  const keyframes = `
+    @keyframes mandoPulse { 0%,100%{box-shadow:0 0 0 0 rgba(74,222,128,0.4)} 70%{box-shadow:0 0 0 6px rgba(74,222,128,0)} }
+    @keyframes mandoSlideIn { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes mandoFadeIn { from{opacity:0} to{opacity:1} }
+    @keyframes mandoCountUp { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes mandoPhoneGlow { 0%,100%{box-shadow:0 0 60px rgba(99,102,241,0.15), 0 0 120px rgba(99,102,241,0.05)} 50%{box-shadow:0 0 80px rgba(99,102,241,0.25), 0 0 160px rgba(99,102,241,0.1)} }
+  `;
+
+  const nextFriday = () => {
+    const d = new Date();
+    const day = d.getDay();
+    const diff = (5 - day + 7) % 7 || 7;
+    d.setDate(d.getDate() + diff);
+    return d.toLocaleDateString('es-MX', { day: 'numeric', month: 'short' });
+  };
+
+  return (
+    <section ref={sectionRef} id="centro-de-mando" style={{ padding: '100px 24px', maxWidth: 960, margin: '0 auto' }}>
+      <style>{keyframes}</style>
+
+      {/* ── Section Header ── */}
+      <div style={{ textAlign: 'center', marginBottom: 56 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>CENTRO DE MANDO</div>
+        <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10, lineHeight: 1.2 }}>
+          Y tú, ¿qué ves?<br />
+          <span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            Tu CEO Digital te lo muestra.
+          </span>
+        </h2>
+        <p style={{ color: '#64748b', fontSize: 15, maxWidth: 520, margin: '0 auto' }}>
+          Sin abrir la computadora. Sin pedir reportes. Un briefing inteligente en tu bolsillo.
+        </p>
+      </div>
+
+      {/* ── iPhone Frame ── */}
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <div style={{
+          width: 320, minHeight: 640, maxHeight: 700,
+          background: '#000',
+          borderRadius: 48,
+          border: '4px solid #2a2a2e',
+          boxShadow: '0 0 60px rgba(99,102,241,0.15), 0 0 120px rgba(99,102,241,0.05), inset 0 0 0 2px rgba(255,255,255,0.05)',
+          animation: 'mandoPhoneGlow 4s ease-in-out infinite',
+          position: 'relative',
+          overflow: 'hidden',
+          padding: '12px 0',
+        }}>
+          {/* Dynamic Island */}
+          <div style={{
+            width: 100, height: 28, background: '#000', borderRadius: 20,
+            margin: '0 auto 8px', position: 'relative', zIndex: 2,
+            boxShadow: '0 0 0 2px rgba(255,255,255,0.04)',
+          }}>
+            <div style={{ position: 'absolute', right: 8, top: 8, width: 8, height: 8, borderRadius: '50%', background: '#1a1a2e', border: '1px solid rgba(255,255,255,0.08)' }} />
+          </div>
+
+          {/* Screen Content */}
+          <div style={{
+            background: '#0a0e1a',
+            borderRadius: 36,
+            margin: '0 4px',
+            padding: '16px 14px 20px',
+            minHeight: 580,
+            overflowY: 'auto',
+            overflowX: 'hidden',
+          }}>
+            {/* ── Greeting ── */}
+            <div style={{ animation: step >= 0 ? 'mandoFadeIn 0.6s ease' : 'none', marginBottom: 14 }}>
+              <div style={{ fontSize: 10, color: '#475569', fontWeight: 600, letterSpacing: '.05em', marginBottom: 2 }}>GENY<span style={{ color: '#818cf8' }}>X</span> MANDO</div>
+              <div style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', lineHeight: 1.3 }}>
+                {getGreeting()} ☀️
+              </div>
+              <div style={{ fontSize: 11, color: '#64748b', marginTop: 2 }}>Aquí va lo importante de hoy.</div>
+            </div>
+
+            {/* ── KPIs ── */}
+            <div style={{
+              display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 6, marginBottom: 12,
+              opacity: step >= 1 ? 1 : 0, transition: 'opacity 0.4s',
+            }}>
+              {[
+                { key: 'pedidos', label: 'Pedidos', prefix: '', suffix: '', icon: '📦' },
+                { key: 'ingresos', label: 'Ingresos', prefix: '$', suffix: '', icon: '💰' },
+                { key: 'margen', label: 'Margen', prefix: '', suffix: '%', icon: '📈' },
+                { key: 'ticket', label: 'Ticket', prefix: '$', suffix: '', icon: '🎟️' },
+              ].map(({ key, label, prefix, suffix, icon }) => (
+                <div key={key} style={{
+                  background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(99,102,241,0.12)',
+                  borderRadius: 12, padding: '10px 10px 8px', position: 'relative',
+                }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
+                    <span style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em' }}>{label}</span>
+                    <span style={{ fontSize: 12 }}>{icon}</span>
+                  </div>
+                  <div style={{ fontSize: 22, fontWeight: 900, color: '#f1f5f9', lineHeight: 1, marginBottom: 4, animation: step === 1 ? 'mandoCountUp 0.4s ease' : 'none' }}>
+                    {prefix}{key === 'ingresos' ? kpis[key].toLocaleString('es-MX') : kpis[key]}{suffix}
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{
+                      fontSize: 9, fontWeight: 700,
+                      color: KPI_DELTAS[key].val >= 0 ? '#4ade80' : '#f59e0b',
+                    }}>
+                      {KPI_DELTAS[key].val >= 0 ? '▲' : '▼'} {KPI_DELTAS[key].pct}
+                    </span>
+                    <Sparkline data={KPI_SPARKS[key]} color={KPI_DELTAS[key].val >= 0 ? '#4ade80' : '#f59e0b'} w={44} h={14} />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* ── Briefing CEO ── */}
+            <div style={{
+              background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.18)',
+              borderRadius: 12, padding: '10px 12px', marginBottom: 12,
+              opacity: step >= 2 ? 1 : 0, transition: 'opacity 0.5s',
+            }}>
+              <div style={{ fontSize: 10, fontWeight: 700, color: '#818cf8', marginBottom: 6, letterSpacing: '.03em' }}>📋 Briefing del día</div>
+              {briefingLines.map((line, i) => (
+                <div key={i} style={{
+                  fontSize: 10, color: '#cbd5e1', lineHeight: 1.6, marginBottom: 2,
+                  animation: 'mandoSlideIn 0.4s ease',
+                }}>
+                  {line}
+                </div>
+              ))}
+              {showRec && (
+                <div style={{
+                  marginTop: 8, padding: '6px 8px', background: 'rgba(251,191,36,0.08)',
+                  border: '1px solid rgba(251,191,36,0.2)', borderRadius: 8,
+                  fontSize: 10, color: '#fbbf24', fontWeight: 600, lineHeight: 1.5,
+                  animation: 'mandoFadeIn 0.6s ease',
+                }}>
+                  {RECOMMENDATION}
+                </div>
+              )}
+            </div>
+
+            {/* ── 9 Agents ── */}
+            <div style={{
+              marginBottom: 12,
+              opacity: step >= 4 ? 1 : 0, transition: 'opacity 0.4s',
+            }}>
+              <div style={{ fontSize: 9, fontWeight: 700, color: '#475569', marginBottom: 6, letterSpacing: '.05em', textTransform: 'uppercase' }}>9 Agentes</div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, justifyContent: 'center', position: 'relative' }}>
+                {MANDO_AGENTS.map((a) => {
+                  const lit = agentsLit.includes(a.id);
+                  const isHovered = hoveredAgent === a.id;
+                  return (
+                    <div key={a.id}
+                      onMouseEnter={() => setHoveredAgent(a.id)}
+                      onMouseLeave={() => setHoveredAgent(null)}
+                      style={{
+                        display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2,
+                        padding: '6px 5px', borderRadius: 10, cursor: 'pointer',
+                        background: isHovered ? 'rgba(99,102,241,0.1)' : 'transparent',
+                        transition: 'background 0.2s',
+                        width: a.id === 'CEO' ? 48 : 30,
+                        position: 'relative',
+                      }}
+                    >
+                      <span style={{ fontSize: a.id === 'CEO' ? 16 : 13 }}>{a.icon}</span>
+                      <div style={{
+                        width: 6, height: 6, borderRadius: '50%',
+                        background: lit ? '#4ade80' : '#334155',
+                        animation: lit ? 'mandoPulse 2s ease-in-out infinite' : 'none',
+                        transition: 'background 0.3s',
+                      }} />
+                      <span style={{ fontSize: 7, color: '#64748b', fontWeight: 500, textAlign: 'center', lineHeight: 1 }}>
+                        {a.id === 'CEO' ? 'CEO' : a.id}
+                      </span>
+                      {/* Tooltip */}
+                      {isHovered && (
+                        <div style={{
+                          position: 'absolute', bottom: '100%', left: '50%', transform: 'translateX(-50%)',
+                          background: '#1e293b', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 8,
+                          padding: '8px 10px', minWidth: 140, zIndex: 10,
+                          animation: 'mandoFadeIn 0.2s ease',
+                          pointerEvents: 'none',
+                        }}>
+                          <div style={{ fontSize: 10, fontWeight: 700, color: a.color, marginBottom: 2 }}>{a.icon} {a.name}</div>
+                          <div style={{ fontSize: 9, color: '#94a3b8', lineHeight: 1.4 }}>{a.lastAction}</div>
+                          <div style={{ fontSize: 8, color: '#475569', marginTop: 3 }}>{a.actions} acciones hoy</div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* ── Feed ── */}
+            <div style={{
+              opacity: step >= 5 ? 1 : 0, transition: 'opacity 0.4s', marginBottom: 12,
+            }}>
+              <div style={{ fontSize: 9, fontWeight: 700, color: '#475569', marginBottom: 6, letterSpacing: '.05em', textTransform: 'uppercase' }}>Actividad</div>
+              <div style={{ maxHeight: 120, overflowY: 'auto' }}>
+                {feedItems.map((item, i) => (
+                  <div key={i} style={{
+                    display: 'flex', alignItems: 'center', gap: 6,
+                    padding: '4px 0', borderBottom: i < feedItems.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
+                    animation: 'mandoSlideIn 0.35s ease',
+                  }}>
+                    <span style={{ fontSize: 8, color: '#475569', fontFamily: 'monospace', minWidth: 32 }}>{item.time}</span>
+                    <span style={{ fontSize: 10 }}>{item.icon}</span>
+                    <span style={{ fontSize: 9, color: '#94a3b8', flex: 1, lineHeight: 1.3 }}>{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* ── Mesa de Estrategia ── */}
+            {showCalendar && (
+              <div style={{
+                background: 'rgba(74,222,128,0.06)', border: '1px solid rgba(74,222,128,0.15)',
+                borderRadius: 10, padding: '8px 10px',
+                animation: 'mandoFadeIn 0.6s ease',
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <span style={{ fontSize: 12 }}>📅</span>
+                  <div>
+                    <div style={{ fontSize: 9, fontWeight: 700, color: '#4ade80' }}>Mesa de Estrategia</div>
+                    <div style={{ fontSize: 8, color: '#64748b' }}>Viernes {nextFriday()} · 6:00 PM</div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Home Indicator */}
+          <div style={{
+            width: 120, height: 4, background: 'rgba(255,255,255,0.2)', borderRadius: 3,
+            margin: '10px auto 0',
+          }} />
+        </div>
+      </div>
+
+      {/* ── Caption ── */}
+      <div style={{ textAlign: 'center', marginTop: 40 }}>
+        <p style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', marginBottom: 8 }}>
+          Tu operación completa. <span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>En tu bolsillo.</span>
+        </p>
+        <p style={{ fontSize: 13, color: '#64748b', maxWidth: 400, margin: '0 auto', lineHeight: 1.6 }}>
+          Cada mañana tu CEO Digital consolida la información de los 9 agentes en un briefing — sin que tengas que abrir tu computadora.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 // ═══ SIMULADOR GENYX — Componente principal ═══
 
 function SimuladorGenyX() {
-  const [phase, setPhase] = React.useState(1);
-  const [indKey, setIndKey] = React.useState(null);
-  const [inputs, setInputs] = React.useState({});
+  const [phase, setPhase] = React.useState(2);
+  const [inputs, setInputs] = React.useState(Object.fromEntries(SIM_CONFIG.fields.map(f => [f.key, f.def])));
   const [loss, setLoss] = React.useState('medios');
   const [timeline, setTimeline] = React.useState([]);
   const [simTime2, setSimTime2] = React.useState(300);
@@ -5270,35 +5654,14 @@ function SimuladorGenyX() {
     priv: { background:'rgba(74,222,128,0.08)', border:'1px solid rgba(74,222,128,0.25)', borderRadius:12, padding:'10px 16px', fontSize:12, color:'#4ade80', textAlign:'center', marginBottom:24 },
   };
 
-  const cfg = indKey ? SIM_IND[indKey] : null;
-
-  // ── PHASE 1: Industry selection ──
-  if (phase === 1) return (
-    <section id="simulador" style={Z.wrap}>
-      <div style={Z.label}>SIMULADOR INTERACTIVO</div>
-      <h2 style={Z.h2}>Mira cómo operarían los 8 agentes<br /><span style={Z.h2a}>en un día real de tu negocio.</span></h2>
-      <p style={Z.sub}>Elige tu industria, ingresa datos básicos y observa 24 horas de operación autónoma.</p>
-      <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))', gap:14 }}>
-        {Object.entries(SIM_IND).map(([k, v]) => (
-          <div key={k} style={Z.card}
-            onMouseOver={e => Object.assign(e.currentTarget.style, Z.cardHover)}
-            onMouseOut={e => Object.assign(e.currentTarget.style, Z.cardOff)}
-            onClick={() => { setIndKey(k); setInputs(Object.fromEntries(v.fields.map(f => [f.key, f.def]))); setPhase(2); }}>
-            <div style={{ width:48, height:48, borderRadius:12, background:'rgba(99,102,241,0.1)', border:'1px solid rgba(99,102,241,0.2)', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:10 }}>{SIM_ICONS[k]()}</div>
-            <div style={{ fontSize:15, fontWeight:700, color:'#f1f5f9', marginBottom:6 }}>{v.label}</div>
-            <div style={{ fontSize:12, color:'#818cf8', fontStyle:'italic' }}>{v.reto}</div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
+  const cfg = SIM_CONFIG;
 
   // ── PHASE 2: Data inputs ──
   if (phase === 2) return (
     <section id="simulador" style={Z.wrap}>
-      <div style={{...Z.label, display:'flex', alignItems:'center', justifyContent:'center', gap:8}}>{SIM_ICONS[indKey]()} {cfg.label.toUpperCase()}</div>
-      <h2 style={Z.h2}>Cuéntanos de tu negocio</h2>
-      <p style={Z.sub}>Ajusta los valores. Los usaremos para simular un día completo con los 8 agentes.</p>
+      <div style={Z.label}>SIMULADOR INTERACTIVO</div>
+      <h2 style={Z.h2}>Cuéntanos de tu negocio<br /><span style={Z.h2a}>y mira cómo operarían 9 agentes en un día real.</span></h2>
+      <p style={Z.sub}>Ajusta los valores. Los usaremos para simular 24 horas de operación autónoma.</p>
       <div style={{...Z.priv, display:'flex', alignItems:'center', justifyContent:'center', gap:8}}><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> Estos datos se quedan en tu navegador. No se envían a GenyX.</div>
       <div style={{ maxWidth:480, margin:'0 auto', display:'flex', flexDirection:'column', gap:20 }}>
         {cfg.fields.map(f => (
@@ -5326,9 +5689,8 @@ function SimuladorGenyX() {
           </div>
         </div>
         <div style={{ display:'flex', gap:12, justifyContent:'center', marginTop:16 }}>
-          <button style={Z.btn2} onClick={() => setPhase(1)}>← Cambiar industria</button>
           <button style={Z.btn} onClick={() => {
-            const tl = genSimTimeline(indKey, inputs);
+            const tl = genSimTimeline(inputs);
             setTimeline(tl);
             setRevealed([]);
             setCounters({a:0,c:0,cb:0});
@@ -5350,7 +5712,7 @@ function SimuladorGenyX() {
       <section id="simulador" style={Z.wrap}>
         {/* Skip button */}
         <div style={{ textAlign:'right', marginBottom:8 }}>
-          <button onClick={() => { setRunning(false); setRevealed(timeline); setCounters({a:inputs.mensajes,c:Math.round(inputs.mensajes*cfg.conv),cb:Math.round(inputs.mensajes*cfg.conv)*inputs.ticket}); setDone(true); setPhase(4); }}
+          <button onClick={() => { setRunning(false); setRevealed(timeline); const skipC=Math.round(inputs.mensajes*cfg.conv); setCounters({a:inputs.mensajes,c:skipC,cb:skipC*inputs.ticket}); setDone(true); setPhase(4); }}
             style={{ background:'transparent', border:'none', color:'#64748b', fontSize:12, cursor:'pointer' }}>Saltar → ver resultado</button>
         </div>
         {/* Clock */}
@@ -5437,7 +5799,7 @@ function SimuladorGenyX() {
         </div>
         <div style={{ background:'rgba(139,92,246,0.06)', border:'1px solid rgba(139,92,246,0.2)', borderRadius:20, padding:'28px 24px' }}>
           <div style={{ fontSize:12, fontWeight:800, color:'#c084fc', marginBottom:16, letterSpacing:'.08em' }}>LA ESTRATEGIA (10% DECIDES TÚ)</div>
-          {[['→ Recibiste la Mesa de Estrategia del viernes 6pm'],['→ 1 código OTP para aprobar el plan de la semana'],['→ Tiempo estimado de decisión: 10–15 min'],['→ Margen promedio en tu industria: ~'+Math.round(cfg.margen*100)+'%*']].map(([t],i) => (
+          {[['→ Recibiste la Mesa de Estrategia del viernes 6pm'],['→ 1 código OTP para aprobar el plan de la semana'],['→ Tiempo estimado de decisión: 10–15 min'],['→ Margen promedio estimado: ~'+Math.round(cfg.margen*100)+'%*']].map(([t],i) => (
             <div key={i} style={{ fontSize:13, color:'#94a3b8', padding:'6px 0', lineHeight:1.6 }}>{t}</div>
           ))}
           <div style={{ fontSize:11, color:'#64748b', fontStyle:'italic', marginTop:8 }}>*Tu margen REAL lo calcula GenyX cuando cargas tus costos en el Costeador.</div>
@@ -5470,14 +5832,14 @@ function SimuladorGenyX() {
 
       {/* Disclaimer */}
       <div style={{ background:'rgba(251,191,36,0.06)', border:'1px solid rgba(251,191,36,0.2)', borderRadius:12, padding:'16px 20px', marginBottom:32, fontSize:12, color:'#fbbf24', lineHeight:1.7 }}>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display:'inline', verticalAlign:'middle', marginRight:6 }}><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Esta simulación es educativa. Las cifras usan promedios de tu industria. Los resultados reales dependen de tu propuesta, demanda local, ubicación y otras variables. <strong>No prometemos resultados específicos.</strong>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display:'inline', verticalAlign:'middle', marginRight:6 }}><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Esta simulación es educativa. Las cifras usan promedios generales. Los resultados reales dependen de tu propuesta, demanda local, ubicación y otras variables. <strong>No prometemos resultados específicos.</strong> GenyX opera con cualquier industria.
       </div>
 
       {/* CTAs */}
       <div style={{ display:'flex', gap:14, justifyContent:'center', flexWrap:'wrap' }}>
         <a href="https://wa.me/523340026694?text=Hola%2C%20vi%20el%20simulador%20de%20GenyX%20y%20quiero%20saber%20m%C3%A1s" style={{ ...Z.btn, textDecoration:'none', display:'inline-block' }}>Quiero esto para mi negocio →</a>
         <a href="/planes" style={{ ...Z.btn2, textDecoration:'none', display:'inline-block' }}>Ver planes</a>
-        <button style={{ ...Z.btn2, borderColor:'rgba(255,255,255,0.15)', color:'#64748b' }} onClick={() => { setPhase(1); setDone(false); }}>↺ Simular otra industria</button>
+        <button style={{ ...Z.btn2, borderColor:'rgba(255,255,255,0.15)', color:'#64748b' }} onClick={() => { setPhase(2); setDone(false); }}>↺ Simular de nuevo</button>
       </div>
     </section>
   );
@@ -5635,7 +5997,7 @@ function GenyXLandingPage() {
           <img src="/genyx-logo.png" alt="GenyX — Tu operación comercial autónoma" style={{ width: 32, height: 32, borderRadius: 4 }} />
         </a>
         <div style={C.navLinks}>
-          {[['Soluciones', '#industrias'], ['Proceso', '#proceso']].map(([l, h]) => (
+          {[['Agentes', '#agentes'], ['Proceso', '#proceso']].map(([l, h]) => (
             <a key={l} href={h} style={C.navLink} onMouseOver={e => e.target.style.color = '#fff'} onMouseOut={e => e.target.style.color = '#64748b'}>{l}</a>
           ))}
           <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={C.demoCta}>Cuéntame de tu negocio →</a>
@@ -5646,13 +6008,13 @@ function GenyXLandingPage() {
         {/* Hero Badge */}
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(99,102,241,0.12)', border:'1px solid rgba(99,102,241,0.4)', borderRadius:30, padding:'6px 20px', marginBottom:14, fontSize:11, fontWeight:800, color:'#818cf8', letterSpacing:'.1em', textTransform:'uppercase' }}>
           <span style={{ width:6, height:6, borderRadius:'50%', background:'#6366f1', display:'inline-block', boxShadow:'0 0 8px #6366f1' }} />
-          TU OPERACIÓN COMERCIAL AUTÓNOMA — 8 AGENTES DE IA
+          TU OPERACIÓN COMERCIAL AUTÓNOMA — 9 AGENTES DE IA
         </div>
-        <div style={C.badge}><span style={C.dot} />Marketing · Captación · Venta · Cierre · Entrega · Seguimiento · Analítica · Finanzas</div>
+        <div style={C.badge}><span style={C.dot} />Marketing · Captación · Venta · Cierre · Entrega · Seguimiento · Analítica · Finanzas · CEO Digital</div>
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(74,222,128,0.1)', border:'1px solid rgba(74,222,128,0.35)', color:'#4ade80', fontSize:12, fontWeight:700, padding:'7px 22px', borderRadius:30, marginBottom:16 }}>
           &#x2713; Activo en 48h · Respuesta en segundos · Cero comisión por venta
         </div>
-        <h1 style={C.h1}>Instalamos 8 agentes de IA<br /><span style={C.h1accent}>que automatizan el 90% de tu operación comercial.</span></h1>
+        <h1 style={C.h1}>Instalamos 9 agentes de IA<br /><span style={C.h1accent}>que automatizan el 90% de tu operación comercial.</span></h1>
         <p style={C.sub}>Desde la primera conversación hasta tu estrategia financiera. Dos capas: la operativa (atender, vender, cobrar, entregar) y la estratégica (interpretar tus datos y planear tus finanzas y marketing). El fundador toma la decisión. La IA hace el trabajo.</p>
         <div style={C.btns}>
           <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={C.primary}>Cuéntame de tu negocio →</a>
@@ -5682,17 +6044,17 @@ function GenyXLandingPage() {
           <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>El <strong style={{ color: '#f1f5f9' }}>78% de los clientes compra con el primero que responde.</strong> Con GenyX, ese siempre eres tú — en segundos, 24/7.</p>
           <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>El cobro ocurre <strong style={{ color: '#f1f5f9' }}>dentro del chat: tu cliente paga en 2 toques</strong> desde WhatsApp. Tú recibes la confirmación al instante.</p>
           <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>Cada pedido directo por WhatsApp es <strong style={{ color: '#f1f5f9' }}>100% tuyo. Cero comisión. Cero intermediarios.</strong> Con 10 pedidos al día, eso son más de <strong style={{ color: '#f1f5f9' }}>$20,000 al mes</strong> que se quedan en tu bolsillo.</p>
-          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>Los negocios que ya venden digital reportan hasta <strong style={{ color: '#f1f5f9' }}>57% más ingresos.</strong> GenyX te lleva ahí — con 8 agentes trabajando desde el día uno.</p>
+          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>Los negocios que ya venden digital reportan hasta <strong style={{ color: '#f1f5f9' }}>57% más ingresos.</strong> GenyX te lleva ahí — con 9 agentes trabajando desde el día uno.</p>
         </div>
       </section>
 
 
 
-      {/* ── Tu Operación Comercial: 8 Agentes + Industrias ── */}
-      <section id="industrias" style={{ padding: '0 24px 100px', maxWidth: 1000, margin: '0 auto' }}>
+      {/* ── Tu Operación Comercial: 9 Agentes ── */}
+      <section id="agentes" style={{ padding: '0 24px 100px', maxWidth: 1000, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>TU OPERACIÓN COMERCIAL — 90% AUTÓNOMA</div>
-          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>8 agentes de IA.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Adaptados a tu industria.</span></h2>
+          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>9 agentes de IA.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Configurados para tu negocio.</span></h2>
           <p style={{ color: '#64748b', fontSize: 14, maxWidth: 560, margin: '0 auto' }}>Cada agente se encarga de una función clave. Trabajan juntos, comparten información y operan 24/7 — configurados con las reglas de tu negocio.</p>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
@@ -5705,6 +6067,7 @@ function GenyXLandingPage() {
             ['Seguimiento', 'Recupera pedidos abandonados y clientes inactivos.', () => simSvg(['M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9','M13.73 21a2 2 0 01-3.46 0'],'la6')],
             ['Analítica', 'KPIs, top productos, hora pico y recomendaciones.', () => simSvg(['M12 2a7 7 0 017 7c0 2.8-1.6 5.2-4 6.3V18H9v-2.7C6.6 14.2 5 11.8 5 9a7 7 0 017-7z',['line',{x1:9,y1:21,x2:15,y2:21}],['line',{x1:10,y1:24,x2:14,y2:24}]],'la7')],
             ['Finanzas', 'Margen, punto de equilibrio y proyección mensual.', () => simSvg([['line',{x1:12,y1:1,x2:12,y2:23}],'M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6'],'la8')],
+            ['CEO Digital', 'Tu mando de control. Visión 360° de toda tu operación.', () => simSvg([['circle',{cx:12,cy:7,r:4}],'M5.5 21a8.38 8.38 0 0113 0',['line',{x1:12,y1:11,x2:12,y2:17}],['line',{x1:9,y1:14,x2:15,y2:14}]],'la9')],
           ].map(([name, desc, icoFn]) => (
             <div key={name} style={{ background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 12, padding: '18px 16px', transition: 'all 0.2s' }}
               onMouseOver={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.5)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
@@ -5718,7 +6081,7 @@ function GenyXLandingPage() {
 
         {/* ── Industrias integradas ── */}
         <div style={{ marginTop: 40, textAlign: 'center' }}>
-          <p style={{ fontSize: 14, color: '#a5b4fc', fontWeight: 700, marginBottom: 6 }}>8 agentes. Todos los planes. Tu industria.</p>
+          <p style={{ fontSize: 14, color: '#a5b4fc', fontWeight: 700, marginBottom: 6 }}>9 agentes. Todos los planes. Cualquier negocio.</p>
           <p style={{ fontSize: 12, color: '#475569', marginBottom: 24 }}>Tú diriges la estrategia (10% de tu tiempo). Los agentes ejecutan el otro 90%.</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 10 }}>
             {[
@@ -5740,12 +6103,15 @@ function GenyXLandingPage() {
               </div>
             ))}
           </div>
-          <p style={{ fontSize: 11, color: '#475569', fontStyle: 'italic', marginTop: 16 }}>Además activamos herramientas según tu industria: Inventario, Costeador, Citas, Foto Lab, Pipeline de Leads y más.</p>
+          <p style={{ fontSize: 11, color: '#475569', fontStyle: 'italic', marginTop: 16 }}>Además activamos herramientas según tu negocio: Inventario, Costeador, Citas, Foto Lab, Pipeline de Leads y más.</p>
         </div>
       </section>
 
       {/* ── WhatsApp Simulator ── */}
       <WhatsAppSimulator />
+
+      {/* ── Centro de Mando (iPhone Simulator) ── */}
+      <MandoSimulator />
 
       {/* ── Simulador Interactivo GenyX ── */}
       <SimuladorGenyX />
@@ -5851,7 +6217,7 @@ function GenyXLandingPage() {
           {/* GenyX */}
           <div style={{ background: 'rgba(74,222,128,0.06)', border: '2px solid rgba(74,222,128,0.3)', borderRadius: 20, padding: '32px 28px' }}>
             <div style={{ fontSize: 13, fontWeight: 800, color: '#4ade80', letterSpacing: '.08em', marginBottom: 20 }}>GenyX</div>
-            {[['Plan Esencial (8 agentes)', '$9,900'], ['Plan Profesional (8 agentes)', '$18,900'], ['Plan Enterprise (8 agentes)', '$34,900']].map(([label, val]) => (
+            {[['Plan Esencial (9 agentes)', '$9,900'], ['Plan Profesional (9 agentes)', '$18,900'], ['Plan Enterprise (9 agentes)', '$34,900']].map(([label, val]) => (
               <div key={label} style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#94a3b8' }}>
                 <span>{label}</span><span style={{ fontWeight: 700, color: '#f1f5f9' }}>{val}</span>
               </div>
@@ -5865,7 +6231,7 @@ function GenyXLandingPage() {
               <span>DESDE</span><span>$9,900/mes</span>
             </div>
             <div style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 6 }}>
-              {['Trabaja 24/7, los 365 días', 'Siempre consistente', 'Activo en 48h — sin reclutamiento', 'Los 8 agentes comparten datos en tiempo real'].map(t => (
+              {['Trabaja 24/7, los 365 días', 'Siempre consistente', 'Activo en 48h — sin reclutamiento', 'Los 9 agentes comparten datos en tiempo real'].map(t => (
                 <div key={t} style={{ fontSize: 12, color: '#64748b', display: 'flex', alignItems: 'center', gap: 6 }}><span style={{ color: '#4ade80' }}>✓</span> {t}</div>
               ))}
             </div>
@@ -5915,7 +6281,7 @@ function GenyXLandingPage() {
       <section style={{ padding:'0 24px 100px', maxWidth:1000, margin:'0 auto' }}>
         <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12, textAlign:'center' }}>POR QUÉ GenyX</div>
         <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:12, textAlign:'center' }}>GenyX es tu operación comercial.<br /><span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Con tu catálogo. Con tus reglas.</span></h2>
-        <p style={{ color:'#64748b', marginBottom:48, textAlign:'center', fontSize:15, maxWidth:600, margin:'0 auto 48px' }}>8 agentes configurados con tu catálogo, tus precios y tu personalidad de marca. Miden resultados reales cada semana.</p>
+        <p style={{ color:'#64748b', marginBottom:48, textAlign:'center', fontSize:15, maxWidth:600, margin:'0 auto 48px' }}>9 agentes configurados con tu catálogo, tus precios y tu personalidad de marca. Miden resultados reales cada semana.</p>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:16 }}>
           {[
             [() => simSvg([['rect',{x:3,y:11,width:18,height:11,rx:2,ry:2}],'M7 11V7a5 5 0 0110 0v4'],'lv1'), 'Precios exactos. Siempre.', 'Tu agente respeta tu catálogo al 100%. Si cuesta $120, cobra $120. Exactitud total en cada pedido.'],
@@ -5939,13 +6305,13 @@ function GenyXLandingPage() {
       <section style={{ padding:'0 24px 100px', maxWidth:960, margin:'0 auto', textAlign:'center' }}>
         <div style={{ background:'linear-gradient(135deg,rgba(99,102,241,0.06),rgba(139,92,246,0.06))', border:'1px solid rgba(99,102,241,0.2)', borderRadius:24, padding:'48px 40px' }}>
           <div style={{ fontSize:11, fontWeight:800, color:'#818cf8', letterSpacing:'.12em', textTransform:'uppercase', marginBottom:12 }}>Modelo de Inversión</div>
-          <h2 style={{ fontSize:32, fontWeight:900, color:'#f1f5f9', lineHeight:1.25, marginBottom:16 }}>3 planes. 8 agentes.<br /><span style={{ background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Tu operación comercial autónoma.</span></h2>
+          <h2 style={{ fontSize:32, fontWeight:900, color:'#f1f5f9', lineHeight:1.25, marginBottom:16 }}>3 planes. 9 agentes.<br /><span style={{ background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Tu operación comercial autónoma.</span></h2>
           <p style={{ color:'#64748b', lineHeight:1.8, marginBottom:32, fontSize:15 }}>GenyX opera bajo un modelo de <strong style={{ color:'#a5b4fc' }}>Fee de instalación + Suscripción mensual fija</strong>. Sin importar cuánto vendas en el mes, tu costo no cambia. Tus márgenes son tuyos.</p>
           <div style={{ display:'flex', justifyContent:'center', gap:16, flexWrap:'wrap', marginBottom:24 }}>
             {[
-              ['ESENCIAL','$9,900','MXN/mes','Setup: $12,000','8 agentes de IA','200 msgs carritos · 100 reactivación','30 imágenes FotoLab · 250 Costeador IA','Soporte L-V 9am–7pm','Negocios de 5-15 empleados · $200K-$700K/mes.'],
-              ['PROFESIONAL','$18,900','MXN/mes','Setup: $18,000','8 agentes de IA','400 msgs carritos · 200 reactivación','60 imágenes FotoLab · 500 Costeador IA','Soporte L-S prioritario','Negocios de 15-50 empleados · $700K-$2M/mes. ★ Más elegido.'],
-              ['ENTERPRISE','$34,900','MXN/mes','Setup: $30,000','8 agentes de IA','600 msgs carritos · 300 reactivación','100 imágenes FotoLab · Costeador ilimitado','Soporte 24/7 + sesión con Erick','Negocios de 50-100 empleados · $2M-$5M/mes.'],
+              ['ESENCIAL','$9,900','MXN/mes','Setup: $12,000','9 agentes de IA','200 msgs carritos · 100 reactivación','30 imágenes FotoLab · 250 Costeador IA','Soporte L-V 9am–7pm','Negocios de 5-15 empleados · $200K-$700K/mes.'],
+              ['PROFESIONAL','$18,900','MXN/mes','Setup: $18,000','9 agentes de IA','400 msgs carritos · 200 reactivación','60 imágenes FotoLab · 500 Costeador IA','Soporte L-S prioritario','Negocios de 15-50 empleados · $700K-$2M/mes. ★ Más elegido.'],
+              ['ENTERPRISE','$34,900','MXN/mes','Setup: $30,000','9 agentes de IA','600 msgs carritos · 300 reactivación','100 imágenes FotoLab · Costeador ilimitado','Soporte 24/7 + sesión con Erick','Negocios de 50-100 empleados · $2M-$5M/mes.'],
             ].map(([plan, price, period, setup, agents, outbound, tools, support, desc]) => (
               <div key={plan} style={{ background: plan === 'PROFESIONAL' ? 'rgba(99,102,241,0.12)' : 'rgba(255,255,255,0.04)', border: plan === 'PROFESIONAL' ? '2px solid rgba(99,102,241,0.5)' : '1px solid rgba(255,255,255,0.1)', borderRadius:16, padding:'24px 20px', minWidth:220, flex:'1 1 200px', maxWidth:290, position:'relative', textAlign:'left' }}>
                 {plan === 'PROFESIONAL' && <div style={{ position:'absolute', top:-10, left:'50%', transform:'translateX(-50%)', background:'linear-gradient(135deg,#6366f1,#8b5cf6)', color:'#fff', fontSize:9, fontWeight:800, padding:'3px 14px', borderRadius:20, letterSpacing:'.05em' }}>MÁS POPULAR</div>}
@@ -5962,7 +6328,7 @@ function GenyXLandingPage() {
               </div>
             ))}
           </div>
-          <p style={{ fontSize:13, color:'#94a3b8', marginBottom:8, lineHeight:1.7 }}>La diferencia entre planes no está en los agentes — los 8 siempre están.<br />La diferencia está en el volumen de tu operación: bolsas de mensajes proactivos, herramientas y nivel de soporte. <a href="/planes" style={{ color:'#818cf8', textDecoration:'underline' }}>Ver detalle completo →</a></p>
+          <p style={{ fontSize:13, color:'#94a3b8', marginBottom:8, lineHeight:1.7 }}>La diferencia entre planes no está en los agentes — los 9 siempre están.<br />La diferencia está en el volumen de tu operación: bolsas de mensajes proactivos, herramientas y nivel de soporte. <a href="/planes" style={{ color:'#818cf8', textDecoration:'underline' }}>Ver detalle completo →</a></p>
           <p style={{ fontSize:13, color:'#64748b', marginBottom:24 }}>Cero comisión por venta. Sin permanencia mínima.</p>
           <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={{ display:'inline-block', background:'linear-gradient(135deg,#6366f1,#8b5cf6)', color:'#fff', padding:'14px 36px', borderRadius:12, fontSize:14, fontWeight:700, textDecoration:'none', boxShadow:'0 0 28px rgba(99,102,241,0.3)' }}>Conoce qué plan es para ti →</a>
         </div>
@@ -5992,12 +6358,12 @@ function GenyXLandingPage() {
           <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9' }}>Todo lo que necesitas saber</h2>
         </div>
         {[
-          ['¿Cuánto cuesta GenyX?', 'Tres planes según el volumen de tu operación: Esencial $9,900 MXN/mes, Profesional $18,900 MXN/mes, Enterprise $34,900 MXN/mes. Los tres planes incluyen los 8 agentes — la diferencia está en productos en catálogo, conversaciones mensuales y sucursales. Cada plan incluye una instalación inicial de un solo pago. Te ayudamos a elegir el correcto en una conversación de 15 minutos.'],
+          ['¿Cuánto cuesta GenyX?', 'Tres planes según el volumen de tu operación: Esencial $9,900 MXN/mes, Profesional $18,900 MXN/mes, Enterprise $34,900 MXN/mes. Los tres planes incluyen los 9 agentes — la diferencia está en productos en catálogo, conversaciones mensuales y sucursales. Cada plan incluye una instalación inicial de un solo pago. Te ayudamos a elegir el correcto en una conversación de 15 minutos.'],
           ['¿Cómo cobran y facturan?', 'Cobramos vía transferencia bancaria al inicio del mes. Te enviamos factura electrónica a tu RFC al confirmar el pago. La instalación se cobra una sola vez al firmar el contrato.'],
           ['¿GenyX cobra comisión por cada venta que cierra?', 'No. Jamás. Tu costo es fijo cada mes — sin importar si vendes $30,000 o $300,000. Cero comisión.'],
           ['¿Cuánto tarda en activarse?', 'Una sesión de 45 minutos para entender tu negocio. Nosotros configuramos todo. En menos de 48 horas tu agente está atendiendo clientes y cerrando ventas.'],
           ['¿Cómo garantizan la estabilidad del sistema?', 'Cada actualización pasa por pruebas de calidad antes de llegar a tu negocio. Monitoreamos el sistema activamente y atendemos cualquier incidencia lo antes posible. Si se presenta un problema mayor, tu agente queda en pausa controlada y te avisamos directamente hasta que se resuelva.'],
-          ['¿Para quién es GenyX?', 'GenyX es para dueños de negocio con 5 a 100 empleados que quieren operar con menos personas y más datos. Son 8 agentes de IA que operan dos capas: la operativa (atender, vender, cobrar, entregar, dar seguimiento) y la estratégica (interpretar tus datos y planear tus finanzas y marketing). Cada viernes 6pm recibes la Mesa de Estrategia. Cada lunes 5am recibes el Reporte con tus números reales. El fundador toma la decisión. La IA hace el trabajo.'],
+          ['¿Para quién es GenyX?', 'GenyX es para dueños de negocio con 5 a 100 empleados que quieren operar con menos personas y más datos. Son 9 agentes de IA que operan dos capas: la operativa (atender, vender, cobrar, entregar, dar seguimiento) y la estratégica (interpretar tus datos, planear tus finanzas y marketing, y darte visión 360° desde tu CEO Digital). Cada viernes 6pm recibes la Mesa de Estrategia. Cada lunes 5am recibes el Reporte con tus números reales. El fundador toma la decisión. La IA hace el trabajo.'],
           ['¿Qué incluye GenyX que otros servicios no tienen?', 'GenyX cierra ventas. Atiende a tu cliente, arma su pedido, genera el cobro y te avisa cuando el dinero ya está en tu cuenta. Además mide resultados, planea tu marketing y te entrega reportes financieros cada semana.'],
           ['¿Cómo se compara el costo con un equipo tradicional?', 'Un equipo tradicional implica búsqueda, entrevistas, capacitación, nómina, IMSS, aguinaldo y reemplazos. GenyX se activa en 48 horas, atiende a todos tus clientes al mismo tiempo por un costo mensual fijo — y trabaja 24/7.'],
           ['¿Necesito conocimientos técnicos?', 'Ninguno. Tú nos das la información de tu negocio y nosotros hacemos todo lo demás. Solo tienes que revisar tu mando de control y contar tus ventas.'],
@@ -6022,7 +6388,7 @@ function GenyXLandingPage() {
       <PWAInstallBanner />
       <GenyXConciergeWidget />
       <footer style={C.footer}>
-        <span style={C.ftrBrand}>GenyX © 2026 · Tu operación comercial autónoma</span>
+        <span style={C.ftrBrand}>GenyX © 2026 · Tu operación comercial autónoma · Inteligencia de negocio</span>
         <div style={{ ...C.ftrLinks, paddingRight: 72 }}>
           <a href="/privacidad" style={C.ftrLink}>Privacidad</a>
           <a href="/terminos" style={C.ftrLink}>Términos</a>
@@ -6196,6 +6562,8 @@ export default function GenyXOperatorDashboard() {
   if (path === '/terminos')   return <LegalPage tipo="terminos" />;
   if (path === '/privacidad') return <LegalPage tipo="privacidad" />;
   if (path === '/planes')     return <PlanesPage />;
+  // ―― Dev-only: preview landing on localhost ―――――
+  if (IS_LOCAL && path === '/preview-landing') return <GenyXLandingPage />;
 
   // ―― Ticket de compra post-Stripe (?pago=exitoso&sid=cs_live_...) ―――――
   const _qp = new URLSearchParams(window.location.search);
