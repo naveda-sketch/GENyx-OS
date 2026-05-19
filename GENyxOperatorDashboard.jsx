@@ -4701,120 +4701,174 @@ function GenyXConciergeWidget() {
 // CREDIBILITY COMPONENTS — Confianza por Transparencia (sin casos de éxito)
 // ═══════════════════════════════════════════════════════════════════════════════
 
-// ── 1. WhatsApp Conversation Simulator ──────────────────────────────────────
+// ── 1. Immersive Simulator v2 ───────────────────────────────────────────────
+// Brand: Indigo #6366f1, Violet #818cf8, Deep #312e81
+// 8 agents + CEO Digital, generic business names
 function WhatsAppSimulator() {
   const [step, setStep] = React.useState(0);
   const [started, setStarted] = React.useState(false);
-  const containerRef = React.useRef(null);
+  const [messages, setMessages] = React.useState([]);
+  const [input, setInput] = React.useState('');
+  const [typing, setTyping] = React.useState(false);
+  const [disabled, setDisabled] = React.useState(false);
+  const [scenarioStep, setScenarioStep] = React.useState(0);
+  const [activeAgents, setActiveAgents] = React.useState(new Set());
+  const [processingAgents, setProcessingAgents] = React.useState(new Set());
+  const [logs, setLogs] = React.useState([]);
+  const [metrics, setMetrics] = React.useState({ orders:0, revenue:0, agents:0, patterns:0 });
+  const chatRef = React.useRef(null);
 
-  const conversation = [
-    { from: 'client', msg: 'Hola! Quiero pedir pan para mañana 🍞', delay: 0 },
-    { from: 'bot', msg: 'Hola Ana! 👋 Con gusto te ayudo.\n\nTenemos disponible:\n🥖 Hogaza Natural — $120\n🍞 Pan Integral — $85\n🥐 Cuernos (6 pzs) — $75\n\n¿Qué te gustaría llevar?', delay: 1200 },
-    { from: 'client', msg: '2 hogazas y unos cuernos porfa', delay: 2000 },
-    { from: 'bot', msg: '¡Perfecto! Tu pedido queda así:\n\n🥖 Hogaza Natural × 2 — $240\n🥐 Cuernos (6 pzs) × 1 — $75\n\n💰 Total: $315 MXN\n\n¿Lo quieres a domicilio o pasas a recoger?', delay: 1500 },
-    { from: 'client', msg: 'A domicilio! Estoy en mi colonia', delay: 1800 },
-    { from: 'bot', msg: '📍 Tu colonia — envío: $35 MXN\n\n💳 Total con envío: $350 MXN\n\nAquí tienes tu link de pago seguro 👇\n🔗 stripe.com/pay/paty-315...', delay: 1400 },
-    { from: 'client', msg: 'Listo, ya pagué ✅', delay: 2200 },
-    { from: 'bot', msg: '✅ ¡Pago confirmado, Ana!\n\n📋 Pedido #847 registrado\n🕐 Entrega mañana entre 9-11am\n\nPaty se pondrá en contacto contigo para coordinar. ¡Gracias por tu compra! 💛', delay: 1500 },
+  const SIM_AGENTS = [
+    { id:'A1', name:'Marketing', role:'Contenido' },
+    { id:'A2', name:'Captación', role:'Prospección' },
+    { id:'A3', name:'Ventas', role:'Atención' },
+    { id:'A4', name:'Cierre', role:'Pagos' },
+    { id:'A5', name:'Entrega', role:'Logística' },
+    { id:'A6', name:'Seguimiento', role:'Retención' },
+    { id:'A7', name:'Analítica', role:'KPIs' },
+    { id:'A8', name:'Finanzas', role:'Márgenes' },
+    { id:'CEO', name:'CEO Digital', role:'Briefings' },
   ];
 
-  React.useEffect(() => {
-    if (!started || step >= conversation.length) return;
-    const timer = setTimeout(() => setStep(s => s + 1), conversation[step].delay + 800);
-    return () => clearTimeout(timer);
-  }, [step, started]);
+  const SCENARIO = [
+    { trigger:/hola|hey|buenas|buenos/i,
+      bot:'¡Hola! 👋 Bienvenido a tu negocio. ¿Qué te gustaría ordenar hoy? Tenemos nuestro menú completo disponible. 🛒',
+      agents:['A3'], logs:[{m:'A3 Ventas: sesión iniciada',c:'#4ade80'},{m:'A7 Analítica: nueva sesión',c:'#818cf8'}], delay:1200 },
+    { trigger:/menu|que tienen|productos|catalogo|catálogo|ver/i,
+      bot:'📋 Productos disponibles:\n\n🥐 Producto A — $25\n🍞 Producto B — $120\n🍕 Producto C — $180\n🍪 Producto D (2 pzas) — $40\n☕ Producto E — $35\n\n¿Qué se te antoja? 😊',
+      agents:['A3','A7'], logs:[{m:'A3 Ventas: catálogo presentado',c:'#4ade80'},{m:'A7 Analítica: consulta registrada',c:'#818cf8'}], delay:1500 },
+    { trigger:/producto|quiero|dame|ordenar|pedir|2|uno|una/i,
+      bot:'¡Excelente elección! 🎉 Tu pedido:\n\n🥐 2 × Producto A — $50\n☕ 1 × Producto E — $35\n\n💰 Total: $85\n\n¿Confirmamos? Te envío el link de pago 💳',
+      agents:['A3','A4','A7','A8'], logs:[{m:'A3 Ventas: orden — $85',c:'#4ade80'},{m:'A4 Cierre: link de pago',c:'#6366f1'},{m:'A7 Analítica: ticket → $85',c:'#818cf8'},{m:'A8 Finanzas: margen 62.3%',c:'#f59e0b'}], metrics:{orders:1,revenue:85}, delay:1800 },
+    { trigger:/si|sí|confirmo|confirmar|pago|dale|ok/i,
+      bot:'✅ ¡Pedido confirmado!\n\n💳 Link de pago generado.\n\nUna vez que pagues, te confirmo la hora de entrega. ¡Gracias! 🙌',
+      agents:['A4','A5','A6','A7','A8','CEO'], logs:[{m:'A4 Cierre: link generado',c:'#4ade80'},{m:'A5 Entrega: en cola',c:'#6366f1'},{m:'A6 Seguimiento: followup 24h',c:'#818cf8'},{m:'A8 Finanzas: P&L actualizado',c:'#f59e0b'},{m:'CEO Digital: briefing actualizado',c:'#4ade80'}], metrics:{patterns:3}, delay:2200 },
+    { trigger:/.*/,
+      bot:'Gracias por probar el simulador. 😊 En producción, GenyX maneja todo en automático — 24/7.\n\n¿Te gustaría una demo para tu negocio?',
+      agents:['A3','A1','A2','CEO'], logs:[{m:'A1 Marketing: oportunidad de demo',c:'#4ade80'},{m:'A2 Captación: lead calificado',c:'#6366f1'},{m:'CEO Digital: lead caliente',c:'#f59e0b'}], delay:1500 },
+  ];
 
-  React.useEffect(() => {
-    if (containerRef.current) {
-      containerRef.current.scrollTop = containerRef.current.scrollHeight;
-    }
-  }, [step]);
+  const getTime = () => { const d=new Date(); return d.getHours().toString().padStart(2,'0')+':'+d.getMinutes().toString().padStart(2,'0'); };
 
-  // Intersection observer to auto-start
-  const wrapRef = React.useRef(null);
-  React.useEffect(() => {
-    if (!wrapRef.current) return;
-    const obs = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting && !started) setStarted(true);
-    }, { threshold: 0.5 });
-    obs.observe(wrapRef.current);
-    return () => obs.disconnect();
-  }, [started]);
+  const processMessage = (text) => {
+    if (!text.trim() || disabled) return;
+    setMessages(p => [...p, { text, type:'out', time:getTime() }]);
+    setInput(''); setDisabled(true); setTyping(true);
+    let step;
+    if (scenarioStep < SCENARIO.length - 1) {
+      step = SCENARIO[scenarioStep];
+      if (!step.trigger.test(text)) {
+        const m = SCENARIO.findIndex(s => s.trigger.test(text));
+        if (m >= 0 && m < SCENARIO.length - 1) step = SCENARIO[m];
+      }
+      setScenarioStep(s => Math.min(s + 1, SCENARIO.length - 1));
+    } else { step = SCENARIO[SCENARIO.length - 1]; }
+    setProcessingAgents(new Set(step.agents));
+    setTimeout(() => {
+      setProcessingAgents(new Set());
+      setActiveAgents(prev => { const n = new Set(prev); step.agents.forEach(a => n.add(a)); return n; });
+    }, 1200);
+    setTimeout(() => {
+      setTyping(false);
+      setMessages(p => [...p, { text:step.bot, type:'in', time:getTime() }]);
+      step.logs.forEach((l, i) => {
+        setTimeout(() => setLogs(p => [{ ...l, time:getTime() }, ...p].slice(0, 12)), i * 300);
+      });
+      if (step.metrics) setMetrics(prev => ({ orders:prev.orders+(step.metrics.orders||0), revenue:prev.revenue+(step.metrics.revenue||0), agents:prev.agents, patterns:prev.patterns+(step.metrics.patterns||0) }));
+      setDisabled(false);
+    }, step.delay);
+  };
 
-  const visible = conversation.slice(0, step);
+  React.useEffect(() => { setMetrics(prev => ({ ...prev, agents: activeAgents.size })); }, [activeAgents]);
+  React.useEffect(() => { if (chatRef.current) chatRef.current.scrollTop = chatRef.current.scrollHeight; }, [messages, typing]);
+
+  const agCard = (ag) => {
+    const on = activeAgents.has(ag.id), proc = processingAgents.has(ag.id);
+    return (
+      <div key={ag.id} style={{ background: on?'rgba(99,102,241,0.06)':proc?'rgba(129,140,248,0.08)':'rgba(6,9,18,0.6)', border:`1px solid ${on?'rgba(99,102,241,0.3)':proc?'rgba(129,140,248,0.4)':'rgba(255,255,255,0.04)'}`, borderRadius:12, padding:14, display:'flex', flexDirection:'column', alignItems:'center', gap:8, transition:'all .4s cubic-bezier(.4,0,.2,1)', animation:proc?'simAgPulse 1.5s infinite':'none' }}>
+        <div style={{ width:42, height:42, borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', fontSize:11, fontWeight:800, background:on?'linear-gradient(135deg,#6366f1,#8b5cf6)':proc?'linear-gradient(135deg,#818cf8,#c084fc)':'rgba(255,255,255,0.05)', border:`2px solid ${on||proc?'transparent':'rgba(255,255,255,0.08)'}`, color:on||proc?'white':'#475569', boxShadow:on?'0 0 30px rgba(99,102,241,0.3)':proc?'0 0 30px rgba(129,140,248,0.3)':'none', transition:'all .4s' }}>{ag.id}</div>
+        <div style={{ fontSize:10, fontWeight:600, color:on||proc?'#f1f5f9':'#475569', textAlign:'center' }}>{ag.name}</div>
+        <div style={{ fontSize:9, color:on?'#818cf8':'#475569', textAlign:'center', opacity:on?1:0.7 }}>{ag.role}</div>
+      </div>
+    );
+  };
 
   return (
-    <section ref={wrapRef} style={{ padding: '0 24px 100px', maxWidth: 520, margin: '0 auto' }}>
-      <div style={{ textAlign: 'center', marginBottom: 32 }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>MIRA CÓMO FUNCIONA</div>
-        <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>Una venta completa.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Sin intervención humana.</span></h2>
-        <p style={{ color: '#64748b', fontSize: 14 }}>Esto es lo que tu agente GenyX hace por ti — automático, 24/7.</p>
+    <section style={{ position:'relative', padding:'80px 24px', maxWidth:1300, margin:'0 auto' }} id="simulador-inmersivo">
+      <div style={{ textAlign:'center', marginBottom:48 }}>
+        <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', textTransform:'uppercase', marginBottom:12 }}>SIMULADOR EN VIVO</div>
+        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:10, letterSpacing:'-1px', lineHeight:1.15 }}>Escribe un mensaje y observa<br/><span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>cómo operan tus 8 agentes + tu CEO Digital.</span></h2>
+        <p style={{ color:'#94a3b8', fontSize:15, maxWidth:560, margin:'0 auto' }}>Esta es una simulación real de lo que GenyX hace con tu negocio. Cada mensaje activa agentes que procesan, ejecutan y generan tu briefing — en automático.</p>
       </div>
 
-      {/* WhatsApp-like container */}
-      <div style={{ background: '#0b141a', borderRadius: 20, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 24px 64px rgba(0,0,0,0.4)' }}>
-        {/* WA Header */}
-        <div style={{ background: '#1f2c34', padding: '12px 16px', display: 'flex', alignItems: 'center', gap: 10 }}>
-          <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'linear-gradient(135deg, #92400e, #d97706)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16, fontWeight: 800, color: '#fff' }}>P</div>
-          <div>
-            <div style={{ color: '#e9edef', fontWeight: 700, fontSize: 14 }}>Panadería Paty</div>
-            <div style={{ color: '#8696a0', fontSize: 11 }}>🤖 Agente GenyX · en línea</div>
+      <div style={{ display:'grid', gridTemplateColumns:'400px 1fr', gap:24, minHeight:680 }}>
+        {/* WA Panel */}
+        <div style={{ background:'#111b21', borderRadius:16, border:'1px solid rgba(255,255,255,0.06)', display:'flex', flexDirection:'column', overflow:'hidden', boxShadow:'0 20px 60px rgba(0,0,0,0.4)' }}>
+          <div style={{ display:'flex', alignItems:'center', gap:12, padding:'12px 16px', background:'#1f2c34', borderBottom:'1px solid rgba(255,255,255,0.06)' }}>
+            <div style={{ width:40, height:40, borderRadius:'50%', background:'linear-gradient(135deg,#312e81,#6366f1,#818cf8)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'1.1rem', fontWeight:700, color:'white' }}>G</div>
+            <div><div style={{ fontSize:15, fontWeight:600, color:'#e9edef' }}>Tu Negocio</div><span style={{ fontSize:12, color:'#4ade80' }}>● en línea</span></div>
           </div>
-          <div style={{ marginLeft: 'auto', display: 'flex', gap: 4 }}>
-            <span style={{ color: '#25D366', fontSize: 10, background: 'rgba(37,211,102,0.15)', padding: '3px 8px', borderRadius: 10, fontWeight: 700 }}>DEMO</span>
+          <div ref={chatRef} style={{ flex:1, padding:16, overflowY:'auto', display:'flex', flexDirection:'column', gap:6 }}>
+            {messages.map((m, i) => (
+              <div key={i} style={{ alignSelf:m.type==='out'?'flex-end':'flex-start', background:m.type==='out'?'#005c4b':'#202c33', color:'#e9edef', padding:'8px 12px', borderRadius:8, borderBottomRightRadius:m.type==='out'?2:8, borderBottomLeftRadius:m.type==='in'?2:8, maxWidth:'85%', fontSize:14, lineHeight:1.45, whiteSpace:'pre-line', animation:'simMsgIn .3s ease' }}>
+                <span dangerouslySetInnerHTML={{ __html: m.text.replace(/\n/g,'<br>').replace(/\*(.*?)\*/g,'<strong>$1</strong>') }} />
+                <div style={{ fontSize:10, color:'rgba(255,255,255,0.45)', textAlign:'right', marginTop:3 }}>{m.time}</div>
+              </div>
+            ))}
+            {typing && <div style={{ alignSelf:'flex-start', background:'#202c33', padding:'10px 16px', borderRadius:8, display:'flex', gap:4 }}>
+              {[0,1,2].map(i => <span key={i} style={{ width:7, height:7, borderRadius:'50%', background:'#8696a0', display:'inline-block', animation:`simDot 1.4s ${i*0.2}s infinite` }} />)}
+            </div>}
+          </div>
+          <div style={{ display:'flex', alignItems:'center', gap:8, padding:'10px 12px', background:'#1f2c34', borderTop:'1px solid rgba(255,255,255,0.06)' }}>
+            <input style={{ flex:1, background:'#2a3942', border:'none', borderRadius:20, padding:'10px 16px', color:'#e9edef', fontSize:14, fontFamily:"'Inter',sans-serif", outline:'none' }}
+              value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => { if(e.key==='Enter') processMessage(input); }}
+              placeholder={messages.length===0?'Escribe "Hola" para comenzar...':'Escribe un mensaje...'} disabled={disabled} />
+            <button style={{ width:40, height:40, borderRadius:'50%', background:'#25D366', border:'none', cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'center', color:'white', fontSize:'1.1rem' }}
+              onClick={() => processMessage(input)} disabled={disabled}>➤</button>
           </div>
         </div>
 
-        {/* Chat area */}
-        <div ref={containerRef} style={{ padding: '16px 12px', minHeight: 320, maxHeight: 420, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 6, background: 'url("data:image/svg+xml,%3Csvg width=\'400\' height=\'400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence baseFrequency=\'.65\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\' opacity=\'.015\'/%3E%3C/svg%3E"), #0b141a' }}>
-          {visible.map((m, i) => (
-            <div key={i} style={{ display: 'flex', justifyContent: m.from === 'client' ? 'flex-end' : 'flex-start', animation: 'fadeInUp 0.3s ease-out' }}>
-              <div style={{
-                background: m.from === 'client' ? '#005c4b' : '#202c33',
-                color: '#e9edef',
-                padding: '8px 12px',
-                borderRadius: m.from === 'client' ? '10px 10px 2px 10px' : '10px 10px 10px 2px',
-                maxWidth: '85%',
-                fontSize: 13,
-                lineHeight: 1.5,
-                whiteSpace: 'pre-line',
-                boxShadow: '0 1px 2px rgba(0,0,0,0.2)',
-              }}>
-                {m.msg}
-                <div style={{ fontSize: 9, color: '#8696a0', textAlign: 'right', marginTop: 4 }}>
-                  {new Date(Date.now() - (conversation.length - i) * 60000).toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' })}
-                  {m.from === 'client' && ' ✓✓'}
-                </div>
+        {/* Dashboard Panel */}
+        <div style={{ background:'rgba(15,20,35,0.7)', borderRadius:16, border:'1px solid rgba(99,102,241,0.12)', backdropFilter:'blur(12px)', display:'flex', flexDirection:'column', overflow:'hidden' }}>
+          <div style={{ padding:'16px 24px', borderBottom:'1px solid rgba(99,102,241,0.12)', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
+            <h2 style={{ fontSize:16, fontWeight:700, color:'#f1f5f9', margin:0 }}>⚡ Centro de Operaciones</h2>
+            <div style={{ display:'flex', alignItems:'center', gap:6, fontSize:12, color:'#4ade80', fontWeight:500 }}>
+              <span style={{ width:7, height:7, borderRadius:'50%', background:'#4ade80', display:'inline-block', animation:'simPls 2s infinite' }} />Sistema activo</div>
+          </div>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:10, padding:20, flex:1 }}>{SIM_AGENTS.map(agCard)}</div>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:1, background:'rgba(99,102,241,0.12)', borderTop:'1px solid rgba(99,102,241,0.12)' }}>
+            {[['orders','Pedidos'],['revenue','Revenue'],['agents','Agentes activos'],['patterns','Patrones']].map(([k,l]) => (
+              <div key={k} style={{ background:'rgba(6,9,18,0.8)', padding:'14px 16px', textAlign:'center' }}>
+                <div style={{ fontSize:'1.3rem', fontWeight:800, background:'linear-gradient(135deg,#6366f1,#818cf8)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>{k==='revenue'?`$${metrics[k].toLocaleString()}`:k==='agents'?`${metrics[k]}/9`:metrics[k]}</div>
+                <div style={{ fontSize:10, color:'#475569', fontWeight:500, textTransform:'uppercase', letterSpacing:'0.5px', marginTop:2 }}>{l}</div>
               </div>
-            </div>
-          ))}
-          {started && step < conversation.length && (
-            <div style={{ display: 'flex', justifyContent: conversation[step]?.from === 'client' ? 'flex-end' : 'flex-start' }}>
-              <div style={{ background: conversation[step]?.from === 'client' ? '#005c4b' : '#202c33', padding: '10px 16px', borderRadius: 10, display: 'flex', gap: 4 }}>
-                {[0, 1, 2].map(i => (<div key={i} style={{ width: 6, height: 6, borderRadius: '50%', background: '#8696a0', animation: `gcb 1.2s ${i * 0.2}s infinite` }} />))}
+            ))}
+          </div>
+          <div style={{ padding:'16px 20px', borderTop:'1px solid rgba(99,102,241,0.12)', maxHeight:140, overflowY:'auto' }}>
+            <h4 style={{ fontSize:11, color:'#475569', textTransform:'uppercase', letterSpacing:'1px', marginBottom:8, marginTop:0 }}>Actividad en vivo</h4>
+            {logs.map((l, i) => (
+              <div key={i} style={{ display:'flex', alignItems:'center', gap:8, padding:'4px 0', fontSize:12, color:'#94a3b8', animation:'simFUp .3s ease' }}>
+                <span style={{ width:5, height:5, borderRadius:'50%', background:l.c, flexShrink:0 }} />
+                <span>{l.m}</span>
+                <span style={{ color:'#475569', fontSize:10, marginLeft:'auto' }}>{l.time}</span>
               </div>
-            </div>
-          )}
-        </div>
-
-        {/* Bottom bar */}
-        <div style={{ background: '#1f2c34', padding: '10px 12px', display: 'flex', alignItems: 'center', gap: 8 }}>
-          <div style={{ flex: 1, background: '#2a3942', borderRadius: 20, padding: '8px 14px', color: '#8696a0', fontSize: 12 }}>
-            {step >= conversation.length ? '✅ Venta completada — $350 MXN en 40 segundos' : 'Observa la conversación...'}
+            ))}
+            {logs.length===0 && <div style={{ fontSize:12, color:'#475569' }}>Esperando primera interacción...</div>}
           </div>
         </div>
       </div>
 
-      {step >= conversation.length && (
-        <div style={{ textAlign: 'center', marginTop: 20 }}>
-          <button onClick={() => { setStep(0); setTimeout(() => setStarted(true), 100); }}
-            style={{ background: 'rgba(99,102,241,0.15)', border: '1px solid rgba(99,102,241,0.4)', color: '#818cf8', padding: '8px 20px', borderRadius: 8, cursor: 'pointer', fontSize: 12, fontWeight: 700 }}>↺ Repetir demo</button>
-        </div>
-      )}
-      <style>{`@keyframes fadeInUp { from { opacity:0; transform:translateY(8px) } to { opacity:1; transform:translateY(0) } }`}</style>
+      <style>{`
+        @keyframes simMsgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes simFUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes simPls{0%,100%{opacity:1}50%{opacity:.4}}
+        @keyframes simDot{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+        @keyframes simAgPulse{0%,100%{box-shadow:0 0 0 0 rgba(99,102,241,0)}50%{box-shadow:0 0 0 6px rgba(99,102,241,.1)}}
+      `}</style>
     </section>
   );
 }
+
 
 
 
@@ -5602,7 +5656,7 @@ function GenyXLandingPage() {
         <p style={C.sub}>Desde la primera conversación hasta tu estrategia financiera. Dos capas: la operativa (atender, vender, cobrar, entregar) y la estratégica (interpretar tus datos y planear tus finanzas y marketing). El fundador toma la decisión. La IA hace el trabajo.</p>
         <div style={C.btns}>
           <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={C.primary}>Cuéntame de tu negocio →</a>
-          <a href="#simulador" style={C.secondary}>Probar simulador</a>
+          <a href="#simulador-inmersivo" style={C.secondary}>Probar simulador</a>
         </div>
       </section>
 
@@ -5722,7 +5776,7 @@ function GenyXLandingPage() {
         </div>
         <div style={{ textAlign: 'center', marginTop: 24 }}>
           <p style={{ color: '#94a3b8', fontSize: 14, marginBottom: 14 }}>¿Quieres ver cómo se vería un día de tu negocio con GenyX operando?</p>
-          <a href="#simulador" style={{ display: 'inline-block', background: 'transparent', border: '1px solid rgba(99,102,241,0.5)', color: '#818cf8', padding: '12px 28px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', transition: 'all .2s' }}>Probar el simulador con tus productos reales →</a>
+          <a href="#simulador-inmersivo" style={{ display: 'inline-block', background: 'transparent', border: '1px solid rgba(99,102,241,0.5)', color: '#818cf8', padding: '12px 28px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', transition: 'all .2s' }}>Probar el simulador en vivo →</a>
         </div>
       </section>
 
