@@ -1909,6 +1909,10 @@ const TabMarketing = ({ selectedSlug }) => {
   const [genResult, setGenResult] = useState(null);
   const [rejectReason, setRejectReason] = useState('');
   const [showReject, setShowReject] = useState(false);
+  // Fix #5: 2FA email — doble verificación WA + Email (decreto 20-may)
+  const [emailCode, setEmailCode] = useState('');
+  const [emailStep, setEmailStep] = useState('idle'); // idle | sending | sent | verified | error
+  const [emailStatus, setEmailStatus] = useState('');
 
   const slug = selectedSlug || '';
   if (!slug) return <div style={{ textAlign: 'center', padding: 40, color: '#94a3b8' }}>Selecciona un cliente arriba para ver su marketing.</div>;
@@ -1939,17 +1943,47 @@ const TabMarketing = ({ selectedSlug }) => {
     setGenerating(false);
   };
 
+  // Fix #5: Solicitar código de verificación por email (paso 2 del 2FA)
+  const handleRequestEmailCode = async () => {
+    setEmailStep('sending'); setEmailStatus('Enviando código a tu correo...');
+    let retries = 0;
+    const maxRetries = 2;
+    while (retries <= maxRetries) {
+      try {
+        const r = await fetch(`${BACKEND}/api/client/${slug}/marketing/approve-step2`, {
+          method: 'POST', headers: { ...getAH(), 'Content-Type': 'application/json' },
+        });
+        const d = await r.json();
+        if (r.ok) {
+          setEmailStep('sent');
+          setEmailStatus('✅ Código enviado a tu correo registrado. Revisa tu bandeja.');
+          return;
+        }
+        setEmailStatus(`❌ ${d.detail || 'Error enviando código'}`);
+      } catch { /* retry */ }
+      retries++;
+      if (retries <= maxRetries) {
+        setEmailStatus(`⏳ Reintentando envío (${retries}/${maxRetries})...`);
+        await new Promise(r => setTimeout(r, 2000));
+      }
+    }
+    // Si llegamos aquí, SMTP falló 2+ veces
+    setEmailStep('error');
+    setEmailStatus('❌ No se pudo enviar el código por email. Tu canal de correo tiene problemas — contactá a soporte (hola@genyxsystems.com).');
+  };
+
   const handleApprove = async () => {
-    if (otpCode.length !== 6) { setOtpStatus('Código de 6 dígitos requerido.'); return; }
-    setOtpStatus('Verificando...');
+    if (otpCode.length !== 6) { setOtpStatus('Código WA de 6 dígitos requerido.'); return; }
+    if (emailCode.length !== 6) { setOtpStatus('Código de email de 6 dígitos requerido.'); return; }
+    setOtpStatus('Verificando doble factor...');
     try {
       const r = await fetch(`${BACKEND}/api/client/${slug}/marketing/approve`, {
-        method: 'POST', headers: getAH(),
-        body: JSON.stringify({ otp_code: otpCode }),
+        method: 'POST', headers: { ...getAH(), 'Content-Type': 'application/json' },
+        body: JSON.stringify({ otp_code: otpCode, email_code: emailCode }),
       });
       const d = await r.json();
       setOtpStatus(r.ok ? `✅ ${d.message}` : `❌ ${d.detail || 'Error'}`);
-      if (r.ok) { setOtpCode(''); fetchDashboard(); }
+      if (r.ok) { setOtpCode(''); setEmailCode(''); setEmailStep('idle'); fetchDashboard(); }
     } catch { setOtpStatus('❌ Error de conexión'); }
     setTimeout(() => setOtpStatus(''), 5000);
   };
@@ -2066,24 +2100,69 @@ const TabMarketing = ({ selectedSlug }) => {
                 ))}
               </div>
 
-              {/* Aprobación OTP */}
+              {/* Aprobación 2FA — WhatsApp + Email (Fix #5, decreto 20-may) */}
               {isPending && (
                 <div style={{ marginTop: 16, padding: '16px', background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.2)', borderRadius: 10 }}>
-                  <p style={{ fontSize: 12, fontWeight: 700, color: '#fbbf24', marginBottom: 10 }}>🔑 Aprobar Estrategia (OTP)</p>
-                  <div style={{ display: 'flex', gap: 8 }}>
+                  <p style={{ fontSize: 12, fontWeight: 700, color: '#fbbf24', marginBottom: 4 }}>🔐 Aprobar Estrategia — Doble Verificación</p>
+                  <p style={{ fontSize: 11, color: '#94a3b8', marginBottom: 14 }}>Por tu seguridad legal, esta acción requiere verificación en 2 canales:</p>
+
+                  {/* Paso 1: Código WhatsApp */}
+                  <div style={{ marginBottom: 12 }}>
+                    <p style={{ fontSize: 11, fontWeight: 600, color: '#a3e635', marginBottom: 6 }}>1️⃣ Código enviado a tu WhatsApp</p>
                     <input
                       value={otpCode}
                       onChange={e => setOtpCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
-                      placeholder="Código de 6 dígitos"
+                      placeholder="Código WA de 6 dígitos"
                       maxLength={6}
-                      style={{ flex: 1, background: '#1e293b', border: '1px solid rgba(251,191,36,0.3)', color: '#fbbf24', padding: '10px 14px', borderRadius: 8, fontSize: 16, fontWeight: 700, fontFamily: 'monospace', letterSpacing: '.2em', textAlign: 'center', outline: 'none' }}
+                      style={{ width: '100%', boxSizing: 'border-box', background: '#1e293b', border: `1px solid ${otpCode.length === 6 ? 'rgba(34,197,94,0.5)' : 'rgba(251,191,36,0.3)'}`, color: otpCode.length === 6 ? '#4ade80' : '#fbbf24', padding: '10px 14px', borderRadius: 8, fontSize: 16, fontWeight: 700, fontFamily: 'monospace', letterSpacing: '.2em', textAlign: 'center', outline: 'none' }}
                     />
-                    <button onClick={handleApprove} disabled={otpCode.length !== 6}
-                      style={{ background: '#14532d', color: '#86efac', padding: '10px 20px', borderRadius: 8, fontSize: 13, fontWeight: 700, cursor: otpCode.length === 6 ? 'pointer' : 'not-allowed', border: '1px solid rgba(34,197,94,0.3)', opacity: otpCode.length === 6 ? 1 : 0.4 }}>
-                      ✅ Aprobar
+                  </div>
+
+                  {/* Paso 2: Código Email */}
+                  <div style={{ marginBottom: 12 }}>
+                    <p style={{ fontSize: 11, fontWeight: 600, color: '#818cf8', marginBottom: 6 }}>2️⃣ Código enviado a tu correo</p>
+                    {emailStep === 'idle' && (
+                      <button onClick={handleRequestEmailCode} disabled={otpCode.length !== 6}
+                        style={{ width: '100%', padding: '10px 14px', borderRadius: 8, fontSize: 13, fontWeight: 700,
+                          background: otpCode.length === 6 ? 'rgba(99,102,241,0.15)' : 'rgba(255,255,255,0.04)',
+                          color: otpCode.length === 6 ? '#a5b4fc' : '#475569',
+                          border: `1px solid ${otpCode.length === 6 ? 'rgba(99,102,241,0.3)' : 'rgba(255,255,255,0.08)'}`,
+                          cursor: otpCode.length === 6 ? 'pointer' : 'not-allowed',
+                          opacity: otpCode.length === 6 ? 1 : 0.4 }}>
+                        📧 Enviar código a mi correo
+                      </button>
+                    )}
+                    {emailStep === 'sending' && (
+                      <div style={{ textAlign: 'center', padding: 10, color: '#818cf8', fontSize: 12 }}>⏳ {emailStatus}</div>
+                    )}
+                    {emailStep === 'error' && (
+                      <div style={{ padding: 10, color: '#f87171', fontSize: 12, background: 'rgba(239,68,68,0.1)', borderRadius: 8 }}>
+                        {emailStatus}
+                        <button onClick={() => { setEmailStep('idle'); setEmailStatus(''); }} style={{ display: 'block', marginTop: 8, color: '#fbbf24', background: 'none', border: 'none', cursor: 'pointer', fontSize: 11 }}>Reintentar</button>
+                      </div>
+                    )}
+                    {(emailStep === 'sent' || emailStep === 'verified') && (
+                      <>
+                        <p style={{ fontSize: 11, color: '#4ade80', marginBottom: 6 }}>{emailStatus}</p>
+                        <input
+                          value={emailCode}
+                          onChange={e => setEmailCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
+                          placeholder="Código email de 6 dígitos"
+                          maxLength={6}
+                          style={{ width: '100%', boxSizing: 'border-box', background: '#1e293b', border: `1px solid ${emailCode.length === 6 ? 'rgba(34,197,94,0.5)' : 'rgba(99,102,241,0.3)'}`, color: emailCode.length === 6 ? '#4ade80' : '#a5b4fc', padding: '10px 14px', borderRadius: 8, fontSize: 16, fontWeight: 700, fontFamily: 'monospace', letterSpacing: '.2em', textAlign: 'center', outline: 'none' }}
+                        />
+                      </>
+                    )}
+                  </div>
+
+                  {/* Botones */}
+                  <div style={{ display: 'flex', gap: 8 }}>
+                    <button onClick={handleApprove} disabled={otpCode.length !== 6 || emailCode.length !== 6}
+                      style={{ flex: 1, background: (otpCode.length === 6 && emailCode.length === 6) ? '#14532d' : 'rgba(255,255,255,0.04)', color: (otpCode.length === 6 && emailCode.length === 6) ? '#86efac' : '#475569', padding: '12px 20px', borderRadius: 8, fontSize: 14, fontWeight: 700, cursor: (otpCode.length === 6 && emailCode.length === 6) ? 'pointer' : 'not-allowed', border: `1px solid ${(otpCode.length === 6 && emailCode.length === 6) ? 'rgba(34,197,94,0.3)' : 'rgba(255,255,255,0.08)'}`, opacity: (otpCode.length === 6 && emailCode.length === 6) ? 1 : 0.4 }}>
+                      ✅ Aprobar Estrategia
                     </button>
                     <button onClick={() => setShowReject(!showReject)}
-                      style={{ background: '#7f1d1d', color: '#fca5a5', padding: '10px 14px', borderRadius: 8, fontSize: 12, fontWeight: 600, cursor: 'pointer', border: '1px solid rgba(239,68,68,0.3)' }}>
+                      style={{ background: '#7f1d1d', color: '#fca5a5', padding: '12px 14px', borderRadius: 8, fontSize: 12, fontWeight: 600, cursor: 'pointer', border: '1px solid rgba(239,68,68,0.3)' }}>
                       ❌
                     </button>
                   </div>
