@@ -270,7 +270,7 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
     return tenants.map(t => {
       const org = orgSettings[t.slug] || {};
       const totalRevenue  = parseFloat(org.total_revenue)    || 0;
-      const subscription  = parseFloat(org.plan_monthly_fee) || 3500;
+      const subscription  = parseFloat(org.plan_monthly_fee) || 9900;
       return { ...t, ...org, revenueMonth: totalRevenue, subscription };
     }).sort((a, b) => (CLIENT_ORDER[a.slug] ?? 99) - (CLIENT_ORDER[b.slug] ?? 99));
   }, [tenants, orgSettings]);
@@ -384,7 +384,7 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
               {/* KPIs */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginBottom: 16 }}>
                 <KpiMini label="Ingresos/mes" value={$$(t.revenueMonth)} />
-                <KpiMini label="Plan contratado" value={t.plan_name || `$${(parseFloat(t.plan_monthly_fee) || 3500).toLocaleString('es-MX')}/mes`} />
+                <KpiMini label="Plan contratado" value={t.plan_name || `$${(parseFloat(t.plan_monthly_fee) || 9900).toLocaleString('es-MX')}/mes`} />
                 <KpiMini label="Próximo cobro" value={t.next_billing_date ? fmt(t.next_billing_date) : '—'} />
               </div>
 
@@ -519,7 +519,7 @@ const TabData = ({ tenants, orders }) => {
       const od = typeof o.order_data === 'object' ? o.order_data : {};
       return s + parseFloat(od.total_estimated || od.total || o.total || 0);
     }, 0);
-    const totalSubscription = tenants.reduce((s, t) => s + (parseFloat(t.plan_monthly_fee) || 3500), 0);
+    const totalSubscription = tenants.reduce((s, t) => s + (parseFloat(t.plan_monthly_fee) || 9900), 0);
     const avgTicket = paid.length > 0 ? totalRevenue / paid.length : 0;
     const clientBreakdown = tenants.map(t => {
       const clientOrders = paid.filter(o => {
@@ -536,7 +536,7 @@ const TabData = ({ tenants, orders }) => {
         status: t.status,
         orders: clientOrders.length,
         revenue: clientRevenue,
-        subscription: parseFloat(t.plan_monthly_fee) || 3500,
+        subscription: parseFloat(t.plan_monthly_fee) || 9900,
       };
     });
     setGenyXData({ totalRevenue, totalSubscription, avgTicket, totalOrders: paid.length, clientBreakdown });
@@ -894,7 +894,7 @@ const TabAnalista = ({ tenants, orders, selectedSlug, setSelectedSlug }) => {
       const t = o.clone_id?.replace('-sales', '') || 'sin-tenant';
       byTenant[t] = (byTenant[t] || 0) + parseFloat(od.total_estimated || od.total || 0);
     });
-    const mrrTotal = tenants.reduce((s, t) => s + (parseFloat(t.plan_monthly_fee) || 3500), 0);
+    const mrrTotal = tenants.reduce((s, t) => s + (parseFloat(t.plan_monthly_fee) || 9900), 0);
     return { totalOrders, totalRevenue, mrrTotal, byTenant };
   })();
 
@@ -995,7 +995,7 @@ const TabAnalista = ({ tenants, orders, selectedSlug, setSelectedSlug }) => {
 
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// TAB: AGENTES — Matriz tenants × 8 agentes con status dots
+// TAB: AGENTES — Matriz tenants × 9 agentes con status dots
 // ═══════════════════════════════════════════════════════════════════════════════
 const AGENT_DEFS = [
   { id: 'marketing',   icon: '📣', name: 'Mkt',  plan: 'AUTONOMY' },
@@ -1055,7 +1055,7 @@ const TabAgentes = ({ tenants }) => {
     <section>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 24, flexWrap: 'wrap' }}>
         <h2 style={{ ...H2, margin: 0 }}>🤖 Matriz de Agentes</h2>
-        <span style={MONO}>{tenants.length} cliente(s) × 8 agentes</span>
+        <span style={MONO}>{tenants.length} cliente(s) × 9 agentes</span>
       </div>
 
       <div style={{ overflowX: 'auto', marginBottom: 24 }}>
@@ -1078,7 +1078,7 @@ const TabAgentes = ({ tenants }) => {
                 <tr key={t.slug} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
                   <td style={{ padding: '10px 12px' }}>
                     <div style={{ fontWeight: 600, color: '#f1f5f9', fontSize: 13 }}>{t.name || t.slug}</div>
-                    <div style={{ fontSize: 10, color: '#64748b' }}>{(t.plan_name || 'Starter').toUpperCase()}</div>
+                    <div style={{ fontSize: 10, color: '#64748b' }}>{(t.plan_name || 'Esencial').toUpperCase()}</div>
                   </td>
                   {AGENT_DEFS.map(a => {
                     const dotKey = getDot(t.plan_name, a, status[a.id]);
@@ -1811,7 +1811,7 @@ const TabOnboarding = () => {
         {step === 1 && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             <h3 style={H3}>Información del Negocio</h3>
-            {[['Nombre comercial *', 'name', 'Ej: Tacos El Güero'], ['Giro', 'industry', 'Ej: Restaurante, Panadería, Floriste...'], ['Email del dueño', 'owner_email', 'Para reportes semanales'], ['Sitio web', 'website_url', 'https://...'], ['Dirección de la tienda', 'store_address', 'Calle, Número, Colonia, Ciudad']].map(([label, key, placeholder]) => (
+            {[['Nombre comercial *', 'name', 'Ej: Mi Negocio'], ['Giro', 'industry', 'Ej: Restaurante, Clínica, Tienda...'], ['Email del dueño', 'owner_email', 'Para reportes semanales'], ['Sitio web', 'website_url', 'https://...'], ['Dirección de la tienda', 'store_address', 'Calle, Número, Colonia, Ciudad']].map(([label, key, placeholder]) => (
               <div key={key}>
                 <label style={LABEL}>{label}</label>
                 <input style={INPUT} value={form[key]} placeholder={placeholder} onChange={e => {
@@ -2354,7 +2354,7 @@ function ClientTermsPage() {
         <p style={P}>El Cliente accede mediante un <span style={HL}>PIN personal de 4 dígitos</span>. Es responsabilidad del Cliente mantener la confidencialidad de sus credenciales. GenyX no almacena el PIN en texto plano.</p>
 
         <h2 style={H2}>3. Modelo de Cobro</h2>
-        <p style={P}>El servicio funciona con <span style={HL}>Suscripción Mensual Fija</span> según el plan contratado (Starter / Growth / Autonomy). GenyX no retiene ni procesa fondos de los compradores del Cliente. Los pagos del comprador final van directamente al Cliente vía Stripe. Sin permanencia mínima.</p>
+        <p style={P}>El servicio funciona con <span style={HL}>Suscripción Mensual Fija</span> según el plan contratado (Esencial / Profesional / Enterprise). GenyX no retiene ni procesa fondos de los compradores del Cliente. Los pagos del comprador final van directamente al Cliente vía Stripe. Sin permanencia mínima.</p>
 
         <h2 style={H2}>4. Cancelación</h2>
         <p style={P}>El Cliente puede cancelar en cualquier momento con <span style={HL}>30 días naturales de aviso</span> a hola@genyxsystems.com. Al terminar: (i) GenyX entrega export CSV de datos en 15 días; (ii) datos eliminados de servidores en 60 días.</p>
@@ -2363,7 +2363,7 @@ function ClientTermsPage() {
         <p style={P}>El bot opera con IA generativa de naturaleza probabilística. GenyX <span style={HL}>no garantiza precisión del 100%</span>. La responsabilidad máxima se limita a los 3 meses de suscripción pagados anteriores al evento.</p>
 
         <h2 style={H2}>6. Fuerza Mayor</h2>
-        <p style={P}>GenyX no responde por interrupciones de Meta/WhatsApp, OpenAI, Stripe, Render, Vercel u otros proveedores de infraestructura.</p>
+        <p style={P}>GenyX no responde por interrupciones de Meta/WhatsApp, proveedores de modelos de IA generativa, Stripe, Render, Vercel u otros proveedores de infraestructura.</p>
 
         <h2 style={H2}>7. Propiedad Intelectual</h2>
         <p style={P}>El código, algoritmos, prompts y flujos son propiedad exclusiva de GenyX. El Cliente retiene derechos sobre su catálogo, recetas y marca.</p>
@@ -2419,7 +2419,7 @@ function ClientPrivacyPage() {
         <p style={P}>
           &bull; <span style={HL}>Stripe</span> — procesamiento de pagos (datos de pago nunca pasan por GenyX)<br />
           &bull; <span style={HL}>Meta Platforms</span> — WhatsApp Business API<br />
-          &bull; <span style={HL}>OpenAI</span> — procesamiento de lenguaje (datos anonimizados)<br />
+          &bull; <span style={HL}>Proveedores de modelos de IA generativa</span> — procesamiento de lenguaje (datos anonimizados)<br />
           &bull; <span style={HL}>Render / Vercel</span> — infraestructura cloud
         </p>
 
@@ -2468,11 +2468,11 @@ function LegalPage({ tipo }) {
               <li><span style={HL}>Expediente Digital (KYC):</span> GenyX puede suspender el acceso si el expediente no está al 100%.</li>
             </ul>
             <h2 style={H2}>4. Modelo de Cobro</h2>
-            <p style={P}>El modelo de cobro es <strong>Setup Fee único + Suscripción Mensual</strong> según el plan contratado (Starter / Growth / Autonomy). GenyX no retiene ni procesa fondos de los compradores del Cliente — el cobro al comprador final es directo vía Stripe. La suscripción mensual a GenyX se realiza por separado según el Contrato de Servicios. Los precios son fijos para clientes activos; cualquier ajuste aplica únicamente a nuevos contratos, con 30 días de aviso previo.</p>
+            <p style={P}>El modelo de cobro es <strong>Setup Fee único + Suscripción Mensual</strong> según el plan contratado (Esencial / Profesional / Enterprise). GenyX no retiene ni procesa fondos de los compradores del Cliente — el cobro al comprador final es directo vía Stripe. La suscripción mensual a GenyX se realiza por separado según el Contrato de Servicios. Los precios son fijos para clientes activos; cualquier ajuste aplica únicamente a nuevos contratos, con 30 días de aviso previo.</p>
             <h2 style={H2}>5. Inteligencia Artificial y Limitación de Responsabilidad</h2>
             <p style={P}>El bot opera con IA generativa de naturaleza probabilística y puede cometer <strong>errores conversacionales</strong> (“alucinaçiones”). GenyX no garantiza precisión del 100%. <strong>GenyX no será responsable</strong> por pérdidas económicas, productos mal cotizados, daños a la reputación o cualquier daño indirecto o consecuencial. La responsabilidad máxima de GenyX se limita a los <strong>3 meses de suscripción pagados</strong> anteriores al evento.</p>
             <h2 style={H2}>6. Fuerza Mayor y Caídas de Terceros</h2>
-            <p style={P}>GenyX no responde por interrupciones de Meta/WhatsApp, OpenAI, Stripe, Render, Vercel u otros proveedores de infraestructura.</p>
+            <p style={P}>GenyX no responde por interrupciones de Meta/WhatsApp, proveedores de modelos de IA generativa, Stripe, Render, Vercel u otros proveedores de infraestructura.</p>
             <h2 style={H2}>7. Uso Aceptable</h2>
             <p style={P}>Queda prohibido usar la Plataforma para vender productos ilegales, enviar spam, o intentar vulnerar el código o infraestructura de GenyX.</p>
             <h2 style={H2}>8. Propiedad Intelectual</h2>
@@ -2512,7 +2512,7 @@ function LegalPage({ tipo }) {
             <ul style={UL}>
               <li><span style={HL}>Stripe:</span> Procesamiento seguro de pagos (Stripe Standard) para la generación de links de cobro del Cliente</li>
               <li><span style={HL}>Meta Platforms:</span> Operación de WhatsApp Business API</li>
-              <li><span style={HL}>OpenAI:</span> Procesamiento de lenguaje (datos anonimizados, no se usan para entrenar modelos públicos)</li>
+              <li><span style={HL}>Proveedores de modelos de IA generativa:</span> Procesamiento de lenguaje (datos anonimizados, no se usan para entrenar modelos públicos)</li>
               <li><span style={HL}>Render / Vercel:</span> Infraestructura cloud</li>
             </ul>
             <h2 style={H2}>6. Derechos ARCO</h2>
@@ -2991,7 +2991,7 @@ function TabMisAgentes({ slug, token }) {
         })}
       </div>
       <div style={{ marginTop: 16, padding: '12px 14px', background: '#f8fafc', borderRadius: 12, border: '1px solid #e2e8f0', fontSize: 12, color: '#64748b', textAlign: 'center' }}>
-        💡 Tu plan <b>{plan}</b> incluye {agents ? Object.values(agents).filter(s => s !== 'inactive').length : 0} de 8 agentes. ¿Quieres más? <b>hola@genyxsystems.com</b>
+        💡 Tu plan <b>{plan}</b> incluye {agents ? Object.values(agents).filter(s => s !== 'inactive').length : 0} de 9 agentes. ¿Quieres más? <b>hola@genyxsystems.com</b>
       </div>
     </>
   );
@@ -4625,13 +4625,13 @@ function GenyXConciergeWidget() {
   const inpRef = React.useRef(null);
 
   React.useEffect(() => { const t = setTimeout(() => setPulse(false), 8000); return () => clearTimeout(t); }, []);
-  React.useEffect(() => { if (open && msgs.length === 0) addBot('Hola 👋 Bienvenido a GenyX.\n\nAyudamos a negocios como el tuyo a vender más con 8 agentes de IA que se vuelven más inteligentes con el tiempo.\n\n¿A qué se dedica tu negocio?'); }, [open]);
+  React.useEffect(() => { if (open && msgs.length === 0) addBot('Hola 👋 Bienvenido a GenyX.\n\nAyudamos a negocios como el tuyo a vender más con 9 agentes de IA que se vuelven más inteligentes con el tiempo.\n\n¿A qué se dedica tu negocio?'); }, [open]);
   React.useEffect(() => { botRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [msgs, typing]);
   React.useEffect(() => { if (open && phase !== 'done') setTimeout(() => inpRef.current?.focus(), 150); }, [open, phase]);
 
   function addBot(text, d = 800) { setTyping(true); setTimeout(() => { setTyping(false); setMsgs(p => [...p, { from: 'bot', text }]); }, d); }
 
-  async function callGPT(neg, ret) {
+  async function callAI(neg, ret) {
     setTyping(true);
     try {
       const r = await fetch(`${BURL}/api/genyx-bot`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ negocio: neg, reto: ret }) });
@@ -4650,11 +4650,11 @@ function GenyXConciergeWidget() {
     const v = inp.trim(); if (!v || phase === 'done') return;
     setInp(''); setMsgs(p => [...p, { from: 'user', text: v }]);
     if (phase === 'negocio') { setCol(x => ({ ...x, negocio: v })); setPhase('reto'); addBot(`¡Perfecto, los negocios de ${v} tienen potencial enorme con IA! 🚀\n¿Cuál es tu mayor reto hoy?\n\n(atención a clientes, pedidos por WA, pagos, contabilidad, otro)`, 800); }
-    else if (phase === 'reto') { const upd = { ...col, reto: v }; setCol(upd); setPhase('ai'); callGPT(col.negocio, v); }
+    else if (phase === 'reto') { const upd = { ...col, reto: v }; setCol(upd); setPhase('ai'); callAI(col.negocio, v); }
     else if (phase === 'capture') { saveLead(v.split(' ')[0], v, col.negocio, col.reto); setPhase('done'); addBot(`¡Gracias! ✅\nUn especialista de GenyX te contacta en menos de 24 horas.\n\n📧 hola@genyxsystems.com`, 900); }
   }
 
-  const ph = phase === 'negocio' ? 'Ej: panadería, restaurante...' : phase === 'reto' ? 'Ej: muchos mensajes sin responder...' : phase === 'capture' ? 'Tu nombre + WhatsApp o email...' : '';
+  const ph = phase === 'negocio' ? 'Ej: clínica, tienda, estudio...' : phase === 'reto' ? 'Ej: muchos mensajes sin responder...' : phase === 'capture' ? 'Tu nombre + WhatsApp o email...' : '';
 
   return (
     <>
@@ -4798,7 +4798,7 @@ function WhatsAppSimulator() {
     <section style={{ position:'relative', padding:'80px 24px', maxWidth:1300, margin:'0 auto' }} id="simulador-inmersivo">
       <div style={{ textAlign:'center', marginBottom:48 }}>
         <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', textTransform:'uppercase', marginBottom:12 }}>SIMULADOR EN VIVO</div>
-        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:10, letterSpacing:'-1px', lineHeight:1.15 }}>Escribe un mensaje y observa<br/><span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>cómo operan tus 8 agentes en tiempo real.</span></h2>
+        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:10, letterSpacing:'-1px', lineHeight:1.15 }}>Escribe un mensaje y observa<br/><span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>cómo operan tus 9 agentes en tiempo real.</span></h2>
         <p style={{ color:'#94a3b8', fontSize:15, maxWidth:560, margin:'0 auto' }}>Esta es una simulación real de lo que GenyX hace con tu negocio. Cada mensaje activa agentes que procesan, ejecutan y generan tu briefing — en automático.</p>
       </div>
 
@@ -4923,7 +4923,7 @@ function PlanesPage() {
           <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.12em', marginBottom: 12 }}>DETALLE DE PLANES</div>
         </div>
         <h1 style={S.h1}>Tres planes según el tamaño de tu negocio.</h1>
-        <p style={S.sub}>Todos los planes incluyen los 8 agentes de IA. Lo que varía es la cuota de operación proactiva según el volumen de tu negocio.</p>
+        <p style={S.sub}>Todos los planes incluyen los 9 agentes de IA. Lo que varía es la cuota de operación proactiva según el volumen de tu negocio.</p>
 
         {/* §5.1 Resumen de planes */}
         <div style={S.section}>
@@ -5083,7 +5083,7 @@ function PlanesPage() {
         <div style={S.section}>
           <div style={S.sTitle}>🧩 Herramientas por industria</div>
           <div style={S.card}>
-            <p style={{ ...S.li, marginBottom: 16 }}>Además de los 8 agentes, activamos herramientas según tu negocio:</p>
+            <p style={{ ...S.li, marginBottom: 16 }}>Además de los 9 agentes, activamos herramientas según tu negocio:</p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 10, marginBottom: 16 }}>
               {[
                 ['📦 Inventario', 'Control de stock en tiempo real'],
@@ -5477,7 +5477,7 @@ function MandoSimulator() {
               marginBottom: 12,
               opacity: step >= 4 ? 1 : 0, transition: 'opacity 0.4s',
             }}>
-              <div style={{ fontSize: 9, fontWeight: 700, color: '#475569', marginBottom: 6, letterSpacing: '.05em', textTransform: 'uppercase' }}>8 Agentes</div>
+              <div style={{ fontSize: 9, fontWeight: 700, color: '#475569', marginBottom: 6, letterSpacing: '.05em', textTransform: 'uppercase' }}>9 Agentes</div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, justifyContent: 'center', position: 'relative' }}>
                 {MANDO_AGENTS.map((a) => {
                   const lit = agentsLit.includes(a.id);
@@ -5577,7 +5577,7 @@ function MandoSimulator() {
           Tu operación completa. <span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>En tu bolsillo.</span>
         </p>
         <p style={{ fontSize: 13, color: '#64748b', maxWidth: 400, margin: '0 auto', lineHeight: 1.6 }}>
-          Cada mañana tu Centro de Mando consolida la información de los 8 agentes en un briefing — sin que tengas que abrir tu computadora.
+          Cada mañana tu Centro de Mando consolida la información de los 9 agentes en un briefing — sin que tengas que abrir tu computadora.
         </p>
       </div>
     </section>
@@ -5658,7 +5658,7 @@ function SimuladorGenyX() {
   if (phase === 2) return (
     <section id="simulador" style={Z.wrap}>
       <div style={Z.label}>SIMULADOR INTERACTIVO</div>
-      <h2 style={Z.h2}>Cuéntanos de tu negocio<br /><span style={Z.h2a}>y mira cómo operarían 8 agentes en un día real.</span></h2>
+      <h2 style={Z.h2}>Cuéntanos de tu negocio<br /><span style={Z.h2a}>y mira cómo operarían 9 agentes en un día real.</span></h2>
       <p style={Z.sub}>Ajusta los valores. Los usaremos para simular 24 horas de operación autónoma.</p>
       <div style={{...Z.priv, display:'flex', alignItems:'center', justifyContent:'center', gap:8}}><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> Estos datos se quedan en tu navegador. No se envían a GenyX.</div>
       <div style={{ maxWidth:480, margin:'0 auto', display:'flex', flexDirection:'column', gap:20 }}>
@@ -5809,8 +5809,8 @@ function SimuladorGenyX() {
         <div style={{ fontSize:12, fontWeight:800, color:'#64748b', marginBottom:16, letterSpacing:'.08em' }}>COMPARATIVA</div>
         <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:20 }}>
           <div>
-            <div style={{ fontSize:12, fontWeight:700, color:'#ef4444', marginBottom:10 }}>SIN GENYX (tradicional)</div>
-            {[[`✗ ~${Math.round(lossPct*100)}% de mensajes sin responder a tiempo`],['✗ 4–6 horas/día contestando WhatsApp'],['✗ Pago manual con fricción'],['✗ 0 visibilidad de margen ni hora pico'],['✗ Decisiones por intuición']].map(([t],i) => (
+            <div style={{ fontSize:12, fontWeight:700, color:'#94a3b8', marginBottom:10 }}>ANTES DE GENYX</div>
+            {[[`→ Mensajes esperando respuesta`],['→ Horas dedicadas a responder manualmente'],['→ Cobros separados del chat'],['→ Sin visibilidad de márgenes en tiempo real'],['→ Decisiones basadas en intuición']].map(([t],i) => (
               <div key={i} style={{ fontSize:12, color:'#94a3b8', padding:'4px 0' }}>{t}</div>
             ))}
             <div style={{ fontSize:14, fontWeight:800, color:'#ef4444', marginTop:10 }}>~{simFmt(sinCobrado)}/día</div>
@@ -6006,13 +6006,13 @@ function GenyXLandingPage() {
         {/* Hero Badge */}
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(99,102,241,0.12)', border:'1px solid rgba(99,102,241,0.4)', borderRadius:30, padding:'6px 20px', marginBottom:14, fontSize:11, fontWeight:800, color:'#818cf8', letterSpacing:'.1em', textTransform:'uppercase' }}>
           <span style={{ width:6, height:6, borderRadius:'50%', background:'#6366f1', display:'inline-block', boxShadow:'0 0 8px #6366f1' }} />
-          TU OPERACIÓN COMERCIAL AUTÓNOMA — 8 AGENTES DE IA
+          TU OPERACIÓN COMERCIAL AUTÓNOMA — 9 AGENTES DE IA
         </div>
         <div style={C.badge}><span style={C.dot} />Marketing · Captación · Venta · Cierre · Entrega · Seguimiento · Analítica · Finanzas</div>
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(74,222,128,0.1)', border:'1px solid rgba(74,222,128,0.35)', color:'#4ade80', fontSize:12, fontWeight:700, padding:'7px 22px', borderRadius:30, marginBottom:16 }}>
           &#x2713; Activo en 48h · Respuesta en segundos · Cero comisión por venta
         </div>
-        <h1 style={C.h1}>Instalamos 8 agentes de IA<br /><span style={C.h1accent}>que corren el 90% de tu operación comercial — autónoma, sin que tú estés.</span></h1>
+        <h1 style={C.h1}>Instalamos 9 agentes de IA<br /><span style={C.h1accent}>que corren el 90% de tu operación comercial — autónoma, sin que tú estés.</span></h1>
         <p style={C.sub}>Desde la primera conversación hasta tu estrategia financiera. Dos capas: la operativa (atender, vender, cobrar, entregar) y la estratégica (interpretar tus datos y planear tus finanzas y marketing). El fundador toma la decisión. La IA hace el trabajo.</p>
         <div style={C.btns}>
           <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={C.primary}>Cuéntame de tu negocio →</a>
@@ -6042,17 +6042,17 @@ function GenyXLandingPage() {
           <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>El <strong style={{ color: '#f1f5f9' }}>78% de los clientes compra con el primero que responde.</strong> Con GenyX, ese siempre eres tú — en segundos, 24/7.</p>
           <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>El cobro ocurre <strong style={{ color: '#f1f5f9' }}>dentro del chat: tu cliente paga en 2 toques</strong> desde WhatsApp. Tú recibes la confirmación al instante.</p>
           <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>Cada pedido directo por WhatsApp es <strong style={{ color: '#f1f5f9' }}>100% tuyo. Cero comisión. Cero intermediarios.</strong> Con 10 pedidos al día, eso son más de <strong style={{ color: '#f1f5f9' }}>$20,000 al mes</strong> que se quedan en tu bolsillo.</p>
-          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>Los negocios que ya venden digital reportan hasta <strong style={{ color: '#f1f5f9' }}>57% más ingresos.</strong> GenyX te lleva ahí — con 8 agentes trabajando desde el día uno.</p>
+          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>Los negocios que ya venden digital reportan hasta <strong style={{ color: '#f1f5f9' }}>57% más ingresos.</strong> GenyX te lleva ahí — con 9 agentes trabajando desde el día uno.</p>
         </div>
       </section>
 
 
 
-      {/* ── Tu Operación Comercial: 8 Agentes ── */}
+      {/* ── Tu Operación Comercial: 9 Agentes ── */}
       <section id="agentes" style={{ padding: '0 24px 100px', maxWidth: 1000, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>TU OPERACIÓN COMERCIAL — 90% AUTÓNOMA</div>
-          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>8 agentes de IA.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Configurados para tu negocio.</span></h2>
+          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>9 agentes de IA.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Configurados para tu negocio.</span></h2>
           <p style={{ color: '#64748b', fontSize: 14, maxWidth: 560, margin: '0 auto' }}>Cada agente se encarga de una función clave. Trabajan juntos, comparten información y operan 24/7 — configurados con las reglas de tu negocio.</p>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
@@ -6079,7 +6079,7 @@ function GenyXLandingPage() {
 
         {/* ── Industrias integradas ── */}
         <div style={{ marginTop: 40, textAlign: 'center' }}>
-          <p style={{ fontSize: 14, color: '#a5b4fc', fontWeight: 700, marginBottom: 6 }}>8 agentes. Todos los planes. Cualquier negocio.</p>
+          <p style={{ fontSize: 14, color: '#a5b4fc', fontWeight: 700, marginBottom: 6 }}>9 agentes. Todos los planes. Cualquier negocio.</p>
           <p style={{ fontSize: 12, color: '#475569', marginBottom: 24 }}>Tú diriges la estrategia (10% de tu tiempo). Los agentes ejecutan el otro 90%.</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 10 }}>
             {[
@@ -6190,7 +6190,7 @@ function GenyXLandingPage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
           {/* Operación Comercial Humana */}
           <div style={{ background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: 20, padding: '32px 28px' }}>
-            <div style={{ fontSize: 13, fontWeight: 800, color: '#ef4444', letterSpacing: '.08em', marginBottom: 20 }}>OPERACIÓN COMERCIAL TRADICIONAL</div>
+            <div style={{ fontSize: 13, fontWeight: 800, color: '#94a3b8', letterSpacing: '.08em', marginBottom: 20 }}>ANTES — OPERACIÓN TRADICIONAL</div>
             {[['Community Manager', '$8,000 – $17,800'], ['SDR / Captación', '$10,000 – $22,000'], ['Ejecutivo de Ventas', '$12,000 – $30,000'], ['Cajero / Cobranza', '$7,500 – $18,000'], ['Coordinador Logístico', '$10,000 – $22,000'], ['Customer Success', '$8,500 – $20,000'], ['Analista de Datos', '$17,400 – $45,000'], ['Contador Junior', '$11,800 – $21,200']].map(([label, val]) => (
               <div key={label} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 12, color: '#94a3b8' }}>
                 <span>{label}</span><span style={{ fontWeight: 700, color: '#f1f5f9' }}>{val}</span>
@@ -6202,12 +6202,12 @@ function GenyXLandingPage() {
             <div style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', fontSize: 12, color: '#94a3b8' }}>
               <span>+ Cargas patronales (×1.40)</span><span style={{ fontWeight: 700, color: '#f1f5f9' }}>$34,100 – $78,400</span>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '14px 0 0', marginTop: 8, borderTop: '2px solid rgba(239,68,68,0.3)', fontSize: 18, fontWeight: 900, color: '#ef4444' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '14px 0 0', marginTop: 8, borderTop: '2px solid rgba(239,68,68,0.3)', fontSize: 18, fontWeight: 900, color: '#94a3b8' }}>
               <span>TOTAL</span><span>$119,300 – $274,400/mes</span>
             </div>
             <div style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 6 }}>
               {['Trabaja 8h L-S', 'Rotación y ausentismo', 'Reclutamiento + onboarding: semanas', 'Cada uno decide sin datos del otro'].map(t => (
-                <div key={t} style={{ fontSize: 12, color: '#64748b', display: 'flex', alignItems: 'center', gap: 6 }}><span style={{ color: '#ef4444' }}>✗</span> {t}</div>
+                <div key={t} style={{ fontSize: 12, color: '#64748b', display: 'flex', alignItems: 'center', gap: 6 }}><span style={{ color: '#64748b' }}>→</span> {t}</div>
               ))}
             </div>
             <div style={{ marginTop: 12, fontSize: 10, color: '#475569', fontStyle: 'italic' }}>Fuente: Computrabajo, OCC, Glassdoor, Indeed, Talent.com — Mayo 2026</div>
@@ -6215,7 +6215,7 @@ function GenyXLandingPage() {
           {/* GenyX */}
           <div style={{ background: 'rgba(74,222,128,0.06)', border: '2px solid rgba(74,222,128,0.3)', borderRadius: 20, padding: '32px 28px' }}>
             <div style={{ fontSize: 13, fontWeight: 800, color: '#4ade80', letterSpacing: '.08em', marginBottom: 20 }}>GenyX</div>
-            {[['Plan Esencial (8 agentes)', '$9,900'], ['Plan Profesional (8 agentes)', '$18,900'], ['Plan Enterprise (8 agentes)', '$34,900']].map(([label, val]) => (
+            {[['Plan Esencial (9 agentes)', '$9,900'], ['Plan Profesional (9 agentes)', '$18,900'], ['Plan Enterprise (9 agentes)', '$34,900']].map(([label, val]) => (
               <div key={label} style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#94a3b8' }}>
                 <span>{label}</span><span style={{ fontWeight: 700, color: '#f1f5f9' }}>{val}</span>
               </div>
@@ -6229,7 +6229,7 @@ function GenyXLandingPage() {
               <span>DESDE</span><span>$9,900/mes</span>
             </div>
             <div style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 6 }}>
-              {['Trabaja 24/7, los 365 días', 'Siempre consistente', 'Activo en 48h — sin reclutamiento', 'Los 8 agentes comparten datos en tiempo real'].map(t => (
+              {['Trabaja 24/7, los 365 días', 'Siempre consistente', 'Activo en 48h — sin reclutamiento', 'Los 9 agentes comparten datos en tiempo real'].map(t => (
                 <div key={t} style={{ fontSize: 12, color: '#64748b', display: 'flex', alignItems: 'center', gap: 6 }}><span style={{ color: '#4ade80' }}>✓</span> {t}</div>
               ))}
             </div>
@@ -6239,7 +6239,7 @@ function GenyXLandingPage() {
         <div style={{ textAlign: 'center', marginTop: 32, background: 'linear-gradient(135deg, rgba(74,222,128,0.08), rgba(34,197,94,0.04))', border: '2px solid rgba(74,222,128,0.3)', borderRadius: 20, padding: '32px 24px' }}>
           <div style={{ fontSize: 14, color: '#cbd5e1', marginBottom: 12, lineHeight: 1.6 }}>Lo que antes pedía un equipo completo,<br /><strong style={{ color: '#f1f5f9' }}>ahora corre solo. Una operación comercial completa, corriendo sola.</strong></div>
           <div style={{ fontSize: 56, fontWeight: 900, background: 'linear-gradient(135deg, #4ade80, #22c55e)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', lineHeight: 1.1 }}>Desde $9,900</div>
-          <div style={{ fontSize: 14, color: '#94a3b8', marginTop: 8 }}>por mes — lo que en nómina formal cuesta entre $119K y $274K</div>
+          <div style={{ fontSize: 14, color: '#94a3b8', marginTop: 8 }}>por mes — tu operación comercial autónoma, lista desde el día uno</div>
         </div>
       </section>
 
@@ -6279,7 +6279,7 @@ function GenyXLandingPage() {
       <section style={{ padding:'0 24px 100px', maxWidth:1000, margin:'0 auto' }}>
         <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12, textAlign:'center' }}>POR QUÉ GenyX</div>
         <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:12, textAlign:'center' }}>GenyX es tu operación comercial.<br /><span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Con tu catálogo. Con tus reglas.</span></h2>
-        <p style={{ color:'#64748b', marginBottom:48, textAlign:'center', fontSize:15, maxWidth:600, margin:'0 auto 48px' }}>8 agentes configurados con tu catálogo, tus precios y tu personalidad de marca. Miden resultados reales cada semana.</p>
+        <p style={{ color:'#64748b', marginBottom:48, textAlign:'center', fontSize:15, maxWidth:600, margin:'0 auto 48px' }}>9 agentes configurados con tu catálogo, tus precios y tu personalidad de marca. Miden resultados reales cada semana.</p>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:16 }}>
           {[
             [() => simSvg([['rect',{x:3,y:11,width:18,height:11,rx:2,ry:2}],'M7 11V7a5 5 0 0110 0v4'],'lv1'), 'Precios exactos. Siempre.', 'Tu agente respeta tu catálogo al 100%. Si cuesta $120, cobra $120. Exactitud total en cada pedido.'],
@@ -6303,13 +6303,13 @@ function GenyXLandingPage() {
       <section style={{ padding:'0 24px 100px', maxWidth:960, margin:'0 auto', textAlign:'center' }}>
         <div style={{ background:'linear-gradient(135deg,rgba(99,102,241,0.06),rgba(139,92,246,0.06))', border:'1px solid rgba(99,102,241,0.2)', borderRadius:24, padding:'48px 40px' }}>
           <div style={{ fontSize:11, fontWeight:800, color:'#818cf8', letterSpacing:'.12em', textTransform:'uppercase', marginBottom:12 }}>Modelo de Inversión</div>
-          <h2 style={{ fontSize:32, fontWeight:900, color:'#f1f5f9', lineHeight:1.25, marginBottom:16 }}>3 planes. 8 agentes.<br /><span style={{ background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Tu operación comercial autónoma.</span></h2>
+          <h2 style={{ fontSize:32, fontWeight:900, color:'#f1f5f9', lineHeight:1.25, marginBottom:16 }}>3 planes. 9 agentes.<br /><span style={{ background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Tu operación comercial autónoma.</span></h2>
           <p style={{ color:'#64748b', lineHeight:1.8, marginBottom:32, fontSize:15 }}>GenyX opera bajo un modelo de <strong style={{ color:'#a5b4fc' }}>Fee de instalación + Suscripción mensual fija</strong>. Sin importar cuánto vendas en el mes, tu costo no cambia. Tus márgenes son tuyos.</p>
           <div style={{ display:'flex', justifyContent:'center', gap:16, flexWrap:'wrap', marginBottom:24 }}>
             {[
-              ['ESENCIAL','$9,900','MXN/mes','Setup: $12,000','8 agentes de IA','200 msgs carritos · 100 reactivación','30 imágenes FotoLab · 250 Costeador IA','Soporte L-V 9am–7pm','Negocios de 5-15 empleados · $200K-$700K/mes.'],
-              ['PROFESIONAL','$18,900','MXN/mes','Setup: $18,000','8 agentes de IA','400 msgs carritos · 200 reactivación','60 imágenes FotoLab · 500 Costeador IA','Soporte L-S prioritario','Negocios de 15-50 empleados · $700K-$2M/mes. ★ Más elegido.'],
-              ['ENTERPRISE','$34,900','MXN/mes','Setup: $30,000','8 agentes de IA','600 msgs carritos · 300 reactivación','100 imágenes FotoLab · Costeador ilimitado','Soporte 24/7 + sesión con Erick','Negocios de 50-100 empleados · $2M-$5M/mes.'],
+              ['ESENCIAL','$9,900','MXN/mes','Setup: $12,000','9 agentes de IA','200 msgs carritos · 100 reactivación','30 imágenes FotoLab · 250 Costeador IA','Soporte L-V 9am–7pm','Negocios de 5-15 empleados · $200K-$700K/mes.'],
+              ['PROFESIONAL','$18,900','MXN/mes','Setup: $18,000','9 agentes de IA','400 msgs carritos · 200 reactivación','60 imágenes FotoLab · 500 Costeador IA','Soporte L-S prioritario','Negocios de 15-50 empleados · $700K-$2M/mes. ★ Más elegido.'],
+              ['ENTERPRISE','$34,900','MXN/mes','Setup: $30,000','9 agentes de IA','600 msgs carritos · 300 reactivación','100 imágenes FotoLab · Costeador ilimitado','Soporte 24/7 + sesión con Erick','Negocios de 50-100 empleados · $2M-$5M/mes.'],
             ].map(([plan, price, period, setup, agents, outbound, tools, support, desc]) => (
               <div key={plan} style={{ background: plan === 'PROFESIONAL' ? 'rgba(99,102,241,0.12)' : 'rgba(255,255,255,0.04)', border: plan === 'PROFESIONAL' ? '2px solid rgba(99,102,241,0.5)' : '1px solid rgba(255,255,255,0.1)', borderRadius:16, padding:'24px 20px', minWidth:220, flex:'1 1 200px', maxWidth:290, position:'relative', textAlign:'left' }}>
                 {plan === 'PROFESIONAL' && <div style={{ position:'absolute', top:-10, left:'50%', transform:'translateX(-50%)', background:'linear-gradient(135deg,#6366f1,#8b5cf6)', color:'#fff', fontSize:9, fontWeight:800, padding:'3px 14px', borderRadius:20, letterSpacing:'.05em' }}>MÁS POPULAR</div>}
@@ -6356,14 +6356,14 @@ function GenyXLandingPage() {
           <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9' }}>Todo lo que necesitas saber</h2>
         </div>
         {[
-          ['¿Cuánto cuesta GenyX?', 'Tres planes según el volumen de tu operación: Esencial $9,900 MXN/mes, Profesional $18,900 MXN/mes, Enterprise $34,900 MXN/mes. Los tres planes incluyen los 8 agentes — la diferencia está en productos en catálogo, conversaciones mensuales y sucursales. Cada plan incluye una instalación inicial de un solo pago. Te ayudamos a elegir el correcto en una conversación de 15 minutos.'],
+          ['¿Cuánto cuesta GenyX?', 'Tres planes según el volumen de tu operación: Esencial $9,900 MXN/mes, Profesional $18,900 MXN/mes, Enterprise $34,900 MXN/mes. Los tres planes incluyen los 9 agentes — la diferencia está en productos en catálogo, conversaciones mensuales y sucursales. Cada plan incluye una instalación inicial de un solo pago. Te ayudamos a elegir el correcto en una conversación de 15 minutos.'],
           ['¿Cómo cobran y facturan?', 'Cobramos vía transferencia bancaria al inicio del mes. Te enviamos factura electrónica a tu RFC al confirmar el pago. La instalación se cobra una sola vez al firmar el contrato.'],
           ['¿GenyX cobra comisión por cada venta que cierra?', 'No. Jamás. Tu costo es fijo cada mes — sin importar si vendes $30,000 o $300,000. Cero comisión.'],
           ['¿Cuánto tarda en activarse?', 'Una sesión de 45 minutos para entender tu negocio. Nosotros configuramos todo. En menos de 48 horas tu agente está atendiendo clientes y cerrando ventas.'],
           ['¿Cómo garantizan la estabilidad del sistema?', 'Cada actualización pasa por pruebas de calidad antes de llegar a tu negocio. Monitoreamos el sistema activamente y atendemos cualquier incidencia lo antes posible. Si se presenta un problema mayor, tu agente queda en pausa controlada y te avisamos directamente hasta que se resuelva.'],
-          ['¿Para quién es GenyX?', 'GenyX es para dueños de negocio con 5 a 100 empleados que quieren operar con menos personas y más datos. Son 8 agentes de IA que operan dos capas: la operativa (atender, vender, cobrar, entregar, dar seguimiento) y la estratégica (interpretar tus datos, planear tus finanzas y marketing, y darte visión 360° desde tu Centro de Mando). Cada viernes 6pm recibes la Mesa de Estrategia. Cada lunes 5am recibes el Reporte con tus números reales. El fundador toma la decisión. La IA hace el trabajo.'],
+          ['¿Para quién es GenyX?', 'GenyX es para dueños de negocio con 5 a 100 empleados que quieren operar con menos personas y más datos. Son 9 agentes de IA que operan dos capas: la operativa (atender, vender, cobrar, entregar, dar seguimiento) y la estratégica (interpretar tus datos, planear tus finanzas y marketing, y darte visión 360° desde tu Centro de Mando). Cada viernes 6pm recibes la Mesa de Estrategia. Cada lunes 5am recibes el Reporte con tus números reales. El fundador toma la decisión. La IA hace el trabajo.'],
           ['¿Qué incluye GenyX que otros servicios no tienen?', 'GenyX cierra ventas. Atiende a tu cliente, arma su pedido, genera el cobro y te avisa cuando el dinero ya está en tu cuenta. Además mide resultados, planea tu marketing y te entrega reportes financieros cada semana.'],
-          ['¿Cómo se compara el costo con un equipo tradicional?', 'Un equipo tradicional implica búsqueda, entrevistas, capacitación, nómina, IMSS, aguinaldo y reemplazos. GenyX se activa en 48 horas, atiende a todos tus clientes al mismo tiempo por un costo mensual fijo — y trabaja 24/7.'],
+          ['¿Cómo se compara el costo con un equipo tradicional?', 'GenyX se activa en 48 horas y opera tu dirección comercial 24/7 — sin contratar, capacitar ni supervisar personal adicional. Un costo mensual fijo por toda la operación.'],
           ['¿Necesito conocimientos técnicos?', 'Ninguno. Tú nos das la información de tu negocio y nosotros hacemos todo lo demás. Solo tienes que revisar tu mando de control y contar tus ventas.'],
           ['¿Puedo ver una demo en vivo antes de decidir?', 'Sí. Te mostramos el sistema funcionando con datos de tu negocio en 15 minutos por WhatsApp.'],
         ].map(([q, a], i) => (
