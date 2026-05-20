@@ -44,18 +44,18 @@ const TABS = [
 // TAB: FARMACOPEIA — Base de conocimiento de bugs y soluciones
 // ═══════════════════════════════════════════════════════════════════════════════
 const FARMACOPEIA_DATA = [
-  { sintoma: 'Bot pide dirección después del código promo', diagnostico: 'calcular_distancia llamada con dir placeholder; ignora bypass de promo', fix: 'Bypass: "coordinar" in dir.lower() → retorna GRATIS sin llamar Maps. Known-hint: PROHIBIDO ABSOLUTO llamar calcular_distancia.', estado: '✅', commit: '62fc6e3' },
+  { sintoma: 'Agente pide dirección después del código promo', diagnostico: 'calcular_distancia llamada con dir placeholder; ignora bypass de promo', fix: 'Bypass: "coordinar" in dir.lower() → retorna GRATIS sin llamar Maps. Known-hint: PROHIBIDO ABSOLUTO llamar calcular_distancia.', estado: '✅', commit: '62fc6e3' },
   { sintoma: 'Upsell "Si x2" / "Si x3" agrega solo x1', diagnostico: 'UPSELL-INJECT tenía cantidad=1 hardcodeada; no leía el mensaje del usuario', fix: 'Regex extrae número del mensaje: "Si x3" → qty=3. Dedup reducido 45s→8s para permitir respuesta rápida.', estado: '✅', commit: 'd642551 + 7012386' },
   { sintoma: 'eliminar_item borra más productos de los pedidos', diagnostico: '_kw_match usaba "al menos 1 palabra en común" — "pizza"+"base" matcheaban TODAS las pizzas', fix: 'Ahora requiere ALL query words como subset del item name (q_words.issubset(i_words))', estado: '✅', commit: '93722b6' },
   { sintoma: 'Webhook Stripe con 82% de errores', diagnostico: 'Dos endpoints registrados en Stripe Dashboard para el mismo URL', fix: 'Dejar exactamente 1 endpoint en Stripe → Developers → Webhooks. Eliminar el duplicado.', estado: '✅', commit: 'Admin' },
-  { sintoma: 'Bot da link de pago en el saludo de bienvenida', diagnostico: 'Sesión anterior con payment_url activo; bot intentaba completar el pedido viejo', fix: 'PROHIBICIÓN ABSOLUTA de llamar iniciar_pago en saludos. Estado payment_ready se limpias al FULL-RESET.', estado: '✅', commit: 'a4c3f92' },
+  { sintoma: 'Agente da link de pago en el saludo de bienvenida', diagnostico: 'Sesión anterior con payment_url activo; el agente intentaba completar el pedido viejo', fix: 'PROHIBICIÓN ABSOLUTA de llamar iniciar_pago en saludos. Estado payment_ready se limpias al FULL-RESET.', estado: '✅', commit: 'a4c3f92' },
   { sintoma: 'Envío $0 siendo domicilio (PICKUP falso)', diagnostico: 'tipo_entrega derivado del LLM que omitía el campo o enviaba "recoger" por default', fix: 'Derivar tipo comparando dir guardada vs dirección física de la tienda. LLM no puede manipular este campo.', estado: '✅', commit: 'e8c7fda' },
   { sintoma: '"no such column: phone_id" — WaB post-pago silenciosa', diagnostico: 'Query SQL usaba phone_id pero la columna real en organizations es meta_phone_number_id', fix: 'Corregir SELECT a meta_phone_number_id en la query de WaB-CONFIRM.', estado: '✅', commit: '86dcbeb' },
-  { sintoma: 'Bot alucina tamaño del producto (75ml vs 65ml)', diagnostico: 'CHASIS del cliente sin regla de variante/tamaño — LLM inventa variantes inexistentes', fix: 'Agregar regla explícita en CHASIS: "todos los shots son 65ml — no existen de 75ml/80ml".', estado: '✅', commit: 'CHASIS' },
+  { sintoma: 'Agente alucina tamaño del producto (75ml vs 65ml)', diagnostico: 'CHASIS del cliente sin regla de variante/tamaño — LLM inventa variantes inexistentes', fix: 'Agregar regla explícita en CHASIS: "todos los shots son 65ml — no existen de 75ml/80ml".', estado: '✅', commit: 'CHASIS' },
   { sintoma: 'openai 2.x crash en Render al arrancar', diagnostico: 'requirements.txt sin pin de versión — Render instalaba openai 2.x con breaking changes de API', fix: 'Pinear openai>=1.0,<2.0 en requirements.txt. Verificar en cada nuevo cliente.', estado: '✅', commit: 'cc4940e' },
-  { sintoma: 'Deploy trunca agent_core.py — bot roto en producción', diagnostico: 'Script Python de reemplazo sobreescribió el archivo con contenido parcial (1082 vs 2281 líneas)', fix: 'Candado startup: sys.exit(1) si agent_core < 2000 líneas. Pre-commit hook local bloquea commit si >20% pérdida.', estado: '✅', commit: 'ac0b299' },
+  { sintoma: 'Deploy trunca agent_core.py — agente roto en producción', diagnostico: 'Script Python de reemplazo sobreescribió el archivo con contenido parcial (1082 vs 2281 líneas)', fix: 'Candado startup: sys.exit(1) si agent_core < 2000 líneas. Pre-commit hook local bloquea commit si >20% pérdida.', estado: '✅', commit: 'ac0b299' },
   { sintoma: 'Carrito acumula cantidades sin que el usuario lo pida', diagnostico: 'LLM re-llamaba agregar_item para productos ya en carrito al procesar mensajes ajenos ("Nadamas")', fix: 'Guardrail dedup 8s + idempotencia: si misma qty → ignorar. REGLA INQUEBRANTABLE en CHASIS.', estado: '✅', commit: 'c5a089f' },
-  { sintoma: 'Bot no recuerda la conversación tras restart del servidor', diagnostico: 'Estado en RAM (dicts Python) — cada redeploy de Render borraba todos los carritos activos', fix: 'SQLite Session Store con WAL-mode. Tabla sessions con 7 columnas. Estado persiste entre reinicios.', estado: '✅', commit: 'e53715c' },
+  { sintoma: 'Agente no recuerda la conversación tras restart del servidor', diagnostico: 'Estado en RAM (dicts Python) — cada redeploy de Render borraba todos los carritos activos', fix: 'SQLite Session Store con WAL-mode. Tabla sessions con 7 columnas. Estado persiste entre reinicios.', estado: '✅', commit: 'e53715c' },
   { sintoma: 'Pedidos pagados no aparecen en el dashboard', diagnostico: 'Query filtraba status=paid pero webhook no estaba configurado — todos quedaban en pending', fix: 'status IN (paid, pending) para ver todos. Configurar webhook Stripe correctamente.', estado: '✅', commit: '8821239' },
   { sintoma: 'Stripe cobró monto incorrecto ($238 vs $323)', diagnostico: 'AUTO-RESET borraba carrito cuando payment_sent=True → producto perdido del total', fix: 'SOFT-RESET: conserva carrito/dir/contacto si order.status≠paid en DB antes de resetear.', estado: '✅', commit: '9b75638' },
   { sintoma: '"domicilio cero" / "código cero" no es detectado', diagnostico: 'Regex solo buscaba el dígito "0" — no detectaba la palabra "cero" en español', fix: 'Normalizar texto antes del regex: texto.replace("cero","0"). También soporta variantes: "cod0", "c0d0".', estado: '✅', commit: 'd97ccfb' },
@@ -265,14 +265,14 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
       }).catch(() => {});
   }, []);
 
-  const CLIENT_ORDER = {'genyx-hub':0,'panaderia-paty':1,'kovay-resort':2,'carnivor':3};
+  // CLIENT_ORDER: orden dinámico por nombre, sin hardcodes de tenant
   const clientKPIs = useMemo(() => {
     return tenants.map(t => {
       const org = orgSettings[t.slug] || {};
       const totalRevenue  = parseFloat(org.total_revenue)    || 0;
       const subscription  = parseFloat(org.plan_monthly_fee) || 9900;
       return { ...t, ...org, revenueMonth: totalRevenue, subscription };
-    }).sort((a, b) => (CLIENT_ORDER[a.slug] ?? 99) - (CLIENT_ORDER[b.slug] ?? 99));
+    }).sort((a, b) => (a.name || a.slug).localeCompare(b.name || b.slug));
   }, [tenants, orgSettings]);
 
   const handleSaveSettings = async (slug) => {
@@ -361,7 +361,7 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
               {/* Card Header */}
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
                 <div>
-                  <p style={{ ...MONO, color: '#64748b', marginBottom: 4 }}>CLIENTE {({'genyx-hub':'000','panaderia-paty':'001','kovay-resort':'002','carnivor':'003'})[t.slug] || String(i + 1).padStart(3, '0')}</p>
+                  <p style={{ ...MONO, color: '#64748b', marginBottom: 4 }}>CLIENTE {String(i + 1).padStart(3, '0')}</p>
                   <h3 style={{ fontWeight: 700, fontSize: 16, color: '#f1f5f9' }}>{t.name || t.slug}</h3>
                   <p style={{ fontSize: 12, color: '#64748b', marginTop: 2 }}>{t.industry || 'Artesanal'}</p>
                 </div>
@@ -395,15 +395,9 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
                 ) : (
                   <span title="Sin URL configurada" style={{ ...BTN_SM_GHOST, opacity: 0.35, cursor: 'not-allowed' }}>🌐 Web</span>
                 )}
-                {t.slug === 'panaderia-paty' ? (
-                  <button onClick={() => window.open(`https://mando.genyxsystems.com/${t.slug}`, '_blank', 'noopener,noreferrer')} style={BTN_SM_BLUE}>
+                <button onClick={() => window.open(`https://mando.genyxsystems.com/${t.slug}`, '_blank', 'noopener,noreferrer')} style={BTN_SM_BLUE}>
                     Dashboard →
                   </button>
-                ) : (
-                  <span title="Mando no disponible aún" style={{ ...BTN_SM_BLUE, opacity: 0.35, cursor: 'not-allowed', background: 'rgba(99,102,241,0.15)' }}>
-                    Dashboard →
-                  </span>
-                )}
                 <button onClick={() => setEditingModulesFor(t)} style={BTN_SM_GHOST}>⚙️ Módulos</button>
               </div>
             </div>
@@ -631,7 +625,7 @@ function PanicConfirmBlock({ tenantName, onPanic, panicStatus }) {
   return (
     <div style={{ marginTop: 12 }}>
       <p style={{ fontSize: 12, color: '#fca5a5', marginBottom: 8 }}>
-        ⚠️ Vas a afectar el bot de <strong style={{ color: '#f87171' }}>{tenantName}</strong>. Escribe <code style={{ color: '#f87171', background: 'rgba(239,68,68,0.15)', padding: '1px 6px', borderRadius: 4 }}>PÁNICO</code> para confirmar:
+        ⚠️ Vas a afectar la operación de <strong style={{ color: '#f87171' }}>{tenantName}</strong>. Escribe <code style={{ color: '#f87171', background: 'rgba(239,68,68,0.15)', padding: '1px 6px', borderRadius: 4 }}>PÁNICO</code> para confirmar:
       </p>
       <input type="text" value={confirmation} onChange={e => setConfirmation(e.target.value)}
         placeholder="Escribe PÁNICO para confirmar..."
@@ -644,12 +638,12 @@ function PanicConfirmBlock({ tenantName, onPanic, panicStatus }) {
         <button onClick={() => { if (isConfirmed) { onPanic('suspend'); setConfirmation(''); } }}
           disabled={!isConfirmed}
           style={{ ...BTN_SM_RED, opacity: isConfirmed ? 1 : 0.4, fontSize: 12, padding: '8px 18px', cursor: isConfirmed ? 'pointer' : 'not-allowed' }}>
-          ⏸ Suspender Bot
+          ⏸ Suspender Operación
         </button>
         <button onClick={() => { if (isConfirmed) { onPanic('reactivate'); setConfirmation(''); } }}
           disabled={!isConfirmed}
           style={{ ...BTN_SM_GREEN, opacity: isConfirmed ? 1 : 0.4, fontSize: 12, padding: '8px 18px', cursor: isConfirmed ? 'pointer' : 'not-allowed' }}>
-          ▶ Reactivar Bot
+          ▶ Reactivar Operación
         </button>
       </div>
       {panicStatus && <p style={{ marginTop: 10, fontSize: 12, ...MONO, color: panicStatus.startsWith('✅') ? '#4ade80' : '#f87171' }}>{panicStatus}</p>}
@@ -926,13 +920,13 @@ const TabAnalista = ({ tenants, orders, selectedSlug, setSelectedSlug }) => {
               ))}
             </div>
           )}
-          {platformStats.totalOrders === 0 && <Empty icon="🟣" msg="Sin órdenes en plataforma aún." sub="Los datos aparecerán cuando el bot cierre sus primeras ventas." />}
+          {platformStats.totalOrders === 0 && <Empty icon="🟣" msg="Sin órdenes en plataforma aún." sub="Los datos aparecerán cuando se cierren las primeras ventas." />}
         </div>
       )}
 
       {loading && <Spinner />}
       {error && <p style={{ color: '#f87171', fontSize: 13 }}>❌ {error}</p>}
-      {data?.empty && <Empty icon="📊" msg="Aún no hay órdenes registradas." sub="Los datos aparecerán aquí cuando el bot cierre sus primeras ventas." />}
+      {data?.empty && <Empty icon="📊" msg="Aún no hay órdenes registradas." sub="Los datos aparecerán aquí cuando se cierren las primeras ventas." />}
 
 
       {data && !data.empty && (
@@ -1372,7 +1366,7 @@ const CHECKLIST_SECTIONS = [
   { key: 'contacto', label: '📞 Contacto', fields: ['Nombre titular', 'RFC', 'Email principal', 'WhatsApp', 'Ciudad / Estado', 'Nombre comercial'] },
   { key: 'ids', label: '🏦 IDs Oficiales', fields: ['INE / Pasaporte', 'Comprobante domicilio', 'Constancia SAT'] },
   { key: 'legal', label: '⚖️ Legal', fields: ['Contrato GenyX firmado', 'NDA incluido', 'Aviso de privacidad (ARCO)', 'Términos y Condiciones', 'Fecha inicio relación', 'Vigencia contrato'] },
-  { key: 'adn', label: '🧭 ADN Negocio', fields: ['Catálogo de productos', 'Precios actualizados', 'Horarios de atención', 'Zona de entrega', 'FAQ del negocio', 'Tono del bot', 'Políticas de devolución'] },
+  { key: 'adn', label: '🧭 ADN Negocio', fields: ['Catálogo de productos', 'Precios actualizados', 'Horarios de atención', 'Zona de entrega', 'FAQ del negocio', 'Tono del agente', 'Políticas de devolución'] },
   { key: 'tecnico', label: '⚙️ Configuración', fields: ['Identificador de negocio', 'Vínculo base de datos', 'URL sitio web', 'ID línea oficial Meta', 'CLABE bancaria', 'Email para reportes', 'Llave de acceso'] },
   { key: 'comercial', label: '💰 Financiero', fields: ['Plan contratado', 'Cuota mensual (MXN)', 'Método de pago', 'Pago Stripe configurado', 'Último pago registrado'] },
 ];
@@ -1384,7 +1378,7 @@ const GenyX_EXPEDIENTE = {
   contacto: { 'Nombre titular': '✅', 'RFC': '✅', 'Email principal': '✅', 'WhatsApp': '✅', 'Ciudad / Estado': '✅', 'Nombre comercial': '✅' },
   ids: { 'INE / Pasaporte': '✅', 'Comprobante domicilio': '✅', 'Constancia SAT': '✅' },
   legal: { 'Contrato GenyX firmado': 'N/A', 'NDA incluido': 'N/A', 'Aviso de privacidad (ARCO)': '✅', 'Términos y Condiciones': '✅', 'Fecha inicio relación': '✅', 'Vigencia contrato': 'N/A' },
-  adn: { 'Catálogo de productos': '✅', 'Precios actualizados': '✅', 'Horarios de atención': '✅', 'Zona de entrega': 'N/A', 'FAQ del negocio': '✅', 'Tono del bot': '✅', 'Políticas de devolución': 'N/A' },
+  adn: { 'Catálogo de productos': '✅', 'Precios actualizados': '✅', 'Horarios de atención': '✅', 'Zona de entrega': 'N/A', 'FAQ del negocio': '✅', 'Tono del agente': '✅', 'Políticas de devolución': 'N/A' },
   tecnico: { 'Identificador de negocio': '✅', 'Vínculo base de datos': '✅', 'URL sitio web': '✅', 'ID línea oficial Meta': '⚠️', 'CLABE bancaria': 'N/A', 'Email para reportes': '✅', 'Llave de acceso': '✅' },
   comercial: { 'Plan contratado': 'N/A', 'Cuota mensual (MXN)': 'N/A', 'Método de pago': 'N/A', 'Pago Stripe configurado': 'N/A', 'Último pago registrado': 'N/A' },
 };
@@ -1549,7 +1543,7 @@ const TabExpedientes = ({ tenants }) => {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
                   <div>
                     <p style={{ ...MONO, fontSize: 9, color: isGenyX ? '#6366f1' : '#64748b', marginBottom: 3 }}>
-                      {isGenyX ? 'CLIENTE 000' : `CLIENTE ${({'panaderia-paty':'001','kovay-resort':'002','carnivor':'003'})[id] || String(i).padStart(3, '0')}`}
+                      {isGenyX ? 'CLIENTE 000' : `CLIENTE ${String(i + 1).padStart(3, '0')}`}
                     </p>
                     <p style={{ fontWeight: 700, fontSize: 13, color: isGenyX ? '#a5b4fc' : '#f1f5f9' }}>{c.name || c.slug}</p>
                   </div>
@@ -1672,7 +1666,7 @@ const TabManuales = () => {
   const scenarios = [
     { emoji: '💰', title: 'Precios incorrectos / menú incompleto', desc: 'El LLM muestra precios distintos al menú real.', solution: 'Editar CATALOG_TEXT en agent_core.py → git push → Render redeploya automático.', cmd: null, warning: 'Los precios viven en el CÓDIGO (CATALOG_TEXT), no en la DB.' },
     { emoji: '🛒', title: 'Carritos acumulados de pruebas', desc: 'Totales erróneos por carrito que acumula sesiones de test.', cmd: `curl -X DELETE "${BASE}/api/admin/clear-carts" -H "X-Admin-Key: <TU_ADMIN_KEY>"`, cmdId: 'clear-carts', expected: '{"deleted_db": N, "cleared_memory": N}' },
-    { emoji: '🧠', title: 'Bot con amnesia / contexto viejo', desc: 'El bot repite saludos o recuerda pedidos viejos de prueba.', cmd: `curl -X DELETE "${BASE}/api/admin/purge-all-history" -H "X-Admin-Key: <TU_ADMIN_KEY>"`, cmdId: 'purge-history', expected: '{"deleted": N, "status": "ok"}' },
+    { emoji: '🧠', title: 'Agente con amnesia / contexto viejo', desc: 'El agente repite saludos o recuerda pedidos viejos de prueba.', cmd: `curl -X DELETE "${BASE}/api/admin/purge-all-history" -H "X-Admin-Key: <TU_ADMIN_KEY>"`, cmdId: 'purge-history', expected: '{"deleted": N, "status": "ok"}' },
     { emoji: '🗄️', title: 'KB de DB desincronizado', desc: 'La DB tiene productos viejos que no coinciden con el código.', solution: 'Primero asegúrate que seeds.py tiene los datos correctos.', cmd: `curl -X POST "${BASE}/api/admin/reseed" -H "X-Admin-Key: <TU_ADMIN_KEY>"`, cmdId: 'reseed', expected: '{"rows_before": X, "rows_after": Y}' },
     { emoji: '🔥', title: 'Reset total (limpieza nuclear)', desc: 'Antes de una prueba limpia o cambio de menú.', solution: 'Ejecutar en orden: 1→ clear-carts, 2→ purge-all-history, 3→ reseed.', cmd: null, warning: 'Verifica seeds.py antes del reseed.' },
   ];
@@ -1795,7 +1789,7 @@ const TabOnboarding = () => {
 
       {/* Stepper */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 28 }}>
-        {['Negocio', 'Bot', 'Catálogo'].map((label, i) => (
+        {['Negocio', 'Agente', 'Catálogo'].map((label, i) => (
           <React.Fragment key={i}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer' }} onClick={() => i + 1 < step && setStep(i + 1)}>
               <div style={stepStyle(i + 1)}>{i + 1}</div>
@@ -1845,7 +1839,7 @@ const TabOnboarding = () => {
         {/* STEP 2 — BOT CONFIG */}
         {step === 2 && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-            <h3 style={H3}>Configuración del Bot</h3>
+            <h3 style={H3}>Configuración del Agente</h3>
             <p style={{ fontSize: 12, color: '#64748b' }}>Describe la personalidad y tono del asistente. Si lo dejas vacío, se genera automáticamente un template base.</p>
             <div>
               <label style={LABEL}>Personalidad del Asistente (opcional)</label>
@@ -1867,7 +1861,7 @@ TU SALUDO OFICIAL:
         {step === 3 && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             <h3 style={H3}>Catálogo de Productos</h3>
-            <p style={{ fontSize: 12, color: '#64748b' }}>Escribe el catálogo en texto libre. El bot lo usa como referencia de precios y productos disponibles. Se puede actualizar después sin redespliegue.</p>
+            <p style={{ fontSize: 12, color: '#64748b' }}>Escribe el catálogo en texto libre. El agente lo usa como referencia de precios y productos disponibles. Se puede actualizar después sin redespliegue.</p>
             <div>
               <label style={LABEL}>Catálogo (opcional — añadir después si no tienes listo)</label>
               <textarea
@@ -1916,7 +1910,8 @@ const TabMarketing = ({ selectedSlug }) => {
   const [rejectReason, setRejectReason] = useState('');
   const [showReject, setShowReject] = useState(false);
 
-  const slug = selectedSlug || 'panaderia-paty';
+  const slug = selectedSlug || '';
+  if (!slug) return <div style={{ textAlign: 'center', padding: 40, color: '#94a3b8' }}>Selecciona un cliente arriba para ver su marketing.</div>;
 
   const fetchDashboard = useCallback(async () => {
     setLoading(true);
@@ -2323,13 +2318,55 @@ const EXPEDIENTE_DOCS = [
   { label: 'Catálogo de productos cargado', key: 'catalogo' },
   { label: 'Recetas registradas en Costeador', key: 'recetas' },
   { label: '⚡ Declaración Políticas Comercio WA (Anexo B firmado)', key: 'wa_policies' },
-  { label: '🔒 Opt-In WhatsApp configurado en bot', key: 'wa_optin' },
+  { label: '🔒 Opt-In canal conversacional configurado', key: 'wa_optin' },
   { label: '📝 Aviso de Privacidad publicado en tu sitio web', key: 'privacidad_web' },
   { label: '📄 Términos y Condiciones de Venta publicados en tu sitio web', key: 'tyc_web' },
 ];
 
 
 
+
+
+// ══════════════════════════════════════════════════════════════════════════════
+// MARKDOWN RENDERER — minimal, zero-dependency (~50 lines)
+// Handles: # headings, **bold**, *italic*, - lists, [text](url) links,
+//          --- hr, paragraphs. Used by legal pages + T&C modal.
+// ══════════════════════════════════════════════════════════════════════════════
+function renderMarkdownToHTML(md) {
+  if (!md) return '';
+  const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const lines = md.split('\n');
+  let html = '', inList = false;
+  for (const raw of lines) {
+    const line = raw.trimEnd();
+    // Blank line
+    if (!line.trim()) { if (inList) { html += '</ul>'; inList = false; } html += '<br/>'; continue; }
+    // Headings
+    const hm = line.match(/^(#{1,4})\s+(.*)$/);
+    if (hm) { const n = hm[1].length; if (inList) { html += '</ul>'; inList = false; } html += `<h${n}>${esc(hm[2])}</h${n}>`; continue; }
+    // HR
+    if (/^---+$/.test(line.trim())) { if (inList) { html += '</ul>'; inList = false; } html += '<hr/>'; continue; }
+    // List items
+    const lm = line.match(/^\s*[-*]\s+(.*)$/);
+    if (lm) { if (!inList) { html += '<ul>'; inList = true; } html += `<li>${inlineFormat(esc(lm[1]))}</li>`; continue; }
+    // Paragraph
+    if (inList) { html += '</ul>'; inList = false; }
+    html += `<p>${inlineFormat(esc(line))}</p>`;
+  }
+  if (inList) html += '</ul>';
+  return html;
+}
+function inlineFormat(s) {
+  return s
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+}
+
+function MarkdownContent({ content: md, style }) {
+  return <div style={{ ...style, lineHeight: 1.8, fontSize: 13, color: '#57534e' }}
+    dangerouslySetInnerHTML={{ __html: renderMarkdownToHTML(md) }} />;
+}
 
 // ── Términos de Uso — Mando Cliente (genérico, sin hardcodes) ────────────────
 function ClientTermsPage() {
@@ -2348,7 +2385,7 @@ function ClientTermsPage() {
         <p style={{ ...P, color: '#a8a29e', fontSize: 11 }}>GenyX Systems · Versión 3.0 · Abril 2026</p>
 
         <h2 style={H2}>1. Definición del Servicio</h2>
-        <p style={P}><span style={HL}>GenyX Mando</span> es la interfaz de gestión de la operación comercial autónoma provista por GenyX Systems. El Mando permite al Cliente monitorear pedidos, configurar su bot de ventas, acceder a reportes y usar herramientas IA.</p>
+        <p style={P}><span style={HL}>GenyX Mando</span> es la interfaz de gestión de la operación comercial autónoma provista por GenyX Systems. El Mando permite al Cliente monitorear pedidos, configurar su operación comercial, acceder a reportes y usar herramientas IA.</p>
 
         <h2 style={H2}>2. Acceso y Seguridad</h2>
         <p style={P}>El Cliente accede mediante un <span style={HL}>PIN personal de 4 dígitos</span>. Es responsabilidad del Cliente mantener la confidencialidad de sus credenciales. GenyX no almacena el PIN en texto plano.</p>
@@ -2360,7 +2397,7 @@ function ClientTermsPage() {
         <p style={P}>El Cliente puede cancelar en cualquier momento con <span style={HL}>30 días naturales de aviso</span> a hola@genyxsystems.com. Al terminar: (i) GenyX entrega export CSV de datos en 15 días; (ii) datos eliminados de servidores en 60 días.</p>
 
         <h2 style={H2}>5. IA y Limitación de Responsabilidad</h2>
-        <p style={P}>El bot opera con IA generativa de naturaleza probabilística. GenyX <span style={HL}>no garantiza precisión del 100%</span>. La responsabilidad máxima se limita a los 3 meses de suscripción pagados anteriores al evento.</p>
+        <p style={P}>El sistema opera con IA generativa de naturaleza probabilística. GenyX <span style={HL}>no garantiza precisión del 100%</span>. La responsabilidad máxima se limita a los 3 meses de suscripción pagados anteriores al evento.</p>
 
         <h2 style={H2}>6. Fuerza Mayor</h2>
         <p style={P}>GenyX no responde por interrupciones de Meta/WhatsApp, proveedores de modelos de IA generativa, Stripe, Render, Vercel u otros proveedores de infraestructura.</p>
@@ -2404,12 +2441,12 @@ function ClientPrivacyPage() {
           &bull; <span style={HL}>Nombre del negocio y datos del responsable</span> — para configurar el servicio<br />
           &bull; <span style={HL}>PIN de acceso</span> — hash almacenado, nunca en texto plano<br />
           &bull; <span style={HL}>Historial de pedidos y métricas</span> — para generar reportes<br />
-          &bull; <span style={HL}>Catálogo y recetas</span> — para operar el bot de ventas
+          &bull; <span style={HL}>Catálogo y recetas</span> — para operar la operación comercial
         </p>
 
         <h2 style={H2}>3. Finalidades</h2>
         <p style={P}>
-          &bull; Operar el servicio IVaaS (bot, Mando, reportes)<br />
+          &bull; Operar el servicio IVaaS (operación, Mando, reportes)<br />
           &bull; Generar links de pago seguros vía Stripe<br />
           &bull; Enviar reportes semanales al Cliente<br />
           &bull; Cumplimiento legal y fiscal
@@ -2436,92 +2473,49 @@ function ClientPrivacyPage() {
 }
 
 
-// ── Legal Pages (✕ /terminos ✕ /privacidad) ────────────────────────────────
+// ── Legal Pages — dinámico desde backend (Phase 4.4) ─────────────────────────
+// Rutas: /terminos, /privacidad, /contrato, /dpa, /sla, /cookies
+// Fuente: GET /api/public/legal/{doc_slug} → markdown → render
 function LegalPage({ tipo }) {
-  const isTC = tipo === 'terminos';
+  const [content, setContent] = useState(null);
+  const [meta, setMeta] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const TITLES = {
+    terminos: 'Términos y Condiciones de Uso',
+    privacidad: 'Aviso de Privacidad',
+    contrato: 'Contrato de Servicios',
+    dpa: 'Acuerdo de Procesamiento de Datos (DPA)',
+    sla: 'Acuerdo de Nivel de Servicio (SLA)',
+    cookies: 'Política de Cookies',
+  };
+
+  useEffect(() => {
+    setLoading(true); setError(null);
+    fetch(`${BACKEND}/api/public/legal/${tipo}`)
+      .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+      .then(d => { setContent(d.content); setMeta(d); setLoading(false); })
+      .catch(e => { setError(e.message); setLoading(false); });
+  }, [tipo]);
+
   const LS = { fontFamily: 'Inter, sans-serif', minHeight: '100vh', background: '#faf9f7', color: '#292524', padding: '32px 20px', maxWidth: 720, margin: '0 auto' };
-  const H1 = { fontSize: 22, fontWeight: 800, color: '#92400e', marginBottom: 6 };
-  const H2 = { fontSize: 14, fontWeight: 700, color: '#44403c', margin: '22px 0 8px', borderBottom: '1px solid #e7e5e4', paddingBottom: 6 };
-  const P  = { fontSize: 13, lineHeight: 1.7, color: '#57534e', marginBottom: 10 };
-  const UL = { fontSize: 13, lineHeight: 1.7, color: '#57534e', paddingLeft: 20, marginBottom: 10 };
-  const HL = { color: '#92400e', fontWeight: 700 };
+  const H1 = { fontSize: 22, fontWeight: 800, color: '#4f46e5', marginBottom: 6 };
+
   return (
     <div style={{ background: '#faf9f7', minHeight: '100vh' }}>
       <div style={LS}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 28 }}>
-          <a href="/" style={{ color: '#92400e', fontSize: 13, textDecoration: 'none' }}>← Inicio</a>
-          <span style={{ color: '#d6d3d1' }}>|</span>
-          <span style={{ fontSize: 11, color: '#a8a29e', fontFamily: 'monospace' }}>GenyX Systems</span>
+          <button onClick={() => window.history.back()} style={{ background: 'none', border: '1px solid #d6d3d1', borderRadius: 8, padding: '6px 14px', cursor: 'pointer', fontSize: 13, color: '#78716c' }}>← Regresar</button>
         </div>
-        {isTC ? (
-          <>
-            <h1 style={H1}>Términos y Condiciones de Uso</h1>
-            <p style={{ ...P, color: '#a8a29e', fontSize: 11 }}>GenyX Systems · Versión 2.0 · Última actualización: Marzo 2026</p>
-            <h2 style={H2}>1. Aceptación</h2>
-            <p style={P}>Al activar el servicio o acceder al Centro de Mando, el Cliente acepta expresamente estos Términos y Condiciones, el Aviso de Privacidad y el Contrato de Servicios vigentes.</p>
-            <h2 style={H2}>2. Descripción del Servicio</h2>
-            <p style={P}>GenyX Systems provee una plataforma <strong>IVaaS (Infraestructura de Ventas como Servicio)</strong>: una operación comercial autónoma vía WhatsApp Business que incluye Agente de Ventas IA, Centro de Mando, cobro seguro por Stripe y análisis de datos. Los pagos de compradores finales van directamente al Cliente; GenyX cobra una suscripción mensual fija.</p>
-            <h2 style={H2}>3. Cuentas y Seguridad</h2>
-            <ul style={UL}>
-              <li><span style={HL}>Credenciales:</span> El Cliente es único responsable de su PIN de acceso.</li>
-              <li><span style={HL}>Líneas WaB:</span> Los números de WhatsApp están en custodia exclusiva de GenyX bajo la cuenta corporativa de Meta.</li>
-              <li><span style={HL}>Expediente Digital (KYC):</span> GenyX puede suspender el acceso si el expediente no está al 100%.</li>
-            </ul>
-            <h2 style={H2}>4. Modelo de Cobro</h2>
-            <p style={P}>El modelo de cobro es <strong>Setup Fee único + Suscripción Mensual</strong> según el plan contratado (Esencial / Profesional / Enterprise). GenyX no retiene ni procesa fondos de los compradores del Cliente — el cobro al comprador final es directo vía Stripe. La suscripción mensual a GenyX se realiza por separado según el Contrato de Servicios. Los precios son fijos para clientes activos; cualquier ajuste aplica únicamente a nuevos contratos, con 30 días de aviso previo.</p>
-            <h2 style={H2}>5. Inteligencia Artificial y Limitación de Responsabilidad</h2>
-            <p style={P}>El bot opera con IA generativa de naturaleza probabilística y puede cometer <strong>errores conversacionales</strong> (“alucinaçiones”). GenyX no garantiza precisión del 100%. <strong>GenyX no será responsable</strong> por pérdidas económicas, productos mal cotizados, daños a la reputación o cualquier daño indirecto o consecuencial. La responsabilidad máxima de GenyX se limita a los <strong>3 meses de suscripción pagados</strong> anteriores al evento.</p>
-            <h2 style={H2}>6. Fuerza Mayor y Caídas de Terceros</h2>
-            <p style={P}>GenyX no responde por interrupciones de Meta/WhatsApp, proveedores de modelos de IA generativa, Stripe, Render, Vercel u otros proveedores de infraestructura.</p>
-            <h2 style={H2}>7. Uso Aceptable</h2>
-            <p style={P}>Queda prohibido usar la Plataforma para vender productos ilegales, enviar spam, o intentar vulnerar el código o infraestructura de GenyX.</p>
-            <h2 style={H2}>8. Propiedad Intelectual</h2>
-            <p style={P}>El código, algoritmos, prompts, ADN del bot, flujos de venta y herramientas son propiedad exclusiva de GenyX. El Cliente retiene derechos sobre su catálogo, recetas y marca.</p>
-            <h2 style={H2}>9. Jurisdiccion</h2>
-            <p style={P}>Ley aplicable: Estados Unidos Mexicanos. Jurisdiccion: Tribunales Federales de Guadalajara, Jalisco. Previo a cualquier litigio, las partes se someten a mediacion ante el CANACO-GDL.</p>
-            <h2 style={H2}>10. Terminacion del Servicio</h2>
-            <p style={P}>El Cliente puede cancelar con <strong>30 dias naturales de aviso</strong> por escrito a legal@genyxsystems.com. GenyX puede rescindir anticipadamente por incumplimiento de pago o uso indebido. Al terminar: (i) GenyX entregara un export CSV de los datos del Cliente dentro de 15 dias; (ii) GenyX eliminara los datos de sus servidores en un plazo maximo de 60 dias; (iii) el número WaB permanecerá en custodia de GenyX; Clientes con historial de pago ininterrumpido de 12 o más meses tienen derecho a solicitar la portabilidad del número, sujeto a los procesos técnicos de Meta y un período de transición de 30 días naturales.</p>
-            <h2 style={H2}>11. Compromiso de Servicio</h2>
-            <p style={P}>GenyX se compromete a operar la plataforma con la mayor disponibilidad posible y a resolver incidencias reportadas por el Cliente en el menor tiempo razonable. El equipo de GenyX monitorea activamente el sistema y aplica actualizaciones de mejora continua. Cada actualización es verificada exhaustivamente antes de llegar al entorno de producción del Cliente. En caso de incidencia prolongada (más de 4 horas continuas por causa atribuible a GenyX), el Cliente será notificado por el canal que tenga registrado y se le proporcionará un reporte de la causa raíz y las acciones tomadas.</p>
-            <h2 style={H2}>12. Modelo de Suscripcion</h2>
-            <p style={P}>GenyX no cobra comision por transaccion. El Cliente paga una <strong>Suscripcion Mensual Fija</strong> segun el plan contratado. Los detalles del monto, forma de pago y vigencia se especifican en el Contrato de Servicios firmado por ambas partes. El plan contratado puede actualizarse (upgrade) en cualquier momento; el downgrade aplica al siguiente ciclo de facturacion.</p>
-            <p style={{ ...P, marginTop: 24, fontSize: 11, color: '#a8a29e' }}>Consultas: legal@genyxsystems.com</p>
-          </>
-        ) : (
-          <>
-            <h1 style={H1}>Aviso de Privacidad</h1>
-            <p style={{ ...P, color: '#a8a29e', fontSize: 11 }}>GenyX Systems · Versión 2.0 · Última actualización: Marzo 2026 · Conforme a LFPDPPP</p>
-            <h2 style={H2}>1. Responsable del Tratamiento</h2>
-            <p style={P}><strong>GenyX Systems</strong>, representado por Erick Naveda, Guadalajara, Jalisco, México. Contacto: <strong>privacidad@genyxsystems.com</strong></p>
-            <h2 style={H2}>2. Roles de Tratamiento</h2>
-            <ul style={UL}>
-              <li><span style={HL}>GenyX como Responsable:</span> Datos del dueño del negocio (nombre, RFC, CLABE, etc.).</li>
-              <li><span style={HL}>GenyX como Encargado:</span> Datos de los compradores finales (nombre, teléfono, dirección, pedido). El <strong>Cliente es el Responsable</strong> frente a sus compradores.</li>
-              <li><span style={HL}>Obligación del Cliente:</span> El Cliente se obliga a contar con su propio Aviso de Privacidad visible para sus compradores finales, conforme a la LFPDPPP. GenyX proporciona una plantilla de Aviso Simplificado para WhatsApp como parte del onboarding.</li>
-            </ul>
-            <h2 style={H2}>3. Datos Recabados del Cliente</h2>
-            <p style={P}>Nombre, RFC, INE, correo, CLABE, comprobante de domicilio, catálogo, recetas, horarios y configuración del bot.</p>
-            <h2 style={H2}>4. Finalidades</h2>
-            <ul style={UL}>
-              <li>Activación y mantenimiento del servicio (Centro de Mando, bot WaB)</li>
-              <li>Generación de links de pago seguros (Stripe) para el cierre de ventas del Cliente</li>
-              <li>Generación de análisis comerciales (Correo del Lunes)</li>
-              <li>Cumplimiento legal y fiscal</li>
-            </ul>
-            <h2 style={H2}>5. Transferencia a Terceros</h2>
-            <ul style={UL}>
-              <li><span style={HL}>Stripe:</span> Procesamiento seguro de pagos (Stripe Standard) para la generación de links de cobro del Cliente</li>
-              <li><span style={HL}>Meta Platforms:</span> Operación de WhatsApp Business API</li>
-              <li><span style={HL}>Proveedores de modelos de IA generativa:</span> Procesamiento de lenguaje (datos anonimizados, no se usan para entrenar modelos públicos)</li>
-              <li><span style={HL}>Render / Vercel:</span> Infraestructura cloud</li>
-            </ul>
-            <h2 style={H2}>6. Derechos ARCO</h2>
-            <p style={P}>Acceso, Rectificación, Cancelación u Oposición: envía solicitud a <strong>privacidad@genyxsystems.com</strong>. Respuesta en máximo 20 días hábiles.</p>
-            <h2 style={H2}>7. Cookies y Session Storage</h2>
-            <p style={P}>Solo usamos session storage y cookies técnicas estrictamente necesarias para la seguridad de las sesiones. No usamos cookies publicitarias ni de rastreo.</p>
-            <p style={{ ...P, marginTop: 24, fontSize: 11, color: '#a8a29e' }}>privacidad@genyxsystems.com · GenyX Systems · Guadalajara, Jalisco, México</p>
-          </>
-        )}
+        <h1 style={H1}>{TITLES[tipo] || tipo}</h1>
+        {meta?.updated_at && <p style={{ fontSize: 11, color: '#a8a29e', marginBottom: 20 }}>Última actualización: {new Date(meta.updated_at).toLocaleDateString('es-MX')}</p>}
+        {loading && <div style={{ textAlign: 'center', padding: 40, color: '#94a3b8' }}>⏳ Cargando documento legal…</div>}
+        {error && <div style={{ textAlign: 'center', padding: 40, color: '#dc2626' }}>❌ Error cargando documento: {error}</div>}
+        {content && <MarkdownContent content={content} style={{ '& h1': { fontSize: 20 }, '& h2': { fontSize: 14, fontWeight: 700, color: '#44403c', margin: '22px 0 8px', borderBottom: '1px solid #e7e5e4', paddingBottom: 6 } }} />}
+        <p style={{ marginTop: 32, fontSize: 11, color: '#a8a29e', borderTop: '1px solid #e7e5e4', paddingTop: 16 }}>
+          GenyX Systems · Guadalajara, Jalisco, México · privacidad@genyxsystems.com
+        </p>
       </div>
     </div>
   );
@@ -2560,7 +2554,7 @@ function EditarMenuCompacto({ catalog, catLoading, slug, pin, fetchCatalog }) {
   return (
     <div style={{ background: '#fff', borderRadius: 14, padding: 16, boxShadow: '0 2px 14px rgba(0,0,0,0.07)', marginBottom: 14 }}>
       <div style={{ fontSize: 12, color: '#78716c', marginBottom: 10 }}>
-        Selecciona un producto y actualiza su precio. El cambio se aplica al bot inmediatamente.
+        Selecciona un producto y actualiza su precio. El cambio se aplica al sistema inmediatamente.
       </div>
       <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center' }}>
         <select value={selProd} onChange={e => { setSelProd(e.target.value); const p = catalog.find(x => x.product_name === e.target.value); setNewPrice(p ? String(p.price) : ''); }}
@@ -2924,14 +2918,15 @@ function TabFotoLab({ slug, token }) {
 // ══════════════════════════════════════════════════════════════════════════════
 
 const CLIENT_AGENT_DEFS = {
-  marketing:    { icon: '📢', name: 'Marketing',    desc: 'Campañas y contenido' },
-  captacion:    { icon: '🎣', name: 'Captación',    desc: 'Atrae leads nuevos' },
-  venta:        { icon: '🛒', name: 'Venta',        desc: 'Cierra pedidos por WhatsApp' },
-  cierre:       { icon: '🤝', name: 'Cierre',       desc: 'Confirmación y pago' },
-  entrega:      { icon: '🚚', name: 'Entrega',      desc: 'Logística y seguimiento' },
-  seguimiento:  { icon: '💬', name: 'Seguimiento',  desc: 'Reactivación y postventa' },
-  analitica:    { icon: '📊', name: 'Analítica',    desc: 'KPIs y reportes' },
-  finanzas:     { icon: '💰', name: 'Finanzas',     desc: 'Costos y rentabilidad' },
+  marketing:    { icon: '📢', name: 'Marketing',            desc: 'Genera estrategia de contenido y publica en tus canales' },
+  captacion:    { icon: '🎣', name: 'Captación',            desc: 'Califica prospectos y los empuja al carrito' },
+  venta:        { icon: '🛒', name: 'Venta',                desc: 'Conversa, cotiza y arma el pedido 24/7' },
+  cierre:       { icon: '🤝', name: 'Cierre',               desc: 'Cobra y confirma la orden' },
+  entrega:      { icon: '🚚', name: 'Entrega',              desc: 'Coordina logística y notifica al cliente' },
+  seguimiento:  { icon: '💬', name: 'Seguimiento',          desc: 'Reactiva inactivos y nutre recurrentes' },
+  analitica:    { icon: '📊', name: 'Analítica',            desc: 'Reporte semanal con recomendaciones accionables' },
+  finanzas:     { icon: '💰', name: 'Finanzas',             desc: 'P&L, costos y márgenes en vivo' },
+  direccion:    { icon: '🎯', name: 'Dirección Ejecutiva',  desc: 'Briefing diario con la jugada del día' },
 };
 
 const STATUS_COLORS = {
@@ -2952,7 +2947,7 @@ function TabMisAgentes({ slug, token }) {
       headers: { 'X-Dashboard-Token': token }
     })
       .then(r => r.json())
-      .then(d => { setAgents(d.agents || {}); setPlan(d.plan || 'starter'); setLoading(false); })
+      .then(d => { setAgents(d.agents || {}); setPlan(d.plan || 'esencial'); setLoading(false); })
       .catch(() => setLoading(false));
   }, [slug, token]);
 
@@ -2991,7 +2986,7 @@ function TabMisAgentes({ slug, token }) {
         })}
       </div>
       <div style={{ marginTop: 16, padding: '12px 14px', background: '#f8fafc', borderRadius: 12, border: '1px solid #e2e8f0', fontSize: 12, color: '#64748b', textAlign: 'center' }}>
-        💡 Tu plan <b>{plan}</b> incluye {agents ? Object.values(agents).filter(s => s !== 'inactive').length : 0} de 9 agentes. ¿Quieres más? <b>hola@genyxsystems.com</b>
+        💡 Tu plan <b>{plan}</b> incluye {agents ? Object.values(agents).filter(s => s !== 'inactive').length : 0} de {Object.keys(CLIENT_AGENT_DEFS).length} agentes. ¿Quieres más? <b>hola@genyxsystems.com</b>
       </div>
     </>
   );
@@ -3096,13 +3091,30 @@ function useTenantConfig(slug) {
   useEffect(() => {
     if (!slug) return;
     setCfgLoading(true);
-    fetch(`${BACKEND}/api/public/tenants/${slug}/config`)
+    // Timeout de 8s — si la API no responde, fallback a título genérico (Addendum #3)
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 8000);
+    fetch(`${BACKEND}/api/public/tenants/${slug}/config`, { signal: controller.signal })
       .then(r => {
+        clearTimeout(timeout);
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
         return r.json();
       })
-      .then(d => { setConfig(d); setCfgLoading(false); })
-      .catch(e => { setCfgError(e.message); setCfgLoading(false); });
+      .then(d => {
+        setConfig(d);
+        setCfgLoading(false);
+        // Aplicar branding al documento (Phase 4.1)
+        document.title = `${d.business_name || slug} — Centro de Mando`;
+        const meta = document.getElementById('pwa-theme');
+        if (meta) meta.content = d.brand_color || '#6366f1';
+      })
+      .catch(e => {
+        clearTimeout(timeout);
+        setCfgError(e.name === 'AbortError' ? 'Timeout: la API tardó más de 8s' : e.message);
+        setCfgLoading(false);
+        // Fallback: título genérico si la API falla
+        document.title = 'GenyX — Centro de Mando';
+      });
   }, [slug]);
 
   return { config, cfgLoading, cfgError };
@@ -3228,6 +3240,7 @@ function MandoClientView({ slug }) {
   const [loading, setLoading]     = useState(false);
   const [error, setError]         = useState('');
   const [termsAccepted, setTermsAccepted] = useState(false);
+  const [tcVersion, setTcVersion] = useState(null); // Addendum #2: versión del doc legal aceptado
   const [showTcModal, setShowTcModal] = useState(false);
   const [tcAccepting, setTcAccepting] = useState(false);
   // ── Navigation
@@ -3304,6 +3317,12 @@ function MandoClientView({ slug }) {
   // ── Fase 3 T8: Check T&C acceptance (runs once after login)
   useEffect(() => {
     if (!token) return;
+    // Fetch current T&C version (Addendum #2: versionado de aceptación)
+    fetch(`${BACKEND}/api/public/legal/terminos`)
+      .then(r => r.json())
+      .then(d => { if (d.updated_at) setTcVersion(d.updated_at); })
+      .catch(() => {}); // Non-blocking: si falla, usamos timestamp actual como fallback
+    // Check if already accepted
     fetch(`${BACKEND}/api/client/${slug}/tc-accepted`, {
       headers: { 'X-Dashboard-Token': token }
     })
@@ -3861,7 +3880,7 @@ function MandoClientView({ slug }) {
                   {roi >= 300 ? '🏆 Tu sistema trabaja más duro que cualquier vendedor. ¡Excelente mes!' :
                    roi >= 100 ? '📈 Tu sistema ya se pagó solo. Todo lo demás es ganancia pura.' :
                    monthRevenue > 0 ? '🚀 El sistema está arrancando. Las ventas irán creciendo.' :
-                   '⏳ Los datos aparecerán con cada venta procesada por el bot.'}
+                   '⏳ Los datos aparecerán con cada venta procesada por el sistema.'}
                 </div>
               </div>
             );
@@ -4524,7 +4543,7 @@ function MandoClientView({ slug }) {
               <p style={{ fontWeight: 700, marginBottom: 8 }}>Al usar el Mando Cliente aceptas que:</p>
               <p>• <b>GenyX Mando</b> es la interfaz de gestión de tu operación comercial autónoma.</p>
               <p>• El servicio funciona con <b>suscripción mensual fija</b>. Sin permanencia mínima.</p>
-              <p>• El bot opera con IA generativa — <b>no garantizamos precisión del 100%</b>.</p>
+              <p>• El sistema opera con IA generativa — <b>no garantizamos precisión del 100%</b>.</p>
               <p>• GenyX <b>no retiene fondos</b> de tus compradores; van directo a tu cuenta Stripe.</p>
               <p>• Puedes cancelar con 30 días de aviso a hola@genyxsystems.com.</p>
               <p>• Tus datos se tratan conforme a la <b>LFPDPPP</b>.</p>
@@ -4538,13 +4557,20 @@ function MandoClientView({ slug }) {
               onClick={async () => {
                 setTcAccepting(true);
                 try {
-                  await fetch(`${BACKEND}/api/client/${slug}/tc-accept`, {
+                  const r = await fetch(`${BACKEND}/api/client/${slug}/tc-accept`, {
                     method: 'POST',
-                    headers: { 'X-Dashboard-Token': token },
+                    headers: { 'Content-Type': 'application/json', 'X-Dashboard-Token': token },
+                    body: JSON.stringify({ tc_version: tcVersion || new Date().toISOString() }),
                   });
+                  if (!r.ok) {
+                    const d = await r.json().catch(() => ({}));
+                    alert(`Error al aceptar T&C: ${d.detail || r.status}. Intenta de nuevo.`);
+                    return;
+                  }
                   setShowTcModal(false);
                 } catch (e) {
                   console.error('[T&C] Accept failed:', e);
+                  alert('No se pudo registrar la aceptación. Verifica tu conexión e intenta de nuevo.');
                 } finally {
                   setTcAccepting(false);
                 }
@@ -4625,11 +4651,11 @@ function GenyXConciergeWidget() {
   const inpRef = React.useRef(null);
 
   React.useEffect(() => { const t = setTimeout(() => setPulse(false), 8000); return () => clearTimeout(t); }, []);
-  React.useEffect(() => { if (open && msgs.length === 0) addBot('Hola 👋 Bienvenido a GenyX.\n\nAyudamos a negocios como el tuyo a vender más con 9 agentes de IA que se vuelven más inteligentes con el tiempo.\n\n¿A qué se dedica tu negocio?'); }, [open]);
+  React.useEffect(() => { if (open && msgs.length === 0) addReply('Hola 👋 Bienvenido a GenyX.\n\nAyudamos a negocios como el tuyo a vender más con 9 agentes de IA que se vuelven más inteligentes con el tiempo.\n\n¿A qué se dedica tu negocio?'); }, [open]);
   React.useEffect(() => { botRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [msgs, typing]);
   React.useEffect(() => { if (open && phase !== 'done') setTimeout(() => inpRef.current?.focus(), 150); }, [open, phase]);
 
-  function addBot(text, d = 800) { setTyping(true); setTimeout(() => { setTyping(false); setMsgs(p => [...p, { from: 'bot', text }]); }, d); }
+  function addReply(text, d = 800) { setTyping(true); setTimeout(() => { setTyping(false); setMsgs(p => [...p, { from: 'bot', text }]); }, d); }
 
   async function callAI(neg, ret) {
     setTyping(true);
@@ -4649,9 +4675,9 @@ function GenyXConciergeWidget() {
   function handleSend() {
     const v = inp.trim(); if (!v || phase === 'done') return;
     setInp(''); setMsgs(p => [...p, { from: 'user', text: v }]);
-    if (phase === 'negocio') { setCol(x => ({ ...x, negocio: v })); setPhase('reto'); addBot(`¡Perfecto, los negocios de ${v} tienen potencial enorme con IA! 🚀\n¿Cuál es tu mayor reto hoy?\n\n(atención a clientes, pedidos por WA, pagos, contabilidad, otro)`, 800); }
+    if (phase === 'negocio') { setCol(x => ({ ...x, negocio: v })); setPhase('reto'); addReply(`¡Perfecto, los negocios de ${v} tienen potencial enorme con IA! 🚀\n¿Cuál es tu mayor reto hoy?\n\n(atención a clientes, pedidos por WA, pagos, contabilidad, otro)`, 800); }
     else if (phase === 'reto') { const upd = { ...col, reto: v }; setCol(upd); setPhase('ai'); callAI(col.negocio, v); }
-    else if (phase === 'capture') { saveLead(v.split(' ')[0], v, col.negocio, col.reto); setPhase('done'); addBot(`¡Gracias! ✅\nUn especialista de GenyX te contacta en menos de 24 horas.\n\n📧 hola@genyxsystems.com`, 900); }
+    else if (phase === 'capture') { saveLead(v.split(' ')[0], v, col.negocio, col.reto); setPhase('done'); addReply(`¡Gracias! ✅\nUn especialista de GenyX te contacta en menos de 24 horas.\n\n📧 hola@genyxsystems.com`, 900); }
   }
 
   const ph = phase === 'negocio' ? 'Ej: clínica, tienda, estudio...' : phase === 'reto' ? 'Ej: muchos mensajes sin responder...' : phase === 'capture' ? 'Tu nombre + WhatsApp o email...' : '';
@@ -4720,7 +4746,7 @@ function WhatsAppSimulator() {
 
   const SIM_AGENTS = [
     { id:'A1', name:'Marketing', role:'Contenido', tip:'Genera contenido con tu ADN de marca. Publica en redes y reactiva clientes inactivos.' },
-    { id:'A2', name:'Captación', role:'Prospección', tip:'Atrae clientes a tu WhatsApp desde redes, web y búsquedas.' },
+    { id:'A2', name:'Captación', role:'Prospección', tip:'Atrae clientes a tus canales desde redes, web y búsquedas.' },
     { id:'A3', name:'Ventas', role:'Atención', tip:'Atiende cada mensaje en segundos con la personalidad de tu marca.' },
     { id:'A4', name:'Cierre', role:'Pagos', tip:'Genera links de pago y cobra dentro del chat — sin que el cliente salga.' },
     { id:'A5', name:'Entrega', role:'Logística', tip:'Coordina logística y envía notificaciones de estado al cliente.' },
@@ -6558,6 +6584,10 @@ export default function GenyXOperatorDashboard() {
 
   // ―― Legal pages (mando.genyxsystems.com/terminos · /privacidad) ―――――
   if (path === '/terminos')   return <LegalPage tipo="terminos" />;
+  if (path === '/contrato')   return <LegalPage tipo="contrato" />;
+  if (path === '/dpa')        return <LegalPage tipo="dpa" />;
+  if (path === '/sla')        return <LegalPage tipo="sla" />;
+  if (path === '/cookies')    return <LegalPage tipo="cookies" />;
   if (path === '/privacidad') return <LegalPage tipo="privacidad" />;
   if (path === '/planes')     return <PlanesPage />;
   // ―― Dev-only: preview landing on localhost ―――――
@@ -6626,12 +6656,12 @@ export default function GenyXOperatorDashboard() {
           <button
             onClick={() => {
               const active = tenants.filter(t => t.status === 'active');
-              if (active.length === 0) { alert('No hay bots activos para suspender.'); return; }
-              if (window.confirm(`🚨 BOTÓN DE PÁNICO\n\nSuspender TODOS los bots activos:\n${active.map(t => '• ' + (t.name || t.slug)).join('\n')}\n\n¿Confirmar?`)) {
+              if (active.length === 0) { alert('No hay operaciones activas para suspender.'); return; }
+              if (window.confirm(`🚨 BOTÓN DE PÁNICO\n\nSuspender TODAS las operaciones activas:\n${active.map(t => '• ' + (t.name || t.slug)).join('\n')}\n\n¿Confirmar?`)) {
                 active.forEach(t => handleToggleStatus(t.slug, 'active'));
               }
             }}
-            title="Suspender TODOS los bots activos de emergencia"
+            title="Suspender TODAS las operaciones activas de emergencia"
             style={{ background: 'rgba(220,38,38,0.15)', border: '1px solid rgba(220,38,38,0.4)', color: '#f87171', padding: '7px 16px', borderRadius: 8, cursor: 'pointer', fontSize: 12, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 6, animation: 'pulse-red 2s infinite' }}
           >
             🚨 PÁNICO
