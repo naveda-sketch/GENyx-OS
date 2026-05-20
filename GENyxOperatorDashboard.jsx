@@ -2368,110 +2368,10 @@ function MarkdownContent({ content: md, style }) {
     dangerouslySetInnerHTML={{ __html: renderMarkdownToHTML(md) }} />;
 }
 
-// ── Términos de Uso — Mando Cliente (genérico, sin hardcodes) ────────────────
-function ClientTermsPage() {
-  const LS = { fontFamily: 'Inter, sans-serif', minHeight: '100vh', background: '#faf9f7', color: '#292524', padding: '40px 20px', maxWidth: 680, margin: '0 auto' };
-  const H1 = { fontSize: 22, fontWeight: 800, color: '#4f46e5', marginBottom: 6 };
-  const H2 = { fontSize: 14, fontWeight: 700, color: '#44403c', margin: '22px 0 8px', borderBottom: '1px solid #e7e5e4', paddingBottom: 6 };
-  const P  = { fontSize: 13, lineHeight: 1.75, color: '#57534e', marginBottom: 10 };
-  const HL = { color: '#4f46e5', fontWeight: 700 };
-  return (
-    <div style={{ background: '#faf9f7', minHeight: '100vh' }}>
-      <div style={LS}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 28 }}>
-          <a href="/" style={{ color: '#4f46e5', fontSize: 13, textDecoration: 'none' }}>&#x2190; Inicio</a>
-        </div>
-        <h1 style={H1}>Términos y Condiciones del Mando Cliente</h1>
-        <p style={{ ...P, color: '#a8a29e', fontSize: 11 }}>GenyX Systems · Versión 3.0 · Abril 2026</p>
-
-        <h2 style={H2}>1. Definición del Servicio</h2>
-        <p style={P}><span style={HL}>GenyX Mando</span> es la interfaz de gestión de la operación comercial autónoma provista por GenyX Systems. El Mando permite al Cliente monitorear pedidos, configurar su operación comercial, acceder a reportes y usar herramientas IA.</p>
-
-        <h2 style={H2}>2. Acceso y Seguridad</h2>
-        <p style={P}>El Cliente accede mediante un <span style={HL}>PIN personal de 4 dígitos</span>. Es responsabilidad del Cliente mantener la confidencialidad de sus credenciales. GenyX no almacena el PIN en texto plano.</p>
-
-        <h2 style={H2}>3. Modelo de Cobro</h2>
-        <p style={P}>El servicio funciona con <span style={HL}>Suscripción Mensual Fija</span> según el plan contratado (Esencial / Profesional / Enterprise). GenyX no retiene ni procesa fondos de los compradores del Cliente. Los pagos del comprador final van directamente al Cliente vía Stripe. Sin permanencia mínima.</p>
-
-        <h2 style={H2}>4. Cancelación</h2>
-        <p style={P}>El Cliente puede cancelar en cualquier momento con <span style={HL}>30 días naturales de aviso</span> a hola@genyxsystems.com. Al terminar: (i) GenyX entrega export CSV de datos en 15 días; (ii) datos eliminados de servidores en 60 días.</p>
-
-        <h2 style={H2}>5. IA y Limitación de Responsabilidad</h2>
-        <p style={P}>El sistema opera con IA generativa de naturaleza probabilística. GenyX <span style={HL}>no garantiza precisión del 100%</span>. La responsabilidad máxima se limita a los 3 meses de suscripción pagados anteriores al evento.</p>
-
-        <h2 style={H2}>6. Fuerza Mayor</h2>
-        <p style={P}>GenyX no responde por interrupciones de Meta/WhatsApp, proveedores de modelos de IA generativa, Stripe, Render, Vercel u otros proveedores de infraestructura.</p>
-
-        <h2 style={H2}>7. Propiedad Intelectual</h2>
-        <p style={P}>El código, algoritmos, prompts y flujos son propiedad exclusiva de GenyX. El Cliente retiene derechos sobre su catálogo, recetas y marca.</p>
-
-        <h2 style={H2}>8. Privacidad</h2>
-        <p style={P}>Al usar el Mando aceptas nuestro <a href="/client-privacidad" style={{ color: '#4f46e5' }}>Aviso de Privacidad</a> conforme a LFPDPPP.</p>
-
-        <h2 style={H2}>9. Jurisdicción</h2>
-        <p style={P}>Ley aplicable: México. Jurisdicción: Guadalajara, Jalisco.</p>
-
-        <p style={{ ...P, marginTop: 32, fontSize: 11, color: '#a8a29e', borderTop: '1px solid #e7e5e4', paddingTop: 16 }}>GenyX Systems · hola@genyxsystems.com · Guadalajara, Jalisco</p>
-      </div>
-    </div>
-  );
-}
-
-// ── Aviso de Privacidad — Mando Cliente (genérico, sin hardcodes) ─────────────
-function ClientPrivacyPage() {
-  const LS = { fontFamily: 'Inter, sans-serif', minHeight: '100vh', background: '#faf9f7', color: '#292524', padding: '40px 20px', maxWidth: 680, margin: '0 auto' };
-  const H1 = { fontSize: 22, fontWeight: 800, color: '#4f46e5', marginBottom: 6 };
-  const H2 = { fontSize: 14, fontWeight: 700, color: '#44403c', margin: '22px 0 8px', borderBottom: '1px solid #e7e5e4', paddingBottom: 6 };
-  const P  = { fontSize: 13, lineHeight: 1.75, color: '#57534e', marginBottom: 10 };
-  const HL = { color: '#4f46e5', fontWeight: 700 };
-  return (
-    <div style={{ background: '#faf9f7', minHeight: '100vh' }}>
-      <div style={LS}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 28 }}>
-          <a href="/" style={{ color: '#4f46e5', fontSize: 13, textDecoration: 'none' }}>&#x2190; Inicio</a>
-        </div>
-        <h1 style={H1}>Aviso de Privacidad</h1>
-        <p style={{ ...P, color: '#a8a29e', fontSize: 11 }}>GenyX Systems · Versión 3.0 · Abril 2026 · Conforme a LFPDPPP</p>
-
-        <h2 style={H2}>1. Responsable del Tratamiento</h2>
-        <p style={P}><span style={HL}>GenyX Systems</span>, representado por Erick Naveda, Guadalajara, Jalisco, México. Contacto: <span style={HL}>privacidad@genyxsystems.com</span></p>
-
-        <h2 style={H2}>2. Datos que Recopilamos</h2>
-        <p style={P}>Al usar el Mando Cliente recopilamos:<br />
-          &bull; <span style={HL}>Nombre del negocio y datos del responsable</span> — para configurar el servicio<br />
-          &bull; <span style={HL}>PIN de acceso</span> — hash almacenado, nunca en texto plano<br />
-          &bull; <span style={HL}>Historial de pedidos y métricas</span> — para generar reportes<br />
-          &bull; <span style={HL}>Catálogo y recetas</span> — para operar la operación comercial
-        </p>
-
-        <h2 style={H2}>3. Finalidades</h2>
-        <p style={P}>
-          &bull; Operar el servicio IVaaS (operación, Mando, reportes)<br />
-          &bull; Generar links de pago seguros vía Stripe<br />
-          &bull; Enviar reportes semanales al Cliente<br />
-          &bull; Cumplimiento legal y fiscal
-        </p>
-
-        <h2 style={H2}>4. Terceros con Acceso</h2>
-        <p style={P}>
-          &bull; <span style={HL}>Stripe</span> — procesamiento de pagos (datos de pago nunca pasan por GenyX)<br />
-          &bull; <span style={HL}>Meta Platforms</span> — WhatsApp Business API<br />
-          &bull; <span style={HL}>Proveedores de modelos de IA generativa</span> — procesamiento de lenguaje (datos anonimizados)<br />
-          &bull; <span style={HL}>Render / Vercel</span> — infraestructura cloud
-        </p>
-
-        <h2 style={H2}>5. Derechos ARCO</h2>
-        <p style={P}>Acceso, Rectificación, Cancelación u Oposición: envía solicitud a <span style={HL}>privacidad@genyxsystems.com</span>. Respuesta en máximo 20 días hábiles.</p>
-
-        <h2 style={H2}>6. Cookies y Storage</h2>
-        <p style={P}>Solo usamos session storage y cookies técnicas estrictamente necesarias. No usamos cookies publicitarias ni de rastreo.</p>
-
-        <p style={{ ...P, marginTop: 32, fontSize: 11, color: '#a8a29e', borderTop: '1px solid #e7e5e4', paddingTop: 16 }}>privacidad@genyxsystems.com · GenyX Systems · Guadalajara, Jalisco</p>
-      </div>
-    </div>
-  );
-}
-
+// ── Client Legal Pages — redireccionan a LegalPage dinámico (Fix #4) ─────────
+// Antes: ~110 líneas de texto legal inline. Ahora: 2 líneas, cero drift.
+function ClientTermsPage() { return <LegalPage tipo="terminos" />; }
+function ClientPrivacyPage() { return <LegalPage tipo="privacidad" />; }
 
 // ── Legal Pages — dinámico desde backend (Phase 4.4) ─────────────────────────
 // Rutas: /terminos, /privacidad, /contrato, /dpa, /sla, /cookies
@@ -4548,7 +4448,7 @@ function MandoClientView({ slug }) {
               <p>• Puedes cancelar con 30 días de aviso a hola@genyxsystems.com.</p>
               <p>• Tus datos se tratan conforme a la <b>LFPDPPP</b>.</p>
               <p style={{ marginTop: 8, fontSize: 11, color: '#6366f1' }}>
-                Lee los documentos completos: <a href="/client-terminos" target="_blank" style={{ color: '#4f46e5' }}>Términos</a> · <a href="/client-privacidad" target="_blank" style={{ color: '#4f46e5' }}>Privacidad</a>
+                Lee los documentos completos: <a href="/terminos" target="_blank" style={{ color: '#4f46e5' }}>Términos</a> · <a href="/privacidad" target="_blank" style={{ color: '#4f46e5' }}>Privacidad</a>
               </p>
             </div>
 
