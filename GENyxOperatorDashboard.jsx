@@ -5886,7 +5886,7 @@ function PorQueAOaaSPage() {
 
       {/* ── Footer ── */}
       <footer style={{ textAlign: 'center', padding: '40px 24px 56px', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
-        <p style={{ fontSize: 11, color: '#475569' }}>GenyX Systems © 2026 · Guadalajara, México</p>
+        <p style={{ fontSize: 11, color: '#475569' }}>GenyX Systems © 2026 · Guadalajara, México · AOaaS</p>
         <p style={{ fontSize: 10, color: '#334155', marginTop: 6, maxWidth: 500, margin: '6px auto 0' }}>
           AOaaS — Agent Operations as a Service. Categoría creada por GenyX por diferenciación técnica real verificable. Decreto fundador 21-may-2026.
         </p>
@@ -6153,7 +6153,7 @@ function PorQueAhoraPage() {
 
       {/* Footer */}
       <footer style={{ textAlign: 'center', padding: '32px 24px 48px', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
-        <p style={{ fontSize: 11, color: '#475569' }}>GenyX Systems © 2026 · Guadalajara, México</p>
+        <p style={{ fontSize: 11, color: '#475569' }}>GenyX Systems © 2026 · Guadalajara, México · AOaaS</p>
         <p style={{ fontSize: 10, color: '#334155', marginTop: 4 }}>Cada dato en esta página tiene URL fuente verificable. Regla de oro: si no tiene fuente, no se publica.</p>
         <div style={{ marginTop: 12, display: 'flex', gap: 16, justifyContent: 'center' }}>
           <a href="/privacidad" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Privacidad</a>
@@ -7253,7 +7253,7 @@ function GenyXLandingPage() {
         </a>
         <div style={C.navLinks}>
           {[['Agentes', '#agentes'], ['Proceso', '#proceso'], ['Por qué ahora', '/por-que-ahora'], ['AOaaS', '/por-que-aoaas'], ['Blog', '/blog']].map(([l, h]) => (
-            <a key={l} href={h} style={C.navLink} onMouseOver={e => e.target.style.color = '#fff'} onMouseOut={e => e.target.style.color = '#64748b'}>{l}</a>
+            <a key={l} href={h} style={{ ...C.navLink, ...(l === 'AOaaS' ? { background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', fontWeight:800 } : {}) }} onMouseOver={e => { if (l !== 'AOaaS') e.target.style.color = '#fff'; }} onMouseOut={e => { if (l !== 'AOaaS') e.target.style.color = '#64748b'; }}>{l}</a>
           ))}
           <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={C.demoCta}>Cuéntame de tu negocio →</a>
         </div>
@@ -7270,6 +7270,7 @@ function GenyXLandingPage() {
           &#x2713; Activo en 48h · Respuesta en segundos · Cero comisión por venta
         </div>
         <h1 style={C.h1}>Instalamos 9 agentes de IA<br /><span style={C.h1accent}>que corren el 90% de tu operación comercial — autónoma, sin que tú estés.</span></h1>
+        <div style={{ display:'inline-flex', alignItems:'center', gap:8, marginTop:8, marginBottom:4 }}><span style={{ fontSize:13, fontWeight:900, background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', letterSpacing:'.05em' }}>AOaaS</span><span style={{ color:'#475569', fontSize:12 }}>— Agent Operations as a Service</span></div>
         <p style={C.sub}>Operación 24/7 + inteligencia ejecutiva + accountability medible. Todo lo que necesita tu negocio para crecer. Dos capas: la operativa (atender, vender, cobrar, entregar) y la estratégica (interpretar tus datos y planear tus finanzas y marketing). El fundador toma la decisión. La IA hace el trabajo.</p>
         <div style={C.btns}>
           <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={C.primary}>Cuéntame de tu negocio →</a>
@@ -7279,7 +7280,7 @@ function GenyXLandingPage() {
 
       <section style={C.stats}>
         <div style={C.statsGrid}>
-          {[['Segundos', 'Tu cliente recibe respuesta'], ['24/7', 'Incluye fines de semana y días festivos'], ['$0', 'Comisión por venta'], ['48h', 'De la sesión a vendiendo']].map(([v, l], i) => (
+          {[['Segundos', 'Tu cliente recibe respuesta'], ['24/7', 'Incluye fines de semana y días festivos'], ['$0', 'Comisión por venta'], ['48h', 'De la sesión a vendiendo'], ['AOaaS', 'Agent Operations as a Service']].map(([v, l], i) => (
             <div key={i} style={C.statCell(i)}>
               <p style={C.statVal}>{v}</p>
               <p style={C.statLbl}>{l}</p>
@@ -7292,7 +7293,7 @@ function GenyXLandingPage() {
       {/* ── La Oportunidad ── */}
       <section style={{ padding: '0 24px 100px', maxWidth: 720, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>LA OPORTUNIDAD</div>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>LA OPORTUNIDAD AOaaS</div>
           <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>Cada conversación es una venta.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Y tus datos lo demuestran.</span></h2>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
@@ -7308,7 +7309,7 @@ function GenyXLandingPage() {
       {/* ── Tu Operación Comercial: 9 Agentes ── */}
       <section id="agentes" style={{ padding: '0 24px 100px', maxWidth: 1000, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>TU OPERACIÓN COMERCIAL — 90% AUTÓNOMA</div>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>AOaaS — TU OPERACIÓN COMERCIAL AUTÓNOMA</div>
           <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>9 agentes de IA.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Configurados para tu negocio.</span></h2>
           <p style={{ color: '#64748b', fontSize: 14, maxWidth: 560, margin: '0 auto' }}>Cada agente se encarga de una función clave. Trabajan juntos, comparten información y operan 24/7 — configurados con las reglas de tu negocio.</p>
         </div>
@@ -7560,8 +7561,8 @@ function GenyXLandingPage() {
       {/* ── Pricing ── */}
       <section style={{ padding:'0 24px 100px', maxWidth:960, margin:'0 auto', textAlign:'center' }}>
         <div style={{ background:'linear-gradient(135deg,rgba(99,102,241,0.06),rgba(139,92,246,0.06))', border:'1px solid rgba(99,102,241,0.2)', borderRadius:24, padding:'48px 40px' }}>
-          <div style={{ fontSize:11, fontWeight:800, color:'#818cf8', letterSpacing:'.12em', textTransform:'uppercase', marginBottom:12 }}>Modelo de Inversión</div>
-          <h2 style={{ fontSize:32, fontWeight:900, color:'#f1f5f9', lineHeight:1.25, marginBottom:16 }}>3 planes. 9 agentes.<br /><span style={{ background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Tu operación comercial autónoma.</span></h2>
+          <div style={{ fontSize:11, fontWeight:800, color:'#818cf8', letterSpacing:'.12em', textTransform:'uppercase', marginBottom:12 }}>AOaaS — Modelo de Inversión</div>
+          <h2 style={{ fontSize:32, fontWeight:900, color:'#f1f5f9', lineHeight:1.25, marginBottom:16 }}>3 planes. 9 agentes.<br /><span style={{ background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Tu operación comercial autónoma — AOaaS.</span></h2>
           <p style={{ color:'#64748b', lineHeight:1.8, marginBottom:32, fontSize:15 }}>GenyX opera bajo un modelo de <strong style={{ color:'#a5b4fc' }}>Fee de instalación + Suscripción mensual fija</strong>. Sin importar cuánto vendas en el mes, tu costo no cambia. Tus márgenes son tuyos.</p>
           <div style={{ display:'flex', justifyContent:'center', gap:16, flexWrap:'wrap', marginBottom:24 }}>
             {[
@@ -7594,7 +7595,7 @@ function GenyXLandingPage() {
       <section id="proceso" style={C.section()}>
         <div style={C.sHead}>
           <h2 style={{ ...C.sH2, fontSize: 40 }}>De cero a ventas en 48 horas.</h2>
-          <p style={C.sP}>Tres pasos. Sin código. Sin consultor caro.</p>
+          <p style={C.sP}>Proceso AOaaS. Tres pasos. Sin código. Sin consultor caro.</p>
         </div>
         <div style={C.grid3}>
           {steps.map(([n, t, d]) => (
