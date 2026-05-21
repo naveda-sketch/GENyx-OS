@@ -5052,6 +5052,12 @@ const SEO_META = {
     canonical: 'https://genyxsystems.com/por-que-ahora',
     image: 'https://genyxsystems.com/aoaas-og.png',
   },
+  '/whitepaper': {
+    title: 'Whitepaper: From Agents to Operations — AOaaS | GenyX',
+    desc: 'Whitepaper técnico: cómo GenyX construyó AOaaS. 12 agentes orquestados, 13 REGLAs, governance interna, trazabilidad SHA256.',
+    canonical: 'https://genyxsystems.com/whitepaper',
+    image: 'https://genyxsystems.com/aoaas-og.png',
+  },
   '/blog': {
     title: 'Blog AOaaS — Agent Operations as a Service | GenyX',
     desc: 'Análisis, datos verificados y visión de categoría sobre AOaaS. Pensamiento en profundidad por GenyX Systems.',
@@ -5461,6 +5467,189 @@ function BlogIndexPage() {
       </div>
       <footer style={{ textAlign: 'center', padding: '40px 24px', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
         <p style={{ fontSize: 11, color: '#475569' }}>GenyX Systems © 2026 · AOaaS — Agent Operations as a Service</p>
+      </footer>
+    </div>
+  );
+}
+
+
+// ── /whitepaper — Landing captura emails (Palanca #2 de 7) ─────────────────
+function WhitepaperPage() {
+  useSEO();
+  const [email, setEmail] = React.useState('');
+  const [name, setName] = React.useState('');
+  const [submitted, setSubmitted] = React.useState(false);
+  const [error, setError] = React.useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!email || !email.includes('@')) { setError('Ingresa un correo válido.'); return; }
+    // Store locally + send via WhatsApp as interim solution
+    const entries = JSON.parse(localStorage.getItem('genyx_whitepaper_leads') || '[]');
+    entries.push({ email, name, ts: new Date().toISOString() });
+    localStorage.setItem('genyx_whitepaper_leads', JSON.stringify(entries));
+    setSubmitted(true);
+    setError('');
+  };
+
+  const W = {
+    page: { minHeight: '100vh', background: '#05080f', fontFamily: "'Inter','Segoe UI',sans-serif", color: '#f1f5f9' },
+    nav: { position: 'fixed', top: 0, left: 0, right: 0, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 32px', background: 'rgba(5,8,15,0.9)', backdropFilter: 'blur(16px)', borderBottom: '1px solid rgba(255,255,255,0.05)', zIndex: 100 },
+    gradient: { background: 'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
+    input: { width: '100%', boxSizing: 'border-box', background: 'rgba(15,23,42,0.8)', border: '1px solid rgba(99,102,241,0.2)', color: '#f1f5f9', padding: '14px 18px', borderRadius: 12, fontSize: 14, outline: 'none', fontFamily: 'inherit', transition: 'border-color 0.2s' },
+  };
+
+  return (
+    <div style={W.page}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org", "@type": "WebPage",
+        "name": "Whitepaper: From Agents to Operations — AOaaS",
+        "description": "Whitepaper técnico de GenyX sobre AOaaS. De agentes individuales a operaciones orquestadas.",
+        "url": "https://genyxsystems.com/whitepaper",
+        "publisher": { "@type": "Organization", "name": "GenyX Systems" },
+      }) }} />
+
+      <nav style={W.nav}>
+        <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+          <img src="/genyx-logo.png" alt="GenyX" style={{ width: 28, height: 28, borderRadius: 4 }} />
+          <span style={{ fontWeight: 800, fontSize: 15, color: '#f1f5f9' }}>GenyX</span>
+        </a>
+        <div style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
+          <a href="/por-que-aoaas" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>AOaaS</a>
+          <a href="/blog" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>Blog</a>
+        </div>
+      </nav>
+
+      <div style={{ maxWidth: 960, margin: '0 auto', padding: '160px 24px 80px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
+        {/* Left: Copy */}
+        <div>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 30, padding: '5px 16px', marginBottom: 20, fontSize: 10, fontWeight: 800, color: '#818cf8', letterSpacing: '.12em', textTransform: 'uppercase' }}>
+            <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#6366f1', display: 'inline-block' }} />
+            WHITEPAPER TÉCNICO
+          </div>
+          <h1 style={{ fontSize: 44, fontWeight: 900, lineHeight: 1.1, marginBottom: 20 }}>
+            From Agents<br />
+            <span style={W.gradient}>to Operations.</span>
+          </h1>
+          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9, marginBottom: 24 }}>
+            Cómo GenyX construyó AOaaS — Agent Operations as a Service — y por qué la industria converge hacia operaciones orquestadas en vez de agentes individuales.
+          </p>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 32 }}>
+            <p style={{ fontSize: 13, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.06em' }}>En este whitepaper:</p>
+            {[
+              'Por qué el 88% de los pilotos AI fallan — y cómo evitarlo',
+              'Arquitectura: de 1 agente a 12 orquestados con governance',
+              'El framework de 13 REGLAs + candados técnicos',
+              'Doble red A9↔A0: compliance legal automatizado',
+              'Trazabilidad tripartita: 3 hashes SHA256 por operación',
+              'Category creation: el patrón Stripe/Snowflake/Notion/Anthropic',
+              'Roadmap AOaaS: de Mes 1 a Mes 12',
+            ].map((item, i) => (
+              <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
+                <span style={{ color: '#818cf8', fontSize: 12, fontWeight: 700, marginTop: 2 }}>§{i+1}</span>
+                <span style={{ color: '#94a3b8', fontSize: 14 }}>{item}</span>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+            <span style={{ fontSize: 11, color: '#475569', background: 'rgba(255,255,255,0.03)', padding: '4px 12px', borderRadius: 6, border: '1px solid rgba(255,255,255,0.06)' }}>10-15 páginas</span>
+            <span style={{ fontSize: 11, color: '#475569', background: 'rgba(255,255,255,0.03)', padding: '4px 12px', borderRadius: 6, border: '1px solid rgba(255,255,255,0.06)' }}>PDF descargable</span>
+            <span style={{ fontSize: 11, color: '#475569', background: 'rgba(255,255,255,0.03)', padding: '4px 12px', borderRadius: 6, border: '1px solid rgba(255,255,255,0.06)' }}>Datos con fuentes verificables</span>
+          </div>
+        </div>
+
+        {/* Right: Form */}
+        <div>
+          <div style={{ background: 'rgba(99,102,241,0.04)', border: '1px solid rgba(99,102,241,0.15)', borderRadius: 24, padding: '40px 32px' }}>
+            {submitted ? (
+              <div style={{ textAlign: 'center', padding: '20px 0' }}>
+                <div style={{ fontSize: 48, marginBottom: 16 }}>✓</div>
+                <h2 style={{ fontSize: 24, fontWeight: 800, color: '#f1f5f9', marginBottom: 12 }}>¡Registrado!</h2>
+                <p style={{ color: '#94a3b8', fontSize: 14, lineHeight: 1.7, marginBottom: 24 }}>
+                  Te notificaremos a <span style={{ color: '#818cf8', fontWeight: 600 }}>{email}</span> cuando el whitepaper esté listo para descargar.
+                </p>
+                <p style={{ color: '#64748b', fontSize: 13, marginBottom: 20 }}>Mientras tanto, explora:</p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                  <a href="/por-que-aoaas" style={{ color: '#818cf8', fontSize: 14, textDecoration: 'none', fontWeight: 600 }}>Manifesto AOaaS →</a>
+                  <a href="/blog" style={{ color: '#818cf8', fontSize: 14, textDecoration: 'none', fontWeight: 600 }}>Blog AOaaS →</a>
+                  <a href="/por-que-ahora" style={{ color: '#818cf8', fontSize: 14, textDecoration: 'none', fontWeight: 600 }}>Datos de mercado →</a>
+                </div>
+              </div>
+            ) : (
+              <>
+                <h2 style={{ fontSize: 22, fontWeight: 800, color: '#f1f5f9', marginBottom: 6 }}>Recibe el whitepaper</h2>
+                <p style={{ color: '#64748b', fontSize: 13, marginBottom: 24 }}>Déjanos tu correo y te lo enviamos cuando esté listo. Sin spam.</p>
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                  <div>
+                    <label style={{ display: 'block', fontSize: 11, fontWeight: 600, color: '#64748b', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '.05em' }}>Nombre</label>
+                    <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Tu nombre"
+                      style={W.input} onFocus={e => e.target.style.borderColor = 'rgba(99,102,241,0.5)'} onBlur={e => e.target.style.borderColor = 'rgba(99,102,241,0.2)'} />
+                  </div>
+                  <div>
+                    <label style={{ display: 'block', fontSize: 11, fontWeight: 600, color: '#64748b', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '.05em' }}>Correo *</label>
+                    <input type="email" value={email} onChange={e => { setEmail(e.target.value); setError(''); }} placeholder="tu@empresa.com" required
+                      style={{ ...W.input, borderColor: error ? 'rgba(239,68,68,0.5)' : 'rgba(99,102,241,0.2)' }}
+                      onFocus={e => e.target.style.borderColor = 'rgba(99,102,241,0.5)'} onBlur={e => e.target.style.borderColor = error ? 'rgba(239,68,68,0.5)' : 'rgba(99,102,241,0.2)'} />
+                    {error && <p style={{ fontSize: 11, color: '#f87171', marginTop: 4 }}>{error}</p>}
+                  </div>
+                  <button type="submit" style={{ width: '100%', background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '14px 24px', borderRadius: 12, fontSize: 15, fontWeight: 700, border: 'none', cursor: 'pointer', boxShadow: '0 0 32px rgba(99,102,241,0.25)', transition: 'transform 0.15s' }}
+                    onMouseOver={e => e.target.style.transform = 'translateY(-1px)'}
+                    onMouseOut={e => e.target.style.transform = 'translateY(0)'}>
+                    Quiero el whitepaper →
+                  </button>
+                  <p style={{ fontSize: 10, color: '#475569', textAlign: 'center' }}>Solo para enviarte el whitepaper. Cero spam. Sin vender tu dato.</p>
+                </form>
+              </>
+            )}
+          </div>
+
+          {/* Social proof / stats */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 10, marginTop: 16 }}>
+            {[
+              ['12', 'Agentes'],
+              ['13', 'REGLAs'],
+              ['3', 'SHA256'],
+            ].map(([val, label]) => (
+              <div key={label} style={{ textAlign: 'center', padding: '12px 8px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.04)', borderRadius: 10 }}>
+                <div style={{ fontSize: 20, fontWeight: 900, ...W.gradient }}>{val}</div>
+                <div style={{ fontSize: 10, color: '#475569' }}>{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom: who is this for */}
+      <section style={{ maxWidth: 720, margin: '0 auto', padding: '0 24px 100px' }}>
+        <div style={{ textAlign: 'center', marginBottom: 40 }}>
+          <p style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.12em', textTransform: 'uppercase', marginBottom: 12 }}>¿PARA QUIÉN ES ESTE WHITEPAPER?</p>
+          <h2 style={{ fontSize: 28, fontWeight: 800, color: '#f1f5f9' }}>Founders, CTOs y operadores<br /><span style={W.gradient}>que quieren entender AOaaS a profundidad.</span></h2>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12 }}>
+          {[
+            ['🏗️', 'Founders', 'Que evalúan implementar operación autónoma y necesitan entender la arquitectura.'],
+            ['⚙️', 'CTOs', 'Que quieren comprender la governance técnica: 13 REGLAs, doble red, candados.'],
+            ['📊', 'Operadores', 'Que buscan datos verificados sobre el mercado AaaS/AOaaS y el contexto LATAM.'],
+            ['📝', 'Analistas', 'Que investigan la categoría AOaaS y necesitan material técnico citable.'],
+          ].map(([ico, title, desc]) => (
+            <div key={title} style={{ background: 'rgba(99,102,241,0.03)', border: '1px solid rgba(99,102,241,0.1)', borderRadius: 14, padding: '20px 18px' }}>
+              <div style={{ fontSize: 24, marginBottom: 8 }}>{ico}</div>
+              <p style={{ fontWeight: 700, color: '#f1f5f9', fontSize: 14, marginBottom: 4 }}>{title}</p>
+              <p style={{ fontSize: 12, color: '#64748b', lineHeight: 1.6 }}>{desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <footer style={{ textAlign: 'center', padding: '40px 24px', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
+        <p style={{ fontSize: 11, color: '#475569' }}>GenyX Systems © 2026 · AOaaS — Agent Operations as a Service</p>
+        <div style={{ marginTop: 10, display: 'flex', gap: 16, justifyContent: 'center' }}>
+          <a href="/" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Inicio</a>
+          <a href="/por-que-aoaas" style={{ color: '#818cf8', fontSize: 11, textDecoration: 'none' }}>Manifesto</a>
+          <a href="/blog" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Blog</a>
+        </div>
       </footer>
     </div>
   );
@@ -7618,6 +7807,7 @@ export default function GenyXOperatorDashboard() {
   if (path === '/privacidad') return <LegalPage tipo="privacidad" />;
   if (path === '/planes')     return <PlanesPage />;
   if (path === '/por-que-ahora') return <PorQueAhoraPage />;
+  if (path === '/whitepaper') return <WhitepaperPage />;
   if (path === '/por-que-aoaas') return <PorQueAOaaSPage />;
   if (path === '/blog') return <BlogIndexPage />;
   if (path === '/blog/aoaas-vs-aaas-cual-es-la-diferencia') return <BlogPost1 />;
