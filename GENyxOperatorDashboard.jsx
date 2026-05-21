@@ -1805,7 +1805,7 @@ const TabOnboarding = () => {
         {step === 1 && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             <h3 style={H3}>Información del Negocio</h3>
-            {[['Nombre comercial *', 'name', 'Ej: Mi Negocio'], ['Giro', 'industry', 'Ej: Restaurante, Clínica, Tienda...'], ['Email del dueño', 'owner_email', 'Para reportes semanales'], ['Sitio web', 'website_url', 'https://...'], ['Dirección de la tienda', 'store_address', 'Calle, Número, Colonia, Ciudad']].map(([label, key, placeholder]) => (
+            {[['Nombre comercial *', 'name', 'Ej: Mi Negocio'], ['Giro', 'industry', 'Ej: Tu giro o actividad'], ['Email del dueño', 'owner_email', 'Para reportes semanales'], ['Sitio web', 'website_url', 'https://...'], ['Dirección de la tienda', 'store_address', 'Calle, Número, Colonia, Ciudad']].map(([label, key, placeholder]) => (
               <div key={key}>
                 <label style={LABEL}>{label}</label>
                 <input style={INPUT} value={form[key]} placeholder={placeholder} onChange={e => {
@@ -4286,7 +4286,7 @@ function MandoClientView({ slug }) {
               <div style={CARD}>
                 {SECHEAD('2️⃣ Mano de Obra Directa (MOD)', {
                   title: '2. Mano de Obra Directa (MOD)',
-                  text: 'Es el costo del tiempo que TÚ o tus empleados invierten DIRECTAMENTE en producir el producto. Se calcula como: Tarifa por hora × Horas de producción ÷ Unidades del lote.',
+                  text: 'Es el costo del tiempo invertido directamente en producir el producto. Se calcula como: Tarifa por hora × Horas de producción ÷ Unidades del lote.',
                   ex: 'Si pagas $120/hr, tardas 2 horas en hacer 24 piezas → MOD = ($120×2)/24 = $10 por pieza.'
                 })}
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 10 }}>
@@ -6195,9 +6195,8 @@ function PlanesPage() {
               <tbody>
                 {[
                   ['Cuota mensual', '$9,900 MXN', '$18,900 MXN', '$34,900 MXN'],
-                  ['Setup inicial (una vez)', '$12,000 MXN', '$18,000 MXN', '$30,000 MXN'],
-                  ['Negocio ideal', '$200K–$700K MXN/mes', '$700K–$2M MXN/mes', '$2M–$5M MXN/mes'],
-                  ['Empleados aproximados', '5 – 15', '15 – 50', '50 – 100'],
+                  ['Setup inicial (una vez)', '$6,000 MXN', '$12,000 MXN', '$24,000 MXN'],
+                  ['Mejor para...', 'Operación unipersonal o equipo arrancando', 'Equipo de ventas que ya factura recurrente', 'Multi-sucursal o multi-canal con governance'],
                   ['Agentes de IA', '9', '9', '9'],
                 ].map(([label, ...vals]) => (
                   <tr key={label}>
@@ -6384,7 +6383,7 @@ const SIM_CONFIG = {
   fields:[
     {key:'mensajes',label:'Mensajes que recibes al día',def:40,min:5,max:500},
     {key:'ticket',label:'Ticket promedio',def:250,min:50,max:50000,pfx:'$'},
-    {key:'empleados',label:'Empleados en tu equipo',def:8,min:1,max:100}
+    {key:'empleados',label:'Personas directamente en producción',def:8,min:1,max:100}
   ]
 };
 
@@ -7336,31 +7335,44 @@ function GenyXLandingPage() {
           ))}
         </div>
 
-        {/* ── Industrias integradas ── */}
+        {/* ── 3 macro-bloques de capacidades (REGLA 11 agnóstico) ── */}
         <div style={{ marginTop: 40, textAlign: 'center' }}>
           <p style={{ fontSize: 14, color: '#a5b4fc', fontWeight: 700, marginBottom: 6 }}>9 agentes. Todos los planes. Cualquier negocio.</p>
           <p style={{ fontSize: 12, color: '#475569', marginBottom: 24 }}>Tú diriges la estrategia (10% de tu tiempo). Los agentes ejecutan el otro 90%.</p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 10 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 14 }}>
             {[
-              [() => simSvg(['M18 8h1a4 4 0 010 8h-1','M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z'],'ic1'), 'Restaurantes', 'Tú en la cocina, GenyX en el chat'],
-              [() => simSvg(['M22 12h-4l-3 9L9 3l-3 9H2'],'ic2'), 'Clínicas', 'Agenda, confirma y cobra anticipo por ti'],
-              [() => simSvg(['M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'],'ic3'), 'Belleza', 'Confirmación y recordatorio automático'],
-              [() => simSvg(['M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z','M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z'],'ic4'), 'Escuelas', 'Del primer mensaje a la inscripción'],
-              [() => simSvg([['rect',{x:3,y:3,width:18,height:18,rx:2,ry:2}],['line',{x1:3,y1:9,x2:21,y2:9}],['line',{x1:9,y1:21,x2:9,y2:9}]],'ic5'), 'Inmobiliarias', 'Filtra, califica y te entrega leads serios'],
-              [() => simSvg(['M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z',['line',{x1:3,y1:6,x2:21,y2:6}],'M16 10a4 4 0 01-8 0'],'ic6'), 'Tiendas', 'Toma pedidos y cobra 24/7'],
-            ].map(([icoFn, label, pain]) => (
-              <div key={label} style={{ background:'rgba(99,102,241,0.06)', border:'1px solid rgba(99,102,241,0.18)', borderRadius:12, padding:'12px 16px', display:'flex', alignItems:'center', gap:10, transition:'all .2s', cursor:'default', minWidth:200, flex:'1 1 auto', maxWidth:320 }}
-                onMouseOver={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.5)'; e.currentTarget.style.transform='translateY(-2px)'; }}
-                onMouseOut={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.18)'; e.currentTarget.style.transform='translateY(0)'; }}>
-                <div style={{ width:36, height:36, borderRadius:8, background:'rgba(99,102,241,0.1)', border:'1px solid rgba(99,102,241,0.15)', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0 }}>{icoFn()}</div>
-                <div style={{ textAlign:'left' }}>
-                  <div style={{ fontSize:12, fontWeight:700, color:'#f1f5f9' }}>{label}</div>
-                  <div style={{ fontSize:10, color:'#818cf8', fontStyle:'italic', lineHeight:1.4 }}>{pain}</div>
+              [
+                'Atrae y Captura',
+                'Mensaje correcto al cliente correcto + filtrado automático de leads serios.',
+                ['M12 22s8-4 8-10A8 8 0 004 12c0 6 8 10 8 10z', ['circle',{cx:12,cy:12,r:3}]],
+                'A1 Marketing + A2 Captación'
+              ],
+              [
+                'Vende, Cobra y Entrega',
+                'Conversación natural en WhatsApp → cierre → cobro Stripe → confirmación entrega. Sin friction.',
+                ['M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z'],
+                'A3 Venta + A4 Cierre + A5 Entrega'
+              ],
+              [
+                'Retiene, Mide y Decide',
+                'Reactivación + analítica + finanzas + briefing diario de Dirección Ejecutiva. La operación se mira a sí misma.',
+                ['M3 3v18h18', 'M7 16V12m4 4V8m4 8V5'],
+                'A6 Seguimiento + A7 Analítica + A8 Finanzas + A11 Dirección'
+              ],
+            ].map(([title, desc, paths, agents]) => (
+              <div key={title} style={{ background:'rgba(99,102,241,0.05)', border:'1px solid rgba(99,102,241,0.15)', borderRadius:16, padding:'24px 20px', textAlign:'left', transition:'all .25s' }}
+                onMouseOver={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.45)'; e.currentTarget.style.transform='translateY(-2px)'; }}
+                onMouseOut={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.15)'; e.currentTarget.style.transform='translateY(0)'; }}>
+                <div style={{ width:40, height:40, borderRadius:10, background:'rgba(99,102,241,0.1)', border:'1px solid rgba(99,102,241,0.15)', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:14 }}>
+                  {simSvg(paths, title.substring(0,3))}
                 </div>
+                <div style={{ fontSize:16, fontWeight:800, color:'#f1f5f9', marginBottom:6 }}>{title}</div>
+                <div style={{ fontSize:13, color:'#94a3b8', lineHeight:1.7, marginBottom:10 }}>{desc}</div>
+                <div style={{ fontSize:10, color:'#6366f1', fontWeight:600, letterSpacing:'.03em' }}>{agents}</div>
               </div>
             ))}
           </div>
-          <p style={{ fontSize: 11, color: '#475569', fontStyle: 'italic', marginTop: 16 }}>Además activamos herramientas según tu negocio: Inventario, Costeador, Citas, Foto Lab, Pipeline de Leads y más.</p>
+          <p style={{ fontSize: 11, color: '#475569', fontStyle: 'italic', marginTop: 16 }}>Además activamos herramientas según tu operación: Inventario, Costeador, Citas, Foto Lab, Pipeline de Leads y más.</p>
         </div>
       </section>
 
