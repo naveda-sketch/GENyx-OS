@@ -3364,7 +3364,15 @@ function MandoClientView({ slug }) {
   const brandColor  = config?.brand_color || '#6366f1';
   const brandAccent = lighten(brandColor, 20);
   const tenantName  = config?.business_name || slug;
-  const tenantLogo  = config?.logo_url || '/genyx-fallback-icon.png';
+  const tenantLogo  = config?.logo_url || null;
+  // BUG #1 FIX (REGLA 14: UX fallback method — initial-letter in brand-colored circle)
+  // Methodology: when logo_url is null/broken, render first letter of business name
+  // in a circle with the tenant's brand color. Never show broken image or "?" emoji.
+  const LogoFallback = ({ size = 32, style = {} }) => {
+    const initial = (tenantName || 'G').charAt(0).toUpperCase();
+    if (tenantLogo) return <img src={tenantLogo} alt={tenantName} style={{ width: size, height: size, borderRadius: size > 40 ? 16 : 8, objectFit: 'cover', ...style }} onError={e => { e.target.style.display = 'none'; e.target.nextSibling && (e.target.nextSibling.style.display = 'flex'); }} />;
+    return <div style={{ width: size, height: size, borderRadius: size > 40 ? 16 : 8, background: `linear-gradient(135deg, ${brandColor}, ${brandAccent})`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: size * 0.45, fontWeight: 800, fontFamily: "'Inter', sans-serif", letterSpacing: '-0.02em', flexShrink: 0, ...style }}>{initial}</div>;
+  };
 
   // ── Auth
   const [pin, setPin]             = useState('');
@@ -3678,7 +3686,7 @@ if (!token) return (
     <div style={{ ...CS, alignItems: 'center', justifyContent: 'center' }}>
       <div style={{ width: '100%', maxWidth: 360, padding: 24 }}>
         <div style={{ textAlign: 'center', marginBottom: 28 }}>
-          <img src={tenantLogo} alt={tenantName} style={{ width: 80, height: 80, borderRadius: 16, marginBottom: 12 }} />
+          <LogoFallback size={80} style={{ marginBottom: 12 }} />
           <h1 style={{ fontSize: 20, fontWeight: 800, color: '#1a1208' }}>{tenantName}</h1>
           <p style={{ color: '#78716c', fontSize: 13, marginTop: 4 }}>Centro de Mando</p>
         </div>
@@ -3727,7 +3735,7 @@ if (!token) return (
       <header style={{ background: brandColor, color: '#fff', padding: '12px 20px 0', position: 'sticky', top: 0, zIndex: 10 }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <img src={tenantLogo} alt="" style={{ width: 32, height: 32, borderRadius: 8 }} />
+            <LogoFallback size={32} />
             <div>
               <div style={{ fontWeight: 800, fontSize: 14 }}>{name || tenantName}</div>
               <div style={{ fontSize: 9, opacity: .7 }}>Centro de Mando</div>
