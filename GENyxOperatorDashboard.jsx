@@ -3391,6 +3391,7 @@ function MandoClientView({ slug }) {
   const [legalOtpEmail, setLegalOtpEmail] = useState('');
   const [legalAccepting, setLegalAccepting] = useState(false);
   const [legalMsg, setLegalMsg] = useState('');
+  const [legalChecked, setLegalChecked] = useState(false);
   // ── Navigation
   const [tab, setTab] = useState('pedidos');
   // ── Pedidos
@@ -3676,7 +3677,7 @@ function MandoClientView({ slug }) {
         body: JSON.stringify({ otp_wa_code: legalOtpWa, email_otp_code: legalOtpEmail, doc_version: legalStatus?.current_version || '5.1' }),
       });
       const d = await r.json();
-      if (r.ok) { setLegalStatus(prev => ({ ...prev, requires_re_acceptance: false })); setShowLegalModal(false); setLegalMsg(''); setLegalOtpWa(''); setLegalOtpEmail(''); }
+      if (r.ok) { setLegalStatus(prev => ({ ...prev, requires_re_acceptance: false })); setShowLegalModal(false); setLegalMsg(''); setLegalOtpWa(''); setLegalOtpEmail(''); setLegalChecked(false); }
       else setLegalMsg(`❌ ${d.detail || 'Error'}`);
     } catch { setLegalMsg('❌ Error de conexión'); }
     setLegalAccepting(false);
@@ -3766,51 +3767,85 @@ if (!token) return (
         })()}
       </header>
 
-      {/* ── Cláusula 7b: Banner persistente ── */}
+      {/* ── Cláusula 7b: Banner persistente (P4: positive framing, brand colors) ── */}
       {legalStatus?.requires_re_acceptance && (
-        <div style={{ maxWidth: 720, margin: '0 auto', padding: '0 18px' }}>
-          <div style={{ background: 'linear-gradient(135deg, rgba(239,68,68,0.15), rgba(239,68,68,0.08))', border: '1px solid rgba(239,68,68,0.3)', borderRadius: 12, padding: '12px 18px', marginBottom: 0, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
+        <div style={{ maxWidth: 720, margin: '0 auto', padding: '8px 18px 0' }}>
+          <div style={{ background: 'linear-gradient(135deg, rgba(99,102,241,0.12), rgba(139,92,246,0.08))', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 12, padding: '12px 18px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, flex: 1, minWidth: 200 }}>
-              <span style={{ fontSize: 18 }}>🔴</span>
+              <span style={{ fontSize: 18 }}>📜</span>
               <div>
-                <p style={{ fontSize: 13, fontWeight: 700, color: '#fca5a5' }}>Actualización de contrato pendiente</p>
-                <p style={{ fontSize: 11, color: '#94a3b8' }}>Cláusula 7b — Delimitación de responsabilidad. Toma 3 min.</p>
+                <p style={{ fontSize: 13, fontWeight: 700, color: '#c4b5fd' }}>Actualización de tu acuerdo de servicio</p>
+                <p style={{ fontSize: 11, color: '#94a3b8' }}>Toma 2 minutos. Tu operación sigue activa mientras revisas.</p>
               </div>
             </div>
-            <button onClick={() => setShowLegalModal(true)} style={{ background: 'rgba(239,68,68,0.2)', border: '1px solid rgba(239,68,68,0.4)', color: '#fca5a5', padding: '8px 16px', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: 'pointer', whiteSpace: 'nowrap' }}>Aceptar con doble verificación</button>
+            <button onClick={() => setShowLegalModal(true)} style={{ background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', border: 'none', color: '#fff', padding: '8px 16px', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: 'pointer', whiteSpace: 'nowrap' }}>Revisar y aceptar</button>
           </div>
         </div>
       )}
-      {/* ── Modal Cláusula 7b ── */}
+      {/* ── Modal Cláusula 7b (P1+P5: checkbox + diff + cancel + refined UX) ── */}
       {showLegalModal && (
-        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999 }}>
-          <div style={{ background: '#0f172a', border: '1px solid rgba(239,68,68,0.3)', borderRadius: 20, padding: '32px 28px', maxWidth: 480, width: '90%' }}>
-            <h3 style={{ fontSize: 18, fontWeight: 800, color: '#f1f5f9', marginBottom: 6 }}>Cláusula 7b — Actualización</h3>
-            <p style={{ fontSize: 12, color: '#64748b', marginBottom: 16 }}>Versión: {legalStatus?.current_version || '5.1'}</p>
-            {legalStatus?.changelog_pending && (
-              <div style={{ background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.15)', borderRadius: 10, padding: '12px 14px', marginBottom: 16, maxHeight: 200, overflow: 'auto' }}>
-                <p style={{ fontSize: 10, color: '#818cf8', fontWeight: 700, marginBottom: 6, textTransform: 'uppercase', letterSpacing: '.06em' }}>Cambios pendientes</p>
-                <p style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6, whiteSpace: 'pre-wrap' }}>{legalStatus.changelog_pending}</p>
-              </div>
-            )}
-            <p style={{ fontSize: 11, color: '#94a3b8', marginBottom: 14 }}>Confirma con doble verificación (WhatsApp + Email):</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 16 }}>
+        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 }}>
+          <div style={{ background: '#0f172a', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 20, padding: '28px 24px', maxWidth: 520, width: '100%', maxHeight: '90vh', overflow: 'auto' }}>
+            {/* Header */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
               <div>
-                <label style={{ display: 'block', fontSize: 10, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Código WhatsApp (6 dígitos)</label>
-                <input type="text" maxLength={6} value={legalOtpWa} onChange={e => setLegalOtpWa(e.target.value.replace(/\D/g,''))}
-                  style={{ width: '100%', boxSizing: 'border-box', background: 'rgba(15,23,42,0.8)', border: '1px solid rgba(99,102,241,0.2)', color: '#f1f5f9', padding: '10px 14px', borderRadius: 8, fontSize: 16, fontFamily: 'monospace', letterSpacing: 8, textAlign: 'center', outline: 'none' }} />
+                <h3 style={{ fontSize: 18, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }}>Actualización de Términos</h3>
+                <p style={{ fontSize: 12, color: '#64748b' }}>Versión {legalStatus?.tenant_version_accepted || '5.0'} → {legalStatus?.current_version || '5.1'}</p>
               </div>
-              <div>
-                <label style={{ display: 'block', fontSize: 10, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Código Email (6 dígitos)</label>
-                <input type="text" maxLength={6} value={legalOtpEmail} onChange={e => setLegalOtpEmail(e.target.value.replace(/\D/g,''))}
-                  style={{ width: '100%', boxSizing: 'border-box', background: 'rgba(15,23,42,0.8)', border: '1px solid rgba(99,102,241,0.2)', color: '#f1f5f9', padding: '10px 14px', borderRadius: 8, fontSize: 16, fontFamily: 'monospace', letterSpacing: 8, textAlign: 'center', outline: 'none' }} />
+              <button onClick={() => { setShowLegalModal(false); setLegalChecked(false); setLegalMsg(''); }} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#64748b', width: 32, height: 32, borderRadius: 8, cursor: 'pointer', fontSize: 16, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>✕</button>
+            </div>
+
+            {/* P5: Diff visual — changelog con badge NUEVO */}
+            <div style={{ background: 'rgba(99,102,241,0.05)', border: '1px solid rgba(99,102,241,0.15)', borderRadius: 12, padding: '16px', marginBottom: 16, maxHeight: 220, overflow: 'auto' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
+                <span style={{ fontSize: 9, fontWeight: 800, color: '#fff', background: '#6366f1', padding: '2px 8px', borderRadius: 6, textTransform: 'uppercase', letterSpacing: '.06em' }}>Nuevo</span>
+                <span style={{ fontSize: 11, fontWeight: 700, color: '#a5b4fc' }}>Cláusula 7b — Delimitación de responsabilidad</span>
+              </div>
+              {legalStatus?.changelog_pending ? (
+                <p style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.7, whiteSpace: 'pre-wrap' }}>{legalStatus.changelog_pending}</p>
+              ) : (
+                <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.7 }}>
+                  <p style={{ marginBottom: 8 }}>Esta actualización agrega la <b style={{ color: '#c4b5fd' }}>cláusula 7b</b> que delimita responsabilidades entre tu negocio y GenyX:</p>
+                  <p style={{ paddingLeft: 12, borderLeft: '2px solid rgba(99,102,241,0.3)', marginBottom: 6 }}>• El contenido de marketing generado por IA es una <b style={{ color: '#e2e8f0' }}>recomendación</b>. Tú apruebas cada publicación antes de que se ejecute.</p>
+                  <p style={{ paddingLeft: 12, borderLeft: '2px solid rgba(99,102,241,0.3)', marginBottom: 6 }}>• Modificaciones que hagas quedan registradas con trazabilidad completa (hash criptográfico).</p>
+                  <p style={{ paddingLeft: 12, borderLeft: '2px solid rgba(99,102,241,0.3)' }}>• GenyX asume responsabilidad sobre el contenido aprobado <b style={{ color: '#e2e8f0' }}>como fue recomendado</b>. Contenido modificado es responsabilidad compartida.</p>
+                </div>
+              )}
+            </div>
+
+            {/* Doble verificación */}
+            <p style={{ fontSize: 11, color: '#94a3b8', marginBottom: 12 }}>Confirma con doble verificación (WhatsApp + Email):</p>
+            <div style={{ display: 'flex', gap: 10, marginBottom: 14 }}>
+              <div style={{ flex: 1 }}>
+                <label style={{ display: 'block', fontSize: 10, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Código WhatsApp</label>
+                <input type="text" maxLength={6} value={legalOtpWa} onChange={e => setLegalOtpWa(e.target.value.replace(/\D/g,''))} placeholder="000000"
+                  style={{ width: '100%', boxSizing: 'border-box', background: 'rgba(15,23,42,0.8)', border: '1px solid rgba(99,102,241,0.2)', color: '#f1f5f9', padding: '10px 12px', borderRadius: 8, fontSize: 18, fontFamily: 'monospace', letterSpacing: 6, textAlign: 'center', outline: 'none' }} />
+              </div>
+              <div style={{ flex: 1 }}>
+                <label style={{ display: 'block', fontSize: 10, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Código Email</label>
+                <input type="text" maxLength={6} value={legalOtpEmail} onChange={e => setLegalOtpEmail(e.target.value.replace(/\D/g,''))} placeholder="000000"
+                  style={{ width: '100%', boxSizing: 'border-box', background: 'rgba(15,23,42,0.8)', border: '1px solid rgba(99,102,241,0.2)', color: '#f1f5f9', padding: '10px 12px', borderRadius: 8, fontSize: 18, fontFamily: 'monospace', letterSpacing: 6, textAlign: 'center', outline: 'none' }} />
               </div>
             </div>
+
+            {/* P1: Checkbox obligatorio */}
+            <label style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 16, cursor: 'pointer', padding: '10px 12px', background: legalChecked ? 'rgba(99,102,241,0.06)' : 'transparent', borderRadius: 8, border: `1px solid ${legalChecked ? 'rgba(99,102,241,0.2)' : 'rgba(255,255,255,0.06)'}`, transition: 'all .2s' }}>
+              <input type="checkbox" checked={legalChecked} onChange={e => setLegalChecked(e.target.checked)} style={{ marginTop: 2, accentColor: '#6366f1', width: 16, height: 16, cursor: 'pointer' }} />
+              <span style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.5 }}>He leído y acepto la cláusula 7b de delimitación de responsabilidad incluida en la versión {legalStatus?.current_version || '5.1'} del contrato.</span>
+            </label>
+
             {legalMsg && <p style={{ fontSize: 11, color: legalMsg.startsWith('❌') ? '#f87171' : '#4ade80', marginBottom: 10 }}>{legalMsg}</p>}
-            <button onClick={handleLegalAccept} disabled={legalAccepting} style={{ width: '100%', background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '12px 20px', borderRadius: 10, fontSize: 13, fontWeight: 700, border: 'none', cursor: 'pointer', opacity: legalAccepting ? 0.6 : 1 }}>
-              {legalAccepting ? 'Verificando...' : 'Confirmar aceptación'}
-            </button>
-            <p style={{ fontSize: 9, color: '#475569', textAlign: 'center', marginTop: 10 }}>Este paso es obligatorio. El contrato actualizado protege tanto a ti como a GenyX.</p>
+
+            {/* Botones: Aceptar + Cancelar */}
+            <div style={{ display: 'flex', gap: 10 }}>
+              <button onClick={() => { setShowLegalModal(false); setLegalChecked(false); setLegalMsg(''); }} style={{ flex: 1, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#94a3b8', padding: '12px 16px', borderRadius: 10, fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>
+                Cancelar
+              </button>
+              <button onClick={handleLegalAccept} disabled={legalAccepting || !legalChecked || legalOtpWa.length !== 6 || legalOtpEmail.length !== 6} style={{ flex: 2, background: (legalChecked && legalOtpWa.length === 6 && legalOtpEmail.length === 6) ? 'linear-gradient(135deg,#6366f1,#8b5cf6)' : 'rgba(99,102,241,0.2)', color: '#fff', padding: '12px 20px', borderRadius: 10, fontSize: 13, fontWeight: 700, border: 'none', cursor: (legalChecked && legalOtpWa.length === 6 && legalOtpEmail.length === 6) ? 'pointer' : 'not-allowed', opacity: legalAccepting ? 0.6 : 1, transition: 'all .2s' }}>
+                {legalAccepting ? 'Verificando...' : 'Aceptar y firmar'}
+              </button>
+            </div>
+            <p style={{ fontSize: 9, color: '#475569', textAlign: 'center', marginTop: 10 }}>Este contrato protege tu negocio y a GenyX por igual.</p>
           </div>
         </div>
       )}
