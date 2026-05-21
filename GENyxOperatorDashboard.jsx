@@ -1008,7 +1008,7 @@ const AGENT_STATUS_DOTS = {
   active:   { color: '#22c55e', label: '🟢 Activo' },
   warning:  { color: '#eab308', label: '🟡 Advertencia' },
   error:    { color: '#ef4444', label: '🔴 Error' },
-  locked:   { color: '#6b7280', label: '🔒 No incluido' },
+  locked:   { color: '#6b7280', label: '🔒 Configurando' },
   inactive: { color: '#94a3b8', label: '⚪ Inactivo' },
 };
 
@@ -3070,7 +3070,7 @@ const STATUS_COLORS = {
   active:   { bg: '#f0fdf4', border: '#86efac', text: '#16a34a', label: '● Activo' },
   warning:  { bg: '#fffbeb', border: '#fcd34d', text: '#d97706', label: '⚠ Atención' },
   error:    { bg: '#fef2f2', border: '#fca5a5', text: '#dc2626', label: '✕ Error' },
-  inactive: { bg: '#f8fafc', border: '#e2e8f0', text: '#94a3b8', label: '○ No incluido' },
+  inactive: { bg: '#f8fafc', border: '#e2e8f0', text: '#94a3b8', label: '○ Configurando' },
 };
 
 function TabMisAgentes({ slug, token }) {
@@ -3099,7 +3099,7 @@ function TabMisAgentes({ slug, token }) {
         {Object.entries(CLIENT_AGENT_DEFS).map(([id, def]) => {
           const status = (agents && agents[id]) || 'inactive';
           const sc = STATUS_COLORS[status] || STATUS_COLORS.inactive;
-          const isIncluded = status !== 'inactive';
+          const isIncluded = true; // 9 agentes en todos los planes (decreto fundador)
           return (
             <div key={id} style={{
               background: sc.bg, border: `1.5px solid ${sc.border}`, borderRadius: 14,
@@ -3113,17 +3113,13 @@ function TabMisAgentes({ slug, token }) {
               </div>
               <div style={{ fontSize: 13, fontWeight: 700, color: '#1e293b' }}>{def.name}</div>
               <div style={{ fontSize: 11, color: '#64748b', marginTop: 2 }}>{def.desc}</div>
-              {!isIncluded && (
-                <div style={{ marginTop: 8, fontSize: 10, color: '#6366f1', fontWeight: 600, padding: '4px 8px', background: '#eef2ff', borderRadius: 8, textAlign: 'center' }}>
-                  Disponible en plan superior →
-                </div>
-              )}
+
             </div>
           );
         })}
       </div>
       <div style={{ marginTop: 16, padding: '12px 14px', background: '#f8fafc', borderRadius: 12, border: '1px solid #e2e8f0', fontSize: 12, color: '#64748b', textAlign: 'center' }}>
-        💡 Tu plan <b>{plan}</b> incluye {agents ? Object.values(agents).filter(s => s !== 'inactive').length : 0} de {Object.keys(CLIENT_AGENT_DEFS).length} agentes. ¿Quieres más? <b>hola@genyxsystems.com</b>
+        💡 Tu plan <b>{plan}</b> incluye los {Object.keys(CLIENT_AGENT_DEFS).length} agentes AOaaS. <b>hola@genyxsystems.com</b>
       </div>
     </>
   );
