@@ -5028,6 +5028,254 @@ function DashboardPreview() {
 
 
 
+
+// ── /por-que-ahora — Datos Verificados + AOaaS + MX Market ──────────────────
+function PorQueAhoraPage() {
+  const C = {
+    page: { minHeight: '100vh', background: '#05080f', fontFamily: "'Inter','Segoe UI',sans-serif", color: '#f1f5f9' },
+    nav: { position: 'fixed', top: 0, left: 0, right: 0, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 32px', background: 'rgba(5,8,15,0.85)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(255,255,255,0.06)', zIndex: 100 },
+    hero: { minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', textAlign: 'center', padding: '140px 24px 80px' },
+    section: { padding: '0 24px 100px', maxWidth: 900, margin: '0 auto' },
+    card: { background: 'rgba(99,102,241,0.04)', border: '1px solid rgba(99,102,241,0.15)', borderRadius: 16, padding: '28px 24px', marginBottom: 16, transition: 'border-color 0.2s' },
+    label: { fontSize: 11, fontWeight: 800, color: '#818cf8', letterSpacing: '.12em', textTransform: 'uppercase', marginBottom: 12 },
+    h2: { fontSize: 36, fontWeight: 900, color: '#f1f5f9', lineHeight: 1.25, marginBottom: 16 },
+    p: { color: '#94a3b8', fontSize: 15, lineHeight: 1.9 },
+    source: { fontSize: 11, color: '#64748b', fontStyle: 'italic', marginTop: 8 },
+    sourceLink: { color: '#818cf8', textDecoration: 'none' },
+    stat: { display: 'flex', gap: 16, alignItems: 'center', padding: '16px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' },
+    statVal: { fontSize: 32, fontWeight: 900, background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', minWidth: 120, textAlign: 'right' },
+    statDesc: { fontSize: 14, color: '#94a3b8', lineHeight: 1.6 },
+    highlight: { color: '#f1f5f9', fontWeight: 700 },
+    gradient: { background: 'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
+  };
+
+  return (
+    <div style={C.page}>
+      {/* Nav */}
+      <nav style={C.nav}>
+        <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+          <img src="/genyx-logo.png" alt="GenyX" style={{ width: 28, height: 28, borderRadius: 4 }} />
+          <span style={{ fontWeight: 800, fontSize: 15, color: '#f1f5f9' }}>GenyX</span>
+        </a>
+        <div style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
+          <a href="/" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>← Inicio</a>
+          <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20más%20sobre%20GenyX" style={{ background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '8px 20px', borderRadius: 10, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>Hablar con GenyX →</a>
+        </div>
+      </nav>
+
+      {/* Hero */}
+      <section style={C.hero}>
+        <div style={C.label}>POR QUÉ AHORA</div>
+        <h1 style={{ fontSize: 48, fontWeight: 900, color: '#f1f5f9', lineHeight: 1.15, maxWidth: 700, marginBottom: 20 }}>
+          AOaaS — Agent Operations as a Service.<br />
+          <span style={C.gradient}>La categoría que define la próxima era comercial.</span>
+        </h1>
+        <p style={{ ...C.p, maxWidth: 600, fontSize: 17 }}>
+          Datos reales. Fuentes verificables. Sin inflaciones.
+          Cada número en esta página tiene un enlace a su fuente original.
+        </p>
+      </section>
+
+      {/* §1 — La categoría real: AOaaS */}
+      <section style={C.section}>
+        <div style={C.label}>§1 · LA CATEGORÍA REAL</div>
+        <h2 style={C.h2}>AOaaS — Agent Operations as a Service.<br /><span style={C.gradient}>La categoría que creamos.</span></h2>
+
+        <div style={C.card}>
+          <div style={C.stat}>
+            <div style={C.statVal}>$40.5B</div>
+            <div>
+              <p style={C.statDesc}><span style={C.highlight}>Mercado de IA en LATAM 2026</span> — con CAGR del 37%.</p>
+              <p style={C.source}>Fuente: <a href="https://www.marketdataforecast.com/market-reports/latin-america-artificial-intelligence-market" target="_blank" rel="noopener noreferrer" style={C.sourceLink}>Market Data Forecast</a></p>
+            </div>
+          </div>
+          <div style={C.stat}>
+            <div style={C.statVal}>75%</div>
+            <div>
+              <p style={C.statDesc}><span style={C.highlight}>De las empresas planean desplegar AI agents</span> para finales de 2026.</p>
+              <p style={C.source}>Fuente: <a href="https://www.deloitte.com/us/en/insights/industry/technology/technology-media-and-telecom-predictions/2026/saas-ai-agents.html" target="_blank" rel="noopener noreferrer" style={C.sourceLink}>Deloitte TMT Predictions 2026</a></p>
+            </div>
+          </div>
+        </div>
+
+        {/* Tabla comparativa AaaS estándar vs AOaaS */}
+        <div style={C.card}>
+          <p style={{ fontWeight: 800, color: '#f1f5f9', fontSize: 16, marginBottom: 16 }}>AaaS estándar vs AOaaS</p>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
+            <thead>
+              <tr>
+                <th style={{ textAlign: 'left', padding: '10px 12px', color: '#64748b', borderBottom: '1px solid rgba(255,255,255,0.08)', fontSize: 11, fontWeight: 700 }}>AaaS estándar (lo que hace el mercado)</th>
+                <th style={{ textAlign: 'left', padding: '10px 12px', color: '#818cf8', borderBottom: '1px solid rgba(99,102,241,0.2)', fontSize: 11, fontWeight: 700 }}>AOaaS (lo que hacemos nosotros)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['1 agente especializado (chatbot, sales, support)', '12 agentes orquestados como organización ejecutiva digital'],
+                ['Función única', 'Operación completa: marketing → venta → cierre → entrega → seguimiento → analítica → finanzas'],
+                ['Sin governance interna', 'Doble red A9↔A0 + 13 REGLAs doctrinales + cláusula 7b contractual'],
+                ['Configuración global', 'Tenant-first per-configuration'],
+                ['Posicionado como herramienta', 'Posicionado como sistema operativo'],
+              ].map(([aaas, aoaas], i) => (
+                <tr key={i}>
+                  <td style={{ padding: '10px 12px', color: '#64748b', borderBottom: '1px solid rgba(255,255,255,0.04)', verticalAlign: 'top' }}>{aaas}</td>
+                  <td style={{ padding: '10px 12px', color: '#e2e8f0', borderBottom: '1px solid rgba(255,255,255,0.04)', verticalAlign: 'top', fontWeight: 600 }}>{aoaas}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p style={C.source}>
+            Contexto AaaS: <a href="https://www.deloitte.com/us/en/insights/industry/technology/technology-media-and-telecom-predictions/2026/saas-ai-agents.html" target="_blank" rel="noopener noreferrer" style={C.sourceLink}>Deloitte</a>,{' '}
+            <a href="https://www.cio.com/article/4064998/taming-ai-agents-the-autonomous-workforce-of-2026.html" target="_blank" rel="noopener noreferrer" style={C.sourceLink}>CIO Magazine</a>
+          </p>
+        </div>
+
+        {/* Category creation pattern */}
+        <div style={C.card}>
+          <p style={{ fontWeight: 800, color: '#f1f5f9', fontSize: 14, marginBottom: 12 }}>Category creation por diferenciación técnica real:</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            {[
+              ['Stripe (2010)', 'creó "payments infrastructure"', 'cuando existía "payment gateway"'],
+              ['Snowflake (2012)', 'creó "Data Cloud"', 'cuando existía "data warehouse"'],
+              ['Notion (2016)', 'creó "all-in-one workspace"', 'cuando existía "note-taking"'],
+              ['Anthropic (2021)', 'creó "Constitutional AI"', 'cuando existía "RLHF"'],
+              ['Vercel (2015)', 'creó "Frontend Cloud"', 'cuando existía "static hosting"'],
+              ['GenyX (2026)', 'crea "AOaaS"', 'cuando existe "AaaS"'],
+            ].map(([co, created, when], i) => (
+              <div key={i} style={{ display: 'flex', gap: 8, alignItems: 'baseline', fontSize: 13 }}>
+                <span style={{ color: i === 5 ? '#818cf8' : '#64748b', fontWeight: i === 5 ? 800 : 600, minWidth: 130 }}>{co}</span>
+                <span style={{ color: i === 5 ? '#c084fc' : '#94a3b8' }}>{created}</span>
+                <span style={{ color: '#475569' }}>{when}</span>
+              </div>
+            ))}
+          </div>
+          <p style={{ ...C.p, fontSize: 13, marginTop: 12, fontStyle: 'italic' }}>
+            Mismo patrón: diferenciación técnica real verificable justifica una categoría nueva.
+          </p>
+        </div>
+      </section>
+
+      {/* §2 — Por qué el 88% de los pilotos fallan */}
+      <section style={C.section}>
+        <div style={C.label}>§2 · LA REALIDAD DEL MERCADO</div>
+        <h2 style={C.h2}>La mayoría de los proyectos de IA<br /><span style={C.gradient}>no llegan a producción.</span></h2>
+
+        <div style={C.card}>
+          <div style={C.stat}>
+            <div style={C.statVal}>88%</div>
+            <div>
+              <p style={C.statDesc}><span style={C.highlight}>De los proyectos de IA no llegan a producción</span> según Gartner.</p>
+              <p style={C.source}>Fuente: <a href="https://www.gartner.com/en/newsroom/press-releases/2024-10-28-gartner-reveals-the-top-10-strategic-technology-trends-for-2025" target="_blank" rel="noopener noreferrer" style={C.sourceLink}>Gartner Strategic Tech Trends 2024-2025</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 12 }}>
+          {[
+            ['Sin doctrina técnica', 'Sin reglas claras, cada prompt inventa respuestas distintas. GenyX opera con 13 reglas técnicas verificables + 6 skills especializados.'],
+            ['Sin candados técnicos', 'Sin enforcement automático, las reglas se violan en silencio. GenyX usa candados pre-commit y pre-push que bloquean violaciones antes de que lleguen a producción.'],
+            ['Sin diseño agnóstico', 'Cada implementación requiere reescribir todo. GenyX es tenant-first: agregar un negocio nuevo es agregar un archivo de configuración, no reescribir código.'],
+          ].map(([title, desc]) => (
+            <div key={title} style={{ ...C.card, display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <p style={{ fontWeight: 800, color: '#f87171', fontSize: 14 }}>✗ {title}</p>
+              <p style={{ ...C.p, fontSize: 13 }}>{desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* §3 — Datos del mercado MX */}
+      <section style={C.section}>
+        <div style={C.label}>§3 · MÉXICO: EL CANAL ES WHATSAPP</div>
+        <h2 style={C.h2}>Los datos del mercado<br /><span style={C.gradient}>hablan por sí solos.</span></h2>
+
+        <div style={C.card}>
+          <div style={C.stat}>
+            <div style={C.statVal}>71%</div>
+            <div>
+              <p style={C.statDesc}><span style={C.highlight}>Adopción de WhatsApp Business en México</span> — la más alta de LATAM.</p>
+              <p style={C.source}>Fuente: <a href="https://easysellapp.com/blogs/wiki/whatsapp-ai-agents-ecommerce-latin-america-cod-2026" target="_blank" rel="noopener noreferrer" style={C.sourceLink}>EasySell 2026</a></p>
+            </div>
+          </div>
+          <div style={C.stat}>
+            <div style={C.statVal}>+38%</div>
+            <div>
+              <p style={C.statDesc}><span style={C.highlight}>Crecimiento YoY de transacciones en WhatsApp</span> en México.</p>
+              <p style={C.source}>Fuente: <a href="https://easysellapp.com/blogs/wiki/whatsapp-ai-agents-ecommerce-latin-america-cod-2026" target="_blank" rel="noopener noreferrer" style={C.sourceLink}>EasySell 2026</a></p>
+            </div>
+          </div>
+          <div style={C.stat}>
+            <div style={C.statVal}>$18B</div>
+            <div>
+              <p style={C.statDesc}><span style={C.highlight}>Revenue anual de AI agents en WhatsApp LATAM.</span></p>
+              <p style={C.source}>Fuente: <a href="https://easysellapp.com/blogs/wiki/whatsapp-ai-agents-ecommerce-latin-america-cod-2026" target="_blank" rel="noopener noreferrer" style={C.sourceLink}>EasySell 2026</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div style={C.card}>
+          <p style={C.p}>
+            <span style={C.highlight}>¿Qué diferencia a GenyX?</span>{' '}
+            Multi-agent orchestrado, tenant-first, sobre canales conversacionales, LATAM-nativo.
+            No es un agente: son 9 trabajando coordinados con el ADN de cada negocio.
+            Marco legal mexicano (LFPCA, LFPDPPP, LFCE), español como primer idioma, 
+            y canales donde el cliente ya está.
+          </p>
+        </div>
+      </section>
+
+      {/* §4 — GenyX en números */}
+      <section style={C.section}>
+        <div style={C.label}>§4 · GENYX EN NÚMEROS</div>
+        <h2 style={C.h2}>AOaaS en números.<br /><span style={C.gradient}>Verificable contra el código.</span></h2>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12 }}>
+          {[
+            ['12', 'Agentes orquestados', '9 capacidades cliente (A1-A8, A11) + 3 backstage (A0 Arquitecto, A9 Vigía, A10 Telemetría)'],
+            ['13', 'REGLAs doctrinales', 'Framework de governance verificable — cada regla con candado técnico que la enforce'],
+            ['A9↔A0', 'Doble red de governance', 'Vigía legal (A9) + Arquitecto sistémico (A0) validan cada operación antes de ejecutar'],
+            ['7', 'Frameworks de marketing', '4P\'s, 5C\'s, JTBD, StoryBrand, AIDA, Sombreros de Bono, Pirámide'],
+            ['6+', 'Marcos legales cumplidos', 'LFPCA, LFPDPPP, LFCE, Código Comercio MX, IMPI + regulación por industria'],
+            ['9', 'Tablas audit log inmutables', 'INSERT-only con triggers, trazabilidad SHA256 tripartita (REGLA 13)'],
+          ].map(([val, label, detail]) => (
+            <div key={label} style={C.card}>
+              <div style={{ ...C.statVal, fontSize: 40, marginBottom: 8, textAlign: 'left' }}>{val}</div>
+              <p style={{ fontWeight: 700, color: '#f1f5f9', fontSize: 14, marginBottom: 4 }}>{label}</p>
+              <p style={{ fontSize: 11, color: '#64748b', lineHeight: 1.5 }}>{detail}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section style={{ ...C.section, textAlign: 'center' }}>
+        <div style={{ background: 'linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.06))', borderRadius: 24, padding: '56px 40px', border: '1px solid rgba(99,102,241,0.2)' }}>
+          <h2 style={{ fontSize: 32, fontWeight: 900, color: '#f1f5f9', marginBottom: 12 }}>
+            ¿Listo para implementar tu<br />
+            <span style={C.gradient}>operación comercial autónoma?</span>
+          </h2>
+          <p style={{ color: '#64748b', fontSize: 15, marginBottom: 28 }}>En 15 minutos te decimos qué plan se ajusta a tu negocio — sin compromiso.</p>
+          <a href="https://wa.me/523340026694?text=Hola%2C%20vi%20los%20datos%20de%20mercado%20y%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={{ display: 'inline-block', background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '14px 36px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 28px rgba(99,102,241,0.3)' }}>Hablar con GenyX →</a>
+          <div style={{ marginTop: 16, display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a href="/" style={{ color: '#818cf8', fontSize: 13, textDecoration: 'none' }}>← Volver al inicio</a>
+            <a href="/whitepaper" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>📄 Lee el whitepaper completo</a>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer style={{ textAlign: 'center', padding: '32px 24px 48px', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
+        <p style={{ fontSize: 11, color: '#475569' }}>GenyX Systems © 2026 · Guadalajara, México</p>
+        <p style={{ fontSize: 10, color: '#334155', marginTop: 4 }}>Cada dato en esta página tiene URL fuente verificable. Regla de oro: si no tiene fuente, no se publica.</p>
+        <div style={{ marginTop: 12, display: 'flex', gap: 16, justifyContent: 'center' }}>
+          <a href="/privacidad" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Privacidad</a>
+          <a href="/terminos" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Términos</a>
+          <a href="/" style={{ color: '#818cf8', fontSize: 11, textDecoration: 'none' }}>Inicio</a>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
 // ── GenyX Landing Page — Diseño Aprobado (genyxsystems.com) ────────
 // ══════════════════════════════════════════════════════════════════════════════
 // 📋 PLANES PAGE — /planes — Detalle completo de planes §5.2
@@ -6114,7 +6362,7 @@ function GenyXLandingPage() {
           <img src="/genyx-logo.png" alt="GenyX — Tu operación comercial autónoma" style={{ width: 32, height: 32, borderRadius: 4 }} />
         </a>
         <div style={C.navLinks}>
-          {[['Agentes', '#agentes'], ['Proceso', '#proceso']].map(([l, h]) => (
+          {[['Agentes', '#agentes'], ['Proceso', '#proceso'], ['Por qué ahora', '/por-que-ahora']].map(([l, h]) => (
             <a key={l} href={h} style={C.navLink} onMouseOver={e => e.target.style.color = '#fff'} onMouseOut={e => e.target.style.color = '#64748b'}>{l}</a>
           ))}
           <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={C.demoCta}>Cuéntame de tu negocio →</a>
@@ -6489,6 +6737,7 @@ function GenyXLandingPage() {
       <footer style={C.footer}>
         <span style={C.ftrBrand}>GenyX © 2026 · Tu operación comercial autónoma · Inteligencia de negocio</span>
         <div style={{ ...C.ftrLinks, paddingRight: 72 }}>
+          <a href="/por-que-ahora" style={C.ftrLink}>Por qué ahora</a>
           <a href="/privacidad" style={C.ftrLink}>Privacidad</a>
           <a href="/terminos" style={C.ftrLink}>Términos</a>
           <a href="https://mando.genyxsystems.com" style={{ ...C.ftrLink, color:'#6366f1', fontWeight:700 }}>→ Accede a tu Mando</a>
@@ -6665,6 +6914,7 @@ export default function GenyXOperatorDashboard() {
   if (path === '/cookies')    return <LegalPage tipo="cookies" />;
   if (path === '/privacidad') return <LegalPage tipo="privacidad" />;
   if (path === '/planes')     return <PlanesPage />;
+  if (path === '/por-que-ahora') return <PorQueAhoraPage />;
   // ―― Dev-only: preview landing on localhost ―――――
   if (IS_LOCAL && path === '/preview-landing') return <GenyXLandingPage />;
 
