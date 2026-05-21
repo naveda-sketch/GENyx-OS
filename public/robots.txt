@@ -1,10 +1,53 @@
-User-agent: *
+# robots.txt — GenyX Systems
+# Política: público OK para Google/Bing search engines.
+# Bloqueado: AI training scrapers.
+
+# ─── Allowlist ───
+User-agent: Googlebot
 Allow: /
-Allow: /blog/
-Allow: /por-que-ahora
-Allow: /por-que-aoaas
 
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# ─── Blocklist AI training ───
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: Omgili
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+# ─── Sitemap ───
 Sitemap: https://genyxsystems.com/sitemap.xml
-
-# GenyX Systems — AOaaS (Agent Operations as a Service)
-# https://genyxsystems.com
