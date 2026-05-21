@@ -5031,6 +5031,82 @@ function DashboardPreview() {
 
 
 
+
+// ═══ SEO HELPER — Dynamic meta tags per route (Iteración 2 manifesto) ═══
+const SEO_META = {
+  '/': {
+    title: 'GenyX — AOaaS: Tu operación comercial autónoma',
+    desc: '9 agentes de IA orquestados que operan el 90% de tu dirección comercial. AOaaS — Agent Operations as a Service. Activo en 48h.',
+    canonical: 'https://genyxsystems.com/',
+    image: 'https://genyxsystems.com/genyx-logo.png',
+  },
+  '/por-que-aoaas': {
+    title: 'AOaaS — Agent Operations as a Service | GenyX',
+    desc: 'Stripe creó payments infrastructure. Anthropic creó Constitutional AI. GenyX crea AOaaS — Agent Operations as a Service.',
+    canonical: 'https://genyxsystems.com/por-que-aoaas',
+    image: 'https://genyxsystems.com/aoaas-og.png',
+  },
+  '/por-que-ahora': {
+    title: 'Por qué ahora: AOaaS y el mercado AI LATAM 2026 | GenyX',
+    desc: 'Mercado AI LATAM $40.5B, 88% pilots fallan, WhatsApp MX 71%. Datos verificados con fuentes. AOaaS resuelve lo que AaaS no puede.',
+    canonical: 'https://genyxsystems.com/por-que-ahora',
+    image: 'https://genyxsystems.com/aoaas-og.png',
+  },
+  '/blog': {
+    title: 'Blog AOaaS — Agent Operations as a Service | GenyX',
+    desc: 'Análisis, datos verificados y visión de categoría sobre AOaaS. Pensamiento en profundidad por GenyX Systems.',
+    canonical: 'https://genyxsystems.com/blog',
+    image: 'https://genyxsystems.com/aoaas-og.png',
+  },
+  '/blog/aoaas-vs-aaas-cual-es-la-diferencia': {
+    title: 'AOaaS vs AaaS: la diferencia real [2026] | GenyX',
+    desc: 'AOaaS orquesta 12 agentes como sistema operativo. AaaS opera 1 agente como herramienta. Tabla comparativa + análisis técnico.',
+    canonical: 'https://genyxsystems.com/blog/aoaas-vs-aaas-cual-es-la-diferencia',
+    image: 'https://genyxsystems.com/aoaas-og.png',
+  },
+  '/blog/por-que-existe-aoaas': {
+    title: 'Por qué existe AOaaS | GenyX Systems',
+    desc: 'Stripe creó payments infrastructure. Anthropic creó Constitutional AI. GenyX crea AOaaS. El patrón de category creation.',
+    canonical: 'https://genyxsystems.com/blog/por-que-existe-aoaas',
+    image: 'https://genyxsystems.com/aoaas-og.png',
+  },
+  '/blog/aoaas-para-negocios-latam': {
+    title: 'AOaaS para LATAM: agentes orquestados México | GenyX',
+    desc: 'WhatsApp Business 71% adopción MX + 88% AI pilots fallan. AOaaS opera donde el cliente ya está — con governance real.',
+    canonical: 'https://genyxsystems.com/blog/aoaas-para-negocios-latam',
+    image: 'https://genyxsystems.com/aoaas-og.png',
+  },
+};
+
+function useSEO() {
+  React.useEffect(() => {
+    const path = window.location.pathname;
+    const meta = SEO_META[path];
+    if (!meta) return;
+    document.title = meta.title;
+    const setMeta = (attr, key, val) => {
+      let el = document.querySelector(`meta[${attr}="${key}"]`);
+      if (!el) { el = document.createElement('meta'); el.setAttribute(attr, key); document.head.appendChild(el); }
+      el.setAttribute('content', val);
+    };
+    const setLink = (rel, href) => {
+      let el = document.querySelector(`link[rel="${rel}"]`);
+      if (!el) { el = document.createElement('link'); el.rel = rel; document.head.appendChild(el); }
+      el.href = href;
+    };
+    setMeta('name', 'description', meta.desc);
+    setLink('canonical', meta.canonical);
+    setMeta('property', 'og:title', meta.title);
+    setMeta('property', 'og:description', meta.desc);
+    setMeta('property', 'og:url', meta.canonical);
+    setMeta('property', 'og:image', meta.image);
+    setMeta('property', 'og:type', path.startsWith('/blog/') ? 'article' : 'website');
+    setMeta('name', 'twitter:title', meta.title);
+    setMeta('name', 'twitter:description', meta.desc);
+    setMeta('name', 'twitter:image', meta.image);
+  }, []);
+}
+
 // ═══ BLOG INFRASTRUCTURE — SEO Posts AOaaS (Palanca #4 de 7) ═══════════════
 
 const BLOG_POSTS = [
@@ -5068,6 +5144,7 @@ const BLOG_POSTS = [
 
 // ── Shared Blog Layout ──
 function BlogLayout({ children, post, allPosts }) {
+  useSEO();
   return (
     <div style={{ minHeight: '100vh', background: '#05080f', fontFamily: "'Inter','Segoe UI',sans-serif", color: '#f1f5f9' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
@@ -5342,6 +5419,7 @@ function BlogPost3() {
 
 // ── Blog Index Page ──
 function BlogIndexPage() {
+  useSEO();
   return (
     <div style={{ minHeight: '100vh', background: '#05080f', fontFamily: "'Inter','Segoe UI',sans-serif", color: '#f1f5f9' }}>
       <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 32px', background: 'rgba(5,8,15,0.9)', backdropFilter: 'blur(16px)', borderBottom: '1px solid rgba(255,255,255,0.05)', zIndex: 100 }}>
@@ -5390,6 +5468,7 @@ function BlogIndexPage() {
 
 // ── /por-que-aoaas — Manifesto AOaaS (Palanca #1 de 7) ────────────────────
 function PorQueAOaaSPage() {
+  useSEO();
   const S = {
     page: { minHeight: '100vh', background: '#05080f', fontFamily: "'Inter','Segoe UI',sans-serif", color: '#f1f5f9' },
     nav: { position: 'fixed', top: 0, left: 0, right: 0, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 32px', background: 'rgba(5,8,15,0.9)', backdropFilter: 'blur(16px)', borderBottom: '1px solid rgba(255,255,255,0.05)', zIndex: 100 },
@@ -5573,6 +5652,28 @@ function PorQueAOaaSPage() {
 
       <div style={S.divider} />
 
+      {/* ═══ Cross-links inversos → Blog ═══ */}
+      <section style={{ ...S.section, paddingTop: 120 }}>
+        <div style={S.label}>PROFUNDIZA</div>
+        <h2 style={{ ...S.h2, fontSize: 28 }}>Más sobre AOaaS</h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          {[
+            ['/blog/aoaas-vs-aaas-cual-es-la-diferencia', 'AOaaS vs AaaS: ¿Cuál es la diferencia real?', 'Tabla comparativa 5 ejes + análisis técnico + cuándo usar cada modelo.'],
+            ['/blog/por-que-existe-aoaas', 'Por qué creamos AOaaS', 'El patrón de category creation: Stripe, Snowflake, Notion, Anthropic, Vercel — y GenyX.'],
+            ['/blog/aoaas-para-negocios-latam', 'AOaaS para negocios LATAM', 'WhatsApp 71% MX, 88% pilots fail, pricing transparente. Por qué AOaaS encaja en México.'],
+          ].map(([href, title, desc]) => (
+            <a key={href} href={href} style={{ display: 'block', padding: '20px 22px', background: 'rgba(99,102,241,0.03)', border: '1px solid rgba(99,102,241,0.1)', borderRadius: 14, textDecoration: 'none', transition: 'border-color 0.2s' }}
+              onMouseOver={e => e.currentTarget.style.borderColor = 'rgba(99,102,241,0.35)'}
+              onMouseOut={e => e.currentTarget.style.borderColor = 'rgba(99,102,241,0.1)'}>
+              <span style={{ fontSize: 15, fontWeight: 700, color: '#e2e8f0' }}>{title}</span>
+              <span style={{ display: 'block', fontSize: 13, color: '#64748b', marginTop: 4, lineHeight: 1.6 }}>{desc}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <div style={S.divider} />
+
       {/* ═══ §5 — CTA ═══ */}
       <section style={{ ...S.section, paddingTop: 120 }}>
         <div style={{ textAlign: 'center', background: 'linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.04))', borderRadius: 28, padding: '64px 40px', border: '1px solid rgba(99,102,241,0.15)' }}>
@@ -5613,6 +5714,7 @@ function PorQueAOaaSPage() {
 
 // ── /por-que-ahora — Datos Verificados + AOaaS + MX Market ──────────────────
 function PorQueAhoraPage() {
+  useSEO();
   const C = {
     page: { minHeight: '100vh', background: '#05080f', fontFamily: "'Inter','Segoe UI',sans-serif", color: '#f1f5f9' },
     nav: { position: 'fixed', top: 0, left: 0, right: 0, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 32px', background: 'rgba(5,8,15,0.85)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(255,255,255,0.06)', zIndex: 100 },
@@ -5824,6 +5926,22 @@ function PorQueAhoraPage() {
               <p style={{ fontWeight: 700, color: '#f1f5f9', fontSize: 14, marginBottom: 4 }}>{label}</p>
               <p style={{ fontSize: 11, color: '#64748b', lineHeight: 1.5 }}>{detail}</p>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Blog cross-links */}
+      <section style={C.section}>
+        <div style={C.label}>LEE MÁS</div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          {[
+            ['/blog/aoaas-vs-aaas-cual-es-la-diferencia', 'AOaaS vs AaaS: ¿Cuál es la diferencia real?'],
+            ['/blog/por-que-existe-aoaas', 'Por qué creamos AOaaS — Agent Operations as a Service'],
+            ['/blog/aoaas-para-negocios-latam', 'AOaaS para negocios LATAM: por qué funciona en México'],
+          ].map(([href, title]) => (
+            <a key={href} href={href} style={{ display: 'block', padding: '14px 18px', background: 'rgba(99,102,241,0.03)', border: '1px solid rgba(99,102,241,0.1)', borderRadius: 12, textDecoration: 'none', fontSize: 14, fontWeight: 600, color: '#e2e8f0', transition: 'border-color 0.2s' }}
+              onMouseOver={e => e.currentTarget.style.borderColor = 'rgba(99,102,241,0.3)'}
+              onMouseOut={e => e.currentTarget.style.borderColor = 'rgba(99,102,241,0.1)'}>{title}</a>
           ))}
         </div>
       </section>
@@ -6862,6 +6980,7 @@ function LandingAuthGate({ children }) {
 }
 
 function GenyXLandingPage() {
+  useSEO();
   const [scrolled, setScrolled] = React.useState(false);
   React.useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 20);

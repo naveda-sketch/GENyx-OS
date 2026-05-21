@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /blog/
+Allow: /por-que-ahora
+Allow: /por-que-aoaas
+
+Sitemap: https://genyxsystems.com/sitemap.xml
+
+# GenyX Systems — AOaaS (Agent Operations as a Service)
+# https://genyxsystems.com
