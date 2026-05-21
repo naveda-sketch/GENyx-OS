@@ -3119,7 +3119,7 @@ function TabMisAgentes({ slug, token }) {
         })}
       </div>
       <div style={{ marginTop: 16, padding: '12px 14px', background: '#f8fafc', borderRadius: 12, border: '1px solid #e2e8f0', fontSize: 12, color: '#64748b', textAlign: 'center' }}>
-        💡 Tu plan <b>{plan}</b> incluye los {Object.keys(CLIENT_AGENT_DEFS).length} agentes AOaaS. <b>hola@genyxsystems.com</b>
+        💡 9 agentes AOaaS activos en tu plan <b>{plan}</b>. Límites mensuales según contrato.
       </div>
     </>
   );
