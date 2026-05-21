@@ -5029,6 +5029,230 @@ function DashboardPreview() {
 
 
 
+
+// ── /por-que-aoaas — Manifesto AOaaS (Palanca #1 de 7) ────────────────────
+function PorQueAOaaSPage() {
+  const S = {
+    page: { minHeight: '100vh', background: '#05080f', fontFamily: "'Inter','Segoe UI',sans-serif", color: '#f1f5f9' },
+    nav: { position: 'fixed', top: 0, left: 0, right: 0, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 32px', background: 'rgba(5,8,15,0.9)', backdropFilter: 'blur(16px)', borderBottom: '1px solid rgba(255,255,255,0.05)', zIndex: 100 },
+    hero: { minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', textAlign: 'center', padding: '160px 24px 100px', position: 'relative' },
+    section: { padding: '0 24px 120px', maxWidth: 820, margin: '0 auto' },
+    card: { background: 'rgba(99,102,241,0.03)', border: '1px solid rgba(99,102,241,0.12)', borderRadius: 20, padding: '32px 28px', marginBottom: 20 },
+    label: { fontSize: 11, fontWeight: 800, color: '#818cf8', letterSpacing: '.14em', textTransform: 'uppercase', marginBottom: 14 },
+    h2: { fontSize: 36, fontWeight: 900, color: '#f1f5f9', lineHeight: 1.2, marginBottom: 20 },
+    p: { color: '#94a3b8', fontSize: 15, lineHeight: 2.0 },
+    strong: { color: '#f1f5f9', fontWeight: 700 },
+    gradient: { background: 'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
+    source: { fontSize: 11, color: '#475569', fontStyle: 'italic', marginTop: 12 },
+    srcLink: { color: '#6366f1', textDecoration: 'none' },
+    divider: { height: 1, background: 'linear-gradient(90deg, transparent, rgba(99,102,241,0.25), transparent)', margin: '0 auto', maxWidth: 200 },
+  };
+
+  return (
+    <div style={S.page}>
+      {/* ── Schema.org TechArticle (invisible, SEO) ── */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "AOaaS — Agent Operations as a Service",
+        "description": "Stripe creó payments infrastructure. Anthropic creó Constitutional AI. GenyX crea AOaaS — Agent Operations as a Service. Categoría nueva por diferenciación técnica real verificable.",
+        "author": { "@type": "Organization", "name": "GenyX Systems", "url": "https://genyxsystems.com" },
+        "publisher": { "@type": "Organization", "name": "GenyX Systems" },
+        "about": "AOaaS - Agent Operations as a Service",
+        "datePublished": "2026-05-21",
+        "url": "https://genyxsystems.com/por-que-aoaas",
+        "inLanguage": "es"
+      }) }} />
+
+      {/* ── Nav ── */}
+      <nav style={S.nav}>
+        <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+          <img src="/genyx-logo.png" alt="GenyX" style={{ width: 28, height: 28, borderRadius: 4 }} />
+          <span style={{ fontWeight: 800, fontSize: 15, color: '#f1f5f9' }}>GenyX</span>
+        </a>
+        <div style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
+          <a href="/por-que-ahora" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>Por qué ahora</a>
+          <a href="https://wa.me/523340026694?text=Hola%2C%20leí%20el%20manifesto%20AOaaS%20y%20quiero%20saber%20más" style={{ background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '8px 20px', borderRadius: 10, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>Hablar con el fundador →</a>
+        </div>
+      </nav>
+
+      {/* ═══ §1 — Lead (above the fold) ═══ */}
+      <section style={S.hero}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.35)', borderRadius: 30, padding: '6px 20px', marginBottom: 20, fontSize: 10, fontWeight: 800, color: '#818cf8', letterSpacing: '.14em', textTransform: 'uppercase' }}>
+          <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#6366f1', display: 'inline-block', boxShadow: '0 0 10px #6366f1' }} />
+          MANIFESTO — CATEGORÍA NUEVA
+        </div>
+        <h1 style={{ fontSize: 56, fontWeight: 900, color: '#f1f5f9', lineHeight: 1.08, maxWidth: 700, marginBottom: 24 }}>
+          AOaaS<br />
+          <span style={{ fontSize: 28, fontWeight: 400, color: '#94a3b8', display: 'block', marginTop: 8 }}>Agent Operations as a Service</span>
+        </h1>
+        <p style={{ ...S.p, maxWidth: 540, fontSize: 18, lineHeight: 1.8 }}>
+          No es AaaS. No es uno más.<br />
+          Es una categoría nueva por diferenciación técnica real.
+        </p>
+        <div style={{ width: 48, height: 2, background: 'linear-gradient(90deg,#6366f1,#c084fc)', borderRadius: 2, margin: '40px auto 0' }} />
+      </section>
+
+      {/* ═══ §2 — Definición operativa ═══ */}
+      <section style={S.section}>
+        <div style={S.label}>§1 · DEFINICIÓN OPERATIVA</div>
+        <div style={{ ...S.card, background: 'rgba(99,102,241,0.06)', borderColor: 'rgba(99,102,241,0.25)' }}>
+          <blockquote style={{ margin: 0, padding: '0 0 0 20px', borderLeft: '3px solid #6366f1' }}>
+            <p style={{ ...S.p, fontSize: 17, lineHeight: 2.0, color: '#e2e8f0' }}>
+              <span style={S.strong}>AOaaS</span> (Agent Operations as a Service) — Sistema operativo de agentes orquestados que ejecutan una <span style={S.strong}>operación comercial completa</span> (no función única), con <span style={S.strong}>governance interna</span> (REGLAs 1-13 + cláusula 7b) y <span style={S.strong}>trazabilidad legal</span> (3 hashes SHA256 + audit log inmutable).
+            </p>
+          </blockquote>
+          <p style={{ ...S.source, marginTop: 20 }}>
+            Decreto fundador, 21 de mayo de 2026 · GenyX Systems · Guadalajara, México
+          </p>
+        </div>
+
+        <div style={S.card}>
+          <p style={{ fontWeight: 800, fontSize: 15, color: '#f1f5f9', marginBottom: 16 }}>¿Por qué "Operations" y no solo "Agent"?</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            {[
+              ['Agent', 'Qué somos — basados en agentes de IA', '#818cf8'],
+              ['Operations', 'No función única — sistema operativo completo. Marketing → captación → venta → cierre → entrega → seguimiento → analítica → finanzas → dirección ejecutiva', '#c084fc'],
+              ['as a Service', 'Modelo de entrega — no se compra software, se activa una operación', '#a78bfa'],
+            ].map(([word, desc, color]) => (
+              <div key={word} style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
+                <span style={{ background: `${color}15`, color, fontSize: 13, fontWeight: 800, padding: '4px 14px', borderRadius: 8, border: `1px solid ${color}30`, whiteSpace: 'nowrap', marginTop: 2 }}>{word}</span>
+                <p style={{ ...S.p, fontSize: 14 }}>{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div style={S.divider} />
+
+      {/* ═══ §3 — Tabla comparativa ═══ */}
+      <section style={{ ...S.section, paddingTop: 120 }}>
+        <div style={S.label}>§2 · AAAS ESTÁNDAR VS AOAAS</div>
+        <h2 style={S.h2}>La diferencia no es de grado.<br /><span style={S.gradient}>Es de categoría.</span></h2>
+
+        <div style={S.card}>
+          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+            <thead>
+              <tr>
+                <th style={{ textAlign: 'left', padding: '14px 16px', color: '#64748b', borderBottom: '2px solid rgba(255,255,255,0.06)', fontSize: 12, fontWeight: 700, width: '45%' }}>AaaS estándar</th>
+                <th style={{ textAlign: 'left', padding: '14px 16px', color: '#818cf8', borderBottom: '2px solid rgba(99,102,241,0.2)', fontSize: 12, fontWeight: 700, width: '55%' }}>AOaaS</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['1 agente especializado', '12 agentes orquestados como organización ejecutiva digital'],
+                ['Función única (chatbot, sales, support)', 'Operación completa: marketing → venta → cierre → entrega → seguimiento → analítica → finanzas'],
+                ['Sin governance interna', 'Doble red A9↔A0 + 13 REGLAs doctrinales + cláusula 7b contractual'],
+                ['Configuración global', 'Tenant-first per-configuration — cada negocio es el centro'],
+                ['Posicionado como herramienta', 'Posicionado como sistema operativo'],
+              ].map(([left, right], i) => (
+                <tr key={i}>
+                  <td style={{ padding: '14px 16px', color: '#64748b', borderBottom: '1px solid rgba(255,255,255,0.03)', verticalAlign: 'top', fontSize: 14, lineHeight: 1.7 }}>{left}</td>
+                  <td style={{ padding: '14px 16px', color: '#e2e8f0', borderBottom: '1px solid rgba(255,255,255,0.03)', verticalAlign: 'top', fontSize: 14, fontWeight: 600, lineHeight: 1.7 }}>{right}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p style={S.source}>
+            Contexto AaaS: <a href="https://www.deloitte.com/us/en/insights/industry/technology/technology-media-and-telecom-predictions/2026/saas-ai-agents.html" target="_blank" rel="noopener noreferrer" style={S.srcLink}>Deloitte TMT 2026</a>,{' '}
+            <a href="https://www.cio.com/article/4064998/taming-ai-agents-the-autonomous-workforce-of-2026.html" target="_blank" rel="noopener noreferrer" style={S.srcLink}>CIO Magazine</a>
+          </p>
+        </div>
+      </section>
+
+      <div style={S.divider} />
+
+      {/* ═══ §4 — Category creation pattern ═══ */}
+      <section style={{ ...S.section, paddingTop: 120 }}>
+        <div style={S.label}>§3 · CATEGORY CREATION</div>
+        <h2 style={S.h2}>Diferenciación técnica real<br /><span style={S.gradient}>justifica una categoría nueva.</span></h2>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+          {[
+            ['Stripe', '2010', 'payments infrastructure', 'payment gateway', 'Redefinió pagos como infraestructura programable'],
+            ['Snowflake', '2012', 'Data Cloud', 'data warehouse', 'Separó storage de compute en la nube'],
+            ['Notion', '2016', 'all-in-one workspace', 'note-taking', 'Unificó docs + wiki + tasks + DB en uno'],
+            ['Anthropic', '2021', 'Constitutional AI', 'RLHF', 'Alineación basada en principios, no solo feedback'],
+            ['Vercel', '2015', 'Frontend Cloud', 'static hosting', 'Deploy instantáneo + edge + serverless'],
+          ].map(([co, year, created, replaced, why], i) => (
+            <div key={co} style={{ display: 'flex', gap: 20, alignItems: 'flex-start', padding: '24px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+              <div style={{ minWidth: 100, textAlign: 'right' }}>
+                <span style={{ fontSize: 14, fontWeight: 800, color: '#64748b' }}>{co}</span>
+                <span style={{ display: 'block', fontSize: 11, color: '#475569' }}>{year}</span>
+              </div>
+              <div style={{ flex: 1 }}>
+                <p style={{ fontSize: 14, color: '#e2e8f0', marginBottom: 4 }}>
+                  Creó <span style={{ color: '#818cf8', fontWeight: 700 }}>"{created}"</span>
+                  <span style={{ color: '#475569' }}> cuando existía </span>
+                  <span style={{ color: '#64748b', textDecoration: 'line-through' }}>"{replaced}"</span>
+                </p>
+                <p style={{ fontSize: 12, color: '#64748b' }}>{why}</p>
+              </div>
+            </div>
+          ))}
+
+          {/* GenyX — highlighted */}
+          <div style={{ display: 'flex', gap: 20, alignItems: 'flex-start', padding: '32px 24px', marginTop: 8, background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.2)', borderRadius: 16 }}>
+            <div style={{ minWidth: 100, textAlign: 'right' }}>
+              <span style={{ fontSize: 16, fontWeight: 900, ...S.gradient }}>GenyX</span>
+              <span style={{ display: 'block', fontSize: 11, color: '#818cf8' }}>2026</span>
+            </div>
+            <div style={{ flex: 1 }}>
+              <p style={{ fontSize: 16, color: '#f1f5f9', fontWeight: 700, marginBottom: 8 }}>
+                Crea <span style={S.gradient}>"AOaaS"</span>
+                <span style={{ color: '#64748b', fontWeight: 400 }}> cuando existe </span>
+                <span style={{ color: '#64748b', textDecoration: 'line-through', fontWeight: 400 }}>"AaaS"</span>
+              </p>
+              <p style={{ fontSize: 14, color: '#94a3b8', lineHeight: 1.7 }}>
+                12 agentes orquestados + governance interna + trazabilidad legal tripartita.
+                Mismo patrón de category creation: diferenciación técnica real verificable.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div style={S.divider} />
+
+      {/* ═══ §5 — CTA ═══ */}
+      <section style={{ ...S.section, paddingTop: 120 }}>
+        <div style={{ textAlign: 'center', background: 'linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.04))', borderRadius: 28, padding: '64px 40px', border: '1px solid rgba(99,102,241,0.15)' }}>
+          <div style={{ fontSize: 48, marginBottom: 20 }}>◆</div>
+          <h2 style={{ fontSize: 32, fontWeight: 900, color: '#f1f5f9', marginBottom: 12, lineHeight: 1.25 }}>
+            AOaaS es la categoría.<br />
+            <span style={S.gradient}>GenyX es el primer player.</span>
+          </h2>
+          <p style={{ color: '#64748b', fontSize: 15, marginBottom: 36, maxWidth: 460, margin: '0 auto 36px' }}>
+            Si operas un negocio y quieres implementar tu operación comercial autónoma — hablemos.
+          </p>
+          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a href="/whitepaper" style={{ background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '14px 32px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 32px rgba(99,102,241,0.25)' }}>📄 Lee el whitepaper técnico</a>
+            <a href="/por-que-ahora#agentes" style={{ background: 'rgba(255,255,255,0.05)', color: '#a5b4fc', padding: '14px 32px', borderRadius: 12, fontSize: 14, fontWeight: 600, textDecoration: 'none', border: '1px solid rgba(99,102,241,0.2)' }}>Conoce los 9 agentes →</a>
+          </div>
+          <div style={{ marginTop: 20 }}>
+            <a href="https://wa.me/523340026694?text=Hola%2C%20leí%20el%20manifesto%20AOaaS.%20Quiero%20hablar%20con%20el%20fundador." style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>💬 Contacto directo con el fundador</a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Footer ── */}
+      <footer style={{ textAlign: 'center', padding: '40px 24px 56px', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
+        <p style={{ fontSize: 11, color: '#475569' }}>GenyX Systems © 2026 · Guadalajara, México</p>
+        <p style={{ fontSize: 10, color: '#334155', marginTop: 6, maxWidth: 500, margin: '6px auto 0' }}>
+          AOaaS — Agent Operations as a Service. Categoría creada por GenyX por diferenciación técnica real verificable. Decreto fundador 21-may-2026.
+        </p>
+        <div style={{ marginTop: 14, display: 'flex', gap: 16, justifyContent: 'center' }}>
+          <a href="/" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Inicio</a>
+          <a href="/por-que-ahora" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Por qué ahora</a>
+          <a href="/privacidad" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Privacidad</a>
+          <a href="/terminos" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Términos</a>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
 // ── /por-que-ahora — Datos Verificados + AOaaS + MX Market ──────────────────
 function PorQueAhoraPage() {
   const C = {
@@ -6362,7 +6586,7 @@ function GenyXLandingPage() {
           <img src="/genyx-logo.png" alt="GenyX — Tu operación comercial autónoma" style={{ width: 32, height: 32, borderRadius: 4 }} />
         </a>
         <div style={C.navLinks}>
-          {[['Agentes', '#agentes'], ['Proceso', '#proceso'], ['Por qué ahora', '/por-que-ahora']].map(([l, h]) => (
+          {[['Agentes', '#agentes'], ['Proceso', '#proceso'], ['Por qué ahora', '/por-que-ahora'], ['AOaaS', '/por-que-aoaas']].map(([l, h]) => (
             <a key={l} href={h} style={C.navLink} onMouseOver={e => e.target.style.color = '#fff'} onMouseOut={e => e.target.style.color = '#64748b'}>{l}</a>
           ))}
           <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={C.demoCta}>Cuéntame de tu negocio →</a>
@@ -6371,10 +6595,10 @@ function GenyXLandingPage() {
 
       <section style={C.hero}>
         {/* Hero Badge */}
-        <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(99,102,241,0.12)', border:'1px solid rgba(99,102,241,0.4)', borderRadius:30, padding:'6px 20px', marginBottom:14, fontSize:11, fontWeight:800, color:'#818cf8', letterSpacing:'.1em', textTransform:'uppercase' }}>
+        <a href="/por-que-aoaas" style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(99,102,241,0.12)', border:'1px solid rgba(99,102,241,0.4)', borderRadius:30, padding:'6px 20px', marginBottom:14, fontSize:11, fontWeight:800, color:'#818cf8', letterSpacing:'.1em', textTransform:'uppercase', textDecoration:'none', transition:'border-color 0.2s' }}>
           <span style={{ width:6, height:6, borderRadius:'50%', background:'#6366f1', display:'inline-block', boxShadow:'0 0 8px #6366f1' }} />
-          TU OPERACIÓN COMERCIAL AUTÓNOMA — 9 AGENTES DE IA
-        </div>
+          AOaaS — TU OPERACIÓN COMERCIAL AUTÓNOMA
+        </a>
         <div style={C.badge}><span style={C.dot} />Marketing · Captación · Venta · Cierre · Entrega · Seguimiento · Analítica · Finanzas · Dirección Ejecutiva</div>
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(74,222,128,0.1)', border:'1px solid rgba(74,222,128,0.35)', color:'#4ade80', fontSize:12, fontWeight:700, padding:'7px 22px', borderRadius:30, marginBottom:16 }}>
           &#x2713; Activo en 48h · Respuesta en segundos · Cero comisión por venta
@@ -6738,6 +6962,7 @@ function GenyXLandingPage() {
         <span style={C.ftrBrand}>GenyX © 2026 · Tu operación comercial autónoma · Inteligencia de negocio</span>
         <div style={{ ...C.ftrLinks, paddingRight: 72 }}>
           <a href="/por-que-ahora" style={C.ftrLink}>Por qué ahora</a>
+          <a href="/por-que-aoaas" style={{ ...C.ftrLink, color: '#818cf8' }}>AOaaS</a>
           <a href="/privacidad" style={C.ftrLink}>Privacidad</a>
           <a href="/terminos" style={C.ftrLink}>Términos</a>
           <a href="https://mando.genyxsystems.com" style={{ ...C.ftrLink, color:'#6366f1', fontWeight:700 }}>→ Accede a tu Mando</a>
@@ -6915,6 +7140,7 @@ export default function GenyXOperatorDashboard() {
   if (path === '/privacidad') return <LegalPage tipo="privacidad" />;
   if (path === '/planes')     return <PlanesPage />;
   if (path === '/por-que-ahora') return <PorQueAhoraPage />;
+  if (path === '/por-que-aoaas') return <PorQueAOaaSPage />;
   // ―― Dev-only: preview landing on localhost ―――――
   if (IS_LOCAL && path === '/preview-landing') return <GenyXLandingPage />;
 
