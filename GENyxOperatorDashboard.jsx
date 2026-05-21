@@ -1979,7 +1979,7 @@ const TabMarketing = ({ selectedSlug }) => {
     try {
       const r = await fetch(`${BACKEND}/api/client/${slug}/marketing/approve`, {
         method: 'POST', headers: { ...getAH(), 'Content-Type': 'application/json' },
-        body: JSON.stringify({ otp_code: otpCode, email_code: emailCode }),
+        body: JSON.stringify({ otp_code: otpCode, email_code: emailCode, approved_content_hash: approvedHash }),
       });
       const d = await r.json();
       setOtpStatus(r.ok ? `✅ ${d.message}` : `❌ ${d.detail || 'Error'}`);
@@ -2008,6 +2008,63 @@ const TabMarketing = ({ selectedSlug }) => {
   const fund = strat.fundamento || [];
   const isPending = strategy?.status === 'pending';
   const isApproved = strategy?.status === 'approved';
+
+  // ── P3 REGLA 13: editable captions + diff visual ──
+  const [editedCaptions, setEditedCaptions] = React.useState({});
+  const [showDiff, setShowDiff] = React.useState(false);
+  const [approvedHash, setApprovedHash] = React.useState('');
+
+  // SHA256 via Web Crypto API (browser-native, no deps)
+  const sha256 = React.useCallback(async (text) => {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(text);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+  }, []);
+
+  // Compute hash of current (original or edited) strategy content
+  React.useEffect(() => {
+    if (!cal.length) return;
+    const currentCaptions = cal.map((e, i) => editedCaptions[i] ?? e.caption).join('|');
+    sha256(currentCaptions).then(setApprovedHash);
+  }, [editedCaptions, cal, sha256]);
+
+  // Check if any caption was edited
+  const hasEdits = Object.keys(editedCaptions).length > 0;
+
+  // Word-level diff (minimal, no deps — Obs #4: granularidad por palabra)
+  const wordDiff = (original, modified) => {
+    if (original === modified) return [{ type: 'same', text: modified }];
+    const a = original.split(/\s+/), b = modified.split(/\s+/);
+    const result = [];
+    // Simple LCS-based word diff
+    const m = a.length, n = b.length;
+    const dp = Array.from({length: m+1}, () => new Array(n+1).fill(0));
+    for (let i = 1; i <= m; i++)
+      for (let j = 1; j <= n; j++)
+        dp[i][j] = a[i-1] === b[j-1] ? dp[i-1][j-1]+1 : Math.max(dp[i-1][j], dp[i][j-1]);
+    let i = m, j = n;
+    const ops = [];
+    while (i > 0 || j > 0) {
+      if (i > 0 && j > 0 && a[i-1] === b[j-1]) { ops.unshift({type:'same',text:a[i-1]}); i--; j--; }
+      else if (j > 0 && (i === 0 || dp[i][j-1] >= dp[i-1][j])) { ops.unshift({type:'add',text:b[j-1]}); j--; }
+      else { ops.unshift({type:'del',text:a[i-1]}); i--; }
+    }
+    return ops;
+  };
+
+  // Calculate modification percentage
+  const modPct = React.useMemo(() => {
+    if (!hasEdits || !cal.length) return 0;
+    const origLen = cal.map(e => e.caption).join('').length;
+    const editLen = cal.map((e, i) => editedCaptions[i] ?? e.caption).join('').length;
+    const changed = cal.reduce((sum, e, i) => {
+      const edited = editedCaptions[i];
+      if (!edited) return sum;
+      return sum + Math.abs(edited.length - e.caption.length) + (edited !== e.caption ? e.caption.length * 0.3 : 0);
+    }, 0);
+    return Math.min(100, Math.round(changed / Math.max(origLen, 1) * 100));
+  }, [hasEdits, cal, editedCaptions]);
 
   const TYPE_EMOJI = { product_star: '🏆', wa_status: '📱', promo: '🎉', social_proof: '⭐', reactivation: '📣', urgency: '🔥' };
   const STATUS_COLOR = { executed: '#4ade80', skipped: '#fbbf24', failed: '#f87171', pending: '#818cf8' };
@@ -2062,12 +2119,22 @@ const TabMarketing = ({ selectedSlug }) => {
                   <h3 style={{ fontWeight: 700, fontSize: 14, color: '#f1f5f9' }}>📅 Semana {strategy.week_start} → {strategy.week_end}</h3>
                   <p style={{ fontSize: 11, color: '#64748b', marginTop: 2 }}>Generada: {strategy.created_at ? new Date(strategy.created_at + 'Z').toLocaleString('es-MX') : '—'}</p>
                 </div>
-                <span style={{
-                  padding: '4px 10px', borderRadius: 12, fontSize: 10, fontWeight: 700, textTransform: 'uppercase',
-                  background: isPending ? 'rgba(251,191,36,0.1)' : isApproved ? 'rgba(74,222,128,0.1)' : 'rgba(239,68,68,0.1)',
-                  color: isPending ? '#fbbf24' : isApproved ? '#4ade80' : '#f87171',
-                  border: `1px solid ${isPending ? 'rgba(251,191,36,0.3)' : isApproved ? 'rgba(74,222,128,0.3)' : 'rgba(239,68,68,0.3)'}`,
-                }}>{strategy.status}</span>
+                <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+                  <span style={{
+                    padding: '4px 10px', borderRadius: 12, fontSize: 10, fontWeight: 700, textTransform: 'uppercase',
+                    background: isPending ? 'rgba(251,191,36,0.1)' : isApproved ? 'rgba(74,222,128,0.1)' : 'rgba(239,68,68,0.1)',
+                    color: isPending ? '#fbbf24' : isApproved ? '#4ade80' : '#f87171',
+                    border: `1px solid ${isPending ? 'rgba(251,191,36,0.3)' : isApproved ? 'rgba(74,222,128,0.3)' : 'rgba(239,68,68,0.3)'}`,
+                  }}>{strategy.status}</span>
+                  {isApproved && strategy.executed_as_recommended !== undefined && (
+                    <span title={strategy.executed_as_recommended ? 'Publicada tal cual fue recomendada por GenyX' : 'Modificada por el operador — registrado para trazabilidad legal (cláusula 7b)'}
+                      style={{ fontSize: 9, fontWeight: 700, padding: '2px 8px', borderRadius: 10, cursor: 'help',
+                        background: strategy.executed_as_recommended ? 'rgba(74,222,128,0.08)' : 'rgba(251,191,36,0.08)',
+                        color: strategy.executed_as_recommended ? '#4ade80' : '#fbbf24',
+                        border: `1px solid ${strategy.executed_as_recommended ? 'rgba(74,222,128,0.2)' : 'rgba(251,191,36,0.2)'}`,
+                      }}>{strategy.executed_as_recommended ? '✓ Como recomendada' : '✏️ Personalizada'}</span>
+                  )}
+                </div>
               </div>
 
               {/* Fundamento */}
@@ -2088,7 +2155,41 @@ const TabMarketing = ({ selectedSlug }) => {
                     </div>
                     <div style={{ flex: 1 }}>
                       <p style={{ fontSize: 12, fontWeight: 600, color: '#e2e8f0', marginBottom: 2 }}>{entry.label}</p>
-                      <p style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.4, fontStyle: 'italic' }}>"{entry.caption}"</p>
+                      {isPending ? (
+                        <div>
+                          {showDiff && editedCaptions[i] ? (
+                            <p style={{ fontSize: 11, lineHeight: 1.6, marginBottom: 4 }}>
+                              {wordDiff(entry.caption, editedCaptions[i]).map((op, wi) => (
+                                <span key={wi} style={{
+                                  background: op.type === 'add' ? 'rgba(74,222,128,0.2)' : op.type === 'del' ? 'rgba(239,68,68,0.2)' : 'transparent',
+                                  color: op.type === 'add' ? '#4ade80' : op.type === 'del' ? '#f87171' : '#94a3b8',
+                                  textDecoration: op.type === 'del' ? 'line-through' : 'none',
+                                  padding: op.type !== 'same' ? '0 2px' : 0,
+                                  borderRadius: 2,
+                                }}>{op.text} </span>
+                              ))}
+                            </p>
+                          ) : (
+                            <textarea
+                              value={editedCaptions[i] ?? entry.caption}
+                              onChange={e => {
+                                const val = e.target.value;
+                                setEditedCaptions(prev => {
+                                  const next = { ...prev };
+                                  if (val === entry.caption) delete next[i]; else next[i] = val;
+                                  return next;
+                                });
+                              }}
+                              style={{ width: '100%', boxSizing: 'border-box', background: editedCaptions[i] ? 'rgba(251,191,36,0.06)' : 'rgba(15,23,42,0.3)', border: `1px solid ${editedCaptions[i] ? 'rgba(251,191,36,0.3)' : 'rgba(255,255,255,0.06)'}`, color: '#94a3b8', fontSize: 11, lineHeight: '1.4', fontStyle: 'italic', padding: '6px 8px', borderRadius: 6, resize: 'vertical', minHeight: 40, outline: 'none', fontFamily: 'inherit' }}
+                            />
+                          )}
+                          {editedCaptions[i] && !showDiff && (
+                            <span style={{ fontSize: 9, color: '#fbbf24', fontWeight: 600 }}>✏️ Editado</span>
+                          )}
+                        </div>
+                      ) : (
+                        <p style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.4, fontStyle: 'italic' }}>"{entry.caption}"</p>
+                      )}
                       <div style={{ display: 'flex', gap: 4, marginTop: 6 }}>
                         {(entry.channels || []).map((ch, j) => (
                           <span key={j} style={{ fontSize: 9, padding: '1px 6px', borderRadius: 4, background: 'rgba(99,102,241,0.1)', color: '#818cf8', fontFamily: 'monospace' }}>{ch}</span>
@@ -2103,6 +2204,31 @@ const TabMarketing = ({ selectedSlug }) => {
               {/* Aprobación 2FA — WhatsApp + Email (Fix #5, decreto 20-may) */}
               {isPending && (
                 <div style={{ marginTop: 16, padding: '16px', background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.2)', borderRadius: 10 }}>
+                  {/* ── REGLA 13: Diff toggle + modification warning ── */}
+                  {hasEdits && (
+                    <div style={{ marginBottom: 12 }}>
+                      <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 8 }}>
+                        <button onClick={() => setShowDiff(!showDiff)}
+                          style={{ background: showDiff ? 'rgba(99,102,241,0.15)' : 'rgba(255,255,255,0.06)', border: '1px solid rgba(99,102,241,0.3)', color: '#a5b4fc', padding: '4px 12px', borderRadius: 6, fontSize: 11, fontWeight: 600, cursor: 'pointer' }}>
+                          {showDiff ? '✏️ Modo edición' : '🔍 Ver cambios'}
+                        </button>
+                        <span style={{ fontSize: 10, color: '#64748b' }}>
+                          {Object.keys(editedCaptions).length} caption(s) modificado(s) · ~{modPct}% cambio
+                        </span>
+                      </div>
+                      {modPct > 50 && (
+                        <div style={{ background: 'rgba(251,191,36,0.08)', border: '1px solid rgba(251,191,36,0.25)', borderRadius: 8, padding: '8px 12px', marginBottom: 8 }}>
+                          <p style={{ fontSize: 11, color: '#fbbf24', fontWeight: 600 }}>⚠️ Modificación significativa ({modPct}%)</p>
+                          <p style={{ fontSize: 10, color: '#94a3b8' }}>Has personalizado esta estrategia. Esto es OK — solo lo registramos para trazabilidad legal (cláusula 7b).</p>
+                        </div>
+                      )}
+                      {modPct <= 50 && modPct > 0 && (
+                        <p style={{ fontSize: 10, color: '#64748b', fontStyle: 'italic' }}>
+                          ℹ️ Tus ediciones quedarán registradas para trazabilidad (REGLA 13). Esto es normal y OK.
+                        </p>
+                      )}
+                    </div>
+                  )}
                   <p style={{ fontSize: 12, fontWeight: 700, color: '#fbbf24', marginBottom: 4 }}>🔐 Aprobar Estrategia — Doble Verificación</p>
                   <p style={{ fontSize: 11, color: '#94a3b8', marginBottom: 14 }}>Por tu seguridad legal, esta acción requiere verificación en 2 canales:</p>
 
