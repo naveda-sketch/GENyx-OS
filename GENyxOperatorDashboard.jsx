@@ -4942,7 +4942,7 @@ function GenyXConciergeWidget() {
     else if (phase === 'capture') { saveLead(v.split(' ')[0], v, col.negocio, col.reto); setPhase('done'); addReply(`¡Gracias! ✅\nUn especialista de GenyX te contacta en menos de 24 horas.\n\n📧 hola@genyxsystems.com`, 900); }
   }
 
-  const ph = phase === 'negocio' ? 'Ej: clínica, tienda, estudio...' : phase === 'reto' ? 'Ej: muchos mensajes sin responder...' : phase === 'capture' ? 'Tu nombre + WhatsApp o email...' : '';
+  const ph = phase === 'negocio' ? 'Ej: tu giro o actividad...' : phase === 'reto' ? 'Ej: muchos mensajes sin responder...' : phase === 'capture' ? 'Tu nombre + WhatsApp o email...' : '';
 
   return (
     <>
@@ -7911,7 +7911,7 @@ function TicketPage({ sid }) {
           <div style={{ fontWeight: 800, fontSize: 15, color: '#1a1208' }}>Tu negocio</div>
           <div style={{ fontSize: 12, color: '#6b7280', marginTop: 2 }}>Dirección configurada en tu perfil</div>
           <div style={{ fontSize: 11, color: '#9ca3af', margin: '8px 0 12px' }}>Nos pondremos en contacto contigo por WhatsApp para coordinar la entrega</div>
-          <button onClick={() => window.location.href = 'https://paty.genyxsystems.com'}
+          <button onClick={() => window.location.href = '/'}
             style={{ background: '#25D366', color: '#fff', border: 'none', fontWeight: 800, fontSize: 14, padding: '12px 28px', borderRadius: 25, cursor: 'pointer' }}>
             Volver al chat
           </button>
