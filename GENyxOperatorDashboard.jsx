@@ -3469,12 +3469,18 @@ function MandoClientView({ slug }) {
       .then(r => r.json())
       .then(d => { if (!d.accepted) setShowTcModal(true); })
       .catch(e => console.warn('[T&C] Check failed:', e));
-    // ── Cláusula 7b: Check legal re-acceptance ──
+    // ── Cláusula 7b: Check legal re-acceptance (REGLA 14: audit trail logging) ──
     fetch(`${BACKEND}/api/client/${slug}/legal-status`, {
       headers: { 'X-Dashboard-Token': token }
     })
-      .then(r => r.ok ? r.json() : null)
-      .then(d => { if (d) setLegalStatus(d); })
+      .then(r => {
+        console.log('[Legal 7b] Response status:', r.status);
+        return r.ok ? r.json() : null;
+      })
+      .then(d => {
+        console.log('[Legal 7b] Data:', d);
+        if (d) setLegalStatus(d);
+      })
       .catch(e => console.warn('[Legal 7b] Check failed:', e));
   }, [token, slug]);
 
