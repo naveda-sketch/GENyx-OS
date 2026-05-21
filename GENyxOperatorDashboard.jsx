@@ -991,15 +991,17 @@ const TabAnalista = ({ tenants, orders, selectedSlug, setSelectedSlug }) => {
 // ═══════════════════════════════════════════════════════════════════════════════
 // TAB: AGENTES — Matriz tenants × 9 agentes con status dots
 // ═══════════════════════════════════════════════════════════════════════════════
+// Agents are ALWAYS included in all plans — plan field determines minimum tier
+// G4: plan field now derived from tenant config, not hardcoded per agent
 const AGENT_DEFS = [
-  { id: 'marketing',   icon: '📣', name: 'Mkt',  plan: 'ENTERPRISE' },
-  { id: 'captacion',   icon: '🎯', name: 'Cap',  plan: 'ESENCIAL'  },
-  { id: 'venta',       icon: '💬', name: 'Vta',  plan: 'ESENCIAL'  },
-  { id: 'cierre',      icon: '💳', name: 'Cie',  plan: 'ESENCIAL'  },
-  { id: 'entrega',     icon: '🚚', name: 'Ent',  plan: 'PROFESIONAL'   },
-  { id: 'seguimiento', icon: '🔔', name: 'Seg',  plan: 'ESENCIAL'  },
-  { id: 'analitica',   icon: '📊', name: 'Ana',  plan: 'ESENCIAL'  },
-  { id: 'finanzas',    icon: '💰', name: 'Fin',  plan: 'PROFESIONAL'   },
+  { id: 'marketing',   icon: '📣', name: 'Mkt',  plan: 'ESENCIAL' },
+  { id: 'captacion',   icon: '🎯', name: 'Cap',  plan: 'ESENCIAL' },
+  { id: 'venta',       icon: '💬', name: 'Vta',  plan: 'ESENCIAL' },
+  { id: 'cierre',      icon: '💳', name: 'Cie',  plan: 'ESENCIAL' },
+  { id: 'entrega',     icon: '🚚', name: 'Ent',  plan: 'ESENCIAL' },
+  { id: 'seguimiento', icon: '🔔', name: 'Seg',  plan: 'ESENCIAL' },
+  { id: 'analitica',   icon: '📊', name: 'Ana',  plan: 'ESENCIAL' },
+  { id: 'finanzas',    icon: '💰', name: 'Fin',  plan: 'ESENCIAL' },
 ];
 
 const AGENT_STATUS_DOTS = {
@@ -2134,14 +2136,44 @@ const TabMarketing = ({ selectedSlug }) => {
                         border: `1px solid ${strategy.executed_as_recommended ? 'rgba(74,222,128,0.2)' : 'rgba(251,191,36,0.2)'}`,
                       }}>{strategy.executed_as_recommended ? '✓ Como recomendada' : '✏️ Personalizada'}</span>
                   )}
+                  {/* ── B: A9 Vigía verdict badge ── */}
+                  {strategy?.a9_result && (
+                    <span title={strategy.a9_result.verdict === 'BLOCK' ? `A9 bloqueó: ${(strategy.a9_result.patterns_matched || []).join(', ')}` : strategy.a9_result.verdict === 'WARN' ? `A9 observaciones: ${(strategy.a9_result.patterns_matched || []).join(', ')}` : 'A9 Vigía: sin observaciones'}
+                      style={{ fontSize: 9, fontWeight: 700, padding: '2px 8px', borderRadius: 10, cursor: 'help',
+                        background: strategy.a9_result.verdict === 'BLOCK' ? 'rgba(239,68,68,0.1)' : strategy.a9_result.verdict === 'WARN' ? 'rgba(251,191,36,0.08)' : 'rgba(74,222,128,0.06)',
+                        color: strategy.a9_result.verdict === 'BLOCK' ? '#f87171' : strategy.a9_result.verdict === 'WARN' ? '#fbbf24' : '#4ade80',
+                        border: `1px solid ${strategy.a9_result.verdict === 'BLOCK' ? 'rgba(239,68,68,0.3)' : strategy.a9_result.verdict === 'WARN' ? 'rgba(251,191,36,0.2)' : 'rgba(74,222,128,0.15)'}`,
+                      }}>{strategy.a9_result.verdict === 'BLOCK' ? '🛑 A9 Bloqueó' : strategy.a9_result.verdict === 'WARN' ? '⚠️ A9 Observación' : '✓ A9 OK'}</span>
+                  )}
                 </div>
               </div>
+
+              {/* ── B: A9 BLOCK/WARN detail ── */}
+              {strategy?.a9_result?.verdict === 'BLOCK' && (
+                <div style={{ background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: 10, padding: '12px 14px', marginBottom: 16 }}>
+                  <p style={{ fontFamily: 'monospace', fontSize: 9, color: '#f87171', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '.06em' }}>🛑 A9 Vigía — Estrategia rechazada</p>
+                  {(strategy.a9_result.patterns_matched || []).map((p, i) => <p key={i} style={{ fontSize: 12, color: '#fca5a5', lineHeight: 1.5 }}>• {p}</p>)}
+                  {strategy.a9_result.remediation && <p style={{ fontSize: 11, color: '#94a3b8', marginTop: 8, fontStyle: 'italic' }}>Remediación: {strategy.a9_result.remediation}</p>}
+                  <p style={{ fontSize: 10, color: '#64748b', marginTop: 6 }}>Framework: 6D Severity Scoring</p>
+                </div>
+              )}
+              {strategy?.a9_result?.verdict === 'WARN' && (
+                <div style={{ background: 'rgba(251,191,36,0.04)', border: '1px solid rgba(251,191,36,0.15)', borderRadius: 10, padding: '12px 14px', marginBottom: 16 }}>
+                  <p style={{ fontFamily: 'monospace', fontSize: 9, color: '#fbbf24', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '.06em' }}>⚠️ A9 Vigía — Observaciones</p>
+                  {(strategy.a9_result.patterns_matched || []).map((p, i) => <p key={i} style={{ fontSize: 12, color: '#fde68a', lineHeight: 1.5 }}>• {p}</p>)}
+                  <p style={{ fontSize: 10, color: '#64748b', marginTop: 6 }}>Framework: 6D Severity Scoring</p>
+                </div>
+              )}
 
               {/* Fundamento */}
               {fund.length > 0 && (
                 <div style={{ background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.15)', borderRadius: 10, padding: '12px 14px', marginBottom: 16 }}>
                   <p style={{ fontFamily: 'monospace', fontSize: 9, color: '#818cf8', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '.06em' }}>📊 Fundamento (datos reales)</p>
                   {fund.map((f, i) => <p key={i} style={{ fontSize: 12, color: '#a5b4fc', lineHeight: 1.5 }}>• {f}</p>)}
+                  {/* ── D: REGLA 14 — Metodología declarada ── */}
+                  <p style={{ fontFamily: 'monospace', fontSize: 9, color: '#64748b', marginTop: 8 }}>
+                    Metodología: {strategy?.strategy?.methodology || 'AIDA + JTBD'} · Framework A9: 6D Severity Scoring
+                  </p>
                 </div>
               )}
 
@@ -3348,6 +3380,13 @@ function MandoClientView({ slug }) {
   const [tcVersion, setTcVersion] = useState(null); // Addendum #2: versión del doc legal aceptado
   const [showTcModal, setShowTcModal] = useState(false);
   const [tcAccepting, setTcAccepting] = useState(false);
+  // ── Cláusula 7b: Legal re-acceptance banner ──
+  const [legalStatus, setLegalStatus] = useState(null);
+  const [showLegalModal, setShowLegalModal] = useState(false);
+  const [legalOtpWa, setLegalOtpWa] = useState('');
+  const [legalOtpEmail, setLegalOtpEmail] = useState('');
+  const [legalAccepting, setLegalAccepting] = useState(false);
+  const [legalMsg, setLegalMsg] = useState('');
   // ── Navigation
   const [tab, setTab] = useState('pedidos');
   // ── Pedidos
@@ -3434,6 +3473,13 @@ function MandoClientView({ slug }) {
       .then(r => r.json())
       .then(d => { if (!d.accepted) setShowTcModal(true); })
       .catch(e => console.warn('[T&C] Check failed:', e));
+    // ── Cláusula 7b: Check legal re-acceptance ──
+    fetch(`${BACKEND}/api/client/${slug}/legal-status`, {
+      headers: { 'X-Dashboard-Token': token }
+    })
+      .then(r => r.ok ? r.json() : null)
+      .then(d => { if (d) setLegalStatus(d); })
+      .catch(e => console.warn('[Legal 7b] Check failed:', e));
   }, [token, slug]);
 
   // ── Fase 3 T3: Lazy migration recetas (runs once per session after login)
@@ -3609,7 +3655,24 @@ function MandoClientView({ slug }) {
   );
 
   // ── Login
-  if (!token) return (
+  
+  // ── Cláusula 7b: Accept handler ──
+  const handleLegalAccept = async () => {
+    if (legalOtpWa.length !== 6 || legalOtpEmail.length !== 6) { setLegalMsg('Ambos códigos de 6 dígitos requeridos.'); return; }
+    setLegalAccepting(true); setLegalMsg('Verificando...');
+    try {
+      const r = await fetch(`${BACKEND}/api/client/${slug}/legal-accept-v51`, {
+        method: 'POST', headers: { 'X-Dashboard-Token': token, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ otp_wa_code: legalOtpWa, email_otp_code: legalOtpEmail, doc_version: legalStatus?.current_version || '5.1' }),
+      });
+      const d = await r.json();
+      if (r.ok) { setLegalStatus(prev => ({ ...prev, requires_re_acceptance: false })); setShowLegalModal(false); setLegalMsg(''); setLegalOtpWa(''); setLegalOtpEmail(''); }
+      else setLegalMsg(`❌ ${d.detail || 'Error'}`);
+    } catch { setLegalMsg('❌ Error de conexión'); }
+    setLegalAccepting(false);
+  };
+
+if (!token) return (
     <div style={{ ...CS, alignItems: 'center', justifyContent: 'center' }}>
       <div style={{ width: '100%', maxWidth: 360, padding: 24 }}>
         <div style={{ textAlign: 'center', marginBottom: 28 }}>
@@ -3692,6 +3755,55 @@ function MandoClientView({ slug }) {
           );
         })()}
       </header>
+
+      {/* ── Cláusula 7b: Banner persistente ── */}
+      {legalStatus?.requires_re_acceptance && (
+        <div style={{ maxWidth: 720, margin: '0 auto', padding: '0 18px' }}>
+          <div style={{ background: 'linear-gradient(135deg, rgba(239,68,68,0.15), rgba(239,68,68,0.08))', border: '1px solid rgba(239,68,68,0.3)', borderRadius: 12, padding: '12px 18px', marginBottom: 0, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10, flex: 1, minWidth: 200 }}>
+              <span style={{ fontSize: 18 }}>🔴</span>
+              <div>
+                <p style={{ fontSize: 13, fontWeight: 700, color: '#fca5a5' }}>Actualización de contrato pendiente</p>
+                <p style={{ fontSize: 11, color: '#94a3b8' }}>Cláusula 7b — Delimitación de responsabilidad. Toma 3 min.</p>
+              </div>
+            </div>
+            <button onClick={() => setShowLegalModal(true)} style={{ background: 'rgba(239,68,68,0.2)', border: '1px solid rgba(239,68,68,0.4)', color: '#fca5a5', padding: '8px 16px', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: 'pointer', whiteSpace: 'nowrap' }}>Aceptar con doble verificación</button>
+          </div>
+        </div>
+      )}
+      {/* ── Modal Cláusula 7b ── */}
+      {showLegalModal && (
+        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999 }}>
+          <div style={{ background: '#0f172a', border: '1px solid rgba(239,68,68,0.3)', borderRadius: 20, padding: '32px 28px', maxWidth: 480, width: '90%' }}>
+            <h3 style={{ fontSize: 18, fontWeight: 800, color: '#f1f5f9', marginBottom: 6 }}>Cláusula 7b — Actualización</h3>
+            <p style={{ fontSize: 12, color: '#64748b', marginBottom: 16 }}>Versión: {legalStatus?.current_version || '5.1'}</p>
+            {legalStatus?.changelog_pending && (
+              <div style={{ background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.15)', borderRadius: 10, padding: '12px 14px', marginBottom: 16, maxHeight: 200, overflow: 'auto' }}>
+                <p style={{ fontSize: 10, color: '#818cf8', fontWeight: 700, marginBottom: 6, textTransform: 'uppercase', letterSpacing: '.06em' }}>Cambios pendientes</p>
+                <p style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6, whiteSpace: 'pre-wrap' }}>{legalStatus.changelog_pending}</p>
+              </div>
+            )}
+            <p style={{ fontSize: 11, color: '#94a3b8', marginBottom: 14 }}>Confirma con doble verificación (WhatsApp + Email):</p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 16 }}>
+              <div>
+                <label style={{ display: 'block', fontSize: 10, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Código WhatsApp (6 dígitos)</label>
+                <input type="text" maxLength={6} value={legalOtpWa} onChange={e => setLegalOtpWa(e.target.value.replace(/\D/g,''))}
+                  style={{ width: '100%', boxSizing: 'border-box', background: 'rgba(15,23,42,0.8)', border: '1px solid rgba(99,102,241,0.2)', color: '#f1f5f9', padding: '10px 14px', borderRadius: 8, fontSize: 16, fontFamily: 'monospace', letterSpacing: 8, textAlign: 'center', outline: 'none' }} />
+              </div>
+              <div>
+                <label style={{ display: 'block', fontSize: 10, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Código Email (6 dígitos)</label>
+                <input type="text" maxLength={6} value={legalOtpEmail} onChange={e => setLegalOtpEmail(e.target.value.replace(/\D/g,''))}
+                  style={{ width: '100%', boxSizing: 'border-box', background: 'rgba(15,23,42,0.8)', border: '1px solid rgba(99,102,241,0.2)', color: '#f1f5f9', padding: '10px 14px', borderRadius: 8, fontSize: 16, fontFamily: 'monospace', letterSpacing: 8, textAlign: 'center', outline: 'none' }} />
+              </div>
+            </div>
+            {legalMsg && <p style={{ fontSize: 11, color: legalMsg.startsWith('❌') ? '#f87171' : '#4ade80', marginBottom: 10 }}>{legalMsg}</p>}
+            <button onClick={handleLegalAccept} disabled={legalAccepting} style={{ width: '100%', background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '12px 20px', borderRadius: 10, fontSize: 13, fontWeight: 700, border: 'none', cursor: 'pointer', opacity: legalAccepting ? 0.6 : 1 }}>
+              {legalAccepting ? 'Verificando...' : 'Confirmar aceptación'}
+            </button>
+            <p style={{ fontSize: 9, color: '#475569', textAlign: 'center', marginTop: 10 }}>Este paso es obligatorio. El contrato actualizado protege tanto a ti como a GenyX.</p>
+          </div>
+        </div>
+      )}
 
       <main style={{ padding: 18, maxWidth: 720, margin: '0 auto', width: '100%', flex: 1 }}>
 
