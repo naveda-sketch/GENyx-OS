@@ -992,14 +992,14 @@ const TabAnalista = ({ tenants, orders, selectedSlug, setSelectedSlug }) => {
 // TAB: AGENTES — Matriz tenants × 9 agentes con status dots
 // ═══════════════════════════════════════════════════════════════════════════════
 const AGENT_DEFS = [
-  { id: 'marketing',   icon: '📣', name: 'Mkt',  plan: 'AUTONOMY' },
-  { id: 'captacion',   icon: '🎯', name: 'Cap',  plan: 'STARTER'  },
-  { id: 'venta',       icon: '💬', name: 'Vta',  plan: 'STARTER'  },
-  { id: 'cierre',      icon: '💳', name: 'Cie',  plan: 'STARTER'  },
-  { id: 'entrega',     icon: '🚚', name: 'Ent',  plan: 'GROWTH'   },
-  { id: 'seguimiento', icon: '🔔', name: 'Seg',  plan: 'STARTER'  },
-  { id: 'analitica',   icon: '📊', name: 'Ana',  plan: 'STARTER'  },
-  { id: 'finanzas',    icon: '💰', name: 'Fin',  plan: 'GROWTH'   },
+  { id: 'marketing',   icon: '📣', name: 'Mkt',  plan: 'ENTERPRISE' },
+  { id: 'captacion',   icon: '🎯', name: 'Cap',  plan: 'ESENCIAL'  },
+  { id: 'venta',       icon: '💬', name: 'Vta',  plan: 'ESENCIAL'  },
+  { id: 'cierre',      icon: '💳', name: 'Cie',  plan: 'ESENCIAL'  },
+  { id: 'entrega',     icon: '🚚', name: 'Ent',  plan: 'PROFESIONAL'   },
+  { id: 'seguimiento', icon: '🔔', name: 'Seg',  plan: 'ESENCIAL'  },
+  { id: 'analitica',   icon: '📊', name: 'Ana',  plan: 'ESENCIAL'  },
+  { id: 'finanzas',    icon: '💰', name: 'Fin',  plan: 'PROFESIONAL'   },
 ];
 
 const AGENT_STATUS_DOTS = {
@@ -1031,11 +1031,11 @@ const TabAgentes = ({ tenants }) => {
   }, [tenants]);
 
   const getDot = (tenantPlan, agentDef, status) => {
-    const plan = (tenantPlan || 'STARTER').toUpperCase();
+    const plan = (tenantPlan || 'ESENCIAL').toUpperCase();
     const available =
-      (agentDef.plan === 'STARTER') ||
-      (agentDef.plan === 'GROWTH' && ['GROWTH','AUTONOMY'].includes(plan)) ||
-      (agentDef.plan === 'AUTONOMY' && plan === 'AUTONOMY');
+      (agentDef.plan === 'ESENCIAL') ||
+      (agentDef.plan === 'PROFESIONAL' && ['PROFESIONAL','ENTERPRISE'].includes(plan)) ||
+      (agentDef.plan === 'ENTERPRISE' && plan === 'ENTERPRISE');
     if (!available) return 'locked';
     if (status === 'active') return 'active';
     if (status === 'warning') return 'warning';
@@ -2588,7 +2588,7 @@ const FOTOLAB_PRESETS = [
     desc: 'Genera textos para redes',
     requiresImage: true,
     buildPrompt: (product) =>
-      `You are a social media expert for a small business. Analyze this product photo${product ? ` of "${product}"` : ''} and write exactly 3 Instagram/Facebook caption variants in Spanish.\nEach caption must include: engaging text (2-3 sentences), relevant emojis, 5 hashtags, and a call to action.\nFormat: Number each caption 1), 2), 3). Write captions that feel warm, authentic, and inviting.`,
+      `You are a social media expert. Analyze this product photo${product ? ` of "${product}"` : ''} and write exactly 3 Instagram/Facebook caption variants in Spanish.\nEach caption must include: engaging text (2-3 sentences), relevant emojis, 5 hashtags, and a call to action.\nFormat: Number each caption 1), 2), 3). Write captions that feel warm, authentic, and inviting.`,
   },
   {
     id: 'menucard',
@@ -2917,7 +2917,7 @@ const STATUS_COLORS = {
 
 function TabMisAgentes({ slug, token }) {
   const [agents, setAgents] = useState(null);
-  const [plan, setPlan] = useState('starter');
+  const [plan, setPlan] = useState('esencial');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -4898,19 +4898,7 @@ function DashboardPreview() {
   );
 }
 
-// ── FAQItem (proper component — fixes hooks-in-map violation) ────────────────
-function FAQItem({ question, answer }) {
-  const [open, setOpen] = React.useState(false);
-  return (
-    <div style={{ borderBottom:'1px solid rgba(255,255,255,0.07)', padding:'20px 0' }}>
-      <div onClick={() => setOpen(!open)} style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', cursor:'pointer', gap:16 }}>
-        <span style={{ fontWeight:700, fontSize:15, color:'#f1f5f9', lineHeight:1.5 }}>{question}</span>
-        <span style={{ color:'#6366f1', fontWeight:800, fontSize:18, flexShrink:0, marginTop:1 }}>{open ? '−' : '+'}</span>
-      </div>
-      {open && <p style={{ color:'#64748b', fontSize:14, lineHeight:1.8, marginTop:14, paddingRight:32 }}>{answer}</p>}
-    </div>
-  );
-}
+
 
 
 
@@ -6013,12 +6001,12 @@ function GenyXLandingPage() {
           <span style={{ width:6, height:6, borderRadius:'50%', background:'#6366f1', display:'inline-block', boxShadow:'0 0 8px #6366f1' }} />
           TU OPERACIÓN COMERCIAL AUTÓNOMA — 9 AGENTES DE IA
         </div>
-        <div style={C.badge}><span style={C.dot} />Marketing · Captación · Venta · Cierre · Entrega · Seguimiento · Analítica · Finanzas</div>
+        <div style={C.badge}><span style={C.dot} />Marketing · Captación · Venta · Cierre · Entrega · Seguimiento · Analítica · Finanzas · Dirección Ejecutiva</div>
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(74,222,128,0.1)', border:'1px solid rgba(74,222,128,0.35)', color:'#4ade80', fontSize:12, fontWeight:700, padding:'7px 22px', borderRadius:30, marginBottom:16 }}>
           &#x2713; Activo en 48h · Respuesta en segundos · Cero comisión por venta
         </div>
         <h1 style={C.h1}>Instalamos 9 agentes de IA<br /><span style={C.h1accent}>que corren el 90% de tu operación comercial — autónoma, sin que tú estés.</span></h1>
-        <p style={C.sub}>Desde la primera conversación hasta tu estrategia financiera. Dos capas: la operativa (atender, vender, cobrar, entregar) y la estratégica (interpretar tus datos y planear tus finanzas y marketing). El fundador toma la decisión. La IA hace el trabajo.</p>
+        <p style={C.sub}>Operación 24/7 + inteligencia ejecutiva + accountability medible. Todo lo que necesita tu negocio para crecer. Dos capas: la operativa (atender, vender, cobrar, entregar) y la estratégica (interpretar tus datos y planear tus finanzas y marketing). El fundador toma la decisión. La IA hace el trabajo.</p>
         <div style={C.btns}>
           <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={C.primary}>Cuéntame de tu negocio →</a>
           <a href="#simulador-inmersivo" style={C.secondary}>Probar simulador</a>
@@ -6044,10 +6032,10 @@ function GenyXLandingPage() {
           <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>Cada conversación es una venta.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Y tus datos lo demuestran.</span></h2>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>El <strong style={{ color: '#f1f5f9' }}>78% de los clientes compra con el primero que responde.</strong> Con GenyX, ese siempre eres tú — en segundos, 24/7.</p>
+          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>Con GenyX, <strong style={{ color: '#f1f5f9' }}>tu negocio siempre es el primero en responder</strong> — en segundos, 24/7. Cada conversación atendida es una oportunidad que no se pierde.</p>
           <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>El cobro ocurre <strong style={{ color: '#f1f5f9' }}>dentro del chat: tu cliente paga en 2 toques</strong> desde WhatsApp. Tú recibes la confirmación al instante.</p>
           <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>Cada pedido directo por WhatsApp es <strong style={{ color: '#f1f5f9' }}>100% tuyo. Cero comisión. Cero intermediarios.</strong> Con 10 pedidos al día, eso son más de <strong style={{ color: '#f1f5f9' }}>$20,000 al mes</strong> que se quedan en tu bolsillo.</p>
-          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>Los negocios que ya venden digital reportan hasta <strong style={{ color: '#f1f5f9' }}>57% más ingresos.</strong> GenyX te lleva ahí — con 9 agentes trabajando desde el día uno.</p>
+          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>GenyX te lleva ahí — <strong style={{ color: '#f1f5f9' }}>con 9 agentes trabajando coordinados desde el día uno.</strong></p>
         </div>
       </section>
 
@@ -6070,6 +6058,7 @@ function GenyXLandingPage() {
             ['Seguimiento', 'Recupera pedidos abandonados y clientes inactivos.', () => simSvg(['M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9','M13.73 21a2 2 0 01-3.46 0'],'la6')],
             ['Analítica', 'KPIs, top productos, hora pico y recomendaciones.', () => simSvg(['M12 2a7 7 0 017 7c0 2.8-1.6 5.2-4 6.3V18H9v-2.7C6.6 14.2 5 11.8 5 9a7 7 0 017-7z',['line',{x1:9,y1:21,x2:15,y2:21}],['line',{x1:10,y1:24,x2:14,y2:24}]],'la7')],
             ['Finanzas', 'Margen, punto de equilibrio y proyección mensual.', () => simSvg([['line',{x1:12,y1:1,x2:12,y2:23}],'M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6'],'la8')],
+            ['Dirección Ejecutiva', 'Briefing diario con la jugada del día.', () => simSvg(['M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'],'la9')],
 
           ].map(([name, desc, icoFn]) => (
             <div key={name} style={{ background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 12, padding: '18px 16px', transition: 'all 0.2s' }}
@@ -6312,9 +6301,9 @@ function GenyXLandingPage() {
           <p style={{ color:'#64748b', lineHeight:1.8, marginBottom:32, fontSize:15 }}>GenyX opera bajo un modelo de <strong style={{ color:'#a5b4fc' }}>Fee de instalación + Suscripción mensual fija</strong>. Sin importar cuánto vendas en el mes, tu costo no cambia. Tus márgenes son tuyos.</p>
           <div style={{ display:'flex', justifyContent:'center', gap:16, flexWrap:'wrap', marginBottom:24 }}>
             {[
-              ['ESENCIAL','$9,900','MXN/mes','Setup: $12,000','9 agentes de IA','200 msgs carritos · 100 reactivación','30 imágenes FotoLab · 250 Costeador IA','Soporte L-V 9am–7pm','Negocios de 5-15 empleados · $200K-$700K/mes.'],
-              ['PROFESIONAL','$18,900','MXN/mes','Setup: $18,000','9 agentes de IA','400 msgs carritos · 200 reactivación','60 imágenes FotoLab · 500 Costeador IA','Soporte L-S prioritario','Negocios de 15-50 empleados · $700K-$2M/mes. ★ Más elegido.'],
-              ['ENTERPRISE','$34,900','MXN/mes','Setup: $30,000','9 agentes de IA','600 msgs carritos · 300 reactivación','100 imágenes FotoLab · Costeador ilimitado','Soporte 24/7 + sesión con Erick','Negocios de 50-100 empleados · $2M-$5M/mes.'],
+              ['ESENCIAL','$9,900','MXN/mes','Setup: $6,000','9 agentes de IA','200 msgs carritos · 100 reactivación','30 imágenes FotoLab · 250 Costeador IA','Soporte L-V 9am–7pm','Negocio independiente.'],
+              ['PROFESIONAL','$18,900','MXN/mes','Setup: $12,000','9 agentes de IA','400 msgs carritos · 200 reactivación','60 imágenes FotoLab · 500 Costeador IA','Soporte L-S prioritario','Negocio con equipo de ventas. ★ Más elegido.'],
+              ['ENTERPRISE','$34,900','MXN/mes','Setup: $24,000','9 agentes de IA','600 msgs carritos · 300 reactivación','100 imágenes FotoLab · Costeador ilimitado','Soporte 24/7 + sesión con Erick','Cadenas / Franquicias / Multi-sucursal.'],
             ].map(([plan, price, period, setup, agents, outbound, tools, support, desc]) => (
               <div key={plan} style={{ background: plan === 'PROFESIONAL' ? 'rgba(99,102,241,0.12)' : 'rgba(255,255,255,0.04)', border: plan === 'PROFESIONAL' ? '2px solid rgba(99,102,241,0.5)' : '1px solid rgba(255,255,255,0.1)', borderRadius:16, padding:'24px 20px', minWidth:220, flex:'1 1 200px', maxWidth:290, position:'relative', textAlign:'left' }}>
                 {plan === 'PROFESIONAL' && <div style={{ position:'absolute', top:-10, left:'50%', transform:'translateX(-50%)', background:'linear-gradient(135deg,#6366f1,#8b5cf6)', color:'#fff', fontSize:9, fontWeight:800, padding:'3px 14px', borderRadius:20, letterSpacing:'.05em' }}>MÁS POPULAR</div>}
@@ -6354,27 +6343,8 @@ function GenyXLandingPage() {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
-      <section style={{ padding:'0 24px 100px', maxWidth:720, margin:'0 auto' }}>
-        <div style={{ textAlign:'center', marginBottom:48 }}>
-          <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12 }}>PREGUNTAS FRECUENTES</div>
-          <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9' }}>Todo lo que necesitas saber</h2>
-        </div>
-        {[
-          ['¿Cuánto cuesta GenyX?', 'Tres planes según el volumen de tu operación: Esencial $9,900 MXN/mes, Profesional $18,900 MXN/mes, Enterprise $34,900 MXN/mes. Los tres planes incluyen los 9 agentes — la diferencia está en productos en catálogo, conversaciones mensuales y sucursales. Cada plan incluye una instalación inicial de un solo pago. Te ayudamos a elegir el correcto en una conversación de 15 minutos.'],
-          ['¿Cómo cobran y facturan?', 'Cobramos vía transferencia bancaria al inicio del mes. Te enviamos factura electrónica a tu RFC al confirmar el pago. La instalación se cobra una sola vez al firmar el contrato.'],
-          ['¿GenyX cobra comisión por cada venta que cierra?', 'No. Jamás. Tu costo es fijo cada mes — sin importar si vendes $30,000 o $300,000. Cero comisión.'],
-          ['¿Cuánto tarda en activarse?', 'Una sesión de 45 minutos para entender tu negocio. Nosotros configuramos todo. En menos de 48 horas tu agente está atendiendo clientes y cerrando ventas.'],
-          ['¿Cómo garantizan la estabilidad del sistema?', 'Cada actualización pasa por pruebas de calidad antes de llegar a tu negocio. Monitoreamos el sistema activamente y atendemos cualquier incidencia lo antes posible. Si se presenta un problema mayor, tu agente queda en pausa controlada y te avisamos directamente hasta que se resuelva.'],
-          ['¿Para quién es GenyX?', 'GenyX es para dueños de negocio con 5 a 100 empleados que quieren operar con menos personas y más datos. Son 9 agentes de IA que operan dos capas: la operativa (atender, vender, cobrar, entregar, dar seguimiento) y la estratégica (interpretar tus datos, planear tus finanzas y marketing, y darte visión 360° desde tu Centro de Mando). Cada viernes 6pm recibes la Mesa de Estrategia. Cada lunes 5am recibes el Reporte con tus números reales. El fundador toma la decisión. La IA hace el trabajo.'],
-          ['¿Qué incluye GenyX que otros servicios no tienen?', 'GenyX cierra ventas. Atiende a tu cliente, arma su pedido, genera el cobro y te avisa cuando el dinero ya está en tu cuenta. Además mide resultados, planea tu marketing y te entrega reportes financieros cada semana.'],
-          ['¿Cómo se compara el costo con un equipo tradicional?', 'GenyX se activa en 48 horas y opera tu dirección comercial 24/7 — sin contratar, capacitar ni supervisar personal adicional. Un costo mensual fijo por toda la operación.'],
-          ['¿Necesito conocimientos técnicos?', 'Ninguno. Tú nos das la información de tu negocio y nosotros hacemos todo lo demás. Solo tienes que revisar tu mando de control y contar tus ventas.'],
-          ['¿Puedo ver una demo en vivo antes de decidir?', 'Sí. Te mostramos el sistema funcionando con datos de tu negocio en 15 minutos por WhatsApp.'],
-        ].map(([q, a], i) => (
-          <FAQItem key={i} question={q} answer={a} />
-        ))}
-      </section>
+
+
 
 
 
