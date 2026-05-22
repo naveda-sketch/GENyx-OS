@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# pre-commit hook — chains all pre-commit candados
+# Repo: swift-viking (frontend)
+#
+
+HOOKS_DIR="$(dirname "$0")"
+
+# ── Candado #3: Check-Agnostic REGLA 11 ──
+if [ -x "$HOOKS_DIR/check-agnostic" ]; then
+    "$HOOKS_DIR/check-agnostic"
+    if [ $? -ne 0 ]; then
+        exit 1
+    fi
+fi
+
+exit 0
