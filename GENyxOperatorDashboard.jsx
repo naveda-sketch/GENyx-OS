@@ -1917,9 +1917,9 @@ const TabMarketing = ({ selectedSlug }) => {
   const [emailStatus, setEmailStatus] = useState('');
 
   const slug = selectedSlug || '';
-  if (!slug) return <div style={{ textAlign: 'center', padding: 40, color: '#94a3b8' }}>Selecciona un cliente arriba para ver su marketing.</div>;
 
   const fetchDashboard = useCallback(async () => {
+    if (!slug) return;
     setLoading(true);
     try {
       const r = await fetch(`${BACKEND}/api/client/${slug}/marketing/dashboard`, { headers: getAH() });
@@ -1928,7 +1928,58 @@ const TabMarketing = ({ selectedSlug }) => {
     setLoading(false);
   }, [slug]);
 
-  useEffect(() => { if (isAuthed()) fetchDashboard(); }, [fetchDashboard]);
+  useEffect(() => { if (isAuthed() && slug) fetchDashboard(); }, [fetchDashboard]);
+
+  // ── P3 REGLA 13: editable captions + diff visual ──
+  // Hooks MUST be before any early return (React Rules of Hooks)
+  const [editedCaptions, setEditedCaptions] = React.useState({});
+  const [showDiff, setShowDiff] = React.useState(false);
+  const [approvedHash, setApprovedHash] = React.useState('');
+
+  // Destructure data early so hooks can reference derived values
+  const { agent_status, strategy, recent_log, config: mktConfig, stats } = data || {};
+  const strat = strategy?.strategy || {};
+  const cal = strat.calendar || [];
+  const fund = strat.fundamento || [];
+  const isPending = strategy?.status === 'pending';
+  const isApproved = strategy?.status === 'approved';
+
+  // SHA256 via Web Crypto API (browser-native, no deps)
+  const sha256 = React.useCallback(async (text) => {
+    const encoder = new TextEncoder();
+    const d = encoder.encode(text);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', d);
+    return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+  }, []);
+
+  // Compute hash of current (original or edited) strategy content
+  React.useEffect(() => {
+    if (!cal.length) return;
+    const currentCaptions = cal.map((e, i) => editedCaptions[i] ?? e.caption).join('|');
+    sha256(currentCaptions).then(setApprovedHash);
+  }, [editedCaptions, cal, sha256]);
+
+  // Check if any caption was edited
+  const hasEdits = Object.keys(editedCaptions).length > 0;
+
+  // Calculate modification percentage
+  const modPct = React.useMemo(() => {
+    if (!hasEdits || !cal.length) return 0;
+    const origLen = cal.map(e => e.caption).join('').length;
+    const editLen = cal.map((e, i) => editedCaptions[i] ?? e.caption).join('').length;
+    const changed = cal.reduce((sum, e, i) => {
+      const edited = editedCaptions[i];
+      if (!edited) return sum;
+      return sum + Math.abs(edited.length - e.caption.length) + (edited !== e.caption ? e.caption.length * 0.3 : 0);
+    }, 0);
+    return Math.min(100, Math.round(changed / Math.max(origLen, 1) * 100));
+  }, [hasEdits, cal, editedCaptions]);
+
+  if (!isAuthed()) return <Empty icon="🔒" msg="Inicia sesión para ver Marketing." />;
+  if (loading) return <Spinner />;
+  if (!data) return <Empty icon="📢" msg="No se pudo cargar el panel de Marketing." />;
+
+  if (!slug) return <div style={{ textAlign: 'center', padding: 40, color: '#94a3b8' }}>Selecciona un cliente arriba para ver su marketing.</div>;
 
   const handleGenerate = async () => {
     setGenerating(true); setGenResult(null);
@@ -2000,39 +2051,7 @@ const TabMarketing = ({ selectedSlug }) => {
     } catch {}
   };
 
-  if (!isAuthed()) return <Empty icon="🔒" msg="Inicia sesión para ver Marketing." />;
-  if (loading) return <Spinner />;
-  if (!data) return <Empty icon="📢" msg="No se pudo cargar el panel de Marketing." />;
 
-  const { agent_status, strategy, recent_log, config, stats } = data;
-  const strat = strategy?.strategy || {};
-  const cal = strat.calendar || [];
-  const fund = strat.fundamento || [];
-  const isPending = strategy?.status === 'pending';
-  const isApproved = strategy?.status === 'approved';
-
-  // ── P3 REGLA 13: editable captions + diff visual ──
-  const [editedCaptions, setEditedCaptions] = React.useState({});
-  const [showDiff, setShowDiff] = React.useState(false);
-  const [approvedHash, setApprovedHash] = React.useState('');
-
-  // SHA256 via Web Crypto API (browser-native, no deps)
-  const sha256 = React.useCallback(async (text) => {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(text);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-    return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
-  }, []);
-
-  // Compute hash of current (original or edited) strategy content
-  React.useEffect(() => {
-    if (!cal.length) return;
-    const currentCaptions = cal.map((e, i) => editedCaptions[i] ?? e.caption).join('|');
-    sha256(currentCaptions).then(setApprovedHash);
-  }, [editedCaptions, cal, sha256]);
-
-  // Check if any caption was edited
-  const hasEdits = Object.keys(editedCaptions).length > 0;
 
   // Word-level diff (minimal, no deps — Obs #4: granularidad por palabra)
   const wordDiff = (original, modified) => {
@@ -2055,18 +2074,7 @@ const TabMarketing = ({ selectedSlug }) => {
     return ops;
   };
 
-  // Calculate modification percentage
-  const modPct = React.useMemo(() => {
-    if (!hasEdits || !cal.length) return 0;
-    const origLen = cal.map(e => e.caption).join('').length;
-    const editLen = cal.map((e, i) => editedCaptions[i] ?? e.caption).join('').length;
-    const changed = cal.reduce((sum, e, i) => {
-      const edited = editedCaptions[i];
-      if (!edited) return sum;
-      return sum + Math.abs(edited.length - e.caption.length) + (edited !== e.caption ? e.caption.length * 0.3 : 0);
-    }, 0);
-    return Math.min(100, Math.round(changed / Math.max(origLen, 1) * 100));
-  }, [hasEdits, cal, editedCaptions]);
+
 
   const TYPE_EMOJI = { product_star: '🏆', wa_status: '📱', promo: '🎉', social_proof: '⭐', reactivation: '📣', urgency: '🔥' };
   const STATUS_COLOR = { executed: '#4ade80', skipped: '#fbbf24', failed: '#f87171', pending: '#818cf8' };
