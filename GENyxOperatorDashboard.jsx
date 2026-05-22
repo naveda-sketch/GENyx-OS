@@ -2536,6 +2536,7 @@ const TAB_REGISTRY = {
   fotolab:      { icon: '📸', label: 'Foto Lab' },
   misAgentes:   { icon: '🤖', label: 'Mis Agentes' },
   reporteLunes: { icon: '📧', label: 'Reporte' },
+  legal:        { icon: '⚖️', label: 'Legal' },
   citas:        { icon: '📅', label: 'Citas',      placeholder: 'Citas y agenda' },
   leads:        { icon: '🎯', label: 'Leads',      placeholder: 'Pipeline de Leads' },
   pacientes:    { icon: '🏥', label: 'Pacientes',  placeholder: 'Historial de Pacientes' },
@@ -3192,6 +3193,115 @@ function TabMisAgentes({ slug, token }) {
 // 📧 TAB REPORTE DEL LUNES — Vista cliente (Fase 3 T7)
 // ══════════════════════════════════════════════════════════════════════════════
 
+
+// ═══════════════════════════════════════════════════════════════════
+// TAB: MIS DOCUMENTOS LEGALES — Transparencia Total (REGLA 13)
+// ═══════════════════════════════════════════════════════════════════
+// METODOLOGÍA (REGLA 14): Contractual Gap Analysis + Catalog Snapshot.
+// Endpoint: GET /api/client/{slug}/legal-docs-all
+// 10 documentos legales con status por tenant (accepted/pending/info).
+// ═══════════════════════════════════════════════════════════════════
+function TabLegalDocs({ slug, token }) {
+  const [docs, setDocs] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [expandedDoc, setExpandedDoc] = useState(null);
+
+  useEffect(() => {
+    if (!token) return;
+    fetch(`${BACKEND}/api/client/${slug}/legal-docs-all`, {
+      headers: { 'X-Dashboard-Token': token }
+    })
+      .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+      .then(d => { setDocs(d.docs || d); setLoading(false); })
+      .catch(e => { setError(e.message); setLoading(false); });
+  }, [slug, token]);
+
+  if (loading) return (
+    <div style={{ textAlign: 'center', padding: 60, color: '#64748b' }}>
+      <div style={{ fontSize: 32, marginBottom: 12, animation: 'pulse 2s infinite' }}>⚖️</div>
+      <p style={{ fontSize: 13 }}>Cargando documentos legales...</p>
+    </div>
+  );
+
+  if (error) return (
+    <div style={{ textAlign: 'center', padding: 60, color: '#f87171' }}>
+      <p style={{ fontSize: 13 }}>Error cargando documentos: {error}</p>
+    </div>
+  );
+
+  if (!docs || docs.length === 0) return (
+    <div style={{ textAlign: 'center', padding: 60, color: '#64748b' }}>
+      <p style={{ fontSize: 13 }}>No hay documentos legales disponibles.</p>
+    </div>
+  );
+
+  // Status badge mapping
+  const statusConfig = {
+    accepted:  { bg: 'rgba(74,222,128,0.1)', border: 'rgba(74,222,128,0.25)', color: '#4ade80', icon: '✅', label: 'Firmado' },
+    pending:   { bg: 'rgba(251,191,36,0.1)', border: 'rgba(251,191,36,0.25)', color: '#fbbf24', icon: '📝', label: 'Pendiente' },
+    info:      { bg: 'rgba(148,163,184,0.08)', border: 'rgba(148,163,184,0.15)', color: '#94a3b8', icon: '📄', label: 'Informativo' },
+    expired:   { bg: 'rgba(248,113,113,0.1)', border: 'rgba(248,113,113,0.25)', color: '#f87171', icon: '⚠️', label: 'Expirado' },
+  };
+
+  return (
+    <>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
+        <div>
+          <h2 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 2 }}>⚖️ Mis Documentos Legales</h2>
+          <p style={{ fontSize: 11, color: '#64748b' }}>{docs.length} documentos en tu expediente legal</p>
+        </div>
+      </div>
+
+      <div style={{ display: 'grid', gap: 10 }}>
+        {docs.map((doc, i) => {
+          const st = statusConfig[doc.status] || statusConfig.info;
+          const isExpanded = expandedDoc === i;
+          return (
+            <div key={doc.doc_slug + doc.version} onClick={() => setExpandedDoc(isExpanded ? null : i)}
+              style={{ background: '#0f172a', border: `1px solid ${st.border}`, borderRadius: 14, padding: '14px 18px', cursor: 'pointer', transition: 'all .2s', ...(isExpanded ? { boxShadow: `0 0 20px ${st.bg}` } : {}) }}>
+              {/* Header row */}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, flex: 1, minWidth: 0 }}>
+                  <span style={{ fontSize: 20 }}>{st.icon}</span>
+                  <div style={{ minWidth: 0 }}>
+                    <p style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{doc.title || doc.doc_slug}</p>
+                    <p style={{ fontSize: 10, color: '#64748b' }}>v{doc.version} · {doc.released_at}</p>
+                  </div>
+                </div>
+                <span style={{ fontSize: 10, fontWeight: 700, color: st.color, background: st.bg, border: `1px solid ${st.border}`, padding: '3px 10px', borderRadius: 6, whiteSpace: 'nowrap', textTransform: 'uppercase', letterSpacing: '.05em' }}>{st.label}</span>
+              </div>
+
+              {/* Expanded details */}
+              {isExpanded && (
+                <div style={{ marginTop: 12, paddingTop: 12, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                  {doc.changelog && (
+                    <div style={{ marginBottom: 10 }}>
+                      <p style={{ fontSize: 10, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Descripción</p>
+                      <p style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6, whiteSpace: 'pre-wrap' }}>{doc.changelog}</p>
+                    </div>
+                  )}
+                  {doc.accepted_at && (
+                    <p style={{ fontSize: 10, color: '#4ade80' }}>Firmado: {new Date(doc.accepted_at).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                  )}
+                  {doc.content_hash && (
+                    <p style={{ fontSize: 9, color: '#475569', fontFamily: 'monospace', marginTop: 6 }}>SHA256: {doc.content_hash.substring(0, 16)}...</p>
+                  )}
+                  {doc.requires_re_acceptance && doc.status === 'pending' && (
+                    <p style={{ fontSize: 11, color: '#fbbf24', marginTop: 8 }}>📝 Este documento requiere tu firma. Usa el banner de actualización para aceptar.</p>
+                  )}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      <p style={{ fontSize: 9, color: '#475569', textAlign: 'center', marginTop: 16 }}>Trazabilidad SHA256 · Registro inmutable · REGLA 13 GenyX</p>
+    </>
+  );
+}
+
 function TabReporteLunesCliente({ slug, token }) {
   const [reports, setReports] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -3784,7 +3894,7 @@ function MandoClientView({ slug }) {
     if (legalOtpWa.length !== 6 || legalOtpEmail.length !== 6) { setLegalMsg('Ambos códigos de 6 dígitos requeridos.'); return; }
     setLegalAccepting(true); setLegalMsg('Verificando...');
     try {
-      const r = await fetch(`${BACKEND}/api/client/${slug}/legal-accept-v51`, {
+      const r = await fetch(`${BACKEND}/api/client/${slug}/legal-accept/contrato_servicios_genyx`, {
         method: 'POST', headers: { 'X-Dashboard-Token': token, 'Content-Type': 'application/json' },
         body: JSON.stringify({ otp_wa_code: legalOtpWa, email_otp_code: legalOtpEmail, doc_version: legalStatus?.current_version || '5.1' }),
       });
@@ -3867,7 +3977,7 @@ if (!token) return (
           };
           const modules = config?.modules || {};
           // pedidos is always visible (core functionality)
-          const activeMods = ['pedidos', ...Object.keys(TAB_REGISTRY).filter(k => k !== 'pedidos' && modules[k] === true)];
+          const activeMods = ['pedidos', ...Object.keys(TAB_REGISTRY).filter(k => k !== 'pedidos' && (modules[k] === true || k === 'legal'))];
           const tabs = activeMods.map(k => ({ tabId: MODULE_TAB_MAP[k] || k, ...TAB_REGISTRY[k] }));
           return (
             <div style={{ display: 'flex', gap: 2, overflowX: 'auto', paddingBottom: 0 }}>
@@ -4902,6 +5012,7 @@ if (!token) return (
 
         {/* ═══ TAB: REPORTE DEL LUNES (Fase 3 T7) ═══ */}
         {tab === 'reporteLunes' && <TabReporteLunesCliente slug={slug} token={token} />}
+        {tab === 'legal' && <TabLegalDocs slug={slug} token={token} />}
 
         {/* ═══ TABS PLACEHOLDER: módulos no construidos ═══ */}
         {['citas', 'leads', 'pacientes', 'reservas', 'cursos'].includes(tab) && (
