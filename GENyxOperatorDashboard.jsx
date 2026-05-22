@@ -4092,6 +4092,28 @@ function MandoClientView({ slug }) {
   const expPct = Math.round((EXPEDIENTE_DOCS.filter(d => expDocs[d.key]).length / EXPEDIENTE_DOCS.length) * 100);
 
   // ── Styles
+  // Auto-request OTPs when modal opens
+  useEffect(() => {
+    if (showLegalModal && !legalOtpSent) requestLegalOtp();
+  }, [showLegalModal]);
+
+  // Cooldown timer (60s between resends)
+  useEffect(() => {
+    if (legalOtpCooldown <= 0) return;
+    const t = setTimeout(() => setLegalOtpCooldown(c => c - 1), 1000);
+    return () => clearTimeout(t);
+  }, [legalOtpCooldown]);
+
+  // Expiry countdown
+  useEffect(() => {
+    if (!legalOtpExpiry) return;
+    const t = setInterval(() => {
+      const remaining = Math.max(0, Math.floor((new Date(legalOtpExpiry) - Date.now()) / 1000));
+      if (remaining <= 0) { clearInterval(t); setLegalOtpSent(false); setLegalMsg('⏳ Códigos expirados. Solicita nuevos.'); }
+    }, 1000);
+    return () => clearInterval(t);
+  }, [legalOtpExpiry]);
+
   const CS   = { minHeight: '100vh', background: '#faf7f2', color: '#1a1208', fontFamily: "'Inter', system-ui, sans-serif", display: 'flex', flexDirection: 'column' };
   const CARD = { background: '#fff', borderRadius: 14, padding: '18px', boxShadow: '0 2px 14px rgba(0,0,0,0.07)', marginBottom: 14 };
   const BTN  = (bg, color = '#fff') => ({ padding: '9px 16px', background: bg, color, border: 'none', borderRadius: 9, fontSize: 13, fontWeight: 700, cursor: 'pointer' });
@@ -4151,27 +4173,7 @@ function MandoClientView({ slug }) {
     setLegalOtpSending(false);
   };
 
-  // Auto-request OTPs when modal opens
-  useEffect(() => {
-    if (showLegalModal && !legalOtpSent) requestLegalOtp();
-  }, [showLegalModal]);
 
-  // Cooldown timer (60s between resends)
-  useEffect(() => {
-    if (legalOtpCooldown <= 0) return;
-    const t = setTimeout(() => setLegalOtpCooldown(c => c - 1), 1000);
-    return () => clearTimeout(t);
-  }, [legalOtpCooldown]);
-
-  // Expiry countdown
-  useEffect(() => {
-    if (!legalOtpExpiry) return;
-    const t = setInterval(() => {
-      const remaining = Math.max(0, Math.floor((new Date(legalOtpExpiry) - Date.now()) / 1000));
-      if (remaining <= 0) { clearInterval(t); setLegalOtpSent(false); setLegalMsg('⏳ Códigos expirados. Solicita nuevos.'); }
-    }, 1000);
-    return () => clearInterval(t);
-  }, [legalOtpExpiry]);
 
   // ── Cláusula 7b: Accept handler ──
   const handleLegalAccept = async () => {
