@@ -3463,6 +3463,20 @@ function TabMisAgentes({ slug, token }) {
 // Endpoint: GET /api/client/{slug}/legal-docs-all
 // 10 documentos legales con status por tenant (accepted/pending/info).
 // ═══════════════════════════════════════════════════════════════════
+const LEGAL_DOC_TITLES = {
+  contrato_servicios_genyx: 'Contrato de Servicios GenyX',
+  contrato: 'Contrato de Servicios GenyX',
+  terminos: 'Términos y Condiciones',
+  privacidad: 'Aviso de Privacidad',
+  dpa: 'Acuerdo de Protección de Datos (DPA)',
+  sla: 'Acuerdo de Nivel de Servicio (SLA)',
+  cookies: 'Política de Cookies',
+  nda: 'Acuerdo de Confidencialidad (NDA)',
+  aup: 'Política de Uso Aceptable',
+  subprocesadores: 'Lista de Subprocesadores',
+  indemnizacion: 'Cláusula de Indemnización',
+};
+
 function TabLegalDocs({ slug, token }) {
   const [docs, setDocs] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -3485,7 +3499,7 @@ function TabLegalDocs({ slug, token }) {
       headers: { 'X-Dashboard-Token': token }
     })
       .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
-      .then(d => { setDocs(d.docs || d); setLoading(false); })
+      .then(d => { setDocs(d.documents || d.docs || (Array.isArray(d) ? d : [])); setLoading(false); })
       .catch(e => { setError(e.message); setLoading(false); });
   }, [slug, token]);
 
@@ -3532,7 +3546,7 @@ function TabLegalDocs({ slug, token }) {
       const d = await r.json();
       if (r.ok) {
         // Update doc status locally
-        setDocs(prev => prev.map(dc => dc.doc_slug === signDocSlug ? { ...dc, status: 'accepted', accepted_at: new Date().toISOString(), requires_re_acceptance: false } : dc));
+        setDocs(prev => prev.map(dc => dc.doc_slug === signDocSlug ? { ...dc, tenant_requires_re_acceptance: false, tenant_version_accepted: dc.current_version } : dc));
         setSignDocSlug(null); setSignOtpWa(''); setSignOtpEmail(''); setSignChecked(false); setSignMsg(''); setSignOtpSent(false); setSignMasked(null); setSignCooldown(0);
       } else setSignMsg(`❌ ${d.detail || 'Error'}`);
     } catch { setSignMsg('❌ Error de conexión'); }
@@ -3595,9 +3609,12 @@ function TabLegalDocs({ slug, token }) {
 
       <div style={{ display: 'grid', gap: 10 }}>
         {docs.map((doc, i) => {
-          const st = statusConfig[doc.status] || statusConfig.info;
+          const docStatus = doc.tenant_requires_re_acceptance ? 'pending' : (doc.tenant_version_accepted && doc.tenant_version_accepted !== 'never_accepted' ? 'accepted' : 'info');
+          const st = statusConfig[docStatus] || statusConfig.info;
           const isExpanded = expandedDoc === i;
-          const needsSign = doc.requires_re_acceptance && doc.status === 'pending';
+          const needsSign = doc.tenant_requires_re_acceptance;
+          const docTitle = LEGAL_DOC_TITLES[doc.doc_slug] || doc.title || doc.doc_slug;
+          const docVersion = doc.current_version || doc.version || '1.0';
           return (
             <div key={doc.doc_slug + doc.version} onClick={() => setExpandedDoc(isExpanded ? null : i)}
               style={{ background: '#0f172a', border: `1px solid ${st.border}`, borderRadius: 14, padding: '14px 18px', cursor: 'pointer', transition: 'all .2s', ...(isExpanded ? { boxShadow: `0 0 20px ${st.bg}` } : {}) }}>
@@ -3605,8 +3622,8 @@ function TabLegalDocs({ slug, token }) {
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, flex: 1, minWidth: 0 }}>
                   <span style={{ fontSize: 20 }}>{st.icon}</span>
                   <div style={{ minWidth: 0 }}>
-                    <p style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{doc.title || doc.doc_slug}</p>
-                    <p style={{ fontSize: 10, color: '#64748b' }}>v{doc.version} · {doc.released_at}</p>
+                    <p style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{docTitle}</p>
+                    <p style={{ fontSize: 10, color: '#64748b' }}>v{docVersion} · {doc.released_at}</p>
                   </div>
                 </div>
                 <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
@@ -3622,8 +3639,9 @@ function TabLegalDocs({ slug, token }) {
               {isExpanded && (
                 <div style={{ marginTop: 12, paddingTop: 12, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
                   {doc.changelog && (<div style={{ marginBottom: 10 }}><p style={{ fontSize: 10, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Descripción</p><p style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6, whiteSpace: 'pre-wrap' }}>{doc.changelog}</p></div>)}
-                  {doc.accepted_at && <p style={{ fontSize: 10, color: '#4ade80' }}>Firmado: {new Date(doc.accepted_at).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</p>}
+                  {(doc.accepted_at || (docStatus === 'accepted' && doc.tenant_version_accepted)) && <p style={{ fontSize: 10, color: '#4ade80' }}>Firmado: v{doc.tenant_version_accepted || doc.accepted_at}</p>}
                   {doc.content_hash && <p style={{ fontSize: 9, color: '#475569', fontFamily: 'monospace', marginTop: 6 }}>SHA256: {doc.content_hash.substring(0, 16)}...</p>}
+                  {!doc.content_hash && doc.doc_slug && <p style={{ fontSize: 9, color: '#475569', fontFamily: 'monospace', marginTop: 6 }}>Doc: {doc.doc_slug}</p>}
                   {needsSign && <p style={{ fontSize: 11, color: '#fbbf24', marginTop: 8 }}>📝 Este documento requiere tu firma con verificación A2F.</p>}
                 </div>
               )}
