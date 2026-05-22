@@ -7949,7 +7949,9 @@ export default function GenyXOperatorDashboard() {
     setLoading(false);
   }, []);
 
-  useEffect(() => { fetchAll(); const t = setInterval(fetchAll, 60000); return () => clearInterval(t); }, [fetchAll]);
+  // BUG #1 FIX (REGLA 14): fetchAll calls /api/tenants (admin-only endpoint).
+  // On tenant mando pages, adminKey is empty → 403. Guard prevents console error.
+  useEffect(() => { if (!adminKey) return; fetchAll(); const t = setInterval(fetchAll, 60000); return () => clearInterval(t); }, [fetchAll, adminKey]);
 
   const handleToggleStatus = async (slug, currentStatus) => {
     setStatusLoading(slug);
