@@ -3458,6 +3458,9 @@ function MandoClientView({ slug }) {
   const [legalAccepting, setLegalAccepting] = useState(false);
   const [legalMsg, setLegalMsg] = useState('');
   const [legalChecked, setLegalChecked] = useState(false);
+  const [legalOtpSent, setLegalOtpSent] = useState(false); // OTP request status
+  const [legalOtpSending, setLegalOtpSending] = useState(false);
+  const [legalOtpMasked, setLegalOtpMasked] = useState(null); // { wa_masked, email_masked, expires_in_minutes }
   // ── Navigation
   const [tab, setTab] = useState('pedidos');
   // ── Pedidos
@@ -3748,6 +3751,34 @@ function MandoClientView({ slug }) {
 
   // ── Login
   
+  // ── Cláusula 7b: Request OTP (A2F B3 — WA + Email doble canal) ──
+  // METODOLOGÍA (REGLA 14): A2F B3 Persistent OTP Pattern — 2 códigos en 1 llamada.
+  // Backend genera + envía OTPs. Frontend NUNCA recibe códigos en texto plano (REGLA 12).
+  const requestLegalOtp = async () => {
+    setLegalOtpSending(true); setLegalMsg('');
+    try {
+      const r = await fetch(`${BACKEND}/api/client/${slug}/legal/request-otp/contrato`, {
+        method: 'POST', headers: { 'X-Dashboard-Token': token },
+      });
+      const d = await r.json();
+      if (r.ok) {
+        setLegalOtpMasked({ wa: d.wa_masked, email: d.email_masked, expires: d.expires_in_minutes });
+        setLegalOtpSent(true);
+        setLegalMsg(`✅ Códigos enviados a ${d.wa_masked} y ${d.email_masked}`);
+      } else if (r.status === 429) {
+        setLegalMsg(`⏳ ${d.detail || 'Demasiados intentos. Espera antes de reintentar.'}`);
+      } else {
+        setLegalMsg(`❌ ${d.detail || 'Error enviando códigos'}`);
+      }
+    } catch { setLegalMsg('❌ Error de conexión al enviar códigos'); }
+    setLegalOtpSending(false);
+  };
+
+  // Auto-request OTPs when modal opens
+  useEffect(() => {
+    if (showLegalModal && !legalOtpSent) requestLegalOtp();
+  }, [showLegalModal]);
+
   // ── Cláusula 7b: Accept handler ──
   const handleLegalAccept = async () => {
     if (legalOtpWa.length !== 6 || legalOtpEmail.length !== 6) { setLegalMsg('Ambos códigos de 6 dígitos requeridos.'); return; }
@@ -3758,7 +3789,7 @@ function MandoClientView({ slug }) {
         body: JSON.stringify({ otp_wa_code: legalOtpWa, email_otp_code: legalOtpEmail, doc_version: legalStatus?.current_version || '5.1' }),
       });
       const d = await r.json();
-      if (r.ok) { setLegalStatus(prev => ({ ...prev, requires_re_acceptance: false })); setShowLegalModal(false); setLegalMsg(''); setLegalOtpWa(''); setLegalOtpEmail(''); setLegalChecked(false); }
+      if (r.ok) { setLegalStatus(prev => ({ ...prev, requires_re_acceptance: false })); setShowLegalModal(false); setLegalMsg(''); setLegalOtpWa(''); setLegalOtpEmail(''); setLegalChecked(false); setLegalOtpSent(false); setLegalOtpMasked(null); }
       else setLegalMsg(`❌ ${d.detail || 'Error'}`);
     } catch { setLegalMsg('❌ Error de conexión'); }
     setLegalAccepting(false);
@@ -3874,7 +3905,7 @@ if (!token) return (
                 <h3 style={{ fontSize: 18, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }}>Actualización de Términos</h3>
                 <p style={{ fontSize: 12, color: '#64748b' }}>Versión {legalStatus?.tenant_version_accepted || '5.0'} → {legalStatus?.current_version || '5.1'}</p>
               </div>
-              <button onClick={() => { setShowLegalModal(false); setLegalChecked(false); setLegalMsg(''); }} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#64748b', width: 32, height: 32, borderRadius: 8, cursor: 'pointer', fontSize: 16, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>✕</button>
+              <button onClick={() => { setShowLegalModal(false); setLegalChecked(false); setLegalMsg(''); setLegalOtpSent(false); setLegalOtpMasked(null); setLegalOtpWa(''); setLegalOtpEmail(''); }} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#64748b', width: 32, height: 32, borderRadius: 8, cursor: 'pointer', fontSize: 16, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>✕</button>
             </div>
 
             {/* P5: Diff visual — changelog con badge NUEVO */}
@@ -3895,8 +3926,24 @@ if (!token) return (
               )}
             </div>
 
-            {/* Doble verificación */}
-            <p style={{ fontSize: 11, color: '#94a3b8', marginBottom: 12 }}>Confirma con doble verificación (WhatsApp + Email):</p>
+            {/* A2F B3: OTP status + resend */}
+            <div style={{ marginBottom: 12 }}>
+              {legalOtpSending && (
+                <p style={{ fontSize: 11, color: '#fbbf24' }}>⏳ Enviando códigos de verificación...</p>
+              )}
+              {legalOtpSent && legalOtpMasked && (
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 6 }}>
+                  <p style={{ fontSize: 11, color: '#4ade80' }}>✅ Códigos enviados a {legalOtpMasked.wa} y {legalOtpMasked.email} ({legalOtpMasked.expires} min)</p>
+                  <button onClick={requestLegalOtp} disabled={legalOtpSending} style={{ fontSize: 10, color: '#94a3b8', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 6, padding: '3px 10px', cursor: 'pointer' }}>Reenviar</button>
+                </div>
+              )}
+              {!legalOtpSending && !legalOtpSent && (
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <p style={{ fontSize: 11, color: '#94a3b8' }}>Confirma con doble verificación (WhatsApp + Email):</p>
+                  <button onClick={requestLegalOtp} style={{ fontSize: 10, color: '#a5b4fc', background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.2)', borderRadius: 6, padding: '4px 12px', cursor: 'pointer', fontWeight: 600 }}>Enviar códigos</button>
+                </div>
+              )}
+            </div>
             <div style={{ display: 'flex', gap: 10, marginBottom: 14 }}>
               <div style={{ flex: 1 }}>
                 <label style={{ display: 'block', fontSize: 10, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Código WhatsApp</label>
@@ -3920,7 +3967,7 @@ if (!token) return (
 
             {/* Botones: Aceptar + Cancelar */}
             <div style={{ display: 'flex', gap: 10 }}>
-              <button onClick={() => { setShowLegalModal(false); setLegalChecked(false); setLegalMsg(''); }} style={{ flex: 1, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#94a3b8', padding: '12px 16px', borderRadius: 10, fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>
+              <button onClick={() => { setShowLegalModal(false); setLegalChecked(false); setLegalMsg(''); setLegalOtpSent(false); setLegalOtpMasked(null); setLegalOtpWa(''); setLegalOtpEmail(''); }} style={{ flex: 1, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#94a3b8', padding: '12px 16px', borderRadius: 10, fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>
                 Cancelar
               </button>
               <button onClick={handleLegalAccept} disabled={legalAccepting || !legalChecked || legalOtpWa.length !== 6 || legalOtpEmail.length !== 6} style={{ flex: 2, background: (legalChecked && legalOtpWa.length === 6 && legalOtpEmail.length === 6) ? 'linear-gradient(135deg,#6366f1,#8b5cf6)' : 'rgba(99,102,241,0.2)', color: '#fff', padding: '12px 20px', borderRadius: 10, fontSize: 13, fontWeight: 700, border: 'none', cursor: (legalChecked && legalOtpWa.length === 6 && legalOtpEmail.length === 6) ? 'pointer' : 'not-allowed', opacity: legalAccepting ? 0.6 : 1, transition: 'all .2s' }}>
