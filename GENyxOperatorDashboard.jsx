@@ -2717,8 +2717,35 @@ function EditarMenuCompacto({ catalog, catLoading, slug, pin, fetchCatalog }) {
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
-// 📸 FOTO LAB v2 — 6 Presets Editoriales IA (Fase 3: multi-tenant, sin hardcodes)
+// 📸 FOTO LAB v2 Hybrid — 6 Presets + 3 Selectores opcionales (Fase 3: multi-tenant, agnóstico)
 // ══════════════════════════════════════════════════════════════════════════════
+
+// V2 Hybrid: selectores opcionales que sobreescriben los defaults del preset
+// Restaurados de FotoLab v1 (commit 07614df) por petición fundador 22-may
+const FOTO_ANGLES = [
+  { id: 'auto', label: '🔄 Auto (preset decide)', prompt: '' },
+  { id: 'normal', label: '📐 Normal (45°)', prompt: 'Shot at a classic 45-degree food photography angle, eye-catching perspective.' },
+  { id: 'zenital', label: '🔽 Cenital (top-down)', prompt: 'Top-down flat lay photography, shot from directly overhead, perfectly centered.' },
+  { id: 'macro', label: '🔍 Macro (close-up)', prompt: 'Extreme close-up macro photography, filling the frame, ultra-sharp detail on textures.' },
+  { id: 'lateral', label: '↔️ Lateral (eye-level)', prompt: 'Eye-level side shot, emphasizing layers and height of the product.' },
+];
+
+const FOTO_SURFACES = [
+  { id: 'auto', label: '🔄 Auto (preset decide)', prompt: '' },
+  { id: 'madera', label: '🪵 Madera Rústica', prompt: 'Place on a dark weathered rustic wooden table with deep wood grain textures.' },
+  { id: 'marmol', label: '⬜ Mármol Blanco', prompt: 'Place on a clean white Carrara marble countertop, minimalist aesthetic.' },
+  { id: 'pizarra', label: '🪨 Piedra Pizarra', prompt: 'Place on a dark slate stone surface, moody and artisanal.' },
+  { id: 'tabla', label: '🔪 Tabla Vintage', prompt: 'Place on an antique wooden cutting board with knife marks, rustic charm.' },
+  { id: 'tela', label: '🧶 Tela / Lino', prompt: 'Place on a natural linen cloth with soft folds and organic texture.' },
+];
+
+const FOTO_LIGHTING = [
+  { id: 'auto', label: '🔄 Auto (preset decide)', prompt: '' },
+  { id: 'natural', label: '☀️ Natural Suave', prompt: 'Soft natural morning light streaming from a side window, diffused soft shadows.' },
+  { id: 'golden', label: '🌅 Hora Dorada', prompt: 'Warm golden hour sunlight, creating deep rich amber tones.' },
+  { id: 'dramatic', label: '🎭 Dramática', prompt: 'Chiaroscuro lighting, moody dark shadows, high contrast directional spotlight.' },
+  { id: 'commercial', label: '💡 Comercial', prompt: 'Even bright studio lighting, commercial photography, well-lit without harsh shadows.' },
+];
 
 const FOTOLAB_PRESETS = [
   {
@@ -2782,6 +2809,11 @@ function TabFotoLab({ slug, token }) {
   const [product, setProduct] = useState('');
   const [products, setProducts] = useState([]);
   const [freePrompt, setFreePrompt] = useState('');
+
+  // ── V2 Hybrid: 3 selectores opcionales (restores V1 granularity) ──
+  const [fotoAngle, setFotoAngle] = useState('auto');
+  const [fotoSurface, setFotoSurface] = useState('auto');
+  const [fotoLighting, setFotoLighting] = useState('auto');
 
   const [srcImg, setSrcImg] = useState(null);       // { b64, url, name }
   const [resultImg, setResultImg] = useState(null);  // { url, b64, mime }
@@ -2854,7 +2886,13 @@ function TabFotoLab({ slug, token }) {
   const handleGenerate = async () => {
     if (activePreset.requiresImage && !srcImg) { setError('Sube una foto primero'); return; }
     setLoading(true); setError(''); setResultImg(null); setCaptions('');
-    const prompt = activePreset.buildPrompt(product) + (freePrompt ? ' ' + freePrompt : '');
+    // V2 Hybrid: base prompt + optional overrides from dropdowns + free text
+    const overrides = [
+      FOTO_ANGLES.find(a => a.id === fotoAngle)?.prompt,
+      FOTO_SURFACES.find(s => s.id === fotoSurface)?.prompt,
+      FOTO_LIGHTING.find(l => l.id === fotoLighting)?.prompt,
+    ].filter(Boolean).join(' ');
+    const prompt = activePreset.buildPrompt(product) + (overrides ? ' ' + overrides : '') + (freePrompt ? ' ' + freePrompt : '');
     const mode = preset === 'caption' ? 'caption' : preset === 'generate' ? 'generate' : 'enhance';
     log(`🚀 Enviando a Gemini (preset=${preset})…`);
     log(`📝 Prompt: ${prompt.substring(0, 120)}…`);
@@ -2988,6 +3026,31 @@ function TabFotoLab({ slug, token }) {
           <option value="">— Selecciona producto —</option>
           {products.map(p => <option key={p} value={p}>{p}</option>)}
         </select>
+      </div>
+
+      {/* ── V2 Hybrid: 3 selectores opcionales ── */}
+      <div style={{ ...CARD_S, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
+        <div>
+          <label style={LBL}>📐 Ángulo</label>
+          <select value={fotoAngle} onChange={e => setFotoAngle(e.target.value)} style={{ ...SEL, fontSize: 11 }}>
+            {FOTO_ANGLES.map(a => <option key={a.id} value={a.id}>{a.label}</option>)}
+          </select>
+        </div>
+        <div>
+          <label style={LBL}>🪵 Superficie</label>
+          <select value={fotoSurface} onChange={e => setFotoSurface(e.target.value)} style={{ ...SEL, fontSize: 11 }}>
+            {FOTO_SURFACES.map(s => <option key={s.id} value={s.id}>{s.label}</option>)}
+          </select>
+        </div>
+        <div>
+          <label style={LBL}>💡 Iluminación</label>
+          <select value={fotoLighting} onChange={e => setFotoLighting(e.target.value)} style={{ ...SEL, fontSize: 11 }}>
+            {FOTO_LIGHTING.map(l => <option key={l.id} value={l.id}>{l.label}</option>)}
+          </select>
+        </div>
+      </div>
+      <div style={{ fontSize: 10, color: '#a8a29e', textAlign: 'center', marginBottom: 8, marginTop: -4 }}>
+        En "Auto" el preset decide. Selecciona para personalizar.
       </div>
 
       {/* ── Free prompt (optional) ── */}
@@ -3481,19 +3544,34 @@ function MandoClientView({ slug }) {
       .then(r => r.json())
       .then(d => { if (!d.accepted) setShowTcModal(true); })
       .catch(e => console.warn('[T&C] Check failed:', e));
-    // ── Cláusula 7b: Check legal re-acceptance (REGLA 14: audit trail logging) ──
+    // ── Cláusula 7b: Check legal re-acceptance (REGLA 14: audit trail + timeout) ──
+    const legalCtrl = new AbortController();
+    const legalTimeout = setTimeout(() => legalCtrl.abort(), 12000);
     fetch(`${BACKEND}/api/client/${slug}/legal-status`, {
-      headers: { 'X-Dashboard-Token': token }
+      headers: { 'X-Dashboard-Token': token },
+      signal: legalCtrl.signal,
     })
       .then(r => {
+        clearTimeout(legalTimeout);
         console.log('[Legal 7b] Response status:', r.status);
-        return r.ok ? r.json() : null;
+        if (!r.ok) {
+          // Non-200 → mark as error so debug indicator shows the real status
+          setLegalStatus({ _error: true, _status: r.status, requires_re_acceptance: false });
+          return null;
+        }
+        return r.json();
       })
       .then(d => {
-        console.log('[Legal 7b] Data:', d);
-        if (d) setLegalStatus(d);
+        if (d) {
+          console.log('[Legal 7b] Data:', d);
+          setLegalStatus(d);
+        }
       })
-      .catch(e => console.warn('[Legal 7b] Check failed:', e));
+      .catch(e => {
+        clearTimeout(legalTimeout);
+        console.warn('[Legal 7b] Check failed:', e.message);
+        setLegalStatus({ _error: true, _message: e.name === 'AbortError' ? 'Timeout (12s)' : e.message, requires_re_acceptance: false });
+      });
   }, [token, slug]);
 
   // ── Fase 3 T3: Lazy migration recetas (runs once per session after login)
@@ -3788,12 +3866,19 @@ if (!token) return (
       {/* DEV DEBUG: legal-status state (remove after confirming banner works) */}
       {token && !legalStatus && (
         <div style={{ maxWidth: 720, margin: '0 auto', padding: '4px 18px 0' }}>
-          <div style={{ fontSize: 10, color: '#475569', background: '#0f172a', border: '1px solid #1e293b', borderRadius: 6, padding: '4px 10px' }}>
-            ⏳ Legal status: cargando...
+          <div style={{ fontSize: 10, color: '#fbbf24', background: '#0f172a', border: '1px solid #92400e', borderRadius: 6, padding: '4px 10px' }}>
+            ⏳ Legal status: cargando... (fetch a /api/client/{slug}/legal-status pendiente)
           </div>
         </div>
       )}
-      {token && legalStatus && !legalStatus.requires_re_acceptance && (
+      {token && legalStatus && legalStatus._error && (
+        <div style={{ maxWidth: 720, margin: '0 auto', padding: '4px 18px 0' }}>
+          <div style={{ fontSize: 10, color: '#f87171', background: '#0f172a', border: '1px solid #7f1d1d', borderRadius: 6, padding: '4px 10px' }}>
+            ❌ Legal status: error — {legalStatus._message || `HTTP ${legalStatus._status}`} (endpoint: {BACKEND}/api/client/{slug}/legal-status)
+          </div>
+        </div>
+      )}
+      {token && legalStatus && !legalStatus._error && !legalStatus.requires_re_acceptance && (
         <div style={{ maxWidth: 720, margin: '0 auto', padding: '4px 18px 0' }}>
           <div style={{ fontSize: 10, color: '#4ade80', background: '#0f172a', border: '1px solid #14532d', borderRadius: 6, padding: '4px 10px' }}>
             ✅ Legal: contrato al día (v{legalStatus.current_version}, aceptada: {legalStatus.tenant_version_accepted})
