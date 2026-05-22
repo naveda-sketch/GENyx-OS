@@ -3785,6 +3785,21 @@ if (!token) return (
           </div>
         </div>
       )}
+      {/* DEV DEBUG: legal-status state (remove after confirming banner works) */}
+      {token && !legalStatus && (
+        <div style={{ maxWidth: 720, margin: '0 auto', padding: '4px 18px 0' }}>
+          <div style={{ fontSize: 10, color: '#475569', background: '#0f172a', border: '1px solid #1e293b', borderRadius: 6, padding: '4px 10px' }}>
+            ⏳ Legal status: cargando...
+          </div>
+        </div>
+      )}
+      {token && legalStatus && !legalStatus.requires_re_acceptance && (
+        <div style={{ maxWidth: 720, margin: '0 auto', padding: '4px 18px 0' }}>
+          <div style={{ fontSize: 10, color: '#4ade80', background: '#0f172a', border: '1px solid #14532d', borderRadius: 6, padding: '4px 10px' }}>
+            ✅ Legal: contrato al día (v{legalStatus.current_version}, aceptada: {legalStatus.tenant_version_accepted})
+          </div>
+        </div>
+      )}
       {/* ── Modal Cláusula 7b (P1+P5: checkbox + diff + cancel + refined UX) ── */}
       {showLegalModal && (
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 }}>
