@@ -3571,6 +3571,8 @@ function MandoClientView({ slug }) {
   const [legalOtpSent, setLegalOtpSent] = useState(false); // OTP request status
   const [legalOtpSending, setLegalOtpSending] = useState(false);
   const [legalOtpMasked, setLegalOtpMasked] = useState(null); // { wa_masked, email_masked, expires_in_minutes }
+  const [legalOtpCooldown, setLegalOtpCooldown] = useState(0); // Resend cooldown (seconds)
+  const [legalOtpExpiry, setLegalOtpExpiry] = useState(null); // Expiry timestamp
   // ── Navigation
   const [tab, setTab] = useState('pedidos');
   // ── Pedidos
@@ -3874,9 +3876,19 @@ function MandoClientView({ slug }) {
       if (r.ok) {
         setLegalOtpMasked({ wa: d.wa_masked, email: d.email_masked, expires: d.expires_in_minutes });
         setLegalOtpSent(true);
+        setLegalOtpCooldown(60);
+        if (d.expires_at) setLegalOtpExpiry(d.expires_at);
         setLegalMsg(`✅ Códigos enviados a ${d.wa_masked} y ${d.email_masked}`);
       } else if (r.status === 429) {
         setLegalMsg(`⏳ ${d.detail || 'Demasiados intentos. Espera antes de reintentar.'}`);
+      } else if (r.status === 503) {
+        const detail = d.detail || '';
+        if (detail.toLowerCase().includes('whatsapp') || detail.toLowerCase().includes('wa'))
+          setLegalMsg('❌ WhatsApp no pudo enviar el código. Verifica tu número e intenta de nuevo.');
+        else if (detail.toLowerCase().includes('email'))
+          setLegalMsg('❌ Email no pudo enviar el código. Revisa tu inbox o intenta de nuevo.');
+        else
+          setLegalMsg(`❌ ${detail || 'Error enviando códigos. Intenta de nuevo.'}`);
       } else {
         setLegalMsg(`❌ ${d.detail || 'Error enviando códigos'}`);
       }
@@ -3889,6 +3901,23 @@ function MandoClientView({ slug }) {
     if (showLegalModal && !legalOtpSent) requestLegalOtp();
   }, [showLegalModal]);
 
+  // Cooldown timer (60s between resends)
+  useEffect(() => {
+    if (legalOtpCooldown <= 0) return;
+    const t = setTimeout(() => setLegalOtpCooldown(c => c - 1), 1000);
+    return () => clearTimeout(t);
+  }, [legalOtpCooldown]);
+
+  // Expiry countdown
+  useEffect(() => {
+    if (!legalOtpExpiry) return;
+    const t = setInterval(() => {
+      const remaining = Math.max(0, Math.floor((new Date(legalOtpExpiry) - Date.now()) / 1000));
+      if (remaining <= 0) { clearInterval(t); setLegalOtpSent(false); setLegalMsg('⏳ Códigos expirados. Solicita nuevos.'); }
+    }, 1000);
+    return () => clearInterval(t);
+  }, [legalOtpExpiry]);
+
   // ── Cláusula 7b: Accept handler ──
   const handleLegalAccept = async () => {
     if (legalOtpWa.length !== 6 || legalOtpEmail.length !== 6) { setLegalMsg('Ambos códigos de 6 dígitos requeridos.'); return; }
@@ -3899,7 +3928,7 @@ function MandoClientView({ slug }) {
         body: JSON.stringify({ otp_wa_code: legalOtpWa, email_otp_code: legalOtpEmail, doc_version: legalStatus?.current_version || '5.1' }),
       });
       const d = await r.json();
-      if (r.ok) { setLegalStatus(prev => ({ ...prev, requires_re_acceptance: false })); setShowLegalModal(false); setLegalMsg(''); setLegalOtpWa(''); setLegalOtpEmail(''); setLegalChecked(false); setLegalOtpSent(false); setLegalOtpMasked(null); }
+      if (r.ok) { setLegalStatus(prev => ({ ...prev, requires_re_acceptance: false })); setShowLegalModal(false); setLegalMsg(''); setLegalOtpWa(''); setLegalOtpEmail(''); setLegalChecked(false); setLegalOtpSent(false); setLegalOtpMasked(null); setLegalOtpCooldown(0); setLegalOtpExpiry(null); }
       else setLegalMsg(`❌ ${d.detail || 'Error'}`);
     } catch { setLegalMsg('❌ Error de conexión'); }
     setLegalAccepting(false);
@@ -4015,7 +4044,7 @@ if (!token) return (
                 <h3 style={{ fontSize: 18, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }}>Actualización de Términos</h3>
                 <p style={{ fontSize: 12, color: '#64748b' }}>Versión {legalStatus?.tenant_version_accepted || '5.0'} → {legalStatus?.current_version || '5.1'}</p>
               </div>
-              <button onClick={() => { setShowLegalModal(false); setLegalChecked(false); setLegalMsg(''); setLegalOtpSent(false); setLegalOtpMasked(null); setLegalOtpWa(''); setLegalOtpEmail(''); }} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#64748b', width: 32, height: 32, borderRadius: 8, cursor: 'pointer', fontSize: 16, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>✕</button>
+              <button onClick={() => { setShowLegalModal(false); setLegalChecked(false); setLegalMsg(''); setLegalOtpSent(false); setLegalOtpMasked(null); setLegalOtpWa(''); setLegalOtpEmail(''); setLegalOtpCooldown(0); setLegalOtpExpiry(null); }} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#64748b', width: 32, height: 32, borderRadius: 8, cursor: 'pointer', fontSize: 16, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>✕</button>
             </div>
 
             {/* P5: Diff visual — changelog con badge NUEVO */}
@@ -4043,8 +4072,11 @@ if (!token) return (
               )}
               {legalOtpSent && legalOtpMasked && (
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 6 }}>
-                  <p style={{ fontSize: 11, color: '#4ade80' }}>✅ Códigos enviados a {legalOtpMasked.wa} y {legalOtpMasked.email} ({legalOtpMasked.expires} min)</p>
-                  <button onClick={requestLegalOtp} disabled={legalOtpSending} style={{ fontSize: 10, color: '#94a3b8', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 6, padding: '3px 10px', cursor: 'pointer' }}>Reenviar</button>
+                  <div>
+                    <p style={{ fontSize: 11, color: '#4ade80' }}>✅ Códigos enviados a {legalOtpMasked.wa} y {legalOtpMasked.email}</p>
+                    {legalOtpExpiry && (() => { const rem = Math.max(0, Math.floor((new Date(legalOtpExpiry) - Date.now()) / 1000)); const m = Math.floor(rem / 60); const s = rem % 60; return rem > 0 ? <p style={{ fontSize: 10, color: rem < 120 ? '#fbbf24' : '#64748b', marginTop: 2 }}>⏱️ Expiran en {m}:{String(s).padStart(2, '0')}</p> : null; })()}
+                  </div>
+                  <button onClick={() => { if (legalOtpCooldown <= 0) requestLegalOtp(); }} disabled={legalOtpSending || legalOtpCooldown > 0} style={{ fontSize: 10, color: legalOtpCooldown > 0 ? '#475569' : '#94a3b8', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 6, padding: '3px 10px', cursor: legalOtpCooldown > 0 ? 'not-allowed' : 'pointer' }}>{legalOtpCooldown > 0 ? `Reenviar (${legalOtpCooldown}s)` : 'Reenviar'}</button>
                 </div>
               )}
               {!legalOtpSending && !legalOtpSent && (
@@ -4077,7 +4109,7 @@ if (!token) return (
 
             {/* Botones: Aceptar + Cancelar */}
             <div style={{ display: 'flex', gap: 10 }}>
-              <button onClick={() => { setShowLegalModal(false); setLegalChecked(false); setLegalMsg(''); setLegalOtpSent(false); setLegalOtpMasked(null); setLegalOtpWa(''); setLegalOtpEmail(''); }} style={{ flex: 1, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#94a3b8', padding: '12px 16px', borderRadius: 10, fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>
+              <button onClick={() => { setShowLegalModal(false); setLegalChecked(false); setLegalMsg(''); setLegalOtpSent(false); setLegalOtpMasked(null); setLegalOtpWa(''); setLegalOtpEmail(''); setLegalOtpCooldown(0); setLegalOtpExpiry(null); }} style={{ flex: 1, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#94a3b8', padding: '12px 16px', borderRadius: 10, fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>
                 Cancelar
               </button>
               <button onClick={handleLegalAccept} disabled={legalAccepting || !legalChecked || legalOtpWa.length !== 6 || legalOtpEmail.length !== 6} style={{ flex: 2, background: (legalChecked && legalOtpWa.length === 6 && legalOtpEmail.length === 6) ? 'linear-gradient(135deg,#6366f1,#8b5cf6)' : 'rgba(99,102,241,0.2)', color: '#fff', padding: '12px 20px', borderRadius: 10, fontSize: 13, fontWeight: 700, border: 'none', cursor: (legalChecked && legalOtpWa.length === 6 && legalOtpEmail.length === 6) ? 'pointer' : 'not-allowed', opacity: legalAccepting ? 0.6 : 1, transition: 'all .2s' }}>
