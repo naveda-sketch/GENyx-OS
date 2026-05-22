@@ -3147,26 +3147,68 @@ const STATUS_COLORS = {
 
 
 // ═══════════════════════════════════════════════════════════════════
-// LIVE FEED — Bloomberg Terminal UX (REGLA 14: UnifiedEventStream)
+// CONSTELLATION LIVE FEED v2 — Holographic Jarvis UX
 // ═══════════════════════════════════════════════════════════════════
-// Polling endpoint: GET /api/client/{slug}/agents-live-feed?limit=30
-// Refresh: 8s interval. Fade-in for new events. Color-coded status.
+// METODOLOGÍA (REGLA 14): Visualization-First UX Design.
+// Pattern: ConstellationHolographic — 9 agentes como nodos orbitales
+// con pulsos luminosos + handoff lines al actuar.
+// "The medium is the message" — McLuhan. La constelación comunica
+// AOaaS visualmente: operación autónoma orquestada.
 // ═══════════════════════════════════════════════════════════════════
-const AGENT_ICONS = { venta: '🛒', marketing: '📣', cierre: '💰', entrega: '🚚', captacion: '🎯', analitica: '📊', inventario: '📦', soporte: '🎧', fidelizacion: '💎', arquitecto: '🏗️', vigia: '🛡️' };
-const FEED_STATUS = {
-  executed: { color: '#4ade80', icon: '✅' },
-  active:   { color: '#4ade80', icon: '⚡' },
-  warning:  { color: '#fbbf24', icon: '⚠️' },
-  error:    { color: '#f87171', icon: '❌' },
-  blocked:  { color: '#f87171', icon: '🚫' },
-  pending:  { color: '#94a3b8', icon: '⏳' },
+
+// Inject Constellation CSS + Google Font
+if (typeof document !== 'undefined' && !document.getElementById('genyx-constellation-css')) {
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap';
+  document.head.appendChild(link);
+
+  const style = document.createElement('style');
+  style.id = 'genyx-constellation-css';
+  style.textContent = `
+    @keyframes constellationPulse { 0%,100% { opacity: 0.3; transform: scale(1); } 50% { opacity: 0.7; transform: scale(1.08); } }
+    @keyframes nodeActive { 0% { transform: scale(1); filter: drop-shadow(0 0 4px #00D4FF); } 50% { transform: scale(1.4); filter: drop-shadow(0 0 20px #00D4FF); } 100% { transform: scale(1); filter: drop-shadow(0 0 8px #00D4FF); } }
+    @keyframes nodeWarning { 0%,100% { filter: drop-shadow(0 0 6px #FFB800); } 50% { filter: drop-shadow(0 0 18px #FFB800); } }
+    @keyframes nodeError { 0%,100% { filter: drop-shadow(0 0 4px #FF3366); } 50% { filter: drop-shadow(0 0 16px #FF3366); } }
+    @keyframes ripple { 0% { r: 18; opacity: 0.6; } 100% { r: 50; opacity: 0; } }
+    @keyframes dashFlow { to { stroke-dashoffset: 0; } }
+    @keyframes corePulse { 0%,100% { opacity: 0.4; filter: drop-shadow(0 0 8px #00D4FF); } 50% { opacity: 0.8; filter: drop-shadow(0 0 24px #00D4FF); } }
+    @keyframes feedSlideIn { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes liveDot { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+    @keyframes orbitFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+  `;
+  document.head.appendChild(style);
+}
+
+const CONSTELLATION_AGENTS = {
+  marketing:   { icon: '📣', label: 'Marketing',   angle:  90, radius: 0.72, color: '#00D4FF' },
+  captacion:   { icon: '🎯', label: 'Captación',   angle: 140, radius: 0.68, color: '#00D4FF' },
+  venta:       { icon: '🛒', label: 'Venta',       angle: 180, radius: 0.65, color: '#00D4FF' },
+  cierre:      { icon: '🤝', label: 'Cierre',      angle:   0, radius: 0.65, color: '#00D4FF' },
+  cobro:       { icon: '💰', label: 'Cobro',        angle: 220, radius: 0.70, color: '#00D4FF' },
+  entrega:     { icon: '🚚', label: 'Entrega',      angle: 320, radius: 0.70, color: '#00D4FF' },
+  analitica:   { icon: '📊', label: 'Analítica',    angle: 250, radius: 0.76, color: '#00D4FF' },
+  seguimiento: { icon: '💬', label: 'Seguimiento',  angle: 270, radius: 0.78, color: '#00D4FF' },
+  direccion:   { icon: '🎯', label: 'Dirección',    angle: 290, radius: 0.76, color: '#00D4FF' },
+};
+
+const CONSTELLATION_STATUS = {
+  executed: '#00D4FF',
+  active:   '#00D4FF',
+  warning:  '#FFB800',
+  error:    '#FF3366',
+  blocked:  '#FF3366',
+  pending:  '#6B7D99',
 };
 
 function LiveFeed({ slug, token }) {
   const [events, setEvents] = useState([]);
   const [fetching, setFetching] = useState(true);
-  const [prevIds, setPrevIds] = useState(new Set());
-  const [newIds, setNewIds] = useState(new Set());
+  const [activeAgents, setActiveAgents] = useState({}); // {agent_id: {color, ts}}
+  const [handoffs, setHandoffs] = useState([]); // [{from, to, key}]
+  const [lastEvent, setLastEvent] = useState(null);
+  const [evtCount, setEvtCount] = useState(0);
+  const [prevEventKeys, setPrevEventKeys] = useState(new Set());
 
   const fetchFeed = async () => {
     try {
@@ -3176,15 +3218,36 @@ function LiveFeed({ slug, token }) {
       if (!r.ok) return;
       const d = await r.json();
       const evts = d.events || [];
-      // Detect new events for fade-in
-      const currentIds = new Set(evts.map((e, i) => `${e.agent_id}_${e.timestamp}_${i}`));
-      const freshIds = new Set();
-      currentIds.forEach(id => { if (!prevIds.has(id)) freshIds.add(id); });
-      setPrevIds(currentIds);
-      setNewIds(freshIds);
+
+      // Detect new events
+      const currentKeys = new Set(evts.map((e, i) => `${e.agent_id}_${e.timestamp}_${i}`));
+      const newEvts = evts.filter((e, i) => !prevEventKeys.has(`${e.agent_id}_${e.timestamp}_${i}`));
+      setPrevEventKeys(currentKeys);
+
+      // Trigger active animation for new events
+      if (newEvts.length > 0) {
+        const newActive = {};
+        newEvts.forEach(e => {
+          newActive[e.agent_id] = { color: CONSTELLATION_STATUS[e.status] || '#00D4FF', ts: Date.now() };
+        });
+        setActiveAgents(prev => ({ ...prev, ...newActive }));
+        // Handoff: consecutive events within 5s = connection line
+        for (let i = 1; i < newEvts.length; i++) {
+          const t1 = new Date(newEvts[i-1].timestamp).getTime();
+          const t2 = new Date(newEvts[i].timestamp).getTime();
+          if (Math.abs(t2 - t1) < 5000 && newEvts[i-1].agent_id !== newEvts[i].agent_id) {
+            setHandoffs(prev => [...prev.slice(-4), { from: newEvts[i-1].agent_id, to: newEvts[i].agent_id, key: Date.now() + i }]);
+          }
+        }
+        setLastEvent(newEvts[0]);
+        // Clear active state after animation
+        setTimeout(() => setActiveAgents({}), 2000);
+        // Clear handoffs after animation
+        setTimeout(() => setHandoffs([]), 2500);
+      }
+
       setEvents(evts);
-      // Clear new-event highlight after animation
-      if (freshIds.size > 0) setTimeout(() => setNewIds(new Set()), 1500);
+      setEvtCount(evts.length);
     } catch {}
     setFetching(false);
   };
@@ -3192,70 +3255,141 @@ function LiveFeed({ slug, token }) {
   useEffect(() => {
     if (!token) return;
     fetchFeed();
-    const t = setInterval(fetchFeed, 8000);
+    const t = setInterval(fetchFeed, 5000);
     return () => clearInterval(t);
   }, [token, slug]);
 
-  if (fetching && events.length === 0) return (
-    <div style={{ textAlign: 'center', padding: 30, color: '#64748b' }}>
-      <p style={{ fontSize: 12 }}>⏳ Conectando feed en vivo...</p>
-    </div>
-  );
+  // SVG dimensions (responsive)
+  const W = 380, H = 320, CX = W / 2, CY = H / 2 - 10;
 
-  if (events.length === 0) return (
-    <div style={{ textAlign: 'center', padding: 30, background: 'rgba(99,102,241,0.04)', borderRadius: 14, border: '1px dashed rgba(99,102,241,0.2)' }}>
-      <p style={{ fontSize: 28, marginBottom: 8 }}>🤖</p>
-      <p style={{ fontSize: 13, color: '#94a3b8', fontWeight: 600 }}>Tus agentes están listos</p>
-      <p style={{ fontSize: 11, color: '#64748b', marginTop: 4 }}>La actividad aparecerá aquí en tiempo real</p>
-    </div>
-  );
-
-  const fmtTime = (ts) => {
-    try { const d = new Date(ts.includes('T') ? ts : ts + 'Z'); return d.toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }); }
-    catch { return ts; }
+  const getPos = (agent) => {
+    const cfg = CONSTELLATION_AGENTS[agent];
+    if (!cfg) return { x: CX, y: CY };
+    const rad = cfg.angle * Math.PI / 180;
+    const r = cfg.radius * (Math.min(W, H) / 2);
+    return { x: CX + r * Math.cos(rad), y: CY - r * Math.sin(rad) };
   };
 
+  const fmtAgo = (ts) => {
+    try {
+      const s = Math.floor((Date.now() - new Date(ts.includes('T') ? ts : ts + 'Z').getTime()) / 1000);
+      if (s < 5) return 'ahora';
+      if (s < 60) return `${s}s`;
+      if (s < 3600) return `${Math.floor(s/60)}m`;
+      return `${Math.floor(s/3600)}h`;
+    } catch { return ''; }
+  };
+
+  const agentLabel = (id) => CONSTELLATION_AGENTS[id]?.label || id;
+  const agentIcon = (id) => CONSTELLATION_AGENTS[id]?.icon || '🤖';
+
   return (
-    <div style={{ background: '#020617', borderRadius: 14, border: '1px solid rgba(99,102,241,0.15)', overflow: 'hidden' }}>
-      {/* Header bar */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px', borderBottom: '1px solid rgba(99,102,241,0.1)', background: 'rgba(99,102,241,0.03)' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <span style={{ fontSize: 14 }}>🤖</span>
-          <span style={{ fontSize: 12, fontWeight: 700, color: '#e2e8f0' }}>Tus agentes en vivo</span>
-        </div>
+    <div style={{ background: '#0A0E1A', borderRadius: 18, border: '1px solid rgba(0,212,255,0.12)', overflow: 'hidden', position: 'relative' }} data-pattern="ConstellationHolographic">
+      {/* Header */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 18px', borderBottom: '1px solid rgba(0,212,255,0.08)' }}>
+        <span style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: 13, fontWeight: 700, color: '#E8F4FF', letterSpacing: '.04em', textTransform: 'uppercase' }}>Tu Operación Autónoma</span>
         <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-          <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#4ade80', animation: 'pulse 2s infinite' }} />
-          <span style={{ fontSize: 10, fontWeight: 700, color: '#4ade80', textTransform: 'uppercase', letterSpacing: '.06em' }}>En vivo</span>
+          <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#00D4FF', animation: 'liveDot 1.5s infinite' }} />
+          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, fontWeight: 500, color: '#00D4FF', letterSpacing: '.06em' }}>EN VIVO{evtCount > 0 ? ` · ${evtCount} evt` : ''}</span>
         </div>
       </div>
-      {/* Event list */}
-      <div style={{ maxHeight: 360, overflow: 'auto', padding: '4px 0' }} data-pattern="UnifiedEventStream">
-        {events.map((evt, i) => {
-          const evtId = `${evt.agent_id}_${evt.timestamp}_${i}`;
-          const isNew = newIds.has(evtId);
-          const st = FEED_STATUS[evt.status] || FEED_STATUS.pending;
-          const agentIcon = AGENT_ICONS[evt.agent_id] || '🤖';
-          const agentName = (evt.agent_id || '').charAt(0).toUpperCase() + (evt.agent_id || '').slice(1);
-          return (
-            <div key={evtId} style={{
-              display: 'flex', alignItems: 'center', gap: 10, padding: '8px 16px',
-              borderBottom: '1px solid rgba(255,255,255,0.03)',
-              background: isNew ? 'rgba(99,102,241,0.08)' : 'transparent',
-              transition: 'all 0.6s ease-out',
-              animation: isNew ? 'fadeIn 0.5s ease-out' : 'none',
-            }}>
-              <span style={{ fontSize: 10, fontFamily: 'monospace', color: '#475569', minWidth: 62, flexShrink: 0 }}>{fmtTime(evt.timestamp)}</span>
-              <span style={{ fontSize: 16, flexShrink: 0 }}>{agentIcon}</span>
-              <span style={{ fontSize: 11, fontWeight: 700, color: '#a5b4fc', minWidth: 72, flexShrink: 0 }}>{agentName}</span>
-              <span style={{ fontSize: 11, color: '#94a3b8', flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{evt.description}</span>
-              <span style={{ fontSize: 14, flexShrink: 0 }} title={evt.status}>{st.icon}</span>
-            </div>
-          );
-        })}
+
+      {/* Constellation SVG */}
+      <div style={{ position: 'relative', padding: '0 8px' }}>
+        <svg viewBox={`0 0 ${W} ${H}`} style={{ width: '100%', height: 'auto', display: 'block' }} aria-label="Constelación de agentes en vivo">
+          <defs>
+            <radialGradient id="coreGlow"><stop offset="0%" stopColor="#00D4FF" stopOpacity="0.3" /><stop offset="100%" stopColor="#00D4FF" stopOpacity="0" /></radialGradient>
+            <filter id="glowCyan"><feGaussianBlur stdDeviation="3" /><feComposite in="SourceGraphic" /></filter>
+            <filter id="glowMagenta"><feGaussianBlur stdDeviation="4" /><feComposite in="SourceGraphic" /></filter>
+          </defs>
+
+          {/* Orbital rings (subtle) */}
+          <circle cx={CX} cy={CY} r={W*0.25} fill="none" stroke="rgba(0,212,255,0.04)" strokeWidth="1" strokeDasharray="4 6" />
+          <circle cx={CX} cy={CY} r={W*0.37} fill="none" stroke="rgba(0,212,255,0.03)" strokeWidth="1" strokeDasharray="3 8" />
+
+          {/* Connection lines (dormant — very subtle) */}
+          {Object.keys(CONSTELLATION_AGENTS).map((id, i, arr) => {
+            const next = arr[(i + 1) % arr.length];
+            const p1 = getPos(id), p2 = getPos(next);
+            return <line key={`conn-${id}`} x1={p1.x} y1={p1.y} x2={p2.x} y2={p2.y} stroke="rgba(0,212,255,0.04)" strokeWidth="0.5" />;
+          })}
+
+          {/* Handoff lines (animated — magenta neon) */}
+          {handoffs.map(h => {
+            const p1 = getPos(h.from), p2 = getPos(h.to);
+            const dx = p2.x - p1.x, dy = p2.y - p1.y;
+            const len = Math.sqrt(dx*dx + dy*dy);
+            return (
+              <line key={h.key} x1={p1.x} y1={p1.y} x2={p2.x} y2={p2.y}
+                stroke="#FF00E5" strokeWidth="1.5" strokeLinecap="round"
+                strokeDasharray={`${len}`} strokeDashoffset={len}
+                style={{ animation: 'dashFlow 0.8s ease-out forwards', filter: 'drop-shadow(0 0 6px #FF00E5)', opacity: 0.8 }} />
+            );
+          })}
+
+          {/* Core center — GX logo pulsing */}
+          <circle cx={CX} cy={CY} r={30} fill="url(#coreGlow)" style={{ animation: 'corePulse 8s ease-in-out infinite' }} />
+          <circle cx={CX} cy={CY} r={14} fill="rgba(0,212,255,0.08)" stroke="rgba(0,212,255,0.2)" strokeWidth="1" />
+          <text x={CX} y={CY + 4} textAnchor="middle" fill="#00D4FF" fontSize="9" fontFamily="'Orbitron', sans-serif" fontWeight="700" style={{ opacity: 0.8 }}>GX</text>
+
+          {/* Agent nodes */}
+          {Object.entries(CONSTELLATION_AGENTS).map(([id, cfg]) => {
+            const pos = getPos(id);
+            const isActive = !!activeAgents[id];
+            const activeColor = activeAgents[id]?.color || cfg.color;
+            const nodeColor = isActive ? activeColor : 'rgba(0,212,255,0.3)';
+            const glowSize = isActive ? 12 : 4;
+            return (
+              <g key={id} style={{ animation: isActive ? 'nodeActive 1.2s ease-out' : `orbitFloat ${6 + Math.random()*4}s ease-in-out infinite`, transformOrigin: `${pos.x}px ${pos.y}px` }}>
+                {/* Ripple on active */}
+                {isActive && <circle cx={pos.x} cy={pos.y} fill="none" stroke={activeColor} strokeWidth="1.5" style={{ animation: 'ripple 1.5s ease-out forwards' }} />}
+                {/* Node glow */}
+                <circle cx={pos.x} cy={pos.y} r={18} fill={`${nodeColor}22`} stroke={nodeColor} strokeWidth={isActive ? 1.5 : 0.8}
+                  style={{ filter: `drop-shadow(0 0 ${glowSize}px ${nodeColor})`, transition: 'all 0.4s ease' }} />
+                {/* Agent emoji */}
+                <text x={pos.x} y={pos.y + 5} textAnchor="middle" fontSize="14" style={{ pointerEvents: 'none' }}>{cfg.icon}</text>
+                {/* Agent label */}
+                <text x={pos.x} y={pos.y + 28} textAnchor="middle" fill={isActive ? '#E8F4FF' : '#6B7D99'} fontSize="7" fontFamily="'Rajdhani', sans-serif" fontWeight="600" letterSpacing="0.03em" style={{ transition: 'fill 0.3s' }}>{cfg.label}</text>
+              </g>
+            );
+          })}
+        </svg>
       </div>
+
+      {/* Last action banner */}
+      {lastEvent && (
+        <div style={{ padding: '8px 18px', borderTop: '1px solid rgba(0,212,255,0.06)', display: 'flex', alignItems: 'center', gap: 8, animation: 'feedSlideIn 0.4s ease-out' }}>
+          <span style={{ fontSize: 12 }}>{agentIcon(lastEvent.agent_id)}</span>
+          <span style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: 11, fontWeight: 600, color: '#00D4FF' }}>{agentLabel(lastEvent.agent_id)}</span>
+          <span style={{ fontSize: 10, color: '#6B7D99', flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{lastEvent.description}</span>
+          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: '#475569' }}>hace {fmtAgo(lastEvent.timestamp)}</span>
+        </div>
+      )}
+
+      {/* Mini feed — last 5 events */}
+      {events.length > 0 && (
+        <div style={{ borderTop: '1px solid rgba(0,212,255,0.06)', padding: '6px 0' }}>
+          {events.slice(0, 5).map((evt, i) => (
+            <div key={`mf-${i}`} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '4px 18px', opacity: 1 - i * 0.12 }}>
+              <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 8, color: '#475569', minWidth: 28, flexShrink: 0 }}>{fmtAgo(evt.timestamp)}</span>
+              <span style={{ fontSize: 10, flexShrink: 0 }}>{agentIcon(evt.agent_id)}</span>
+              <span style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: 10, fontWeight: 600, color: '#00D4FF', minWidth: 56, flexShrink: 0 }}>{agentLabel(evt.agent_id)}</span>
+              <span style={{ fontSize: 9, color: '#6B7D99', flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{evt.description}</span>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Empty state */}
+      {events.length === 0 && !fetching && (
+        <div style={{ textAlign: 'center', padding: '12px 18px', borderTop: '1px solid rgba(0,212,255,0.06)' }}>
+          <p style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: 12, color: '#6B7D99', fontWeight: 600 }}>Tus agentes esperan su primer disparo</p>
+        </div>
+      )}
+
       {/* Footer */}
-      <div style={{ padding: '6px 16px', borderTop: '1px solid rgba(99,102,241,0.1)', textAlign: 'center' }}>
-        <span style={{ fontSize: 9, color: '#475569' }}>Actualiza cada 8s · {events.length} eventos recientes</span>
+      <div style={{ padding: '5px 18px', borderTop: '1px solid rgba(0,212,255,0.04)', textAlign: 'center' }}>
+        <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 8, color: '#2D3A50', letterSpacing: '.04em' }}>POLLING 5s · 9 AGENTES AOaaS · OPERACIÓN AUTÓNOMA</span>
       </div>
     </div>
   );
