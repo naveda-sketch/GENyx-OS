@@ -3772,7 +3772,7 @@ if (!token) return (
 
       {/* ── Cláusula 7b: Banner persistente (P4: positive framing, brand colors) ── */}
       {legalStatus?.requires_re_acceptance && (
-        <div style={{ maxWidth: 720, margin: '0 auto', padding: '8px 18px 0' }}>
+        <div style={{ maxWidth: 720, margin: '0 auto', padding: '8px 18px 0', position: 'relative', zIndex: 5 }}>
           <div style={{ background: 'linear-gradient(135deg, rgba(99,102,241,0.12), rgba(139,92,246,0.08))', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 12, padding: '12px 18px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, flex: 1, minWidth: 200 }}>
               <span style={{ fontSize: 18 }}>📜</span>
