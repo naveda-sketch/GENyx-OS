@@ -3364,14 +3364,17 @@ function MandoClientView({ slug }) {
   const brandColor  = config?.brand_color || '#6366f1';
   const brandAccent = lighten(brandColor, 20);
   const tenantName  = config?.business_name || slug;
-  const tenantLogo  = config?.logo_url || null;
+  const tenantLogo  = (config?.logo_url && config.logo_url.trim()) || null; // Empty string → null
   // BUG #1 FIX (REGLA 14: UX fallback method — initial-letter in brand-colored circle)
   // Methodology: when logo_url is null/broken, render first letter of business name
   // in a circle with the tenant's brand color. Never show broken image or "?" emoji.
   const LogoFallback = ({ size = 32, style = {} }) => {
     const initial = (tenantName || 'G').charAt(0).toUpperCase();
-    if (tenantLogo) return <img src={tenantLogo} alt={tenantName} style={{ width: size, height: size, borderRadius: size > 40 ? 16 : 8, objectFit: 'cover', ...style }} onError={e => { e.target.style.display = 'none'; e.target.nextSibling && (e.target.nextSibling.style.display = 'flex'); }} />;
-    return <div style={{ width: size, height: size, borderRadius: size > 40 ? 16 : 8, background: `linear-gradient(135deg, ${brandColor}, ${brandAccent})`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: size * 0.45, fontWeight: 800, fontFamily: "'Inter', sans-serif", letterSpacing: '-0.02em', flexShrink: 0, ...style }}>{initial}</div>;
+    const [imgOk, setImgOk] = useState(!!tenantLogo);
+    const br = size > 40 ? 16 : 8;
+    const fallbackDiv = <div style={{ width: size, height: size, borderRadius: br, background: `linear-gradient(135deg, ${brandColor}, ${brandAccent})`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: size * 0.45, fontWeight: 800, fontFamily: "'Inter', sans-serif", letterSpacing: '-0.02em', flexShrink: 0, ...style }}>{initial}</div>;
+    if (!tenantLogo || !imgOk) return fallbackDiv;
+    return <img src={tenantLogo} alt={tenantName} style={{ width: size, height: size, borderRadius: br, objectFit: 'cover', ...style }} onError={() => setImgOk(false)} />;
   };
 
   // ── Auth
