@@ -3137,6 +3137,122 @@ const STATUS_COLORS = {
   inactive: { bg: '#f8fafc', border: '#e2e8f0', text: '#94a3b8', label: '○ Configurando' },
 };
 
+
+// ═══════════════════════════════════════════════════════════════════
+// LIVE FEED — Bloomberg Terminal UX (REGLA 14: UnifiedEventStream)
+// ═══════════════════════════════════════════════════════════════════
+// Polling endpoint: GET /api/client/{slug}/agents-live-feed?limit=30
+// Refresh: 8s interval. Fade-in for new events. Color-coded status.
+// ═══════════════════════════════════════════════════════════════════
+const AGENT_ICONS = { venta: '🛒', marketing: '📣', cierre: '💰', entrega: '🚚', captacion: '🎯', analitica: '📊', inventario: '📦', soporte: '🎧', fidelizacion: '💎', arquitecto: '🏗️', vigia: '🛡️' };
+const FEED_STATUS = {
+  executed: { color: '#4ade80', icon: '✅' },
+  active:   { color: '#4ade80', icon: '⚡' },
+  warning:  { color: '#fbbf24', icon: '⚠️' },
+  error:    { color: '#f87171', icon: '❌' },
+  blocked:  { color: '#f87171', icon: '🚫' },
+  pending:  { color: '#94a3b8', icon: '⏳' },
+};
+
+function LiveFeed({ slug, token }) {
+  const [events, setEvents] = useState([]);
+  const [fetching, setFetching] = useState(true);
+  const [prevIds, setPrevIds] = useState(new Set());
+  const [newIds, setNewIds] = useState(new Set());
+
+  const fetchFeed = async () => {
+    try {
+      const r = await fetch(`${BACKEND}/api/client/${slug}/agents-live-feed?limit=30`, {
+        headers: { 'X-Dashboard-Token': token }
+      });
+      if (!r.ok) return;
+      const d = await r.json();
+      const evts = d.events || [];
+      // Detect new events for fade-in
+      const currentIds = new Set(evts.map((e, i) => `${e.agent_id}_${e.timestamp}_${i}`));
+      const freshIds = new Set();
+      currentIds.forEach(id => { if (!prevIds.has(id)) freshIds.add(id); });
+      setPrevIds(currentIds);
+      setNewIds(freshIds);
+      setEvents(evts);
+      // Clear new-event highlight after animation
+      if (freshIds.size > 0) setTimeout(() => setNewIds(new Set()), 1500);
+    } catch {}
+    setFetching(false);
+  };
+
+  useEffect(() => {
+    if (!token) return;
+    fetchFeed();
+    const t = setInterval(fetchFeed, 8000);
+    return () => clearInterval(t);
+  }, [token, slug]);
+
+  if (fetching && events.length === 0) return (
+    <div style={{ textAlign: 'center', padding: 30, color: '#64748b' }}>
+      <p style={{ fontSize: 12 }}>⏳ Conectando feed en vivo...</p>
+    </div>
+  );
+
+  if (events.length === 0) return (
+    <div style={{ textAlign: 'center', padding: 30, background: 'rgba(99,102,241,0.04)', borderRadius: 14, border: '1px dashed rgba(99,102,241,0.2)' }}>
+      <p style={{ fontSize: 28, marginBottom: 8 }}>🤖</p>
+      <p style={{ fontSize: 13, color: '#94a3b8', fontWeight: 600 }}>Tus agentes están listos</p>
+      <p style={{ fontSize: 11, color: '#64748b', marginTop: 4 }}>La actividad aparecerá aquí en tiempo real</p>
+    </div>
+  );
+
+  const fmtTime = (ts) => {
+    try { const d = new Date(ts.includes('T') ? ts : ts + 'Z'); return d.toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }); }
+    catch { return ts; }
+  };
+
+  return (
+    <div style={{ background: '#020617', borderRadius: 14, border: '1px solid rgba(99,102,241,0.15)', overflow: 'hidden' }}>
+      {/* Header bar */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px', borderBottom: '1px solid rgba(99,102,241,0.1)', background: 'rgba(99,102,241,0.03)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <span style={{ fontSize: 14 }}>🤖</span>
+          <span style={{ fontSize: 12, fontWeight: 700, color: '#e2e8f0' }}>Tus agentes en vivo</span>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#4ade80', animation: 'pulse 2s infinite' }} />
+          <span style={{ fontSize: 10, fontWeight: 700, color: '#4ade80', textTransform: 'uppercase', letterSpacing: '.06em' }}>En vivo</span>
+        </div>
+      </div>
+      {/* Event list */}
+      <div style={{ maxHeight: 360, overflow: 'auto', padding: '4px 0' }} data-pattern="UnifiedEventStream">
+        {events.map((evt, i) => {
+          const evtId = `${evt.agent_id}_${evt.timestamp}_${i}`;
+          const isNew = newIds.has(evtId);
+          const st = FEED_STATUS[evt.status] || FEED_STATUS.pending;
+          const agentIcon = AGENT_ICONS[evt.agent_id] || '🤖';
+          const agentName = (evt.agent_id || '').charAt(0).toUpperCase() + (evt.agent_id || '').slice(1);
+          return (
+            <div key={evtId} style={{
+              display: 'flex', alignItems: 'center', gap: 10, padding: '8px 16px',
+              borderBottom: '1px solid rgba(255,255,255,0.03)',
+              background: isNew ? 'rgba(99,102,241,0.08)' : 'transparent',
+              transition: 'all 0.6s ease-out',
+              animation: isNew ? 'fadeIn 0.5s ease-out' : 'none',
+            }}>
+              <span style={{ fontSize: 10, fontFamily: 'monospace', color: '#475569', minWidth: 62, flexShrink: 0 }}>{fmtTime(evt.timestamp)}</span>
+              <span style={{ fontSize: 16, flexShrink: 0 }}>{agentIcon}</span>
+              <span style={{ fontSize: 11, fontWeight: 700, color: '#a5b4fc', minWidth: 72, flexShrink: 0 }}>{agentName}</span>
+              <span style={{ fontSize: 11, color: '#94a3b8', flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{evt.description}</span>
+              <span style={{ fontSize: 14, flexShrink: 0 }} title={evt.status}>{st.icon}</span>
+            </div>
+          );
+        })}
+      </div>
+      {/* Footer */}
+      <div style={{ padding: '6px 16px', borderTop: '1px solid rgba(99,102,241,0.1)', textAlign: 'center' }}>
+        <span style={{ fontSize: 9, color: '#475569' }}>Actualiza cada 8s · {events.length} eventos recientes</span>
+      </div>
+    </div>
+  );
+}
+
 function TabMisAgentes({ slug, token }) {
   const [agents, setAgents] = useState(null);
   const [plan, setPlan] = useState('esencial');
@@ -3185,6 +3301,10 @@ function TabMisAgentes({ slug, token }) {
       <div style={{ marginTop: 16, padding: '12px 14px', background: '#f8fafc', borderRadius: 12, border: '1px solid #e2e8f0', fontSize: 12, color: '#64748b', textAlign: 'center' }}>
         💡 9 agentes AOaaS activos en tu plan <b>{plan}</b>. Límites mensuales según contrato.
       </div>
+      {/* Live Feed — Bloomberg Terminal UX */}
+      <div style={{ marginTop: 20 }}>
+        <LiveFeed slug={slug} token={token} />
+      </div>
     </>
   );
 }
@@ -3206,6 +3326,16 @@ function TabLegalDocs({ slug, token }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [expandedDoc, setExpandedDoc] = useState(null);
+  const [signDocSlug, setSignDocSlug] = useState(null); // doc_slug being signed
+  const [signOtpWa, setSignOtpWa] = useState('');
+  const [signOtpEmail, setSignOtpEmail] = useState('');
+  const [signChecked, setSignChecked] = useState(false);
+  const [signMsg, setSignMsg] = useState('');
+  const [signSending, setSignSending] = useState(false);
+  const [signOtpSent, setSignOtpSent] = useState(false);
+  const [signMasked, setSignMasked] = useState(null);
+  const [signCooldown, setSignCooldown] = useState(0);
+  const [viewDoc, setViewDoc] = useState(null); // { slug, content, title }
 
   useEffect(() => {
     if (!token) return;
@@ -3216,6 +3346,75 @@ function TabLegalDocs({ slug, token }) {
       .then(d => { setDocs(d.docs || d); setLoading(false); })
       .catch(e => { setError(e.message); setLoading(false); });
   }, [slug, token]);
+
+  // Cooldown timer
+  useEffect(() => {
+    if (signCooldown <= 0) return;
+    const t = setTimeout(() => setSignCooldown(c => c - 1), 1000);
+    return () => clearTimeout(t);
+  }, [signCooldown]);
+
+  // Request OTP for signing
+  const requestSignOtp = async (docSlug) => {
+    setSignSending(true); setSignMsg('');
+    try {
+      const r = await fetch(`${BACKEND}/api/client/${slug}/legal/request-otp/${docSlug}`, {
+        method: 'POST', headers: { 'X-Dashboard-Token': token },
+      });
+      const d = await r.json();
+      if (r.ok) {
+        setSignMasked({ wa: d.wa_masked, email: d.email_masked, expires: d.expires_in_minutes });
+        setSignOtpSent(true); setSignCooldown(60);
+        setSignMsg(`✅ Códigos enviados a ${d.wa_masked} y ${d.email_masked}`);
+      } else if (r.status === 429) {
+        setSignMsg(`⏳ ${d.detail || 'Demasiados intentos. Espera antes de reintentar.'}`);
+      } else { setSignMsg(`❌ ${d.detail || 'Error enviando códigos'}`); }
+    } catch { setSignMsg('❌ Error de conexión'); }
+    setSignSending(false);
+  };
+
+  // Auto-request OTP when sign modal opens
+  useEffect(() => {
+    if (signDocSlug && !signOtpSent) requestSignOtp(signDocSlug);
+  }, [signDocSlug]);
+
+  // Submit signature
+  const handleSign = async () => {
+    if (signOtpWa.length !== 6 || signOtpEmail.length !== 6) { setSignMsg('Ambos códigos de 6 dígitos requeridos.'); return; }
+    setSignSending(true); setSignMsg('Verificando...');
+    try {
+      const r = await fetch(`${BACKEND}/api/client/${slug}/legal-accept/${signDocSlug}`, {
+        method: 'POST', headers: { 'X-Dashboard-Token': token, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ otp_wa_code: signOtpWa, email_otp_code: signOtpEmail }),
+      });
+      const d = await r.json();
+      if (r.ok) {
+        // Update doc status locally
+        setDocs(prev => prev.map(dc => dc.doc_slug === signDocSlug ? { ...dc, status: 'accepted', accepted_at: new Date().toISOString(), requires_re_acceptance: false } : dc));
+        setSignDocSlug(null); setSignOtpWa(''); setSignOtpEmail(''); setSignChecked(false); setSignMsg(''); setSignOtpSent(false); setSignMasked(null); setSignCooldown(0);
+      } else setSignMsg(`❌ ${d.detail || 'Error'}`);
+    } catch { setSignMsg('❌ Error de conexión'); }
+    setSignSending(false);
+  };
+
+  // View doc content
+  const handleView = async (doc) => {
+    if (doc.view_url) {
+      try {
+        const r = await fetch(doc.view_url);
+        const text = await r.text();
+        setViewDoc({ slug: doc.doc_slug, content: text, title: doc.title || doc.doc_slug });
+      } catch { setViewDoc({ slug: doc.doc_slug, content: 'Error cargando documento.', title: doc.title || doc.doc_slug }); }
+    } else {
+      // Try public endpoint
+      const shortSlug = doc.doc_slug.replace('_genyx', '').replace('contrato_servicios', 'contrato');
+      try {
+        const r = await fetch(`${BACKEND}/api/public/legal/${shortSlug}`);
+        const text = await r.text();
+        setViewDoc({ slug: doc.doc_slug, content: text, title: doc.title || doc.doc_slug });
+      } catch { setViewDoc({ slug: doc.doc_slug, content: 'Documento no disponible aún.', title: doc.title || doc.doc_slug }); }
+    }
+  };
 
   if (loading) return (
     <div style={{ textAlign: 'center', padding: 60, color: '#64748b' }}>
@@ -3236,7 +3435,6 @@ function TabLegalDocs({ slug, token }) {
     </div>
   );
 
-  // Status badge mapping
   const statusConfig = {
     accepted:  { bg: 'rgba(74,222,128,0.1)', border: 'rgba(74,222,128,0.25)', color: '#4ade80', icon: '✅', label: 'Firmado' },
     pending:   { bg: 'rgba(251,191,36,0.1)', border: 'rgba(251,191,36,0.25)', color: '#fbbf24', icon: '📝', label: 'Pendiente' },
@@ -3257,10 +3455,10 @@ function TabLegalDocs({ slug, token }) {
         {docs.map((doc, i) => {
           const st = statusConfig[doc.status] || statusConfig.info;
           const isExpanded = expandedDoc === i;
+          const needsSign = doc.requires_re_acceptance && doc.status === 'pending';
           return (
             <div key={doc.doc_slug + doc.version} onClick={() => setExpandedDoc(isExpanded ? null : i)}
               style={{ background: '#0f172a', border: `1px solid ${st.border}`, borderRadius: 14, padding: '14px 18px', cursor: 'pointer', transition: 'all .2s', ...(isExpanded ? { boxShadow: `0 0 20px ${st.bg}` } : {}) }}>
-              {/* Header row */}
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, flex: 1, minWidth: 0 }}>
                   <span style={{ fontSize: 20 }}>{st.icon}</span>
@@ -3269,27 +3467,22 @@ function TabLegalDocs({ slug, token }) {
                     <p style={{ fontSize: 10, color: '#64748b' }}>v{doc.version} · {doc.released_at}</p>
                   </div>
                 </div>
-                <span style={{ fontSize: 10, fontWeight: 700, color: st.color, background: st.bg, border: `1px solid ${st.border}`, padding: '3px 10px', borderRadius: 6, whiteSpace: 'nowrap', textTransform: 'uppercase', letterSpacing: '.05em' }}>{st.label}</span>
+                <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+                  <span style={{ fontSize: 10, fontWeight: 700, color: st.color, background: st.bg, border: `1px solid ${st.border}`, padding: '3px 10px', borderRadius: 6, whiteSpace: 'nowrap', textTransform: 'uppercase', letterSpacing: '.05em' }}>{st.label}</span>
+                  {needsSign && (
+                    <button onClick={e => { e.stopPropagation(); setSignDocSlug(doc.doc_slug); }} style={{ fontSize: 10, fontWeight: 700, color: '#fff', background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', border: 'none', padding: '4px 12px', borderRadius: 6, cursor: 'pointer', whiteSpace: 'nowrap' }}>Firmar</button>
+                  )}
+                  {!needsSign && (
+                    <button onClick={e => { e.stopPropagation(); handleView(doc); }} style={{ fontSize: 10, fontWeight: 600, color: '#a5b4fc', background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.2)', padding: '4px 12px', borderRadius: 6, cursor: 'pointer', whiteSpace: 'nowrap' }}>Ver</button>
+                  )}
+                </div>
               </div>
-
-              {/* Expanded details */}
               {isExpanded && (
                 <div style={{ marginTop: 12, paddingTop: 12, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-                  {doc.changelog && (
-                    <div style={{ marginBottom: 10 }}>
-                      <p style={{ fontSize: 10, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Descripción</p>
-                      <p style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6, whiteSpace: 'pre-wrap' }}>{doc.changelog}</p>
-                    </div>
-                  )}
-                  {doc.accepted_at && (
-                    <p style={{ fontSize: 10, color: '#4ade80' }}>Firmado: {new Date(doc.accepted_at).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-                  )}
-                  {doc.content_hash && (
-                    <p style={{ fontSize: 9, color: '#475569', fontFamily: 'monospace', marginTop: 6 }}>SHA256: {doc.content_hash.substring(0, 16)}...</p>
-                  )}
-                  {doc.requires_re_acceptance && doc.status === 'pending' && (
-                    <p style={{ fontSize: 11, color: '#fbbf24', marginTop: 8 }}>📝 Este documento requiere tu firma. Usa el banner de actualización para aceptar.</p>
-                  )}
+                  {doc.changelog && (<div style={{ marginBottom: 10 }}><p style={{ fontSize: 10, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Descripción</p><p style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6, whiteSpace: 'pre-wrap' }}>{doc.changelog}</p></div>)}
+                  {doc.accepted_at && <p style={{ fontSize: 10, color: '#4ade80' }}>Firmado: {new Date(doc.accepted_at).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</p>}
+                  {doc.content_hash && <p style={{ fontSize: 9, color: '#475569', fontFamily: 'monospace', marginTop: 6 }}>SHA256: {doc.content_hash.substring(0, 16)}...</p>}
+                  {needsSign && <p style={{ fontSize: 11, color: '#fbbf24', marginTop: 8 }}>📝 Este documento requiere tu firma con verificación A2F.</p>}
                 </div>
               )}
             </div>
@@ -3297,7 +3490,67 @@ function TabLegalDocs({ slug, token }) {
         })}
       </div>
 
-      <p style={{ fontSize: 9, color: '#475569', textAlign: 'center', marginTop: 16 }}>Trazabilidad SHA256 · Registro inmutable · REGLA 13 GenyX</p>
+      {/* Sign Modal (A2F B3 — genérico para cualquier doc) */}
+      {signDocSlug && (
+        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 }}>
+          <div style={{ background: '#0f172a', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 20, padding: '28px 24px', maxWidth: 480, width: '100%' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
+              <div>
+                <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }}>Firma de documento</h3>
+                <p style={{ fontSize: 11, color: '#64748b' }}>{signDocSlug}</p>
+              </div>
+              <button onClick={() => { setSignDocSlug(null); setSignOtpWa(''); setSignOtpEmail(''); setSignChecked(false); setSignMsg(''); setSignOtpSent(false); setSignMasked(null); setSignCooldown(0); }} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#64748b', width: 32, height: 32, borderRadius: 8, cursor: 'pointer', fontSize: 16, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>✕</button>
+            </div>
+            {/* OTP status */}
+            <div style={{ marginBottom: 12 }}>
+              {signSending && !signOtpSent && <p style={{ fontSize: 11, color: '#fbbf24' }}>⏳ Enviando códigos de verificación...</p>}
+              {signOtpSent && signMasked && (
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 6 }}>
+                  <p style={{ fontSize: 11, color: '#4ade80' }}>✅ Códigos enviados a {signMasked.wa} y {signMasked.email}</p>
+                  <button onClick={() => { if (signCooldown <= 0) requestSignOtp(signDocSlug); }} disabled={signSending || signCooldown > 0} style={{ fontSize: 10, color: signCooldown > 0 ? '#475569' : '#94a3b8', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 6, padding: '3px 10px', cursor: signCooldown > 0 ? 'not-allowed' : 'pointer' }}>{signCooldown > 0 ? `Reenviar (${signCooldown}s)` : 'Reenviar'}</button>
+                </div>
+              )}
+            </div>
+            {/* OTP inputs */}
+            <div style={{ display: 'flex', gap: 10, marginBottom: 14 }}>
+              <div style={{ flex: 1 }}>
+                <label style={{ display: 'block', fontSize: 10, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Código WhatsApp</label>
+                <input type="text" maxLength={6} value={signOtpWa} onChange={e => setSignOtpWa(e.target.value.replace(/\D/g,''))} placeholder="000000" style={{ width: '100%', boxSizing: 'border-box', background: 'rgba(15,23,42,0.8)', border: '1px solid rgba(99,102,241,0.2)', color: '#f1f5f9', padding: '10px 12px', borderRadius: 8, fontSize: 18, fontFamily: 'monospace', letterSpacing: 6, textAlign: 'center', outline: 'none' }} />
+              </div>
+              <div style={{ flex: 1 }}>
+                <label style={{ display: 'block', fontSize: 10, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Código Email</label>
+                <input type="text" maxLength={6} value={signOtpEmail} onChange={e => setSignOtpEmail(e.target.value.replace(/\D/g,''))} placeholder="000000" style={{ width: '100%', boxSizing: 'border-box', background: 'rgba(15,23,42,0.8)', border: '1px solid rgba(99,102,241,0.2)', color: '#f1f5f9', padding: '10px 12px', borderRadius: 8, fontSize: 18, fontFamily: 'monospace', letterSpacing: 6, textAlign: 'center', outline: 'none' }} />
+              </div>
+            </div>
+            <label style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 16, cursor: 'pointer', padding: '10px 12px', background: signChecked ? 'rgba(99,102,241,0.06)' : 'transparent', borderRadius: 8, border: `1px solid ${signChecked ? 'rgba(99,102,241,0.2)' : 'rgba(255,255,255,0.06)'}`, transition: 'all .2s' }}>
+              <input type="checkbox" checked={signChecked} onChange={e => setSignChecked(e.target.checked)} style={{ marginTop: 2, accentColor: '#6366f1', width: 16, height: 16, cursor: 'pointer' }} />
+              <span style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.5 }}>He leído y acepto este documento legal.</span>
+            </label>
+            {signMsg && <p style={{ fontSize: 11, color: signMsg.startsWith('❌') ? '#f87171' : signMsg.startsWith('✅') ? '#4ade80' : '#fbbf24', marginBottom: 10 }}>{signMsg}</p>}
+            <div style={{ display: 'flex', gap: 10 }}>
+              <button onClick={() => { setSignDocSlug(null); setSignOtpWa(''); setSignOtpEmail(''); setSignChecked(false); setSignMsg(''); setSignOtpSent(false); setSignMasked(null); setSignCooldown(0); }} style={{ flex: 1, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#94a3b8', padding: '12px 16px', borderRadius: 10, fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>Cancelar</button>
+              <button onClick={handleSign} disabled={signSending || !signChecked || signOtpWa.length !== 6 || signOtpEmail.length !== 6} style={{ flex: 2, background: (signChecked && signOtpWa.length === 6 && signOtpEmail.length === 6) ? 'linear-gradient(135deg,#6366f1,#8b5cf6)' : 'rgba(99,102,241,0.2)', color: '#fff', padding: '12px 20px', borderRadius: 10, fontSize: 13, fontWeight: 700, border: 'none', cursor: (signChecked && signOtpWa.length === 6 && signOtpEmail.length === 6) ? 'pointer' : 'not-allowed', opacity: signSending ? 0.6 : 1 }}>
+                {signSending ? 'Verificando...' : 'Firmar documento'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* View Doc Modal */}
+      {viewDoc && (
+        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 }}>
+          <div style={{ background: '#0f172a', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 20, padding: '28px 24px', maxWidth: 640, width: '100%', maxHeight: '85vh', overflow: 'auto' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
+              <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9' }}>{viewDoc.title}</h3>
+              <button onClick={() => setViewDoc(null)} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#64748b', width: 32, height: 32, borderRadius: 8, cursor: 'pointer', fontSize: 16, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>✕</button>
+            </div>
+            <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.8, whiteSpace: 'pre-wrap', fontFamily: "'Inter', sans-serif" }}>{viewDoc.content}</div>
+          </div>
+        </div>
+      )}
+
+      <p style={{ fontSize: 9, color: '#475569', textAlign: 'center', marginTop: 16 }}>Trazabilidad SHA256 · Registro inmutable · A2F B3 por documento</p>
     </>
   );
 }
