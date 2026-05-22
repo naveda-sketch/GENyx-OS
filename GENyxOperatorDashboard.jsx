@@ -3541,13 +3541,15 @@ function MandoClientView({ slug }) {
   // BUG #1 FIX (REGLA 14: UX fallback method — initial-letter in brand-colored circle)
   // Methodology: when logo_url is null/broken, render first letter of business name
   // in a circle with the tenant's brand color. Never show broken image or "?" emoji.
+  // LogoFallback: Pure render function (NO hooks) to avoid React error #310.
+  // Previously used useState inside nested component — React hooks rules violation.
+  // METODOLOGÍA (REGLA 14): Hooks Compliance — React requires stable component
+  // identity for hooks. Nested component definitions re-create on each render.
+  const logoInitial = (tenantName || 'G').charAt(0).toUpperCase();
   const LogoFallback = ({ size = 32, style = {} }) => {
-    const initial = (tenantName || 'G').charAt(0).toUpperCase();
-    const [imgOk, setImgOk] = useState(!!tenantLogo);
     const br = size > 40 ? 16 : 8;
-    const fallbackDiv = <div style={{ width: size, height: size, borderRadius: br, background: `linear-gradient(135deg, ${brandColor}, ${brandAccent})`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: size * 0.45, fontWeight: 800, fontFamily: "'Inter', sans-serif", letterSpacing: '-0.02em', flexShrink: 0, ...style }}>{initial}</div>;
-    if (!tenantLogo || !imgOk) return fallbackDiv;
-    return <img src={tenantLogo} alt={tenantName} style={{ width: size, height: size, borderRadius: br, objectFit: 'cover', ...style }} onError={() => setImgOk(false)} />;
+    if (!tenantLogo) return <div style={{ width: size, height: size, borderRadius: br, background: `linear-gradient(135deg, ${brandColor}, ${brandAccent})`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: size * 0.45, fontWeight: 800, fontFamily: "'Inter', sans-serif", letterSpacing: '-0.02em', flexShrink: 0, ...style }}>{logoInitial}</div>;
+    return <img src={tenantLogo} alt={tenantName} style={{ width: size, height: size, borderRadius: br, objectFit: 'cover', ...style }} onError={e => { e.target.style.display = 'none'; e.target.insertAdjacentHTML('afterend', `<div style="width:${size}px;height:${size}px;border-radius:${br}px;background:linear-gradient(135deg,${brandColor},${brandAccent});display:flex;align-items:center;justify-content:center;color:#fff;font-size:${size * 0.45}px;font-weight:800;font-family:Inter,sans-serif;letter-spacing:-0.02em;flex-shrink:0">${logoInitial}</div>`); }} />;
   };
 
   // ── Auth
