@@ -67,15 +67,15 @@ si está en DOCTRINA_TECNICA.md.**
 
 | # | Candado | Materializa | Enforcement | Bypass |
 |---|---------|-------------|-------------|--------|
-| **#1** | Pre-push co-author Claude | REGLA 4 | `.githooks/pre-push` | `GENYX_PUSH_APPROVED=1` |
-| **#2** | Pre-commit gitleaks | REGLA 12 | `.githooks/pre-commit` | `SKIP_GITLEAKS=1` |
-| **#3** | Check-agnostic | REGLA 11 | `.githooks/check-agnostic` regex | `GENYX_AGNOSTIC_OVERRIDE=1` |
-| **#4** | Migration Silent Failure | Verificación schema vs código | `schema_migration_audit` + raise | `GENYX_MIGRATION_STRICT=0` |
-| **#5** | Endpoint Scope Leak Detection | REGLA 4 + REGLA 6 | `endpoint_scope_audit.py` CLI | (sin bypass) |
-| **#6** | ~~Refactor-First~~ | — | **DESCARTADO** — regla escrita disfrazada de candado | — |
-| **#7** | Doctrina-First Commit | REGLA 14 | `.githooks/commit-msg` requiere ref doctrinal | `GENYX_NO_DOCTRINA=1` |
-| **#8** | Bug Pattern Sweep | REGLA 3 | `bug_pattern_sweep.py` + `bug_pattern_sweep_log` | (sin bypass) |
-| **#9** | Doctrine Coverage Check | Meta-candado | `doctrine_coverage_check.py` + audit log | `GENYX_DOCTRINE_COVERAGE_SKIP=1` |
+| **FE-#1** | Pre-push co-author Claude | REGLA 4 | `.githooks/pre-push` | `GENYX_PUSH_APPROVED=1` |
+| **FE-#2** | Pre-commit gitleaks | REGLA 12 | `.githooks/pre-commit` | `SKIP_GITLEAKS=1` |
+| **FE-#3** | Check-agnostic | REGLA 11 | `.githooks/check-agnostic` regex | `GENYX_AGNOSTIC_OVERRIDE=1` |
+| **BE-#4** | Migration Silent Failure | Verificación schema vs código | `schema_migration_audit` + raise | `GENYX_MIGRATION_STRICT=0` |
+| **BE-#5** | Endpoint Scope Leak Detection | REGLA 4 + REGLA 6 | `endpoint_scope_audit.py` CLI | (sin bypass) |
+| **BE-#6** | ~~Refactor-First~~ | — | **DESCARTADO** — regla escrita disfrazada de candado | — |
+| **FE-#7** | Doctrina-First Commit | REGLA 14 | `.githooks/commit-msg` requiere ref doctrinal | `GENYX_NO_DOCTRINA=1` |
+| **BE-#8** | Bug Pattern Sweep | REGLA 3 | `bug_pattern_sweep.py` + `bug_pattern_sweep_log` | (sin bypass) |
+| **BE-#9** | Doctrine Coverage Check | Meta-candado | `doctrine_coverage_check.py` + audit log | `GENYX_DOCTRINE_COVERAGE_SKIP=1` |
 
 **Bypass = consciente y documentado.** Si usas un bypass, explícalo en
 commit message + referencia el motivo.
@@ -271,7 +271,7 @@ es **bootstrap** (idempotente, corre al startup), NO migration nueva.
 
 ---
 
-*CLAUDE.md v1.1 · 22-may-2026 (superseded by v1.2 below) · swift-viking · GenyX Systems*
+*CLAUDE.md v1.1 · 22-may-2026 (superseded by v1.3 below) · swift-viking · GenyX Systems*
 
 *"Cero atajos. Cero supuestos. Profesional siempre."*
 
@@ -354,14 +354,58 @@ function MyWidget() {
 
 | Candado | Hook | Qué verifica |
 |---------|------|-------------|
-| **#11** | `.githooks/pre-commit` | `eslint --rule react-hooks/rules-of-hooks:error` en JSX staged |
-| **#3** | `.githooks/pre-commit` | REGLA 11 violaciones agnósticas |
-| **#7** | `.githooks/commit-msg` | Commit cita REGLA/METODOLOGÍA/Pattern |
+| **FE-#11** | `.githooks/pre-commit` | `eslint --rule react-hooks/rules-of-hooks:error` en JSX staged |
+| **FE-#3** | `.githooks/pre-commit` | REGLA 11 violaciones agnósticas |
+| **FE-#7** | `.githooks/commit-msg` | Commit cita REGLA/METODOLOGÍA/Pattern |
 
 **ESLint config:** `eslint.config.js` — `react-hooks/rules-of-hooks: error`
 
 ---
 
-*CLAUDE.md v1.2 · 23-may-2026 · swift-viking · GenyX Systems*
+## Addendum 3 — URL Absolute Pattern (cristalizado 23-may-2026)
+
+> **Fuente:** Producción bloqueada 23-may — modal visor docs legales
+> renderizaba `<!doctype html>` (SPA fallback de Vercel) en vez de markdown.
+
+### Anti-pattern: fetch con path relativo del backend
+
+```jsx
+// ❌ PROHIBIDO — path relativo va al host del frontend (SPA fallback)
+const r = await fetch(doc.view_url);
+// view_url = "/api/public/legal/cookies" → fetch a mando.genyxsystems.com
+// Vercel sirve index.html → modal muestra HTML crudo
+
+// ❌ PROHIBIDO — r.text() cuando backend devuelve JSON
+const text = await r.text();
+setViewDoc({ content: text }); // JSON stringificado o HTML basura
+
+// ✅ CORRECTO — siempre ${BACKEND} + r.json() + extraer campo
+const url = `${BACKEND}${doc.view_url}`;
+const r = await fetch(url, { headers: { 'X-Dashboard-Token': token } });
+const data = await r.json();
+setViewDoc({ content: data.content }); // markdown puro
+```
+
+### Regla emergente
+
+> **Si el backend devuelve un campo `view_url` / `url` / `href` / `path`,
+> SIEMPRE prefijar con `${BACKEND}` salvo que el campo se llame
+> explícitamente `*_absolute`.**
+
+### Complemento: Rate Limit Resilience
+
+```jsx
+// Si el backend devuelve 429, retry con backoff
+if (r.status === 429) {
+  await new Promise(ok => setTimeout(ok, 2000));
+  r = await fetch(url, { headers });
+}
+```
+
+**Caso real:** `handleView` en TabLegalDocs — 3 bugs (URL, parsing, field).
+
+---
+
+*CLAUDE.md v1.3 · 23-may-2026 · swift-viking · GenyX Systems*
 
 *"Cero atajos. Cero supuestos. Profesional siempre."*

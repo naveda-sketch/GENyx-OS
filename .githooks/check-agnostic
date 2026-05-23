@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# CANDADO #3 — Check-Agnostic REGLA 11 (pre-commit hook)
+# CANDADO FE-#3 — Check-Agnostic REGLA 11 (pre-commit hook)
 # Repo: swift-viking (frontend)
 #
 # Origen: decreto fundador — GenyX es 100% agnóstico por industria,
@@ -83,14 +83,14 @@ for file in $STAGED_FILES; do
 done
 
 if [ "$VIOLATIONS" -eq 0 ]; then
-    echo "✓ CANDADO #3: REGLA 11 — 0 violaciones agnósticas en staged files"
+    echo "✓ CANDADO FE-#3: REGLA 11 — 0 violaciones agnósticas en staged files"
     exit 0
 fi
 
 cat <<BLOCK
 
 🚨 ═══════════════════════════════════════════════════════════════
-🚨  CANDADO #3 BLOQUEÓ — REGLA 11 Violación Agnóstica
+🚨  CANDADO FE-#3 BLOQUEÓ — REGLA 11 Violación Agnóstica
 🚨 ═══════════════════════════════════════════════════════════════
 
 Se encontraron ${VIOLATIONS} violación(es) de REGLA 11 en archivos staged:

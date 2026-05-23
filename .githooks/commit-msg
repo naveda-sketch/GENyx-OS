@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# CANDADO #7 — Doctrina-First Verification (commit-msg hook)
+# CANDADO FE-#7 — Doctrina-First Verification (commit-msg hook)
 # Repo: swift-viking (frontend)
 #
 # Origen: regla de oro fundador 22-may-2026 — "siempre mirar nuestra
@@ -73,7 +73,7 @@ for pattern in "${DOCTRINAL_PATTERNS[@]}"; do
 done
 
 if [ "$FOUND" -eq 1 ]; then
-    echo "✓ CANDADO #7: commit cita doctrina/pattern/candado"
+    echo "✓ CANDADO FE-#7: commit cita doctrina/pattern/candado"
     exit 0
 fi
 
@@ -81,7 +81,7 @@ fi
 cat <<'BLOCK'
 
 🚨 ═══════════════════════════════════════════════════════════════
-🚨  CANDADO #7 BLOQUEÓ — Doctrina-First Verification
+🚨  CANDADO FE-#7 BLOQUEÓ — Doctrina-First Verification
 🚨 ═══════════════════════════════════════════════════════════════
 
 Tu commit message NO contiene referencia explícita a doctrina:

@@ -1,9 +1,9 @@
 #!/bin/bash
 # ═══════════════════════════════════════════════════════════════════
-# PRE-COMMIT: Candado #3 (REGLA 11) + Candado #11 (React Hooks)
+# PRE-COMMIT: Candado FE-#3 (REGLA 11) + Candado FE-#11 (React Hooks)
 # ═══════════════════════════════════════════════════════════════════
 
-# ── Candado #3: REGLA 11 — Verificación agnóstica ──
+# ── Candado FE-#3: REGLA 11 — Verificación agnóstica ──
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 if [ -x "$SCRIPT_DIR/check-agnostic" ]; then
   "$SCRIPT_DIR/check-agnostic"
@@ -12,8 +12,8 @@ if [ -x "$SCRIPT_DIR/check-agnostic" ]; then
   fi
 fi
 
-# ── Candado #11: React Rules of Hooks ──
-echo "🔒 Candado #11: Verificando React Rules of Hooks..."
+# ── Candado FE-#11: React Rules of Hooks ──
+echo "🔒 Candado FE-#11: Verificando React Rules of Hooks..."
 
 STAGED_JSX=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(jsx|tsx)$')
 
@@ -29,7 +29,7 @@ LINT_EXIT=$?
 if [ $LINT_EXIT -ne 0 ]; then
   echo ""
   echo "╔══════════════════════════════════════════════════════════════╗"
-  echo "║ ✕ CANDADO #11 BLOQUEÓ EL COMMIT                           ║"
+  echo "║ ✕ CANDADO FE-#11 BLOQUEÓ EL COMMIT                           ║"
   echo "║                                                            ║"
   echo "║ Violación de React Rules of Hooks detectada.               ║"
   echo "║ Todos los hooks DEBEN estar ANTES de cualquier early return║"
@@ -40,5 +40,5 @@ if [ $LINT_EXIT -ne 0 ]; then
   exit 1
 fi
 
-echo "✓ CANDADO #11: 0 violaciones de React hooks en staged files"
+echo "✓ CANDADO FE-#11: 0 violaciones de React hooks en staged files"
 exit 0
