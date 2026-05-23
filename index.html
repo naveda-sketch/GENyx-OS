@@ -17,20 +17,26 @@
     <meta name="anthropic-ai" content="noindex, nofollow" />
     <meta name="description" content="9 agentes de IA que operan, miden y planean tu negocio. Desde la primera conversación hasta tu estrategia financiera. Activo en 48h. Cero comisión por venta." />
     <link rel="canonical" href="https://genyxsystems.com" />
+    <link rel="alternate" hreflang="es-MX" href="https://genyxsystems.com" />
+    <link rel="alternate" hreflang="es" href="https://genyxsystems.com" />
+    <link rel="alternate" hreflang="x-default" href="https://genyxsystems.com" />
 
     <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://genyxsystems.com" />
     <meta property="og:title" content="GenyX — Tu operación comercial autónoma" />
     <meta property="og:description" content="9 agentes de IA que operan el 90% de tu dirección comercial. Activo en 48h. Desde $9,900 MXN/mes. Sin comisiones." />
-    <meta property="og:image" content="https://genyxsystems.com/genyx-logo.png" />
+    <meta property="og:image" content="https://genyxsystems.com/aoaas-og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:locale" content="es_MX" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="GenyX — Tu operación comercial autónoma" />
     <meta name="twitter:description" content="9 agentes de IA que operan, miden y planean tu negocio. Activo en 48h." />
-    <meta name="twitter:image" content="https://genyxsystems.com/genyx-logo.png" />
+    <meta name="twitter:image" content="https://genyxsystems.com/aoaas-og.png" />
 
     <!-- ── PWA: Add to Home Screen ─────────────────────────────────────── -->
     <!-- El manifest se inyecta dinámicamente por JS según el hostname -->
@@ -73,7 +79,21 @@
     </script>
     <!-- ──────────────────────────────────────────────────────────────────── -->
 
-    <style>* { margin: 0; padding: 0; box-sizing: border-box; } body { background: #060912; } @media print { .glow-orb { display: none !important; } }</style>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { background: #060912; }
+      html { scroll-behavior: smooth; }
+      @media print {
+        .glow-orb, nav, footer, button, [data-noprint] { display: none !important; }
+        body { background: #fff !important; color: #000 !important; }
+        * { color: #000 !important; background: transparent !important; border-color: #ccc !important; }
+        section { page-break-inside: avoid; padding: 20px 0 !important; }
+        a { color: #333 !important; text-decoration: underline !important; }
+        a::after { content: " (" attr(href) ")"; font-size: 9px; color: #666 !important; }
+        h1, h2, h3 { page-break-after: avoid; }
+        img { max-width: 100% !important; }
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

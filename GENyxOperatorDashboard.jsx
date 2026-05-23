@@ -6696,6 +6696,21 @@ function PorQueAOaaSPage() {
 
   return (
     <div style={S.page}>
+      {/* ── Schema.org Organization + WebSite (invisible, SEO) ── */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org", "@type": "Organization",
+        "name": "GenyX Systems", "url": "https://genyxsystems.com",
+        "logo": "https://genyxsystems.com/genyx-logo.png",
+        "description": "Agent Operations as a Service (AOaaS). 9 agentes de IA que operan tu dirección comercial.",
+        "foundingDate": "2025",
+        "address": { "@type": "PostalAddress", "addressLocality": "Guadalajara", "addressCountry": "MX" },
+        "sameAs": ["https://wa.me/523340026694"]
+      }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org", "@type": "WebSite",
+        "name": "GenyX Systems", "url": "https://genyxsystems.com",
+        "potentialAction": { "@type": "SearchAction", "target": "https://genyxsystems.com/?q={search_term_string}", "query-input": "required name=search_term_string" }
+      }) }} />
       {/* ── Schema.org TechArticle (invisible, SEO) ── */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
@@ -6741,7 +6756,7 @@ function PorQueAOaaSPage() {
 
       {/* ═══ §2 — Definición operativa ═══ */}
       <section style={S.section}>
-        <div style={S.label}>§1 · DEFINICIÓN OPERATIVA</div>
+        <div id="que-es" style={S.label}>§1 · DEFINICIÓN OPERATIVA</div>
         <div style={{ ...S.card, background: 'rgba(99,102,241,0.06)', borderColor: 'rgba(99,102,241,0.25)' }}>
           <blockquote style={{ margin: 0, padding: '0 0 0 20px', borderLeft: '3px solid #6366f1' }}>
             <p style={{ ...S.p, fontSize: 17, lineHeight: 2.0, color: '#e2e8f0' }}>
@@ -6774,7 +6789,7 @@ function PorQueAOaaSPage() {
 
       {/* ═══ §3 — Tabla comparativa ═══ */}
       <section style={{ ...S.section, paddingTop: 120 }}>
-        <div style={S.label}>§2 · AAAS ESTÁNDAR VS AOAAS</div>
+        <div id="diferencia" style={S.label}>§2 · AAAS ESTÁNDAR VS AOAAS</div>
         <h2 style={S.h2}>La diferencia no es de grado.<br /><span style={S.gradient}>Es de categoría.</span></h2>
 
         <div style={S.card}>
@@ -6811,7 +6826,7 @@ function PorQueAOaaSPage() {
 
       {/* ═══ §4 — Category creation pattern ═══ */}
       <section style={{ ...S.section, paddingTop: 120 }}>
-        <div style={S.label}>§3 · CATEGORY CREATION</div>
+        <div id="mercado" style={S.label}>§3 · CATEGORY CREATION</div>
         <h2 style={S.h2}>Diferenciación técnica real<br /><span style={S.gradient}>justifica una categoría nueva.</span></h2>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
@@ -6863,7 +6878,7 @@ function PorQueAOaaSPage() {
 
       {/* ═══ Cross-links inversos → Blog ═══ */}
       <section style={{ ...S.section, paddingTop: 120 }}>
-        <div style={S.label}>PROFUNDIZA</div>
+        <div id="latam" style={S.label}>PROFUNDIZA</div>
         <h2 style={{ ...S.h2, fontSize: 28 }}>Más sobre AOaaS</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           {[
@@ -6904,6 +6919,19 @@ function PorQueAOaaSPage() {
         </div>
       </section>
 
+      {/* ── Newsletter CTA ── */}
+      <section style={{ maxWidth: 600, margin: '0 auto', padding: '0 24px 80px', textAlign: 'center' }}>
+        <div style={{ background: 'rgba(99,102,241,0.04)', border: '1px solid rgba(99,102,241,0.12)', borderRadius: 20, padding: '32px 28px' }}>
+          <p style={{ fontSize: 12, fontWeight: 800, color: '#818cf8', letterSpacing: '.12em', textTransform: 'uppercase', marginBottom: 10 }}>AOaaS INDUSTRY UPDATES</p>
+          <p style={{ fontSize: 14, color: '#94a3b8', marginBottom: 20, lineHeight: 1.6 }}>Recibe análisis mensual sobre la evolución de Agent Operations. Sin spam. Solo datos verificados.</p>
+          <form onSubmit={e => { e.preventDefault(); const email = e.target.email.value; if (email) { fetch('https://api.genyxsystems.com/api/newsletter-subscribe', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({email, source: 'manifesto_aoaas'}) }).catch(() => {}); e.target.email.value = ''; e.target.querySelector('button').textContent = '✅ Suscrito'; } }} style={{ display: 'flex', gap: 8, maxWidth: 420, margin: '0 auto' }}>
+            <input name="email" type="email" required placeholder="tu@email.com" style={{ flex: 1, padding: '10px 16px', borderRadius: 10, border: '1px solid rgba(99,102,241,0.2)', background: 'rgba(15,23,42,0.5)', color: '#e2e8f0', fontSize: 13, outline: 'none' }} />
+            <button type="submit" style={{ padding: '10px 20px', borderRadius: 10, border: 'none', background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', fontSize: 12, fontWeight: 700, cursor: 'pointer', whiteSpace: 'nowrap' }}>Suscribirme →</button>
+          </form>
+          <p style={{ fontSize: 9, color: '#475569', marginTop: 10 }}>Prometemos solo contenido valioso. Puedes cancelar en cualquier momento.</p>
+        </div>
+      </section>
+
       {/* ── Footer ── */}
       <footer style={{ textAlign: 'center', padding: '40px 24px 56px', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
         <p style={{ fontSize: 11, color: '#475569' }}>GenyX Systems © 2026 · Guadalajara, México · AOaaS</p>
@@ -6913,6 +6941,7 @@ function PorQueAOaaSPage() {
         <div style={{ marginTop: 14, display: 'flex', gap: 16, justifyContent: 'center' }}>
           <a href="/" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Inicio</a>
           <a href="/por-que-ahora" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Por qué ahora</a>
+          <a href="/por-que-aoaas" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Manifesto AOaaS</a>
           <a href="/privacidad" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Privacidad</a>
           <a href="/terminos" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Términos</a>
         </div>
