@@ -3566,13 +3566,20 @@ function TabLegalDocs({ slug, token }) {
       || `/api/public/legal/${doc.doc_slug.replace('_genyx','').replace('contrato_servicios','contrato')}`;
     const url = `${BACKEND}${path}`;
     try {
-      const r = await fetch(url);
+      // Auth header para bypass rate limit de Render en endpoint público
+      const hdrs = token ? { 'X-Dashboard-Token': token } : {};
+      let r = await fetch(url, { headers: hdrs });
+      if (r.status === 429) {
+        // Retry once after 2s on rate limit
+        await new Promise(ok => setTimeout(ok, 2000));
+        r = await fetch(url, { headers: hdrs });
+      }
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       const data = await r.json();
       if (!data.content) throw new Error('Documento sin contenido');
       setViewDoc({ slug: doc.doc_slug, content: data.content, title: docTitle });
     } catch (e) {
-      setViewDoc({ slug: doc.doc_slug, content: `❌ Error cargando documento: ${e.message}`, title: docTitle });
+      setViewDoc({ slug: doc.doc_slug, content: `❌ Error cargando documento: ${e.message}\n\nIntenta de nuevo en unos segundos.`, title: docTitle });
     }
   };
 
