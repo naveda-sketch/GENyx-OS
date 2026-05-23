@@ -1,17 +1,44 @@
 #!/bin/bash
-#
-# pre-commit hook — chains all pre-commit candados
-# Repo: swift-viking (frontend)
-#
+# ═══════════════════════════════════════════════════════════════════
+# PRE-COMMIT: Candado #3 (REGLA 11) + Candado #11 (React Hooks)
+# ═══════════════════════════════════════════════════════════════════
 
-HOOKS_DIR="$(dirname "$0")"
-
-# ── Candado #3: Check-Agnostic REGLA 11 ──
-if [ -x "$HOOKS_DIR/check-agnostic" ]; then
-    "$HOOKS_DIR/check-agnostic"
-    if [ $? -ne 0 ]; then
-        exit 1
-    fi
+# ── Candado #3: REGLA 11 — Verificación agnóstica ──
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+if [ -x "$SCRIPT_DIR/check-agnostic" ]; then
+  "$SCRIPT_DIR/check-agnostic"
+  if [ $? -ne 0 ]; then
+    exit 1
+  fi
 fi
 
+# ── Candado #11: React Rules of Hooks ──
+echo "🔒 Candado #11: Verificando React Rules of Hooks..."
+
+STAGED_JSX=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(jsx|tsx)$')
+
+if [ -z "$STAGED_JSX" ]; then
+  echo "✓ CANDADO #11: No hay archivos JSX en staging — skip"
+  exit 0
+fi
+
+# Run ESLint with rules-of-hooks as error only
+npx eslint --no-warn-ignored --rule 'react-hooks/rules-of-hooks: error' --max-warnings 999 $STAGED_JSX 2>/dev/null
+LINT_EXIT=$?
+
+if [ $LINT_EXIT -ne 0 ]; then
+  echo ""
+  echo "╔══════════════════════════════════════════════════════════════╗"
+  echo "║ ✕ CANDADO #11 BLOQUEÓ EL COMMIT                           ║"
+  echo "║                                                            ║"
+  echo "║ Violación de React Rules of Hooks detectada.               ║"
+  echo "║ Todos los hooks DEBEN estar ANTES de cualquier early return║"
+  echo "║ y NUNCA dentro de callbacks, loops, o condicionales.       ║"
+  echo "║                                                            ║"
+  echo "║ Ref: React error #310 (22-may-2026)                       ║"
+  echo "╚══════════════════════════════════════════════════════════════╝"
+  exit 1
+fi
+
+echo "✓ CANDADO #11: 0 violaciones de React hooks en staged files"
 exit 0

@@ -271,6 +271,97 @@ es **bootstrap** (idempotente, corre al startup), NO migration nueva.
 
 ---
 
-*CLAUDE.md v1.1 · 22-may-2026 · swift-viking · GenyX Systems*
+*CLAUDE.md v1.1 · 22-may-2026 (superseded by v1.2 below) · swift-viking · GenyX Systems*
+
+*"Cero atajos. Cero supuestos. Profesional siempre."*
+
+## Addendum 2 — Anti-patterns React prohibidos (cristalizado 22-may-2026)
+
+> **Fuente canónica:** `CEREBRO_GENYX/BACKUP_SESION_22_MAY_2026.md` §10.6
+> + `CEREBRO_GENYX/DOCTRINA_PROTOCOL_ANTIGRAVITY.md`.
+> Este addendum NO duplica — referencia y lista los 3 anti-patterns
+> verificados en código real del 22-may.
+
+### Anti-pattern #1: Hooks DESPUÉS de early return
+
+```jsx
+// ❌ PROHIBIDO — causa React error #310
+function MiComponente({ data }) {
+  if (!data) return <Loading />;  // ← early return
+  const [x, setX] = useState(''); // ← hook DESPUÉS → #310
+  useEffect(() => { ... }, []);   // ← hook DESPUÉS → #310
+}
+
+// ✅ CORRECTO — todos los hooks ANTES de cualquier return
+function MiComponente({ data }) {
+  const [x, setX] = useState('');
+  useEffect(() => { ... }, []);
+  if (!data) return <Loading />;
+}
+```
+
+**Casos reales corregidos (22-may-2026):**
+- `MandoClientView`: 3 useEffects después de `if (cfgLoading) return`
+- `TabMarketing`: 3 React.useState + 3 hooks después de `if (!slug) return`
+
+### Anti-pattern #2: Nested component con hooks
+
+```jsx
+// ❌ PROHIBIDO — componente re-creado en cada render → #310
+function Parent() {
+  const Nested = () => {
+    const [ok, setOk] = useState(false); // ← hook en nested → #310
+    return ok ? <Yes /> : <No />;
+  };
+  return <Nested />;
+}
+
+// ✅ CORRECTO — componente top-level
+function Nested() {
+  const [ok, setOk] = useState(false);
+  return ok ? <Yes /> : <No />;
+}
+function Parent() {
+  return <Nested />;
+}
+```
+
+**Caso real:** `LogoFallback` dentro de `MandoClientView` usaba `useState`.
+
+### Anti-pattern #3: Hooks en IIFE dentro de JSX
+
+```jsx
+// ❌ PROHIBIDO
+return (
+  <div>
+    {(() => {
+      const [x, setX] = React.useState(''); // ← callback, no component
+      return <span>{x}</span>;
+    })()}
+  </div>
+);
+
+// ✅ CORRECTO — extraer como componente
+function MyWidget() {
+  const [x, setX] = React.useState('');
+  return <span>{x}</span>;
+}
+```
+
+**Caso real:** `SystemAuditPanel` (IIFE en TabHerramientas, L704).
+
+### Enforcement técnico
+
+| Candado | Hook | Qué verifica |
+|---------|------|-------------|
+| **#11** | `.githooks/pre-commit` | `eslint --rule react-hooks/rules-of-hooks:error` en JSX staged |
+| **#3** | `.githooks/pre-commit` | REGLA 11 violaciones agnósticas |
+| **#7** | `.githooks/commit-msg` | Commit cita REGLA/METODOLOGÍA/Pattern |
+
+**ESLint config:** `eslint.config.js` — `react-hooks/rules-of-hooks: error`
+
+---
+
+*CLAUDE.md v1.2 · 23-may-2026 · swift-viking · GenyX Systems*
 
 *"Cero atajos. Cero supuestos. Profesional siempre."*
