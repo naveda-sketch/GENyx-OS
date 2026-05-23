@@ -3415,7 +3415,7 @@ const PLAN_INFO = {
   enterprise:   { label: 'Enterprise',   price: '$34,900/mes', color: '#F59E0B', next: null,          nextPrice: null },
 };
 
-function PlanVsAgentsPanel({ plan, agents, billingStatus }) {
+function PlanVsAgentsPanel({ plan, agents, billingStatus, slug }) {
   const info = PLAN_INFO[plan] || PLAN_INFO.esencial;
   const isPiloto = billingStatus === 'piloto_comped';
   const agentEntries = Object.entries(CLIENT_AGENT_DEFS);
@@ -3503,57 +3503,84 @@ function PlanVsAgentsPanel({ plan, agents, billingStatus }) {
         </div>
       </div>
 
-      {/* Upgrade CTA (if not max plan and not piloto) */}
-      {!isPiloto && info.next && (
-        <div style={{
-          padding: '10px 20px 14px',
-          borderTop: '1px solid rgba(0,212,255,0.06)',
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        }}>
-          <div>
-            <span style={{
-              fontFamily: "'Rajdhani', sans-serif", fontSize: 11, fontWeight: 600,
-              color: '#6B7D99',
-            }}>Siguiente nivel: </span>
-            <span style={{
-              fontFamily: "'Rajdhani', sans-serif", fontSize: 11, fontWeight: 700,
-              color: (PLAN_INFO[info.next] || {}).color || '#A855F7',
-            }}>{(PLAN_INFO[info.next] || {}).label} ({info.nextPrice})</span>
+      {/* ── Action buttons bar ── */}
+      <div style={{
+        padding: '12px 20px 16px',
+        borderTop: '1px solid rgba(0,212,255,0.06)',
+        display: 'flex', flexDirection: 'column', gap: 10,
+      }}>
+        {/* Row 1: Upgrade + Pago */}
+        {!isPiloto && (
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+            {/* Upgrade button */}
+            {info.next ? (
+              <a
+                href={`https://wa.me/523340026694?text=${encodeURIComponent('Hola, soy tenant ' + (slug || 'mi negocio') + '. Quiero hacer upgrade de mi plan ' + info.label + ' a ' + ((PLAN_INFO[info.next] || {}).label || 'siguiente') + '. ¿Cómo procedo?')}`}
+                target="_blank" rel="noopener noreferrer"
+                style={{
+                  flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
+                  fontFamily: "'Rajdhani', sans-serif", fontSize: 11, fontWeight: 700,
+                  color: '#0A0E1A', background: `linear-gradient(135deg, ${info.color}, ${(PLAN_INFO[info.next] || {}).color || '#A855F7'})`,
+                  border: 'none', borderRadius: 10, padding: '8px 16px', cursor: 'pointer',
+                  letterSpacing: '.02em', transition: 'all 0.2s', textDecoration: 'none',
+                }}
+              >⬆ Upgrade a {(PLAN_INFO[info.next] || {}).label}</a>
+            ) : (
+              <div style={{
+                flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: '#F59E0B',
+                background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.12)',
+                borderRadius: 10, padding: '8px 12px',
+              }}>⭐ Plan máximo activo</div>
+            )}
+
+            {/* Pago / Facturación button */}
+            <a
+              href={`https://wa.me/523340026694?text=${encodeURIComponent('Hola, soy tenant ' + (slug || 'mi negocio') + '. Necesito gestionar mi pago o método de facturación para mi plan ' + info.label + '.')}`}
+              target="_blank" rel="noopener noreferrer"
+              style={{
+                flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
+                fontFamily: "'Rajdhani', sans-serif", fontSize: 11, fontWeight: 700,
+                color: '#4ade80', background: 'rgba(74,222,128,0.06)',
+                border: '1px solid rgba(74,222,128,0.15)', borderRadius: 10,
+                padding: '8px 16px', cursor: 'pointer', textDecoration: 'none',
+                transition: 'all 0.2s',
+              }}
+            >💳 Pago / Facturación</a>
           </div>
-          <button style={{
-            fontFamily: "'Rajdhani', sans-serif", fontSize: 11, fontWeight: 700,
-            color: '#0A0E1A', background: `linear-gradient(135deg, ${info.color}, ${(PLAN_INFO[info.next] || {}).color || '#A855F7'})`,
-            border: 'none', borderRadius: 8, padding: '6px 16px', cursor: 'pointer',
-            letterSpacing: '.02em', transition: 'all 0.2s',
-          }}>Upgrade ↗</button>
-        </div>
-      )}
+        )}
 
-      {/* Piloto message */}
-      {isPiloto && (
-        <div style={{
-          padding: '8px 20px 12px',
-          borderTop: '1px solid rgba(0,212,255,0.06)',
-          textAlign: 'center',
-        }}>
-          <span style={{
+        {/* Piloto message (no upgrade/pago) */}
+        {isPiloto && (
+          <div style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
             fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: '#475569',
-          }}>🎁 Piloto Vitalicio · No aplica upgrade · Cortesía fundador</span>
-        </div>
-      )}
+            background: 'rgba(99,102,241,0.04)', border: '1px solid rgba(99,102,241,0.08)',
+            borderRadius: 10, padding: '8px 12px',
+          }}>🎁 Piloto Vitalicio · Cortesía fundador · Sin cargo</div>
+        )}
 
-      {/* Max plan message */}
-      {!isPiloto && !info.next && (
-        <div style={{
-          padding: '8px 20px 12px',
-          borderTop: '1px solid rgba(0,212,255,0.06)',
-          textAlign: 'center',
+        {/* Row 2: Soporte — siempre visible (todos los planes + piloto) */}
+        <a
+          href={`https://wa.me/523340026694?text=${encodeURIComponent('[SOPORTE-TENANT] Soy ' + (slug || 'mi negocio') + ' (plan ' + info.label + '). Necesito ayuda con: ')}`}
+          target="_blank" rel="noopener noreferrer"
+          style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
+            fontFamily: "'Rajdhani', sans-serif", fontSize: 11, fontWeight: 700,
+            color: '#E8F4FF', background: 'rgba(99,102,241,0.08)',
+            border: '1px solid rgba(99,102,241,0.15)', borderRadius: 10,
+            padding: '8px 16px', cursor: 'pointer', textDecoration: 'none',
+            transition: 'all 0.2s',
+          }}
+        >💬 Soporte · Hablar con mi agente GenyX</a>
+
+        <p style={{
+          fontFamily: "'JetBrains Mono', monospace", fontSize: 8, color: '#475569',
+          textAlign: 'center', lineHeight: 1.4,
         }}>
-          <span style={{
-            fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: '#F59E0B',
-          }}>⭐ Plan máximo activo · Acceso completo a todos los agentes y recursos</span>
-        </div>
-      )}
+          Tu agente GenyX atiende primero. Solo escala al fundador si el agente no puede resolver tu caso.
+        </p>
+      </div>
     </div>
   );
 }
@@ -3578,7 +3605,7 @@ function TabMisAgentes({ slug, token }) {
   return (
     <>
       {/* P1.3 — Plan vs Agents Panel */}
-      <PlanVsAgentsPanel plan={plan} agents={agents} billingStatus={null} />
+      <PlanVsAgentsPanel plan={plan} agents={agents} billingStatus={null} slug={slug} />
 
       <h2 style={{ fontSize: 15, fontWeight: 700, marginBottom: 4, color: '#44403c' }}>
         🤖 Mis Agentes <span style={{ fontSize: 10, fontWeight: 400, color: '#a8a29e' }}>Plan {plan}</span>
