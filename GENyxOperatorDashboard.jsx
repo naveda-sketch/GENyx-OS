@@ -3398,6 +3398,166 @@ function LiveFeed({ slug, token }) {
   );
 }
 
+
+// ═══════════════════════════════════════════════════════════════════
+// P1.3 — Plan vs Agents Panel (Centro de Mando)
+// ═══════════════════════════════════════════════════════════════════
+// METODOLOGÍA (REGLA 14): Resource Visibility Pattern.
+// El tenant ve su plan, límites, uso y agentes activos de un vistazo.
+// REGLA 1: verificado contra /api/client/{slug}/agents (response real).
+// Campos limits/usage NO existen aún en backend — sección preparada
+// pero oculta hasta que Claude los agregue.
+// ═══════════════════════════════════════════════════════════════════
+
+const PLAN_INFO = {
+  esencial:     { label: 'Esencial',     price: '$9,900/mes',  color: '#00D4FF', next: 'profesional', nextPrice: '$18,900/mes' },
+  profesional:  { label: 'Profesional',  price: '$18,900/mes', color: '#A855F7', next: 'enterprise',  nextPrice: '$34,900/mes' },
+  enterprise:   { label: 'Enterprise',   price: '$34,900/mes', color: '#F59E0B', next: null,          nextPrice: null },
+};
+
+function PlanVsAgentsPanel({ plan, agents, billingStatus }) {
+  const info = PLAN_INFO[plan] || PLAN_INFO.esencial;
+  const isPiloto = billingStatus === 'piloto_comped';
+  const agentEntries = Object.entries(CLIENT_AGENT_DEFS);
+  const activeCount = agents ? Object.values(agents).filter(s => s !== 'inactive').length : 0;
+
+  return (
+    <div style={{
+      background: '#0A0E1A', borderRadius: 18,
+      border: `1px solid ${info.color}20`,
+      overflow: 'hidden', marginBottom: 20,
+    }} data-pattern="ResourceVisibility">
+      {/* Header */}
+      <div style={{
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        padding: '14px 20px',
+        borderBottom: `1px solid ${info.color}12`,
+        background: `${info.color}06`,
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <span style={{
+            width: 32, height: 32, borderRadius: 10,
+            background: `${info.color}18`, display: 'flex', alignItems: 'center', justifyContent: 'center',
+            fontSize: 16, border: `1px solid ${info.color}30`,
+          }}>📋</span>
+          <div>
+            <div style={{
+              fontFamily: "'Rajdhani', sans-serif", fontSize: 15, fontWeight: 700,
+              color: '#E8F4FF', letterSpacing: '.02em',
+            }}>
+              Plan {info.label} {isPiloto ? '· Piloto Vitalicio' : '· Activo'}
+            </div>
+            <div style={{
+              fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: info.color, fontWeight: 500,
+            }}>
+              {isPiloto ? 'Cortesía fundador · Sin cargo' : info.price}
+            </div>
+          </div>
+        </div>
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: 6,
+          background: `${info.color}12`, padding: '4px 12px', borderRadius: 20,
+          border: `1px solid ${info.color}20`,
+        }}>
+          <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#4ade80', animation: 'liveDot 1.5s infinite' }} />
+          <span style={{
+            fontFamily: "'JetBrains Mono', monospace", fontSize: 9, fontWeight: 500,
+            color: '#4ade80', letterSpacing: '.04em',
+          }}>{activeCount}/{agentEntries.length} ACTIVOS</span>
+        </div>
+      </div>
+
+      {/* Agent grid */}
+      <div style={{ padding: '14px 20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
+          {agentEntries.map(([id, def]) => {
+            const status = (agents && agents[id]) || 'inactive';
+            const isActive = status !== 'inactive';
+            const nodeColor = isActive ? '#4ade80' : '#2D3A50';
+            const statusIcon = isActive ? '✅' : '○';
+            return (
+              <div key={id} style={{
+                display: 'flex', alignItems: 'center', gap: 8,
+                padding: '8px 10px', borderRadius: 10,
+                background: isActive ? 'rgba(74,222,128,0.04)' : 'rgba(45,58,80,0.2)',
+                border: `1px solid ${isActive ? 'rgba(74,222,128,0.12)' : 'rgba(45,58,80,0.3)'}`,
+                transition: 'all 0.3s ease',
+              }}>
+                <span style={{ fontSize: 16 }}>{def.icon}</span>
+                <div>
+                  <div style={{
+                    fontSize: 11, fontWeight: 600,
+                    color: isActive ? '#E8F4FF' : '#6B7D99',
+                    fontFamily: "'Rajdhani', sans-serif",
+                  }}>{def.name}</div>
+                  <div style={{
+                    fontSize: 8, fontWeight: 500,
+                    color: isActive ? '#4ade80' : '#475569',
+                    fontFamily: "'JetBrains Mono', monospace",
+                    letterSpacing: '.03em',
+                  }}>{statusIcon} {isActive ? (status === 'active' || status === 'executed' ? 'Operando' : status) : 'Configurando'}</div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Upgrade CTA (if not max plan and not piloto) */}
+      {!isPiloto && info.next && (
+        <div style={{
+          padding: '10px 20px 14px',
+          borderTop: '1px solid rgba(0,212,255,0.06)',
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        }}>
+          <div>
+            <span style={{
+              fontFamily: "'Rajdhani', sans-serif", fontSize: 11, fontWeight: 600,
+              color: '#6B7D99',
+            }}>Siguiente nivel: </span>
+            <span style={{
+              fontFamily: "'Rajdhani', sans-serif", fontSize: 11, fontWeight: 700,
+              color: (PLAN_INFO[info.next] || {}).color || '#A855F7',
+            }}>{(PLAN_INFO[info.next] || {}).label} ({info.nextPrice})</span>
+          </div>
+          <button style={{
+            fontFamily: "'Rajdhani', sans-serif", fontSize: 11, fontWeight: 700,
+            color: '#0A0E1A', background: `linear-gradient(135deg, ${info.color}, ${(PLAN_INFO[info.next] || {}).color || '#A855F7'})`,
+            border: 'none', borderRadius: 8, padding: '6px 16px', cursor: 'pointer',
+            letterSpacing: '.02em', transition: 'all 0.2s',
+          }}>Upgrade ↗</button>
+        </div>
+      )}
+
+      {/* Piloto message */}
+      {isPiloto && (
+        <div style={{
+          padding: '8px 20px 12px',
+          borderTop: '1px solid rgba(0,212,255,0.06)',
+          textAlign: 'center',
+        }}>
+          <span style={{
+            fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: '#475569',
+          }}>🎁 Piloto Vitalicio · No aplica upgrade · Cortesía fundador</span>
+        </div>
+      )}
+
+      {/* Max plan message */}
+      {!isPiloto && !info.next && (
+        <div style={{
+          padding: '8px 20px 12px',
+          borderTop: '1px solid rgba(0,212,255,0.06)',
+          textAlign: 'center',
+        }}>
+          <span style={{
+            fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: '#F59E0B',
+          }}>⭐ Plan máximo activo · Acceso completo a todos los agentes y recursos</span>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function TabMisAgentes({ slug, token }) {
   const [agents, setAgents] = useState(null);
   const [plan, setPlan] = useState('esencial');
@@ -3417,6 +3577,9 @@ function TabMisAgentes({ slug, token }) {
 
   return (
     <>
+      {/* P1.3 — Plan vs Agents Panel */}
+      <PlanVsAgentsPanel plan={plan} agents={agents} billingStatus={null} />
+
       <h2 style={{ fontSize: 15, fontWeight: 700, marginBottom: 4, color: '#44403c' }}>
         🤖 Mis Agentes <span style={{ fontSize: 10, fontWeight: 400, color: '#a8a29e' }}>Plan {plan}</span>
       </h2>
