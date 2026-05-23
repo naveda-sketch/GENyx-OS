@@ -3556,22 +3556,23 @@ function TabLegalDocs({ slug, token }) {
     setSignSending(false);
   };
 
-  // View doc content
+  // View doc content — fetch JSON desde backend, extraer markdown content
+  // METODOLOGÍA (REGLA 14): API Contract + URL Absolute Pattern.
+  // view_url del backend es PATH relativo (/api/public/legal/X) — siempre prefija ${BACKEND}.
+  // Response es JSON {slug, filename, content} — extraer data.content (markdown puro).
   const handleView = async (doc) => {
-    if (doc.view_url) {
-      try {
-        const r = await fetch(doc.view_url);
-        const text = await r.text();
-        setViewDoc({ slug: doc.doc_slug, content: text, title: doc.title || doc.doc_slug });
-      } catch { setViewDoc({ slug: doc.doc_slug, content: 'Error cargando documento.', title: doc.title || doc.doc_slug }); }
-    } else {
-      // Try public endpoint
-      const shortSlug = doc.doc_slug.replace('_genyx', '').replace('contrato_servicios', 'contrato');
-      try {
-        const r = await fetch(`${BACKEND}/api/public/legal/${shortSlug}`);
-        const text = await r.text();
-        setViewDoc({ slug: doc.doc_slug, content: text, title: doc.title || doc.doc_slug });
-      } catch { setViewDoc({ slug: doc.doc_slug, content: 'Documento no disponible aún.', title: doc.title || doc.doc_slug }); }
+    const docTitle = LEGAL_DOC_TITLES[doc.doc_slug] || doc.title || doc.doc_slug;
+    const path = doc.view_url
+      || `/api/public/legal/${doc.doc_slug.replace('_genyx','').replace('contrato_servicios','contrato')}`;
+    const url = `${BACKEND}${path}`;
+    try {
+      const r = await fetch(url);
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      const data = await r.json();
+      if (!data.content) throw new Error('Documento sin contenido');
+      setViewDoc({ slug: doc.doc_slug, content: data.content, title: docTitle });
+    } catch (e) {
+      setViewDoc({ slug: doc.doc_slug, content: `❌ Error cargando documento: ${e.message}`, title: docTitle });
     }
   };
 
