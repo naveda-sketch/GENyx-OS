@@ -6136,6 +6136,11 @@ const SEO_META = {
     canonical: 'https://genyxsystems.com/',
     image: 'https://genyxsystems.com/genyx-logo.png',
   },
+  '/plus': {
+    title: 'Módulos opcionales | GenyX AOaaS',
+    desc: 'Módulos verticales opcionales según industria. Plus complementario al core de 9 agentes orquestados de GenyX.',
+    canonical: 'https://genyxsystems.com/plus',
+  },
   '/por-que-aoaas': {
     title: 'AOaaS — Agent Operations as a Service | GenyX',
     desc: 'Stripe creó payments infrastructure. Anthropic creó Constitutional AI. GenyX crea AOaaS — Agent Operations as a Service.',
@@ -8292,6 +8297,109 @@ function LandingAuthGate({ children }) {
   );
 }
 
+
+// ═══════════════════════════════════════════════════════════════════
+// PLUS PAGE — Módulos verticales opcionales según industria
+// ═══════════════════════════════════════════════════════════════════
+// METODOLOGÍA (REGLA 14): Marketing Focus Separation Pattern.
+// Foco core: 9 agentes. Plus: módulos opcionales.
+// Decreto fundador 25-may-2026: herramientas NO son core marketing.
+// ═══════════════════════════════════════════════════════════════════
+
+function PlusPage() {
+  React.useEffect(() => {
+    document.title = 'Módulos opcionales | GenyX AOaaS';
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.content = 'Módulos verticales opcionales según industria. Plus complementario al core de 9 agentes orquestados de GenyX.';
+  }, []);
+
+  const S = {
+    page: { minHeight: '100vh', background: '#0a0a0f', color: '#f1f5f9', fontFamily: "'Inter', sans-serif" },
+    container: { maxWidth: 720, margin: '0 auto', padding: '80px 24px 120px' },
+    badge: { display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.3)', color: '#c084fc', fontSize: 11, fontWeight: 700, padding: '6px 18px', borderRadius: 30, marginBottom: 24, letterSpacing: '.06em' },
+    h1: { fontSize: 36, fontWeight: 900, lineHeight: 1.2, marginBottom: 16 },
+    h1accent: { background: 'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
+    sub: { fontSize: 15, color: '#94a3b8', lineHeight: 1.8, marginBottom: 48 },
+    section: { marginBottom: 48 },
+    h2: { fontSize: 20, fontWeight: 800, marginBottom: 16, color: '#e2e8f0' },
+    card: { background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, padding: '16px 20px', marginBottom: 10 },
+    modName: { fontSize: 14, fontWeight: 700, color: '#f1f5f9', marginBottom: 4 },
+    modDesc: { fontSize: 12, color: '#94a3b8', lineHeight: 1.6 },
+    modIndustry: { fontSize: 10, color: '#818cf8', fontWeight: 600, marginTop: 6, letterSpacing: '.04em' },
+    how: { fontSize: 13, color: '#94a3b8', lineHeight: 1.8, marginBottom: 8, paddingLeft: 16 },
+    howLabel: { fontWeight: 700, color: '#e2e8f0' },
+    note: { background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.15)', borderRadius: 12, padding: '20px 24px', fontSize: 13, color: '#94a3b8', lineHeight: 1.7 },
+    cta: { display: 'inline-block', marginTop: 32, background: 'linear-gradient(135deg,' + GENYX_BRAND + ',#8b5cf6)', color: '#fff', padding: '14px 36px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 28px rgba(99,102,241,0.3)' },
+    back: { display: 'inline-block', marginTop: 16, color: '#64748b', fontSize: 12, textDecoration: 'none' },
+    footer: { borderTop: '1px solid rgba(255,255,255,0.06)', padding: '24px 0', marginTop: 60, fontSize: 10, color: '#475569', textAlign: 'center' },
+  };
+
+  const MODULES = [
+    { name: 'Costeador', desc: 'Análisis de margen y punto de equilibrio para negocios con producción.', industry: 'Alimentos · Repostería · Manufactura' },
+    { name: 'FotoLab', desc: 'Generación IA de fotos de producto para catálogos visuales con 6 presets.', industry: 'Retail · E-commerce · Catálogos' },
+    { name: 'Inventario', desc: 'Control de stock con alertas de reabastecimiento y tracking por producto.', industry: 'Retail · Mayoreo · Producción' },
+    { name: 'Citas', desc: 'Agenda inteligente con recordatorios automáticos y confirmación por WhatsApp.', industry: 'Salud · Belleza · Servicios profesionales' },
+    { name: 'Expediente Digital', desc: 'Fichas detalladas para clientes recurrentes con historial y documentos.', industry: 'Clínicas · Consultorías · Servicios' },
+    { name: 'Pipeline de Leads', desc: 'Gestión visual de prospectos por etapa con probabilidad de cierre.', industry: 'Ventas B2B · Agencias · SaaS' },
+    { name: 'Reservas', desc: 'Reservaciones en línea con disponibilidad real y confirmación automática.', industry: 'Restaurantes · Hoteles · Eventos' },
+    { name: 'Historial Pacientes', desc: 'Registro de consultas, tratamientos y seguimiento clínico.', industry: 'Consultorios · Clínicas · Veterinarias' },
+  ];
+
+  return (
+    <div style={S.page}>
+      <div style={S.container}>
+        <a href="/" style={S.back}>← Volver al inicio</a>
+        <div style={{ marginTop: 24 }}>
+          <div style={S.badge}>PLUS OPCIONALES</div>
+        </div>
+        <h1 style={S.h1}>Módulos verticales<br /><span style={S.h1accent}>según tu industria</span></h1>
+        <p style={S.sub}>
+          GenyX core entrega <strong style={{ color: '#f1f5f9' }}>9 agentes orquestados</strong> para tu operación
+          comercial autónoma. Adicionalmente, ofrecemos módulos verticales activables según la naturaleza de cada
+          negocio — incluidos en tu plan o disponibles como add-on bajo demanda.
+        </p>
+
+        <section style={S.section}>
+          <h2 style={S.h2}>Módulos disponibles</h2>
+          {MODULES.map(m => (
+            <div key={m.name} style={S.card}>
+              <div style={S.modName}>{m.name}</div>
+              <div style={S.modDesc}>{m.desc}</div>
+              <div style={S.modIndustry}>{m.industry}</div>
+            </div>
+          ))}
+          <div style={{ ...S.card, borderStyle: 'dashed', textAlign: 'center' }}>
+            <div style={{ ...S.modDesc, fontStyle: 'italic' }}>+ Módulos custom según tu industria — solicítalos</div>
+          </div>
+        </section>
+
+        <section style={S.section}>
+          <h2 style={S.h2}>Cómo se activan</h2>
+          <p style={S.how}><span style={S.howLabel}>Incluidos según plan:</span> algunos módulos vienen activos en planes Profesional y Enterprise.</p>
+          <p style={S.how}><span style={S.howLabel}>Add-on bajo demanda:</span> cualquier módulo se puede activar con costo adicional mensual.</p>
+          <p style={S.how}><span style={S.howLabel}>Custom:</span> ¿necesitas un módulo específico para tu industria? Contáctanos.</p>
+        </section>
+
+        <div style={S.note}>
+          <strong style={{ color: '#e2e8f0' }}>Importante:</strong> Los módulos verticales son <strong style={{ color: '#e2e8f0' }}>plus opcionales</strong>, no core.
+          El valor principal de GenyX es la <strong style={{ color: '#e2e8f0' }}>operación comercial autónoma con governance audit-grade</strong> que
+          entregan los 9 agentes. Los módulos amplifican capacidades específicas según la naturaleza de tu negocio.
+        </div>
+
+        <div style={{ textAlign: 'center' }}>
+          <a href={GENYX_CONTACT.contact_url} style={S.cta}>Quiero saber qué módulos aplican a mi industria →</a>
+          <br />
+          <a href="/" style={{ ...S.back, marginTop: 16, display: 'inline-block' }}>← Volver al inicio</a>
+        </div>
+
+        <div style={S.footer}>
+          GenyX © 2026 · Tu operación comercial autónoma · <a href="/terminos" style={{ color: '#475569' }}>Términos</a> · <a href="/privacidad" style={{ color: '#475569' }}>Privacidad</a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function GenyXLandingPage() {
   useSEO();
   const [scrolled, setScrolled] = React.useState(false);
@@ -8498,7 +8606,7 @@ function GenyXLandingPage() {
               </div>
             ))}
           </div>
-          <p style={{ fontSize: 11, color: '#475569', fontStyle: 'italic', marginTop: 16 }}>Además activamos herramientas según tu operación: Inventario, Costeador, Citas, Foto Lab, Pipeline de Leads y más.</p>
+          <p style={{ fontSize: 11, color: '#475569', fontStyle: 'italic', marginTop: 16 }}>Módulos verticales opcionales según tu industria. <a href="/plus" style={{ color: '#818cf8', textDecoration: 'underline' }}>Ver detalles →</a></p>
         </div>
       </section>
 
@@ -8559,7 +8667,7 @@ function GenyXLandingPage() {
           {/* Email body */}
           <div style={{ padding: '28px 24px', color: '#334155', fontSize: 14, lineHeight: 1.8 }}>
             <p style={{ marginBottom: 16 }}>Hola <span style={{ color: '#94a3b8' }}>[Tu nombre]</span>,</p>
-            <p style={{ marginBottom: 20 }}>Esta semana procesaste <strong style={{ color: '#94a3b8' }}>[X pedidos/citas/leads]</strong>. <strong style={{ color: '#94a3b8' }}>[$X MXN]</strong> en ventas. Margen promedio: <strong style={{ color: '#94a3b8' }}>[X%]</strong>.</p>
+            <p style={{ marginBottom: 20 }}>Esta semana procesaste <strong style={{ color: '#94a3b8' }}>[X pedidos procesados]</strong>. <strong style={{ color: '#94a3b8' }}>[$X MXN]</strong> en ventas. Margen promedio: <strong style={{ color: '#94a3b8' }}>[X%]</strong>.</p>
             <div style={{ background: '#f8fafc', borderRadius: 12, padding: '16px 20px', marginBottom: 20, display: 'flex', flexDirection: 'column', gap: 10 }}>
               <div><strong style={{ color:GENYX_BRAND }}>▎</strong> <strong>Tu producto o servicio estrella</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ cuánto vendió y a qué margen</span></div>
               <div><strong style={{ color:GENYX_BRAND }}>▎</strong> <strong>Tu hora pico real</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ qué día de la semana concentra más demanda</span></div>
@@ -8704,9 +8812,9 @@ function GenyXLandingPage() {
           <p style={{ color:'#64748b', lineHeight:1.8, marginBottom:32, fontSize:15 }}>GenyX opera bajo un modelo de <strong style={{ color:'#a5b4fc' }}>Fee de instalación + Suscripción mensual fija</strong>. Sin importar cuánto vendas en el mes, tu costo no cambia. Tus márgenes son tuyos.</p>
           <div style={{ display:'flex', justifyContent:'center', gap:16, flexWrap:'wrap', marginBottom:24 }}>
             {[
-              ['ESENCIAL','$9,900','MXN/mes','Setup: $6,000','9 agentes de IA','200 msgs carritos · 100 reactivación','30 imágenes FotoLab · 250 Costeador IA','Soporte L-V 9am–7pm','Negocio independiente.'],
-              ['PROFESIONAL','$18,900','MXN/mes','Setup: $12,000','9 agentes de IA','400 msgs carritos · 200 reactivación','60 imágenes FotoLab · 500 Costeador IA','Soporte L-S prioritario','Negocio con equipo de ventas. ★ Más elegido.'],
-              ['ENTERPRISE','$34,900','MXN/mes','Setup: $24,000','9 agentes de IA','600 msgs carritos · 300 reactivación','100 imágenes FotoLab · Costeador ilimitado','Soporte 24/7 + sesión con Erick','Cadenas / Franquicias / Multi-sucursal.'],
+              ['ESENCIAL','$9,900','MXN/mes','Setup: $6,000','9 agentes de IA','200 msgs carritos · 100 reactivación','Módulos verticales según industria','Soporte L-V 9am–7pm','Negocio independiente.'],
+              ['PROFESIONAL','$18,900','MXN/mes','Setup: $12,000','9 agentes de IA','400 msgs carritos · 200 reactivación','Módulos verticales ampliados','Soporte L-S prioritario','Negocio con equipo de ventas. ★ Más elegido.'],
+              ['ENTERPRISE','$34,900','MXN/mes','Setup: $24,000','9 agentes de IA','600 msgs carritos · 300 reactivación','Módulos verticales ilimitados','Soporte 24/7 + sesión con Erick','Cadenas / Franquicias / Multi-sucursal.'],
             ].map(([plan, price, period, setup, agents, outbound, tools, support, desc]) => (
               <div key={plan} style={{ background: plan === 'PROFESIONAL' ? 'rgba(99,102,241,0.12)' : 'rgba(255,255,255,0.04)', border: plan === 'PROFESIONAL' ? '2px solid rgba(99,102,241,0.5)' : '1px solid rgba(255,255,255,0.1)', borderRadius:16, padding:'24px 20px', minWidth:220, flex:'1 1 200px', maxWidth:290, position:'relative', textAlign:'left' }}>
                 {plan === 'PROFESIONAL' && <div style={{ position:`absolute`, top:-10, left:`50%`, transform:`translateX(-50%)`, background:`linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color:`#fff`, fontSize:9, fontWeight:800, padding:`3px 14px`, borderRadius:20, letterSpacing:`.05em` }}>MÁS POPULAR</div>}
@@ -8769,6 +8877,7 @@ function GenyXLandingPage() {
           <a href="/por-que-ahora" style={C.ftrLink}>Por qué ahora</a>
           <a href="/por-que-aoaas" style={{ ...C.ftrLink, color: '#818cf8' }}>AOaaS</a>
           <a href="/blog" style={C.ftrLink}>Blog</a>
+          <a href="/plus" style={C.ftrLink}>Módulos</a>
           <a href="/privacidad" style={C.ftrLink}>Privacidad</a>
           <a href="/terminos" style={C.ftrLink}>Términos</a>
           <a href="https://mando.genyxsystems.com" style={{ ...C.ftrLink, color:GENYX_BRAND, fontWeight:700 }}>→ Accede a tu Mando</a>
@@ -8950,6 +9059,7 @@ export default function GenyXOperatorDashboard() {
   if (path === '/cookies')    return <LegalPage tipo="cookies" />;
   if (path === '/privacidad') return <LegalPage tipo="privacidad" />;
   if (path === '/planes')     return <PlanesPage />;
+  if (path === '/plus')       return <PlusPage />;
   if (path === '/por-que-ahora') return <PorQueAhoraPage />;
   if (path === '/whitepaper') return <WhitepaperPage />;
   if (path === '/por-que-aoaas') return <PorQueAOaaSPage />;
