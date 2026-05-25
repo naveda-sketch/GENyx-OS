@@ -3464,7 +3464,189 @@ const PLAN_INFO = {
   enterprise:   { label: 'Enterprise',   price: '$34,900/mes', color: '#F59E0B', next: null,          nextPrice: null },
 };
 
-function PlanVsAgentsPanel({ plan, agents, billingStatus, slug }) {
+
+// ═══════════════════════════════════════════════════════════════════
+// SUPPORT MODAL — Soporte Tenant→GenyX (Frontend #18)
+// ═══════════════════════════════════════════════════════════════════
+// METODOLOGÍA (REGLA 14): Backstage-Invisible Support UI Pattern.
+// REGLA 8: tenant ve "Soporte GenyX", NUNCA menciona agentes IA internos.
+// Backend: POST /api/client/{slug}/support (V60 commit 947089c)
+// Flow: Tenant escribe → Backend intenta resolver → si no puede → escala al fundador
+// ═══════════════════════════════════════════════════════════════════
+
+function SupportModal({ slug, token, open, onClose }) {
+  const [message, setMessage] = React.useState('');
+  const [severity, setSeverity] = React.useState('medium');
+  const [tabContext, setTabContext] = React.useState('');
+  const [submitting, setSubmitting] = React.useState(false);
+  const [result, setResult] = React.useState(null);
+  const [history, setHistory] = React.useState([]);
+  const [view, setView] = React.useState('new');
+  const [loadingHistory, setLoadingHistory] = React.useState(false);
+
+  React.useEffect(() => {
+    if (open && view === 'history') {
+      setLoadingHistory(true);
+      fetch(`${BACKEND}/api/client/${slug}/support/tickets`, {
+        headers: { 'X-Dashboard-Token': token }
+      })
+        .then(r => r.ok ? r.json() : { tickets: [] })
+        .then(d => { setHistory(d.tickets || []); setLoadingHistory(false); })
+        .catch(() => { setHistory([]); setLoadingHistory(false); });
+    }
+  }, [open, view, slug, token]);
+
+  const handleSubmit = async () => {
+    if (!message.trim()) return;
+    setSubmitting(true);
+    try {
+      const r = await fetch(`${BACKEND}/api/client/${slug}/support`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Dashboard-Token': token },
+        body: JSON.stringify({ message, severity, tab_context: tabContext || undefined }),
+      });
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      const data = await r.json();
+      setResult(data);
+      setMessage('');
+    } catch (e) {
+      setResult({ error: 'Error enviando consulta: ' + e.message });
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  if (!open) return null;
+
+  const fmtDate = (d) => { try { return new Date(d).toLocaleDateString('es-MX', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }); } catch { return d; } };
+  const statusLabel = (s) => ({ open: 'Abierta', agent_resolved: 'Resuelta', escalated: 'Escalada', founder_responded: 'Respondida', closed: 'Cerrada' }[s] || s);
+  const statusColor = (s) => ({ open: '#f59e0b', agent_resolved: '#10b981', escalated: '#3b82f6', founder_responded: '#10b981', closed: '#64748b' }[s] || '#64748b');
+
+  const O = {
+    overlay: { position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 },
+    modal: { background: '#111827', border: '1px solid rgba(99,102,241,0.2)', borderRadius: 16, padding: '28px 24px', maxWidth: 480, width: '100%', maxHeight: '85vh', overflowY: 'auto', color: '#f1f5f9', fontFamily: "'Inter', sans-serif" },
+    h3: { fontSize: 18, fontWeight: 800, marginBottom: 4 },
+    sub: { fontSize: 13, color: '#94a3b8', lineHeight: 1.6, marginBottom: 20 },
+    tabs: { display: 'flex', gap: 4, marginBottom: 20, background: 'rgba(255,255,255,0.04)', borderRadius: 10, padding: 3 },
+    tabActive: { flex: 1, padding: '8px 12px', fontSize: 12, fontWeight: 700, border: 'none', borderRadius: 8, cursor: 'pointer', background: 'rgba(99,102,241,0.15)', color: '#818cf8' },
+    tabIdle: { flex: 1, padding: '8px 12px', fontSize: 12, fontWeight: 600, border: 'none', borderRadius: 8, cursor: 'pointer', background: 'transparent', color: '#64748b' },
+    textarea: { width: '100%', minHeight: 100, background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 10, padding: 12, fontSize: 13, color: '#f1f5f9', resize: 'vertical', outline: 'none', fontFamily: "'Inter', sans-serif", boxSizing: 'border-box' },
+    row: { display: 'flex', gap: 8, marginTop: 10 },
+    select: { flex: 1, background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8, padding: '8px 10px', fontSize: 12, color: '#f1f5f9', outline: 'none' },
+    input: { flex: 1, background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8, padding: '8px 10px', fontSize: 12, color: '#f1f5f9', outline: 'none' },
+    submit: { width: '100%', marginTop: 14, padding: '12px 20px', borderRadius: 10, border: 'none', background: 'linear-gradient(135deg,' + GENYX_BRAND + ',#8b5cf6)', color: '#fff', fontSize: 13, fontWeight: 700, cursor: 'pointer', opacity: 1, transition: 'opacity 0.2s' },
+    submitDisabled: { opacity: 0.5, cursor: 'not-allowed' },
+    resultBox: { marginTop: 16, background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, padding: '16px 18px' },
+    resolved: { display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(16,185,129,0.1)', color: '#10b981', padding: '4px 12px', borderRadius: 20, fontSize: 12, fontWeight: 700 },
+    escalated: { display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(59,130,246,0.1)', color: '#3b82f6', padding: '4px 12px', borderRadius: 20, fontSize: 12, fontWeight: 700 },
+    error: { marginTop: 12, background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: 10, padding: 12, fontSize: 13, color: '#ef4444' },
+    ticket: { background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 10, padding: '12px 14px', marginBottom: 8 },
+    close: { width: '100%', marginTop: 16, padding: '10px', borderRadius: 8, border: '1px solid rgba(255,255,255,0.1)', background: 'transparent', color: '#64748b', fontSize: 12, cursor: 'pointer' },
+    newQuery: { marginTop: 12, padding: '8px 16px', borderRadius: 8, border: '1px solid rgba(99,102,241,0.2)', background: 'transparent', color: '#818cf8', fontSize: 12, fontWeight: 600, cursor: 'pointer' },
+  };
+
+  return (
+    <div style={O.overlay} onClick={onClose}>
+      <div style={O.modal} onClick={e => e.stopPropagation()}>
+        <h3 style={O.h3}>Soporte GenyX</h3>
+        <p style={O.sub}>
+          Escribe tu consulta. Recibirás respuesta inmediata o, si requiere decisión humana, escalación directa al fundador.
+        </p>
+
+        <div style={O.tabs}>
+          <button onClick={() => setView('new')} style={view === 'new' ? O.tabActive : O.tabIdle}>Nueva consulta</button>
+          <button onClick={() => setView('history')} style={view === 'history' ? O.tabActive : O.tabIdle}>Mis consultas</button>
+        </div>
+
+        {view === 'new' && !result && (
+          <>
+            <textarea
+              value={message}
+              onChange={e => setMessage(e.target.value)}
+              placeholder="Describe tu consulta..."
+              maxLength={2000}
+              style={O.textarea}
+            />
+            <div style={O.row}>
+              <select value={severity} onChange={e => setSeverity(e.target.value)} style={O.select}>
+                <option value="low">Baja prioridad</option>
+                <option value="medium">Media</option>
+                <option value="high">Alta</option>
+                <option value="critical">Crítica</option>
+              </select>
+              <input
+                value={tabContext}
+                onChange={e => setTabContext(e.target.value.slice(0, 50))}
+                placeholder="Contexto (opcional)"
+                style={O.input}
+              />
+            </div>
+            <button
+              onClick={handleSubmit}
+              disabled={submitting || !message.trim()}
+              style={{ ...O.submit, ...(submitting || !message.trim() ? O.submitDisabled : {}) }}
+            >
+              {submitting ? '⏳ Enviando...' : 'Enviar consulta'}
+            </button>
+          </>
+        )}
+
+        {result && !result.error && (
+          <div style={O.resultBox}>
+            <div style={result.escalated_to_founder ? O.escalated : O.resolved}>
+              {result.escalated_to_founder ? '⚠️ Escalada' : '✓ Resuelta'} — Ticket #{result.ticket_id}
+            </div>
+            <div style={{ marginTop: 12, fontSize: 13, lineHeight: 1.7, color: '#e2e8f0', whiteSpace: 'pre-wrap' }}>
+              {result.agent_response}
+            </div>
+            {result.estimated_response_time && (
+              <p style={{ marginTop: 10, fontSize: 11, color: '#94a3b8' }}>{result.estimated_response_time}</p>
+            )}
+            <button onClick={() => setResult(null)} style={O.newQuery}>Nueva consulta</button>
+          </div>
+        )}
+
+        {result && result.error && (
+          <div style={O.error}>{result.error}</div>
+        )}
+
+        {view === 'history' && (
+          <div>
+            {loadingHistory && <p style={{ color: '#94a3b8', fontSize: 12 }}>⏳ Cargando...</p>}
+            {!loadingHistory && history.length === 0 && <p style={{ color: '#94a3b8', fontSize: 13 }}>Aún no tienes consultas.</p>}
+            {history.map(t => (
+              <div key={t.id} style={O.ticket}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontWeight: 700, fontSize: 13 }}>#{t.id}</span>
+                  <span style={{ background: statusColor(t.status) + '20', color: statusColor(t.status), padding: '2px 8px', borderRadius: 6, fontSize: 10, fontWeight: 700 }}>
+                    {statusLabel(t.status)}
+                  </span>
+                </div>
+                <p style={{ marginTop: 8, fontSize: 12, color: '#e2e8f0', lineHeight: 1.5 }}>{t.user_message}</p>
+                {t.agent_response && (
+                  <p style={{ marginTop: 6, fontSize: 11, color: '#94a3b8', borderLeft: '2px solid ' + GENYX_BRAND, paddingLeft: 8 }}>
+                    {t.agent_response}
+                  </p>
+                )}
+                {t.founder_response && (
+                  <p style={{ marginTop: 6, fontSize: 11, color: '#10b981', borderLeft: '2px solid #10b981', paddingLeft: 8 }}>
+                    <strong>Fundador:</strong> {t.founder_response}
+                  </p>
+                )}
+                <small style={{ color: '#475569', fontSize: 10 }}>{fmtDate(t.created_at)}</small>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <button onClick={onClose} style={O.close}>Cerrar</button>
+      </div>
+    </div>
+  );
+}
+
+function PlanVsAgentsPanel({ plan, agents, billingStatus, slug, token }) {
+  const [supportOpen, setSupportOpen] = React.useState(false);
   const info = PLAN_INFO[plan] || PLAN_INFO.esencial;
   const isPiloto = billingStatus === 'piloto_comped';
   const agentEntries = Object.entries(CLIENT_AGENT_DEFS);
@@ -3610,25 +3792,26 @@ function PlanVsAgentsPanel({ plan, agents, billingStatus, slug }) {
         )}
 
         {/* Row 2: Soporte — siempre visible (todos los planes + piloto) */}
-        <a
-          href={`${GENYX_CONTACT.support_url}&body=${encodeURIComponent('[SOPORTE-TENANT] Soy ' + (slug || 'mi negocio') + ' (plan ' + info.label + '). Necesito ayuda con: ')}`}
-          target="_blank" rel="noopener noreferrer"
+        <button
+          onClick={() => setSupportOpen(true)}
           style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
             fontFamily: "'Rajdhani', sans-serif", fontSize: 11, fontWeight: 700,
             color: '#E8F4FF', background: 'rgba(99,102,241,0.08)',
             border: '1px solid rgba(99,102,241,0.15)', borderRadius: 10,
-            padding: '8px 16px', cursor: 'pointer', textDecoration: 'none',
-            transition: 'all 0.2s',
+            padding: '8px 16px', cursor: 'pointer',
+            transition: 'all 0.2s', width: '100%',
           }}
-        >💬 Soporte · Hablar con mi agente GenyX</a>
+        >💬 Soporte GenyX</button>
 
         <p style={{
           fontFamily: "'JetBrains Mono', monospace", fontSize: 8, color: '#475569',
           textAlign: 'center', lineHeight: 1.4,
         }}>
-          Tu agente GenyX atiende primero. Solo escala al fundador si el agente no puede resolver tu caso.
+          Respuesta inmediata. Si requiere decisión humana, escalación directa al fundador.
         </p>
+
+        <SupportModal slug={slug} token={token} open={supportOpen} onClose={() => setSupportOpen(false)} />
       </div>
     </div>
   );
@@ -3654,7 +3837,7 @@ function TabMisAgentes({ slug, token }) {
   return (
     <>
       {/* P1.3 — Plan vs Agents Panel */}
-      <PlanVsAgentsPanel plan={plan} agents={agents} billingStatus={null} slug={slug} />
+      <PlanVsAgentsPanel plan={plan} agents={agents} billingStatus={null} slug={slug} token={token} />
 
       <h2 style={{ fontSize: 15, fontWeight: 700, marginBottom: 4, color: '#44403c' }}>
         🤖 Mis Agentes <span style={{ fontSize: 10, fontWeight: 400, color: '#a8a29e' }}>Plan {plan}</span>
