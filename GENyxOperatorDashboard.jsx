@@ -29,6 +29,12 @@ const GENYX_CONTACT = {
 // ═══════════════════════════════════════════════════════════════════
 
 const GENYX_BRAND = '#6366f1'; // GenyX corporate indigo — landing/cockpit, NUNCA mando tenant
+// Bloque 3 — Design tokens derivados de GENYX_BRAND (decreto fundador 25-may)
+const GB_LIGHT  = '#818cf8'; // indigo-400 — text accent, secondary headings
+const GB_SOFT   = '#a5b4fc'; // indigo-300 — muted accent, labels, codes
+const GB_VIOLET = '#c084fc'; // violet-400 — gradients, premium accents
+const GB_PURPLE = '#8b5cf6'; // violet-500 — gradient endpoints
+const GBa = (a) => `rgba(99,102,241,${a})`; // GENYX_BRAND rgba helper
 
 const TOKENS = (brandColor) => {
   const bc = brandColor || '#0066ff'; // Default neutro, NO el color de ningún tenant
@@ -161,7 +167,7 @@ const TabFarmacopeia = () => {
           <div
             key={i}
             onClick={() => setSelected(selected === i ? null : i)}
-            style={{ ...CARD, cursor: 'pointer', border: `1px solid ${selected === i ? 'rgba(99,102,241,0.4)' : 'rgba(255,255,255,0.06)'}`, transition: 'border-color 0.15s' }}
+            style={{ ...CARD, cursor: 'pointer', border: `1px solid ${selected === i ? GBa(0.4) : 'rgba(255,255,255,0.06)'}`, transition: 'border-color 0.15s' }}
             onMouseOver={el => { if (selected !== i) el.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; }}
             onMouseOut={el => { if (selected !== i) el.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'; }}
           >
@@ -171,7 +177,7 @@ const TabFarmacopeia = () => {
                 {selected !== i && <p style={{ fontSize: 11, color: '#64748b' }}>{e.diagnostico.substring(0, 90)}{e.diagnostico.length > 90 ? '…' : ''}</p>}
               </div>
               <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexShrink: 0 }}>
-                <span style={{ ...MONO, fontSize: 9, color: GENYX_BRAND, background: 'rgba(99,102,241,0.1)', padding: '2px 7px', borderRadius: 4 }}>{e.commit}</span>
+                <span style={{ ...MONO, fontSize: 9, color: GENYX_BRAND, background: GBa(0.1), padding: '2px 7px', borderRadius: 4 }}>{e.commit}</span>
                 <span style={{ fontSize: 14 }}>{e.estado}</span>
                 <span style={{ color: '#64748b', fontSize: 11 }}>{selected === i ? '▲' : '▼'}</span>
               </div>
@@ -193,8 +199,8 @@ const TabFarmacopeia = () => {
         ))}
       </div>
 
-      <div style={{ marginTop: 20, padding: '12px 16px', background: 'rgba(99,102,241,0.06)', borderRadius: 10, border: '1px solid rgba(99,102,241,0.15)' }}>
-        <p style={{ fontSize: 11, color: '#818cf8' }}>💡 <strong>¿Bug nuevo resuelto?</strong> Agrégalo al array <code style={{ background: 'rgba(99,102,241,0.2)', padding: '1px 5px', borderRadius: 3 }}>FARMACOPEIA_DATA</code> en el dashboard y a <code style={{ background: 'rgba(99,102,241,0.2)', padding: '1px 5px', borderRadius: 3 }}>bitacora_bugs_recurrentes.md</code>.</p>
+      <div style={{ marginTop: 20, padding: '12px 16px', background: GBa(0.06), borderRadius: 10, border: `1px solid ${GBa(0.15)}` }}>
+        <p style={{ fontSize: 11, color: GB_LIGHT }}>💡 <strong>¿Bug nuevo resuelto?</strong> Agrégalo al array <code style={{ background: GBa(0.2), padding: '1px 5px', borderRadius: 3 }}>FARMACOPEIA_DATA</code> en el dashboard y a <code style={{ background: GBa(0.2), padding: '1px 5px', borderRadius: 3 }}>bitacora_bugs_recurrentes.md</code>.</p>
       </div>
     </section>
   );
@@ -253,7 +259,7 @@ function ModulesEditorModal({ tenant, onClose, onSave }) {
 
   return (
     <div onClick={onClose} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(4px)', zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
-      <div onClick={e => e.stopPropagation()} style={{ background: '#0c1220', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 16, padding: 28, maxWidth: 500, width: '100%', maxHeight: '85vh', overflowY: 'auto' }}>
+      <div onClick={e => e.stopPropagation()} style={{ background: '#0c1220', border: `1px solid ${GBa(0.3)}`, borderRadius: 16, padding: 28, maxWidth: 500, width: '100%', maxHeight: '85vh', overflowY: 'auto' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 20 }}>
           <div>
             <h3 style={{ fontSize: 16, fontWeight: 700, color: '#f1f5f9' }}>⚙️ Módulos · {tenant.name || tenant.slug}</h3>
@@ -265,13 +271,13 @@ function ModulesEditorModal({ tenant, onClose, onSave }) {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 8, marginBottom: 20 }}>
           {MODULES_DEFS.map(m => (
             <div key={m.id} onClick={() => toggle(m.id)} style={{
-              background: modules[m.id] ? 'rgba(99,102,241,0.1)' : 'rgba(255,255,255,0.03)',
-              border: `1px solid ${modules[m.id] ? 'rgba(99,102,241,0.4)' : 'rgba(255,255,255,0.06)'}`,
+              background: modules[m.id] ? GBa(0.1) : 'rgba(255,255,255,0.03)',
+              border: `1px solid ${modules[m.id] ? GBa(0.4) : 'rgba(255,255,255,0.06)'}`,
               borderRadius: 10, padding: '10px 12px', cursor: 'pointer',
               display: 'flex', alignItems: 'center', gap: 10, transition: 'all 0.15s'
             }}>
               <span style={{ fontSize: 18 }}>{m.icon}</span>
-              <span style={{ fontSize: 13, color: modules[m.id] ? '#a5b4fc' : '#64748b', fontWeight: 600, flex: 1 }}>{m.name}</span>
+              <span style={{ fontSize: 13, color: modules[m.id] ? GB_SOFT : '#64748b', fontWeight: 600, flex: 1 }}>{m.name}</span>
               <span style={{ width: 18, height: 18, borderRadius: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12,
                 background: modules[m.id] ? GENYX_BRAND : 'rgba(255,255,255,0.06)', color: '#fff' }}>
                 {modules[m.id] ? '✓' : ''}
@@ -361,8 +367,8 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
     <>
     <section>
       {onboardingUrl && (
-        <div style={{ ...CARD, background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.3)', marginBottom: 20 }}>
-          <p style={{ color: '#a5b4fc', fontWeight: 700, marginBottom: 8 }}>🔗 Configuración de Pago (Stripe)</p>
+        <div style={{ ...CARD, background: GBa(0.08), border: `1px solid ${GBa(0.3)}`, marginBottom: 20 }}>
+          <p style={{ color: GB_SOFT, fontWeight: 700, marginBottom: 8 }}>🔗 Configuración de Pago (Stripe)</p>
           <p style={{ fontSize: 12, color: '#64748b', marginBottom: 12 }}>Envía este link al cliente para completar la configuración de cobros en Stripe. Expira en 24h.</p>
           <div style={{ display: 'flex', gap: 8 }}>
             <input readOnly value={onboardingUrl} style={{ ...INPUT, flex: 1, fontSize: 11 }} />
@@ -380,21 +386,21 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
       {!selectedSlug && (
       <div style={{ marginBottom: 20 }}>
         <p style={{ ...MONO, color: GENYX_BRAND, fontSize: 10, marginBottom: 8, letterSpacing: '.08em' }}>CLIENTE 000 — OPERADOR</p>
-        <div style={{ ...CARD, border: '1px solid rgba(99,102,241,0.35)', background: 'rgba(99,102,241,0.06)' }}>
+        <div style={{ ...CARD, border: `1px solid ${GBa(0.35)}`, background: GBa(0.06) }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
             <div>
-              <h3 style={{ fontWeight: 700, fontSize: 16, color: '#a5b4fc' }}>GenyX</h3>
+              <h3 style={{ fontWeight: 700, fontSize: 16, color: GB_SOFT }}>GenyX</h3>
               <p style={{ fontSize: 12, color: GENYX_BRAND, marginTop: 2 }}>Plataforma Operadora</p>
             </div>
-            <span style={{ background: 'rgba(99,102,241,0.15)', color: '#818cf8', border: '1px solid rgba(99,102,241,0.3)', padding: '2px 10px', borderRadius: 12, fontSize: 10, fontWeight: 700, textTransform: 'uppercase' }}>OPERADOR</span>
+            <span style={{ background: GBa(0.15), color: GB_LIGHT, border: `1px solid ${GBa(0.3)}`, padding: '2px 10px', borderRadius: 12, fontSize: 10, fontWeight: 700, textTransform: 'uppercase' }}>OPERADOR</span>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginBottom: 16 }}>
             <KpiMini label="Volumen procesado" value={$$( clientKPIs.reduce((s,t)=>s+(t.revenueMonth||0),0) )} />
             <KpiMini label="MRR Total" value={$$( clientKPIs.reduce((s,t)=>s+(parseFloat(t.plan_monthly_fee)||3500),0) )} />
             <KpiMini label="Clientes activos" value={ tenants.filter(t=>t.status==='active').length } />
           </div>
-          <div style={{ borderTop: '1px solid rgba(99,102,241,0.15)', paddingTop: 12, display: 'flex', gap: 8 }}>
-            <button onClick={() => window.open('https://genyxsystems.com', '_blank')} style={{ ...BTN_SM_BLUE, background: 'rgba(99,102,241,0.2)', border: '1px solid rgba(99,102,241,0.4)', color: '#a5b4fc' }}>🌐 Web</button>
+          <div style={{ borderTop: `1px solid ${GBa(0.15)}`, paddingTop: 12, display: 'flex', gap: 8 }}>
+            <button onClick={() => window.open('https://genyxsystems.com', '_blank')} style={{ ...BTN_SM_BLUE, background: GBa(0.2), border: `1px solid ${GBa(0.4)}`, color: GB_SOFT }}>🌐 Web</button>
           </div>
         </div>
       </div>
@@ -418,13 +424,13 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
                   <div style={{ display: 'flex', gap: 6, marginBottom: 4 }}>
                     {/* 🏠 Home icon — regresa al operador */}
                     <button onClick={() => window.location.href = '/os'} title="Regresar al Centro de Mando"
-                      style={{ background: 'rgba(99,102,241,0.15)', border: '1px solid rgba(99,102,241,0.3)', color: '#818cf8', width: 28, height: 28, borderRadius: 6, cursor: 'pointer', fontSize: 14, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>🏠</button>
+                      style={{ background: GBa(0.15), border: `1px solid ${GBa(0.3)}`, color: GB_LIGHT, width: 28, height: 28, borderRadius: 6, cursor: 'pointer', fontSize: 14, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>🏠</button>
                     {/* ↺ Reload icon */}
                     <button onClick={() => window.location.reload()} title="Recargar datos"
                       style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', color: '#94a3b8', width: 28, height: 28, borderRadius: 6, cursor: 'pointer', fontSize: 14, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>↺</button>
                   </div>
                   <StatusBadge s={t.status} />
-                  <span style={{ fontSize: 10, fontWeight: 700, padding: '2px 8px', borderRadius: 4, background: (t.payout_mode || 'manual') === 'connect' ? 'rgba(99,102,241,0.2)' : 'rgba(251,191,36,0.15)', color: (t.payout_mode || 'manual') === 'connect' ? '#818cf8' : '#fbbf24' }}>
+                  <span style={{ fontSize: 10, fontWeight: 700, padding: '2px 8px', borderRadius: 4, background: (t.payout_mode || 'manual') === 'connect' ? GBa(0.2) : 'rgba(251,191,36,0.15)', color: (t.payout_mode || 'manual') === 'connect' ? GB_LIGHT : '#fbbf24' }}>
                     {(t.payout_mode || 'manual') === 'connect' ? '⚡ Configuración de Pago (Stripe)' : '🏦 Pago Externo'}
                   </span>
                 </div>
@@ -505,16 +511,16 @@ const NewsFeed = ({ health, orders, tenants }) => {
   };
 
   return (
-    <div style={{ ...CARD, background: 'linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.05))', border: '1px solid rgba(99,102,241,0.25)', marginBottom: 20 }}>
+    <div style={{ ...CARD, background: `linear-gradient(135deg, ${GBa(0.1)}, rgba(139,92,246,0.05))`, border: `1px solid ${GBa(0.25)}`, marginBottom: 20 }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 8, marginBottom: 14 }}>
         <div>
-          <h3 style={{ fontWeight: 700, fontSize: 14, color: '#818cf8', marginBottom: 3 }}>☀️ 15 Minutos de Lectura</h3>
+          <h3 style={{ fontWeight: 700, fontSize: 14, color: GB_LIGHT, marginBottom: 3 }}>☀️ 15 Minutos de Lectura</h3>
           <p style={{ fontSize: 11, color: '#64748b' }}>{new Date().toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
         </div>
         <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
-          <span style={{ fontSize: 10, ...MONO, background: '#1e1b4b', color: '#818cf8', padding: '4px 10px', borderRadius: 6 }}>Tech · IA · Negocios</span>
+          <span style={{ fontSize: 10, ...MONO, background: '#1e1b4b', color: GB_LIGHT, padding: '4px 10px', borderRadius: 6 }}>Tech · IA · Negocios</span>
           <button onClick={fetchNews} disabled={loading} title="Recargar noticias"
-            style={{ background: 'rgba(99,102,241,0.15)', border: '1px solid rgba(99,102,241,0.3)', color: '#818cf8', width: 26, height: 26, borderRadius: 6, cursor: 'pointer', fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            style={{ background: GBa(0.15), border: `1px solid ${GBa(0.3)}`, color: GB_LIGHT, width: 26, height: 26, borderRadius: 6, cursor: 'pointer', fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             {loading ? '…' : '🔄'}
           </button>
         </div>
@@ -531,10 +537,10 @@ const NewsFeed = ({ health, orders, tenants }) => {
           {news.map((item, i) => (
             <a key={i} href={item.url} target="_blank" rel="noreferrer"
               style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '10px 12px', background: 'rgba(15,23,42,0.5)', borderRadius: 8, textDecoration: 'none', transition: 'background 0.15s' }}
-              onMouseOver={e => e.currentTarget.style.background = 'rgba(99,102,241,0.15)'}
+              onMouseOver={e => e.currentTarget.style.background = GBa(0.15)}
               onMouseOut={e => e.currentTarget.style.background = 'rgba(15,23,42,0.5)'}
             >
-              <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: 0.5, color: SOURCE_COLORS[item.source] || '#818cf8', background: 'rgba(99,102,241,0.1)', padding: '3px 7px', borderRadius: 4, whiteSpace: 'nowrap', marginTop: 2 }}>{item.source}</span>
+              <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: 0.5, color: SOURCE_COLORS[item.source] || GB_LIGHT, background: GBa(0.1), padding: '3px 7px', borderRadius: 4, whiteSpace: 'nowrap', marginTop: 2 }}>{item.source}</span>
               <span style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.4, flex: 1 }}>{item.title}</span>
             </a>
           ))}
@@ -605,7 +611,7 @@ const TabData = ({ tenants, orders }) => {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 24 }}>
         {[
           { label: 'Revenue Total', value: $$(g.totalRevenue), icon: '💰', color: '#4ade80' },
-          { label: 'MRR (Suscripciones)', value: $$(g.totalSubscription), icon: '⚡', color: '#818cf8' },
+          { label: 'MRR (Suscripciones)', value: $$(g.totalSubscription), icon: '⚡', color: GB_LIGHT },
           { label: 'Ticket Promedio', value: $$(g.avgTicket), icon: '🎯', color: '#fb923c' },
           { label: 'Pedidos Totales', value: g.totalOrders, icon: '📦', color: '#38bdf8' },
         ].map((kpi, i) => (
@@ -628,7 +634,7 @@ const TabData = ({ tenants, orders }) => {
             </div>
             <div style={{ display: 'flex', gap: 20, textAlign: 'right' }}>
               <div><div style={{ fontSize: 13, fontWeight: 700, color: '#4ade80' }}>{$$(c.revenue)}</div><div style={{ fontSize: 10, color: '#64748b' }}>Revenue</div></div>
-              <div><div style={{ fontSize: 13, fontWeight: 700, color: '#818cf8' }}>{$$(c.subscription)}</div><div style={{ fontSize: 10, color: '#64748b' }}>Suscripción</div></div>
+              <div><div style={{ fontSize: 13, fontWeight: 700, color: GB_LIGHT }}>{$$(c.subscription)}</div><div style={{ fontSize: 10, color: '#64748b' }}>Suscripción</div></div>
               <div><div style={{ fontSize: 13, fontWeight: 700, color: '#38bdf8' }}>{c.orders}</div><div style={{ fontSize: 10, color: '#64748b' }}>Pedidos</div></div>
             </div>
           </div>
@@ -636,12 +642,12 @@ const TabData = ({ tenants, orders }) => {
       </div>
 
       {/* GenyX as a Business */}
-      <div style={{ ...CARD, background: 'linear-gradient(135deg, rgba(99,102,241,0.15) 0%, rgba(139,92,246,0.1) 100%)', border: '1px solid rgba(99,102,241,0.3)' }}>
-        <h3 style={{ ...H2, fontSize: 14, marginBottom: 16, color: '#a5b4fc' }}>⚡ GenyX — Como Negocio</h3>
+      <div style={{ ...CARD, background: `linear-gradient(135deg, ${GBa(0.15)} 0%, rgba(139,92,246,0.1) 100%)`, border: `1px solid ${GBa(0.3)}` }}>
+        <h3 style={{ ...H2, fontSize: 14, marginBottom: 16, color: GB_SOFT }}>⚡ GenyX — Como Negocio</h3>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
           <div>
             <p style={{ ...MONO, fontSize: 10, color: '#64748b', marginBottom: 8 }}>MRR (SUSCRIPCIONES)</p>
-            <p style={{ fontSize: 28, fontWeight: 800, color: '#818cf8' }}>{$$(g.totalSubscription)}</p>
+            <p style={{ fontSize: 28, fontWeight: 800, color: GB_LIGHT }}>{$$(g.totalSubscription)}</p>
             <p style={{ fontSize: 11, color: '#64748b', marginTop: 4 }}>Acumulado de {g.clientBreakdown.length} cliente(s)</p>
           </div>
           <div>
@@ -1028,8 +1034,8 @@ const TabAnalista = ({ tenants, orders, selectedSlug, setSelectedSlug }) => {
 
           {/* Estrategia */}
           {data.estrategia?.length > 0 && (
-            <div style={{ ...CARD, background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.2)' }}>
-              <h3 style={{ ...H3, color: '#818cf8', marginBottom: 14 }}>🚀 Estrategia Recomendada</h3>
+            <div style={{ ...CARD, background: GBa(0.06), border: `1px solid ${GBa(0.2)}` }}>
+              <h3 style={{ ...H3, color: GB_LIGHT, marginBottom: 14 }}>🚀 Estrategia Recomendada</h3>
               {data.estrategia.map((e, i) => <p key={i} style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.7, marginBottom: 8 }}>{e}</p>)}
             </div>
           )}
@@ -1169,7 +1175,7 @@ const BITACORA_TAGS = [
   { id: 'decision',   label: '🎯 Decisión',   color: GENYX_BRAND },
   { id: 'cliente',    label: '🏢 Cliente',    color: '#22c55e' },
   { id: 'tecnico',    label: '⚙️ Técnico',    color: '#eab308' },
-  { id: 'comercial',  label: '💼 Comercial',  color: '#c084fc' },
+  { id: 'comercial',  label: '💼 Comercial',  color: GB_VIOLET },
 ];
 
 const TabBitacora = () => {
@@ -1231,7 +1237,7 @@ const TabBitacora = () => {
 
       {/* Editor */}
       {showEditor && (
-        <div style={{ ...CARD, marginBottom: 20, border: '1px solid rgba(99,102,241,0.3)' }}>
+        <div style={{ ...CARD, marginBottom: 20, border: `1px solid ${GBa(0.3)}` }}>
           <input placeholder="Título de la entrada..." value={draft.title}
             onChange={e => setDraft(p => ({ ...p, title: e.target.value }))}
             style={{ ...INPUT, marginBottom: 10, fontWeight: 600 }} />
@@ -1349,9 +1355,9 @@ const TabReporteLunes = ({ tenants }) => {
       {report && !report.error && (
         <>
           {/* Email mock-up */}
-          <div style={{ ...CARD, overflow: 'hidden', border: '1px solid rgba(99,102,241,0.2)' }}>
+          <div style={{ ...CARD, overflow: 'hidden', border: `1px solid ${GBa(0.2)}` }}>
             {/* Email header */}
-            <div style={{ background: 'rgba(99,102,241,0.08)', padding: '14px 20px', borderBottom: '1px solid rgba(255,255,255,0.06)', fontSize: 12 }}>
+            <div style={{ background: GBa(0.08), padding: '14px 20px', borderBottom: '1px solid rgba(255,255,255,0.06)', fontSize: 12 }}>
               <p style={{ color: '#64748b' }}><strong style={{ color: '#94a3b8' }}>De:</strong> Tu Agente de Inteligencia Financiera GenyX</p>
               <p style={{ color: '#64748b' }}><strong style={{ color: '#94a3b8' }}>Para:</strong> {report.email || '—'}</p>
               <p style={{ color: '#64748b' }}><strong style={{ color: '#94a3b8' }}>Asunto:</strong> Tu reporte semanal — {report.fecha || new Date().toLocaleDateString('es-MX')}</p>
@@ -1391,7 +1397,7 @@ const TabReporteLunes = ({ tenants }) => {
 
               {report.sugerencias && report.sugerencias.length > 0 && (
                 <div style={{ marginBottom: 20 }}>
-                  <p style={{ fontSize: 13, fontWeight: 700, color: '#818cf8', marginBottom: 8 }}>Sugerencias basadas en tus datos:</p>
+                  <p style={{ fontSize: 13, fontWeight: 700, color: GB_LIGHT, marginBottom: 8 }}>Sugerencias basadas en tus datos:</p>
                   {report.sugerencias.map((s, i) => (
                     <p key={i} style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.7, paddingLeft: 12 }}>→ {s}</p>
                   ))}
@@ -1591,15 +1597,15 @@ const TabExpedientes = ({ tenants }) => {
             return (
               <div key={id} onClick={() => selectClient(id)}
                 style={{ ...CARD, cursor: 'pointer',
-                  border: selected === id ? `1px solid ${GENYX_BRAND}` : isGenyX ? '1px solid rgba(99,102,241,0.35)' : '1px solid rgba(255,255,255,0.07)',
-                  background: selected === id ? 'rgba(99,102,241,0.1)' : isGenyX ? 'rgba(99,102,241,0.05)' : undefined,
+                  border: selected === id ? `1px solid ${GENYX_BRAND}` : isGenyX ? `1px solid ${GBa(0.35)}` : '1px solid rgba(255,255,255,0.07)',
+                  background: selected === id ? GBa(0.1) : isGenyX ? GBa(0.05) : undefined,
                   padding: '14px 16px', transition: 'all 0.15s' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
                   <div>
                     <p style={{ ...MONO, fontSize: 9, color: isGenyX ? GENYX_BRAND : '#64748b', marginBottom: 3 }}>
                       {isGenyX ? 'CLIENTE 000' : `CLIENTE ${String(i + 1).padStart(3, '0')}`}
                     </p>
-                    <p style={{ fontWeight: 700, fontSize: 13, color: isGenyX ? '#a5b4fc' : '#f1f5f9' }}>{c.name || c.slug}</p>
+                    <p style={{ fontWeight: 700, fontSize: 13, color: isGenyX ? GB_SOFT : '#f1f5f9' }}>{c.name || c.slug}</p>
                   </div>
                   <span style={{ fontSize: 12, fontWeight: 800, color: bc }}>{p}%</span>
                 </div>
@@ -1619,11 +1625,11 @@ const TabExpedientes = ({ tenants }) => {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
 
             {/* Header card */}
-            <div style={{ ...CARD, border: '1px solid rgba(99,102,241,0.3)', background: 'rgba(99,102,241,0.06)' }}>
+            <div style={{ ...CARD, border: `1px solid ${GBa(0.3)}`, background: GBa(0.06) }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
                 <div>
                   <p style={{ ...MONO, color: GENYX_BRAND, fontSize: 9, marginBottom: 4 }}>EXPEDIENTE</p>
-                  <h3 style={{ fontWeight: 800, fontSize: 16, color: '#a5b4fc' }}>{exp.name || exp.slug}</h3>
+                  <h3 style={{ fontWeight: 800, fontSize: 16, color: GB_SOFT }}>{exp.name || exp.slug}</h3>
                   <p style={{ fontSize: 11, color: '#64748b', marginTop: 2 }}>{exp.industry || 'Sin clasificar'} · Inicio: {exp.startDate || '—'}</p>
                 </div>
                 <div style={{ textAlign: 'right' }}>
@@ -1822,7 +1828,7 @@ const TabOnboarding = () => {
             .map(([k, v]) => (
               <div key={k} style={{ background: 'rgba(0,0,0,0.3)', borderRadius: 8, padding: '8px 14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
                 <span style={{ fontSize: 11, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.04em' }}>{k}</span>
-                <code style={{ fontSize: 12, color: '#a5b4fc' }}>{v}</code>
+                <code style={{ fontSize: 12, color: GB_SOFT }}>{v}</code>
               </div>
           ))}
         </div>
@@ -1847,7 +1853,7 @@ const TabOnboarding = () => {
           <React.Fragment key={i}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer' }} onClick={() => i + 1 < step && setStep(i + 1)}>
               <div style={stepStyle(i + 1)}>{i + 1}</div>
-              <span style={{ fontSize: 12, color: step === i + 1 ? '#a5b4fc' : '#475569', fontWeight: step === i + 1 ? 700 : 400 }}>{label}</span>
+              <span style={{ fontSize: 12, color: step === i + 1 ? GB_SOFT : '#475569', fontWeight: step === i + 1 ? 700 : 400 }}>{label}</span>
             </div>
             {i < 2 && <div style={{ flex: 1, height: 1, background: step > i + 1 ? GENYX_BRAND : 'rgba(255,255,255,0.08)' }} />}
           </React.Fragment>
@@ -1870,7 +1876,7 @@ const TabOnboarding = () => {
             ))}
             <div>
               <label style={LABEL}>Slug (ID único del cajón) *</label>
-              <input style={{ ...INPUT, fontFamily: 'monospace', color: '#a5b4fc' }} value={form.slug} placeholder="tacos-el-guero" onChange={e => set('slug', e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, ''))} />
+              <input style={{ ...INPUT, fontFamily: 'monospace', color: GB_SOFT }} value={form.slug} placeholder="tacos-el-guero" onChange={e => set('slug', e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, ''))} />
               <p style={{ fontSize: 10, color: '#475569', marginTop: 4 }}>Se usa en la URL del dashboard: mando.genyxsystems.com/<strong>{form.slug || 'slug'}</strong></p>
             </div>
             <div>
@@ -2129,7 +2135,7 @@ const TabMarketing = ({ selectedSlug }) => {
 
 
   const TYPE_EMOJI = { product_star: '🏆', wa_status: '📱', promo: '🎉', social_proof: '⭐', reactivation: '📣', urgency: '🔥' };
-  const STATUS_COLOR = { executed: '#4ade80', skipped: '#fbbf24', failed: '#f87171', pending: '#818cf8' };
+  const STATUS_COLOR = { executed: '#4ade80', skipped: '#fbbf24', failed: '#f87171', pending: GB_LIGHT };
 
   return (
     <section>
@@ -2157,7 +2163,7 @@ const TabMarketing = ({ selectedSlug }) => {
       {/* ── KPIs ── */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 24 }}>
         {[
-          { label: 'Estrategias', value: stats.total_strategies, icon: '📋', color: '#818cf8' },
+          { label: 'Estrategias', value: stats.total_strategies, icon: '📋', color: GB_LIGHT },
           { label: 'Ejecutadas', value: stats.actions_executed, icon: '✅', color: '#4ade80' },
           { label: 'Omitidas', value: stats.actions_skipped, icon: '⏭️', color: '#fbbf24' },
           { label: 'Fallidas', value: stats.actions_failed, icon: '❌', color: '#f87171' },
@@ -2227,9 +2233,9 @@ const TabMarketing = ({ selectedSlug }) => {
 
               {/* Fundamento */}
               {fund.length > 0 && (
-                <div style={{ background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.15)', borderRadius: 10, padding: '12px 14px', marginBottom: 16 }}>
-                  <p style={{ fontFamily: 'monospace', fontSize: 9, color: '#818cf8', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '.06em' }}>📊 Fundamento (datos reales)</p>
-                  {fund.map((f, i) => <p key={i} style={{ fontSize: 12, color: '#a5b4fc', lineHeight: 1.5 }}>• {f}</p>)}
+                <div style={{ background: GBa(0.06), border: `1px solid ${GBa(0.15)}`, borderRadius: 10, padding: '12px 14px', marginBottom: 16 }}>
+                  <p style={{ fontFamily: 'monospace', fontSize: 9, color: GB_LIGHT, marginBottom: 8, textTransform: 'uppercase', letterSpacing: '.06em' }}>📊 Fundamento (datos reales)</p>
+                  {fund.map((f, i) => <p key={i} style={{ fontSize: 12, color: GB_SOFT, lineHeight: 1.5 }}>• {f}</p>)}
                   {/* ── D: REGLA 14 — Metodología declarada ── */}
                   <p style={{ fontFamily: 'monospace', fontSize: 9, color: '#64748b', marginTop: 8 }}>
                     Metodología: {strategy?.strategy?.methodology || 'AIDA + JTBD'} · Framework A9: 6D Severity Scoring
@@ -2284,7 +2290,7 @@ const TabMarketing = ({ selectedSlug }) => {
                       )}
                       <div style={{ display: 'flex', gap: 4, marginTop: 6 }}>
                         {(entry.channels || []).map((ch, j) => (
-                          <span key={j} style={{ fontSize: 9, padding: '1px 6px', borderRadius: 4, background: 'rgba(99,102,241,0.1)', color: '#818cf8', fontFamily: 'monospace' }}>{ch}</span>
+                          <span key={j} style={{ fontSize: 9, padding: '1px 6px', borderRadius: 4, background: GBa(0.1), color: GB_LIGHT, fontFamily: 'monospace' }}>{ch}</span>
                         ))}
                       </div>
                     </div>
@@ -2301,7 +2307,7 @@ const TabMarketing = ({ selectedSlug }) => {
                     <div style={{ marginBottom: 12 }}>
                       <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 8 }}>
                         <button onClick={() => setShowDiff(!showDiff)}
-                          style={{ background: showDiff ? 'rgba(99,102,241,0.15)' : 'rgba(255,255,255,0.06)', border: '1px solid rgba(99,102,241,0.3)', color: '#a5b4fc', padding: '4px 12px', borderRadius: 6, fontSize: 11, fontWeight: 600, cursor: 'pointer' }}>
+                          style={{ background: showDiff ? GBa(0.15) : 'rgba(255,255,255,0.06)', border: `1px solid ${GBa(0.3)}`, color: GB_SOFT, padding: '4px 12px', borderRadius: 6, fontSize: 11, fontWeight: 600, cursor: 'pointer' }}>
                           {showDiff ? '✏️ Modo edición' : '🔍 Ver cambios'}
                         </button>
                         <span style={{ fontSize: 10, color: '#64748b' }}>
@@ -2338,20 +2344,20 @@ const TabMarketing = ({ selectedSlug }) => {
 
                   {/* Paso 2: Código Email */}
                   <div style={{ marginBottom: 12 }}>
-                    <p style={{ fontSize: 11, fontWeight: 600, color: '#818cf8', marginBottom: 6 }}>2️⃣ Código enviado a tu correo</p>
+                    <p style={{ fontSize: 11, fontWeight: 600, color: GB_LIGHT, marginBottom: 6 }}>2️⃣ Código enviado a tu correo</p>
                     {emailStep === 'idle' && (
                       <button onClick={handleRequestEmailCode} disabled={otpCode.length !== 6}
                         style={{ width: '100%', padding: '10px 14px', borderRadius: 8, fontSize: 13, fontWeight: 700,
-                          background: otpCode.length === 6 ? 'rgba(99,102,241,0.15)' : 'rgba(255,255,255,0.04)',
-                          color: otpCode.length === 6 ? '#a5b4fc' : '#475569',
-                          border: `1px solid ${otpCode.length === 6 ? 'rgba(99,102,241,0.3)' : 'rgba(255,255,255,0.08)'}`,
+                          background: otpCode.length === 6 ? GBa(0.15) : 'rgba(255,255,255,0.04)',
+                          color: otpCode.length === 6 ? GB_SOFT : '#475569',
+                          border: `1px solid ${otpCode.length === 6 ? GBa(0.3) : 'rgba(255,255,255,0.08)'}`,
                           cursor: otpCode.length === 6 ? 'pointer' : 'not-allowed',
                           opacity: otpCode.length === 6 ? 1 : 0.4 }}>
                         📧 Enviar código a mi correo
                       </button>
                     )}
                     {emailStep === 'sending' && (
-                      <div style={{ textAlign: 'center', padding: 10, color: '#818cf8', fontSize: 12 }}>⏳ {emailStatus}</div>
+                      <div style={{ textAlign: 'center', padding: 10, color: GB_LIGHT, fontSize: 12 }}>⏳ {emailStatus}</div>
                     )}
                     {emailStep === 'error' && (
                       <div style={{ padding: 10, color: '#f87171', fontSize: 12, background: 'rgba(239,68,68,0.1)', borderRadius: 8 }}>
@@ -2367,7 +2373,7 @@ const TabMarketing = ({ selectedSlug }) => {
                           onChange={e => setEmailCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
                           placeholder="Código email de 6 dígitos"
                           maxLength={6}
-                          style={{ width: '100%', boxSizing: 'border-box', background: '#1e293b', border: `1px solid ${emailCode.length === 6 ? 'rgba(34,197,94,0.5)' : 'rgba(99,102,241,0.3)'}`, color: emailCode.length === 6 ? '#4ade80' : '#a5b4fc', padding: '10px 14px', borderRadius: 8, fontSize: 16, fontWeight: 700, fontFamily: 'monospace', letterSpacing: '.2em', textAlign: 'center', outline: 'none' }}
+                          style={{ width: '100%', boxSizing: 'border-box', background: '#1e293b', border: `1px solid ${emailCode.length === 6 ? 'rgba(34,197,94,0.5)' : GBa(0.3)}`, color: emailCode.length === 6 ? '#4ade80' : GB_SOFT, padding: '10px 14px', borderRadius: 8, fontSize: 16, fontWeight: 700, fontFamily: 'monospace', letterSpacing: '.2em', textAlign: 'center', outline: 'none' }}
                         />
                       </>
                     )}
@@ -2442,7 +2448,7 @@ const TabMarketing = ({ selectedSlug }) => {
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span style={{ fontSize: 11, color: '#64748b' }}>Redes</span>
-                <span style={{ fontSize: 11, color: '#818cf8' }}>{config.social_url ? '✅ Vinculada' : '—'}</span>
+                <span style={{ fontSize: 11, color: GB_LIGHT }}>{config.social_url ? '✅ Vinculada' : '—'}</span>
               </div>
             </div>
           </div>
@@ -2531,12 +2537,12 @@ function AdminLoginScreen({ onAuth }) {
       <div style={{ width: '100%', maxWidth: 420, padding: '0 24px', animation: 'fadeIn 0.4s ease' }}>
         {/* Logo + Brand */}
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
-          <div style={{ width: 52, height: 52, border: `2px solid ${GENYX_BRAND}`, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, fontWeight: 900, color: '#818cf8', marginBottom: 16, fontFamily: 'JetBrains Mono, monospace' }}>G</div>
-          <h1 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', letterSpacing: '.02em', margin: 0 }}>Geny<span style={{ color: '#818cf8' }}>X</span></h1>
+          <div style={{ width: 52, height: 52, border: `2px solid ${GENYX_BRAND}`, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, fontWeight: 900, color: GB_LIGHT, marginBottom: 16, fontFamily: 'JetBrains Mono, monospace' }}>G</div>
+          <h1 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', letterSpacing: '.02em', margin: 0 }}>Geny<span style={{ color: GB_LIGHT }}>X</span></h1>
           <p style={{ fontSize: 11, color: '#334155', fontFamily: 'JetBrains Mono, monospace', marginTop: 6, letterSpacing: '.08em' }}>CENTRO DE MANDO · TU OPERACIÓN COMERCIAL AUTÓNOMA</p>
         </div>
         {/* Card */}
-        <div style={{ background: '#0c1220', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 16, padding: '32px 28px', boxShadow: '0 0 40px rgba(99,102,241,0.08)' }}>
+        <div style={{ background: '#0c1220', border: `1px solid ${GBa(0.25)}`, borderRadius: 16, padding: '32px 28px', boxShadow: `0 0 40px ${GBa(0.08)}` }}>
           <p style={{ fontSize: 11, color: '#475569', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '.1em', marginBottom: 20, textTransform: 'uppercase' }}>$ authenticate --role=admin</p>
           <form onSubmit={handleSubmit}>
             <label style={{ fontSize: 11, color: '#64748b', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', display: 'block', marginBottom: 8 }}>Admin Key</label>
@@ -2545,14 +2551,14 @@ function AdminLoginScreen({ onAuth }) {
               <input
                 type="password" value={key} onChange={e => setKey(e.target.value)}
                 placeholder="Ingresa tu Admin Key…" autoFocus
-                style={{ width: '100%', padding: '12px 14px 12px 32px', background: '#060912', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 8, color: '#a5b4fc', fontSize: 13, fontFamily: 'JetBrains Mono, monospace', letterSpacing: 3, outline: 'none', boxSizing: 'border-box', transition: 'border-color 0.2s' }}
+                style={{ width: '100%', padding: '12px 14px 12px 32px', background: '#060912', border: `1px solid ${GBa(0.3)}`, borderRadius: 8, color: GB_SOFT, fontSize: 13, fontFamily: 'JetBrains Mono, monospace', letterSpacing: 3, outline: 'none', boxSizing: 'border-box', transition: 'border-color 0.2s' }}
                 onFocus={e => e.target.style.borderColor = GENYX_BRAND}
-                onBlur={e => e.target.style.borderColor = 'rgba(99,102,241,0.3)'}
+                onBlur={e => e.target.style.borderColor = GBa(0.3)}
               />
             </div>
             {error && <p style={{ color: '#f87171', fontSize: 12, marginBottom: 16, fontFamily: 'JetBrains Mono, monospace' }}>⚠ {error}</p>}
             <button type="submit" disabled={loading}
-              style={{ width: '100%', padding: '12px', background: loading ? 'rgba(99,102,241,0.3)' : 'rgba(99,102,241,0.15)', border: '1px solid rgba(99,102,241,0.5)', color: loading ? '#64748b' : '#a5b4fc', borderRadius: 8, fontSize: 13, fontWeight: 700, cursor: loading ? 'wait' : 'pointer', transition: 'all 0.2s', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '.04em' }}>
+              style={{ width: '100%', padding: '12px', background: loading ? GBa(0.3) : GBa(0.15), border: `1px solid ${GBa(0.5)}`, color: loading ? '#64748b' : GB_SOFT, borderRadius: 8, fontSize: 13, fontWeight: 700, cursor: loading ? 'wait' : 'pointer', transition: 'all 0.2s', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '.04em' }}>
               {loading ? 'Verificando…' : '> Acceder'}
             </button>
           </form>
@@ -3524,11 +3530,11 @@ function SupportModal({ slug, token, open, onClose }) {
 
   const O = {
     overlay: { position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 },
-    modal: { background: '#111827', border: '1px solid rgba(99,102,241,0.2)', borderRadius: 16, padding: '28px 24px', maxWidth: 480, width: '100%', maxHeight: '85vh', overflowY: 'auto', color: '#f1f5f9', fontFamily: "'Inter', sans-serif" },
+    modal: { background: '#111827', border: `1px solid ${GBa(0.2)}`, borderRadius: 16, padding: '28px 24px', maxWidth: 480, width: '100%', maxHeight: '85vh', overflowY: 'auto', color: '#f1f5f9', fontFamily: "'Inter', sans-serif" },
     h3: { fontSize: 18, fontWeight: 800, marginBottom: 4 },
     sub: { fontSize: 13, color: '#94a3b8', lineHeight: 1.6, marginBottom: 20 },
     tabs: { display: 'flex', gap: 4, marginBottom: 20, background: 'rgba(255,255,255,0.04)', borderRadius: 10, padding: 3 },
-    tabActive: { flex: 1, padding: '8px 12px', fontSize: 12, fontWeight: 700, border: 'none', borderRadius: 8, cursor: 'pointer', background: 'rgba(99,102,241,0.15)', color: '#818cf8' },
+    tabActive: { flex: 1, padding: '8px 12px', fontSize: 12, fontWeight: 700, border: 'none', borderRadius: 8, cursor: 'pointer', background: GBa(0.15), color: GB_LIGHT },
     tabIdle: { flex: 1, padding: '8px 12px', fontSize: 12, fontWeight: 600, border: 'none', borderRadius: 8, cursor: 'pointer', background: 'transparent', color: '#64748b' },
     textarea: { width: '100%', minHeight: 100, background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 10, padding: 12, fontSize: 13, color: '#f1f5f9', resize: 'vertical', outline: 'none', fontFamily: "'Inter', sans-serif", boxSizing: 'border-box' },
     row: { display: 'flex', gap: 8, marginTop: 10 },
@@ -3542,7 +3548,7 @@ function SupportModal({ slug, token, open, onClose }) {
     error: { marginTop: 12, background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: 10, padding: 12, fontSize: 13, color: '#ef4444' },
     ticket: { background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 10, padding: '12px 14px', marginBottom: 8 },
     close: { width: '100%', marginTop: 16, padding: '10px', borderRadius: 8, border: '1px solid rgba(255,255,255,0.1)', background: 'transparent', color: '#64748b', fontSize: 12, cursor: 'pointer' },
-    newQuery: { marginTop: 12, padding: '8px 16px', borderRadius: 8, border: '1px solid rgba(99,102,241,0.2)', background: 'transparent', color: '#818cf8', fontSize: 12, fontWeight: 600, cursor: 'pointer' },
+    newQuery: { marginTop: 12, padding: '8px 16px', borderRadius: 8, border: `1px solid ${GBa(0.2)}`, background: 'transparent', color: GB_LIGHT, fontSize: 12, fontWeight: 600, cursor: 'pointer' },
   };
 
   return (
@@ -3786,7 +3792,7 @@ function PlanVsAgentsPanel({ plan, agents, billingStatus, slug, token }) {
           <div style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: '#475569',
-            background: 'rgba(99,102,241,0.04)', border: '1px solid rgba(99,102,241,0.08)',
+            background: GBa(0.04), border: `1px solid ${GBa(0.08)}`,
             borderRadius: 10, padding: '8px 12px',
           }}>🎁 Piloto Vitalicio · Cortesía fundador · Sin cargo</div>
         )}
@@ -3797,8 +3803,8 @@ function PlanVsAgentsPanel({ plan, agents, billingStatus, slug, token }) {
           style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
             fontFamily: "'Rajdhani', sans-serif", fontSize: 11, fontWeight: 700,
-            color: '#E8F4FF', background: 'rgba(99,102,241,0.08)',
-            border: '1px solid rgba(99,102,241,0.15)', borderRadius: 10,
+            color: '#E8F4FF', background: GBa(0.08),
+            border: `1px solid ${GBa(0.15)}`, borderRadius: 10,
             padding: '8px 16px', cursor: 'pointer',
             transition: 'all 0.2s', width: '100%',
           }}
@@ -4065,7 +4071,7 @@ function TabLegalDocs({ slug, token }) {
                     <button onClick={e => { e.stopPropagation(); setSignDocSlug(doc.doc_slug); }} style={{ fontSize: 10, fontWeight: 700, color: `#fff`, background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, border: `none`, padding: '4px 12px', borderRadius: 6, cursor: 'pointer', whiteSpace: 'nowrap' }}>Firmar</button>
                   )}
                   {!needsSign && (
-                    <button onClick={e => { e.stopPropagation(); handleView(doc); }} style={{ fontSize: 10, fontWeight: 600, color: '#a5b4fc', background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.2)', padding: '4px 12px', borderRadius: 6, cursor: 'pointer', whiteSpace: 'nowrap' }}>Ver</button>
+                    <button onClick={e => { e.stopPropagation(); handleView(doc); }} style={{ fontSize: 10, fontWeight: 600, color: GB_SOFT, background: GBa(0.08), border: `1px solid ${GBa(0.2)}`, padding: '4px 12px', borderRadius: 6, cursor: 'pointer', whiteSpace: 'nowrap' }}>Ver</button>
                   )}
                 </div>
               </div>
@@ -4086,7 +4092,7 @@ function TabLegalDocs({ slug, token }) {
       {/* Sign Modal (A2F B3 — genérico para cualquier doc) */}
       {signDocSlug && (
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 }}>
-          <div style={{ background: '#0f172a', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 20, padding: '28px 24px', maxWidth: 480, width: '100%' }}>
+          <div style={{ background: '#0f172a', border: `1px solid ${GBa(0.25)}`, borderRadius: 20, padding: '28px 24px', maxWidth: 480, width: '100%' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
               <div>
                 <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }}>Firma de documento</h3>
@@ -4108,21 +4114,21 @@ function TabLegalDocs({ slug, token }) {
             <div style={{ display: 'flex', gap: 10, marginBottom: 14 }}>
               <div style={{ flex: 1 }}>
                 <label style={{ display: 'block', fontSize: 10, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Código WhatsApp</label>
-                <input type="text" maxLength={6} value={signOtpWa} onChange={e => setSignOtpWa(e.target.value.replace(/\D/g,''))} placeholder="000000" style={{ width: '100%', boxSizing: 'border-box', background: 'rgba(15,23,42,0.8)', border: '1px solid rgba(99,102,241,0.2)', color: '#f1f5f9', padding: '10px 12px', borderRadius: 8, fontSize: 18, fontFamily: 'monospace', letterSpacing: 6, textAlign: 'center', outline: 'none' }} />
+                <input type="text" maxLength={6} value={signOtpWa} onChange={e => setSignOtpWa(e.target.value.replace(/\D/g,''))} placeholder="000000" style={{ width: '100%', boxSizing: 'border-box', background: 'rgba(15,23,42,0.8)', border: `1px solid ${GBa(0.2)}`, color: '#f1f5f9', padding: '10px 12px', borderRadius: 8, fontSize: 18, fontFamily: 'monospace', letterSpacing: 6, textAlign: 'center', outline: 'none' }} />
               </div>
               <div style={{ flex: 1 }}>
                 <label style={{ display: 'block', fontSize: 10, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Código Email</label>
-                <input type="text" maxLength={6} value={signOtpEmail} onChange={e => setSignOtpEmail(e.target.value.replace(/\D/g,''))} placeholder="000000" style={{ width: '100%', boxSizing: 'border-box', background: 'rgba(15,23,42,0.8)', border: '1px solid rgba(99,102,241,0.2)', color: '#f1f5f9', padding: '10px 12px', borderRadius: 8, fontSize: 18, fontFamily: 'monospace', letterSpacing: 6, textAlign: 'center', outline: 'none' }} />
+                <input type="text" maxLength={6} value={signOtpEmail} onChange={e => setSignOtpEmail(e.target.value.replace(/\D/g,''))} placeholder="000000" style={{ width: '100%', boxSizing: 'border-box', background: 'rgba(15,23,42,0.8)', border: `1px solid ${GBa(0.2)}`, color: '#f1f5f9', padding: '10px 12px', borderRadius: 8, fontSize: 18, fontFamily: 'monospace', letterSpacing: 6, textAlign: 'center', outline: 'none' }} />
               </div>
             </div>
-            <label style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 16, cursor: 'pointer', padding: '10px 12px', background: signChecked ? 'rgba(99,102,241,0.06)' : 'transparent', borderRadius: 8, border: `1px solid ${signChecked ? 'rgba(99,102,241,0.2)' : 'rgba(255,255,255,0.06)'}`, transition: 'all .2s' }}>
+            <label style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 16, cursor: 'pointer', padding: '10px 12px', background: signChecked ? GBa(0.06) : 'transparent', borderRadius: 8, border: `1px solid ${signChecked ? GBa(0.2) : 'rgba(255,255,255,0.06)'}`, transition: 'all .2s' }}>
               <input type="checkbox" checked={signChecked} onChange={e => setSignChecked(e.target.checked)} style={{ marginTop: 2, accentColor: GENYX_BRAND, width: 16, height: 16, cursor: 'pointer' }} />
               <span style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.5 }}>He leído y acepto este documento legal.</span>
             </label>
             {signMsg && <p style={{ fontSize: 11, color: signMsg.startsWith('❌') ? '#f87171' : signMsg.startsWith('✅') ? '#4ade80' : '#fbbf24', marginBottom: 10 }}>{signMsg}</p>}
             <div style={{ display: 'flex', gap: 10 }}>
               <button onClick={() => { setSignDocSlug(null); setSignOtpWa(''); setSignOtpEmail(''); setSignChecked(false); setSignMsg(''); setSignOtpSent(false); setSignMasked(null); setSignCooldown(0); }} style={{ flex: 1, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#94a3b8', padding: '12px 16px', borderRadius: 10, fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>Cancelar</button>
-              <button onClick={handleSign} disabled={signSending || !signChecked || signOtpWa.length !== 6 || signOtpEmail.length !== 6} style={{ flex: 2, background: (signChecked && signOtpWa.length === 6 && signOtpEmail.length === 6) ? `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)` : 'rgba(99,102,241,0.2)', color: '#fff', padding: '12px 20px', borderRadius: 10, fontSize: 13, fontWeight: 700, border: 'none', cursor: (signChecked && signOtpWa.length === 6 && signOtpEmail.length === 6) ? 'pointer' : 'not-allowed', opacity: signSending ? 0.6 : 1 }}>
+              <button onClick={handleSign} disabled={signSending || !signChecked || signOtpWa.length !== 6 || signOtpEmail.length !== 6} style={{ flex: 2, background: (signChecked && signOtpWa.length === 6 && signOtpEmail.length === 6) ? `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)` : GBa(0.2), color: '#fff', padding: '12px 20px', borderRadius: 10, fontSize: 13, fontWeight: 700, border: 'none', cursor: (signChecked && signOtpWa.length === 6 && signOtpEmail.length === 6) ? 'pointer' : 'not-allowed', opacity: signSending ? 0.6 : 1 }}>
                 {signSending ? 'Verificando...' : 'Firmar documento'}
               </button>
             </div>
@@ -4133,7 +4139,7 @@ function TabLegalDocs({ slug, token }) {
       {/* View Doc Modal */}
       {viewDoc && (
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 }}>
-          <div style={{ background: '#0f172a', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 20, padding: '28px 24px', maxWidth: 640, width: '100%', maxHeight: '85vh', overflow: 'auto' }}>
+          <div style={{ background: '#0f172a', border: `1px solid ${GBa(0.25)}`, borderRadius: 20, padding: '28px 24px', maxWidth: 640, width: '100%', maxHeight: '85vh', overflow: 'auto' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
               <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9' }}>{viewDoc.title}</h3>
               <button onClick={() => setViewDoc(null)} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#64748b', width: 32, height: 32, borderRadius: 8, cursor: 'pointer', fontSize: 16, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>✕</button>
@@ -4226,7 +4232,7 @@ function TabReporteLunesCliente({ slug, token }) {
 
 // ── Utility: derive brand accent from brand_color ────────────────────────────
 function lighten(hex, percent = 20) {
-  if (!hex || !hex.startsWith('#')) return '#8b5cf6';
+  if (!hex || !hex.startsWith('#')) return GB_PURPLE;
   const num = parseInt(hex.replace('#', ''), 16);
   const r = Math.min(255, ((num >> 16) & 0xff) + Math.round(255 * percent / 100));
   const g = Math.min(255, ((num >> 8) & 0xff) + Math.round(255 * percent / 100));
@@ -4871,7 +4877,7 @@ if (!token) return (
       {/* ── Cláusula 7b: Banner persistente (P4: positive framing, brand colors) ── */}
       {legalStatus?.requires_re_acceptance && (
         <div style={{ maxWidth: 720, margin: '0 auto', padding: '8px 18px 0', position: 'relative', zIndex: 5 }}>
-          <div style={{ background: 'linear-gradient(135deg, rgba(99,102,241,0.12), rgba(139,92,246,0.08))', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 12, padding: '12px 18px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
+          <div style={{ background: `linear-gradient(135deg, ${GBa(0.12)}, rgba(139,92,246,0.08))`, border: `1px solid ${GBa(0.25)}`, borderRadius: 12, padding: '12px 18px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, flex: 1, minWidth: 200 }}>
               <span style={{ fontSize: 18 }}>📜</span>
               <div>
@@ -4887,7 +4893,7 @@ if (!token) return (
       {/* ── Modal Cláusula 7b (P1+P5: checkbox + diff + cancel + refined UX) ── */}
       {showLegalModal && (
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 }}>
-          <div style={{ background: '#0f172a', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 20, padding: '28px 24px', maxWidth: 520, width: '100%', maxHeight: '90vh', overflow: 'auto' }}>
+          <div style={{ background: '#0f172a', border: `1px solid ${GBa(0.25)}`, borderRadius: 20, padding: '28px 24px', maxWidth: 520, width: '100%', maxHeight: '90vh', overflow: 'auto' }}>
             {/* Header */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
               <div>
@@ -4898,19 +4904,19 @@ if (!token) return (
             </div>
 
             {/* P5: Diff visual — changelog con badge NUEVO */}
-            <div style={{ background: 'rgba(99,102,241,0.05)', border: '1px solid rgba(99,102,241,0.15)', borderRadius: 12, padding: '16px', marginBottom: 16, maxHeight: 220, overflow: 'auto' }}>
+            <div style={{ background: GBa(0.05), border: `1px solid ${GBa(0.15)}`, borderRadius: 12, padding: '16px', marginBottom: 16, maxHeight: 220, overflow: 'auto' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
                 <span style={{ fontSize: 9, fontWeight: 800, color: `#fff`, background: `${GENYX_BRAND}`, padding: `2px 8px`, borderRadius: 6, textTransform: 'uppercase', letterSpacing: '.06em' }}>Nuevo</span>
-                <span style={{ fontSize: 11, fontWeight: 700, color: '#a5b4fc' }}>Cláusula 7b — Delimitación de responsabilidad</span>
+                <span style={{ fontSize: 11, fontWeight: 700, color: GB_SOFT }}>Cláusula 7b — Delimitación de responsabilidad</span>
               </div>
               {legalStatus?.changelog_pending ? (
                 <p style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.7, whiteSpace: 'pre-wrap' }}>{legalStatus.changelog_pending}</p>
               ) : (
                 <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.7 }}>
                   <p style={{ marginBottom: 8 }}>Esta actualización agrega la <b style={{ color: '#c4b5fd' }}>cláusula 7b</b> que delimita responsabilidades entre tu negocio y GenyX:</p>
-                  <p style={{ paddingLeft: 12, borderLeft: '2px solid rgba(99,102,241,0.3)', marginBottom: 6 }}>• El contenido de marketing generado por IA es una <b style={{ color: '#e2e8f0' }}>recomendación</b>. Tú apruebas cada publicación antes de que se ejecute.</p>
-                  <p style={{ paddingLeft: 12, borderLeft: '2px solid rgba(99,102,241,0.3)', marginBottom: 6 }}>• Modificaciones que hagas quedan registradas con trazabilidad completa (hash criptográfico).</p>
-                  <p style={{ paddingLeft: 12, borderLeft: '2px solid rgba(99,102,241,0.3)' }}>• GenyX asume responsabilidad sobre el contenido aprobado <b style={{ color: '#e2e8f0' }}>como fue recomendado</b>. Contenido modificado es responsabilidad compartida.</p>
+                  <p style={{ paddingLeft: 12, borderLeft: `2px solid ${GBa(0.3)}`, marginBottom: 6 }}>• El contenido de marketing generado por IA es una <b style={{ color: '#e2e8f0' }}>recomendación</b>. Tú apruebas cada publicación antes de que se ejecute.</p>
+                  <p style={{ paddingLeft: 12, borderLeft: `2px solid ${GBa(0.3)}`, marginBottom: 6 }}>• Modificaciones que hagas quedan registradas con trazabilidad completa (hash criptográfico).</p>
+                  <p style={{ paddingLeft: 12, borderLeft: `2px solid ${GBa(0.3)}` }}>• GenyX asume responsabilidad sobre el contenido aprobado <b style={{ color: '#e2e8f0' }}>como fue recomendado</b>. Contenido modificado es responsabilidad compartida.</p>
                 </div>
               )}
             </div>
@@ -4932,7 +4938,7 @@ if (!token) return (
               {!legalOtpSending && !legalOtpSent && (
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                   <p style={{ fontSize: 11, color: '#94a3b8' }}>Confirma con doble verificación (WhatsApp + Email):</p>
-                  <button onClick={requestLegalOtp} style={{ fontSize: 10, color: '#a5b4fc', background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.2)', borderRadius: 6, padding: '4px 12px', cursor: 'pointer', fontWeight: 600 }}>Enviar códigos</button>
+                  <button onClick={requestLegalOtp} style={{ fontSize: 10, color: GB_SOFT, background: GBa(0.1), border: `1px solid ${GBa(0.2)}`, borderRadius: 6, padding: '4px 12px', cursor: 'pointer', fontWeight: 600 }}>Enviar códigos</button>
                 </div>
               )}
             </div>
@@ -4940,17 +4946,17 @@ if (!token) return (
               <div style={{ flex: 1 }}>
                 <label style={{ display: 'block', fontSize: 10, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Código WhatsApp</label>
                 <input type="text" maxLength={6} value={legalOtpWa} onChange={e => setLegalOtpWa(e.target.value.replace(/\D/g,''))} placeholder="000000"
-                  style={{ width: '100%', boxSizing: 'border-box', background: 'rgba(15,23,42,0.8)', border: '1px solid rgba(99,102,241,0.2)', color: '#f1f5f9', padding: '10px 12px', borderRadius: 8, fontSize: 18, fontFamily: 'monospace', letterSpacing: 6, textAlign: 'center', outline: 'none' }} />
+                  style={{ width: '100%', boxSizing: 'border-box', background: 'rgba(15,23,42,0.8)', border: `1px solid ${GBa(0.2)}`, color: '#f1f5f9', padding: '10px 12px', borderRadius: 8, fontSize: 18, fontFamily: 'monospace', letterSpacing: 6, textAlign: 'center', outline: 'none' }} />
               </div>
               <div style={{ flex: 1 }}>
                 <label style={{ display: 'block', fontSize: 10, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Código Email</label>
                 <input type="text" maxLength={6} value={legalOtpEmail} onChange={e => setLegalOtpEmail(e.target.value.replace(/\D/g,''))} placeholder="000000"
-                  style={{ width: '100%', boxSizing: 'border-box', background: 'rgba(15,23,42,0.8)', border: '1px solid rgba(99,102,241,0.2)', color: '#f1f5f9', padding: '10px 12px', borderRadius: 8, fontSize: 18, fontFamily: 'monospace', letterSpacing: 6, textAlign: 'center', outline: 'none' }} />
+                  style={{ width: '100%', boxSizing: 'border-box', background: 'rgba(15,23,42,0.8)', border: `1px solid ${GBa(0.2)}`, color: '#f1f5f9', padding: '10px 12px', borderRadius: 8, fontSize: 18, fontFamily: 'monospace', letterSpacing: 6, textAlign: 'center', outline: 'none' }} />
               </div>
             </div>
 
             {/* P1: Checkbox obligatorio */}
-            <label style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 16, cursor: 'pointer', padding: '10px 12px', background: legalChecked ? 'rgba(99,102,241,0.06)' : 'transparent', borderRadius: 8, border: `1px solid ${legalChecked ? 'rgba(99,102,241,0.2)' : 'rgba(255,255,255,0.06)'}`, transition: 'all .2s' }}>
+            <label style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 16, cursor: 'pointer', padding: '10px 12px', background: legalChecked ? GBa(0.06) : 'transparent', borderRadius: 8, border: `1px solid ${legalChecked ? GBa(0.2) : 'rgba(255,255,255,0.06)'}`, transition: 'all .2s' }}>
               <input type="checkbox" checked={legalChecked} onChange={e => setLegalChecked(e.target.checked)} style={{ marginTop: 2, accentColor: `${GENYX_BRAND}`, width: 16, height: 16, cursor: 'pointer' }} />
               <span style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.5 }}>He leído y acepto la cláusula 7b de delimitación de responsabilidad incluida en la versión {legalStatus?.current_version || '5.1'} del contrato.</span>
             </label>
@@ -4962,7 +4968,7 @@ if (!token) return (
               <button onClick={() => { setShowLegalModal(false); setLegalChecked(false); setLegalMsg(''); setLegalOtpSent(false); setLegalOtpMasked(null); setLegalOtpWa(''); setLegalOtpEmail(''); setLegalOtpCooldown(0); setLegalOtpExpiry(null); }} style={{ flex: 1, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#94a3b8', padding: '12px 16px', borderRadius: 10, fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>
                 Cancelar
               </button>
-              <button onClick={handleLegalAccept} disabled={legalAccepting || !legalChecked || legalOtpWa.length !== 6 || legalOtpEmail.length !== 6} style={{ flex: 2, background: (legalChecked && legalOtpWa.length === 6 && legalOtpEmail.length === 6) ? `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)` : 'rgba(99,102,241,0.2)', color: '#fff', padding: '12px 20px', borderRadius: 10, fontSize: 13, fontWeight: 700, border: 'none', cursor: (legalChecked && legalOtpWa.length === 6 && legalOtpEmail.length === 6) ? 'pointer' : 'not-allowed', opacity: legalAccepting ? 0.6 : 1, transition: 'all .2s' }}>
+              <button onClick={handleLegalAccept} disabled={legalAccepting || !legalChecked || legalOtpWa.length !== 6 || legalOtpEmail.length !== 6} style={{ flex: 2, background: (legalChecked && legalOtpWa.length === 6 && legalOtpEmail.length === 6) ? `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)` : GBa(0.2), color: '#fff', padding: '12px 20px', borderRadius: 10, fontSize: 13, fontWeight: 700, border: 'none', cursor: (legalChecked && legalOtpWa.length === 6 && legalOtpEmail.length === 6) ? 'pointer' : 'not-allowed', opacity: legalAccepting ? 0.6 : 1, transition: 'all .2s' }}>
                 {legalAccepting ? 'Verificando...' : 'Aceptar y firmar'}
               </button>
             </div>
@@ -6003,9 +6009,9 @@ function PWAInstallBanner() {
   return (
     <div style={{
       position: 'fixed', bottom: 90, left: 24, right: 90, zIndex: 9998,
-      background: 'linear-gradient(135deg, rgba(99,102,241,0.95), rgba(139,92,246,0.95))',
+      background: `linear-gradient(135deg, ${GBa(0.95)}, rgba(139,92,246,0.95))`,
       backdropFilter: 'blur(12px)', borderRadius: 16, padding: '14px 20px',
-      display: 'flex', alignItems: 'center', gap: 14, boxShadow: '0 12px 40px rgba(99,102,241,0.4)',
+      display: 'flex', alignItems: 'center', gap: 14, boxShadow: `0 12px 40px ${GBa(0.4)}`,
       animation: 'slideUp .4s ease-out', maxWidth: 420,
     }}>
       <div style={{ width: 36, height: 36, borderRadius: 10, background: 'rgba(255,255,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, flexShrink: 0 }}>📲</div>
@@ -6069,7 +6075,7 @@ function GenyXConciergeWidget() {
   return (
     <>
       {open && (
-        <div style={{ position:'fixed', bottom:88, right:24, width:340, maxHeight:500, zIndex:9999, background:'#0f172a', border:'1px solid rgba(99,102,241,0.3)', borderRadius:20, boxShadow:'0 24px 64px rgba(0,0,0,0.55)', display:'flex', flexDirection:'column', overflow:'hidden', fontFamily:"'Inter',sans-serif" }}>
+        <div style={{ position:'fixed', bottom:88, right:24, width:340, maxHeight:500, zIndex:9999, background:'#0f172a', border:`1px solid ${GBa(0.3)}`, borderRadius:20, boxShadow:'0 24px 64px rgba(0,0,0,0.55)', display:'flex', flexDirection:'column', overflow:'hidden', fontFamily:"'Inter',sans-serif" }}>
           <div style={{ background:`linear-gradient(135deg,${BC},${BD})`, padding:'14px 18px', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
             <div style={{ display:'flex', alignItems:'center', gap:10 }}>
               <div style={{ width:8, height:8, borderRadius:'50%', background:'#4ade80', boxShadow:'0 0 8px #4ade80' }} />
@@ -6092,13 +6098,13 @@ function GenyXConciergeWidget() {
           </div>
           {phase !== 'done' && (
             <div style={{ padding:'8px 12px 12px', borderTop:'1px solid rgba(255,255,255,0.06)', display:'flex', gap:8 }}>
-              <input ref={inpRef} value={inp} onChange={e => setInp(e.target.value)} onKeyDown={e => { if (e.key==='Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); } }} placeholder={ph} disabled={typing} style={{ flex:1, background:'rgba(255,255,255,0.07)', border:'1px solid rgba(99,102,241,0.25)', borderRadius:10, padding:'8px 12px', color:'#f1f5f9', fontSize:13, outline:'none', opacity:typing?0.5:1 }} />
+              <input ref={inpRef} value={inp} onChange={e => setInp(e.target.value)} onKeyDown={e => { if (e.key==='Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); } }} placeholder={ph} disabled={typing} style={{ flex:1, background:'rgba(255,255,255,0.07)', border:`1px solid ${GBa(0.25)}`, borderRadius:10, padding:'8px 12px', color:'#f1f5f9', fontSize:13, outline:'none', opacity:typing?0.5:1 }} />
               <button onClick={handleSend} disabled={!inp.trim()||typing} style={{ background:BC, color:'#fff', border:'none', borderRadius:10, padding:'8px 14px', cursor:inp.trim()&&!typing?'pointer':'default', opacity:inp.trim()&&!typing?1:0.45, fontSize:15, fontWeight:700 }}>→</button>
             </div>
           )}
         </div>
       )}
-      <button onClick={() => { setOpen(o => !o); setPulse(false); }} style={{ position:'fixed', bottom:28, right:28, zIndex:9999, width:54, height:54, borderRadius:'50%', background:open?BD:`linear-gradient(135deg,${BC},${BD})`, border:'none', cursor:'pointer', color:'#fff', fontSize:23, boxShadow:'0 4px 24px rgba(99,102,241,0.55)', transition:'all 0.25s', display:'flex', alignItems:'center', justifyContent:'center' }} aria-label="Chat con GenyX">
+      <button onClick={() => { setOpen(o => !o); setPulse(false); }} style={{ position:'fixed', bottom:28, right:28, zIndex:9999, width:54, height:54, borderRadius:'50%', background:open?BD:`linear-gradient(135deg,${BC},${BD})`, border:'none', cursor:'pointer', color:'#fff', fontSize:23, boxShadow:`0 4px 24px ${GBa(0.55)}`, transition:'all 0.25s', display:'flex', alignItems:'center', justifyContent:'center' }} aria-label="Chat con GenyX">
         {open ? '×' : <svg width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>}
         {pulse && !open && (<span style={{ position:'absolute', top:-2, right:-2, width:14, height:14, background:'#4ade80', borderRadius:'50%', border:'2px solid #050508' }} />)}
       </button>
@@ -6143,10 +6149,10 @@ function WhatsAppSimulator() {
   const SCENARIO = [
     { trigger:/hola|hey|buenas|buenos/i,
       bot:'¡Hola! 👋 Bienvenido a tu negocio. ¿Qué te gustaría ordenar hoy? Tenemos nuestro menú completo disponible. 🛒',
-      agents:['A3'], logs:[{m:'A3 Ventas: sesión iniciada',c:'#4ade80'},{m:'A7 Analítica: nueva sesión',c:'#818cf8'}], delay:1200 },
+      agents:['A3'], logs:[{m:'A3 Ventas: sesión iniciada',c:'#4ade80'},{m:'A7 Analítica: nueva sesión',c:GB_LIGHT}], delay:1200 },
     { trigger:/menu|que tienen|productos|catalogo|catálogo|ver/i,
       bot:'📋 Productos disponibles:\n\n• Producto A — $25\n• Producto B — $120\n• Producto C — $180\n• Producto D (2 pzas) — $40\n• Producto E — $35\n\n¿Qué te gustaría ordenar? 😊',
-      agents:['A3','A7'], logs:[{m:'A3 Ventas: catálogo presentado',c:'#4ade80'},{m:'A7 Analítica: consulta registrada',c:'#818cf8'}], delay:1500 },
+      agents:['A3','A7'], logs:[{m:'A3 Ventas: catálogo presentado',c:'#4ade80'},{m:'A7 Analítica: consulta registrada',c:GB_LIGHT}], delay:1500 },
     { trigger:/producto|quiero|dame|ordenar|pedir|2|uno|una/i,
       bot:'¡Excelente elección! 🎉 Tu pedido:\n\n• 2 × Producto A — $50\n• 1 × Producto E — $35\n\n💰 Total: $85\n\n¿Confirmamos? Te envío el link de pago 💳',
       agents:['A3','A4','A7',`A8`], logs:[{m:`A3 Ventas: orden — $85`,c:`#4ade80`},{m:`A4 Cierre: link de pago`,c:`${GENYX_BRAND}`},{m:`A7 Analítica: ticket → $85`,c:`#818cf8`},{m:`A8 Finanzas: margen 62.3%`,c:`#f59e0b`}], metrics:{orders:1,revenue:85}, delay:1800 },
@@ -6195,10 +6201,10 @@ function WhatsAppSimulator() {
   const agCard = (ag) => {
     const on = activeAgents.has(ag.id), proc = processingAgents.has(ag.id);
     return (
-      <div key={ag.id} title={ag.tip} style={{ background: on?'rgba(99,102,241,0.06)':proc?'rgba(129,140,248,0.08)':'rgba(6,9,18,0.6)', border:`1px solid ${on?'rgba(99,102,241,0.3)':proc?'rgba(129,140,248,0.4)':'rgba(255,255,255,0.04)'}`, borderRadius:12, padding:14, display:'flex', flexDirection:'column', alignItems:'center', gap:8, transition:'all .4s cubic-bezier(.4,0,.2,1)', animation:proc?'simAgPulse 1.5s infinite':'none', cursor:'help', position:'relative' }}>
-        <div style={{ width:42, height:42, borderRadius:`50%`, display:`flex`, alignItems:`center`, justifyContent:`center`, fontSize:11, fontWeight:800, background:on?`linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`:proc?`linear-gradient(135deg,#818cf8,#c084fc)`:`rgba(255,255,255,0.05)`, border:`2px solid ${on||proc?`transparent`:`rgba(255,255,255,0.08)`}`, color:on||proc?'white':'#475569', boxShadow:on?'0 0 30px rgba(99,102,241,0.3)':proc?'0 0 30px rgba(129,140,248,0.3)':'none', transition:'all .4s' }}>{ag.id}</div>
+      <div key={ag.id} title={ag.tip} style={{ background: on?GBa(0.06):proc?'rgba(129,140,248,0.08)':'rgba(6,9,18,0.6)', border:`1px solid ${on?GBa(0.3):proc?'rgba(129,140,248,0.4)':'rgba(255,255,255,0.04)'}`, borderRadius:12, padding:14, display:'flex', flexDirection:'column', alignItems:'center', gap:8, transition:'all .4s cubic-bezier(.4,0,.2,1)', animation:proc?'simAgPulse 1.5s infinite':'none', cursor:'help', position:'relative' }}>
+        <div style={{ width:42, height:42, borderRadius:`50%`, display:`flex`, alignItems:`center`, justifyContent:`center`, fontSize:11, fontWeight:800, background:on?`linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`:proc?`linear-gradient(135deg,#818cf8,#c084fc)`:`rgba(255,255,255,0.05)`, border:`2px solid ${on||proc?`transparent`:`rgba(255,255,255,0.08)`}`, color:on||proc?'white':'#475569', boxShadow:on?`0 0 30px ${GBa(0.3)}`:proc?'0 0 30px rgba(129,140,248,0.3)':'none', transition:'all .4s' }}>{ag.id}</div>
         <div style={{ fontSize:10, fontWeight:600, color:on||proc?'#f1f5f9':'#475569', textAlign:'center' }}>{ag.name}</div>
-        <div style={{ fontSize:9, color:on?'#818cf8':'#475569', textAlign:'center', opacity:on?1:0.7 }}>{ag.role}</div>
+        <div style={{ fontSize:9, color:on?GB_LIGHT:'#475569', textAlign:'center', opacity:on?1:0.7 }}>{ag.role}</div>
         <div style={{ position:'absolute', top:4, right:6, fontSize:9, color:'#475569', opacity:0.6, cursor:'help' }}>ⓘ</div>
       </div>
     );
@@ -6207,7 +6213,7 @@ function WhatsAppSimulator() {
   return (
     <section style={{ position:'relative', padding:'80px 24px', maxWidth:1300, margin:'0 auto' }} id="simulador-inmersivo">
       <div style={{ textAlign:'center', marginBottom:48 }}>
-        <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', textTransform:'uppercase', marginBottom:12 }}>SIMULADOR EN VIVO</div>
+        <div style={{ fontSize:11, fontWeight:700, color:GB_LIGHT, letterSpacing:'.1em', textTransform:'uppercase', marginBottom:12 }}>SIMULADOR EN VIVO</div>
         <h2 style={{ fontSize:36, fontWeight:900, color:`#f1f5f9`, marginBottom:10, letterSpacing:`-1px`, lineHeight:1.15 }}>Escribe un mensaje y observa<br/><span style={{ background:`linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip:`text`, WebkitTextFillColor:`transparent` }}>cómo operan tus 9 agentes en tiempo real.</span></h2>
         <p style={{ color:'#94a3b8', fontSize:15, maxWidth:560, margin:'0 auto' }}>Esta es una simulación real de lo que GenyX hace con tu negocio. Cada mensaje activa agentes que procesan, ejecutan y generan tu briefing — en automático.</p>
       </div>
@@ -6240,14 +6246,14 @@ function WhatsAppSimulator() {
         </div>
 
         {/* Dashboard Panel */}
-        <div style={{ background:'rgba(15,20,35,0.7)', borderRadius:16, border:'1px solid rgba(99,102,241,0.12)', backdropFilter:'blur(12px)', display:'flex', flexDirection:'column', overflow:'hidden' }}>
-          <div style={{ padding:'16px 24px', borderBottom:'1px solid rgba(99,102,241,0.12)', display:'flex', alignItems:'center', justifyContent:'space-between' }}>
+        <div style={{ background:'rgba(15,20,35,0.7)', borderRadius:16, border:`1px solid ${GBa(0.12)}`, backdropFilter:'blur(12px)', display:'flex', flexDirection:'column', overflow:'hidden' }}>
+          <div style={{ padding:'16px 24px', borderBottom:`1px solid ${GBa(0.12)}`, display:'flex', alignItems:'center', justifyContent:'space-between' }}>
             <h2 style={{ fontSize:16, fontWeight:700, color:'#f1f5f9', margin:0 }}>⚡ Centro de Operaciones</h2>
             <div style={{ display:'flex', alignItems:'center', gap:6, fontSize:12, color:'#4ade80', fontWeight:500 }}>
               <span style={{ width:7, height:7, borderRadius:'50%', background:'#4ade80', display:'inline-block', animation:'simPls 2s infinite' }} />Sistema activo</div>
           </div>
           <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:10, padding:20, flex:1 }}>{SIM_AGENTS.map(agCard)}</div>
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:1, background:'rgba(99,102,241,0.12)', borderTop:'1px solid rgba(99,102,241,0.12)' }}>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:1, background:GBa(0.12), borderTop:`1px solid ${GBa(0.12)}` }}>
             {[['orders','Pedidos'],['revenue','Revenue'],['agents','Agentes activos'],['patterns','Patrones']].map(([k,l]) => (
               <div key={k} style={{ background:'rgba(6,9,18,0.8)', padding:'14px 16px', textAlign:'center' }}>
                 <div style={{ fontSize:`1.3rem`, fontWeight:800, background:`linear-gradient(135deg,${GENYX_BRAND},#818cf8)`, WebkitBackgroundClip:`text`, WebkitTextFillColor:'transparent' }}>{k==='revenue'?`$${metrics[k].toLocaleString()}`:k==='agents'?`${metrics[k]}/8`:metrics[k]}</div>
@@ -6255,7 +6261,7 @@ function WhatsAppSimulator() {
               </div>
             ))}
           </div>
-          <div style={{ padding:'16px 20px', borderTop:'1px solid rgba(99,102,241,0.12)', maxHeight:140, overflowY:'auto' }}>
+          <div style={{ padding:'16px 20px', borderTop:`1px solid ${GBa(0.12)}`, maxHeight:140, overflowY:'auto' }}>
             <h4 style={{ fontSize:11, color:'#475569', textTransform:'uppercase', letterSpacing:'1px', marginBottom:8, marginTop:0 }}>Actividad en vivo</h4>
             {logs.map((l, i) => (
               <div key={i} style={{ display:'flex', alignItems:'center', gap:8, padding:'4px 0', fontSize:12, color:'#94a3b8', animation:'simFUp .3s ease' }}>
@@ -6274,7 +6280,7 @@ function WhatsAppSimulator() {
         @keyframes simFUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
         @keyframes simPls{0%,100%{opacity:1}50%{opacity:.4}}
         @keyframes simDot{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
-        @keyframes simAgPulse{0%,100%{box-shadow:0 0 0 0 rgba(99,102,241,0)}50%{box-shadow:0 0 0 6px rgba(99,102,241,.1)}}
+        @keyframes simAgPulse{0%,100%{box-shadow:0 0 0 0 ${GBa(0)}}50%{box-shadow:0 0 0 6px ${GBa(.1)}}}
       `}</style>
     </section>
   );
@@ -6288,15 +6294,15 @@ function DashboardPreview() {
   return (
     <section style={{ padding: '0 24px 100px', maxWidth: 900, margin: '0 auto' }}>
       <div style={{ textAlign: 'center', marginBottom: 40 }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>TU CENTRO DE MANDO</div>
+        <div style={{ fontSize: 11, fontWeight: 700, color: GB_LIGHT, letterSpacing: '.1em', marginBottom: 12 }}>TU CENTRO DE MANDO</div>
         <h2 style={{ fontSize: 36, fontWeight: 900, color: `#f1f5f9`, marginBottom: 10 }}>Ve cada venta.<br /><span style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip: `text`, WebkitTextFillColor: 'transparent' }}>En tiempo real.</span></h2>
         <p style={{ color: '#64748b', fontSize: 14, maxWidth: 460, margin: '0 auto' }}>Pedidos, ingresos, clientes y métricas — desde tu celular o computadora. Sin instalar nada.</p>
       </div>
-      <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(99,102,241,0.3)', boxShadow: '0 32px 80px rgba(99,102,241,0.15), 0 0 0 1px rgba(99,102,241,0.1)' }}>
+      <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', border: `1px solid ${GBa(0.3)}`, boxShadow: `0 32px 80px ${GBa(0.15)}, 0 0 0 1px ${GBa(0.1)}` }}>
         <img src="/dashboard-preview.png" alt="Centro de Mando GenyX — Panel de control en tiempo real" style={{ width: '100%', display: 'block' }} loading="lazy" />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 60%, rgba(5,5,8,0.9) 100%)' }} />
         <div style={{ position: 'absolute', bottom: 20, left: 0, right: 0, textAlign: 'center' }}>
-          <span style={{ background: 'rgba(99,102,241,0.2)', border: '1px solid rgba(99,102,241,0.4)', color: '#a5b4fc', padding: '8px 20px', borderRadius: 20, fontSize: 12, fontWeight: 700 }}>📊 Panel en vivo desde el día 1</span>
+          <span style={{ background: GBa(0.2), border: `1px solid ${GBa(0.4)}`, color: GB_SOFT, padding: '8px 20px', borderRadius: 20, fontSize: 12, fontWeight: 700 }}>📊 Panel en vivo desde el día 1</span>
         </div>
       </div>
     </section>
@@ -6452,7 +6458,7 @@ function BlogLayout({ children, post, allPosts }) {
           <span style={{ fontWeight: 800, fontSize: 15, color: '#f1f5f9' }}>GenyX</span>
         </a>
         <div style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
-          <a href="/blog" style={{ color: '#818cf8', fontSize: 13, textDecoration: 'none', fontWeight: 600 }}>Blog</a>
+          <a href="/blog" style={{ color: GB_LIGHT, fontSize: 13, textDecoration: 'none', fontWeight: 600 }}>Blog</a>
           <a href="/por-que-aoaas" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>AOaaS</a>
           <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, leí el blog AOaaS")}`} style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: '#fff', padding: '8px 20px', borderRadius: 10, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>Contacto →</a>
         </div>
@@ -6461,7 +6467,7 @@ function BlogLayout({ children, post, allPosts }) {
         <div style={{ marginBottom: 40 }}>
           <a href="/blog" style={{ color: '#64748b', fontSize: 12, textDecoration: 'none' }}>← Blog</a>
           <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginTop: 16, marginBottom: 16 }}>
-            <span style={{ fontSize: 10, fontWeight: 700, color: '#818cf8', background: 'rgba(99,102,241,0.1)', padding: '3px 10px', borderRadius: 6, border: '1px solid rgba(99,102,241,0.2)' }}>{post.category}</span>
+            <span style={{ fontSize: 10, fontWeight: 700, color: GB_LIGHT, background: GBa(0.1), padding: '3px 10px', borderRadius: 6, border: `1px solid ${GBa(0.2)}` }}>{post.category}</span>
             <span style={{ fontSize: 11, color: '#475569' }}>{new Date(post.date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
             <span style={{ fontSize: 11, color: '#475569' }}>· {post.readTime}</span>
           </div>
@@ -6470,16 +6476,16 @@ function BlogLayout({ children, post, allPosts }) {
         </div>
         {children}
         {/* CTA + Related */}
-        <div style={{ marginTop: 64, padding: '40px 32px', background: 'rgba(99,102,241,0.05)', border: '1px solid rgba(99,102,241,0.15)', borderRadius: 20, textAlign: 'center' }}>
+        <div style={{ marginTop: 64, padding: '40px 32px', background: GBa(0.05), border: `1px solid ${GBa(0.15)}`, borderRadius: 20, textAlign: 'center' }}>
           <p style={{ fontSize: 15, fontWeight: 700, color: '#f1f5f9', marginBottom: 8 }}>¿Quieres entender AOaaS a profundidad?</p>
-          <a href="/por-que-aoaas" style={{ color: '#818cf8', fontSize: 14, fontWeight: 600, textDecoration: 'none' }}>Lee el manifesto completo →</a>
+          <a href="/por-que-aoaas" style={{ color: GB_LIGHT, fontSize: 14, fontWeight: 600, textDecoration: 'none' }}>Lee el manifesto completo →</a>
         </div>
         <div style={{ marginTop: 48 }}>
           <p style={{ fontSize: 12, fontWeight: 700, color: '#64748b', marginBottom: 16, textTransform: 'uppercase', letterSpacing: '.08em' }}>Más sobre AOaaS</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             {allPosts.filter(p => p.slug !== post.slug).map(p => (
               <a key={p.slug} href={`/blog/${p.slug}`} style={{ display: 'block', padding: '14px 18px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: 12, textDecoration: 'none', transition: 'border-color 0.2s' }}
-                onMouseOver={e => e.currentTarget.style.borderColor = 'rgba(99,102,241,0.3)'}
+                onMouseOver={e => e.currentTarget.style.borderColor = GBa(0.3)}
                 onMouseOut={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)'}>
                 <span style={{ fontSize: 14, fontWeight: 600, color: '#e2e8f0' }}>{p.title}</span>
                 <span style={{ display: 'block', fontSize: 12, color: '#64748b', marginTop: 4 }}>{p.excerpt.substring(0, 90)}...</span>
@@ -6493,7 +6499,7 @@ function BlogLayout({ children, post, allPosts }) {
         <div style={{ marginTop: 10, display: 'flex', gap: 16, justifyContent: 'center' }}>
           <a href="/" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Inicio</a>
           <a href="/blog" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Blog</a>
-          <a href="/por-que-aoaas" style={{ color: '#818cf8', fontSize: 11, textDecoration: 'none' }}>Manifesto</a>
+          <a href="/por-que-aoaas" style={{ color: GB_LIGHT, fontSize: 11, textDecoration: 'none' }}>Manifesto</a>
         </div>
       </footer>
     </div>
@@ -6508,7 +6514,7 @@ const B = {
   h3: { fontSize: 18, fontWeight: 700, color: '#e2e8f0', marginTop: 32, marginBottom: 12 },
   src: { fontSize: 11, color: '#475569', fontStyle: 'italic' },
   srcLink: { color: `${GENYX_BRAND}`, textDecoration: 'none' },
-  card: { background: 'rgba(99,102,241,0.04)', border: '1px solid rgba(99,102,241,0.12)', borderRadius: 16, padding: '24px 20px', marginBottom: 20 },
+  card: { background: GBa(0.04), border: `1px solid ${GBa(0.12)}`, borderRadius: 16, padding: '24px 20px', marginBottom: 20 },
   toc: { background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 12, padding: '16px 20px', marginBottom: 32 },
 };
 
@@ -6520,7 +6526,7 @@ function BlogPost1() {
       <div style={B.toc}>
         <p style={{ fontSize: 11, fontWeight: 700, color: '#64748b', marginBottom: 8, textTransform: 'uppercase' }}>Contenido</p>
         {['¿Qué es AaaS?', '¿Qué es AOaaS?', 'Tabla comparativa: 5 ejes', '¿Cuándo usar cada modelo?', 'Conclusión'].map((t, i) => (
-          <p key={i} style={{ fontSize: 13, color: '#818cf8', marginBottom: 4 }}>{i+1}. {t}</p>
+          <p key={i} style={{ fontSize: 13, color: GB_LIGHT, marginBottom: 4 }}>{i+1}. {t}</p>
         ))}
       </div>
 
@@ -6539,7 +6545,7 @@ function BlogPost1() {
           <thead><tr>
             <th style={{ textAlign: 'left', padding: '12px 14px', color: '#64748b', borderBottom: '2px solid rgba(255,255,255,0.06)', fontSize: 12, fontWeight: 700 }}>Eje</th>
             <th style={{ textAlign: 'left', padding: '12px 14px', color: '#64748b', borderBottom: '2px solid rgba(255,255,255,0.06)', fontSize: 12, fontWeight: 700 }}>AaaS</th>
-            <th style={{ textAlign: 'left', padding: '12px 14px', color: '#818cf8', borderBottom: '2px solid rgba(99,102,241,0.2)', fontSize: 12, fontWeight: 700 }}>AOaaS</th>
+            <th style={{ textAlign: 'left', padding: '12px 14px', color: GB_LIGHT, borderBottom: `2px solid ${GBa(0.2)}`, fontSize: 12, fontWeight: 700 }}>AOaaS</th>
           </tr></thead>
           <tbody>
             {[
@@ -6579,7 +6585,7 @@ function BlogPost2() {
       <div style={B.toc}>
         <p style={{ fontSize: 11, fontWeight: 700, color: '#64748b', marginBottom: 8, textTransform: 'uppercase' }}>Contenido</p>
         {['El patrón de category creation', 'Qué resuelve AOaaS que AaaS no puede', 'La arquitectura: 12 agentes orquestados', 'Governance como diferenciador', 'La apuesta'].map((t, i) => (
-          <p key={i} style={{ fontSize: 13, color: '#818cf8', marginBottom: 4 }}>{i+1}. {t}</p>
+          <p key={i} style={{ fontSize: 13, color: GB_LIGHT, marginBottom: 4 }}>{i+1}. {t}</p>
         ))}
       </div>
 
@@ -6633,7 +6639,7 @@ function BlogPost3() {
       <div style={B.toc}>
         <p style={{ fontSize: 11, fontWeight: 700, color: '#64748b', marginBottom: 8, textTransform: 'uppercase' }}>Contenido</p>
         {['El canal ya está definido: WhatsApp', 'El problema del 88%', 'Por qué AOaaS encaja en LATAM', 'Qué entrega GenyX hoy', 'Inversión transparente', 'Siguiente paso'].map((t, i) => (
-          <p key={i} style={{ fontSize: 13, color: '#818cf8', marginBottom: 4 }}>{i+1}. {t}</p>
+          <p key={i} style={{ fontSize: 13, color: GB_LIGHT, marginBottom: 4 }}>{i+1}. {t}</p>
         ))}
       </div>
 
@@ -6724,7 +6730,7 @@ function BlogIndexPage() {
       </nav>
       <div style={{ maxWidth: 800, margin: '0 auto', padding: '140px 24px 80px' }}>
         <div style={{ marginBottom: 48 }}>
-          <div style={{ fontSize: 11, fontWeight: 800, color: '#818cf8', letterSpacing: '.14em', textTransform: 'uppercase', marginBottom: 12 }}>BLOG</div>
+          <div style={{ fontSize: 11, fontWeight: 800, color: GB_LIGHT, letterSpacing: '.14em', textTransform: 'uppercase', marginBottom: 12 }}>BLOG</div>
           <h1 style={{ fontSize: 44, fontWeight: 900, lineHeight: 1.1, marginBottom: 16 }}>
             AOaaS —<br />
             <span style={{ background: 'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>pensamiento en profundidad.</span>
@@ -6733,11 +6739,11 @@ function BlogIndexPage() {
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           {BLOG_POSTS.map(post => (
-            <a key={post.slug} href={`/blog/${post.slug}`} style={{ display: 'block', padding: '28px 24px', background: 'rgba(99,102,241,0.03)', border: '1px solid rgba(99,102,241,0.1)', borderRadius: 16, textDecoration: 'none', transition: 'all 0.25s' }}
-              onMouseOver={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.35)'; e.currentTarget.style.background = 'rgba(99,102,241,0.06)'; }}
-              onMouseOut={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.1)'; e.currentTarget.style.background = 'rgba(99,102,241,0.03)'; }}>
+            <a key={post.slug} href={`/blog/${post.slug}`} style={{ display: 'block', padding: '28px 24px', background: GBa(0.03), border: `1px solid ${GBa(0.1)}`, borderRadius: 16, textDecoration: 'none', transition: 'all 0.25s' }}
+              onMouseOver={e => { e.currentTarget.style.borderColor = GBa(0.35); e.currentTarget.style.background = GBa(0.06); }}
+              onMouseOut={e => { e.currentTarget.style.borderColor = GBa(0.1); e.currentTarget.style.background = GBa(0.03); }}>
               <div style={{ display: 'flex', gap: 10, alignItems: 'center', marginBottom: 10 }}>
-                <span style={{ fontSize: 10, fontWeight: 700, color: '#818cf8', background: 'rgba(99,102,241,0.1)', padding: '2px 8px', borderRadius: 4, border: '1px solid rgba(99,102,241,0.15)' }}>{post.category}</span>
+                <span style={{ fontSize: 10, fontWeight: 700, color: GB_LIGHT, background: GBa(0.1), padding: '2px 8px', borderRadius: 4, border: `1px solid ${GBa(0.15)}` }}>{post.category}</span>
                 <span style={{ fontSize: 11, color: '#475569' }}>{new Date(post.date).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric' })} · {post.readTime}</span>
               </div>
               <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', marginBottom: 8, lineHeight: 1.3 }}>{post.title}</h2>
@@ -6746,7 +6752,7 @@ function BlogIndexPage() {
           ))}
         </div>
         <div style={{ marginTop: 48, textAlign: 'center' }}>
-          <a href="/por-que-aoaas" style={{ color: '#818cf8', fontSize: 14, textDecoration: 'none', fontWeight: 600 }}>Lee el manifesto AOaaS →</a>
+          <a href="/por-que-aoaas" style={{ color: GB_LIGHT, fontSize: 14, textDecoration: 'none', fontWeight: 600 }}>Lee el manifesto AOaaS →</a>
         </div>
       </div>
       <footer style={{ textAlign: 'center', padding: '40px 24px', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
@@ -6780,7 +6786,7 @@ function WhitepaperPage() {
     page: { minHeight: '100vh', background: '#05080f', fontFamily: "'Inter','Segoe UI',sans-serif", color: '#f1f5f9' },
     nav: { position: 'fixed', top: 0, left: 0, right: 0, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 32px', background: 'rgba(5,8,15,0.9)', backdropFilter: 'blur(16px)', borderBottom: '1px solid rgba(255,255,255,0.05)', zIndex: 100 },
     gradient: { background: 'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
-    input: { width: '100%', boxSizing: 'border-box', background: 'rgba(15,23,42,0.8)', border: '1px solid rgba(99,102,241,0.2)', color: '#f1f5f9', padding: '14px 18px', borderRadius: 12, fontSize: 14, outline: 'none', fontFamily: 'inherit', transition: 'border-color 0.2s' },
+    input: { width: '100%', boxSizing: 'border-box', background: 'rgba(15,23,42,0.8)', border: `1px solid ${GBa(0.2)}`, color: '#f1f5f9', padding: '14px 18px', borderRadius: 12, fontSize: 14, outline: 'none', fontFamily: 'inherit', transition: 'border-color 0.2s' },
   };
 
   return (
@@ -6807,7 +6813,7 @@ function WhitepaperPage() {
       <div style={{ maxWidth: 960, margin: '0 auto', padding: '160px 24px 80px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
         {/* Left: Copy */}
         <div>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 30, padding: '5px 16px', marginBottom: 20, fontSize: 10, fontWeight: 800, color: '#818cf8', letterSpacing: '.12em', textTransform: 'uppercase' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: GBa(0.1), border: `1px solid ${GBa(0.3)}`, borderRadius: 30, padding: '5px 16px', marginBottom: 20, fontSize: 10, fontWeight: 800, color: GB_LIGHT, letterSpacing: '.12em', textTransform: 'uppercase' }}>
             <span style={{ width: 5, height: 5, borderRadius: `50%`, background: `${GENYX_BRAND}`, display: `inline-block` }} />
             WHITEPAPER TÉCNICO
           </div>
@@ -6831,7 +6837,7 @@ function WhitepaperPage() {
               'Roadmap AOaaS: de Mes 1 a Mes 12',
             ].map((item, i) => (
               <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-                <span style={{ color: '#818cf8', fontSize: 12, fontWeight: 700, marginTop: 2 }}>§{i+1}</span>
+                <span style={{ color: GB_LIGHT, fontSize: 12, fontWeight: 700, marginTop: 2 }}>§{i+1}</span>
                 <span style={{ color: '#94a3b8', fontSize: 14 }}>{item}</span>
               </div>
             ))}
@@ -6846,19 +6852,19 @@ function WhitepaperPage() {
 
         {/* Right: Form */}
         <div>
-          <div style={{ background: 'rgba(99,102,241,0.04)', border: '1px solid rgba(99,102,241,0.15)', borderRadius: 24, padding: '40px 32px' }}>
+          <div style={{ background: GBa(0.04), border: `1px solid ${GBa(0.15)}`, borderRadius: 24, padding: '40px 32px' }}>
             {submitted ? (
               <div style={{ textAlign: 'center', padding: '20px 0' }}>
                 <div style={{ fontSize: 48, marginBottom: 16 }}>✓</div>
                 <h2 style={{ fontSize: 24, fontWeight: 800, color: '#f1f5f9', marginBottom: 12 }}>¡Registrado!</h2>
                 <p style={{ color: '#94a3b8', fontSize: 14, lineHeight: 1.7, marginBottom: 24 }}>
-                  Te notificaremos a <span style={{ color: '#818cf8', fontWeight: 600 }}>{email}</span> cuando el whitepaper esté listo para descargar.
+                  Te notificaremos a <span style={{ color: GB_LIGHT, fontWeight: 600 }}>{email}</span> cuando el whitepaper esté listo para descargar.
                 </p>
                 <p style={{ color: '#64748b', fontSize: 13, marginBottom: 20 }}>Mientras tanto, explora:</p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                  <a href="/por-que-aoaas" style={{ color: '#818cf8', fontSize: 14, textDecoration: 'none', fontWeight: 600 }}>Manifesto AOaaS →</a>
-                  <a href="/blog" style={{ color: '#818cf8', fontSize: 14, textDecoration: 'none', fontWeight: 600 }}>Blog AOaaS →</a>
-                  <a href="/por-que-ahora" style={{ color: '#818cf8', fontSize: 14, textDecoration: 'none', fontWeight: 600 }}>Datos de mercado →</a>
+                  <a href="/por-que-aoaas" style={{ color: GB_LIGHT, fontSize: 14, textDecoration: 'none', fontWeight: 600 }}>Manifesto AOaaS →</a>
+                  <a href="/blog" style={{ color: GB_LIGHT, fontSize: 14, textDecoration: 'none', fontWeight: 600 }}>Blog AOaaS →</a>
+                  <a href="/por-que-ahora" style={{ color: GB_LIGHT, fontSize: 14, textDecoration: 'none', fontWeight: 600 }}>Datos de mercado →</a>
                 </div>
               </div>
             ) : (
@@ -6869,16 +6875,16 @@ function WhitepaperPage() {
                   <div>
                     <label style={{ display: 'block', fontSize: 11, fontWeight: 600, color: '#64748b', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '.05em' }}>Nombre</label>
                     <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Tu nombre"
-                      style={W.input} onFocus={e => e.target.style.borderColor = 'rgba(99,102,241,0.5)'} onBlur={e => e.target.style.borderColor = 'rgba(99,102,241,0.2)'} />
+                      style={W.input} onFocus={e => e.target.style.borderColor = GBa(0.5)} onBlur={e => e.target.style.borderColor = GBa(0.2)} />
                   </div>
                   <div>
                     <label style={{ display: 'block', fontSize: 11, fontWeight: 600, color: '#64748b', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '.05em' }}>Correo *</label>
                     <input type="email" value={email} onChange={e => { setEmail(e.target.value); setError(''); }} placeholder="tu@empresa.com" required
-                      style={{ ...W.input, borderColor: error ? 'rgba(239,68,68,0.5)' : 'rgba(99,102,241,0.2)' }}
-                      onFocus={e => e.target.style.borderColor = 'rgba(99,102,241,0.5)'} onBlur={e => e.target.style.borderColor = error ? 'rgba(239,68,68,0.5)' : 'rgba(99,102,241,0.2)'} />
+                      style={{ ...W.input, borderColor: error ? 'rgba(239,68,68,0.5)' : GBa(0.2) }}
+                      onFocus={e => e.target.style.borderColor = GBa(0.5)} onBlur={e => e.target.style.borderColor = error ? 'rgba(239,68,68,0.5)' : GBa(0.2)} />
                     {error && <p style={{ fontSize: 11, color: '#f87171', marginTop: 4 }}>{error}</p>}
                   </div>
-                  <button type="submit" style={{ width: `100%`, background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: `#fff`, padding: '14px 24px', borderRadius: 12, fontSize: 15, fontWeight: 700, border: 'none', cursor: 'pointer', boxShadow: '0 0 32px rgba(99,102,241,0.25)', transition: 'transform 0.15s' }}
+                  <button type="submit" style={{ width: `100%`, background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: `#fff`, padding: '14px 24px', borderRadius: 12, fontSize: 15, fontWeight: 700, border: 'none', cursor: 'pointer', boxShadow: `0 0 32px ${GBa(0.25)}`, transition: 'transform 0.15s' }}
                     onMouseOver={e => e.target.style.transform = 'translateY(-1px)'}
                     onMouseOut={e => e.target.style.transform = 'translateY(0)'}>
                     Quiero el whitepaper →
@@ -6908,7 +6914,7 @@ function WhitepaperPage() {
       {/* Bottom: who is this for */}
       <section style={{ maxWidth: 720, margin: '0 auto', padding: '0 24px 100px' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
-          <p style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.12em', textTransform: 'uppercase', marginBottom: 12 }}>¿PARA QUIÉN ES ESTE WHITEPAPER?</p>
+          <p style={{ fontSize: 11, fontWeight: 700, color: GB_LIGHT, letterSpacing: '.12em', textTransform: 'uppercase', marginBottom: 12 }}>¿PARA QUIÉN ES ESTE WHITEPAPER?</p>
           <h2 style={{ fontSize: 28, fontWeight: 800, color: '#f1f5f9' }}>Founders, CTOs y operadores<br /><span style={W.gradient}>que quieren entender AOaaS a profundidad.</span></h2>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12 }}>
@@ -6918,7 +6924,7 @@ function WhitepaperPage() {
             ['📊', 'Operadores', 'Que buscan datos verificados sobre el mercado AaaS/AOaaS y el contexto LATAM.'],
             ['📝', 'Analistas', 'Que investigan la categoría AOaaS y necesitan material técnico citable.'],
           ].map(([ico, title, desc]) => (
-            <div key={title} style={{ background: 'rgba(99,102,241,0.03)', border: '1px solid rgba(99,102,241,0.1)', borderRadius: 14, padding: '20px 18px' }}>
+            <div key={title} style={{ background: GBa(0.03), border: `1px solid ${GBa(0.1)}`, borderRadius: 14, padding: '20px 18px' }}>
               <div style={{ fontSize: 24, marginBottom: 8 }}>{ico}</div>
               <p style={{ fontWeight: 700, color: '#f1f5f9', fontSize: 14, marginBottom: 4 }}>{title}</p>
               <p style={{ fontSize: 12, color: '#64748b', lineHeight: 1.6 }}>{desc}</p>
@@ -6931,7 +6937,7 @@ function WhitepaperPage() {
         <p style={{ fontSize: 11, color: '#475569' }}>GenyX Systems © 2026 · AOaaS — Agent Operations as a Service</p>
         <div style={{ marginTop: 10, display: 'flex', gap: 16, justifyContent: 'center' }}>
           <a href="/" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Inicio</a>
-          <a href="/por-que-aoaas" style={{ color: '#818cf8', fontSize: 11, textDecoration: 'none' }}>Manifesto</a>
+          <a href="/por-que-aoaas" style={{ color: GB_LIGHT, fontSize: 11, textDecoration: 'none' }}>Manifesto</a>
           <a href="/blog" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Blog</a>
         </div>
       </footer>
@@ -6947,15 +6953,15 @@ function PorQueAOaaSPage() {
     nav: { position: 'fixed', top: 0, left: 0, right: 0, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 32px', background: 'rgba(5,8,15,0.9)', backdropFilter: 'blur(16px)', borderBottom: '1px solid rgba(255,255,255,0.05)', zIndex: 100 },
     hero: { minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', textAlign: 'center', padding: '160px 24px 100px', position: 'relative' },
     section: { padding: '0 24px 120px', maxWidth: 820, margin: '0 auto' },
-    card: { background: 'rgba(99,102,241,0.03)', border: '1px solid rgba(99,102,241,0.12)', borderRadius: 20, padding: '32px 28px', marginBottom: 20 },
-    label: { fontSize: 11, fontWeight: 800, color: '#818cf8', letterSpacing: '.14em', textTransform: 'uppercase', marginBottom: 14 },
+    card: { background: GBa(0.03), border: `1px solid ${GBa(0.12)}`, borderRadius: 20, padding: '32px 28px', marginBottom: 20 },
+    label: { fontSize: 11, fontWeight: 800, color: GB_LIGHT, letterSpacing: '.14em', textTransform: 'uppercase', marginBottom: 14 },
     h2: { fontSize: 36, fontWeight: 900, color: '#f1f5f9', lineHeight: 1.2, marginBottom: 20 },
     p: { color: '#94a3b8', fontSize: 15, lineHeight: 2.0 },
     strong: { color: '#f1f5f9', fontWeight: 700 },
     gradient: { background: 'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
     source: { fontSize: 11, color: '#475569', fontStyle: 'italic', marginTop: 12 },
     srcLink: { color: `${GENYX_BRAND}`, textDecoration: 'none' },
-    divider: { height: 1, background: 'linear-gradient(90deg, transparent, rgba(99,102,241,0.25), transparent)', margin: '0 auto', maxWidth: 200 },
+    divider: { height: 1, background: `linear-gradient(90deg, transparent, ${GBa(0.25)}, transparent)`, margin: '0 auto', maxWidth: 200 },
   };
 
   return (
@@ -7003,7 +7009,7 @@ function PorQueAOaaSPage() {
 
       {/* ═══ §1 — Lead (above the fold) ═══ */}
       <section style={S.hero}>
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.35)', borderRadius: 30, padding: '6px 20px', marginBottom: 20, fontSize: 10, fontWeight: 800, color: '#818cf8', letterSpacing: '.14em', textTransform: 'uppercase' }}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: GBa(0.1), border: `1px solid ${GBa(0.35)}`, borderRadius: 30, padding: '6px 20px', marginBottom: 20, fontSize: 10, fontWeight: 800, color: GB_LIGHT, letterSpacing: '.14em', textTransform: 'uppercase' }}>
           <span style={{ width: 6, height: 6, borderRadius: `50%`, background: `${GENYX_BRAND}`, display: `inline-block`, boxShadow: `0 0 10px ${GENYX_BRAND}` }} />
           MANIFESTO — CATEGORÍA NUEVA
         </div>
@@ -7021,7 +7027,7 @@ function PorQueAOaaSPage() {
       {/* ═══ §2 — Definición operativa ═══ */}
       <section style={S.section}>
         <div id="que-es" style={S.label}>§1 · DEFINICIÓN OPERATIVA</div>
-        <div style={{ ...S.card, background: 'rgba(99,102,241,0.06)', borderColor: 'rgba(99,102,241,0.25)' }}>
+        <div style={{ ...S.card, background: GBa(0.06), borderColor: GBa(0.25) }}>
           <blockquote style={{ margin: 0, padding: '0 0 0 20px', borderLeft: `3px solid ${GENYX_BRAND}` }}>
             <p style={{ ...S.p, fontSize: 17, lineHeight: 2.0, color: '#e2e8f0' }}>
               <span style={S.strong}>AOaaS</span> (Agent Operations as a Service) — Sistema operativo de agentes orquestados que ejecutan una <span style={S.strong}>operación comercial completa</span> (no función única), con <span style={S.strong}>governance interna</span> (REGLAs 1-13 + cláusula 7b) y <span style={S.strong}>trazabilidad legal</span> (3 hashes SHA256 + audit log inmutable).
@@ -7036,8 +7042,8 @@ function PorQueAOaaSPage() {
           <p style={{ fontWeight: 800, fontSize: 15, color: '#f1f5f9', marginBottom: 16 }}>¿Por qué "Operations" y no solo "Agent"?</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             {[
-              ['Agent', 'Qué somos — basados en agentes de IA', '#818cf8'],
-              ['Operations', 'No función única — sistema operativo completo. Marketing → captación → venta → cierre → entrega → seguimiento → analítica → finanzas → dirección ejecutiva', '#c084fc'],
+              ['Agent', 'Qué somos — basados en agentes de IA', GB_LIGHT],
+              ['Operations', 'No función única — sistema operativo completo. Marketing → captación → venta → cierre → entrega → seguimiento → analítica → finanzas → dirección ejecutiva', GB_VIOLET],
               ['as a Service', 'Modelo de entrega — no se compra software, se activa una operación', '#a78bfa'],
             ].map(([word, desc, color]) => (
               <div key={word} style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
@@ -7061,7 +7067,7 @@ function PorQueAOaaSPage() {
             <thead>
               <tr>
                 <th style={{ textAlign: 'left', padding: '14px 16px', color: '#64748b', borderBottom: '2px solid rgba(255,255,255,0.06)', fontSize: 12, fontWeight: 700, width: '45%' }}>AaaS estándar</th>
-                <th style={{ textAlign: 'left', padding: '14px 16px', color: '#818cf8', borderBottom: '2px solid rgba(99,102,241,0.2)', fontSize: 12, fontWeight: 700, width: '55%' }}>AOaaS</th>
+                <th style={{ textAlign: 'left', padding: '14px 16px', color: GB_LIGHT, borderBottom: `2px solid ${GBa(0.2)}`, fontSize: 12, fontWeight: 700, width: '55%' }}>AOaaS</th>
               </tr>
             </thead>
             <tbody>
@@ -7108,7 +7114,7 @@ function PorQueAOaaSPage() {
               </div>
               <div style={{ flex: 1 }}>
                 <p style={{ fontSize: 14, color: '#e2e8f0', marginBottom: 4 }}>
-                  Creó <span style={{ color: '#818cf8', fontWeight: 700 }}>"{created}"</span>
+                  Creó <span style={{ color: GB_LIGHT, fontWeight: 700 }}>"{created}"</span>
                   <span style={{ color: '#475569' }}> cuando existía </span>
                   <span style={{ color: '#64748b', textDecoration: 'line-through' }}>"{replaced}"</span>
                 </p>
@@ -7118,10 +7124,10 @@ function PorQueAOaaSPage() {
           ))}
 
           {/* GenyX — highlighted */}
-          <div style={{ display: 'flex', gap: 20, alignItems: 'flex-start', padding: '32px 24px', marginTop: 8, background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.2)', borderRadius: 16 }}>
+          <div style={{ display: 'flex', gap: 20, alignItems: 'flex-start', padding: '32px 24px', marginTop: 8, background: GBa(0.06), border: `1px solid ${GBa(0.2)}`, borderRadius: 16 }}>
             <div style={{ minWidth: 100, textAlign: 'right' }}>
               <span style={{ fontSize: 16, fontWeight: 900, ...S.gradient }}>GenyX</span>
-              <span style={{ display: 'block', fontSize: 11, color: '#818cf8' }}>2026</span>
+              <span style={{ display: 'block', fontSize: 11, color: GB_LIGHT }}>2026</span>
             </div>
             <div style={{ flex: 1 }}>
               <p style={{ fontSize: 16, color: '#f1f5f9', fontWeight: 700, marginBottom: 8 }}>
@@ -7150,9 +7156,9 @@ function PorQueAOaaSPage() {
             ['/blog/por-que-existe-aoaas', 'Por qué creamos AOaaS', 'El patrón de category creation: Stripe, Snowflake, Notion, Anthropic, Vercel — y GenyX.'],
             ['/blog/aoaas-para-negocios-latam', 'AOaaS para negocios LATAM', 'WhatsApp 71% MX, 88% pilots fail, pricing transparente. Por qué AOaaS encaja en México.'],
           ].map(([href, title, desc]) => (
-            <a key={href} href={href} style={{ display: 'block', padding: '20px 22px', background: 'rgba(99,102,241,0.03)', border: '1px solid rgba(99,102,241,0.1)', borderRadius: 14, textDecoration: 'none', transition: 'border-color 0.2s' }}
-              onMouseOver={e => e.currentTarget.style.borderColor = 'rgba(99,102,241,0.35)'}
-              onMouseOut={e => e.currentTarget.style.borderColor = 'rgba(99,102,241,0.1)'}>
+            <a key={href} href={href} style={{ display: 'block', padding: '20px 22px', background: GBa(0.03), border: `1px solid ${GBa(0.1)}`, borderRadius: 14, textDecoration: 'none', transition: 'border-color 0.2s' }}
+              onMouseOver={e => e.currentTarget.style.borderColor = GBa(0.35)}
+              onMouseOut={e => e.currentTarget.style.borderColor = GBa(0.1)}>
               <span style={{ fontSize: 15, fontWeight: 700, color: '#e2e8f0' }}>{title}</span>
               <span style={{ display: 'block', fontSize: 13, color: '#64748b', marginTop: 4, lineHeight: 1.6 }}>{desc}</span>
             </a>
@@ -7164,7 +7170,7 @@ function PorQueAOaaSPage() {
 
       {/* ═══ §5 — CTA ═══ */}
       <section style={{ ...S.section, paddingTop: 120 }}>
-        <div style={{ textAlign: 'center', background: 'linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.04))', borderRadius: 28, padding: '64px 40px', border: '1px solid rgba(99,102,241,0.15)' }}>
+        <div style={{ textAlign: 'center', background: `linear-gradient(135deg, ${GBa(0.08)}, rgba(139,92,246,0.04))`, borderRadius: 28, padding: '64px 40px', border: `1px solid ${GBa(0.15)}` }}>
           <div style={{ fontSize: 48, marginBottom: 20 }}>◆</div>
           <h2 style={{ fontSize: 32, fontWeight: 900, color: '#f1f5f9', marginBottom: 12, lineHeight: 1.25 }}>
             AOaaS es la categoría.<br />
@@ -7174,8 +7180,8 @@ function PorQueAOaaSPage() {
             Si operas un negocio y quieres implementar tu operación comercial autónoma — hablemos.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="/whitepaper" style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: '#fff', padding: '14px 32px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 32px rgba(99,102,241,0.25)' }}>📄 Lee el whitepaper técnico</a>
-            <a href="/por-que-ahora#agentes" style={{ background: 'rgba(255,255,255,0.05)', color: '#a5b4fc', padding: '14px 32px', borderRadius: 12, fontSize: 14, fontWeight: 600, textDecoration: 'none', border: '1px solid rgba(99,102,241,0.2)' }}>Conoce los 9 agentes →</a>
+            <a href="/whitepaper" style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: '#fff', padding: '14px 32px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: `0 0 32px ${GBa(0.25)}` }}>📄 Lee el whitepaper técnico</a>
+            <a href="/por-que-ahora#agentes" style={{ background: 'rgba(255,255,255,0.05)', color: GB_SOFT, padding: '14px 32px', borderRadius: 12, fontSize: 14, fontWeight: 600, textDecoration: 'none', border: `1px solid ${GBa(0.2)}` }}>Conoce los 9 agentes →</a>
           </div>
           <div style={{ marginTop: 20 }}>
             <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, leí el manifesto AOaaS. Quiero contactar a GenyX.")}`} style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>💬 Contacto directo con el fundador</a>
@@ -7185,11 +7191,11 @@ function PorQueAOaaSPage() {
 
       {/* ── Newsletter CTA ── */}
       <section style={{ maxWidth: 600, margin: '0 auto', padding: '0 24px 80px', textAlign: 'center' }}>
-        <div style={{ background: 'rgba(99,102,241,0.04)', border: '1px solid rgba(99,102,241,0.12)', borderRadius: 20, padding: '32px 28px' }}>
-          <p style={{ fontSize: 12, fontWeight: 800, color: '#818cf8', letterSpacing: '.12em', textTransform: 'uppercase', marginBottom: 10 }}>AOaaS INDUSTRY UPDATES</p>
+        <div style={{ background: GBa(0.04), border: `1px solid ${GBa(0.12)}`, borderRadius: 20, padding: '32px 28px' }}>
+          <p style={{ fontSize: 12, fontWeight: 800, color: GB_LIGHT, letterSpacing: '.12em', textTransform: 'uppercase', marginBottom: 10 }}>AOaaS INDUSTRY UPDATES</p>
           <p style={{ fontSize: 14, color: '#94a3b8', marginBottom: 20, lineHeight: 1.6 }}>Recibe análisis mensual sobre la evolución de Agent Operations. Sin spam. Solo datos verificados.</p>
           <form onSubmit={e => { e.preventDefault(); const email = e.target.email.value; if (email) { fetch('https://api.genyxsystems.com/api/newsletter-subscribe', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({email, source: 'manifesto_aoaas'}) }).catch(() => {}); e.target.email.value = ''; e.target.querySelector('button').textContent = '✅ Suscrito'; } }} style={{ display: 'flex', gap: 8, maxWidth: 420, margin: '0 auto' }}>
-            <input name="email" type="email" required placeholder="tu@email.com" style={{ flex: 1, padding: '10px 16px', borderRadius: 10, border: '1px solid rgba(99,102,241,0.2)', background: 'rgba(15,23,42,0.5)', color: '#e2e8f0', fontSize: 13, outline: 'none' }} />
+            <input name="email" type="email" required placeholder="tu@email.com" style={{ flex: 1, padding: '10px 16px', borderRadius: 10, border: `1px solid ${GBa(0.2)}`, background: 'rgba(15,23,42,0.5)', color: '#e2e8f0', fontSize: 13, outline: 'none' }} />
             <button type="submit" style={{ padding: `10px 20px`, borderRadius: 10, border: `none`, background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: `#fff`, fontSize: 12, fontWeight: 700, cursor: `pointer`, whiteSpace: 'nowrap' }}>Suscribirme →</button>
           </form>
           <p style={{ fontSize: 9, color: '#475569', marginTop: 10 }}>Prometemos solo contenido valioso. Puedes cancelar en cualquier momento.</p>
@@ -7222,12 +7228,12 @@ function PorQueAhoraPage() {
     nav: { position: 'fixed', top: 0, left: 0, right: 0, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 32px', background: 'rgba(5,8,15,0.85)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(255,255,255,0.06)', zIndex: 100 },
     hero: { minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', textAlign: 'center', padding: '140px 24px 80px' },
     section: { padding: '0 24px 100px', maxWidth: 900, margin: '0 auto' },
-    card: { background: 'rgba(99,102,241,0.04)', border: '1px solid rgba(99,102,241,0.15)', borderRadius: 16, padding: '28px 24px', marginBottom: 16, transition: 'border-color 0.2s' },
-    label: { fontSize: 11, fontWeight: 800, color: '#818cf8', letterSpacing: '.12em', textTransform: 'uppercase', marginBottom: 12 },
+    card: { background: GBa(0.04), border: `1px solid ${GBa(0.15)}`, borderRadius: 16, padding: '28px 24px', marginBottom: 16, transition: 'border-color 0.2s' },
+    label: { fontSize: 11, fontWeight: 800, color: GB_LIGHT, letterSpacing: '.12em', textTransform: 'uppercase', marginBottom: 12 },
     h2: { fontSize: 36, fontWeight: 900, color: '#f1f5f9', lineHeight: 1.25, marginBottom: 16 },
     p: { color: '#94a3b8', fontSize: 15, lineHeight: 1.9 },
     source: { fontSize: 11, color: '#64748b', fontStyle: 'italic', marginTop: 8 },
-    sourceLink: { color: '#818cf8', textDecoration: 'none' },
+    sourceLink: { color: GB_LIGHT, textDecoration: 'none' },
     stat: { display: 'flex', gap: 16, alignItems: 'center', padding: '16px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' },
     statVal: { fontSize: 32, fontWeight: 900, background: `linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', minWidth: 120, textAlign: 'right' },
     statDesc: { fontSize: 14, color: '#94a3b8', lineHeight: 1.6 },
@@ -7291,7 +7297,7 @@ function PorQueAhoraPage() {
             <thead>
               <tr>
                 <th style={{ textAlign: 'left', padding: '10px 12px', color: '#64748b', borderBottom: '1px solid rgba(255,255,255,0.08)', fontSize: 11, fontWeight: 700 }}>AaaS estándar (lo que hace el mercado)</th>
-                <th style={{ textAlign: 'left', padding: '10px 12px', color: '#818cf8', borderBottom: '1px solid rgba(99,102,241,0.2)', fontSize: 11, fontWeight: 700 }}>AOaaS (lo que hacemos nosotros)</th>
+                <th style={{ textAlign: 'left', padding: '10px 12px', color: GB_LIGHT, borderBottom: `1px solid ${GBa(0.2)}`, fontSize: 11, fontWeight: 700 }}>AOaaS (lo que hacemos nosotros)</th>
               </tr>
             </thead>
             <tbody>
@@ -7328,8 +7334,8 @@ function PorQueAhoraPage() {
               ['GenyX (2026)', 'crea "AOaaS"', 'cuando existe "AaaS"'],
             ].map(([co, created, when], i) => (
               <div key={i} style={{ display: 'flex', gap: 8, alignItems: 'baseline', fontSize: 13 }}>
-                <span style={{ color: i === 5 ? '#818cf8' : '#64748b', fontWeight: i === 5 ? 800 : 600, minWidth: 130 }}>{co}</span>
-                <span style={{ color: i === 5 ? '#c084fc' : '#94a3b8' }}>{created}</span>
+                <span style={{ color: i === 5 ? GB_LIGHT : '#64748b', fontWeight: i === 5 ? 800 : 600, minWidth: 130 }}>{co}</span>
+                <span style={{ color: i === 5 ? GB_VIOLET : '#94a3b8' }}>{created}</span>
                 <span style={{ color: '#475569' }}>{when}</span>
               </div>
             ))}
@@ -7441,24 +7447,24 @@ function PorQueAhoraPage() {
             ['/blog/por-que-existe-aoaas', 'Por qué creamos AOaaS — Agent Operations as a Service'],
             ['/blog/aoaas-para-negocios-latam', 'AOaaS para negocios LATAM: por qué funciona en México'],
           ].map(([href, title]) => (
-            <a key={href} href={href} style={{ display: 'block', padding: '14px 18px', background: 'rgba(99,102,241,0.03)', border: '1px solid rgba(99,102,241,0.1)', borderRadius: 12, textDecoration: 'none', fontSize: 14, fontWeight: 600, color: '#e2e8f0', transition: 'border-color 0.2s' }}
-              onMouseOver={e => e.currentTarget.style.borderColor = 'rgba(99,102,241,0.3)'}
-              onMouseOut={e => e.currentTarget.style.borderColor = 'rgba(99,102,241,0.1)'}>{title}</a>
+            <a key={href} href={href} style={{ display: 'block', padding: '14px 18px', background: GBa(0.03), border: `1px solid ${GBa(0.1)}`, borderRadius: 12, textDecoration: 'none', fontSize: 14, fontWeight: 600, color: '#e2e8f0', transition: 'border-color 0.2s' }}
+              onMouseOver={e => e.currentTarget.style.borderColor = GBa(0.3)}
+              onMouseOut={e => e.currentTarget.style.borderColor = GBa(0.1)}>{title}</a>
           ))}
         </div>
       </section>
 
       {/* CTA */}
       <section style={{ ...C.section, textAlign: 'center' }}>
-        <div style={{ background: 'linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.06))', borderRadius: 24, padding: '56px 40px', border: '1px solid rgba(99,102,241,0.2)' }}>
+        <div style={{ background: `linear-gradient(135deg, ${GBa(0.08)}, rgba(139,92,246,0.06))`, borderRadius: 24, padding: '56px 40px', border: `1px solid ${GBa(0.2)}` }}>
           <h2 style={{ fontSize: 32, fontWeight: 900, color: '#f1f5f9', marginBottom: 12 }}>
             ¿Listo para implementar tu<br />
             <span style={C.gradient}>operación comercial autónoma?</span>
           </h2>
           <p style={{ color: '#64748b', fontSize: 15, marginBottom: 28 }}>En 15 minutos te decimos qué plan se ajusta a tu negocio — sin compromiso.</p>
-          <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, vi los datos de mercado y quiero saber más sobre GenyX")}`} style={{ display: `inline-block`, background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: `#fff`, padding: '14px 36px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 28px rgba(99,102,241,0.3)' }}>Hablar con GenyX →</a>
+          <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, vi los datos de mercado y quiero saber más sobre GenyX")}`} style={{ display: `inline-block`, background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: `#fff`, padding: '14px 36px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: `0 0 28px ${GBa(0.3)}` }}>Hablar con GenyX →</a>
           <div style={{ marginTop: 16, display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="/" style={{ color: '#818cf8', fontSize: 13, textDecoration: 'none' }}>← Volver al inicio</a>
+            <a href="/" style={{ color: GB_LIGHT, fontSize: 13, textDecoration: 'none' }}>← Volver al inicio</a>
             <a href="/whitepaper" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>📄 Lee el whitepaper completo</a>
           </div>
         </div>
@@ -7471,7 +7477,7 @@ function PorQueAhoraPage() {
         <div style={{ marginTop: 12, display: 'flex', gap: 16, justifyContent: 'center' }}>
           <a href="/privacidad" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Privacidad</a>
           <a href="/terminos" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Términos</a>
-          <a href="/" style={{ color: '#818cf8', fontSize: 11, textDecoration: 'none' }}>Inicio</a>
+          <a href="/" style={{ color: GB_LIGHT, fontSize: 11, textDecoration: 'none' }}>Inicio</a>
         </div>
       </footer>
     </div>
@@ -7483,13 +7489,13 @@ function PorQueAhoraPage() {
 // 📋 PLANES PAGE — /planes — Detalle completo de planes §5.2
 // ══════════════════════════════════════════════════════════════════════════════
 function PlanesPage() {
-  const S = { page: { minHeight: '100vh', background: '#05080f', fontFamily: "'Inter',sans-serif", color: '#cbd5e1', padding: '60px 24px 80px' }, container: { maxWidth: 960, margin: '0 auto' }, h1: { fontSize: 38, fontWeight: 900, color: '#f1f5f9', marginBottom: 8, textAlign: 'center' }, sub: { fontSize: 15, color: '#64748b', textAlign: 'center', maxWidth: 640, margin: '0 auto 48px' }, section: { marginBottom: 48 }, sTitle: { fontSize: 18, fontWeight: 800, color: '#a5b4fc', marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }, card: { background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.2)', borderRadius: 16, padding: '24px 28px', marginBottom: 16 }, li: { fontSize: 14, color: '#cbd5e1', lineHeight: 1.8, marginBottom: 6 }, table: { width: '100%', borderCollapse: 'collapse', fontSize: 13 }, th: { textAlign: 'left', padding: '10px 12px', borderBottom: '2px solid rgba(99,102,241,0.3)', color: '#818cf8', fontWeight: 700, fontSize: 12 }, td: { padding: '10px 12px', borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#cbd5e1' }, tdH: { padding: '10px 12px', borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#f1f5f9', fontWeight: 700 }, note: { fontSize: 12, color: '#64748b', fontStyle: 'italic', marginTop: 16, lineHeight: 1.7 } };
+  const S = { page: { minHeight: '100vh', background: '#05080f', fontFamily: "'Inter',sans-serif", color: '#cbd5e1', padding: '60px 24px 80px' }, container: { maxWidth: 960, margin: '0 auto' }, h1: { fontSize: 38, fontWeight: 900, color: '#f1f5f9', marginBottom: 8, textAlign: 'center' }, sub: { fontSize: 15, color: '#64748b', textAlign: 'center', maxWidth: 640, margin: '0 auto 48px' }, section: { marginBottom: 48 }, sTitle: { fontSize: 18, fontWeight: 800, color: GB_SOFT, marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }, card: { background: GBa(0.06), border: `1px solid ${GBa(0.2)}`, borderRadius: 16, padding: '24px 28px', marginBottom: 16 }, li: { fontSize: 14, color: '#cbd5e1', lineHeight: 1.8, marginBottom: 6 }, table: { width: '100%', borderCollapse: 'collapse', fontSize: 13 }, th: { textAlign: 'left', padding: '10px 12px', borderBottom: `2px solid ${GBa(0.3)}`, color: GB_LIGHT, fontWeight: 700, fontSize: 12 }, td: { padding: '10px 12px', borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#cbd5e1' }, tdH: { padding: '10px 12px', borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#f1f5f9', fontWeight: 700 }, note: { fontSize: 12, color: '#64748b', fontStyle: 'italic', marginTop: 16, lineHeight: 1.7 } };
 
   return (
     <div style={S.page}>
       <div style={S.container}>
         <div style={{ textAlign: 'center', marginBottom: 12 }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.12em', marginBottom: 12 }}>DETALLE DE PLANES</div>
+          <div style={{ fontSize: 11, fontWeight: 700, color: GB_LIGHT, letterSpacing: '.12em', marginBottom: 12 }}>DETALLE DE PLANES</div>
         </div>
         <h1 style={S.h1}>Tres planes según el tamaño de tu negocio.</h1>
         <p style={S.sub}>Todos los planes incluyen los 9 agentes de IA. Lo que varía es la cuota de operación proactiva según el volumen de tu negocio.</p>
@@ -7502,7 +7508,7 @@ function PlanesPage() {
               <thead><tr>
                 <th style={S.th}></th>
                 <th style={S.th}>ESENCIAL</th>
-                <th style={{ ...S.th, color: '#c084fc' }}>PROFESIONAL ★</th>
+                <th style={{ ...S.th, color: GB_VIOLET }}>PROFESIONAL ★</th>
                 <th style={S.th}>ENTERPRISE</th>
               </tr></thead>
               <tbody>
@@ -7531,7 +7537,7 @@ function PlanesPage() {
               <thead><tr>
                 <th style={S.th}>Función</th>
                 <th style={S.th}>Esencial</th>
-                <th style={{ ...S.th, color: '#c084fc' }}>Profesional</th>
+                <th style={{ ...S.th, color: GB_VIOLET }}>Profesional</th>
                 <th style={S.th}>Enterprise</th>
               </tr></thead>
               <tbody>
@@ -7570,7 +7576,7 @@ function PlanesPage() {
               <thead><tr>
                 <th style={S.th}>Componente</th>
                 <th style={S.th}>Esencial</th>
-                <th style={{ ...S.th, color: '#c084fc' }}>Profesional</th>
+                <th style={{ ...S.th, color: GB_VIOLET }}>Profesional</th>
                 <th style={S.th}>Enterprise</th>
               </tr></thead>
               <tbody>
@@ -7672,11 +7678,11 @@ function PlanesPage() {
         </div>
 
         {/* CTA */}
-        <div style={{ textAlign: 'center', marginTop: 32, padding: '40px 24px', background: 'linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.06))', borderRadius: 20, border: '1px solid rgba(99,102,241,0.2)' }}>
+        <div style={{ textAlign: 'center', marginTop: 32, padding: '40px 24px', background: `linear-gradient(135deg, ${GBa(0.08)}, rgba(139,92,246,0.06))`, borderRadius: 20, border: `1px solid ${GBa(0.2)}` }}>
           <h2 style={{ fontSize: 28, fontWeight: 900, color: '#f1f5f9', marginBottom: 12 }}>¿Cuál es el plan para tu negocio?</h2>
           <p style={{ color: '#64748b', fontSize: 14, marginBottom: 24 }}>En 15 minutos te decimos qué plan se ajusta a tu operación — sin compromiso.</p>
-          <a href={`${GENYX_CONTACT.sales_url}&body=${encodeURIComponent("Hola, quiero saber qué plan de GenyX es para mi negocio")}`} style={{ display: `inline-block`, background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: `#fff`, padding: '14px 36px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 28px rgba(99,102,241,0.3)' }}>Hablar con GenyX →</a>
-          <div style={{ marginTop: 16 }}><a href="/" style={{ color: '#818cf8', fontSize: 13, textDecoration: 'none' }}>← Volver al inicio</a></div>
+          <a href={`${GENYX_CONTACT.sales_url}&body=${encodeURIComponent("Hola, quiero saber qué plan de GenyX es para mi negocio")}`} style={{ display: `inline-block`, background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: `#fff`, padding: '14px 36px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: `0 0 28px ${GBa(0.3)}` }}>Hablar con GenyX →</a>
+          <div style={{ marginTop: 16 }}><a href="/" style={{ color: GB_LIGHT, fontSize: 13, textDecoration: 'none' }}>← Volver al inicio</a></div>
         </div>
 
         <div style={{ textAlign: 'center', marginTop: 48, paddingTop: 24, borderTop: '1px solid rgba(255,255,255,0.05)' }}>
@@ -7703,10 +7709,10 @@ const SIM_CONFIG = {
 const SIM_LOSS = { pocos:0.10, medios:0.25, muchos:0.40, demasiados:0.55 };
 const SIM_LOSS_LABELS = ['pocos','medios','muchos','demasiados'];
 // SVG icon helper — gradient stroke icons matching the landing page design
-const simSvg = (paths, id) => React.createElement('svg', {width:28,height:28,viewBox:'0 0 24 24',fill:'none',strokeWidth:1.5,strokeLinecap:'round',strokeLinejoin:'round',stroke:`url(#sim${id})`}, React.createElement('defs',null,React.createElement('linearGradient',{id:`sim${id}`,x1:0,y1:0,x2:24,y2:24},React.createElement('stop',{offset:'0%',stopColor:'#818cf8'}),React.createElement('stop',{offset:'100%',stopColor:'#c084fc'}))), ...paths.map((d,i) => typeof d === 'string' ? React.createElement('path',{key:i,d}) : React.createElement(d[0],{key:i,...d[1]})));
+const simSvg = (paths, id) => React.createElement('svg', {width:28,height:28,viewBox:'0 0 24 24',fill:'none',strokeWidth:1.5,strokeLinecap:'round',strokeLinejoin:'round',stroke:`url(#sim${id})`}, React.createElement('defs',null,React.createElement('linearGradient',{id:`sim${id}`,x1:0,y1:0,x2:24,y2:24},React.createElement('stop',{offset:'0%',stopColor:GB_LIGHT}),React.createElement('stop',{offset:'100%',stopColor:GB_VIOLET}))), ...paths.map((d,i) => typeof d === 'string' ? React.createElement('path',{key:i,d}) : React.createElement(d[0],{key:i,...d[1]})));
 
 // Agent SVG icons — minimal stroke icons
-const simAgSvg = (paths, id) => React.createElement('svg', {width:20,height:20,viewBox:'0 0 24 24',fill:'none',strokeWidth:1.8,strokeLinecap:'round',strokeLinejoin:'round',stroke:`url(#sag${id})`}, React.createElement('defs',null,React.createElement('linearGradient',{id:`sag${id}`,x1:0,y1:0,x2:24,y2:24},React.createElement('stop',{offset:'0%',stopColor:'#818cf8'}),React.createElement('stop',{offset:'100%',stopColor:'#c084fc'}))), ...paths.map((d,i) => typeof d === 'string' ? React.createElement('path',{key:i,d}) : React.createElement(d[0],{key:i,...d[1]})));
+const simAgSvg = (paths, id) => React.createElement('svg', {width:20,height:20,viewBox:'0 0 24 24',fill:'none',strokeWidth:1.8,strokeLinecap:'round',strokeLinejoin:'round',stroke:`url(#sag${id})`}, React.createElement('defs',null,React.createElement('linearGradient',{id:`sag${id}`,x1:0,y1:0,x2:24,y2:24},React.createElement('stop',{offset:'0%',stopColor:GB_LIGHT}),React.createElement('stop',{offset:'100%',stopColor:GB_VIOLET}))), ...paths.map((d,i) => typeof d === 'string' ? React.createElement('path',{key:i,d}) : React.createElement(d[0],{key:i,...d[1]})));
 
 const SIM_AG_ICONS = {
   Marketing: () => simAgSvg(['M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4','M7 10l5 5 5-5','M12 15V3'],'mg'),
@@ -7787,7 +7793,7 @@ function MandoSimulator() {
     { id: 'A4', icon: '🤝', name: 'Cierre', color: '#60a5fa', lastAction: 'Pago confirmado Stripe — $180', actions: 8 },
     { id: 'A5', icon: '🚚', name: 'Entrega', color: '#a78bfa', lastAction: 'Entrega #42 confirmada', actions: 6 },
     { id: 'A6', icon: '💬', name: 'Seguimiento', color: '#2dd4bf', lastAction: '3 carritos recuperados hoy', actions: 9 },
-    { id: 'A7', icon: '📊', name: 'Analítica', color: '#818cf8', lastAction: 'Alerta: tendencia detectada en ventas', actions: 4 },
+    { id: 'A7', icon: '📊', name: 'Analítica', color: GB_LIGHT, lastAction: 'Alerta: tendencia detectada en ventas', actions: 4 },
     { id: 'A8', icon: '💰', name: 'Finanzas', color: '#fbbf24', lastAction: 'Margen bruto recalculado', actions: 2 },
   ];
 
@@ -7805,8 +7811,8 @@ function MandoSimulator() {
     { time: '10:38', agent: 'A4', icon: '🤝', text: 'Pago confirmado Stripe — $180', color: '#60a5fa' },
     { time: '10:15', agent: 'A6', icon: '💬', text: 'Carrito recuperado', color: '#2dd4bf' },
     { time: '09:50', agent: 'A1', icon: '📢', text: 'WA Status publicado (48 vistas)', color: '#f472b6' },
-    { time: '09:30', agent: 'A7', icon: '📊', text: 'Alerta: tendencia detectada en ventas vs ayer', color: '#818cf8' },
-    { time: '05:00', agent: 'A7', icon: '📊', text: 'Reporte semanal enviado', color: '#818cf8' },
+    { time: '09:30', agent: 'A7', icon: '📊', text: 'Alerta: tendencia detectada en ventas vs ayer', color: GB_LIGHT },
+    { time: '05:00', agent: 'A7', icon: '📊', text: 'Reporte semanal enviado', color: GB_LIGHT },
   ];
 
   // ── Intersection Observer: auto-start when visible ──
@@ -7884,7 +7890,7 @@ function MandoSimulator() {
   }, [started]);
 
   // ── Sparkline SVG ──
-  const Sparkline = ({ data, color = '#818cf8', w = 60, h = 20 }) => {
+  const Sparkline = ({ data, color = GB_LIGHT, w = 60, h = 20 }) => {
     const mn = Math.min(...data), mx = Math.max(...data), range = mx - mn || 1;
     const pts = data.map((v, i) => `${(i / (data.length - 1)) * w},${h - ((v - mn) / range) * h}`).join(' ');
     return (
@@ -7908,7 +7914,7 @@ function MandoSimulator() {
     @keyframes mandoSlideIn { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
     @keyframes mandoFadeIn { from{opacity:0} to{opacity:1} }
     @keyframes mandoCountUp { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
-    @keyframes mandoPhoneGlow { 0%,100%{box-shadow:0 0 60px rgba(99,102,241,0.15), 0 0 120px rgba(99,102,241,0.05)} 50%{box-shadow:0 0 80px rgba(99,102,241,0.25), 0 0 160px rgba(99,102,241,0.1)} }
+    @keyframes mandoPhoneGlow { 0%,100%{box-shadow:0 0 60px ${GBa(0.15)}, 0 0 120px ${GBa(0.05)}} 50%{box-shadow:0 0 80px ${GBa(0.25)}, 0 0 160px ${GBa(0.1)}} }
   `;
 
   const nextFriday = () => {
@@ -7925,7 +7931,7 @@ function MandoSimulator() {
 
       {/* ── Section Header ── */}
       <div style={{ textAlign: 'center', marginBottom: 56 }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>CENTRO DE MANDO</div>
+        <div style={{ fontSize: 11, fontWeight: 700, color: GB_LIGHT, letterSpacing: '.1em', marginBottom: 12 }}>CENTRO DE MANDO</div>
         <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10, lineHeight: 1.2 }}>
           Y tú, ¿qué ves?<br />
           <span style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
@@ -7944,7 +7950,7 @@ function MandoSimulator() {
           background: '#000',
           borderRadius: 48,
           border: '4px solid #2a2a2e',
-          boxShadow: '0 0 60px rgba(99,102,241,0.15), 0 0 120px rgba(99,102,241,0.05), inset 0 0 0 2px rgba(255,255,255,0.05)',
+          boxShadow: `0 0 60px ${GBa(0.15)}, 0 0 120px ${GBa(0.05)}, inset 0 0 0 2px rgba(255,255,255,0.05)`,
           animation: 'mandoPhoneGlow 4s ease-in-out infinite',
           position: 'relative',
           overflow: 'hidden',
@@ -7971,7 +7977,7 @@ function MandoSimulator() {
           }}>
             {/* ── Greeting ── */}
             <div style={{ animation: step >= 0 ? 'mandoFadeIn 0.6s ease' : 'none', marginBottom: 14 }}>
-              <div style={{ fontSize: 10, color: '#475569', fontWeight: 600, letterSpacing: '.05em', marginBottom: 2 }}>GENY<span style={{ color: '#818cf8' }}>X</span> MANDO</div>
+              <div style={{ fontSize: 10, color: '#475569', fontWeight: 600, letterSpacing: '.05em', marginBottom: 2 }}>GENY<span style={{ color: GB_LIGHT }}>X</span> MANDO</div>
               <div style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', lineHeight: 1.3 }}>
                 {getGreeting()} ☀️
               </div>
@@ -7990,7 +7996,7 @@ function MandoSimulator() {
                 { key: 'ticket', label: 'Ticket', prefix: '$', suffix: '', icon: '🎟️' },
               ].map(({ key, label, prefix, suffix, icon }) => (
                 <div key={key} style={{
-                  background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(99,102,241,0.12)',
+                  background: 'rgba(255,255,255,0.03)', border: `1px solid ${GBa(0.12)}`,
                   borderRadius: 12, padding: '10px 10px 8px', position: 'relative',
                 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
@@ -8015,11 +8021,11 @@ function MandoSimulator() {
 
             {/* ── Briefing CEO ── */}
             <div style={{
-              background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.18)',
+              background: GBa(0.06), border: `1px solid ${GBa(0.18)}`,
               borderRadius: 12, padding: '10px 12px', marginBottom: 12,
               opacity: step >= 2 ? 1 : 0, transition: 'opacity 0.5s',
             }}>
-              <div style={{ fontSize: 10, fontWeight: 700, color: '#818cf8', marginBottom: 6, letterSpacing: '.03em' }}>📋 Briefing del día</div>
+              <div style={{ fontSize: 10, fontWeight: 700, color: GB_LIGHT, marginBottom: 6, letterSpacing: '.03em' }}>📋 Briefing del día</div>
               {briefingLines.map((line, i) => (
                 <div key={i} style={{
                   fontSize: 10, color: '#cbd5e1', lineHeight: 1.6, marginBottom: 2,
@@ -8057,7 +8063,7 @@ function MandoSimulator() {
                       style={{
                         display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2,
                         padding: '6px 5px', borderRadius: 10, cursor: 'pointer',
-                        background: isHovered ? 'rgba(99,102,241,0.1)' : 'transparent',
+                        background: isHovered ? GBa(0.1) : 'transparent',
                         transition: 'background 0.2s',
                         width: 30,
                         position: 'relative',
@@ -8077,7 +8083,7 @@ function MandoSimulator() {
                       {isHovered && (
                         <div style={{
                           position: 'absolute', bottom: '100%', left: '50%', transform: 'translateX(-50%)',
-                          background: '#1e293b', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 8,
+                          background: '#1e293b', border: `1px solid ${GBa(0.3)}`, borderRadius: 8,
                           padding: '8px 10px', minWidth: 140, zIndex: 10,
                           animation: 'mandoFadeIn 0.2s ease',
                           pointerEvents: 'none',
@@ -8208,15 +8214,15 @@ function SimuladorGenyX() {
   // Styles
   const Z = {
     wrap: { padding:'80px 24px', maxWidth:960, margin:'0 auto' },
-    label: { fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12, textAlign:'center' },
+    label: { fontSize:11, fontWeight:700, color:GB_LIGHT, letterSpacing:'.1em', marginBottom:12, textAlign:'center' },
     h2: { fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:10, textAlign:'center', lineHeight:1.2 },
     h2a: { background:`linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' },
     sub: { color:'#64748b', fontSize:14, textAlign:'center', maxWidth:520, margin:'0 auto 32px' },
     card: { background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.07)', borderRadius:16, padding:'24px 20px', cursor:'pointer', transition:'all .25s', textAlign:'center' },
-    cardHover: { borderColor:'rgba(99,102,241,0.5)', background:'rgba(99,102,241,0.08)', transform:'translateY(-3px)' },
+    cardHover: { borderColor:GBa(0.5), background:GBa(0.08), transform:'translateY(-3px)' },
     cardOff: { borderColor:'rgba(255,255,255,0.07)', background:'rgba(255,255,255,0.03)', transform:'translateY(0)' },
-    btn: { background:`linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color:'#fff', padding:'14px 32px', borderRadius:12, fontSize:14, fontWeight:700, border:'none', cursor:'pointer', boxShadow:'0 0 28px rgba(99,102,241,0.3)' },
-    btn2: { background:'transparent', border:'1px solid rgba(99,102,241,0.5)', color:'#818cf8', padding:'12px 28px', borderRadius:12, fontSize:14, fontWeight:700, cursor:'pointer' },
+    btn: { background:`linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color:'#fff', padding:'14px 32px', borderRadius:12, fontSize:14, fontWeight:700, border:'none', cursor:'pointer', boxShadow:`0 0 28px ${GBa(0.3)}` },
+    btn2: { background:'transparent', border:`1px solid ${GBa(0.5)}`, color:GB_LIGHT, padding:'12px 28px', borderRadius:12, fontSize:14, fontWeight:700, cursor:'pointer' },
     priv: { background:'rgba(74,222,128,0.08)', border:'1px solid rgba(74,222,128,0.25)', borderRadius:12, padding:'10px 16px', fontSize:12, color:'#4ade80', textAlign:'center', marginBottom:24 },
   };
 
@@ -8283,7 +8289,7 @@ function SimuladorGenyX() {
         </div>
         {/* Clock */}
         <div style={{ textAlign:'center', marginBottom:20 }}>
-          <div style={{ fontSize:48, fontWeight:900, color:'#818cf8', fontFamily:'monospace' }}>{simTime(simTime2)}</div>
+          <div style={{ fontSize:48, fontWeight:900, color:GB_LIGHT, fontFamily:'monospace' }}>{simTime(simTime2)}</div>
           <div style={{ height:4, background:'rgba(255,255,255,0.06)', borderRadius:4, marginTop:8, maxWidth:400, margin:'8px auto' }}>
             <div style={{ height:4, background:`linear-gradient(90deg,${GENYX_BRAND},#c084fc)`, borderRadius:4, width:`${progress*100}%`, transition:'width .08s' }} />
           </div>
@@ -8295,15 +8301,15 @@ function SimuladorGenyX() {
           {/* Feed */}
           <div ref={feedRef} style={{ maxHeight:400, overflowY:'auto', display:'flex', flexDirection:'column', gap:8, paddingRight:8 }}>
             {revealed.map((ev, i) => (
-              <div key={i} style={{ background: ev.hi ? 'rgba(99,102,241,0.12)' : 'rgba(255,255,255,0.03)', border: ev.hi ? '1px solid rgba(99,102,241,0.4)' : '1px solid rgba(255,255,255,0.07)', borderRadius:12, padding: ev.hi ? '16px 14px' : '10px 14px', animation:'fadeIn .3s ease' }}>
+              <div key={i} style={{ background: ev.hi ? GBa(0.12) : 'rgba(255,255,255,0.03)', border: ev.hi ? `1px solid ${GBa(0.4)}` : '1px solid rgba(255,255,255,0.07)', borderRadius:12, padding: ev.hi ? '16px 14px' : '10px 14px', animation:'fadeIn .3s ease' }}>
                 <div style={{ display:'flex', alignItems:'center', gap:8, marginBottom: ev.detail ? 8 : 0 }}>
-                  <span style={{ display:'inline-flex', alignItems:'center', justifyContent:'center', width: ev.hi ? 28 : 22, height: ev.hi ? 28 : 22, borderRadius:'50%', background:'linear-gradient(135deg,rgba(99,102,241,0.25),rgba(192,132,252,0.25))', border:'1px solid rgba(99,102,241,0.4)', fontSize:9, fontWeight:800, color:'#a5b4fc', letterSpacing:'.02em', flexShrink:0 }}>{ev.badge}</span>
-                  <span style={{ fontSize:11, color:'#818cf8', fontWeight:700, fontFamily:'monospace' }}>{simTime(ev.time)}</span>
+                  <span style={{ display:'inline-flex', alignItems:'center', justifyContent:'center', width: ev.hi ? 28 : 22, height: ev.hi ? 28 : 22, borderRadius:'50%', background:`linear-gradient(135deg,${GBa(0.25)},rgba(192,132,252,0.25))`, border:`1px solid ${GBa(0.4)}`, fontSize:9, fontWeight:800, color:GB_SOFT, letterSpacing:'.02em', flexShrink:0 }}>{ev.badge}</span>
+                  <span style={{ fontSize:11, color:GB_LIGHT, fontWeight:700, fontFamily:'monospace' }}>{simTime(ev.time)}</span>
                   <span style={{ fontSize:12, color: ev.hi ? '#f1f5f9' : '#94a3b8', fontWeight: ev.hi ? 700 : 400 }}>{ev.text}</span>
                 </div>
-                {ev.detail && <pre style={{ fontSize:11, color:'#a5b4fc', lineHeight:1.6, margin:'8px 0 0 28px', whiteSpace:'pre-wrap', fontFamily:'Inter,sans-serif' }}>{ev.detail}</pre>}
+                {ev.detail && <pre style={{ fontSize:11, color:GB_SOFT, lineHeight:1.6, margin:'8px 0 0 28px', whiteSpace:'pre-wrap', fontFamily:'Inter,sans-serif' }}>{ev.detail}</pre>}
                 <div style={{ display:'flex', gap:4, marginTop:4, marginLeft:28 }}>
-                  {ev.agents.map(a => <span key={a} style={{ fontSize:9, color:'#818cf8', background:'rgba(99,102,241,0.15)', padding:'2px 8px', borderRadius:10 }}>{a}</span>)}
+                  {ev.agents.map(a => <span key={a} style={{ fontSize:9, color:GB_LIGHT, background:GBa(0.15), padding:'2px 8px', borderRadius:10 }}>{a}</span>)}
                 </div>
               </div>
             ))}
@@ -8315,9 +8321,9 @@ function SimuladorGenyX() {
               {SIM_AGENTS.map(ag => {
                 const active = !!agentActive[ag.key];
                 return (
-                  <div key={ag.key} style={{ background: active ? 'rgba(99,102,241,0.15)' : 'rgba(255,255,255,0.03)', border: active ? '1px solid rgba(99,102,241,0.5)' : '1px solid rgba(255,255,255,0.07)', borderRadius:12, padding:'14px 10px', textAlign:'center', transition:'all .3s' }}>
+                  <div key={ag.key} style={{ background: active ? GBa(0.15) : 'rgba(255,255,255,0.03)', border: active ? `1px solid ${GBa(0.5)}` : '1px solid rgba(255,255,255,0.07)', borderRadius:12, padding:'14px 10px', textAlign:'center', transition:'all .3s' }}>
                     <div style={{ marginBottom:4 }}>{SIM_AG_ICONS[ag.key]()}</div>
-                    <div style={{ fontSize:10, fontWeight:700, color: active ? '#a5b4fc' : '#475569' }}>{ag.key}</div>
+                    <div style={{ fontSize:10, fontWeight:700, color: active ? GB_SOFT : '#475569' }}>{ag.key}</div>
                   </div>
                 );
               })}
@@ -8329,7 +8335,7 @@ function SimuladorGenyX() {
           {[[SIM_AG_ICONS['Venta'](),`${counters.a}`,`de ${inputs.mensajes} atendidos`],[SIM_AG_ICONS['Cierre'](),`${counters.c}`,'cierres'],[SIM_AG_ICONS['Finanzas'](),simFmt(counters.cb),'cobrado'],[simAgSvg(['M13 2L3 14h9l-1 8 10-12h-9l1-8'],'tm'),'E2E','operación autónoma']].map(([ic,v,l],i) => (
             <div key={i} style={{ background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.07)', borderRadius:12, padding:'16px 12px', textAlign:'center' }}>
               <div style={{ fontSize:16 }}>{ic}</div>
-              <div style={{ fontSize:22, fontWeight:900, color:'#818cf8', transition:'all .4s' }}>{v}</div>
+              <div style={{ fontSize:22, fontWeight:900, color:GB_LIGHT, transition:'all .4s' }}>{v}</div>
               <div style={{ fontSize:10, color:'#475569', textTransform:'uppercase', letterSpacing:'.06em' }}>{l}</div>
             </div>
           ))}
@@ -8357,14 +8363,14 @@ function SimuladorGenyX() {
 
       {/* Two columns: operation + strategy */}
       <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:20, marginBottom:32 }}>
-        <div style={{ background:'rgba(99,102,241,0.06)', border:'1px solid rgba(99,102,241,0.2)', borderRadius:20, padding:'28px 24px' }}>
-          <div style={{ fontSize:12, fontWeight:800, color:'#818cf8', marginBottom:16, letterSpacing:'.08em' }}>LA OPERACIÓN AUTÓNOMA</div>
+        <div style={{ background:GBa(0.06), border:`1px solid ${GBa(0.2)}`, borderRadius:20, padding:'28px 24px' }}>
+          <div style={{ fontSize:12, fontWeight:800, color:GB_LIGHT, marginBottom:16, letterSpacing:'.08em' }}>LA OPERACIÓN AUTÓNOMA</div>
           {[[`→ ${msg} mensajes atendidos en segundos`],[`→ ${totalCierres} conversaciones cerraron compra (${Math.round(cfg.conv*100)}%)`],[`→ ${simFmt(totalCobrado)} cobrado vía link de pago`],[`→ ${Math.max(1,Math.round(totalCierres*0.08))} clientes recuperados`],[`→ ${totalCierres} entregas coordinadas`]].map(([t],i) => (
             <div key={i} style={{ fontSize:13, color:'#94a3b8', padding:'6px 0', lineHeight:1.6 }}>{t}</div>
           ))}
         </div>
         <div style={{ background:'rgba(139,92,246,0.06)', border:'1px solid rgba(139,92,246,0.2)', borderRadius:20, padding:'28px 24px' }}>
-          <div style={{ fontSize:12, fontWeight:800, color:'#c084fc', marginBottom:16, letterSpacing:'.08em' }}>LA ESTRATEGIA (TÚ DIRIGES)</div>
+          <div style={{ fontSize:12, fontWeight:800, color:GB_VIOLET, marginBottom:16, letterSpacing:'.08em' }}>LA ESTRATEGIA (TÚ DIRIGES)</div>
           {[['→ Recibiste la Mesa de Estrategia del viernes 6pm'],['→ 1 código OTP para aprobar el plan de la semana'],['→ Tiempo estimado de decisión: 10–15 min'],['→ Margen promedio estimado: ~'+Math.round(cfg.margen*100)+'%*']].map(([t],i) => (
             <div key={i} style={{ fontSize:13, color:'#94a3b8', padding:'6px 0', lineHeight:1.6 }}>{t}</div>
           ))}
@@ -8447,7 +8453,7 @@ function LandingAuthGate({ children }) {
   return (
     <div style={{ minHeight: '100vh', background: '#050508', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Inter', sans-serif" }}>
       <div style={{ textAlign: 'center', maxWidth: 380, padding: '40px 32px' }}>
-        <div style={{ width: 56, height: 56, border: `2px solid ${GENYX_BRAND}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, fontWeight: 900, color: '#818cf8', margin: '0 auto 24px', borderRadius: 12 }}>G</div>
+        <div style={{ width: 56, height: 56, border: `2px solid ${GENYX_BRAND}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, fontWeight: 900, color: GB_LIGHT, margin: '0 auto 24px', borderRadius: 12 }}>G</div>
         <h1 style={{ color: '#f1f5f9', fontSize: 24, fontWeight: 800, marginBottom: 8, letterSpacing: '-0.5px' }}>GenyX</h1>
         <p style={{ color: '#475569', fontSize: 13, marginBottom: 32, lineHeight: 1.6 }}>Acceso restringido.<br />Ingresa tu clave para continuar.</p>
         <form onSubmit={handleSubmit}>
@@ -8458,7 +8464,7 @@ function LandingAuthGate({ children }) {
             placeholder="Clave de acceso"
             autoFocus
             style={{
-              width: '100%', padding: '14px 18px', borderRadius: 12, border: error ? '2px solid #ef4444' : '1px solid rgba(99,102,241,0.3)',
+              width: '100%', padding: '14px 18px', borderRadius: 12, border: error ? '2px solid #ef4444' : `1px solid ${GBa(0.3)}`,
               background: 'rgba(255,255,255,0.04)', color: '#f1f5f9', fontSize: 15, fontWeight: 500, outline: 'none',
               boxSizing: 'border-box', transition: 'border-color 0.2s', marginBottom: 14,
               fontFamily: "'Inter', sans-serif",
@@ -8470,7 +8476,7 @@ function LandingAuthGate({ children }) {
               width: '100%', padding: '14px 24px', borderRadius: 12, border: 'none', cursor: 'pointer',
               background: pw ? `linear-gradient(135deg, ${GENYX_BRAND}, #8b5cf6)` : 'rgba(255,255,255,0.06)',
               color: pw ? '#fff' : '#475569', fontSize: 14, fontWeight: 700, transition: 'all 0.2s',
-              boxShadow: pw ? '0 0 28px rgba(99,102,241,0.25)' : 'none',
+              boxShadow: pw ? `0 0 28px ${GBa(0.25)}` : 'none',
             }}
           >{checking ? 'Verificando...' : 'Acceder'}</button>
         </form>
@@ -8499,7 +8505,7 @@ function PlusPage() {
   const S = {
     page: { minHeight: '100vh', background: '#0a0a0f', color: '#f1f5f9', fontFamily: "'Inter', sans-serif" },
     container: { maxWidth: 720, margin: '0 auto', padding: '80px 24px 120px' },
-    badge: { display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.3)', color: '#c084fc', fontSize: 11, fontWeight: 700, padding: '6px 18px', borderRadius: 30, marginBottom: 24, letterSpacing: '.06em' },
+    badge: { display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.3)', color: GB_VIOLET, fontSize: 11, fontWeight: 700, padding: '6px 18px', borderRadius: 30, marginBottom: 24, letterSpacing: '.06em' },
     h1: { fontSize: 36, fontWeight: 900, lineHeight: 1.2, marginBottom: 16 },
     h1accent: { background: 'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
     sub: { fontSize: 15, color: '#94a3b8', lineHeight: 1.8, marginBottom: 48 },
@@ -8508,11 +8514,11 @@ function PlusPage() {
     card: { background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, padding: '16px 20px', marginBottom: 10 },
     modName: { fontSize: 14, fontWeight: 700, color: '#f1f5f9', marginBottom: 4 },
     modDesc: { fontSize: 12, color: '#94a3b8', lineHeight: 1.6 },
-    modIndustry: { fontSize: 10, color: '#818cf8', fontWeight: 600, marginTop: 6, letterSpacing: '.04em' },
+    modIndustry: { fontSize: 10, color: GB_LIGHT, fontWeight: 600, marginTop: 6, letterSpacing: '.04em' },
     how: { fontSize: 13, color: '#94a3b8', lineHeight: 1.8, marginBottom: 8, paddingLeft: 16 },
     howLabel: { fontWeight: 700, color: '#e2e8f0' },
-    note: { background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.15)', borderRadius: 12, padding: '20px 24px', fontSize: 13, color: '#94a3b8', lineHeight: 1.7 },
-    cta: { display: 'inline-block', marginTop: 32, background: 'linear-gradient(135deg,' + GENYX_BRAND + ',#8b5cf6)', color: '#fff', padding: '14px 36px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 28px rgba(99,102,241,0.3)' },
+    note: { background: GBa(0.06), border: `1px solid ${GBa(0.15)}`, borderRadius: 12, padding: '20px 24px', fontSize: 13, color: '#94a3b8', lineHeight: 1.7 },
+    cta: { display: 'inline-block', marginTop: 32, background: 'linear-gradient(135deg,' + GENYX_BRAND + ',#8b5cf6)', color: '#fff', padding: '14px 36px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: `0 0 28px ${GBa(0.3)}` },
     back: { display: 'inline-block', marginTop: 16, color: '#64748b', fontSize: 12, textDecoration: 'none' },
     footer: { borderTop: '1px solid rgba(255,255,255,0.06)', padding: '24px 0', marginTop: 60, fontSize: 10, color: '#475569', textAlign: 'center' },
   };
@@ -8593,18 +8599,18 @@ function GenyXLandingPage() {
   }, []);
 
   const features = [
-    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 3h6m-3 0v3m-6 1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1zm2 4.5a1 1 0 1 0 2 0 1 1 0 0 0-2 0zm4 0a1 1 0 1 0 2 0 1 1 0 0 0-2 0zm-5 4h6"/></svg>, 'Tu Departamento de Ventas Completo', 'Tu agente de ventas: atiende con la personalidad de tu marca, cobra automático, te reporta cada semana y trabaja 24/7.'],
-    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/><path d="M5 15h4"/></svg>, 'Cobro Automatizado', 'Genera links de pago directamente en la conversación. El cliente paga en segundos desde WhatsApp, tú recibes la confirmación al instante y el dinero va a tu cuenta.'],
-    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="4" cy="19" r="2"/><circle cx="20" cy="19" r="2"/><path d="M12 7v3m0 0-6.5 7m6.5-7 6.5 7"/></svg>, <>Donde Ya Están Tus Clientes<span style={{display:"inline-flex",gap:8,verticalAlign:"middle",marginLeft:10,alignItems:"center"}}>
+    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={GB_LIGHT} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 3h6m-3 0v3m-6 1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1zm2 4.5a1 1 0 1 0 2 0 1 1 0 0 0-2 0zm4 0a1 1 0 1 0 2 0 1 1 0 0 0-2 0zm-5 4h6"/></svg>, 'Tu Departamento de Ventas Completo', 'Tu agente de ventas: atiende con la personalidad de tu marca, cobra automático, te reporta cada semana y trabaja 24/7.'],
+    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={GB_LIGHT} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/><path d="M5 15h4"/></svg>, 'Cobro Automatizado', 'Genera links de pago directamente en la conversación. El cliente paga en segundos desde WhatsApp, tú recibes la confirmación al instante y el dinero va a tu cuenta.'],
+    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={GB_LIGHT} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="4" cy="19" r="2"/><circle cx="20" cy="19" r="2"/><path d="M12 7v3m0 0-6.5 7m6.5-7 6.5 7"/></svg>, <>Donde Ya Están Tus Clientes<span style={{display:"inline-flex",gap:8,verticalAlign:"middle",marginLeft:10,alignItems:"center"}}>
   <svg title="WhatsApp" width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#25D366"/><path fill="#fff" d="M17.5 14.38c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg>
   <svg title="Instagram" width="18" height="18" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stopColor="#f09433"/><stop offset="25%" stopColor="#e6683c"/><stop offset="50%" stopColor="#dc2743"/><stop offset="75%" stopColor="#cc2366"/><stop offset="100%" stopColor="#bc1888"/></linearGradient></defs><rect width="20" height="20" x="2" y="2" rx="5" fill="url(#ig)"/><circle cx="12" cy="12" r="4" fill="none" stroke="#fff" strokeWidth="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="#fff"/></svg>
   <svg title="Facebook" width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047v-2.66c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.93-1.956 1.886v2.265h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
   <svg title="Web" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="1.5" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
   <svg title="Voz" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
 </span></>, 'Un solo agente atendiendo en WhatsApp, tu sitio web, Instagram, Facebook y por llamada telefónica. Tú en un lugar. Tu agente en todos.'],
-    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="M7 16V12m4 4V8m4 8V5"/></svg>, 'Centro de Mando', 'Pedidos, ventas, catálogo y métricas de tu negocio desde un solo panel — en tu celular o computadora. Sabes exactamente qué se vendió, cuándo y cuánto.'],
-    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 4h18l-7 9v6l-4-2v-4L3 4z"/></svg>, 'Precisión Absoluta', 'Tu agente respeta tu catálogo, tus precios y tus reglas al 100%. Cada pedido sale exacto. Cada cobro es correcto.'],
-    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>, 'Vendiendo en 48 horas', 'Una sesión de 45 minutos para entender tu negocio, nosotros configuramos todo, y en 2 días tu agente ya está cerrando ventas.'],
+    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={GB_LIGHT} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="M7 16V12m4 4V8m4 8V5"/></svg>, 'Centro de Mando', 'Pedidos, ventas, catálogo y métricas de tu negocio desde un solo panel — en tu celular o computadora. Sabes exactamente qué se vendió, cuándo y cuánto.'],
+    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={GB_LIGHT} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 4h18l-7 9v6l-4-2v-4L3 4z"/></svg>, 'Precisión Absoluta', 'Tu agente respeta tu catálogo, tus precios y tus reglas al 100%. Cada pedido sale exacto. Cada cobro es correcto.'],
+    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={GB_LIGHT} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>, 'Vendiendo en 48 horas', 'Una sesión de 45 minutos para entender tu negocio, nosotros configuramos todo, y en 2 días tu agente ya está cerrando ventas.'],
   ];
   const steps = [
     ['01', 'Sesión de ADN', 'Te escuchamos. Entendemos tu negocio, menú, reglas de venta y personalidad de marca. 45 minutos.'],
@@ -8616,24 +8622,24 @@ function GenyXLandingPage() {
     page: { fontFamily: "'Inter', sans-serif", background: '#050508', color: '#f0f0f5', minHeight: '100vh', overflowX: 'hidden' },
     nav: { position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 100, boxSizing: 'border-box', background: scrolled ? 'rgba(5,5,8,0.96)' : 'transparent', backdropFilter: scrolled ? 'blur(14px)' : 'none', borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : 'none', transition: 'all 0.3s ease', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 48px' },
     logo: { display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' },
-    logoBox: { width: 32, height: 32, border: `2px solid ${GENYX_BRAND}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 800, color: '#818cf8' },
+    logoBox: { width: 32, height: 32, border: `2px solid ${GENYX_BRAND}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 800, color: GB_LIGHT },
     logoText: { fontWeight: 800, fontSize: 15, color: '#fff', letterSpacing: '-0.3px' },
     navLinks: { display: 'flex', gap: 32, alignItems: 'center' },
     navLink: { color: '#64748b', fontSize: 13, textDecoration: 'none' },
-    demoCta: { background: `linear-gradient(135deg, ${GENYX_BRAND}, #8b5cf6)`, color: '#fff', padding: '8px 22px', borderRadius: 8, fontSize: 13, fontWeight: 600, textDecoration: 'none', boxShadow: '0 0 20px rgba(99,102,241,0.3)' },
+    demoCta: { background: `linear-gradient(135deg, ${GENYX_BRAND}, #8b5cf6)`, color: '#fff', padding: '8px 22px', borderRadius: 8, fontSize: 13, fontWeight: 600, textDecoration: 'none', boxShadow: `0 0 20px ${GBa(0.3)}` },
     hero: { minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', textAlign: 'center', padding: '120px 24px 80px', position: 'relative' },
-    badge: { display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 20, padding: '6px 18px', marginBottom: 32, fontSize: 12, color: '#818cf8', fontWeight: 600, letterSpacing: '.06em' },
+    badge: { display: 'inline-flex', alignItems: 'center', gap: 8, background: GBa(0.1), border: `1px solid ${GBa(0.3)}`, borderRadius: 20, padding: '6px 18px', marginBottom: 32, fontSize: 12, color: GB_LIGHT, fontWeight: 600, letterSpacing: '.06em' },
     dot: { width: 6, height: 6, borderRadius: '50%', background: GENYX_BRAND, display: 'inline-block' },
     h1: { fontSize: 'clamp(42px, 7vw, 86px)', fontWeight: 800, lineHeight: 1.05, marginBottom: 24, letterSpacing: '-2.5px', background: 'linear-gradient(135deg, #fff 0%, #94a3b8 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
     h1accent: { background: `linear-gradient(135deg, ${GENYX_BRAND}, #8b5cf6)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
     sub: { fontSize: 18, color: '#64748b', maxWidth: 520, lineHeight: 1.7, marginBottom: 52 },
     btns: { display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center' },
-    primary: { background: `linear-gradient(135deg, ${GENYX_BRAND}, #8b5cf6)`, color: '#fff', padding: '15px 34px', borderRadius: 12, fontSize: 15, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 36px rgba(99,102,241,0.35)' },
+    primary: { background: `linear-gradient(135deg, ${GENYX_BRAND}, #8b5cf6)`, color: '#fff', padding: '15px 34px', borderRadius: 12, fontSize: 15, fontWeight: 700, textDecoration: 'none', boxShadow: `0 0 36px ${GBa(0.35)}` },
     secondary: { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)', color: '#e2e8f0', padding: '15px 34px', borderRadius: 12, fontSize: 15, fontWeight: 600, textDecoration: 'none' },
     stats: { padding: '0 24px 100px', maxWidth: 960, margin: '0 auto' },
     statsGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 20, overflow: 'hidden' },
     statCell: (i) => ({ padding: '30px 24px', textAlign: 'center', borderRight: i < 3 ? '1px solid rgba(255,255,255,0.07)' : 'none' }),
-    statVal: { fontSize: 34, fontWeight: 800, color: '#818cf8', marginBottom: 6 },
+    statVal: { fontSize: 34, fontWeight: 800, color: GB_LIGHT, marginBottom: 6 },
     statLbl: { fontSize: 11, color: '#475569', textTransform: 'uppercase', letterSpacing: '.08em' },
     section: (pb=120) => ({ padding: `0 24px ${pb}px`, maxWidth: 1100, margin: '0 auto' }),
     sHead: { textAlign: 'center', marginBottom: 64 },
@@ -8646,18 +8652,18 @@ function GenyXLandingPage() {
     cardP: { fontSize: 13, color: '#64748b', lineHeight: 1.75 },
     grid3: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 },
     stepCard: { background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 16, padding: '28px 24px', position: 'relative', overflow: 'hidden', transition: 'all 0.25s' },
-    stepNum: { fontSize: 56, fontWeight: 900, color: 'rgba(99,102,241,0.18)', lineHeight: 1, marginBottom: 16, letterSpacing: '-3px' },
+    stepNum: { fontSize: 56, fontWeight: 900, color: GBa(0.18), lineHeight: 1, marginBottom: 16, letterSpacing: '-3px' },
     ctaSec: { padding: '0 24px 120px', textAlign: 'center' },
     ctaBox: { maxWidth: 560, margin: '0 auto', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 24, padding: '56px 40px' },
     ctaH: { fontSize: 36, fontWeight: 800, marginBottom: 16, letterSpacing: '-1px' },
     ctaSub: { color: '#64748b', marginBottom: 40, lineHeight: 1.7 },
-    ctaBtn: { display: `block`, background: `linear-gradient(135deg, ${GENYX_BRAND}, #8b5cf6)`, color: `#fff`, padding: '16px 32px', borderRadius: 12, fontSize: 15, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 32px rgba(99,102,241,0.3)' },
+    ctaBtn: { display: `block`, background: `linear-gradient(135deg, ${GENYX_BRAND}, #8b5cf6)`, color: `#fff`, padding: '16px 32px', borderRadius: 12, fontSize: 15, fontWeight: 700, textDecoration: 'none', boxShadow: `0 0 32px ${GBa(0.3)}` },
     footer: { borderTop: '1px solid rgba(255,255,255,0.06)', padding: '32px 48px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 },
     ftrBrand: { fontSize: 13, color: '#475569', fontWeight: 700 },
     ftrLinks: { display: 'flex', gap: 24 },
     ftrLink: { fontSize: 12, color: '#475569', textDecoration: 'none' },
   };
-  const hoverCard = (e, on) => { e.currentTarget.style.borderColor = on ? 'rgba(99,102,241,0.4)' : 'rgba(255,255,255,0.07)'; e.currentTarget.style.background = on ? 'rgba(99,102,241,0.06)' : 'rgba(255,255,255,0.03)'; };
+  const hoverCard = (e, on) => { e.currentTarget.style.borderColor = on ? GBa(0.4) : 'rgba(255,255,255,0.07)'; e.currentTarget.style.background = on ? GBa(0.06) : 'rgba(255,255,255,0.03)'; };
 
   return (
     <div style={C.page}>
@@ -8676,7 +8682,7 @@ function GenyXLandingPage() {
 
       <section style={C.hero}>
         {/* Hero Badge */}
-        <a href="/por-que-aoaas" style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(99,102,241,0.12)', border:'1px solid rgba(99,102,241,0.4)', borderRadius:30, padding:'6px 20px', marginBottom:14, fontSize:11, fontWeight:800, color:'#818cf8', letterSpacing:'.1em', textTransform:'uppercase', textDecoration:'none', transition:'border-color 0.2s' }}>
+        <a href="/por-que-aoaas" style={{ display:'inline-flex', alignItems:'center', gap:8, background:GBa(0.12), border:`1px solid ${GBa(0.4)}`, borderRadius:30, padding:'6px 20px', marginBottom:14, fontSize:11, fontWeight:800, color:GB_LIGHT, letterSpacing:'.1em', textTransform:'uppercase', textDecoration:'none', transition:'border-color 0.2s' }}>
           <span style={{ width:6, height:6, borderRadius:'50%', background:GENYX_BRAND, display:'inline-block', boxShadow:`0 0 8px ${GENYX_BRAND}` }} />
           AOaaS — TU OPERACIÓN COMERCIAL AUTÓNOMA
         </a>
@@ -8709,7 +8715,7 @@ function GenyXLandingPage() {
       {/* ── La Oportunidad ── */}
       <section style={{ padding: '0 24px 100px', maxWidth: 720, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>LA OPORTUNIDAD AOaaS</div>
+          <div style={{ fontSize: 11, fontWeight: 700, color: GB_LIGHT, letterSpacing: '.1em', marginBottom: 12 }}>LA OPORTUNIDAD AOaaS</div>
           <h2 style={{ fontSize: 36, fontWeight: 900, color: `#f1f5f9`, marginBottom: 10 }}>Cada conversación es una venta.<br /><span style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip: `text`, WebkitTextFillColor: 'transparent' }}>Y tus datos lo demuestran.</span></h2>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
@@ -8725,7 +8731,7 @@ function GenyXLandingPage() {
       {/* ── Tu Operación Comercial: 9 Agentes ── */}
       <section id="agentes" style={{ padding: '0 24px 100px', maxWidth: 1000, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>AOaaS — TU OPERACIÓN COMERCIAL AUTÓNOMA</div>
+          <div style={{ fontSize: 11, fontWeight: 700, color: GB_LIGHT, letterSpacing: '.1em', marginBottom: 12 }}>AOaaS — TU OPERACIÓN COMERCIAL AUTÓNOMA</div>
           <h2 style={{ fontSize: 36, fontWeight: 900, color: `#f1f5f9`, marginBottom: 10 }}>9 agentes de IA.<br /><span style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip: `text`, WebkitTextFillColor: 'transparent' }}>Configurados para tu negocio.</span></h2>
           <p style={{ color: '#64748b', fontSize: 14, maxWidth: 560, margin: '0 auto' }}>Cada agente se encarga de una función clave. Trabajan juntos, comparten información y operan 24/7 — configurados con las reglas de tu negocio.</p>
         </div>
@@ -8742,10 +8748,10 @@ function GenyXLandingPage() {
             ['Dirección Ejecutiva', 'Briefing diario con la jugada del día.', () => simSvg(['M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'],'la9')],
 
           ].map(([name, desc, icoFn]) => (
-            <div key={name} style={{ background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 12, padding: '18px 16px', transition: 'all 0.2s' }}
-              onMouseOver={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.5)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-              onMouseOut={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.25)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
-              <div style={{ width:40, height:40, borderRadius:10, background:'rgba(99,102,241,0.1)', border:'1px solid rgba(99,102,241,0.2)', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:8 }}>{icoFn()}</div>
+            <div key={name} style={{ background: GBa(0.06), border: `1px solid ${GBa(0.25)}`, borderRadius: 12, padding: '18px 16px', transition: 'all 0.2s' }}
+              onMouseOver={e => { e.currentTarget.style.borderColor = GBa(0.5); e.currentTarget.style.transform = 'translateY(-2px)'; }}
+              onMouseOut={e => { e.currentTarget.style.borderColor = GBa(0.25); e.currentTarget.style.transform = 'translateY(0)'; }}>
+              <div style={{ width:40, height:40, borderRadius:10, background:GBa(0.1), border:`1px solid ${GBa(0.2)}`, display:'flex', alignItems:'center', justifyContent:'center', marginBottom:8 }}>{icoFn()}</div>
               <div style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9', marginBottom: 4 }}>{name}</div>
               <div style={{ fontSize: 11, color: '#64748b', lineHeight: 1.6 }}>{desc}</div>
             </div>
@@ -8754,7 +8760,7 @@ function GenyXLandingPage() {
 
         {/* ── 3 macro-bloques de capacidades (REGLA 11 agnóstico) ── */}
         <div style={{ marginTop: 40, textAlign: 'center' }}>
-          <p style={{ fontSize: 14, color: '#a5b4fc', fontWeight: 700, marginBottom: 6 }}>9 agentes. Todos los planes. Cualquier negocio.</p>
+          <p style={{ fontSize: 14, color: GB_SOFT, fontWeight: 700, marginBottom: 6 }}>9 agentes. Todos los planes. Cualquier negocio.</p>
           <p style={{ fontSize: 12, color: '#475569', marginBottom: 24 }}>Tú diriges la estrategia. Los agentes operan, miden y proponen. Mantienes la dirección sin la operación diaria.</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 14 }}>
             {[
@@ -8777,10 +8783,10 @@ function GenyXLandingPage() {
                 'A6 Seguimiento + A7 Analítica + A8 Finanzas + A11 Dirección'
               ],
             ].map(([title, desc, paths, agents]) => (
-              <div key={title} style={{ background:'rgba(99,102,241,0.05)', border:'1px solid rgba(99,102,241,0.15)', borderRadius:16, padding:'24px 20px', textAlign:'left', transition:'all .25s' }}
-                onMouseOver={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.45)'; e.currentTarget.style.transform='translateY(-2px)'; }}
-                onMouseOut={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.15)'; e.currentTarget.style.transform='translateY(0)'; }}>
-                <div style={{ width:40, height:40, borderRadius:10, background:'rgba(99,102,241,0.1)', border:'1px solid rgba(99,102,241,0.15)', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:14 }}>
+              <div key={title} style={{ background:GBa(0.05), border:`1px solid ${GBa(0.15)}`, borderRadius:16, padding:'24px 20px', textAlign:'left', transition:'all .25s' }}
+                onMouseOver={e => { e.currentTarget.style.borderColor=GBa(0.45); e.currentTarget.style.transform='translateY(-2px)'; }}
+                onMouseOut={e => { e.currentTarget.style.borderColor=GBa(0.15); e.currentTarget.style.transform='translateY(0)'; }}>
+                <div style={{ width:40, height:40, borderRadius:10, background:GBa(0.1), border:`1px solid ${GBa(0.15)}`, display:'flex', alignItems:'center', justifyContent:'center', marginBottom:14 }}>
                   {simSvg(paths, title.substring(0,3))}
                 </div>
                 <div style={{ fontSize:16, fontWeight:800, color:'#f1f5f9', marginBottom:6 }}>{title}</div>
@@ -8789,7 +8795,7 @@ function GenyXLandingPage() {
               </div>
             ))}
           </div>
-          <p style={{ fontSize: 11, color: '#475569', fontStyle: 'italic', marginTop: 16 }}>Módulos verticales opcionales según tu industria. <a href="/plus" style={{ color: '#818cf8', textDecoration: 'underline' }}>Ver detalles →</a></p>
+          <p style={{ fontSize: 11, color: '#475569', fontStyle: 'italic', marginTop: 16 }}>Módulos verticales opcionales según tu industria. <a href="/plus" style={{ color: GB_LIGHT, textDecoration: 'underline' }}>Ver detalles →</a></p>
         </div>
       </section>
 
@@ -8805,7 +8811,7 @@ function GenyXLandingPage() {
       {/* ── Aprendizaje Continuo ── */}
       <section style={{ padding: '0 24px 100px', maxWidth: 800, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>EL DIFERENCIADOR</div>
+          <div style={{ fontSize: 11, fontWeight: 700, color: GB_LIGHT, letterSpacing: '.1em', marginBottom: 12 }}>EL DIFERENCIADOR</div>
           <h2 style={{ fontSize: 36, fontWeight: 900, color: `#f1f5f9`, marginBottom: 10 }}>Mientras más tiempo trabaja contigo,<br /><span style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip: `text`, WebkitTextFillColor: 'transparent' }}>mejores son sus recomendaciones.</span></h2>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
@@ -8817,25 +8823,25 @@ function GenyXLandingPage() {
             ['Mes 12', 'Todas tus decisiones son con datos'],
           ].map(([time, desc], i) => (
             <div key={time} style={{ display: 'flex', alignItems: 'center', gap: 20, padding: '20px 0', borderBottom: i < 4 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
-              <div style={{ minWidth: 90, fontSize: 14, fontWeight: 800, color: '#818cf8', textAlign: 'right' }}>{time}</div>
-              <div style={{ width: 12, height: 12, borderRadius: '50%', background: i === 4 ? '#4ade80' : 'rgba(99,102,241,0.5)', border: '2px solid rgba(99,102,241,0.8)', flexShrink: 0 }} />
+              <div style={{ minWidth: 90, fontSize: 14, fontWeight: 800, color: GB_LIGHT, textAlign: 'right' }}>{time}</div>
+              <div style={{ width: 12, height: 12, borderRadius: '50%', background: i === 4 ? '#4ade80' : GBa(0.5), border: `2px solid ${GBa(0.8)}`, flexShrink: 0 }} />
               <div style={{ fontSize: 15, color: '#94a3b8', lineHeight: 1.6 }}>{desc}</div>
             </div>
           ))}
         </div>
-        <div style={{ textAlign: 'center', marginTop: 32, background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 16, padding: '24px 32px' }}>
+        <div style={{ textAlign: 'center', marginTop: 32, background: GBa(0.08), border: `1px solid ${GBa(0.25)}`, borderRadius: 16, padding: '24px 32px' }}>
           <p style={{ color: '#f1f5f9', fontSize: 16, fontWeight: 600, lineHeight: 1.7, fontStyle: 'italic' }}>El reporte del lunes no es un resumen — es información real de tus ventas que se vuelve más precisa y útil con cada semana que pasa.</p>
         </div>
         <div style={{ textAlign: 'center', marginTop: 24 }}>
           <p style={{ color: '#94a3b8', fontSize: 14, marginBottom: 14 }}>¿Quieres ver cómo se vería un día de tu negocio con GenyX operando?</p>
-          <a href="#simulador-inmersivo" style={{ display: 'inline-block', background: 'transparent', border: '1px solid rgba(99,102,241,0.5)', color: '#818cf8', padding: '12px 28px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', transition: 'all .2s' }}>Probar el simulador en vivo →</a>
+          <a href="#simulador-inmersivo" style={{ display: 'inline-block', background: 'transparent', border: `1px solid ${GBa(0.5)}`, color: GB_LIGHT, padding: '12px 28px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', transition: 'all .2s' }}>Probar el simulador en vivo →</a>
         </div>
       </section>
 
       {/* ── Reporte del Lunes ── */}
       <section style={{ padding: '0 24px 100px', maxWidth: 720, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>EL REPORTE DEL LUNES</div>
+          <div style={{ fontSize: 11, fontWeight: 700, color: GB_LIGHT, letterSpacing: '.1em', marginBottom: 12 }}>EL REPORTE DEL LUNES</div>
           <h2 style={{ fontSize: 36, fontWeight: 900, color: `#f1f5f9`, marginBottom: 10 }}>Cada lunes a las 5am,<br /><span style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip: `text`, WebkitTextFillColor: 'transparent' }}>tu reporte</span></h2>
           <p style={{ color: '#64748b', fontSize: 15, maxWidth: 520, margin: '0 auto' }}>Esto es exactamente lo que vas a recibir — con TUS números reales.</p>
         </div>
@@ -8872,7 +8878,7 @@ function GenyXLandingPage() {
       {/* ── GenyX vs Empleado ── */}
       <section style={{ padding: '0 24px 100px', maxWidth: 800, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>LA MATEMÁTICA</div>
+          <div style={{ fontSize: 11, fontWeight: 700, color: GB_LIGHT, letterSpacing: '.1em', marginBottom: 12 }}>LA MATEMÁTICA</div>
           <h2 style={{ fontSize: 36, fontWeight: 900, color: `#f1f5f9`, marginBottom: 10 }}>Lo que antes pedía un equipo completo<br /><span style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip: `text`, WebkitTextFillColor: 'transparent' }}>ahora corre solo</span></h2>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
@@ -8936,18 +8942,18 @@ function GenyXLandingPage() {
 
       {/* ── ADN de tu Marca ── */}
       <section style={{ padding:'0 24px 100px', maxWidth:960, margin:'0 auto' }}>
-        <div style={{ background:'linear-gradient(135deg,rgba(99,102,241,0.08),rgba(139,92,246,0.08))', border:'1px solid rgba(99,102,241,0.2)', borderRadius:24, padding:'40px 48px', display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))', gap:40, alignItems:'center' }}>
+        <div style={{ background:`linear-gradient(135deg,${GBa(0.08)},rgba(139,92,246,0.08))`, border:`1px solid ${GBa(0.2)}`, borderRadius:24, padding:'40px 48px', display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))', gap:40, alignItems:'center' }}>
           <div>
-            <div style={{ fontSize:12, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12 }}>TU OPERACIÓN COMERCIAL AUTÓNOMA</div>
+            <div style={{ fontSize:12, fontWeight:700, color:GB_LIGHT, letterSpacing:'.1em', marginBottom:12 }}>TU OPERACIÓN COMERCIAL AUTÓNOMA</div>
             <h2 style={{ fontSize:32, fontWeight:900, color:'#f1f5f9', lineHeight:1.2, marginBottom:16 }}>Tu operación comercial autónoma<br /><span style={{ background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>configurada con el ADN de tu marca</span></h2>
             <p style={{ color:'#64748b', lineHeight:1.8, fontSize:14 }}>Tu operación comercial autónoma genera demanda, convierte prospectos en clientes, coordina entregas con tu equipo y mide cada resultado — todo con la personalidad y calidez de tu marca.</p>
           </div>
           <div style={{ display:'flex', flexDirection:'column', gap:14 }}>
             {[
-              [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>, 'Entiende notas de voz', 'Transcribe y responde audios de WhatsApp en segundos'],
-              [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>, 'Habla como tu cliente', 'Regionalismos, abreviaciones y hasta emojis — sin respuestas robóticas'],
-              [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>, 'Asesora y recomienda', 'Detecta lo que el cliente necesita y recomienda antes de que pregunte'],
-              [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>, 'Del interés al cobro en una conversación', 'Lleva al cliente del interés al carrito de forma natural. Responde en segundos.'],
+              [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={GB_LIGHT} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>, 'Entiende notas de voz', 'Transcribe y responde audios de WhatsApp en segundos'],
+              [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={GB_LIGHT} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>, 'Habla como tu cliente', 'Regionalismos, abreviaciones y hasta emojis — sin respuestas robóticas'],
+              [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={GB_LIGHT} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>, 'Asesora y recomienda', 'Detecta lo que el cliente necesita y recomienda antes de que pregunte'],
+              [<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={GB_LIGHT} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>, 'Del interés al cobro en una conversación', 'Lleva al cliente del interés al carrito de forma natural. Responde en segundos.'],
             ].map(([ico, t, d]) => (
               <div key={t} style={{ display:'flex', gap:14, alignItems:'flex-start' }}>
                 <div style={{ fontSize:22, flexShrink:0, marginTop:2 }}>{ico}</div>
@@ -8965,7 +8971,7 @@ function GenyXLandingPage() {
 
       {/* ── Ventajas Competitivas ── */}
       <section style={{ padding:'0 24px 100px', maxWidth:1000, margin:'0 auto' }}>
-        <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12, textAlign:'center' }}>POR QUÉ GenyX</div>
+        <div style={{ fontSize:11, fontWeight:700, color:GB_LIGHT, letterSpacing:'.1em', marginBottom:12, textAlign:'center' }}>POR QUÉ GenyX</div>
         <h2 style={{ fontSize:36, fontWeight:900, color:`#f1f5f9`, marginBottom:12, textAlign:`center` }}>GenyX es tu operación comercial.<br /><span style={{ background:`linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip:`text`, WebkitTextFillColor:`transparent` }}>Con tu catálogo. Con tus reglas.</span></h2>
         <p style={{ color:'#64748b', marginBottom:48, textAlign:'center', fontSize:15, maxWidth:600, margin:'0 auto 48px' }}>9 agentes configurados con tu catálogo, tus precios y tu personalidad de marca. Miden resultados reales cada semana.</p>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:16 }}>
@@ -8976,10 +8982,10 @@ function GenyXLandingPage() {
             [() => simSvg([['polygon',{points:'12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'}]],'lv4'), 'Hecho a la medida de tu negocio', 'Tu catálogo. Tus precios. Tu personalidad de marca. Tu zona de entrega. Todo configurado para ti. Funciona como si lo hubiera entrenado tu mejor vendedor.'],
             [() => simSvg(['M13 2L3 14h9l-1 8 10-12h-9l1-8'],'lv5'), 'Vendiendo en 48 horas', 'Una sesión de 45 minutos para entender tu negocio. Nosotros hacemos todo. En 2 días tu agente ya está cerrando ventas.'],
           ].map(([icoFn, t, d]) => (
-            <div key={t} style={{ background:'rgba(255,255,255,0.03)', border:'1px solid rgba(99,102,241,0.15)', borderRadius:16, padding:'24px 22px', transition:'all 0.25s' }}
-              onMouseOver={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.45)'; e.currentTarget.style.background='rgba(99,102,241,0.06)'; }}
-              onMouseOut={e => { e.currentTarget.style.borderColor='rgba(99,102,241,0.15)'; e.currentTarget.style.background='rgba(255,255,255,0.03)'; }}>
-              <div style={{ width:48, height:48, borderRadius:12, background:'rgba(99,102,241,0.1)', border:'1px solid rgba(99,102,241,0.2)', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:12 }}>{icoFn()}</div>
+            <div key={t} style={{ background:'rgba(255,255,255,0.03)', border:`1px solid ${GBa(0.15)}`, borderRadius:16, padding:'24px 22px', transition:'all 0.25s' }}
+              onMouseOver={e => { e.currentTarget.style.borderColor=GBa(0.45); e.currentTarget.style.background=GBa(0.06); }}
+              onMouseOut={e => { e.currentTarget.style.borderColor=GBa(0.15); e.currentTarget.style.background='rgba(255,255,255,0.03)'; }}>
+              <div style={{ width:48, height:48, borderRadius:12, background:GBa(0.1), border:`1px solid ${GBa(0.2)}`, display:'flex', alignItems:'center', justifyContent:'center', marginBottom:12 }}>{icoFn()}</div>
               <div style={{ fontWeight:700, fontSize:15, color:'#f1f5f9', marginBottom:8 }}>{t}</div>
               <div style={{ fontSize:13, color:'#64748b', lineHeight:1.75 }}>{d}</div>
             </div>
@@ -8989,19 +8995,19 @@ function GenyXLandingPage() {
 
       {/* ── Pricing ── */}
       <section style={{ padding:'0 24px 100px', maxWidth:960, margin:'0 auto', textAlign:'center' }}>
-        <div style={{ background:'linear-gradient(135deg,rgba(99,102,241,0.06),rgba(139,92,246,0.06))', border:'1px solid rgba(99,102,241,0.2)', borderRadius:24, padding:'48px 40px' }}>
-          <div style={{ fontSize:11, fontWeight:800, color:'#818cf8', letterSpacing:'.12em', textTransform:'uppercase', marginBottom:12 }}>AOaaS — Modelo de Inversión</div>
+        <div style={{ background:`linear-gradient(135deg,${GBa(0.06)},rgba(139,92,246,0.06))`, border:`1px solid ${GBa(0.2)}`, borderRadius:24, padding:'48px 40px' }}>
+          <div style={{ fontSize:11, fontWeight:800, color:GB_LIGHT, letterSpacing:'.12em', textTransform:'uppercase', marginBottom:12 }}>AOaaS — Modelo de Inversión</div>
           <h2 style={{ fontSize:32, fontWeight:900, color:'#f1f5f9', lineHeight:1.25, marginBottom:16 }}>3 planes. 9 agentes.<br /><span style={{ background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Tu operación comercial autónoma — AOaaS.</span></h2>
-          <p style={{ color:'#64748b', lineHeight:1.8, marginBottom:32, fontSize:15 }}>GenyX opera bajo un modelo de <strong style={{ color:'#a5b4fc' }}>Fee de instalación + Suscripción mensual fija</strong>. Sin importar cuánto vendas en el mes, tu costo no cambia. Tus márgenes son tuyos.</p>
+          <p style={{ color:'#64748b', lineHeight:1.8, marginBottom:32, fontSize:15 }}>GenyX opera bajo un modelo de <strong style={{ color:GB_SOFT }}>Fee de instalación + Suscripción mensual fija</strong>. Sin importar cuánto vendas en el mes, tu costo no cambia. Tus márgenes son tuyos.</p>
           <div style={{ display:'flex', justifyContent:'center', gap:16, flexWrap:'wrap', marginBottom:24 }}>
             {[
               ['ESENCIAL','$9,900','MXN/mes','Setup: $6,000','9 agentes de IA','200 msgs carritos · 100 reactivación','Módulos verticales según industria','Soporte L-V 9am–7pm','Negocio independiente.'],
               ['PROFESIONAL','$18,900','MXN/mes','Setup: $12,000','9 agentes de IA','400 msgs carritos · 200 reactivación','Módulos verticales ampliados','Soporte L-S prioritario','Negocio con equipo de ventas. ★ Más elegido.'],
               ['ENTERPRISE','$34,900','MXN/mes','Setup: $24,000','9 agentes de IA','600 msgs carritos · 300 reactivación','Módulos verticales ilimitados','Soporte 24/7 + sesión con Erick','Cadenas / Franquicias / Multi-sucursal.'],
             ].map(([plan, price, period, setup, agents, outbound, tools, support, desc]) => (
-              <div key={plan} style={{ background: plan === 'PROFESIONAL' ? 'rgba(99,102,241,0.12)' : 'rgba(255,255,255,0.04)', border: plan === 'PROFESIONAL' ? '2px solid rgba(99,102,241,0.5)' : '1px solid rgba(255,255,255,0.1)', borderRadius:16, padding:'24px 20px', minWidth:220, flex:'1 1 200px', maxWidth:290, position:'relative', textAlign:'left' }}>
+              <div key={plan} style={{ background: plan === 'PROFESIONAL' ? GBa(0.12) : 'rgba(255,255,255,0.04)', border: plan === 'PROFESIONAL' ? `2px solid ${GBa(0.5)}` : '1px solid rgba(255,255,255,0.1)', borderRadius:16, padding:'24px 20px', minWidth:220, flex:'1 1 200px', maxWidth:290, position:'relative', textAlign:'left' }}>
                 {plan === 'PROFESIONAL' && <div style={{ position:`absolute`, top:-10, left:`50%`, transform:`translateX(-50%)`, background:`linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color:`#fff`, fontSize:9, fontWeight:800, padding:`3px 14px`, borderRadius:20, letterSpacing:`.05em` }}>MÁS POPULAR</div>}
-                <div style={{ fontWeight:800, fontSize:13, color:'#818cf8', letterSpacing:'.06em', marginBottom:10 }}>{plan}</div>
+                <div style={{ fontWeight:800, fontSize:13, color:GB_LIGHT, letterSpacing:'.06em', marginBottom:10 }}>{plan}</div>
                 <div style={{ fontSize:28, fontWeight:900, color:'#f1f5f9', marginBottom:2 }}>{price}</div>
                 <div style={{ fontSize:12, color:'#64748b', marginBottom:8 }}>{period}</div>
                 <div style={{ fontSize:11, color:'#94a3b8', marginBottom:12 }}>{setup}</div>
@@ -9014,9 +9020,9 @@ function GenyXLandingPage() {
               </div>
             ))}
           </div>
-          <p style={{ fontSize:13, color:'#94a3b8', marginBottom:8, lineHeight:1.7 }}>La diferencia entre planes no está en los agentes — los 8 siempre están.<br />La diferencia está en el volumen de tu operación: bolsas de mensajes proactivos, herramientas y nivel de soporte. <a href="/planes" style={{ color:'#818cf8', textDecoration:'underline' }}>Ver detalle completo →</a></p>
+          <p style={{ fontSize:13, color:'#94a3b8', marginBottom:8, lineHeight:1.7 }}>La diferencia entre planes no está en los agentes — los 8 siempre están.<br />La diferencia está en el volumen de tu operación: bolsas de mensajes proactivos, herramientas y nivel de soporte. <a href="/planes" style={{ color:GB_LIGHT, textDecoration:'underline' }}>Ver detalle completo →</a></p>
           <p style={{ fontSize:13, color:'#64748b', marginBottom:24 }}>Cero comisión por venta. Sin permanencia mínima.</p>
-          <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, quiero saber más sobre GenyX")}`} style={{ display:`inline-block`, background:`linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color:`#fff`, padding:'14px 36px', borderRadius:12, fontSize:14, fontWeight:700, textDecoration:'none', boxShadow:'0 0 28px rgba(99,102,241,0.3)' }}>Conoce qué plan es para ti →</a>
+          <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, quiero saber más sobre GenyX")}`} style={{ display:`inline-block`, background:`linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color:`#fff`, padding:'14px 36px', borderRadius:12, fontSize:14, fontWeight:700, textDecoration:'none', boxShadow:`0 0 28px ${GBa(0.3)}` }}>Conoce qué plan es para ti →</a>
         </div>
       </section>
 
@@ -9048,7 +9054,7 @@ function GenyXLandingPage() {
           <h2 style={C.ctaH}>¿Listo para tomar mejores decisiones?</h2>
           <p style={C.ctaSub}>Cuéntanos de tu negocio.</p>
           <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, me interesa GenyX para mi negocio. ¿Cuándo podemos hablar?")}`} style={{ ...C.ctaBtn, display:'inline-flex', alignItems:'center', gap:10, marginBottom:14 }}>Cuéntame de tu negocio →</a>
-          <p style={{ color:'#64748b', fontSize:13 }}>o si prefieres: <a href="mailto:hola@genyxsystems.com" style={{ color:'#818cf8', textDecoration:'none' }}>hola@genyxsystems.com</a></p>
+          <p style={{ color:'#64748b', fontSize:13 }}>o si prefieres: <a href="mailto:hola@genyxsystems.com" style={{ color:GB_LIGHT, textDecoration:'none' }}>hola@genyxsystems.com</a></p>
         </div>
       </div>
 
@@ -9058,7 +9064,7 @@ function GenyXLandingPage() {
         <span style={C.ftrBrand}>GenyX © 2026 · Tu operación comercial autónoma · Inteligencia de negocio</span>
         <div style={{ ...C.ftrLinks, paddingRight: 72 }}>
           <a href="/por-que-ahora" style={C.ftrLink}>Por qué ahora</a>
-          <a href="/por-que-aoaas" style={{ ...C.ftrLink, color: '#818cf8' }}>AOaaS</a>
+          <a href="/por-que-aoaas" style={{ ...C.ftrLink, color: GB_LIGHT }}>AOaaS</a>
           <a href="/blog" style={C.ftrLink}>Blog</a>
           <a href="/plus" style={C.ftrLink}>Módulos</a>
           <a href="/privacidad" style={C.ftrLink}>Privacidad</a>
@@ -9295,7 +9301,7 @@ export default function GenyXOperatorDashboard() {
           {/* Home button */}
           <button onClick={() => window.location.href = '/'}
             title="Ir a la landing de GenyX"
-            style={{ background: 'rgba(99,102,241,0.12)', border: '1px solid rgba(99,102,241,0.3)', color: '#818cf8', padding: '7px 14px', borderRadius: 8, cursor: 'pointer', fontSize: 13, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 6 }}>
+            style={{ background: GBa(0.12), border: `1px solid ${GBa(0.3)}`, color: GB_LIGHT, padding: '7px 14px', borderRadius: 8, cursor: 'pointer', fontSize: 13, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 6 }}>
             🏠 Home
           </button>
           {/* Reload button */}
@@ -9304,9 +9310,9 @@ export default function GenyXOperatorDashboard() {
             ⟳ Reload
           </button>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginLeft: 4 }}>
-            <div style={{ width: 30, height: 30, border: `2px solid ${GENYX_BRAND}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 800, color: '#818cf8' }}>G</div>
+            <div style={{ width: 30, height: 30, border: `2px solid ${GENYX_BRAND}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 800, color: GB_LIGHT }}>G</div>
             <div>
-              <p style={{ fontWeight: 700, fontSize: 13, color: '#fff', letterSpacing: '.03em' }}>Geny<span style={{ color: '#818cf8' }}>X</span></p>
+              <p style={{ fontWeight: 700, fontSize: 13, color: '#fff', letterSpacing: '.03em' }}>Geny<span style={{ color: GB_LIGHT }}>X</span></p>
               <p style={{ fontSize: 10, color: '#475569', fontFamily: 'monospace' }}>Centro de Mando GenyX</p>
               <p style={{ fontSize: 9, color: '#475569', fontStyle: 'italic' }}>Tu operación comercial autónoma</p>
             </div>
@@ -9335,7 +9341,7 @@ export default function GenyXOperatorDashboard() {
 
       {/* Tabs */}
       <div style={{ position: 'relative' }}>
-        <nav style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '0 28px', display: 'flex', gap: 4, overflowX: 'auto', scrollbarWidth: 'thin', scrollbarColor: 'rgba(99,102,241,0.4) transparent', WebkitOverflowScrolling: 'touch' }}>
+        <nav style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '0 28px', display: 'flex', gap: 4, overflowX: 'auto', scrollbarWidth: 'thin', scrollbarColor: `${GBa(0.4)} transparent`, WebkitOverflowScrolling: 'touch' }}>
           {TABS.map(t => (
             <button key={t.id} onClick={() => setTab(t.id)} style={{ padding: '12px 18px', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em', border: 'none', background: 'none', cursor: 'pointer', color: tab === t.id ? GENYX_BRAND : '#475569', borderBottom: `2px solid ${tab === t.id ? GENYX_BRAND : 'transparent'}`, transition: 'all 0.2s', whiteSpace: 'nowrap' }}>{t.label}</button>
           ))}
@@ -9344,12 +9350,12 @@ export default function GenyXOperatorDashboard() {
       </div>
 
       {/* —— Selector global de cliente —— */}
-      <div style={{ padding: '10px 28px', background: 'rgba(99,102,241,0.04)', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', gap: 10 }}>
+      <div style={{ padding: '10px 28px', background: GBa(0.04), borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', gap: 10 }}>
         <span style={{ fontSize: 11, color: '#4f5c74', fontWeight: 600, letterSpacing: '.04em' }}>CLIENTE:</span>
         <select
           value={selectedSlug}
           onChange={e => setSelectedSlug(e.target.value)}
-          style={{ background: '#0f1623', border: '1px solid rgba(99,102,241,0.35)', color: selectedSlug ? '#a5b4fc' : '#475569', padding: '5px 12px', borderRadius: 8, fontSize: 12, fontWeight: 600, cursor: 'pointer', outline: 'none' }}
+          style={{ background: '#0f1623', border: `1px solid ${GBa(0.35)}`, color: selectedSlug ? GB_SOFT : '#475569', padding: '5px 12px', borderRadius: 8, fontSize: 12, fontWeight: 600, cursor: 'pointer', outline: 'none' }}
         >
           <option value="">-- Todos --</option>
           {tenants.map(t => <option key={t.slug} value={t.slug}>{t.name || t.slug}</option>)}
