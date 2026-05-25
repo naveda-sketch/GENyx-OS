@@ -377,7 +377,7 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
                 <div>
                   <p style={{ ...MONO, color: '#64748b', marginBottom: 4 }}>CLIENTE {String(i + 1).padStart(3, '0')}</p>
                   <h3 style={{ fontWeight: 700, fontSize: 16, color: '#f1f5f9' }}>{t.name || t.slug}</h3>
-                  <p style={{ fontSize: 12, color: '#64748b', marginTop: 2 }}>{t.industry || 'Artesanal'}</p>
+                  <p style={{ fontSize: 12, color: '#64748b', marginTop: 2 }}>{t.industry || 'Sin clasificar'}</p>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6 }}>
                   <div style={{ display: 'flex', gap: 6, marginBottom: 4 }}>
@@ -8388,7 +8388,7 @@ function GenyXLandingPage() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
           <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>Con GenyX, <strong style={{ color: '#f1f5f9' }}>tu negocio siempre es el primero en responder</strong> — en segundos, 24/7. Cada conversación atendida es una oportunidad que no se pierde.</p>
           <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>El cobro ocurre <strong style={{ color: '#f1f5f9' }}>dentro del chat: tu cliente paga en 2 toques</strong> desde WhatsApp. Tú recibes la confirmación al instante.</p>
-          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>Cada pedido directo por WhatsApp es <strong style={{ color: '#f1f5f9' }}>100% tuyo. Cero comisión. Cero intermediarios.</strong> Con 10 pedidos al día, eso son más de <strong style={{ color: '#f1f5f9' }}>$20,000 al mes</strong> que se quedan en tu bolsillo.</p>
+          <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>Cada pedido directo por WhatsApp es <strong style={{ color: '#f1f5f9' }}>100% tuyo. Cero comisión. Cero intermediarios.</strong> El valor que generes se queda en tu negocio, sin descuentos por plataforma ni cargos por transacción.</p>
           <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>GenyX te lleva ahí — <strong style={{ color: '#f1f5f9' }}>con 9 agentes trabajando coordinados desde el día uno.</strong></p>
         </div>
       </section>
@@ -8428,7 +8428,7 @@ function GenyXLandingPage() {
         {/* ── 3 macro-bloques de capacidades (REGLA 11 agnóstico) ── */}
         <div style={{ marginTop: 40, textAlign: 'center' }}>
           <p style={{ fontSize: 14, color: '#a5b4fc', fontWeight: 700, marginBottom: 6 }}>9 agentes. Todos los planes. Cualquier negocio.</p>
-          <p style={{ fontSize: 12, color: '#475569', marginBottom: 24 }}>Tú diriges la estrategia (10% de tu tiempo). Los agentes ejecutan el otro 90%.</p>
+          <p style={{ fontSize: 12, color: '#475569', marginBottom: 24 }}>Tú diriges la estrategia. Los agentes operan, miden y proponen. Mantienes la dirección sin la operación diaria.</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 14 }}>
             {[
               [
