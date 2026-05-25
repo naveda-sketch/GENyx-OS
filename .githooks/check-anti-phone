@@ -1,0 +1,92 @@
+#!/bin/bash
+# ═══════════════════════════════════════════════════════════════
+# CANDADO FE-#anti-phone-hardcoded
+# Materializa REGLA 15 (Cajones Privados del Tenant)
+# ═══════════════════════════════════════════════════════════════
+# Bloquea pre-commit cualquier hardcoded phone en código JSX/TSX/JS.
+# El número de un Tenant NUNCA debe estar literal en el frontend —
+# debe venir de useGenyxConfig() (lobby corporativo) o
+# tenant.contact_* (cajón privado del tenant).
+#
+# ORIGEN: 23-24 may 2026. Sweep fa410c9 limpió 18 hardcodings WaB
+# Paty propagados desde commits anteriores + Schema.org SEO.
+# Sin este candado, el patrón podría reaparecer.
+#
+# Bypass consciente: GENYX_PHONE_OVERRIDE=1 git commit ...
+# (debe documentar razón en commit message)
+# ═══════════════════════════════════════════════════════════════
+
+set -e
+
+# Bypass consciente
+if [ "$GENYX_PHONE_OVERRIDE" = "1" ]; then
+    echo "✓ GENYX_PHONE_OVERRIDE=1 — bypass anti-phone (debe documentar razón)"
+    exit 0
+fi
+
+# Archivos staged (solo JSX/TSX/JS — no docs ni configs)
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(jsx|tsx|js|ts)$' || true)
+
+if [ -z "$STAGED_FILES" ]; then
+    exit 0
+fi
+
+VIOLATIONS=""
+for file in $STAGED_FILES; do
+    if [ ! -f "$file" ]; then continue; fi
+
+    # Patrón 1: wa.me/<digits> (WhatsApp link directo)
+    matches=$(grep -nE 'wa\.me/[0-9]{10,}' "$file" 2>/dev/null || true)
+    if [ -n "$matches" ]; then
+        VIOLATIONS+="\n  ✗ $file (wa.me/<digits>):\n"
+        VIOLATIONS+="$(echo "$matches" | sed 's/^/      /')\n"
+    fi
+
+    # Patrón 2: whatsapp.com/send?phone=<digits>
+    matches=$(grep -nE 'whatsapp\.com/send\?phone=[0-9]{10,}' "$file" 2>/dev/null || true)
+    if [ -n "$matches" ]; then
+        VIOLATIONS+="\n  ✗ $file (whatsapp.com/send?phone=):\n"
+        VIOLATIONS+="$(echo "$matches" | sed 's/^/      /')\n"
+    fi
+
+    # Patrón 3: tel:+?<digits> (enlace telefónico)
+    matches=$(grep -nE 'tel:\+?[0-9]{10,}' "$file" 2>/dev/null || true)
+    if [ -n "$matches" ]; then
+        VIOLATIONS+="\n  ✗ $file (tel:<digits>):\n"
+        VIOLATIONS+="$(echo "$matches" | sed 's/^/      /')\n"
+    fi
+done
+
+if [ -n "$VIOLATIONS" ]; then
+    echo ""
+    echo "🚨 ═══════════════════════════════════════════════════════════════"
+    echo "🚨  CANDADO FE-#anti-phone BLOQUEÓ — REGLA 15 (Cajones Privados)"
+    echo "🚨 ═══════════════════════════════════════════════════════════════"
+    echo ""
+    echo "Detecté hardcoded phone numbers en JSX/TSX staged:"
+    printf "$VIOLATIONS"
+    echo ""
+    echo "─── Por qué este candado ────────────────────────────────────────"
+    echo ""
+    echo "REGLA 15 (Cajones Privados del Tenant): el número de un tenant"
+    echo "NUNCA debe vivir literal en el frontend. Datos privados del tenant"
+    echo "viven en su cajón (mando), NO en el lobby público (landing)."
+    echo ""
+    echo "─── Cómo arreglar ───────────────────────────────────────────────"
+    echo ""
+    echo "  · Canal CORPORATIVO GenyX:  GENYX_CONTACT.contact_url"
+    echo "  · Número del PROPIO tenant: tenant.contact_phone (del config)"
+    echo "  · Lookup cross-cajón:       Requiere federation_audit_log"
+    echo ""
+    echo "─── Bypass consciente ───────────────────────────────────────────"
+    echo ""
+    echo "  GENYX_PHONE_OVERRIDE=1 git commit ..."
+    echo "  (Debe documentar la razón en el commit message)"
+    echo ""
+    echo "═══════════════════════════════════════════════════════════════════"
+    echo ""
+    exit 1
+fi
+
+echo "✓ CANDADO FE-#anti-phone: sin hardcoded phones detectados"
+exit 0

@@ -357,6 +357,7 @@ function MyWidget() {
 | **FE-#11** | `.githooks/pre-commit` | `eslint --rule react-hooks/rules-of-hooks:error` en JSX staged |
 | **FE-#3** | `.githooks/pre-commit` | REGLA 11 violaciones agnósticas |
 | **FE-#7** | `.githooks/commit-msg` | Commit cita REGLA/METODOLOGÍA/Pattern |
+| **FE-#anti-phone** | `.githooks/pre-commit` → `check-anti-phone` | REGLA 15: cero `wa.me/<digits>`, `tel:<digits>`, `whatsapp.com/send?phone=<digits>` hardcoded. Bypass: `GENYX_PHONE_OVERRIDE=1` |
 
 **ESLint config:** `eslint.config.js` — `react-hooks/rules-of-hooks: error`
 

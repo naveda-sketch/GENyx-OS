@@ -42,3 +42,10 @@ fi
 
 echo "✓ CANDADO FE-#11: 0 violaciones de React hooks en staged files"
 exit 0
+
+# ── Candado FE-#anti-phone: REGLA 15 — Cajones Privados Tenant ──
+if [ -x "$SCRIPT_DIR/check-anti-phone" ]; then
+    if ! "$SCRIPT_DIR/check-anti-phone"; then
+        exit 1
+    fi
+fi

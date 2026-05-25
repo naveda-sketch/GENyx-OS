@@ -7599,7 +7599,7 @@ function MandoSimulator() {
     { id: 'A4', icon: '🤝', name: 'Cierre', color: '#60a5fa', lastAction: 'Pago confirmado Stripe — $180', actions: 8 },
     { id: 'A5', icon: '🚚', name: 'Entrega', color: '#a78bfa', lastAction: 'Entrega #42 confirmada', actions: 6 },
     { id: 'A6', icon: '💬', name: 'Seguimiento', color: '#2dd4bf', lastAction: '3 carritos recuperados hoy', actions: 9 },
-    { id: 'A7', icon: '📊', name: 'Analítica', color: '#818cf8', lastAction: 'Alerta: ticket promedio ▼12%', actions: 4 },
+    { id: 'A7', icon: '📊', name: 'Analítica', color: '#818cf8', lastAction: 'Alerta: tendencia detectada en ventas', actions: 4 },
     { id: 'A8', icon: '💰', name: 'Finanzas', color: '#fbbf24', lastAction: 'Margen bruto recalculado', actions: 2 },
   ];
 
@@ -7617,7 +7617,7 @@ function MandoSimulator() {
     { time: '10:38', agent: 'A4', icon: '🤝', text: 'Pago confirmado Stripe — $180', color: '#60a5fa' },
     { time: '10:15', agent: 'A6', icon: '💬', text: 'Carrito recuperado', color: '#2dd4bf' },
     { time: '09:50', agent: 'A1', icon: '📢', text: 'WA Status publicado (48 vistas)', color: '#f472b6' },
-    { time: '09:30', agent: 'A7', icon: '📊', text: 'Alerta: ticket promedio ▼12% vs ayer', color: '#818cf8' },
+    { time: '09:30', agent: 'A7', icon: '📊', text: 'Alerta: tendencia detectada en ventas vs ayer', color: '#818cf8' },
     { time: '05:00', agent: 'A7', icon: '📊', text: 'Reporte semanal enviado', color: '#818cf8' },
   ];
 
