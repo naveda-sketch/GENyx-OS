@@ -20,6 +20,41 @@ const GENYX_CONTACT = {
   // Schema.org sameAs — vacío hasta tener canal corporativo público verificado
   organization_same_as: [],
 };
+// ═══════════════════════════════════════════════════════════════════
+// DESIGN TOKENS — Derivados de tenant config (REGLA 11 agnóstico)
+// ═══════════════════════════════════════════════════════════════════
+// · Mando del Tenant: usa TOKENS(config.brand_color) → colores del tenant
+// · Cockpit GenyX: usa TOKENS() → default GenyX indigo (#0066ff)
+// · Landing GenyX: usa GENYX_BRAND directamente (no es tenant)
+// ═══════════════════════════════════════════════════════════════════
+
+const GENYX_BRAND = '#6366f1'; // GenyX corporate indigo — landing/cockpit, NUNCA mando tenant
+
+const TOKENS = (brandColor) => {
+  const bc = brandColor || '#0066ff'; // Default neutro, NO el color de ningún tenant
+  return {
+    brand: bc,
+    brandSoft: `${bc}1a`,
+    brandRing: `${bc}33`,
+    brandGlow: `${bc}40`,
+
+    bg: '#0a0a0f',
+    surface: '#13131c',
+    surfaceHover: '#1a1a26',
+    border: '#2a2a3a',
+
+    text: '#f1f5f9',
+    textMuted: '#94a3b8',
+    textDim: '#64748b',
+    textFaint: '#475569',
+
+    success: '#10b981',
+    warning: '#f59e0b',
+    danger: '#ef4444',
+    info: '#3b82f6',
+  };
+};
+
 // ── SEGURIDAD: admin key nunca en el bundle — se solicita en login y vive en sessionStorage
 const getAH = () => ({
   'Content-Type': 'application/json',
@@ -136,7 +171,7 @@ const TabFarmacopeia = () => {
                 {selected !== i && <p style={{ fontSize: 11, color: '#64748b' }}>{e.diagnostico.substring(0, 90)}{e.diagnostico.length > 90 ? '…' : ''}</p>}
               </div>
               <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexShrink: 0 }}>
-                <span style={{ ...MONO, fontSize: 9, color: '#6366f1', background: 'rgba(99,102,241,0.1)', padding: '2px 7px', borderRadius: 4 }}>{e.commit}</span>
+                <span style={{ ...MONO, fontSize: 9, color: GENYX_BRAND, background: 'rgba(99,102,241,0.1)', padding: '2px 7px', borderRadius: 4 }}>{e.commit}</span>
                 <span style={{ fontSize: 14 }}>{e.estado}</span>
                 <span style={{ color: '#64748b', fontSize: 11 }}>{selected === i ? '▲' : '▼'}</span>
               </div>
@@ -238,7 +273,7 @@ function ModulesEditorModal({ tenant, onClose, onSave }) {
               <span style={{ fontSize: 18 }}>{m.icon}</span>
               <span style={{ fontSize: 13, color: modules[m.id] ? '#a5b4fc' : '#64748b', fontWeight: 600, flex: 1 }}>{m.name}</span>
               <span style={{ width: 18, height: 18, borderRadius: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12,
-                background: modules[m.id] ? '#6366f1' : 'rgba(255,255,255,0.06)', color: '#fff' }}>
+                background: modules[m.id] ? GENYX_BRAND : 'rgba(255,255,255,0.06)', color: '#fff' }}>
                 {modules[m.id] ? '✓' : ''}
               </span>
             </div>
@@ -344,12 +379,12 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
       {/* ── GenyX #000 — solo visible cuando no hay cliente filtrado ─── */}
       {!selectedSlug && (
       <div style={{ marginBottom: 20 }}>
-        <p style={{ ...MONO, color: '#6366f1', fontSize: 10, marginBottom: 8, letterSpacing: '.08em' }}>CLIENTE 000 — OPERADOR</p>
+        <p style={{ ...MONO, color: GENYX_BRAND, fontSize: 10, marginBottom: 8, letterSpacing: '.08em' }}>CLIENTE 000 — OPERADOR</p>
         <div style={{ ...CARD, border: '1px solid rgba(99,102,241,0.35)', background: 'rgba(99,102,241,0.06)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
             <div>
               <h3 style={{ fontWeight: 700, fontSize: 16, color: '#a5b4fc' }}>GenyX</h3>
-              <p style={{ fontSize: 12, color: '#6366f1', marginTop: 2 }}>Plataforma Operadora</p>
+              <p style={{ fontSize: 12, color: GENYX_BRAND, marginTop: 2 }}>Plataforma Operadora</p>
             </div>
             <span style={{ background: 'rgba(99,102,241,0.15)', color: '#818cf8', border: '1px solid rgba(99,102,241,0.3)', padding: '2px 10px', borderRadius: 12, fontSize: 10, fontWeight: 700, textTransform: 'uppercase' }}>OPERADOR</span>
           </div>
@@ -465,7 +500,7 @@ const NewsFeed = ({ health, orders, tenants }) => {
   useEffect(() => { fetchNews(); fetchSla(); }, []);
 
   const SOURCE_COLORS = {
-    'TechCrunch': '#10b981', 'MIT Tech Review': '#6366f1',
+    'TechCrunch': '#10b981', 'MIT Tech Review': GENYX_BRAND,
     'The Verge': '#f59e0b', 'Wired': '#ec4899', 'Harvard Biz Review': '#3b82f6',
   };
 
@@ -914,7 +949,7 @@ const TabAnalista = ({ tenants, orders, selectedSlug, setSelectedSlug }) => {
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 24, flexWrap: 'wrap' }}>
         <h2 style={{ ...H2, margin: 0 }}>📊 Analista de Negocios</h2>
         {!selectedSlug && <span style={{ fontSize: 12, color: '#64748b' }}>Selecciona un cliente arriba para ver su análisis</span>}
-        {selectedSlug && <span style={{ fontSize: 12, color: '#6366f1', fontWeight: 600 }}>→ {tenants.find(t => t.slug === selectedSlug)?.name || selectedSlug}</span>}
+        {selectedSlug && <span style={{ fontSize: 12, color: GENYX_BRAND, fontWeight: 600 }}>→ {tenants.find(t => t.slug === selectedSlug)?.name || selectedSlug}</span>}
       </div>
 
       {/* Vista de plataforma si no hay cliente seleccionado */}
@@ -975,7 +1010,7 @@ const TabAnalista = ({ tenants, orders, selectedSlug, setSelectedSlug }) => {
               <div style={{ display: 'flex', gap: 8, alignItems: 'flex-end', height: 80 }}>
                 {data.by_weekday.map((d, i) => (
                   <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
-                    <div style={{ width: '100%', background: 'linear-gradient(180deg, #6366f1, #4f46e5)', borderRadius: '4px 4px 0 0', height: `${(d.ingresos / Math.max(...data.by_weekday.map(x => x.ingresos), 1)) * 70}px`, minHeight: 4, transition: 'height 0.5s' }} />
+                    <div style={{ width: `100%`, background: `linear-gradient(180deg, ${GENYX_BRAND}, #4f46e5)`, borderRadius: `4px 4px 0 0`, height: `${(d.ingresos / Math.max(...data.by_weekday.map(x => x.ingresos), 1)) * 70}px`, minHeight: 4, transition: 'height 0.5s' }} />
                     <span style={{ fontSize: 9, color: '#64748b' }}>{d.dia.substring(0, 3)}</span>
                   </div>
                 ))}
@@ -1131,7 +1166,7 @@ const TabAgentes = ({ tenants }) => {
 // ═══════════════════════════════════════════════════════════════════════════════
 const BITACORA_TAGS = [
   { id: 'incidencia', label: '🚨 Incidencia', color: '#ef4444' },
-  { id: 'decision',   label: '🎯 Decisión',   color: '#6366f1' },
+  { id: 'decision',   label: '🎯 Decisión',   color: GENYX_BRAND },
   { id: 'cliente',    label: '🏢 Cliente',    color: '#22c55e' },
   { id: 'tecnico',    label: '⚙️ Técnico',    color: '#eab308' },
   { id: 'comercial',  label: '💼 Comercial',  color: '#c084fc' },
@@ -1556,12 +1591,12 @@ const TabExpedientes = ({ tenants }) => {
             return (
               <div key={id} onClick={() => selectClient(id)}
                 style={{ ...CARD, cursor: 'pointer',
-                  border: selected === id ? '1px solid #6366f1' : isGenyX ? '1px solid rgba(99,102,241,0.35)' : '1px solid rgba(255,255,255,0.07)',
+                  border: selected === id ? `1px solid ${GENYX_BRAND}` : isGenyX ? '1px solid rgba(99,102,241,0.35)' : '1px solid rgba(255,255,255,0.07)',
                   background: selected === id ? 'rgba(99,102,241,0.1)' : isGenyX ? 'rgba(99,102,241,0.05)' : undefined,
                   padding: '14px 16px', transition: 'all 0.15s' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
                   <div>
-                    <p style={{ ...MONO, fontSize: 9, color: isGenyX ? '#6366f1' : '#64748b', marginBottom: 3 }}>
+                    <p style={{ ...MONO, fontSize: 9, color: isGenyX ? GENYX_BRAND : '#64748b', marginBottom: 3 }}>
                       {isGenyX ? 'CLIENTE 000' : `CLIENTE ${String(i + 1).padStart(3, '0')}`}
                     </p>
                     <p style={{ fontWeight: 700, fontSize: 13, color: isGenyX ? '#a5b4fc' : '#f1f5f9' }}>{c.name || c.slug}</p>
@@ -1587,7 +1622,7 @@ const TabExpedientes = ({ tenants }) => {
             <div style={{ ...CARD, border: '1px solid rgba(99,102,241,0.3)', background: 'rgba(99,102,241,0.06)' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
                 <div>
-                  <p style={{ ...MONO, color: '#6366f1', fontSize: 9, marginBottom: 4 }}>EXPEDIENTE</p>
+                  <p style={{ ...MONO, color: GENYX_BRAND, fontSize: 9, marginBottom: 4 }}>EXPEDIENTE</p>
                   <h3 style={{ fontWeight: 800, fontSize: 16, color: '#a5b4fc' }}>{exp.name || exp.slug}</h3>
                   <p style={{ fontSize: 11, color: '#64748b', marginTop: 2 }}>{exp.industry || 'Sin clasificar'} · Inicio: {exp.startDate || '—'}</p>
                 </div>
@@ -1772,7 +1807,7 @@ const TabOnboarding = () => {
   const stepStyle = (n) => ({
     width: 28, height: 28, borderRadius: '50%', display: 'flex', alignItems: 'center',
     justifyContent: 'center', fontSize: 12, fontWeight: 700,
-    background: step >= n ? '#6366f1' : 'rgba(255,255,255,0.08)',
+    background: step >= n ? GENYX_BRAND : 'rgba(255,255,255,0.08)',
     color: step >= n ? '#fff' : '#475569', flexShrink: 0
   });
 
@@ -1814,7 +1849,7 @@ const TabOnboarding = () => {
               <div style={stepStyle(i + 1)}>{i + 1}</div>
               <span style={{ fontSize: 12, color: step === i + 1 ? '#a5b4fc' : '#475569', fontWeight: step === i + 1 ? 700 : 400 }}>{label}</span>
             </div>
-            {i < 2 && <div style={{ flex: 1, height: 1, background: step > i + 1 ? '#6366f1' : 'rgba(255,255,255,0.08)' }} />}
+            {i < 2 && <div style={{ flex: 1, height: 1, background: step > i + 1 ? GENYX_BRAND : 'rgba(255,255,255,0.08)' }} />}
           </React.Fragment>
         ))}
       </div>
@@ -2496,7 +2531,7 @@ function AdminLoginScreen({ onAuth }) {
       <div style={{ width: '100%', maxWidth: 420, padding: '0 24px', animation: 'fadeIn 0.4s ease' }}>
         {/* Logo + Brand */}
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
-          <div style={{ width: 52, height: 52, border: '2px solid #6366f1', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, fontWeight: 900, color: '#818cf8', marginBottom: 16, fontFamily: 'JetBrains Mono, monospace' }}>G</div>
+          <div style={{ width: 52, height: 52, border: `2px solid ${GENYX_BRAND}`, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, fontWeight: 900, color: '#818cf8', marginBottom: 16, fontFamily: 'JetBrains Mono, monospace' }}>G</div>
           <h1 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', letterSpacing: '.02em', margin: 0 }}>Geny<span style={{ color: '#818cf8' }}>X</span></h1>
           <p style={{ fontSize: 11, color: '#334155', fontFamily: 'JetBrains Mono, monospace', marginTop: 6, letterSpacing: '.08em' }}>CENTRO DE MANDO · TU OPERACIÓN COMERCIAL AUTÓNOMA</p>
         </div>
@@ -2506,12 +2541,12 @@ function AdminLoginScreen({ onAuth }) {
           <form onSubmit={handleSubmit}>
             <label style={{ fontSize: 11, color: '#64748b', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', display: 'block', marginBottom: 8 }}>Admin Key</label>
             <div style={{ position: 'relative', marginBottom: 20 }}>
-              <span style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', color: '#6366f1', fontFamily: 'monospace', fontSize: 14 }}>›</span>
+              <span style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', color: GENYX_BRAND, fontFamily: 'monospace', fontSize: 14 }}>›</span>
               <input
                 type="password" value={key} onChange={e => setKey(e.target.value)}
                 placeholder="Ingresa tu Admin Key…" autoFocus
                 style={{ width: '100%', padding: '12px 14px 12px 32px', background: '#060912', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 8, color: '#a5b4fc', fontSize: 13, fontFamily: 'JetBrains Mono, monospace', letterSpacing: 3, outline: 'none', boxSizing: 'border-box', transition: 'border-color 0.2s' }}
-                onFocus={e => e.target.style.borderColor = '#6366f1'}
+                onFocus={e => e.target.style.borderColor = GENYX_BRAND}
                 onBlur={e => e.target.style.borderColor = 'rgba(99,102,241,0.3)'}
               />
             </div>
@@ -2986,7 +3021,7 @@ function TabFotoLab({ slug, token }) {
   // ── Styles ─────────────────────────────────────────────────────────────────
   const SEL = { width: '100%', padding: '8px 10px', borderRadius: 8, border: '1px solid #d4c9be', fontSize: 13, background: '#faf8f5', color: '#44403c', appearance: 'none', WebkitAppearance: 'none' };
   const LBL = { fontSize: 11, fontWeight: 600, color: '#78716c', marginBottom: 4, display: 'block' };
-  const BTN_PRIMARY = { width: '100%', padding: '14px', borderRadius: 12, border: 'none', background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', color: '#fff', fontSize: 15, fontWeight: 700, cursor: 'pointer', letterSpacing: '.02em', transition: 'all 0.2s', opacity: loading ? 0.6 : 1 };
+  const BTN_PRIMARY = { width: `100%`, padding: `14px`, borderRadius: 12, border: `none`, background: `linear-gradient(135deg, ${GENYX_BRAND}, #8b5cf6)`, color: `#fff`, fontSize: 15, fontWeight: 700, cursor: `pointer`, letterSpacing: `.02em`, transition: 'all 0.2s', opacity: loading ? 0.6 : 1 };
   const CARD_S = { background: '#fff', borderRadius: 14, padding: 16, border: '1px solid #f0ebe4', marginBottom: 12 };
 
   return (
@@ -3001,7 +3036,7 @@ function TabFotoLab({ slug, token }) {
           <button key={p.id} onClick={() => setPreset(p.id)}
             style={{
               padding: '10px 6px', borderRadius: 10, cursor: 'pointer', fontSize: 11, fontWeight: 600, textAlign: 'center', transition: 'all .15s',
-              border: preset === p.id ? '2px solid #6366f1' : '1px solid #e7e0d8',
+              border: preset === p.id ? `2px solid ${GENYX_BRAND}` : '1px solid #e7e0d8',
               background: preset === p.id ? '#eef2ff' : '#fff',
               color: preset === p.id ? '#4f46e5' : '#78716c',
             }}>
@@ -3097,10 +3132,10 @@ function TabFotoLab({ slug, token }) {
       {/* ── Result ── */}
       {resultImg && (
         <div style={{ ...CARD_S, marginTop: 14, textAlign: 'center' }}>
-          <div style={{ fontSize: 12, fontWeight: 600, color: '#6366f1', marginBottom: 8 }}>✨ Resultado</div>
+          <div style={{ fontSize: 12, fontWeight: 600, color: GENYX_BRAND, marginBottom: 8 }}>✨ Resultado</div>
           <img src={resultImg.url} alt="Resultado IA" style={{ maxWidth: '100%', maxHeight: 400, borderRadius: 12, objectFit: 'contain', boxShadow: '0 4px 20px rgba(0,0,0,.12)' }} />
           <div style={{ display: 'flex', gap: 8, marginTop: 12, justifyContent: 'center' }}>
-            <button onClick={handleDownload} style={{ padding: '10px 20px', borderRadius: 10, border: '1px solid #6366f1', background: '#fff', color: '#6366f1', fontSize: 12, fontWeight: 600, cursor: 'pointer' }}>⬇️ Descargar</button>
+            <button onClick={handleDownload} style={{ padding: `10px 20px`, borderRadius: 10, border: `1px solid ${GENYX_BRAND}`, background: `#fff`, color: GENYX_BRAND, fontSize: 12, fontWeight: 600, cursor: 'pointer' }}>⬇️ Descargar</button>
             <button onClick={handleGenerate} disabled={loading} style={{ padding: '10px 20px', borderRadius: 10, border: '1px solid #d4c9be', background: '#fff', color: '#78716c', fontSize: 12, fontWeight: 600, cursor: 'pointer' }}>🔄 Regenerar</button>
           </div>
         </div>
@@ -3109,7 +3144,7 @@ function TabFotoLab({ slug, token }) {
       {/* ── Captions ── */}
       {captions && (
         <div style={{ ...CARD_S, marginTop: 14 }}>
-          <div style={{ fontSize: 12, fontWeight: 600, color: '#6366f1', marginBottom: 8 }}>📝 Captions para Redes</div>
+          <div style={{ fontSize: 12, fontWeight: 600, color: GENYX_BRAND, marginBottom: 8 }}>📝 Captions para Redes</div>
           {captions.split(/\n\n+|\d+\)/).filter(Boolean).map((c, i) => (
             <div key={i} style={{ padding: 12, background: '#faf8f5', borderRadius: 10, marginBottom: 8, fontSize: 13, color: '#44403c', lineHeight: 1.5, position: 'relative', whiteSpace: 'pre-wrap' }}>
               {c.trim()}
@@ -3844,7 +3879,7 @@ function TabLegalDocs({ slug, token }) {
                 <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
                   <span style={{ fontSize: 10, fontWeight: 700, color: st.color, background: st.bg, border: `1px solid ${st.border}`, padding: '3px 10px', borderRadius: 6, whiteSpace: 'nowrap', textTransform: 'uppercase', letterSpacing: '.05em' }}>{st.label}</span>
                   {needsSign && (
-                    <button onClick={e => { e.stopPropagation(); setSignDocSlug(doc.doc_slug); }} style={{ fontSize: 10, fontWeight: 700, color: '#fff', background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', border: 'none', padding: '4px 12px', borderRadius: 6, cursor: 'pointer', whiteSpace: 'nowrap' }}>Firmar</button>
+                    <button onClick={e => { e.stopPropagation(); setSignDocSlug(doc.doc_slug); }} style={{ fontSize: 10, fontWeight: 700, color: `#fff`, background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, border: `none`, padding: '4px 12px', borderRadius: 6, cursor: 'pointer', whiteSpace: 'nowrap' }}>Firmar</button>
                   )}
                   {!needsSign && (
                     <button onClick={e => { e.stopPropagation(); handleView(doc); }} style={{ fontSize: 10, fontWeight: 600, color: '#a5b4fc', background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.2)', padding: '4px 12px', borderRadius: 6, cursor: 'pointer', whiteSpace: 'nowrap' }}>Ver</button>
@@ -3898,13 +3933,13 @@ function TabLegalDocs({ slug, token }) {
               </div>
             </div>
             <label style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 16, cursor: 'pointer', padding: '10px 12px', background: signChecked ? 'rgba(99,102,241,0.06)' : 'transparent', borderRadius: 8, border: `1px solid ${signChecked ? 'rgba(99,102,241,0.2)' : 'rgba(255,255,255,0.06)'}`, transition: 'all .2s' }}>
-              <input type="checkbox" checked={signChecked} onChange={e => setSignChecked(e.target.checked)} style={{ marginTop: 2, accentColor: '#6366f1', width: 16, height: 16, cursor: 'pointer' }} />
+              <input type="checkbox" checked={signChecked} onChange={e => setSignChecked(e.target.checked)} style={{ marginTop: 2, accentColor: GENYX_BRAND, width: 16, height: 16, cursor: 'pointer' }} />
               <span style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.5 }}>He leído y acepto este documento legal.</span>
             </label>
             {signMsg && <p style={{ fontSize: 11, color: signMsg.startsWith('❌') ? '#f87171' : signMsg.startsWith('✅') ? '#4ade80' : '#fbbf24', marginBottom: 10 }}>{signMsg}</p>}
             <div style={{ display: 'flex', gap: 10 }}>
               <button onClick={() => { setSignDocSlug(null); setSignOtpWa(''); setSignOtpEmail(''); setSignChecked(false); setSignMsg(''); setSignOtpSent(false); setSignMasked(null); setSignCooldown(0); }} style={{ flex: 1, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#94a3b8', padding: '12px 16px', borderRadius: 10, fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>Cancelar</button>
-              <button onClick={handleSign} disabled={signSending || !signChecked || signOtpWa.length !== 6 || signOtpEmail.length !== 6} style={{ flex: 2, background: (signChecked && signOtpWa.length === 6 && signOtpEmail.length === 6) ? 'linear-gradient(135deg,#6366f1,#8b5cf6)' : 'rgba(99,102,241,0.2)', color: '#fff', padding: '12px 20px', borderRadius: 10, fontSize: 13, fontWeight: 700, border: 'none', cursor: (signChecked && signOtpWa.length === 6 && signOtpEmail.length === 6) ? 'pointer' : 'not-allowed', opacity: signSending ? 0.6 : 1 }}>
+              <button onClick={handleSign} disabled={signSending || !signChecked || signOtpWa.length !== 6 || signOtpEmail.length !== 6} style={{ flex: 2, background: (signChecked && signOtpWa.length === 6 && signOtpEmail.length === 6) ? `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)` : 'rgba(99,102,241,0.2)', color: '#fff', padding: '12px 20px', borderRadius: 10, fontSize: 13, fontWeight: 700, border: 'none', cursor: (signChecked && signOtpWa.length === 6 && signOtpEmail.length === 6) ? 'pointer' : 'not-allowed', opacity: signSending ? 0.6 : 1 }}>
                 {signSending ? 'Verificando...' : 'Firmar documento'}
               </button>
             </div>
@@ -4040,7 +4075,7 @@ function useTenantConfig(slug) {
         // Aplicar branding al documento (Phase 4.1)
         document.title = `${d.business_name || slug} — Centro de Mando`;
         const meta = document.getElementById('pwa-theme');
-        if (meta) meta.content = d.brand_color || '#6366f1';
+        if (meta) meta.content = d.brand_color || GENYX_BRAND;
       })
       .catch(e => {
         clearTimeout(timeout);
@@ -4162,7 +4197,7 @@ async function migrateExpedienteIfNeeded(slug, token) {
 function MandoClientView({ slug }) {
   // ── Tenant Config (Fase 3: multi-tenant dinámico)
   const { config, cfgLoading, cfgError } = useTenantConfig(slug);
-  const brandColor  = config?.brand_color || '#6366f1';
+  const brandColor  = config?.brand_color || `${GENYX_BRAND}`;
   const brandAccent = lighten(brandColor, 20);
   const tenantName  = config?.business_name || slug;
   const tenantLogo  = (config?.logo_url && config.logo_url.trim()) || null; // Empty string → null
@@ -4661,7 +4696,7 @@ if (!token) return (
                 <p style={{ fontSize: 11, color: '#94a3b8' }}>Toma 2 minutos. Tu operación sigue activa mientras revisas.</p>
               </div>
             </div>
-            <button onClick={() => setShowLegalModal(true)} style={{ background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', border: 'none', color: '#fff', padding: '8px 16px', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: 'pointer', whiteSpace: 'nowrap' }}>Revisar y aceptar</button>
+            <button onClick={() => setShowLegalModal(true)} style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, border: 'none', color: '#fff', padding: '8px 16px', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: 'pointer', whiteSpace: 'nowrap' }}>Revisar y aceptar</button>
           </div>
         </div>
       )}
@@ -4682,7 +4717,7 @@ if (!token) return (
             {/* P5: Diff visual — changelog con badge NUEVO */}
             <div style={{ background: 'rgba(99,102,241,0.05)', border: '1px solid rgba(99,102,241,0.15)', borderRadius: 12, padding: '16px', marginBottom: 16, maxHeight: 220, overflow: 'auto' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
-                <span style={{ fontSize: 9, fontWeight: 800, color: '#fff', background: '#6366f1', padding: '2px 8px', borderRadius: 6, textTransform: 'uppercase', letterSpacing: '.06em' }}>Nuevo</span>
+                <span style={{ fontSize: 9, fontWeight: 800, color: `#fff`, background: `${GENYX_BRAND}`, padding: `2px 8px`, borderRadius: 6, textTransform: 'uppercase', letterSpacing: '.06em' }}>Nuevo</span>
                 <span style={{ fontSize: 11, fontWeight: 700, color: '#a5b4fc' }}>Cláusula 7b — Delimitación de responsabilidad</span>
               </div>
               {legalStatus?.changelog_pending ? (
@@ -4733,7 +4768,7 @@ if (!token) return (
 
             {/* P1: Checkbox obligatorio */}
             <label style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 16, cursor: 'pointer', padding: '10px 12px', background: legalChecked ? 'rgba(99,102,241,0.06)' : 'transparent', borderRadius: 8, border: `1px solid ${legalChecked ? 'rgba(99,102,241,0.2)' : 'rgba(255,255,255,0.06)'}`, transition: 'all .2s' }}>
-              <input type="checkbox" checked={legalChecked} onChange={e => setLegalChecked(e.target.checked)} style={{ marginTop: 2, accentColor: '#6366f1', width: 16, height: 16, cursor: 'pointer' }} />
+              <input type="checkbox" checked={legalChecked} onChange={e => setLegalChecked(e.target.checked)} style={{ marginTop: 2, accentColor: `${GENYX_BRAND}`, width: 16, height: 16, cursor: 'pointer' }} />
               <span style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.5 }}>He leído y acepto la cláusula 7b de delimitación de responsabilidad incluida en la versión {legalStatus?.current_version || '5.1'} del contrato.</span>
             </label>
 
@@ -4744,7 +4779,7 @@ if (!token) return (
               <button onClick={() => { setShowLegalModal(false); setLegalChecked(false); setLegalMsg(''); setLegalOtpSent(false); setLegalOtpMasked(null); setLegalOtpWa(''); setLegalOtpEmail(''); setLegalOtpCooldown(0); setLegalOtpExpiry(null); }} style={{ flex: 1, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#94a3b8', padding: '12px 16px', borderRadius: 10, fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>
                 Cancelar
               </button>
-              <button onClick={handleLegalAccept} disabled={legalAccepting || !legalChecked || legalOtpWa.length !== 6 || legalOtpEmail.length !== 6} style={{ flex: 2, background: (legalChecked && legalOtpWa.length === 6 && legalOtpEmail.length === 6) ? 'linear-gradient(135deg,#6366f1,#8b5cf6)' : 'rgba(99,102,241,0.2)', color: '#fff', padding: '12px 20px', borderRadius: 10, fontSize: 13, fontWeight: 700, border: 'none', cursor: (legalChecked && legalOtpWa.length === 6 && legalOtpEmail.length === 6) ? 'pointer' : 'not-allowed', opacity: legalAccepting ? 0.6 : 1, transition: 'all .2s' }}>
+              <button onClick={handleLegalAccept} disabled={legalAccepting || !legalChecked || legalOtpWa.length !== 6 || legalOtpEmail.length !== 6} style={{ flex: 2, background: (legalChecked && legalOtpWa.length === 6 && legalOtpEmail.length === 6) ? `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)` : 'rgba(99,102,241,0.2)', color: '#fff', padding: '12px 20px', borderRadius: 10, fontSize: 13, fontWeight: 700, border: 'none', cursor: (legalChecked && legalOtpWa.length === 6 && legalOtpEmail.length === 6) ? 'pointer' : 'not-allowed', opacity: legalAccepting ? 0.6 : 1, transition: 'all .2s' }}>
                 {legalAccepting ? 'Verificando...' : 'Aceptar y firmar'}
               </button>
             </div>
@@ -5713,7 +5748,7 @@ if (!token) return (
               <p>• GenyX <b>no retiene fondos</b> de tus compradores; van directo a tu cuenta Stripe.</p>
               <p>• Puedes cancelar con 30 días de aviso a hola@genyxsystems.com.</p>
               <p>• Tus datos se tratan conforme a la <b>LFPDPPP</b>.</p>
-              <p style={{ marginTop: 8, fontSize: 11, color: '#6366f1' }}>
+              <p style={{ marginTop: 8, fontSize: 11, color: `${GENYX_BRAND}` }}>
                 Lee los documentos completos: <a href="/terminos" target="_blank" style={{ color: '#4f46e5' }}>Términos</a> · <a href="/privacidad" target="_blank" style={{ color: '#4f46e5' }}>Privacidad</a>
               </p>
             </div>
@@ -5743,7 +5778,7 @@ if (!token) return (
               }}
               style={{
                 width: '100%', padding: 14, borderRadius: 12, border: 'none',
-                background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', color: '#fff',
+                background: `linear-gradient(135deg, ${GENYX_BRAND}, #8b5cf6)`, color: '#fff',
                 fontSize: 15, fontWeight: 700, cursor: tcAccepting ? 'wait' : 'pointer',
                 opacity: tcAccepting ? 0.6 : 1, transition: 'all .2s',
               }}
@@ -5795,7 +5830,7 @@ function PWAInstallBanner() {
         <div style={{ color: '#fff', fontWeight: 700, fontSize: 13 }}>Instala GenyX</div>
         <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: 11 }}>Acceso rápido desde tu pantalla de inicio</div>
       </div>
-      <button onClick={install} style={{ background: '#fff', color: '#6366f1', border: 'none', borderRadius: 8, padding: '7px 16px', fontSize: 12, fontWeight: 700, cursor: 'pointer', flexShrink: 0 }}>Instalar</button>
+      <button onClick={install} style={{ background: `#fff`, color: `${GENYX_BRAND}`, border: `none`, borderRadius: 8, padding: '7px 16px', fontSize: 12, fontWeight: 700, cursor: 'pointer', flexShrink: 0 }}>Instalar</button>
       <button onClick={() => setDismissed(true)} style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.5)', cursor: 'pointer', fontSize: 16, padding: '2px 4px', flexShrink: 0 }}>×</button>
       <style>{`@keyframes slideUp { from { opacity:0; transform:translateY(20px) } to { opacity:1; transform:translateY(0) } }`}</style>
     </div>
@@ -5805,7 +5840,7 @@ function PWAInstallBanner() {
 // ── GenyX Concierge Web Widget (floating chat) ───────────────────────────
 function GenyXConciergeWidget() {
   const BURL = BACKEND;
-  const BC = '#6366f1', BD = '#4f46e5';
+  const BC = `${GENYX_BRAND}`, BD = '#4f46e5';
   const [open, setOpen] = React.useState(false);
   const [msgs, setMsgs] = React.useState([]);
   const [inp, setInp] = React.useState('');
@@ -5931,13 +5966,13 @@ function WhatsAppSimulator() {
       agents:['A3','A7'], logs:[{m:'A3 Ventas: catálogo presentado',c:'#4ade80'},{m:'A7 Analítica: consulta registrada',c:'#818cf8'}], delay:1500 },
     { trigger:/producto|quiero|dame|ordenar|pedir|2|uno|una/i,
       bot:'¡Excelente elección! 🎉 Tu pedido:\n\n• 2 × Producto A — $50\n• 1 × Producto E — $35\n\n💰 Total: $85\n\n¿Confirmamos? Te envío el link de pago 💳',
-      agents:['A3','A4','A7','A8'], logs:[{m:'A3 Ventas: orden — $85',c:'#4ade80'},{m:'A4 Cierre: link de pago',c:'#6366f1'},{m:'A7 Analítica: ticket → $85',c:'#818cf8'},{m:'A8 Finanzas: margen 62.3%',c:'#f59e0b'}], metrics:{orders:1,revenue:85}, delay:1800 },
+      agents:['A3','A4','A7',`A8`], logs:[{m:`A3 Ventas: orden — $85`,c:`#4ade80`},{m:`A4 Cierre: link de pago`,c:`${GENYX_BRAND}`},{m:`A7 Analítica: ticket → $85`,c:`#818cf8`},{m:`A8 Finanzas: margen 62.3%`,c:`#f59e0b`}], metrics:{orders:1,revenue:85}, delay:1800 },
     { trigger:/si|sí|confirmo|confirmar|pago|dale|ok/i,
       bot:'✅ ¡Pedido confirmado!\n\n💳 Link de pago generado.\n\nUna vez que pagues, te confirmo la hora de entrega. ¡Gracias! 🙌',
-      agents:['A4','A5','A6','A7','A8'], logs:[{m:'A4 Cierre: link generado',c:'#4ade80'},{m:'A5 Entrega: en cola',c:'#6366f1'},{m:'A6 Seguimiento: followup 24h',c:'#818cf8'},{m:'A8 Finanzas: P&L actualizado',c:'#f59e0b'}], metrics:{patterns:3}, delay:2200 },
+      agents:['A4','A5','A6','A7',`A8`], logs:[{m:`A4 Cierre: link generado`,c:`#4ade80`},{m:`A5 Entrega: en cola`,c:`${GENYX_BRAND}`},{m:`A6 Seguimiento: followup 24h`,c:`#818cf8`},{m:`A8 Finanzas: P&L actualizado`,c:`#f59e0b`}], metrics:{patterns:3}, delay:2200 },
     { trigger:/.*/,
       bot:'Gracias por probar el simulador. 😊 En producción, GenyX maneja todo en automático — 24/7.\n\n¿Te gustaría una demo para tu negocio?',
-      agents:['A3','A1','A2'], logs:[{m:'A1 Marketing: oportunidad de demo',c:'#4ade80'},{m:'A2 Captación: lead calificado',c:'#6366f1'}], delay:1500 },
+      agents:['A3','A1','A2'], logs:[{m:'A1 Marketing: oportunidad de demo',c:'#4ade80'},{m:'A2 Captación: lead calificado',c:`${GENYX_BRAND}`}], delay:1500 },
   ];
 
   const getTime = () => { const d=new Date(); return d.getHours().toString().padStart(2,'0')+':'+d.getMinutes().toString().padStart(2,'0'); };
@@ -5978,7 +6013,7 @@ function WhatsAppSimulator() {
     const on = activeAgents.has(ag.id), proc = processingAgents.has(ag.id);
     return (
       <div key={ag.id} title={ag.tip} style={{ background: on?'rgba(99,102,241,0.06)':proc?'rgba(129,140,248,0.08)':'rgba(6,9,18,0.6)', border:`1px solid ${on?'rgba(99,102,241,0.3)':proc?'rgba(129,140,248,0.4)':'rgba(255,255,255,0.04)'}`, borderRadius:12, padding:14, display:'flex', flexDirection:'column', alignItems:'center', gap:8, transition:'all .4s cubic-bezier(.4,0,.2,1)', animation:proc?'simAgPulse 1.5s infinite':'none', cursor:'help', position:'relative' }}>
-        <div style={{ width:42, height:42, borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', fontSize:11, fontWeight:800, background:on?'linear-gradient(135deg,#6366f1,#8b5cf6)':proc?'linear-gradient(135deg,#818cf8,#c084fc)':'rgba(255,255,255,0.05)', border:`2px solid ${on||proc?'transparent':'rgba(255,255,255,0.08)'}`, color:on||proc?'white':'#475569', boxShadow:on?'0 0 30px rgba(99,102,241,0.3)':proc?'0 0 30px rgba(129,140,248,0.3)':'none', transition:'all .4s' }}>{ag.id}</div>
+        <div style={{ width:42, height:42, borderRadius:`50%`, display:`flex`, alignItems:`center`, justifyContent:`center`, fontSize:11, fontWeight:800, background:on?`linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`:proc?`linear-gradient(135deg,#818cf8,#c084fc)`:`rgba(255,255,255,0.05)`, border:`2px solid ${on||proc?`transparent`:`rgba(255,255,255,0.08)`}`, color:on||proc?'white':'#475569', boxShadow:on?'0 0 30px rgba(99,102,241,0.3)':proc?'0 0 30px rgba(129,140,248,0.3)':'none', transition:'all .4s' }}>{ag.id}</div>
         <div style={{ fontSize:10, fontWeight:600, color:on||proc?'#f1f5f9':'#475569', textAlign:'center' }}>{ag.name}</div>
         <div style={{ fontSize:9, color:on?'#818cf8':'#475569', textAlign:'center', opacity:on?1:0.7 }}>{ag.role}</div>
         <div style={{ position:'absolute', top:4, right:6, fontSize:9, color:'#475569', opacity:0.6, cursor:'help' }}>ⓘ</div>
@@ -5990,7 +6025,7 @@ function WhatsAppSimulator() {
     <section style={{ position:'relative', padding:'80px 24px', maxWidth:1300, margin:'0 auto' }} id="simulador-inmersivo">
       <div style={{ textAlign:'center', marginBottom:48 }}>
         <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', textTransform:'uppercase', marginBottom:12 }}>SIMULADOR EN VIVO</div>
-        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:10, letterSpacing:'-1px', lineHeight:1.15 }}>Escribe un mensaje y observa<br/><span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>cómo operan tus 9 agentes en tiempo real.</span></h2>
+        <h2 style={{ fontSize:36, fontWeight:900, color:`#f1f5f9`, marginBottom:10, letterSpacing:`-1px`, lineHeight:1.15 }}>Escribe un mensaje y observa<br/><span style={{ background:`linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip:`text`, WebkitTextFillColor:`transparent` }}>cómo operan tus 9 agentes en tiempo real.</span></h2>
         <p style={{ color:'#94a3b8', fontSize:15, maxWidth:560, margin:'0 auto' }}>Esta es una simulación real de lo que GenyX hace con tu negocio. Cada mensaje activa agentes que procesan, ejecutan y generan tu briefing — en automático.</p>
       </div>
 
@@ -5998,7 +6033,7 @@ function WhatsAppSimulator() {
         {/* WA Panel */}
         <div style={{ background:'#111b21', borderRadius:16, border:'1px solid rgba(255,255,255,0.06)', display:'flex', flexDirection:'column', overflow:'hidden', boxShadow:'0 20px 60px rgba(0,0,0,0.4)' }}>
           <div style={{ display:'flex', alignItems:'center', gap:12, padding:'12px 16px', background:'#1f2c34', borderBottom:'1px solid rgba(255,255,255,0.06)' }}>
-            <div style={{ width:40, height:40, borderRadius:'50%', background:'linear-gradient(135deg,#312e81,#6366f1,#818cf8)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'1.1rem', fontWeight:700, color:'white' }}>G</div>
+            <div style={{ width:40, height:40, borderRadius:`50%`, background:`linear-gradient(135deg,#312e81,${GENYX_BRAND},#818cf8)`, display:`flex`, alignItems:'center', justifyContent:'center', fontSize:'1.1rem', fontWeight:700, color:'white' }}>G</div>
             <div><div style={{ fontSize:15, fontWeight:600, color:'#e9edef' }}>Tu Negocio</div><span style={{ fontSize:12, color:'#4ade80' }}>● en línea</span></div>
           </div>
           <div ref={chatRef} style={{ flex:1, padding:16, overflowY:'auto', display:'flex', flexDirection:'column', gap:6 }}>
@@ -6032,7 +6067,7 @@ function WhatsAppSimulator() {
           <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:1, background:'rgba(99,102,241,0.12)', borderTop:'1px solid rgba(99,102,241,0.12)' }}>
             {[['orders','Pedidos'],['revenue','Revenue'],['agents','Agentes activos'],['patterns','Patrones']].map(([k,l]) => (
               <div key={k} style={{ background:'rgba(6,9,18,0.8)', padding:'14px 16px', textAlign:'center' }}>
-                <div style={{ fontSize:'1.3rem', fontWeight:800, background:'linear-gradient(135deg,#6366f1,#818cf8)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>{k==='revenue'?`$${metrics[k].toLocaleString()}`:k==='agents'?`${metrics[k]}/8`:metrics[k]}</div>
+                <div style={{ fontSize:`1.3rem`, fontWeight:800, background:`linear-gradient(135deg,${GENYX_BRAND},#818cf8)`, WebkitBackgroundClip:`text`, WebkitTextFillColor:'transparent' }}>{k==='revenue'?`$${metrics[k].toLocaleString()}`:k==='agents'?`${metrics[k]}/8`:metrics[k]}</div>
                 <div style={{ fontSize:10, color:'#475569', fontWeight:500, textTransform:'uppercase', letterSpacing:'0.5px', marginTop:2 }}>{l}</div>
               </div>
             ))}
@@ -6071,7 +6106,7 @@ function DashboardPreview() {
     <section style={{ padding: '0 24px 100px', maxWidth: 900, margin: '0 auto' }}>
       <div style={{ textAlign: 'center', marginBottom: 40 }}>
         <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>TU CENTRO DE MANDO</div>
-        <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>Ve cada venta.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>En tiempo real.</span></h2>
+        <h2 style={{ fontSize: 36, fontWeight: 900, color: `#f1f5f9`, marginBottom: 10 }}>Ve cada venta.<br /><span style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip: `text`, WebkitTextFillColor: 'transparent' }}>En tiempo real.</span></h2>
         <p style={{ color: '#64748b', fontSize: 14, maxWidth: 460, margin: '0 auto' }}>Pedidos, ingresos, clientes y métricas — desde tu celular o computadora. Sin instalar nada.</p>
       </div>
       <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(99,102,241,0.3)', boxShadow: '0 32px 80px rgba(99,102,241,0.15), 0 0 0 1px rgba(99,102,241,0.1)' }}>
@@ -6231,7 +6266,7 @@ function BlogLayout({ children, post, allPosts }) {
         <div style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
           <a href="/blog" style={{ color: '#818cf8', fontSize: 13, textDecoration: 'none', fontWeight: 600 }}>Blog</a>
           <a href="/por-que-aoaas" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>AOaaS</a>
-          <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, leí el blog AOaaS")}`} style={{ background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '8px 20px', borderRadius: 10, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>Contacto →</a>
+          <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, leí el blog AOaaS")}`} style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: '#fff', padding: '8px 20px', borderRadius: 10, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>Contacto →</a>
         </div>
       </nav>
       <article style={{ maxWidth: 720, margin: '0 auto', padding: '140px 24px 80px' }}>
@@ -6284,7 +6319,7 @@ const B = {
   h2: { fontSize: 24, fontWeight: 800, color: '#f1f5f9', marginTop: 48, marginBottom: 16 },
   h3: { fontSize: 18, fontWeight: 700, color: '#e2e8f0', marginTop: 32, marginBottom: 12 },
   src: { fontSize: 11, color: '#475569', fontStyle: 'italic' },
-  srcLink: { color: '#6366f1', textDecoration: 'none' },
+  srcLink: { color: `${GENYX_BRAND}`, textDecoration: 'none' },
   card: { background: 'rgba(99,102,241,0.04)', border: '1px solid rgba(99,102,241,0.12)', borderRadius: 16, padding: '24px 20px', marginBottom: 20 },
   toc: { background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 12, padding: '16px 20px', marginBottom: 32 },
 };
@@ -6585,7 +6620,7 @@ function WhitepaperPage() {
         {/* Left: Copy */}
         <div>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 30, padding: '5px 16px', marginBottom: 20, fontSize: 10, fontWeight: 800, color: '#818cf8', letterSpacing: '.12em', textTransform: 'uppercase' }}>
-            <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#6366f1', display: 'inline-block' }} />
+            <span style={{ width: 5, height: 5, borderRadius: `50%`, background: `${GENYX_BRAND}`, display: `inline-block` }} />
             WHITEPAPER TÉCNICO
           </div>
           <h1 style={{ fontSize: 44, fontWeight: 900, lineHeight: 1.1, marginBottom: 20 }}>
@@ -6655,7 +6690,7 @@ function WhitepaperPage() {
                       onFocus={e => e.target.style.borderColor = 'rgba(99,102,241,0.5)'} onBlur={e => e.target.style.borderColor = error ? 'rgba(239,68,68,0.5)' : 'rgba(99,102,241,0.2)'} />
                     {error && <p style={{ fontSize: 11, color: '#f87171', marginTop: 4 }}>{error}</p>}
                   </div>
-                  <button type="submit" style={{ width: '100%', background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '14px 24px', borderRadius: 12, fontSize: 15, fontWeight: 700, border: 'none', cursor: 'pointer', boxShadow: '0 0 32px rgba(99,102,241,0.25)', transition: 'transform 0.15s' }}
+                  <button type="submit" style={{ width: `100%`, background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: `#fff`, padding: '14px 24px', borderRadius: 12, fontSize: 15, fontWeight: 700, border: 'none', cursor: 'pointer', boxShadow: '0 0 32px rgba(99,102,241,0.25)', transition: 'transform 0.15s' }}
                     onMouseOver={e => e.target.style.transform = 'translateY(-1px)'}
                     onMouseOut={e => e.target.style.transform = 'translateY(0)'}>
                     Quiero el whitepaper →
@@ -6731,7 +6766,7 @@ function PorQueAOaaSPage() {
     strong: { color: '#f1f5f9', fontWeight: 700 },
     gradient: { background: 'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
     source: { fontSize: 11, color: '#475569', fontStyle: 'italic', marginTop: 12 },
-    srcLink: { color: '#6366f1', textDecoration: 'none' },
+    srcLink: { color: `${GENYX_BRAND}`, textDecoration: 'none' },
     divider: { height: 1, background: 'linear-gradient(90deg, transparent, rgba(99,102,241,0.25), transparent)', margin: '0 auto', maxWidth: 200 },
   };
 
@@ -6774,14 +6809,14 @@ function PorQueAOaaSPage() {
         </a>
         <div style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
           <a href="/por-que-ahora" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>Por qué ahora</a>
-          <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, leí el manifesto AOaaS y quiero saber más")}`} style={{ background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '8px 20px', borderRadius: 10, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>Hablar con el fundador →</a>
+          <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, leí el manifesto AOaaS y quiero saber más")}`} style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: '#fff', padding: '8px 20px', borderRadius: 10, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>Hablar con el fundador →</a>
         </div>
       </nav>
 
       {/* ═══ §1 — Lead (above the fold) ═══ */}
       <section style={S.hero}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.35)', borderRadius: 30, padding: '6px 20px', marginBottom: 20, fontSize: 10, fontWeight: 800, color: '#818cf8', letterSpacing: '.14em', textTransform: 'uppercase' }}>
-          <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#6366f1', display: 'inline-block', boxShadow: '0 0 10px #6366f1' }} />
+          <span style={{ width: 6, height: 6, borderRadius: `50%`, background: `${GENYX_BRAND}`, display: `inline-block`, boxShadow: `0 0 10px ${GENYX_BRAND}` }} />
           MANIFESTO — CATEGORÍA NUEVA
         </div>
         <h1 style={{ fontSize: 56, fontWeight: 900, color: '#f1f5f9', lineHeight: 1.08, maxWidth: 700, marginBottom: 24 }}>
@@ -6792,14 +6827,14 @@ function PorQueAOaaSPage() {
           No es AaaS. No es uno más.<br />
           Es una categoría nueva por diferenciación técnica real.
         </p>
-        <div style={{ width: 48, height: 2, background: 'linear-gradient(90deg,#6366f1,#c084fc)', borderRadius: 2, margin: '40px auto 0' }} />
+        <div style={{ width: 48, height: 2, background: `linear-gradient(90deg,${GENYX_BRAND},#c084fc)`, borderRadius: 2, margin: '40px auto 0' }} />
       </section>
 
       {/* ═══ §2 — Definición operativa ═══ */}
       <section style={S.section}>
         <div id="que-es" style={S.label}>§1 · DEFINICIÓN OPERATIVA</div>
         <div style={{ ...S.card, background: 'rgba(99,102,241,0.06)', borderColor: 'rgba(99,102,241,0.25)' }}>
-          <blockquote style={{ margin: 0, padding: '0 0 0 20px', borderLeft: '3px solid #6366f1' }}>
+          <blockquote style={{ margin: 0, padding: '0 0 0 20px', borderLeft: `3px solid ${GENYX_BRAND}` }}>
             <p style={{ ...S.p, fontSize: 17, lineHeight: 2.0, color: '#e2e8f0' }}>
               <span style={S.strong}>AOaaS</span> (Agent Operations as a Service) — Sistema operativo de agentes orquestados que ejecutan una <span style={S.strong}>operación comercial completa</span> (no función única), con <span style={S.strong}>governance interna</span> (REGLAs 1-13 + cláusula 7b) y <span style={S.strong}>trazabilidad legal</span> (3 hashes SHA256 + audit log inmutable).
             </p>
@@ -6951,7 +6986,7 @@ function PorQueAOaaSPage() {
             Si operas un negocio y quieres implementar tu operación comercial autónoma — hablemos.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="/whitepaper" style={{ background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '14px 32px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 32px rgba(99,102,241,0.25)' }}>📄 Lee el whitepaper técnico</a>
+            <a href="/whitepaper" style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: '#fff', padding: '14px 32px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 32px rgba(99,102,241,0.25)' }}>📄 Lee el whitepaper técnico</a>
             <a href="/por-que-ahora#agentes" style={{ background: 'rgba(255,255,255,0.05)', color: '#a5b4fc', padding: '14px 32px', borderRadius: 12, fontSize: 14, fontWeight: 600, textDecoration: 'none', border: '1px solid rgba(99,102,241,0.2)' }}>Conoce los 9 agentes →</a>
           </div>
           <div style={{ marginTop: 20 }}>
@@ -6967,7 +7002,7 @@ function PorQueAOaaSPage() {
           <p style={{ fontSize: 14, color: '#94a3b8', marginBottom: 20, lineHeight: 1.6 }}>Recibe análisis mensual sobre la evolución de Agent Operations. Sin spam. Solo datos verificados.</p>
           <form onSubmit={e => { e.preventDefault(); const email = e.target.email.value; if (email) { fetch('https://api.genyxsystems.com/api/newsletter-subscribe', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({email, source: 'manifesto_aoaas'}) }).catch(() => {}); e.target.email.value = ''; e.target.querySelector('button').textContent = '✅ Suscrito'; } }} style={{ display: 'flex', gap: 8, maxWidth: 420, margin: '0 auto' }}>
             <input name="email" type="email" required placeholder="tu@email.com" style={{ flex: 1, padding: '10px 16px', borderRadius: 10, border: '1px solid rgba(99,102,241,0.2)', background: 'rgba(15,23,42,0.5)', color: '#e2e8f0', fontSize: 13, outline: 'none' }} />
-            <button type="submit" style={{ padding: '10px 20px', borderRadius: 10, border: 'none', background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', fontSize: 12, fontWeight: 700, cursor: 'pointer', whiteSpace: 'nowrap' }}>Suscribirme →</button>
+            <button type="submit" style={{ padding: `10px 20px`, borderRadius: 10, border: `none`, background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: `#fff`, fontSize: 12, fontWeight: 700, cursor: `pointer`, whiteSpace: 'nowrap' }}>Suscribirme →</button>
           </form>
           <p style={{ fontSize: 9, color: '#475569', marginTop: 10 }}>Prometemos solo contenido valioso. Puedes cancelar en cualquier momento.</p>
         </div>
@@ -7006,7 +7041,7 @@ function PorQueAhoraPage() {
     source: { fontSize: 11, color: '#64748b', fontStyle: 'italic', marginTop: 8 },
     sourceLink: { color: '#818cf8', textDecoration: 'none' },
     stat: { display: 'flex', gap: 16, alignItems: 'center', padding: '16px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' },
-    statVal: { fontSize: 32, fontWeight: 900, background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', minWidth: 120, textAlign: 'right' },
+    statVal: { fontSize: 32, fontWeight: 900, background: `linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', minWidth: 120, textAlign: 'right' },
     statDesc: { fontSize: 14, color: '#94a3b8', lineHeight: 1.6 },
     highlight: { color: '#f1f5f9', fontWeight: 700 },
     gradient: { background: 'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
@@ -7022,7 +7057,7 @@ function PorQueAhoraPage() {
         </a>
         <div style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
           <a href="/" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>← Inicio</a>
-          <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, quiero saber más sobre GenyX")}`} style={{ background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '8px 20px', borderRadius: 10, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>Hablar con GenyX →</a>
+          <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, quiero saber más sobre GenyX")}`} style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: '#fff', padding: '8px 20px', borderRadius: 10, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>Hablar con GenyX →</a>
         </div>
       </nav>
 
@@ -7233,7 +7268,7 @@ function PorQueAhoraPage() {
             <span style={C.gradient}>operación comercial autónoma?</span>
           </h2>
           <p style={{ color: '#64748b', fontSize: 15, marginBottom: 28 }}>En 15 minutos te decimos qué plan se ajusta a tu negocio — sin compromiso.</p>
-          <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, vi los datos de mercado y quiero saber más sobre GenyX")}`} style={{ display: 'inline-block', background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '14px 36px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 28px rgba(99,102,241,0.3)' }}>Hablar con GenyX →</a>
+          <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, vi los datos de mercado y quiero saber más sobre GenyX")}`} style={{ display: `inline-block`, background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: `#fff`, padding: '14px 36px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 28px rgba(99,102,241,0.3)' }}>Hablar con GenyX →</a>
           <div style={{ marginTop: 16, display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="/" style={{ color: '#818cf8', fontSize: 13, textDecoration: 'none' }}>← Volver al inicio</a>
             <a href="/whitepaper" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>📄 Lee el whitepaper completo</a>
@@ -7452,7 +7487,7 @@ function PlanesPage() {
         <div style={{ textAlign: 'center', marginTop: 32, padding: '40px 24px', background: 'linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.06))', borderRadius: 20, border: '1px solid rgba(99,102,241,0.2)' }}>
           <h2 style={{ fontSize: 28, fontWeight: 900, color: '#f1f5f9', marginBottom: 12 }}>¿Cuál es el plan para tu negocio?</h2>
           <p style={{ color: '#64748b', fontSize: 14, marginBottom: 24 }}>En 15 minutos te decimos qué plan se ajusta a tu operación — sin compromiso.</p>
-          <a href={`${GENYX_CONTACT.sales_url}&body=${encodeURIComponent("Hola, quiero saber qué plan de GenyX es para mi negocio")}`} style={{ display: 'inline-block', background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '14px 36px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 28px rgba(99,102,241,0.3)' }}>Hablar con GenyX →</a>
+          <a href={`${GENYX_CONTACT.sales_url}&body=${encodeURIComponent("Hola, quiero saber qué plan de GenyX es para mi negocio")}`} style={{ display: `inline-block`, background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: `#fff`, padding: '14px 36px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 28px rgba(99,102,241,0.3)' }}>Hablar con GenyX →</a>
           <div style={{ marginTop: 16 }}><a href="/" style={{ color: '#818cf8', fontSize: 13, textDecoration: 'none' }}>← Volver al inicio</a></div>
         </div>
 
@@ -7705,7 +7740,7 @@ function MandoSimulator() {
         <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>CENTRO DE MANDO</div>
         <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10, lineHeight: 1.2 }}>
           Y tú, ¿qué ves?<br />
-          <span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+          <span style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
             Tu Centro de Mando te lo muestra.
           </span>
         </h2>
@@ -7919,7 +7954,7 @@ function MandoSimulator() {
       {/* ── Caption ── */}
       <div style={{ textAlign: 'center', marginTop: 40 }}>
         <p style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', marginBottom: 8 }}>
-          Tu operación completa. <span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>En tu bolsillo.</span>
+          Tu operación completa. <span style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>En tu bolsillo.</span>
         </p>
         <p style={{ fontSize: 13, color: '#64748b', maxWidth: 400, margin: '0 auto', lineHeight: 1.6 }}>
           Cada mañana tu Centro de Mando consolida la información de los 9 agentes en un briefing — sin que tengas que abrir tu computadora.
@@ -7987,12 +8022,12 @@ function SimuladorGenyX() {
     wrap: { padding:'80px 24px', maxWidth:960, margin:'0 auto' },
     label: { fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12, textAlign:'center' },
     h2: { fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:10, textAlign:'center', lineHeight:1.2 },
-    h2a: { background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' },
+    h2a: { background:`linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' },
     sub: { color:'#64748b', fontSize:14, textAlign:'center', maxWidth:520, margin:'0 auto 32px' },
     card: { background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.07)', borderRadius:16, padding:'24px 20px', cursor:'pointer', transition:'all .25s', textAlign:'center' },
     cardHover: { borderColor:'rgba(99,102,241,0.5)', background:'rgba(99,102,241,0.08)', transform:'translateY(-3px)' },
     cardOff: { borderColor:'rgba(255,255,255,0.07)', background:'rgba(255,255,255,0.03)', transform:'translateY(0)' },
-    btn: { background:'linear-gradient(135deg,#6366f1,#8b5cf6)', color:'#fff', padding:'14px 32px', borderRadius:12, fontSize:14, fontWeight:700, border:'none', cursor:'pointer', boxShadow:'0 0 28px rgba(99,102,241,0.3)' },
+    btn: { background:`linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color:'#fff', padding:'14px 32px', borderRadius:12, fontSize:14, fontWeight:700, border:'none', cursor:'pointer', boxShadow:'0 0 28px rgba(99,102,241,0.3)' },
     btn2: { background:'transparent', border:'1px solid rgba(99,102,241,0.5)', color:'#818cf8', padding:'12px 28px', borderRadius:12, fontSize:14, fontWeight:700, cursor:'pointer' },
     priv: { background:'rgba(74,222,128,0.08)', border:'1px solid rgba(74,222,128,0.25)', borderRadius:12, padding:'10px 16px', fontSize:12, color:'#4ade80', textAlign:'center', marginBottom:24 },
   };
@@ -8015,7 +8050,7 @@ function SimuladorGenyX() {
             </div>
             <input type="range" min={f.min} max={f.max} value={inputs[f.key]||f.def}
               onChange={e => setInputs(p => ({...p, [f.key]: Number(e.target.value)}))}
-              style={{ width:'100%', accentColor:'#6366f1' }} />
+              style={{ width:'100%', accentColor:`${GENYX_BRAND}` }} />
           </div>
         ))}
         {/* Loss slider */}
@@ -8026,7 +8061,7 @@ function SimuladorGenyX() {
           </div>
           <input type="range" min={0} max={3} value={SIM_LOSS_LABELS.indexOf(loss)}
             onChange={e => setLoss(SIM_LOSS_LABELS[Number(e.target.value)])}
-            style={{ width:'100%', accentColor:'#6366f1' }} />
+            style={{ width:'100%', accentColor:`${GENYX_BRAND}` }} />
           <div style={{ display:'flex', justifyContent:'space-between', fontSize:11, color:'#475569', marginTop:4 }}>
             {SIM_LOSS_LABELS.map(l => <span key={l}>{l}</span>)}
           </div>
@@ -8062,7 +8097,7 @@ function SimuladorGenyX() {
         <div style={{ textAlign:'center', marginBottom:20 }}>
           <div style={{ fontSize:48, fontWeight:900, color:'#818cf8', fontFamily:'monospace' }}>{simTime(simTime2)}</div>
           <div style={{ height:4, background:'rgba(255,255,255,0.06)', borderRadius:4, marginTop:8, maxWidth:400, margin:'8px auto' }}>
-            <div style={{ height:4, background:'linear-gradient(90deg,#6366f1,#c084fc)', borderRadius:4, width:`${progress*100}%`, transition:'width .08s' }} />
+            <div style={{ height:4, background:`linear-gradient(90deg,${GENYX_BRAND},#c084fc)`, borderRadius:4, width:`${progress*100}%`, transition:'width .08s' }} />
           </div>
           <div style={{ fontSize:11, color:'#475569', marginTop:6 }}>Viernes — Simulación de un día completo</div>
         </div>
@@ -8224,7 +8259,7 @@ function LandingAuthGate({ children }) {
   return (
     <div style={{ minHeight: '100vh', background: '#050508', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Inter', sans-serif" }}>
       <div style={{ textAlign: 'center', maxWidth: 380, padding: '40px 32px' }}>
-        <div style={{ width: 56, height: 56, border: '2px solid #6366f1', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, fontWeight: 900, color: '#818cf8', margin: '0 auto 24px', borderRadius: 12 }}>G</div>
+        <div style={{ width: 56, height: 56, border: `2px solid ${GENYX_BRAND}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, fontWeight: 900, color: '#818cf8', margin: '0 auto 24px', borderRadius: 12 }}>G</div>
         <h1 style={{ color: '#f1f5f9', fontSize: 24, fontWeight: 800, marginBottom: 8, letterSpacing: '-0.5px' }}>GenyX</h1>
         <p style={{ color: '#475569', fontSize: 13, marginBottom: 32, lineHeight: 1.6 }}>Acceso restringido.<br />Ingresa tu clave para continuar.</p>
         <form onSubmit={handleSubmit}>
@@ -8245,7 +8280,7 @@ function LandingAuthGate({ children }) {
           <button type="submit" disabled={checking || !pw}
             style={{
               width: '100%', padding: '14px 24px', borderRadius: 12, border: 'none', cursor: 'pointer',
-              background: pw ? 'linear-gradient(135deg, #6366f1, #8b5cf6)' : 'rgba(255,255,255,0.06)',
+              background: pw ? `linear-gradient(135deg, ${GENYX_BRAND}, #8b5cf6)` : 'rgba(255,255,255,0.06)',
               color: pw ? '#fff' : '#475569', fontSize: 14, fontWeight: 700, transition: 'all 0.2s',
               boxShadow: pw ? '0 0 28px rgba(99,102,241,0.25)' : 'none',
             }}
@@ -8290,19 +8325,19 @@ function GenyXLandingPage() {
     page: { fontFamily: "'Inter', sans-serif", background: '#050508', color: '#f0f0f5', minHeight: '100vh', overflowX: 'hidden' },
     nav: { position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 100, boxSizing: 'border-box', background: scrolled ? 'rgba(5,5,8,0.96)' : 'transparent', backdropFilter: scrolled ? 'blur(14px)' : 'none', borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : 'none', transition: 'all 0.3s ease', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 48px' },
     logo: { display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' },
-    logoBox: { width: 32, height: 32, border: '2px solid #6366f1', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 800, color: '#818cf8' },
+    logoBox: { width: 32, height: 32, border: `2px solid ${GENYX_BRAND}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 800, color: '#818cf8' },
     logoText: { fontWeight: 800, fontSize: 15, color: '#fff', letterSpacing: '-0.3px' },
     navLinks: { display: 'flex', gap: 32, alignItems: 'center' },
     navLink: { color: '#64748b', fontSize: 13, textDecoration: 'none' },
-    demoCta: { background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', color: '#fff', padding: '8px 22px', borderRadius: 8, fontSize: 13, fontWeight: 600, textDecoration: 'none', boxShadow: '0 0 20px rgba(99,102,241,0.3)' },
+    demoCta: { background: `linear-gradient(135deg, ${GENYX_BRAND}, #8b5cf6)`, color: '#fff', padding: '8px 22px', borderRadius: 8, fontSize: 13, fontWeight: 600, textDecoration: 'none', boxShadow: '0 0 20px rgba(99,102,241,0.3)' },
     hero: { minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', textAlign: 'center', padding: '120px 24px 80px', position: 'relative' },
     badge: { display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 20, padding: '6px 18px', marginBottom: 32, fontSize: 12, color: '#818cf8', fontWeight: 600, letterSpacing: '.06em' },
-    dot: { width: 6, height: 6, borderRadius: '50%', background: '#6366f1', display: 'inline-block' },
+    dot: { width: 6, height: 6, borderRadius: '50%', background: GENYX_BRAND, display: 'inline-block' },
     h1: { fontSize: 'clamp(42px, 7vw, 86px)', fontWeight: 800, lineHeight: 1.05, marginBottom: 24, letterSpacing: '-2.5px', background: 'linear-gradient(135deg, #fff 0%, #94a3b8 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
-    h1accent: { background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
+    h1accent: { background: `linear-gradient(135deg, ${GENYX_BRAND}, #8b5cf6)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
     sub: { fontSize: 18, color: '#64748b', maxWidth: 520, lineHeight: 1.7, marginBottom: 52 },
     btns: { display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center' },
-    primary: { background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', color: '#fff', padding: '15px 34px', borderRadius: 12, fontSize: 15, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 36px rgba(99,102,241,0.35)' },
+    primary: { background: `linear-gradient(135deg, ${GENYX_BRAND}, #8b5cf6)`, color: '#fff', padding: '15px 34px', borderRadius: 12, fontSize: 15, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 36px rgba(99,102,241,0.35)' },
     secondary: { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)', color: '#e2e8f0', padding: '15px 34px', borderRadius: 12, fontSize: 15, fontWeight: 600, textDecoration: 'none' },
     stats: { padding: '0 24px 100px', maxWidth: 960, margin: '0 auto' },
     statsGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 20, overflow: 'hidden' },
@@ -8325,7 +8360,7 @@ function GenyXLandingPage() {
     ctaBox: { maxWidth: 560, margin: '0 auto', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 24, padding: '56px 40px' },
     ctaH: { fontSize: 36, fontWeight: 800, marginBottom: 16, letterSpacing: '-1px' },
     ctaSub: { color: '#64748b', marginBottom: 40, lineHeight: 1.7 },
-    ctaBtn: { display: 'block', background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', color: '#fff', padding: '16px 32px', borderRadius: 12, fontSize: 15, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 32px rgba(99,102,241,0.3)' },
+    ctaBtn: { display: `block`, background: `linear-gradient(135deg, ${GENYX_BRAND}, #8b5cf6)`, color: `#fff`, padding: '16px 32px', borderRadius: 12, fontSize: 15, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 32px rgba(99,102,241,0.3)' },
     footer: { borderTop: '1px solid rgba(255,255,255,0.06)', padding: '32px 48px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 },
     ftrBrand: { fontSize: 13, color: '#475569', fontWeight: 700 },
     ftrLinks: { display: 'flex', gap: 24 },
@@ -8351,7 +8386,7 @@ function GenyXLandingPage() {
       <section style={C.hero}>
         {/* Hero Badge */}
         <a href="/por-que-aoaas" style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(99,102,241,0.12)', border:'1px solid rgba(99,102,241,0.4)', borderRadius:30, padding:'6px 20px', marginBottom:14, fontSize:11, fontWeight:800, color:'#818cf8', letterSpacing:'.1em', textTransform:'uppercase', textDecoration:'none', transition:'border-color 0.2s' }}>
-          <span style={{ width:6, height:6, borderRadius:'50%', background:'#6366f1', display:'inline-block', boxShadow:'0 0 8px #6366f1' }} />
+          <span style={{ width:6, height:6, borderRadius:'50%', background:GENYX_BRAND, display:'inline-block', boxShadow:`0 0 8px ${GENYX_BRAND}` }} />
           AOaaS — TU OPERACIÓN COMERCIAL AUTÓNOMA
         </a>
         <div style={C.badge}><span style={C.dot} />Marketing · Captación · Venta · Cierre · Entrega · Seguimiento · Analítica · Finanzas · Dirección Ejecutiva</div>
@@ -8383,7 +8418,7 @@ function GenyXLandingPage() {
       <section style={{ padding: '0 24px 100px', maxWidth: 720, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>LA OPORTUNIDAD AOaaS</div>
-          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>Cada conversación es una venta.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Y tus datos lo demuestran.</span></h2>
+          <h2 style={{ fontSize: 36, fontWeight: 900, color: `#f1f5f9`, marginBottom: 10 }}>Cada conversación es una venta.<br /><span style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip: `text`, WebkitTextFillColor: 'transparent' }}>Y tus datos lo demuestran.</span></h2>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
           <p style={{ color: '#94a3b8', fontSize: 16, lineHeight: 1.9 }}>Con GenyX, <strong style={{ color: '#f1f5f9' }}>tu negocio siempre es el primero en responder</strong> — en segundos, 24/7. Cada conversación atendida es una oportunidad que no se pierde.</p>
@@ -8399,7 +8434,7 @@ function GenyXLandingPage() {
       <section id="agentes" style={{ padding: '0 24px 100px', maxWidth: 1000, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>AOaaS — TU OPERACIÓN COMERCIAL AUTÓNOMA</div>
-          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>9 agentes de IA.<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Configurados para tu negocio.</span></h2>
+          <h2 style={{ fontSize: 36, fontWeight: 900, color: `#f1f5f9`, marginBottom: 10 }}>9 agentes de IA.<br /><span style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip: `text`, WebkitTextFillColor: 'transparent' }}>Configurados para tu negocio.</span></h2>
           <p style={{ color: '#64748b', fontSize: 14, maxWidth: 560, margin: '0 auto' }}>Cada agente se encarga de una función clave. Trabajan juntos, comparten información y operan 24/7 — configurados con las reglas de tu negocio.</p>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
@@ -8458,7 +8493,7 @@ function GenyXLandingPage() {
                 </div>
                 <div style={{ fontSize:16, fontWeight:800, color:'#f1f5f9', marginBottom:6 }}>{title}</div>
                 <div style={{ fontSize:13, color:'#94a3b8', lineHeight:1.7, marginBottom:10 }}>{desc}</div>
-                <div style={{ fontSize:10, color:'#6366f1', fontWeight:600, letterSpacing:'.03em' }}>{agents}</div>
+                <div style={{ fontSize:10, color:GENYX_BRAND, fontWeight:600, letterSpacing:'.03em' }}>{agents}</div>
               </div>
             ))}
           </div>
@@ -8479,7 +8514,7 @@ function GenyXLandingPage() {
       <section style={{ padding: '0 24px 100px', maxWidth: 800, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>EL DIFERENCIADOR</div>
-          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>Mientras más tiempo trabaja contigo,<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>mejores son sus recomendaciones.</span></h2>
+          <h2 style={{ fontSize: 36, fontWeight: 900, color: `#f1f5f9`, marginBottom: 10 }}>Mientras más tiempo trabaja contigo,<br /><span style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip: `text`, WebkitTextFillColor: 'transparent' }}>mejores son sus recomendaciones.</span></h2>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
           {[
@@ -8509,7 +8544,7 @@ function GenyXLandingPage() {
       <section style={{ padding: '0 24px 100px', maxWidth: 720, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>EL REPORTE DEL LUNES</div>
-          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>Cada lunes a las 5am,<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>tu reporte</span></h2>
+          <h2 style={{ fontSize: 36, fontWeight: 900, color: `#f1f5f9`, marginBottom: 10 }}>Cada lunes a las 5am,<br /><span style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip: `text`, WebkitTextFillColor: 'transparent' }}>tu reporte</span></h2>
           <p style={{ color: '#64748b', fontSize: 15, maxWidth: 520, margin: '0 auto' }}>Esto es exactamente lo que vas a recibir — con TUS números reales.</p>
         </div>
         {/* Email mock-up */}
@@ -8525,10 +8560,10 @@ function GenyXLandingPage() {
             <p style={{ marginBottom: 16 }}>Hola <span style={{ color: '#94a3b8' }}>[Tu nombre]</span>,</p>
             <p style={{ marginBottom: 20 }}>Esta semana procesaste <strong style={{ color: '#94a3b8' }}>[X pedidos/citas/leads]</strong>. <strong style={{ color: '#94a3b8' }}>[$X MXN]</strong> en ventas. Margen promedio: <strong style={{ color: '#94a3b8' }}>[X%]</strong>.</p>
             <div style={{ background: '#f8fafc', borderRadius: 12, padding: '16px 20px', marginBottom: 20, display: 'flex', flexDirection: 'column', gap: 10 }}>
-              <div><strong style={{ color:'#6366f1' }}>▎</strong> <strong>Tu producto o servicio estrella</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ cuánto vendió y a qué margen</span></div>
-              <div><strong style={{ color:'#6366f1' }}>▎</strong> <strong>Tu hora pico real</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ qué día de la semana concentra más demanda</span></div>
-              <div><strong style={{ color:'#6366f1' }}>▎</strong> <strong>Tu cliente más recurrente</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ cuántas veces te compró</span></div>
-              <div><strong style={{ color:'#6366f1' }}>▎</strong> <strong>Tus clientes inactivos</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ cuántos llevan 60+ días sin volver</span></div>
+              <div><strong style={{ color:GENYX_BRAND }}>▎</strong> <strong>Tu producto o servicio estrella</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ cuánto vendió y a qué margen</span></div>
+              <div><strong style={{ color:GENYX_BRAND }}>▎</strong> <strong>Tu hora pico real</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ qué día de la semana concentra más demanda</span></div>
+              <div><strong style={{ color:GENYX_BRAND }}>▎</strong> <strong>Tu cliente más recurrente</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ cuántas veces te compró</span></div>
+              <div><strong style={{ color:GENYX_BRAND }}>▎</strong> <strong>Tus clientes inactivos</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ cuántos llevan 60+ días sin volver</span></div>
             </div>
             <p style={{ fontWeight: 700, marginBottom: 10, color: '#1e293b' }}>Sugerencias basadas en tus datos:</p>
             <div style={{ paddingLeft: 8, display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 20 }}>
@@ -8546,7 +8581,7 @@ function GenyXLandingPage() {
       <section style={{ padding: '0 24px 100px', maxWidth: 800, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', letterSpacing: '.1em', marginBottom: 12 }}>LA MATEMÁTICA</div>
-          <h2 style={{ fontSize: 36, fontWeight: 900, color: '#f1f5f9', marginBottom: 10 }}>Lo que antes pedía un equipo completo<br /><span style={{ background: 'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>ahora corre solo</span></h2>
+          <h2 style={{ fontSize: 36, fontWeight: 900, color: `#f1f5f9`, marginBottom: 10 }}>Lo que antes pedía un equipo completo<br /><span style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip: `text`, WebkitTextFillColor: 'transparent' }}>ahora corre solo</span></h2>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
           {/* Operación Comercial Humana */}
@@ -8639,7 +8674,7 @@ function GenyXLandingPage() {
       {/* ── Ventajas Competitivas ── */}
       <section style={{ padding:'0 24px 100px', maxWidth:1000, margin:'0 auto' }}>
         <div style={{ fontSize:11, fontWeight:700, color:'#818cf8', letterSpacing:'.1em', marginBottom:12, textAlign:'center' }}>POR QUÉ GenyX</div>
-        <h2 style={{ fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:12, textAlign:'center' }}>GenyX es tu operación comercial.<br /><span style={{ background:'linear-gradient(135deg,#6366f1,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Con tu catálogo. Con tus reglas.</span></h2>
+        <h2 style={{ fontSize:36, fontWeight:900, color:`#f1f5f9`, marginBottom:12, textAlign:`center` }}>GenyX es tu operación comercial.<br /><span style={{ background:`linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip:`text`, WebkitTextFillColor:`transparent` }}>Con tu catálogo. Con tus reglas.</span></h2>
         <p style={{ color:'#64748b', marginBottom:48, textAlign:'center', fontSize:15, maxWidth:600, margin:'0 auto 48px' }}>9 agentes configurados con tu catálogo, tus precios y tu personalidad de marca. Miden resultados reales cada semana.</p>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:16 }}>
           {[
@@ -8673,7 +8708,7 @@ function GenyXLandingPage() {
               ['ENTERPRISE','$34,900','MXN/mes','Setup: $24,000','9 agentes de IA','600 msgs carritos · 300 reactivación','100 imágenes FotoLab · Costeador ilimitado','Soporte 24/7 + sesión con Erick','Cadenas / Franquicias / Multi-sucursal.'],
             ].map(([plan, price, period, setup, agents, outbound, tools, support, desc]) => (
               <div key={plan} style={{ background: plan === 'PROFESIONAL' ? 'rgba(99,102,241,0.12)' : 'rgba(255,255,255,0.04)', border: plan === 'PROFESIONAL' ? '2px solid rgba(99,102,241,0.5)' : '1px solid rgba(255,255,255,0.1)', borderRadius:16, padding:'24px 20px', minWidth:220, flex:'1 1 200px', maxWidth:290, position:'relative', textAlign:'left' }}>
-                {plan === 'PROFESIONAL' && <div style={{ position:'absolute', top:-10, left:'50%', transform:'translateX(-50%)', background:'linear-gradient(135deg,#6366f1,#8b5cf6)', color:'#fff', fontSize:9, fontWeight:800, padding:'3px 14px', borderRadius:20, letterSpacing:'.05em' }}>MÁS POPULAR</div>}
+                {plan === 'PROFESIONAL' && <div style={{ position:`absolute`, top:-10, left:`50%`, transform:`translateX(-50%)`, background:`linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color:`#fff`, fontSize:9, fontWeight:800, padding:`3px 14px`, borderRadius:20, letterSpacing:`.05em` }}>MÁS POPULAR</div>}
                 <div style={{ fontWeight:800, fontSize:13, color:'#818cf8', letterSpacing:'.06em', marginBottom:10 }}>{plan}</div>
                 <div style={{ fontSize:28, fontWeight:900, color:'#f1f5f9', marginBottom:2 }}>{price}</div>
                 <div style={{ fontSize:12, color:'#64748b', marginBottom:8 }}>{period}</div>
@@ -8689,7 +8724,7 @@ function GenyXLandingPage() {
           </div>
           <p style={{ fontSize:13, color:'#94a3b8', marginBottom:8, lineHeight:1.7 }}>La diferencia entre planes no está en los agentes — los 8 siempre están.<br />La diferencia está en el volumen de tu operación: bolsas de mensajes proactivos, herramientas y nivel de soporte. <a href="/planes" style={{ color:'#818cf8', textDecoration:'underline' }}>Ver detalle completo →</a></p>
           <p style={{ fontSize:13, color:'#64748b', marginBottom:24 }}>Cero comisión por venta. Sin permanencia mínima.</p>
-          <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, quiero saber más sobre GenyX")}`} style={{ display:'inline-block', background:'linear-gradient(135deg,#6366f1,#8b5cf6)', color:'#fff', padding:'14px 36px', borderRadius:12, fontSize:14, fontWeight:700, textDecoration:'none', boxShadow:'0 0 28px rgba(99,102,241,0.3)' }}>Conoce qué plan es para ti →</a>
+          <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, quiero saber más sobre GenyX")}`} style={{ display:`inline-block`, background:`linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color:`#fff`, padding:'14px 36px', borderRadius:12, fontSize:14, fontWeight:700, textDecoration:'none', boxShadow:'0 0 28px rgba(99,102,241,0.3)' }}>Conoce qué plan es para ti →</a>
         </div>
       </section>
 
@@ -8735,7 +8770,7 @@ function GenyXLandingPage() {
           <a href="/blog" style={C.ftrLink}>Blog</a>
           <a href="/privacidad" style={C.ftrLink}>Privacidad</a>
           <a href="/terminos" style={C.ftrLink}>Términos</a>
-          <a href="https://mando.genyxsystems.com" style={{ ...C.ftrLink, color:'#6366f1', fontWeight:700 }}>→ Accede a tu Mando</a>
+          <a href="https://mando.genyxsystems.com" style={{ ...C.ftrLink, color:GENYX_BRAND, fontWeight:700 }}>→ Accede a tu Mando</a>
         </div>
       </footer>
     </div>
@@ -8972,7 +9007,7 @@ export default function GenyXOperatorDashboard() {
             ⟳ Reload
           </button>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginLeft: 4 }}>
-            <div style={{ width: 30, height: 30, border: '2px solid #6366f1', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 800, color: '#818cf8' }}>G</div>
+            <div style={{ width: 30, height: 30, border: `2px solid ${GENYX_BRAND}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 800, color: '#818cf8' }}>G</div>
             <div>
               <p style={{ fontWeight: 700, fontSize: 13, color: '#fff', letterSpacing: '.03em' }}>Geny<span style={{ color: '#818cf8' }}>X</span></p>
               <p style={{ fontSize: 10, color: '#475569', fontFamily: 'monospace' }}>Centro de Mando GenyX</p>
@@ -9005,7 +9040,7 @@ export default function GenyXOperatorDashboard() {
       <div style={{ position: 'relative' }}>
         <nav style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '0 28px', display: 'flex', gap: 4, overflowX: 'auto', scrollbarWidth: 'thin', scrollbarColor: 'rgba(99,102,241,0.4) transparent', WebkitOverflowScrolling: 'touch' }}>
           {TABS.map(t => (
-            <button key={t.id} onClick={() => setTab(t.id)} style={{ padding: '12px 18px', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em', border: 'none', background: 'none', cursor: 'pointer', color: tab === t.id ? '#6366f1' : '#475569', borderBottom: `2px solid ${tab === t.id ? '#6366f1' : 'transparent'}`, transition: 'all 0.2s', whiteSpace: 'nowrap' }}>{t.label}</button>
+            <button key={t.id} onClick={() => setTab(t.id)} style={{ padding: '12px 18px', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em', border: 'none', background: 'none', cursor: 'pointer', color: tab === t.id ? GENYX_BRAND : '#475569', borderBottom: `2px solid ${tab === t.id ? GENYX_BRAND : 'transparent'}`, transition: 'all 0.2s', whiteSpace: 'nowrap' }}>{t.label}</button>
           ))}
         </nav>
         <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 60, background: 'linear-gradient(90deg, transparent, #060912)', pointerEvents: 'none', borderBottom: '1px solid rgba(255,255,255,0.06)' }} />
