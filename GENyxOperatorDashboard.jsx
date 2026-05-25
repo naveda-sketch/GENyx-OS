@@ -6,6 +6,20 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react';
  */
 
 const BACKEND = import.meta.env.VITE_BACKEND_URL || 'https://paty-backend-dkzk.onrender.com';
+
+
+// ── GenyX Contact Config (placeholder hasta endpoint /api/public/genyx-config) ──
+// REGLA 11 (agnóstico) + REGLA 15 (cajones privados del tenant).
+// CERO wa.me/<phone> hardcoded. Números de Tenant viven EN SU CAJÓN, no aquí.
+// Hardcoded temporal → Claude creará GET /api/public/genyx-config,
+// segundo commit refactoriza esto como hook useGenyxConfig() con cache.
+const GENYX_CONTACT = {
+  support_url: 'mailto:soporte@genyxsystems.com?subject=Soporte%20GenyX',
+  sales_url:   'mailto:ventas@genyxsystems.com?subject=Información%20GenyX',
+  contact_url: 'mailto:hola@genyxsystems.com?subject=Contacto%20GenyX',
+  // Schema.org sameAs — vacío hasta tener canal corporativo público verificado
+  organization_same_as: [],
+};
 // ── SEGURIDAD: admin key nunca en el bundle — se solicita en login y vive en sessionStorage
 const getAH = () => ({
   'Content-Type': 'application/json',
@@ -3515,7 +3529,7 @@ function PlanVsAgentsPanel({ plan, agents, billingStatus, slug }) {
             {/* Upgrade button */}
             {info.next ? (
               <a
-                href={`https://wa.me/523340026694?text=${encodeURIComponent('Hola, soy tenant ' + (slug || 'mi negocio') + '. Quiero hacer upgrade de mi plan ' + info.label + ' a ' + ((PLAN_INFO[info.next] || {}).label || 'siguiente') + '. ¿Cómo procedo?')}`}
+                href={`${GENYX_CONTACT.sales_url}&body=${encodeURIComponent('Hola, soy tenant ' + (slug || 'mi negocio') + '. Quiero hacer upgrade de mi plan ' + info.label + ' a ' + ((PLAN_INFO[info.next] || {}).label || 'siguiente') + '. ¿Cómo procedo?')}`}
                 target="_blank" rel="noopener noreferrer"
                 style={{
                   flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
@@ -3536,7 +3550,7 @@ function PlanVsAgentsPanel({ plan, agents, billingStatus, slug }) {
 
             {/* Pago / Facturación button */}
             <a
-              href={`https://wa.me/523340026694?text=${encodeURIComponent('Hola, soy tenant ' + (slug || 'mi negocio') + '. Necesito gestionar mi pago o método de facturación para mi plan ' + info.label + '.')}`}
+              href={`${GENYX_CONTACT.sales_url}&body=${encodeURIComponent('Hola, soy tenant ' + (slug || 'mi negocio') + '. Necesito gestionar mi pago o método de facturación para mi plan ' + info.label + '.')}`}
               target="_blank" rel="noopener noreferrer"
               style={{
                 flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
@@ -3562,7 +3576,7 @@ function PlanVsAgentsPanel({ plan, agents, billingStatus, slug }) {
 
         {/* Row 2: Soporte — siempre visible (todos los planes + piloto) */}
         <a
-          href={`https://wa.me/523340026694?text=${encodeURIComponent('[SOPORTE-TENANT] Soy ' + (slug || 'mi negocio') + ' (plan ' + info.label + '). Necesito ayuda con: ')}`}
+          href={`${GENYX_CONTACT.support_url}&body=${encodeURIComponent('[SOPORTE-TENANT] Soy ' + (slug || 'mi negocio') + ' (plan ' + info.label + '). Necesito ayuda con: ')}`}
           target="_blank" rel="noopener noreferrer"
           style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
@@ -6217,7 +6231,7 @@ function BlogLayout({ children, post, allPosts }) {
         <div style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
           <a href="/blog" style={{ color: '#818cf8', fontSize: 13, textDecoration: 'none', fontWeight: 600 }}>Blog</a>
           <a href="/por-que-aoaas" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>AOaaS</a>
-          <a href="https://wa.me/523340026694?text=Hola%2C%20leí%20el%20blog%20AOaaS" style={{ background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '8px 20px', borderRadius: 10, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>Contacto →</a>
+          <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, leí el blog AOaaS")}`} style={{ background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '8px 20px', borderRadius: 10, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>Contacto →</a>
         </div>
       </nav>
       <article style={{ maxWidth: 720, margin: '0 auto', padding: '140px 24px 80px' }}>
@@ -6329,7 +6343,7 @@ function BlogPost1() {
 
       <h2 style={B.h2}>5. Conclusión</h2>
       <p style={B.p}>La diferencia entre AaaS y AOaaS no es de grado — es de categoría. AaaS resuelve funciones. AOaaS opera negocios. GenyX crea AOaaS por la misma razón que <a href="/por-que-aoaas" style={B.srcLink}>Stripe creó payments infrastructure</a>: porque la diferenciación técnica real justifica una categoría nueva.</p>
-      <p style={B.p}>Si operas un negocio y quieres entender qué modelo se ajusta a tu operación, <a href="https://wa.me/523340026694?text=Hola%2C%20leí%20el%20artículo%20AOaaS%20vs%20AaaS" style={B.srcLink}>hablemos →</a></p>
+      <p style={B.p}>Si operas un negocio y quieres entender qué modelo se ajusta a tu operación, <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, leí el artículo AOaaS vs AaaS")}`} style={B.srcLink}>hablemos →</a></p>
     </BlogLayout>
   );
 }
@@ -6465,7 +6479,7 @@ function BlogPost3() {
 
       <h2 style={B.h2}>6. Siguiente paso</h2>
       <p style={B.p}>Si operas un negocio en México o LATAM y quieres implementar tu operación comercial autónoma, el primer paso es una conversación de 15 minutos. Sin compromiso. Te decimos qué plan se ajusta a tu operación.</p>
-      <p style={B.p}><a href="https://wa.me/523340026694?text=Hola%2C%20leí%20el%20artículo%20AOaaS%20LATAM%20y%20quiero%20saber%20más" style={B.srcLink}>Hablar con el fundador →</a> · <a href="/por-que-ahora" style={B.srcLink}>Ver datos del mercado</a> · <a href="/por-que-aoaas" style={B.srcLink}>Lee el manifesto AOaaS</a></p>
+      <p style={B.p}><a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, leí el artículo AOaaS LATAM y quiero saber más")}`} style={B.srcLink}>Hablar con el fundador →</a> · <a href="/por-que-ahora" style={B.srcLink}>Ver datos del mercado</a> · <a href="/por-que-aoaas" style={B.srcLink}>Lee el manifesto AOaaS</a></p>
     </BlogLayout>
   );
 }
@@ -6731,7 +6745,7 @@ function PorQueAOaaSPage() {
         "description": "Agent Operations as a Service (AOaaS). 9 agentes de IA que operan tu dirección comercial.",
         "foundingDate": "2025",
         "address": { "@type": "PostalAddress", "addressLocality": "Guadalajara", "addressCountry": "MX" },
-        "sameAs": ["https://wa.me/523340026694"]
+        "sameAs": GENYX_CONTACT.organization_same_as
       }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "WebSite",
@@ -6760,7 +6774,7 @@ function PorQueAOaaSPage() {
         </a>
         <div style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
           <a href="/por-que-ahora" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>Por qué ahora</a>
-          <a href="https://wa.me/523340026694?text=Hola%2C%20leí%20el%20manifesto%20AOaaS%20y%20quiero%20saber%20más" style={{ background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '8px 20px', borderRadius: 10, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>Hablar con el fundador →</a>
+          <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, leí el manifesto AOaaS y quiero saber más")}`} style={{ background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '8px 20px', borderRadius: 10, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>Hablar con el fundador →</a>
         </div>
       </nav>
 
@@ -6941,7 +6955,7 @@ function PorQueAOaaSPage() {
             <a href="/por-que-ahora#agentes" style={{ background: 'rgba(255,255,255,0.05)', color: '#a5b4fc', padding: '14px 32px', borderRadius: 12, fontSize: 14, fontWeight: 600, textDecoration: 'none', border: '1px solid rgba(99,102,241,0.2)' }}>Conoce los 9 agentes →</a>
           </div>
           <div style={{ marginTop: 20 }}>
-            <a href="https://wa.me/523340026694?text=Hola%2C%20leí%20el%20manifesto%20AOaaS.%20Quiero%20hablar%20con%20el%20fundador." style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>💬 Contacto directo con el fundador</a>
+            <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, leí el manifesto AOaaS. Quiero contactar a GenyX.")}`} style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>💬 Contacto directo con el fundador</a>
           </div>
         </div>
       </section>
@@ -7008,7 +7022,7 @@ function PorQueAhoraPage() {
         </a>
         <div style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
           <a href="/" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>← Inicio</a>
-          <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20más%20sobre%20GenyX" style={{ background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '8px 20px', borderRadius: 10, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>Hablar con GenyX →</a>
+          <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, quiero saber más sobre GenyX")}`} style={{ background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '8px 20px', borderRadius: 10, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>Hablar con GenyX →</a>
         </div>
       </nav>
 
@@ -7219,7 +7233,7 @@ function PorQueAhoraPage() {
             <span style={C.gradient}>operación comercial autónoma?</span>
           </h2>
           <p style={{ color: '#64748b', fontSize: 15, marginBottom: 28 }}>En 15 minutos te decimos qué plan se ajusta a tu negocio — sin compromiso.</p>
-          <a href="https://wa.me/523340026694?text=Hola%2C%20vi%20los%20datos%20de%20mercado%20y%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={{ display: 'inline-block', background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '14px 36px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 28px rgba(99,102,241,0.3)' }}>Hablar con GenyX →</a>
+          <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, vi los datos de mercado y quiero saber más sobre GenyX")}`} style={{ display: 'inline-block', background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '14px 36px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 28px rgba(99,102,241,0.3)' }}>Hablar con GenyX →</a>
           <div style={{ marginTop: 16, display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="/" style={{ color: '#818cf8', fontSize: 13, textDecoration: 'none' }}>← Volver al inicio</a>
             <a href="/whitepaper" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>📄 Lee el whitepaper completo</a>
@@ -7438,7 +7452,7 @@ function PlanesPage() {
         <div style={{ textAlign: 'center', marginTop: 32, padding: '40px 24px', background: 'linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.06))', borderRadius: 20, border: '1px solid rgba(99,102,241,0.2)' }}>
           <h2 style={{ fontSize: 28, fontWeight: 900, color: '#f1f5f9', marginBottom: 12 }}>¿Cuál es el plan para tu negocio?</h2>
           <p style={{ color: '#64748b', fontSize: 14, marginBottom: 24 }}>En 15 minutos te decimos qué plan se ajusta a tu operación — sin compromiso.</p>
-          <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20qu%C3%A9%20plan%20de%20GenyX%20es%20para%20mi%20negocio" style={{ display: 'inline-block', background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '14px 36px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 28px rgba(99,102,241,0.3)' }}>Hablar con GenyX →</a>
+          <a href={`${GENYX_CONTACT.sales_url}&body=${encodeURIComponent("Hola, quiero saber qué plan de GenyX es para mi negocio")}`} style={{ display: 'inline-block', background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', padding: '14px 36px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: '0 0 28px rgba(99,102,241,0.3)' }}>Hablar con GenyX →</a>
           <div style={{ marginTop: 16 }}><a href="/" style={{ color: '#818cf8', fontSize: 13, textDecoration: 'none' }}>← Volver al inicio</a></div>
         </div>
 
@@ -8166,7 +8180,7 @@ function SimuladorGenyX() {
 
       {/* CTAs */}
       <div style={{ display:'flex', gap:14, justifyContent:'center', flexWrap:'wrap' }}>
-        <a href="https://wa.me/523340026694?text=Hola%2C%20vi%20el%20simulador%20de%20GenyX%20y%20quiero%20saber%20m%C3%A1s" style={{ ...Z.btn, textDecoration:'none', display:'inline-block' }}>Quiero esto para mi negocio →</a>
+        <a href={`${GENYX_CONTACT.sales_url}&body=${encodeURIComponent("Hola, vi el simulador de GenyX y quiero saber más")}`} style={{ ...Z.btn, textDecoration:'none', display:'inline-block' }}>Quiero esto para mi negocio →</a>
         <a href="/planes" style={{ ...Z.btn2, textDecoration:'none', display:'inline-block' }}>Ver planes</a>
         <button style={{ ...Z.btn2, borderColor:'rgba(255,255,255,0.15)', color:'#64748b' }} onClick={() => { setPhase(2); setDone(false); }}>↺ Simular de nuevo</button>
       </div>
@@ -8330,7 +8344,7 @@ function GenyXLandingPage() {
           {[['Agentes', '#agentes'], ['Proceso', '#proceso'], ['Por qué ahora', '/por-que-ahora'], ['AOaaS', '/por-que-aoaas'], ['Blog', '/blog']].map(([l, h]) => (
             <a key={l} href={h} style={{ ...C.navLink, ...(l === 'AOaaS' ? { background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', fontWeight:800 } : {}) }} onMouseOver={e => { if (l !== 'AOaaS') e.target.style.color = '#fff'; }} onMouseOut={e => { if (l !== 'AOaaS') e.target.style.color = '#64748b'; }}>{l}</a>
           ))}
-          <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={C.demoCta}>Cuéntame de tu negocio →</a>
+          <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, quiero saber más sobre GenyX")}`} style={C.demoCta}>Cuéntame de tu negocio →</a>
         </div>
       </nav>
 
@@ -8348,7 +8362,7 @@ function GenyXLandingPage() {
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, marginTop:8, marginBottom:4 }}><span style={{ fontSize:13, fontWeight:900, background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', letterSpacing:'.05em' }}>AOaaS</span><span style={{ color:'#475569', fontSize:12 }}>— Agent Operations as a Service</span></div>
         <p style={C.sub}>Operación 24/7 + inteligencia ejecutiva + accountability medible. Todo lo que necesita tu negocio para crecer. Dos capas: la operativa (atender, vender, cobrar, entregar) y la estratégica (interpretar tus datos y planear tus finanzas y marketing). El fundador toma la decisión. La IA hace el trabajo.</p>
         <div style={C.btns}>
-          <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={C.primary}>Cuéntame de tu negocio →</a>
+          <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, quiero saber más sobre GenyX")}`} style={C.primary}>Cuéntame de tu negocio →</a>
           <a href="#simulador-inmersivo" style={C.secondary}>Probar simulador</a>
         </div>
       </section>
@@ -8675,7 +8689,7 @@ function GenyXLandingPage() {
           </div>
           <p style={{ fontSize:13, color:'#94a3b8', marginBottom:8, lineHeight:1.7 }}>La diferencia entre planes no está en los agentes — los 8 siempre están.<br />La diferencia está en el volumen de tu operación: bolsas de mensajes proactivos, herramientas y nivel de soporte. <a href="/planes" style={{ color:'#818cf8', textDecoration:'underline' }}>Ver detalle completo →</a></p>
           <p style={{ fontSize:13, color:'#64748b', marginBottom:24 }}>Cero comisión por venta. Sin permanencia mínima.</p>
-          <a href="https://wa.me/523340026694?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20GenyX" style={{ display:'inline-block', background:'linear-gradient(135deg,#6366f1,#8b5cf6)', color:'#fff', padding:'14px 36px', borderRadius:12, fontSize:14, fontWeight:700, textDecoration:'none', boxShadow:'0 0 28px rgba(99,102,241,0.3)' }}>Conoce qué plan es para ti →</a>
+          <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, quiero saber más sobre GenyX")}`} style={{ display:'inline-block', background:'linear-gradient(135deg,#6366f1,#8b5cf6)', color:'#fff', padding:'14px 36px', borderRadius:12, fontSize:14, fontWeight:700, textDecoration:'none', boxShadow:'0 0 28px rgba(99,102,241,0.3)' }}>Conoce qué plan es para ti →</a>
         </div>
       </section>
 
@@ -8706,7 +8720,7 @@ function GenyXLandingPage() {
         <div style={C.ctaBox}>
           <h2 style={C.ctaH}>¿Listo para tomar mejores decisiones?</h2>
           <p style={C.ctaSub}>Cuéntanos de tu negocio.</p>
-          <a href="https://wa.me/523340026694?text=Hola%2C%20me%20interesa%20GenyX%20para%20mi%20negocio.%20%C2%BFCuando%20podemos%20hablar%3F" style={{ ...C.ctaBtn, display:'inline-flex', alignItems:'center', gap:10, marginBottom:14 }}>Cuéntame de tu negocio →</a>
+          <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, me interesa GenyX para mi negocio. ¿Cuándo podemos hablar?")}`} style={{ ...C.ctaBtn, display:'inline-flex', alignItems:'center', gap:10, marginBottom:14 }}>Cuéntame de tu negocio →</a>
           <p style={{ color:'#64748b', fontSize:13 }}>o si prefieres: <a href="mailto:hola@genyxsystems.com" style={{ color:'#818cf8', textDecoration:'none' }}>hola@genyxsystems.com</a></p>
         </div>
       </div>
@@ -8915,7 +8929,7 @@ export default function GenyXOperatorDashboard() {
   if (_qp.get('pago') === 'cancelado') {
     const cancelSlug = _qp.get('slug') || '';
     const cancelTenantData = cancelSlug ? tenants.find(t => t.slug === cancelSlug) : null;
-    const cancelPhone = cancelTenantData?.whatsapp || '523340026694';
+    const cancelPhone = cancelTenantData?.whatsapp || '';  // REGLA 15: NO fallback a número de otro tenant
     const cancelName = cancelTenantData?.name || 'tu negocio';
     return (
       <div style={{ minHeight:'100vh', background:'#05080f', display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Inter',sans-serif" }}>
