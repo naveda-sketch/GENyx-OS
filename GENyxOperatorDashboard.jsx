@@ -6132,7 +6132,7 @@ function DashboardPreview() {
 const SEO_META = {
   '/': {
     title: 'GenyX — AOaaS: Tu operación comercial autónoma',
-    desc: '9 agentes de IA orquestados que operan el 90% de tu dirección comercial. AOaaS — Agent Operations as a Service. Activo en 48h.',
+    desc: '9 agentes de IA orquestados ejecutando tu operación comercial autónoma. AOaaS — Agent Operations as a Service. Activo en 48h.',
     canonical: 'https://genyxsystems.com/',
     image: 'https://genyxsystems.com/genyx-logo.png',
   },
@@ -7561,7 +7561,7 @@ function genSimTimeline(inputs) {
     {time:795,badge:'SG',text:`${carts} carritos abandonados recuperados`,agents:['Seguimiento','Cierre'],hi:false,d:{c:(tC+=carts,carts),cb:(tCob+=carts*tk,carts*tk)}},
     {time:1050,badge:'VT',text:`Bloque vespertino: ${eA} mensajes → ${eC} cierres`,agents:['Venta','Cierre'],hi:false,d:{a:(tA+=eA,eA),c:(tC+=eC,eC),cb:(tCob+=eC*tk,eC*tk)}},
     {time:1080,badge:'MK',text:'Mesa de Estrategia semanal',agents:['Marketing'],hi:true,
-      detail:`Marketing propone:\n• Campaña basada en tu producto top\n• Reactivar ${react} clientes inactivos\n• Ajuste según margen real\n\nEsperando tu aprobación (OTP)\nEsto es tu 10%: decides en 10-15 min.`},
+      detail:`Marketing propone:\n• Campaña basada en tu producto top\n• Reactivar ${react} clientes inactivos\n• Ajuste según margen real\n\nEsperando tu aprobación (OTP)\nTú decides la estrategia — los agentes ejecutan.`},
     {time:1367,badge:'AI',text:`${U} nocturno sin intervención humana`,agents:['Venta','Cierre','Entrega'],hi:false,d:{a:(tA+=nA,nA),c:(tC+=nC,nC),cb:(tCob+=nC*tk,nC*tk)}},
     {time:1430,badge:'AN',text:`Día cerrado — mañana 5am: siguiente reporte`,agents:['Analítica','Finanzas'],hi:true,d:{}},
   ];
@@ -8138,7 +8138,7 @@ function SimuladorGenyX() {
         </div>
         {/* Counters */}
         <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:12 }}>
-          {[[SIM_AG_ICONS['Venta'](),`${counters.a}`,`de ${inputs.mensajes} atendidos`],[SIM_AG_ICONS['Cierre'](),`${counters.c}`,'cierres'],[SIM_AG_ICONS['Finanzas'](),simFmt(counters.cb),'cobrado'],[simAgSvg(['M13 2L3 14h9l-1 8 10-12h-9l1-8'],'tm'),'90%','operación autónoma']].map(([ic,v,l],i) => (
+          {[[SIM_AG_ICONS['Venta'](),`${counters.a}`,`de ${inputs.mensajes} atendidos`],[SIM_AG_ICONS['Cierre'](),`${counters.c}`,'cierres'],[SIM_AG_ICONS['Finanzas'](),simFmt(counters.cb),'cobrado'],[simAgSvg(['M13 2L3 14h9l-1 8 10-12h-9l1-8'],'tm'),'E2E','operación autónoma']].map(([ic,v,l],i) => (
             <div key={i} style={{ background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.07)', borderRadius:12, padding:'16px 12px', textAlign:'center' }}>
               <div style={{ fontSize:16 }}>{ic}</div>
               <div style={{ fontSize:22, fontWeight:900, color:'#818cf8', transition:'all .4s' }}>{v}</div>
@@ -8170,7 +8170,7 @@ function SimuladorGenyX() {
       {/* Two columns: operation + strategy */}
       <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:20, marginBottom:32 }}>
         <div style={{ background:'rgba(99,102,241,0.06)', border:'1px solid rgba(99,102,241,0.2)', borderRadius:20, padding:'28px 24px' }}>
-          <div style={{ fontSize:12, fontWeight:800, color:'#818cf8', marginBottom:16, letterSpacing:'.08em' }}>LA OPERACIÓN (90% AUTÓNOMA)</div>
+          <div style={{ fontSize:12, fontWeight:800, color:'#818cf8', marginBottom:16, letterSpacing:'.08em' }}>LA OPERACIÓN AUTÓNOMA</div>
           {[[`→ ${msg} mensajes atendidos en segundos`],[`→ ${totalCierres} conversaciones cerraron compra (${Math.round(cfg.conv*100)}%)`],[`→ ${simFmt(totalCobrado)} cobrado vía link de pago`],[`→ ${Math.max(1,Math.round(totalCierres*0.08))} clientes recuperados`],[`→ ${totalCierres} entregas coordinadas`]].map(([t],i) => (
             <div key={i} style={{ fontSize:13, color:'#94a3b8', padding:'6px 0', lineHeight:1.6 }}>{t}</div>
           ))}
@@ -8197,7 +8197,7 @@ function SimuladorGenyX() {
           </div>
           <div>
             <div style={{ fontSize:12, fontWeight:700, color:'#4ade80', marginBottom:10 }}>CON GENYX</div>
-            {[['✓ 100% atendidos en segundos'],['✓ 90% operación automatizada'],['✓ Cobro dentro del chat'],['✓ Reporte semanal con tus datos'],['✓ Mesa de estrategia cada viernes']].map(([t],i) => (
+            {[['✓ 100% atendidos en segundos'],['✓ Operación end-to-end automatizada'],['✓ Cobro dentro del chat'],['✓ Reporte semanal con tus datos'],['✓ Mesa de estrategia cada viernes']].map(([t],i) => (
               <div key={i} style={{ fontSize:12, color:'#94a3b8', padding:'4px 0' }}>{t}</div>
             ))}
             <div style={{ fontSize:14, fontWeight:800, color:'#4ade80', marginTop:10 }}>~{simFmt(totalCobrado)}/día</div>
@@ -8393,8 +8393,9 @@ function GenyXLandingPage() {
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(74,222,128,0.1)', border:'1px solid rgba(74,222,128,0.35)', color:'#4ade80', fontSize:12, fontWeight:700, padding:'7px 22px', borderRadius:30, marginBottom:16 }}>
           &#x2713; Activo en 48h · Respuesta en segundos · Cero comisión por venta
         </div>
-        <h1 style={C.h1}>Instalamos 9 agentes de IA<br /><span style={C.h1accent}>que corren el 90% de tu operación comercial — autónoma, sin que tú estés.</span></h1>
+        <h1 style={C.h1}>Instalamos 9 agentes de IA<br /><span style={C.h1accent}>que orquestan tu operación comercial completa — autónoma, sin que tú estés.</span></h1>
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, marginTop:8, marginBottom:4 }}><span style={{ fontSize:13, fontWeight:900, background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', letterSpacing:'.05em' }}>AOaaS</span><span style={{ color:'#475569', fontSize:12 }}>— Agent Operations as a Service</span></div>
+        <p style={{ marginTop: 16, fontSize: 17, color: '#94a3b8', fontStyle: 'italic', lineHeight: 1.6 }}>ChatGPT te dice qué hacer. <strong style={{ color: '#f1f5f9', fontStyle: 'normal' }}>GenyX lo hace.</strong></p>
         <p style={C.sub}>Operación 24/7 + inteligencia ejecutiva + accountability medible. Todo lo que necesita tu negocio para crecer. Dos capas: la operativa (atender, vender, cobrar, entregar) y la estratégica (interpretar tus datos y planear tus finanzas y marketing). El fundador toma la decisión. La IA hace el trabajo.</p>
         <div style={C.btns}>
           <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, quiero saber más sobre GenyX")}`} style={C.primary}>Cuéntame de tu negocio →</a>
@@ -8772,6 +8773,9 @@ function GenyXLandingPage() {
           <a href="/terminos" style={C.ftrLink}>Términos</a>
           <a href="https://mando.genyxsystems.com" style={{ ...C.ftrLink, color:GENYX_BRAND, fontWeight:700 }}>→ Accede a tu Mando</a>
         </div>
+        <p style={{ fontSize: 9, color: '#334155', maxWidth: 600, lineHeight: 1.5, marginTop: 8 }}>
+          GenyX opera con IA generativa. Outputs validados por governance pipeline (REGLAs 1-13). <a href="/terminos" style={{ color: '#475569', textDecoration: 'underline' }}>SLA</a> garantiza disponibilidad — no precisión absoluta de outputs IA. <a href="/terminos" style={{ color: '#475569', textDecoration: 'underline' }}>Cláusula 7b</a> delimita responsabilidad.
+        </p>
       </footer>
     </div>
   );
