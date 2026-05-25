@@ -72,6 +72,23 @@ const fmt = (x) => { try { const d = new Date(typeof x === 'string' && !x.includ
 const $$ = (n) => ((isFinite(n) && !isNaN(n)) ? n : 0).toLocaleString('es-MX', { style: 'currency', currency: 'MXN', maximumFractionDigits: 0 });
 
 // ── Status badge ────────────────────────────────────────────────────────────
+// P1 BANDERAZO — Billing + Tickets badges (reusable)
+const BILLING_CFG = {
+  paid:          { l: '✓ Paid',     bg: '#10b98120', c: '#10b981' },
+  past_due:      { l: '⚠ Past due', bg: '#f59e0b20', c: '#f59e0b' },
+  inactive:      { l: '✕ Inactive', bg: '#ef444420', c: '#ef4444' },
+  piloto_comped: { l: '🎁 Piloto',   bg: 'rgba(99,102,241,0.15)', c: '#a5b4fc' },
+  unknown:       { l: '?',          bg: '#64748b20', c: '#94a3b8' },
+};
+const BillingBadge = ({ status }) => {
+  const s = BILLING_CFG[status] || BILLING_CFG.unknown;
+  return <span style={{ background: s.bg, color: s.c, padding: '1px 7px', borderRadius: 5, fontSize: 10, fontWeight: 700 }}>{s.l}</span>;
+};
+const TicketsBadge = ({ count }) => {
+  if (!count || count <= 0) return null;
+  return <span style={{ background: '#f59e0b20', color: '#f59e0b', padding: '1px 7px', borderRadius: 5, fontSize: 10, fontWeight: 700 }}>🎫 {count} ticket{count > 1 ? 's' : ''}</span>;
+};
+
 const StatusBadge = ({ s }) => {
   const map = { active: ['#16a34a', '#f0fdf4'], paused: ['#d97706', '#fefce8'], trial: ['#2563eb', '#eff6ff'], suspended: ['#dc2626', '#fef2f2'] };
   const [c, bg] = map[s] || ['#64748b', '#f8fafc'];
@@ -81,6 +98,7 @@ const StatusBadge = ({ s }) => {
 // ── Tabs ─────────────────────────────────────────────────────────────────────
 const TABS = [
   { id: 'clientes',     label: '🏢 Clientes' },
+  { id: 'soporte',      label: '🎫 Soporte', hasBadge: true },
   { id: 'marketing',    label: '📢 Marketing' },
   { id: 'herramientas', label: '🛠️ Herramientas' },
   { id: 'analista',     label: '📊 Analista' },
@@ -300,6 +318,161 @@ function ModulesEditorModal({ tenant, onClose, onSave }) {
   );
 }
 
+
+// ═══════════════════════════════════════════════════════════════════
+// TAB SOPORTE — Cola tickets cross-tenant + responder inline (V1 Banderazo)
+// ═══════════════════════════════════════════════════════════════════
+// METODOLOGÍA (REGLA 14): Minimum Viable Cockpit Pattern.
+// Backend: GET/POST /api/admin/support/tickets (V60 commit 947089c)
+// ═══════════════════════════════════════════════════════════════════
+
+const TabSoporte = ({ tenants }) => {
+  const [tickets, setTickets] = useState([]);
+  const [filter, setFilter] = useState('all');
+  const [loading, setLoading] = useState(true);
+  const [responding, setResponding] = useState(null);
+  const [responseText, setResponseText] = useState('');
+  const [sending, setSending] = useState(false);
+
+  const loadTickets = React.useCallback(() => {
+    setLoading(true);
+    const url = filter === 'escalated'
+      ? `${BACKEND}/api/admin/support/tickets?only_escalated=true`
+      : `${BACKEND}/api/admin/support/tickets`;
+    fetch(url, { headers: getAH() })
+      .then(r => r.ok ? r.json() : { tickets: [] })
+      .then(d => {
+        let list = d.tickets || [];
+        if (filter === 'open') list = list.filter(t => t.status === 'open' || t.status === 'escalated');
+        setTickets(list);
+      })
+      .catch(() => setTickets([]))
+      .finally(() => setLoading(false));
+  }, [filter]);
+
+  useEffect(() => { if (isAuthed()) loadTickets(); }, [loadTickets]);
+
+  const handleRespond = async (ticketId, close = false) => {
+    if (!responseText.trim()) return;
+    setSending(true);
+    try {
+      const r = await fetch(`${BACKEND}/api/admin/support/tickets/${ticketId}/respond`, {
+        method: 'POST',
+        headers: { ...getAH(), 'Content-Type': 'application/json' },
+        body: JSON.stringify({ response: responseText, close }),
+      });
+      if (r.ok) {
+        setResponding(null);
+        setResponseText('');
+        loadTickets();
+      }
+    } finally { setSending(false); }
+  };
+
+  if (!isAuthed()) return <Empty icon="🔒" msg="Inicia sesión admin para ver tickets." />;
+
+  const stats = {
+    total: tickets.length,
+    open: tickets.filter(t => t.status === 'open' || t.status === 'escalated').length,
+    escalated: tickets.filter(t => t.escalated_to_founder === 1 && !t.founder_responded_at).length,
+  };
+
+  const fmtD = (d) => { try { return new Date(d).toLocaleString('es-MX', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }); } catch { return d; } };
+  const sLabel = (s) => ({ open: 'Abierto', agent_resolved: 'Resuelto', escalated: 'Escalado', founder_responded: 'Respondido', closed: 'Cerrado' }[s] || s);
+  const sColor = (s) => ({ open: '#f59e0b', agent_resolved: '#10b981', escalated: '#3b82f6', founder_responded: '#10b981', closed: '#64748b' }[s] || '#64748b');
+
+  const FILTER_BTN = (active) => ({
+    padding: '6px 14px', borderRadius: 8, fontSize: 11, fontWeight: 700, border: 'none', cursor: 'pointer',
+    background: active ? GBa(0.2) : 'rgba(255,255,255,0.04)',
+    color: active ? GB_LIGHT : '#64748b',
+  });
+
+  return (
+    <section>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24, flexWrap: 'wrap', gap: 8 }}>
+        <h2 style={H2}>🎫 Soporte — Tickets</h2>
+        <div style={{ display: 'flex', gap: 6 }}>
+          <button onClick={() => setFilter('all')} style={FILTER_BTN(filter === 'all')}>Todos ({stats.total})</button>
+          <button onClick={() => setFilter('open')} style={FILTER_BTN(filter === 'open')}>Abiertos ({stats.open})</button>
+          <button onClick={() => setFilter('escalated')} style={FILTER_BTN(filter === 'escalated')}>🚨 Escalados ({stats.escalated})</button>
+          <button onClick={loadTickets} style={{ ...FILTER_BTN(false), fontSize: 14 }} title="Recargar">↺</button>
+        </div>
+      </div>
+
+      {loading && <Spinner />}
+      {!loading && tickets.length === 0 && <Empty icon="🎫" msg="No hay tickets en este filtro." />}
+
+      {!loading && tickets.map(t => (
+        <div key={t.id} style={{ ...CARD, marginBottom: 14, borderLeft: t.escalated_to_founder ? '4px solid #f59e0b' : `4px solid ${GENYX_BRAND}` }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <div>
+              <div style={{ fontWeight: 700, color: '#f1f5f9', fontSize: 14 }}>
+                #{t.id} — {t.business_name || t.org_slug}
+              </div>
+              <div style={{ fontSize: 11, color: '#64748b', marginTop: 4 }}>
+                {t.tab_context && <><span style={{ color: GB_LIGHT }}>📂 {t.tab_context}</span> · </>}
+                Severity: <strong style={{ color: t.severity === 'critical' ? '#ef4444' : t.severity === 'high' ? '#f59e0b' : '#94a3b8' }}>{t.severity}</strong> · {fmtD(t.created_at)}
+              </div>
+            </div>
+            <span style={{ background: sColor(t.status) + '20', color: sColor(t.status), padding: '3px 10px', borderRadius: 8, fontSize: 10, fontWeight: 700 }}>
+              {sLabel(t.status)}
+            </span>
+          </div>
+
+          <div style={{ marginTop: 12, padding: 12, background: 'rgba(255,255,255,0.02)', borderRadius: 8, fontSize: 13, lineHeight: 1.6 }}>
+            <strong style={{ color: '#94a3b8', fontSize: 11 }}>Tenant escribió:</strong>
+            <p style={{ marginTop: 4, color: '#e2e8f0' }}>{t.user_message}</p>
+          </div>
+
+          {t.agent_response && (
+            <div style={{ marginTop: 8, padding: 12, background: GBa(0.04), borderRadius: 8, borderLeft: `3px solid ${GENYX_BRAND}`, fontSize: 13 }}>
+              <strong style={{ color: GB_LIGHT, fontSize: 11 }}>Agente respondió{t.agent_confidence ? ` (${(t.agent_confidence * 100).toFixed(0)}%)` : ''}:</strong>
+              <p style={{ marginTop: 4, lineHeight: 1.6, color: '#e2e8f0' }}>{t.agent_response}</p>
+              {t.agent_reasoning && <small style={{ color: '#64748b' }}>Razón: {t.agent_reasoning}</small>}
+            </div>
+          )}
+
+          {t.founder_response && (
+            <div style={{ marginTop: 8, padding: 12, background: 'rgba(16,185,129,0.05)', borderRadius: 8, borderLeft: '3px solid #10b981', fontSize: 13 }}>
+              <strong style={{ color: '#10b981', fontSize: 11 }}>Tu respuesta ({fmtD(t.founder_responded_at)}):</strong>
+              <p style={{ marginTop: 4, lineHeight: 1.6, color: '#e2e8f0' }}>{t.founder_response}</p>
+            </div>
+          )}
+
+          {t.escalated_to_founder && !t.founder_response && (
+            <>
+              {responding !== t.id ? (
+                <button onClick={() => { setResponding(t.id); setResponseText(''); }} style={{ ...BTN_SM_BLUE, marginTop: 12, background: '#f59e0b20', color: '#f59e0b', border: '1px solid #f59e0b40' }}>
+                  ✍️ Responder a este tenant
+                </button>
+              ) : (
+                <div style={{ marginTop: 12, background: 'rgba(255,255,255,0.02)', borderRadius: 10, padding: 14 }}>
+                  <textarea
+                    value={responseText}
+                    onChange={e => setResponseText(e.target.value)}
+                    placeholder="Tu respuesta al tenant..."
+                    style={{ ...INPUT, minHeight: 80, marginBottom: 10, resize: 'vertical' }}
+                    autoFocus
+                  />
+                  <div style={{ display: 'flex', gap: 8 }}>
+                    <button onClick={() => handleRespond(t.id, false)} disabled={sending || !responseText.trim()} style={{ ...BTN_SM_BLUE, opacity: sending ? 0.5 : 1 }}>
+                      {sending ? '⏳...' : 'Responder'}
+                    </button>
+                    <button onClick={() => handleRespond(t.id, true)} disabled={sending || !responseText.trim()} style={{ ...BTN_SM_GREEN, opacity: sending ? 0.5 : 1 }}>
+                      Responder + Cerrar
+                    </button>
+                    <button onClick={() => { setResponding(null); setResponseText(''); }} style={BTN_SM_GHOST}>Cancelar</button>
+                  </div>
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      ))}
+    </section>
+  );
+};
+
 const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, selectedSlug }) => {
   const [orgSettings, setOrgSettings] = useState({});
   const [expanded, setExpanded] = useState(null);
@@ -307,6 +480,39 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
   const [localEdits, setLocalEdits] = useState({});
   const [onboardingUrl, setOnboardingUrl] = useState(null);
   const [editingModulesFor, setEditingModulesFor] = useState(null);
+  const [billingByTenant, setBillingByTenant] = useState({});
+  const [ticketsByTenant, setTicketsByTenant] = useState({});
+
+  // P1 BANDERAZO — billing_status por tenant
+  useEffect(() => {
+    if (!tenants?.length) return;
+    Promise.all(tenants.map(t =>
+      fetch(`${BACKEND}/api/public/tenants/${t.slug}/config`)
+        .then(r => r.ok ? r.json() : null)
+        .then(d => d ? [t.slug, d.billing_status || 'unknown'] : null)
+        .catch(() => null)
+    )).then(results => {
+      const map = {};
+      results.filter(Boolean).forEach(([slug, bs]) => { map[slug] = bs; });
+      setBillingByTenant(map);
+    });
+  }, [tenants]);
+
+  // P1 BANDERAZO — tickets count por tenant
+  useEffect(() => {
+    if (!isAuthed() || !tenants?.length) return;
+    fetch(`${BACKEND}/api/admin/support/tickets`, { headers: getAH() })
+      .then(r => r.ok ? r.json() : { tickets: [] })
+      .then(d => {
+        const counts = {};
+        (d.tickets || []).forEach(t => {
+          if (t.status === 'open' || t.status === 'escalated') {
+            counts[t.org_slug] = (counts[t.org_slug] || 0) + 1;
+          }
+        });
+        setTicketsByTenant(counts);
+      }).catch(() => {});
+  }, [tenants]);
 
   useEffect(() => {
     if (!isAuthed()) return;
@@ -418,7 +624,11 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
                 <div>
                   <p style={{ ...MONO, color: '#64748b', marginBottom: 4 }}>CLIENTE {String(i + 1).padStart(3, '0')}</p>
                   <h3 style={{ fontWeight: 700, fontSize: 16, color: '#f1f5f9' }}>{t.name || t.slug}</h3>
-                  <p style={{ fontSize: 12, color: '#64748b', marginTop: 2 }}>{t.industry || 'Sin clasificar'}</p>
+                  <div style={{ display: 'flex', gap: 6, alignItems: 'center', marginTop: 4, flexWrap: 'wrap' }}>
+                    <span style={{ fontSize: 12, color: '#64748b' }}>{t.industry || 'Sin clasificar'}</span>
+                    <BillingBadge status={billingByTenant[t.slug]} />
+                    <TicketsBadge count={ticketsByTenant[t.slug]} />
+                  </div>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6 }}>
                   <div style={{ display: 'flex', gap: 6, marginBottom: 4 }}>
@@ -454,6 +664,7 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
                     Dashboard →
                   </button>
                 <button onClick={() => setEditingModulesFor(t)} style={BTN_SM_GHOST}>⚙️ Módulos</button>
+                <button onClick={async () => { const r = await fetch(`${BACKEND}/api/admin/billing/portal/${t.slug}`, { headers: getAH() }); if (r.ok) { const d = await r.json(); if (d.url) window.open(d.url, '_blank', 'noopener,noreferrer'); } }} style={BTN_SM_BLUE}>💳 Stripe</button>
               </div>
             </div>
           );
@@ -9197,6 +9408,22 @@ export default function GenyXOperatorDashboard() {
   // ── REGLA DE HOOKS: todos los hooks PRIMERO, antes de cualquier return condicional ──
   const [adminKey, setAdminKey] = useState(sessionStorage.getItem('genyx_admin_key') || '');
   const [tab, setTab]           = useState('clientes');
+  const [escalatedCount, setEscalatedCount] = useState(0);
+
+  // P3 BANDERAZO — escalated tickets count (refresh every 60s)
+  useEffect(() => {
+    if (!isAuthed()) return;
+    const fetchEscalated = () => {
+      fetch(`${BACKEND}/api/admin/support/tickets?only_escalated=true`, { headers: getAH() })
+        .then(r => r.ok ? r.json() : { tickets: [] })
+        .then(d => setEscalatedCount((d.tickets || []).filter(t => !t.founder_responded_at).length))
+        .catch(() => {});
+    };
+    fetchEscalated();
+    const iv = setInterval(fetchEscalated, 60000);
+    return () => clearInterval(iv);
+  }, []);
+
   const [tenants, setTenants]   = useState([]);
   const [orders, setOrders]     = useState([]);
   const [health, setHealth]     = useState(null);
@@ -9343,7 +9570,10 @@ export default function GenyXOperatorDashboard() {
       <div style={{ position: 'relative' }}>
         <nav style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '0 28px', display: 'flex', gap: 4, overflowX: 'auto', scrollbarWidth: 'thin', scrollbarColor: `${GBa(0.4)} transparent`, WebkitOverflowScrolling: 'touch' }}>
           {TABS.map(t => (
-            <button key={t.id} onClick={() => setTab(t.id)} style={{ padding: '12px 18px', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em', border: 'none', background: 'none', cursor: 'pointer', color: tab === t.id ? GENYX_BRAND : '#475569', borderBottom: `2px solid ${tab === t.id ? GENYX_BRAND : 'transparent'}`, transition: 'all 0.2s', whiteSpace: 'nowrap' }}>{t.label}</button>
+            <button key={t.id} onClick={() => setTab(t.id)} style={{ padding: '12px 18px', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em', border: 'none', background: 'none', cursor: 'pointer', color: tab === t.id ? GENYX_BRAND : '#475569', borderBottom: `2px solid ${tab === t.id ? GENYX_BRAND : 'transparent'}`, transition: 'all 0.2s', whiteSpace: 'nowrap', position: 'relative' }}>
+              {t.label}
+              {t.hasBadge && escalatedCount > 0 && <span style={{ marginLeft: 6, background: '#ef4444', color: '#fff', padding: '1px 6px', borderRadius: 10, fontSize: 9, fontWeight: 800, verticalAlign: 'super' }}>{escalatedCount}</span>}
+            </button>
           ))}
         </nav>
         <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 60, background: 'linear-gradient(90deg, transparent, #060912)', pointerEvents: 'none', borderBottom: '1px solid rgba(255,255,255,0.06)' }} />
@@ -9367,6 +9597,7 @@ export default function GenyXOperatorDashboard() {
 
       {/* Content */}
       <main style={{ padding: '28px', maxWidth: 1200, margin: '0 auto' }}>
+        {tab === 'soporte'      && <TabSoporte tenants={tenants} />}
         {tab === 'clientes'     && <TabClientes     tenants={tenants} orders={orders} loading={loading} onToggleStatus={handleToggleStatus} statusLoading={statusLoading} selectedSlug={selectedSlug} />}
         {tab === 'herramientas' && <TabHerramientas  health={health}   orders={orders} tenants={tenants}  selectedSlug={selectedSlug} />}
         {tab === 'analista'     && <TabAnalista      tenants={tenants} orders={orders}  selectedSlug={selectedSlug} setSelectedSlug={setSelectedSlug} />}
