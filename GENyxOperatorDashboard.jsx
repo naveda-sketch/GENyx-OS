@@ -8181,7 +8181,7 @@ function SimuladorGenyX() {
           ))}
         </div>
         <div style={{ background:'rgba(139,92,246,0.06)', border:'1px solid rgba(139,92,246,0.2)', borderRadius:20, padding:'28px 24px' }}>
-          <div style={{ fontSize:12, fontWeight:800, color:'#c084fc', marginBottom:16, letterSpacing:'.08em' }}>LA ESTRATEGIA (10% DECIDES TÚ)</div>
+          <div style={{ fontSize:12, fontWeight:800, color:'#c084fc', marginBottom:16, letterSpacing:'.08em' }}>LA ESTRATEGIA (TÚ DIRIGES)</div>
           {[['→ Recibiste la Mesa de Estrategia del viernes 6pm'],['→ 1 código OTP para aprobar el plan de la semana'],['→ Tiempo estimado de decisión: 10–15 min'],['→ Margen promedio estimado: ~'+Math.round(cfg.margen*100)+'%*']].map(([t],i) => (
             <div key={i} style={{ fontSize:13, color:'#94a3b8', padding:'6px 0', lineHeight:1.6 }}>{t}</div>
           ))}
@@ -8503,7 +8503,7 @@ function GenyXLandingPage() {
         </div>
         <h1 style={C.h1}>Instalamos 9 agentes de IA<br /><span style={C.h1accent}>que orquestan tu operación comercial completa — autónoma, sin que tú estés.</span></h1>
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, marginTop:8, marginBottom:4 }}><span style={{ fontSize:13, fontWeight:900, background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', letterSpacing:'.05em' }}>AOaaS</span><span style={{ color:'#475569', fontSize:12 }}>— Agent Operations as a Service</span></div>
-        <p style={{ marginTop: 16, fontSize: 17, color: '#94a3b8', fontStyle: 'italic', lineHeight: 1.6 }}>ChatGPT te dice qué hacer. <strong style={{ color: '#f1f5f9', fontStyle: 'normal' }}>GenyX lo hace.</strong></p>
+        <p style={{ marginTop: 16, fontSize: 17, color: '#94a3b8', fontStyle: 'italic', lineHeight: 1.6 }}>9 directores ejecutivos IA. <strong style={{ color: '#f1f5f9', fontStyle: 'normal' }}>Tu operación comercial autónoma.</strong></p>
         <p style={C.sub}>Operación 24/7 + inteligencia ejecutiva + accountability medible. Todo lo que necesita tu negocio para crecer. Dos capas: la operativa (atender, vender, cobrar, entregar) y la estratégica (interpretar tus datos y planear tus finanzas y marketing). El fundador toma la decisión. La IA hace el trabajo.</p>
         <div style={C.btns}>
           <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, quiero saber más sobre GenyX")}`} style={C.primary}>Cuéntame de tu negocio →</a>
