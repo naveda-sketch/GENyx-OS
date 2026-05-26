@@ -2997,12 +2997,18 @@ const AgentChat = ({ agentId, agentName, agentIcon }) => {
 const AgentTab = ({ agentId, scope = 'founder' }) => {
   const agent = AGENT_CONFIGS[agentId];
   if (!agent) return <Empty icon="🤖" msg={`Agente \${agentId} no encontrado.`} />;
+  const isFounder = scope === 'founder';
   return (
     <section style={{ display: 'flex', gap: 20, minHeight: 500 }}>
       <div style={{ flex: '0 0 58%', display: 'flex', flexDirection: 'column', gap: 14 }}>
         <div style={CARD}>
           <AgentHeader agent={agent} />
-          <AgentMetricsPanel agent={agent} />
+          {isFounder && (
+            <div style={{ padding: '8px 12px', background: GBa(0.06), borderRadius: 8, marginBottom: 10, fontSize: 11, color: GB_SOFT, display: 'flex', alignItems: 'center', gap: 6 }}>
+              <span style={{ fontSize: 14 }}>🔒</span> Vista cross-tenant · Datos agregados de todos los clientes
+            </div>
+          )}
+          <AgentMetricsPanel agent={agent} scope={scope} />
           <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: 12 }}>
             <p style={{ fontSize: 11, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 8 }}>Actividad reciente</p>
             <p style={{ fontSize: 12, color: '#94a3b8', fontStyle: 'italic' }}>Métricas en vivo próximamente — endpoints en desarrollo.</p>
