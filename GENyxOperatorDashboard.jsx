@@ -9426,8 +9426,9 @@ function TabCockpitResumen({ tenants, orders, selectedSlug, health }) {
           { id: 'A0', icon: '🏗️', name: 'Arquitecto', status: 'OK', desc: 'Infraestructura estable' },
           { id: 'A9', icon: '🛡️', name: 'Compliance', status: 'OK', desc: 'Legal y governance al día' },
           { id: 'A10', icon: '🚀', name: 'Onboarding', status: 'OK', desc: 'Guía setup nuevos tenants' },
-          { id: 'MEMORY', icon: '🧠', name: 'MEMORY', status: 'TBD', desc: 'Próximamente' },
-          { id: 'AGUJA', icon: '🧭', name: 'AGUJA', status: 'TBD', desc: 'Próximamente' },
+          { id: 'AGUJA', icon: '🧭', name: 'AGUJA', status: 'PENDING', desc: 'Product Evolution — cada 10 días' },
+          { id: 'MEMORY', icon: '🧠', name: 'MEMORY', status: 'MVP', desc: '214 docs · Endpoints live' },
+          { id: 'A12', icon: '🛡️', name: 'A12 Ciberseg', status: 'PROP', desc: 'CISO Digital propuesta' },
         ].map(b => (
           <div key={b.id} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 6 }}>
@@ -9478,9 +9479,12 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
   const [selected, setSelected] = React.useState(null);
   const [section, setSection] = React.useState('agents');
   const backstageAgents = [
-    { id: 'A0', icon: '🏗️', name: 'Arquitecto', desc: 'Diseña y mantiene la infraestructura sistémica. Ejecuta deploys, DB migrations, API gateway.' },
-    { id: 'A9', icon: '🛡️', name: 'Compliance', desc: 'Vigía legal y governance. Valida contratos, DPA, SLA. Audita cada operación contra doctrina.' },
-    { id: 'A10', icon: '🚀', name: 'Onboarding', desc: 'Guía nuevos tenants por el setup inicial. Alta automática, configuración modular, activación de agentes.' },
+    { id: 'A0', icon: '🏗️', name: 'Arquitecto', desc: 'Diseña y mantiene la infraestructura sistémica. Ejecuta deploys, DB migrations, API gateway.', status: 'live' },
+    { id: 'A9', icon: '🛡️', name: 'Compliance', desc: 'Vigía legal y governance. Valida contratos, DPA, SLA. Audita cada operación contra doctrina.', status: 'live' },
+    { id: 'A10', icon: '🚀', name: 'Onboarding', desc: 'Guía nuevos tenants por el setup inicial. Alta automática, configuración modular, activación de agentes.', status: 'live' },
+    { id: 'AGUJA', icon: '🧭', name: 'AGUJA', desc: 'Product Evolution Strategist. Cada 10 días: brief market intelligence, tendencias Big Tech, pricing competitivo, propuestas de cambio para GenyX.', status: 'placeholder' },
+    { id: 'MEMORY', icon: '🧠', name: 'MEMORY', desc: 'Ojo clínico del fundador. 3 verticales: coherencia doctrinal, coherencia técnica, coherencia operativa. 214 docs ingestados.', status: 'live_mvp' },
+    { id: 'A12', icon: '🛡️', name: 'A12 Ciberseguridad', desc: 'CISO Digital + DPO operacional. Secrets scanning, CVE check, OWASP audit, PII access audit. LFPDPPP + OWASP Top 10 + PCI DSS.', status: 'propuesta' },
   ];
   const opsSubs = [
     { id: 'agents', icon: '🔒', label: 'Agentes' },
@@ -9502,10 +9506,16 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
         ))}
       </div>
       {section === 'agents' && !selected && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 14 }}>
           {backstageAgents.map(a => (
             <button key={a.id} onClick={() => setSelected(a.id)} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: 20, cursor: 'pointer', textAlign: 'left' }}>
-              <span style={{ fontSize: 32 }}>{a.icon}</span>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                <span style={{ fontSize: 32 }}>{a.icon}</span>
+                <span style={{ fontSize: 9, fontWeight: 700, padding: '2px 8px', borderRadius: 6, textTransform: 'uppercase',
+                  background: a.status === 'live' ? 'rgba(16,185,129,0.15)' : a.status === 'live_mvp' ? 'rgba(59,130,246,0.15)' : a.status === 'propuesta' ? 'rgba(245,158,11,0.15)' : 'rgba(100,116,139,0.15)',
+                  color: a.status === 'live' ? '#10b981' : a.status === 'live_mvp' ? '#3b82f6' : a.status === 'propuesta' ? '#f59e0b' : '#64748b',
+                }}>{a.status === 'live' ? '● LIVE' : a.status === 'live_mvp' ? '● MVP' : a.status === 'propuesta' ? '◐ PROPUESTA' : '○ PENDING'}</span>
+              </div>
               <div style={{ fontSize: 14, fontWeight: 700, color: '#f1f5f9', marginTop: 8 }}>{a.name}</div>
               <div style={{ fontSize: 10, color: '#64748b', marginBottom: 8 }}>{a.id}</div>
               <p style={{ fontSize: 12, color: '#94a3b8', margin: 0, lineHeight: 1.5 }}>{a.desc}</p>
