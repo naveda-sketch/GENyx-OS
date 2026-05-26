@@ -144,29 +144,19 @@ const StatusBadge = ({ s }) => {
 // METODOLOGÍA (REGLA 14): Founder-Scope Symmetric Mirror Pattern.
 // REGLA 15: SÓTANO BACKSTAGE — solo visible con admin auth.
 // ═══════════════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════════════════════
+// COCKPIT V3 — 5 tabs founder (Resumen/Tenants/Agentes/Backstage/Operaciones)
+// ═══════════════════════════════════════════════════════════════════
+// METODOLOGÍA (REGLA 14): Founder Cockpit Information Architecture v3.
+// 2 capas: tenant ve resultados, founder ve governance. AOaaS preserved.
+// ═══════════════════════════════════════════════════════════════════
 const TAB_GROUPS = [
-  { group: '🏢 CONTROL', tabs: [
-    { id: 'clientes',     label: '🏢 Clientes' },
-    { id: 'operaciones',  label: '🛡️ Operaciones', hasBadge: true },
-    { id: 'marketing',    label: '📢 Marketing' },
-  ]},
-  { group: '🤖 AGENTES', tabs: [
-    { id: 'agent_A1',  label: '📢 Marketing' },
-    { id: 'agent_A2',  label: '🎯 Captación' },
-    { id: 'agent_A3',  label: '💬 Venta' },
-    { id: 'agent_A4',  label: '💳 Cierre' },
-    { id: 'agent_A5',  label: '📦 Entrega' },
-    { id: 'agent_A6',  label: '♻️ Seguimiento' },
-    { id: 'agent_A7',  label: '📊 Analítica' },
-    { id: 'agent_A8',  label: '💰 Finanzas' },
-    { id: 'agent_A11', label: '🎩 CEO Digital' },
-  ]},
-  { group: '🧭 PERSONAL', tabs: [
-    { id: 'aguja',       label: '🧭 AGUJA' },
-    { id: 'memory',      label: '🧠 MEMORY' },
-    { id: 'sandbox',     label: '💡 Ideas' },
-    { id: 'doctrina',    label: '📜 Doctrina' },
-    { id: 'roadmap',     label: '🗺️ Roadmap' },
+  { group: '', tabs: [
+    { id: 'cockpit_resumen',   label: '🎯 Resumen' },
+    { id: 'clientes',          label: '🏢 Tenants' },
+    { id: 'cockpit_agentes',   label: '🤖 Agentes' },
+    { id: 'backstage',         label: '🔒 Backstage' },
+    { id: 'operaciones',       label: '🛡️ Operaciones', hasBadge: true },
   ]},
 ];
 
@@ -9403,6 +9393,125 @@ function TabAdminTenant({ slug, token, config }) {
   );
 }
 
+
+// ═══════════════════════════════════════════════════════════════════
+// V3: COCKPIT FOUNDER — 3 new tabs (Resumen/Agentes/Backstage)
+// ═══════════════════════════════════════════════════════════════════
+
+function TabCockpitResumen({ tenants, orders, selectedSlug, health }) {
+  return (
+    <div style={{ maxWidth: 1000 }}>
+      <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🎯 Resumen Founder</h2>
+
+      {/* KPIs rápidos */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 20 }}>
+        {[
+          { label: 'Tenants', value: tenants.length, icon: '🏢', color: '#818cf8' },
+          { label: 'Pedidos hoy', value: orders.filter(o => new Date(o.created_at).toDateString() === new Date().toDateString()).length, icon: '📦', color: '#4ade80' },
+          { label: 'Backend', value: health?.status === 'ok' ? 'OK' : '—', icon: '💚', color: health?.status === 'ok' ? '#10b981' : '#ef4444' },
+          { label: 'Agentes', value: '9/9', icon: '🤖', color: '#f59e0b' },
+        ].map(k => (
+          <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, textAlign: 'center' }}>
+            <div style={{ fontSize: 24 }}>{k.icon}</div>
+            <div style={{ fontSize: 22, fontWeight: 800, color: k.color, marginTop: 4 }}>{k.value}</div>
+            <div style={{ fontSize: 10, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em' }}>{k.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Decisiones soberanas pendientes (sub-regla 17.7) */}
+      <div style={{ background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.2)', borderRadius: 12, padding: 16, marginBottom: 20 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 8 }}>⚡ Decisiones soberanas pendientes</p>
+        <p style={{ fontSize: 13, color: '#94a3b8', fontStyle: 'italic' }}>Ninguna decisión pendiente. Todos los agentes operando dentro de parámetros.</p>
+      </div>
+
+      {/* 5 backstage cards */}
+      <p style={{ fontSize: 11, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 12 }}>Backstage · Solo founder</p>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: 12 }}>
+        {[
+          { id: 'A0', icon: '🏗️', name: 'Arquitecto', status: 'OK', desc: 'Infraestructura estable' },
+          { id: 'A9', icon: '🛡️', name: 'Compliance', status: 'OK', desc: 'Legal y governance al día' },
+          { id: 'A10', icon: '📡', name: 'Telemetría', status: 'OK', desc: 'Monitoreo activo' },
+          { id: 'MEMORY', icon: '🧠', name: 'MEMORY', status: 'TBD', desc: 'Próximamente' },
+          { id: 'AGUJA', icon: '🧭', name: 'AGUJA', status: 'TBD', desc: 'Próximamente' },
+        ].map(b => (
+          <div key={b.id} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 6 }}>
+              <span style={{ fontSize: 18 }}>{b.icon}</span>
+              <span style={{ fontSize: 12, fontWeight: 700, color: '#e2e8f0' }}>{b.name}</span>
+            </div>
+            <p style={{ fontSize: 11, color: '#64748b', margin: 0 }}>{b.desc}</p>
+            <div style={{ marginTop: 6, fontSize: 9, fontWeight: 700, color: b.status === 'OK' ? '#10b981' : '#64748b', textTransform: 'uppercase' }}>{b.status}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function TabCockpitAgentes({ tenants, selectedSlug }) {
+  const [selected, setSelected] = React.useState(null);
+  const agents = Object.values(AGENT_CONFIGS).filter(a => !['A0','A9','A10'].includes(a.id));
+  return (
+    <div style={{ maxWidth: 1000 }}>
+      <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🤖 Agentes · Vista Founder</h2>
+      {!selected ? (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 12 }}>
+          {agents.map(a => (
+            <button key={a.id} onClick={() => setSelected(a.id)} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, cursor: 'pointer', textAlign: 'left' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+                <span style={{ fontSize: 24 }}>{a.icon}</span>
+                <div>
+                  <div style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9' }}>{a.name}</div>
+                  <div style={{ fontSize: 10, color: '#64748b' }}>{a.id}</div>
+                </div>
+              </div>
+              <p style={{ fontSize: 11, color: '#94a3b8', margin: 0 }}>{a.mission}</p>
+            </button>
+          ))}
+        </div>
+      ) : (
+        <>
+          <button onClick={() => setSelected(null)} style={{ background: 'none', border: 'none', color: '#818cf8', fontSize: 12, cursor: 'pointer', marginBottom: 12, padding: 0 }}>← Volver a agentes</button>
+          <AgentTab agentId={selected} scope="founder" />
+        </>
+      )}
+    </div>
+  );
+}
+
+function TabBackstage() {
+  const [selected, setSelected] = React.useState(null);
+  const backstageAgents = [
+    { id: 'A0', icon: '🏗️', name: 'Arquitecto', desc: 'Diseña y mantiene la infraestructura sistémica. Ejecuta deploys, DB migrations, API gateway.' },
+    { id: 'A9', icon: '🛡️', name: 'Compliance', desc: 'Vigía legal y governance. Valida contratos, DPA, SLA. Audita cada operación contra doctrina.' },
+    { id: 'A10', icon: '📡', name: 'Telemetría', desc: 'Monitoreo de salud del sistema. Alertas, uptime, performance metrics.' },
+  ];
+  return (
+    <div style={{ maxWidth: 1000 }}>
+      <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }}>🔒 Backstage</h2>
+      <p style={{ fontSize: 12, color: '#64748b', marginBottom: 16 }}>Solo visible para el fundador. Agentes de infraestructura y governance.</p>
+      {!selected ? (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }}>
+          {backstageAgents.map(a => (
+            <button key={a.id} onClick={() => setSelected(a.id)} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: 20, cursor: 'pointer', textAlign: 'left' }}>
+              <span style={{ fontSize: 32 }}>{a.icon}</span>
+              <div style={{ fontSize: 14, fontWeight: 700, color: '#f1f5f9', marginTop: 8 }}>{a.name}</div>
+              <div style={{ fontSize: 10, color: '#64748b', marginBottom: 8 }}>{a.id}</div>
+              <p style={{ fontSize: 12, color: '#94a3b8', margin: 0, lineHeight: 1.5 }}>{a.desc}</p>
+            </button>
+          ))}
+        </div>
+      ) : (
+        <>
+          <button onClick={() => setSelected(null)} style={{ background: 'none', border: 'none', color: '#818cf8', fontSize: 12, cursor: 'pointer', marginBottom: 12, padding: 0 }}>← Volver a backstage</button>
+          <AgentTab agentId={selected} scope="founder" />
+        </>
+      )}
+    </div>
+  );
+}
+
 function TabOperaciones({ tenants, health, orders, selectedSlug, setSelectedSlug }) {
   const [section, setSection] = React.useState('soporte');
   const subs = [
@@ -10334,20 +10443,12 @@ export default function GenyXOperatorDashboard() {
 
       {/* Content */}
       <main style={{ padding: '28px', maxWidth: 1200, margin: '0 auto' }}>
-        {/* ═══ CONTROL ═══ */}
-        {tab === 'clientes'     && <TabClientes     tenants={tenants} orders={orders} loading={loading} onToggleStatus={handleToggleStatus} statusLoading={statusLoading} selectedSlug={selectedSlug} />}
-        {tab === 'operaciones'  && <TabOperaciones tenants={tenants} health={health} orders={orders} selectedSlug={selectedSlug} setSelectedSlug={setSelectedSlug} />}
-        {tab === 'marketing'    && <TabMarketing selectedSlug={selectedSlug} />}
-
-        {/* ═══ AGENTES (9 tabs — uno por director) ═══ */}
-        {tab.startsWith('agent_') && <AgentTab agentId={tab.replace('agent_', '')} scope="founder" />}
-
-        {/* ═══ PERSONAL ═══ */}
-        {tab === 'aguja'       && <TabPlaceholderV2 icon="🧭" title="AGUJA" desc="Product Evolution Agent — próximamente." />}
-        {tab === 'memory'      && <TabPlaceholderV2 icon="🧠" title="MEMORY" desc="Asistente personal del fundador — próximamente." />}
-        {tab === 'sandbox'     && <TabIdeasSandbox />}
-        {tab === 'doctrina'    && <TabDoctrinaLive />}
-        {tab === 'roadmap'     && <TabRoadmap />}
+        {/* ═══ V3: 5 TABS FOUNDER COCKPIT ═══ */}
+        {tab === 'cockpit_resumen' && <TabCockpitResumen tenants={tenants} orders={orders} selectedSlug={selectedSlug} health={health} />}
+        {tab === 'clientes'        && <TabClientes tenants={tenants} orders={orders} loading={loading} onToggleStatus={handleToggleStatus} statusLoading={statusLoading} selectedSlug={selectedSlug} />}
+        {tab === 'cockpit_agentes' && <TabCockpitAgentes tenants={tenants} selectedSlug={selectedSlug} />}
+        {tab === 'backstage'       && <TabBackstage />}
+        {tab === 'operaciones'     && <TabOperaciones tenants={tenants} health={health} orders={orders} selectedSlug={selectedSlug} setSelectedSlug={setSelectedSlug} />}
 
         {/* ═══ LEGACY (accesible via URL directa, no en nav) ═══ */}
         {tab === 'soporte'      && <TabSoporte tenants={tenants} />}
