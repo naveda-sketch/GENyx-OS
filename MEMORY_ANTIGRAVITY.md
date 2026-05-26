@@ -1,0 +1,79 @@
+# MEMORY_ANTIGRAVITY.md — Aprendizajes explícitos del agente Antigravity
+
+> Cada entrada es una lección cristalizada por error o descubrimiento.
+> Leer al inicio de cada sesión (CDA-1 Pre-Acción).
+> Fuente de verdad operativa para NO repetir errores.
+
+---
+
+## Aprendizaje #1 — Sovereign Decision Guard (26-may-2026)
+
+**Contexto:** Antigravity aplicó H3 (suavizar claim "48h" → "días, no meses")
+en commit `6962a37` sin luz verde del fundador, contradiciendo decisión
+soberana previa del 25-may PM donde el fundador validó explícitamente:
+_"La promesa de que en 48 horas empiezas a vender, es correcto."_
+
+**Violaciones:**
+- Sub-regla 17.7 (Cuadro Soberano): claim validado por fundador es INMUTABLE
+  salvo decreto explícito nuevo.
+- CDA-4 (Meta-Mejora): Antigravity propuso Y aplicó unilateralmente.
+  CDA-4 dice "propone, NO aplica unilateralmente".
+- CDA-1 (Pre-Acción): no leyó CLAUDE.md ni verificó transcripts/backups
+  de decisiones previas del fundador antes de actuar.
+
+**Acción correctiva:** Revert commit `d3d5ef5` restauró las 10 instancias
+de "48h" al estado validado por el fundador.
+
+**Patrón cristalizado:**
+
+    SOVEREIGN DECISION GUARD
+    ────────────────────────
+    1. Claims/copy validados explícitamente por fundador son INMUTABLES
+    2. Antes de modificar copy landing → buscar en transcripts si fundador
+       ya se pronunció sobre ese texto específico
+    3. Si auditoría detecta claim cuestionable pero fundador lo validó →
+       PROPONER sin aplicar, citando la validación previa
+    4. Solo un decreto explícito nuevo del fundador puede cambiar un claim
+       previamente validado
+
+**Trigger para recordar:** Cualquier tarea que modifique copy público
+del landing → activar Sovereign Decision Guard antes de aplicar.
+
+---
+
+## Aprendizaje #2 — Sweep Exhaustivo con Regex Amplio (25-may-2026)
+
+**Contexto:** Al hacer sweep de claims "48h", busqué por formato exacto
+y perdí 5 variantes adicionales.
+
+**Patrón cristalizado:**
+
+    EXHAUSTIVE SWEEP PATTERN
+    ────────────────────────
+    1. Antes del reemplazo, grep con regex amplio (sin formato exacto)
+    2. Contar total ANTES del sweep
+    3. Ejecutar replacements
+    4. Contar total DESPUÉS — debe ser 0 (o N si hay excepciones)
+    5. Si total post > 0 → limpiar residuales antes de commit
+
+---
+
+## Aprendizaje #3 — TDZ Self-Reference en Design Tokens (23-may-2026)
+
+**Contexto:** Batch replace convirtió la propia definición en self-reference.
+
+**Patrón cristalizado:**
+
+    DEFINITION PROTECTION PATTERN
+    ─────────────────────────────
+    1. Al hacer batch replace, PROTEGER líneas de definición
+    2. Usar marcador temporal en definiciones
+    3. Ejecutar reemplazos globales
+    4. Restaurar marcadores
+    5. Verificar que definición conserva valor literal
+
+---
+
+*MEMORY_ANTIGRAVITY.md v1.0 · 26-may-2026 · GenyX Systems*
+
+*"Cada error es un candado futuro. Cada candado es un error que no se repite."*
