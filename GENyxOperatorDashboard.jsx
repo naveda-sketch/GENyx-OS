@@ -5045,7 +5045,7 @@ function MandoClientView({ slug }) {
   const [legalOtpCooldown, setLegalOtpCooldown] = useState(0); // Resend cooldown (seconds)
   const [legalOtpExpiry, setLegalOtpExpiry] = useState(null); // Expiry timestamp
   // ── Navigation
-  const [tab, setTab] = useState('pedidos');
+  const [tab, setTab] = useState('resumen');  // V3: default to Resumen tab
   // ── Pedidos
   const [orders, setOrders]   = useState([]);
   const [updating, setUpdating] = useState(null);
