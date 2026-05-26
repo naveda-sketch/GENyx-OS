@@ -174,3 +174,31 @@ verificar contra AOaaS + REGLA 8 + REGLA 15 antes de implementar.
 ---
 
 *MEMORY_ANTIGRAVITY.md v1.3 · 26-may-2026 PM · 6 aprendizajes*
+
+## Aprendizaje #7 — API Response Shape Verification (26-may PM)
+
+**Contexto:** Sprint 2 v3, TabResumenTenant crasheó en producción.
+`/api/client/{slug}/agents` devuelve `{agents: {A1: "inactive", ...}}`
+— un dict, NO un array. Usé `.find()` (Array method) → TypeError.
+
+**Causa raíz:** Asumí la estructura de la respuesta API sin verificar
+el return statement en main.py (L7722: `agents_out = {}`).
+
+**Patrón cristalizado:**
+
+    API RESPONSE SHAPE VERIFICATION
+    ────────────────────────────────
+    Antes de consumir un endpoint:
+    1. grep el return del endpoint en main.py
+    2. Identificar si devuelve dict {} o list []
+    3. Usar el accessor correcto:
+       · dict → obj[key] o Object.values(obj)
+       · array → arr.find() / arr.map()
+    4. NO asumir — VERIFICAR (REGLA 18)
+
+**Trigger:** Cada vez que consuma un endpoint nuevo, verificar
+response shape contra main.py ANTES de escribir el código.
+
+---
+
+*MEMORY_ANTIGRAVITY.md v1.4 · 26-may-2026 PM · 7 aprendizajes*
