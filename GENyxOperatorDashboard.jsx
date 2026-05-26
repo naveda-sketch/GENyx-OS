@@ -9426,7 +9426,7 @@ function TabCockpitResumen({ tenants, orders, selectedSlug, health }) {
           { id: 'A0', icon: '🏗️', name: 'Arquitecto', status: 'OK', desc: 'Infraestructura estable' },
           { id: 'A9', icon: '🛡️', name: 'Compliance', status: 'OK', desc: 'Legal y governance al día' },
           { id: 'A10', icon: '🚀', name: 'Onboarding', status: 'OK', desc: 'Guía setup nuevos tenants' },
-          { id: 'AGUJA', icon: '🧭', name: 'AGUJA', status: 'PENDING', desc: 'Product Evolution — cada 10 días' },
+          { id: 'AGUJA', icon: '🧭', name: 'AGUJA', status: 'OK', desc: 'Product Evolution — backend live' },
           { id: 'MEMORY', icon: '🧠', name: 'MEMORY', status: 'MVP', desc: '214 docs · Endpoints live' },
           { id: 'A12', icon: '🛡️', name: 'A12 Ciberseg', status: 'PROP', desc: 'CISO Digital propuesta' },
         ].map(b => (
@@ -9586,7 +9586,7 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
     { id: 'A0', icon: '🏗️', name: 'Arquitecto', desc: 'Diseña y mantiene la infraestructura sistémica. Ejecuta deploys, DB migrations, API gateway.', status: 'live' },
     { id: 'A9', icon: '🛡️', name: 'Compliance', desc: 'Vigía legal y governance. Valida contratos, DPA, SLA. Audita cada operación contra doctrina.', status: 'live' },
     { id: 'A10', icon: '🚀', name: 'Onboarding', desc: 'Guía nuevos tenants por el setup inicial. Alta automática, configuración modular, activación de agentes.', status: 'live' },
-    { id: 'AGUJA', icon: '🧭', name: 'AGUJA', desc: 'Product Evolution Strategist. Cada 10 días: brief market intelligence, tendencias Big Tech, pricing competitivo, propuestas de cambio para GenyX.', status: 'placeholder' },
+    { id: 'AGUJA', icon: '🧭', name: 'AGUJA', desc: 'Product Evolution Strategist. Cada 10 días: brief market intelligence, tendencias Big Tech, pricing competitivo, propuestas de cambio para GenyX.', status: 'live' },
     { id: 'MEMORY', icon: '🧠', name: 'MEMORY', desc: 'Ojo clínico del fundador. 3 verticales: coherencia doctrinal, coherencia técnica, coherencia operativa. 214 docs ingestados.', status: 'live_mvp' },
     { id: 'A12', icon: '🛡️', name: 'A12 Ciberseguridad', desc: 'CISO Digital + DPO operacional. Secrets scanning, CVE check, OWASP audit, PII access audit. LFPDPPP + OWASP Top 10 + PCI DSS.', status: 'propuesta' },
   ];
@@ -9631,7 +9631,7 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
         <>
           <button onClick={() => setSelected(null)} style={{ background: 'none', border: 'none', color: '#818cf8', fontSize: 12, cursor: 'pointer', marginBottom: 12, padding: 0 }}>← Volver a backstage</button>
           {selected === 'MEMORY' ? <MemoryDrillDown /> :
-           selected === 'AGUJA' ? <TabPlaceholderV2 icon="🧭" title="AGUJA" desc="Product Evolution Strategist — propuesta arquitectural. MVP pending." /> :
+           selected === 'AGUJA' ? <TabPlaceholderV2 icon="🧭" title="AGUJA" desc="Product Evolution Strategist — backend live (commit 00879c6). Dashboard drill-down próximamente." /> :
            selected === 'A12' ? <TabPlaceholderV2 icon="🛡️" title="A12 Ciberseguridad" desc="CISO Digital + DPO operacional — propuesta arquitectural. LFPDPPP + OWASP Top 10 + PCI DSS SAQ-A." /> :
            <AgentTab agentId={selected} scope="founder" />}
         </>
