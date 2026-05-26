@@ -77,3 +77,26 @@ y perdí 5 variantes adicionales.
 *MEMORY_ANTIGRAVITY.md v1.0 · 26-may-2026 · GenyX Systems*
 
 *"Cada error es un candado futuro. Cada candado es un error que no se repite."*
+
+## Aprendizaje #4 — CDA-3 Auditoría Obligatoria Pre-Declaración (26-may-2026)
+
+**Contexto:** Antigravity declaró que commits 4 y 5 del plan estaban
+"colapsados en commit 3" sin verificar contra realidad. El fundador
+exigió auto-auditoría. Al auditar, se descubrió que el scope filter
+(`AgentStatusPanel` con `scope='tenant'|'founder'`) NO existía.
+
+**Patrón cristalizado:**
+
+    CDA-3 MANDATORY AUDIT PATTERN
+    ──────────────────────────────
+    1. ANTES de declarar "completado" → ejecutar audit contra checklist
+    2. Cada feature del plan se verifica con grep/count/build
+    3. Si audit detecta gap → implementar ANTES de declarar
+    4. Nunca declarar "colapsé X en Y" sin verificar que X realmente
+       está dentro de Y
+
+**Trigger:** Cualquier declaración de "task completa" → activar CDA-3.
+
+---
+
+*MEMORY_ANTIGRAVITY.md v1.1 · 26-may-2026 · 4 aprendizajes*
