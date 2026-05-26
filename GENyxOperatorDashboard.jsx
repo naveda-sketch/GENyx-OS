@@ -156,7 +156,6 @@ const TAB_GROUPS = [
     { id: 'clientes',          label: '🏢 Tenants' },
     { id: 'cockpit_agentes',   label: '🤖 Agentes' },
     { id: 'backstage',         label: '🔒 Backstage' },
-    { id: 'operaciones',       label: '🛡️ Operaciones', hasBadge: true },
   ]},
 ];
 
@@ -9426,7 +9425,7 @@ function TabCockpitResumen({ tenants, orders, selectedSlug, health }) {
         {[
           { id: 'A0', icon: '🏗️', name: 'Arquitecto', status: 'OK', desc: 'Infraestructura estable' },
           { id: 'A9', icon: '🛡️', name: 'Compliance', status: 'OK', desc: 'Legal y governance al día' },
-          { id: 'A10', icon: '📡', name: 'Telemetría', status: 'OK', desc: 'Monitoreo activo' },
+          { id: 'A10', icon: '🚀', name: 'Onboarding', status: 'OK', desc: 'Guía setup nuevos tenants' },
           { id: 'MEMORY', icon: '🧠', name: 'MEMORY', status: 'TBD', desc: 'Próximamente' },
           { id: 'AGUJA', icon: '🧭', name: 'AGUJA', status: 'TBD', desc: 'Próximamente' },
         ].map(b => (
@@ -9475,18 +9474,34 @@ function TabCockpitAgentes({ tenants, selectedSlug }) {
   );
 }
 
-function TabBackstage() {
+function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }) {
   const [selected, setSelected] = React.useState(null);
+  const [section, setSection] = React.useState('agents');
   const backstageAgents = [
     { id: 'A0', icon: '🏗️', name: 'Arquitecto', desc: 'Diseña y mantiene la infraestructura sistémica. Ejecuta deploys, DB migrations, API gateway.' },
     { id: 'A9', icon: '🛡️', name: 'Compliance', desc: 'Vigía legal y governance. Valida contratos, DPA, SLA. Audita cada operación contra doctrina.' },
-    { id: 'A10', icon: '📡', name: 'Telemetría', desc: 'Monitoreo de salud del sistema. Alertas, uptime, performance metrics.' },
+    { id: 'A10', icon: '🚀', name: 'Onboarding', desc: 'Guía nuevos tenants por el setup inicial. Alta automática, configuración modular, activación de agentes.' },
+  ];
+  const opsSubs = [
+    { id: 'agents', icon: '🔒', label: 'Agentes' },
+    { id: 'soporte', icon: '📋', label: 'Soporte' },
+    { id: 'herramientas', icon: '🛠️', label: 'Herramientas' },
+    { id: 'onboarding', icon: '🚀', label: 'Onboarding' },
+    { id: 'expedientes', icon: '🗄️', label: 'Expedientes' },
+    { id: 'bitacora', icon: '📅', label: 'Bitácora' },
+    { id: 'reporte', icon: '📧', label: 'Reporte' },
+    { id: 'data', icon: '📈', label: 'DATA' },
   ];
   return (
     <div style={{ maxWidth: 1000 }}>
-      <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }}>🔒 Backstage</h2>
-      <p style={{ fontSize: 12, color: '#64748b', marginBottom: 16 }}>Solo visible para el fundador. Agentes de infraestructura y governance.</p>
-      {!selected ? (
+      <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }}>🔒 Backstage + Operaciones</h2>
+      <p style={{ fontSize: 12, color: '#64748b', marginBottom: 12 }}>Solo visible para el fundador. Agentes de infraestructura, governance y herramientas operativas.</p>
+      <div style={{ display: 'flex', gap: 4, overflowX: 'auto', marginBottom: 16, borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: 8 }}>
+        {opsSubs.map(s => (
+          <button key={s.id} onClick={() => { setSection(s.id); setSelected(null); }} style={{ padding: '6px 14px', fontSize: 11, fontWeight: 600, border: 'none', background: section === s.id ? GBa(0.12) : 'none', color: section === s.id ? GB_LIGHT : '#475569', cursor: 'pointer', borderRadius: 6, whiteSpace: 'nowrap' }}>{s.icon} {s.label}</button>
+        ))}
+      </div>
+      {section === 'agents' && !selected && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }}>
           {backstageAgents.map(a => (
             <button key={a.id} onClick={() => setSelected(a.id)} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: 20, cursor: 'pointer', textAlign: 'left' }}>
@@ -9497,12 +9512,20 @@ function TabBackstage() {
             </button>
           ))}
         </div>
-      ) : (
+      )}
+      {section === 'agents' && selected && (
         <>
           <button onClick={() => setSelected(null)} style={{ background: 'none', border: 'none', color: '#818cf8', fontSize: 12, cursor: 'pointer', marginBottom: 12, padding: 0 }}>← Volver a backstage</button>
           <AgentTab agentId={selected} scope="founder" />
         </>
       )}
+      {section === 'soporte' && <TabSoporte tenants={tenants} />}
+      {section === 'herramientas' && <TabHerramientas health={health} orders={orders} tenants={tenants} selectedSlug={selectedSlug} />}
+      {section === 'onboarding' && <TabOnboarding />}
+      {section === 'expedientes' && <TabExpedientes tenants={tenants} selectedSlug={selectedSlug} />}
+      {section === 'bitacora' && <TabBitacora />}
+      {section === 'reporte' && <TabReporteLunes tenants={tenants} />}
+      {section === 'data' && <TabData tenants={tenants} orders={orders} selectedSlug={selectedSlug} />}
     </div>
   );
 }
@@ -10442,8 +10465,7 @@ export default function GenyXOperatorDashboard() {
         {tab === 'cockpit_resumen' && <TabCockpitResumen tenants={tenants} orders={orders} selectedSlug={selectedSlug} health={health} />}
         {tab === 'clientes'        && <TabClientes tenants={tenants} orders={orders} loading={loading} onToggleStatus={handleToggleStatus} statusLoading={statusLoading} selectedSlug={selectedSlug} />}
         {tab === 'cockpit_agentes' && <TabCockpitAgentes tenants={tenants} selectedSlug={selectedSlug} />}
-        {tab === 'backstage'       && <TabBackstage />}
-        {tab === 'operaciones'     && <TabOperaciones tenants={tenants} health={health} orders={orders} selectedSlug={selectedSlug} setSelectedSlug={setSelectedSlug} />}
+        {tab === 'backstage'       && <TabBackstage tenants={tenants} health={health} orders={orders} selectedSlug={selectedSlug} setSelectedSlug={setSelectedSlug} />}
 
         {/* ═══ LEGACY (accesible via URL directa, no en nav) ═══ */}
         {tab === 'soporte'      && <TabSoporte tenants={tenants} />}
