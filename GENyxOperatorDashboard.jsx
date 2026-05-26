@@ -378,21 +378,44 @@ const StatusBadge = ({ s }) => {
 };
 
 // ── Tabs ─────────────────────────────────────────────────────────────────────
-const TABS = [
-  { id: 'clientes',     label: '🏢 Clientes' },
-  { id: 'soporte',      label: '🎫 Soporte', hasBadge: true },
-  { id: 'marketing',    label: '📢 Marketing' },
-  { id: 'herramientas', label: '🛠️ Herramientas' },
-  { id: 'analista',     label: '📊 Analista' },
-  { id: 'agentes',      label: '🤖 Agentes' },
-  { id: 'bitacora',     label: '📅 Bitácora' },
-  { id: 'reporte',      label: '📧 Reporte Lunes' },
-  { id: 'data',         label: '📈 DATA' },
-  { id: 'expedientes',  label: '🗄️ Expedientes' },
-  { id: 'onboarding',   label: '🚀 Onboarding' },
+// ═══════════════════════════════════════════════════════════════════
+// COCKPIT V2 — Tabs reagrupados (3 grupos: CONTROL / AGENTES / PERSONAL)
+// ═══════════════════════════════════════════════════════════════════
+// METODOLOGÍA (REGLA 14): Founder-Scope Symmetric Mirror Pattern.
+// REGLA 15: SÓTANO BACKSTAGE — solo visible con admin auth.
+// ═══════════════════════════════════════════════════════════════════
+const TAB_GROUPS = [
+  { group: '🏢 CONTROL', tabs: [
+    { id: 'clientes',     label: '🏢 Clientes' },
+    { id: 'operaciones',  label: '🛡️ Operaciones', hasBadge: true },
+    { id: 'marketing',    label: '📢 Marketing' },
+  ]},
+  { group: '🤖 AGENTES', tabs: [
+    { id: 'agent_A1',  label: '📢 Marketing' },
+    { id: 'agent_A2',  label: '🎯 Captación' },
+    { id: 'agent_A3',  label: '💬 Venta' },
+    { id: 'agent_A4',  label: '💳 Cierre' },
+    { id: 'agent_A5',  label: '📦 Entrega' },
+    { id: 'agent_A6',  label: '♻️ Seguimiento' },
+    { id: 'agent_A7',  label: '📊 Analítica' },
+    { id: 'agent_A8',  label: '💰 Finanzas' },
+    { id: 'agent_A11', label: '🎩 CEO Digital' },
+  ]},
+  { group: '🧭 PERSONAL', tabs: [
+    { id: 'aguja',       label: '🧭 AGUJA' },
+    { id: 'memory',      label: '🧠 MEMORY' },
+    { id: 'sandbox',     label: '💡 Ideas' },
+    { id: 'doctrina',    label: '📜 Doctrina' },
+    { id: 'roadmap',     label: '🗺️ Roadmap' },
+  ]},
 ];
-// TABS ocultos (datos se conservan, acceso futuro):
-// { id: 'manuales',     label: '📚 Manuales' },
+
+// Flat TABS for backward compat (tab render switch)
+const TABS = TAB_GROUPS.flatMap(g => g.tabs);
+// Legacy TABS preserved for any code that still references by index:
+// { id: 'herramientas' }, { id: 'analista' }, { id: 'agentes' },
+// { id: 'bitacora' }, { id: 'reporte' }, { id: 'data' },
+// { id: 'expedientes' }, { id: 'onboarding' }, { id: 'manuales' }
 // { id: 'farmacopeia',  label: '💊 Farmacopeia' },
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -9189,6 +9212,139 @@ function PlusPage() {
   );
 }
 
+
+// ═══════════════════════════════════════════════════════════════════
+// TAB OPERACIONES GenyX — Centraliza backstage tools (V2 commit 3)
+// ═══════════════════════════════════════════════════════════════════
+// METODOLOGÍA (REGLA 14): Founder-Scope Operations Hub Pattern.
+// ═══════════════════════════════════════════════════════════════════
+function TabOperaciones({ tenants, health, orders, selectedSlug, setSelectedSlug }) {
+  const [section, setSection] = React.useState('soporte');
+  const subs = [
+    { id: 'soporte', icon: '📋', label: 'Soporte' },
+    { id: 'herramientas', icon: '🛠️', label: 'Herramientas' },
+    { id: 'analista', icon: '📊', label: 'Analista' },
+    { id: 'onboarding', icon: '🚀', label: 'Onboarding' },
+    { id: 'expedientes', icon: '🗄️', label: 'Expedientes' },
+    { id: 'bitacora', icon: '📅', label: 'Bitácora' },
+    { id: 'reporte', icon: '📧', label: 'Reporte' },
+    { id: 'data', icon: '📈', label: 'DATA' },
+  ];
+  return (
+    <>
+      <div style={{ display: 'flex', gap: 4, overflowX: 'auto', marginBottom: 16, borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: 8 }}>
+        {subs.map(s => (
+          <button key={s.id} onClick={() => setSection(s.id)} style={{ padding: '6px 14px', fontSize: 11, fontWeight: 600, border: 'none', background: section === s.id ? GBa(0.12) : 'none', color: section === s.id ? GB_LIGHT : '#475569', cursor: 'pointer', borderRadius: 6, whiteSpace: 'nowrap' }}>{s.icon} {s.label}</button>
+        ))}
+      </div>
+      {section === 'soporte' && <TabSoporte tenants={tenants} />}
+      {section === 'herramientas' && <TabHerramientas health={health} orders={orders} tenants={tenants} selectedSlug={selectedSlug} />}
+      {section === 'analista' && <TabAnalista tenants={tenants} orders={orders} selectedSlug={selectedSlug} setSelectedSlug={setSelectedSlug} />}
+      {section === 'onboarding' && <TabOnboarding />}
+      {section === 'expedientes' && <TabExpedientes tenants={tenants} selectedSlug={selectedSlug} />}
+      {section === 'bitacora' && <TabBitacora />}
+      {section === 'reporte' && <TabReporteLunes tenants={tenants} />}
+      {section === 'data' && <TabData tenants={tenants} orders={orders} selectedSlug={selectedSlug} />}
+    </>
+  );
+}
+
+function TabPlaceholderV2({ icon, title, desc }) {
+  return (
+    <div style={{ textAlign: 'center', padding: '60px 20px' }}>
+      <div style={{ fontSize: 56, marginBottom: 16 }}>{icon}</div>
+      <h2 style={{ fontSize: 22, fontWeight: 800, color: '#f1f5f9', margin: '0 0 8px' }}>{title}</h2>
+      <p style={{ fontSize: 14, color: '#64748b', maxWidth: 400, margin: '0 auto' }}>{desc}</p>
+      <div style={{ marginTop: 20, padding: '8px 20px', background: 'rgba(255,255,255,0.04)', borderRadius: 8, display: 'inline-block', fontSize: 11, color: '#475569', fontWeight: 600 }}>🚧 En desarrollo</div>
+    </div>
+  );
+}
+
+function TabIdeasSandbox() {
+  const KEY = 'genyx_ideas_sandbox';
+  const [text, setText] = React.useState(() => {
+    try { return localStorage.getItem(KEY) || ''; } catch { return ''; }
+  });
+  React.useEffect(() => { try { localStorage.setItem(KEY, text); } catch {} }, [text]);
+  return (
+    <div style={{ maxWidth: 700 }}>
+      <h2 style={{ fontSize: 18, fontWeight: 800, color: '#f1f5f9', marginBottom: 12 }}>💡 Ideas Sandbox</h2>
+      <p style={{ fontSize: 12, color: '#64748b', marginBottom: 16 }}>Notepad estratégico. Se guarda automáticamente en tu navegador.</p>
+      <textarea
+        value={text}
+        onChange={e => setText(e.target.value)}
+        placeholder="Escribe tus ideas, estrategias, notas..."
+        style={{ width: '100%', minHeight: 400, background: '#0f1623', border: '1px solid rgba(255,255,255,0.1)', color: '#e2e8f0', padding: 16, borderRadius: 12, fontSize: 14, lineHeight: 1.7, resize: 'vertical', outline: 'none', fontFamily: 'inherit' }}
+      />
+      <p style={{ fontSize: 10, color: '#475569', marginTop: 8 }}>Auto-guardado · {text.length} caracteres · localStorage</p>
+    </div>
+  );
+}
+
+function TabDoctrinaLive() {
+  const [dvs, setDvs] = React.useState(null);
+  const [audits, setAudits] = React.useState(null);
+  const adminKey = typeof sessionStorage !== 'undefined' ? sessionStorage.getItem('genyx_admin_key') : null;
+  React.useEffect(() => {
+    if (!adminKey) return;
+    const h = { 'X-Admin-Key': adminKey };
+    fetch(`${BACKEND}/api/admin/doctrine-vitality-score`, { headers: h })
+      .then(r => r.ok ? r.json() : null).then(d => setDvs(d)).catch(() => {});
+    fetch(`${BACKEND}/api/admin/agent-self-audit-history`, { headers: h })
+      .then(r => r.ok ? r.json() : null).then(d => setAudits(d)).catch(() => {});
+  }, [adminKey]);
+  return (
+    <div style={{ maxWidth: 800 }}>
+      <h2 style={{ fontSize: 18, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>📜 Doctrina Live</h2>
+      {dvs ? (
+        <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 14, padding: 20, marginBottom: 16 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+            <h3 style={{ fontSize: 14, fontWeight: 700, color: '#e2e8f0', margin: 0 }}>Doctrine Vitality Score</h3>
+            <span style={{ fontSize: 28, fontWeight: 900, color: (dvs.score || 0) >= 80 ? '#10b981' : (dvs.score || 0) >= 50 ? '#f59e0b' : '#ef4444' }}>{dvs.score || '—'}%</span>
+          </div>
+          {dvs.details && <pre style={{ fontSize: 11, color: '#94a3b8', background: '#0f1623', padding: 12, borderRadius: 8, overflow: 'auto', maxHeight: 300 }}>{JSON.stringify(dvs.details, null, 2)}</pre>}
+        </div>
+      ) : <p style={{ color: '#475569', fontSize: 12 }}>Cargando Doctrine Vitality Score...</p>}
+      {audits && (
+        <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 14, padding: 20 }}>
+          <h3 style={{ fontSize: 14, fontWeight: 700, color: '#e2e8f0', marginBottom: 12 }}>Últimos Self-Audits</h3>
+          {(audits.history || audits.entries || []).slice(0, 10).map((a, i) => (
+            <div key={i} style={{ padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 12, color: '#94a3b8', display: 'flex', gap: 12 }}>
+              <span style={{ fontWeight: 700, color: a.status === 'pass' ? '#10b981' : '#f59e0b' }}>{a.status}</span>
+              <span>{a.agent_id}</span>
+              <span style={{ color: '#475569' }}>{a.task_ref}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function TabRoadmap() {
+  const phases = [
+    { label: 'AHORA', color: '#10b981', items: ['Cockpit V2 redesign', 'Banderazo Paty 100%', 'Chat individual agentes (task #30)', 'Stripe billing portal'] },
+    { label: '30 DÍAS', color: '#f59e0b', items: ['Segundo tenant onboarding', 'A7 analytics dashboard live', 'WhatsApp Business API production', 'AGUJA v1 product evolution'] },
+    { label: '90 DÍAS', color: '#8b5cf6', items: ['Multi-tenant federation', 'A1 marketing automation', 'Mobile mando PWA', 'Enterprise plan launch'] },
+    { label: 'HORIZONTE', color: '#64748b', items: ['Self-service onboarding', 'API pública third-party', 'Marketplace de módulos', 'Expansión LATAM'] },
+  ];
+  return (
+    <div style={{ maxWidth: 800 }}>
+      <h2 style={{ fontSize: 18, fontWeight: 800, color: '#f1f5f9', marginBottom: 20 }}>🗺️ Meta Roadmap</h2>
+      <div style={{ display: 'flex', gap: 16, overflowX: 'auto' }}>
+        {phases.map(p => (
+          <div key={p.label} style={{ flex: '0 0 200px', background: 'rgba(255,255,255,0.03)', border: `1px solid ${p.color}30`, borderRadius: 14, padding: 16 }}>
+            <div style={{ fontSize: 11, fontWeight: 800, color: p.color, textTransform: 'uppercase', letterSpacing: '.1em', marginBottom: 12 }}>{p.label}</div>
+            {p.items.map(item => (
+              <div key={item} style={{ fontSize: 12, color: '#94a3b8', padding: '4px 0', borderBottom: '1px solid rgba(255,255,255,0.03)' }}>• {item}</div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function GenyXLandingPage() {
   const GENYX_CONTACT = useGenyxConfig();
   useSEO();
@@ -9958,12 +10114,18 @@ export default function GenyXOperatorDashboard() {
 
       {/* Tabs */}
       <div style={{ position: 'relative' }}>
-        <nav style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '0 28px', display: 'flex', gap: 4, overflowX: 'auto', scrollbarWidth: 'thin', scrollbarColor: `${GBa(0.4)} transparent`, WebkitOverflowScrolling: 'touch' }}>
-          {TABS.map(t => (
-            <button key={t.id} onClick={() => setTab(t.id)} style={{ padding: '12px 18px', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em', border: 'none', background: 'none', cursor: 'pointer', color: tab === t.id ? GENYX_BRAND : '#475569', borderBottom: `2px solid ${tab === t.id ? GENYX_BRAND : 'transparent'}`, transition: 'all 0.2s', whiteSpace: 'nowrap', position: 'relative' }}>
-              {t.label}
-              {t.hasBadge && escalatedCount > 0 && <span style={{ marginLeft: 6, background: '#ef4444', color: '#fff', padding: '1px 6px', borderRadius: 10, fontSize: 9, fontWeight: 800, verticalAlign: 'super' }}>{escalatedCount}</span>}
-            </button>
+        <nav style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '0 28px', display: 'flex', gap: 0, overflowX: 'auto', scrollbarWidth: 'thin', scrollbarColor: `${GBa(0.4)} transparent`, WebkitOverflowScrolling: 'touch', alignItems: 'center' }}>
+          {TAB_GROUPS.map((g, gi) => (
+            <React.Fragment key={g.group}>
+              {gi > 0 && <span style={{ width: 1, height: 20, background: 'rgba(255,255,255,0.08)', margin: '0 6px', flexShrink: 0 }} />}
+              <span style={{ fontSize: 8, fontWeight: 800, color: '#334155', letterSpacing: '.1em', textTransform: 'uppercase', padding: '0 6px', whiteSpace: 'nowrap', flexShrink: 0 }}>{g.group}</span>
+              {g.tabs.map(t => (
+                <button key={t.id} onClick={() => setTab(t.id)} style={{ padding: '12px 12px', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.04em', border: 'none', background: 'none', cursor: 'pointer', color: tab === t.id ? GENYX_BRAND : '#475569', borderBottom: `2px solid ${tab === t.id ? GENYX_BRAND : 'transparent'}`, transition: 'all 0.2s', whiteSpace: 'nowrap', position: 'relative' }}>
+                  {t.label}
+                  {t.hasBadge && escalatedCount > 0 && <span style={{ marginLeft: 4, background: '#ef4444', color: '#fff', padding: '1px 5px', borderRadius: 10, fontSize: 8, fontWeight: 800, verticalAlign: 'super' }}>{escalatedCount}</span>}
+                </button>
+              ))}
+            </React.Fragment>
           ))}
         </nav>
         <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 60, background: 'linear-gradient(90deg, transparent, #060912)', pointerEvents: 'none', borderBottom: '1px solid rgba(255,255,255,0.06)' }} />
@@ -9987,8 +10149,23 @@ export default function GenyXOperatorDashboard() {
 
       {/* Content */}
       <main style={{ padding: '28px', maxWidth: 1200, margin: '0 auto' }}>
-        {tab === 'soporte'      && <TabSoporte tenants={tenants} />}
+        {/* ═══ CONTROL ═══ */}
         {tab === 'clientes'     && <TabClientes     tenants={tenants} orders={orders} loading={loading} onToggleStatus={handleToggleStatus} statusLoading={statusLoading} selectedSlug={selectedSlug} />}
+        {tab === 'operaciones'  && <TabOperaciones tenants={tenants} health={health} orders={orders} selectedSlug={selectedSlug} setSelectedSlug={setSelectedSlug} />}
+        {tab === 'marketing'    && <TabMarketing selectedSlug={selectedSlug} />}
+
+        {/* ═══ AGENTES (9 tabs — uno por director) ═══ */}
+        {tab.startsWith('agent_') && <AgentTab agentId={tab.replace('agent_', '')} />}
+
+        {/* ═══ PERSONAL ═══ */}
+        {tab === 'aguja'       && <TabPlaceholderV2 icon="🧭" title="AGUJA" desc="Product Evolution Agent — próximamente." />}
+        {tab === 'memory'      && <TabPlaceholderV2 icon="🧠" title="MEMORY" desc="Asistente personal del fundador — próximamente." />}
+        {tab === 'sandbox'     && <TabIdeasSandbox />}
+        {tab === 'doctrina'    && <TabDoctrinaLive />}
+        {tab === 'roadmap'     && <TabRoadmap />}
+
+        {/* ═══ LEGACY (accesible via URL directa, no en nav) ═══ */}
+        {tab === 'soporte'      && <TabSoporte tenants={tenants} />}
         {tab === 'herramientas' && <TabHerramientas  health={health}   orders={orders} tenants={tenants}  selectedSlug={selectedSlug} />}
         {tab === 'analista'     && <TabAnalista      tenants={tenants} orders={orders}  selectedSlug={selectedSlug} setSelectedSlug={setSelectedSlug} />}
         {tab === 'agentes'      && <TabAgentes       tenants={tenants} />}
@@ -9997,7 +10174,6 @@ export default function GenyXOperatorDashboard() {
         {tab === 'data'         && <TabData          tenants={tenants} orders={orders}  selectedSlug={selectedSlug} />}
         {tab === 'expedientes'  && <TabExpedientes   tenants={tenants} selectedSlug={selectedSlug} />}
         {tab === 'manuales'     && <TabManuales />}
-        {tab === 'marketing'    && <TabMarketing selectedSlug={selectedSlug} />}
         {tab === 'onboarding'   && <TabOnboarding />}
         {tab === 'farmacopeia'  && <TabFarmacopeia />}
       </main>
