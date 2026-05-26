@@ -3093,6 +3093,7 @@ const TAB_REGISTRY = {
   costeador:    { icon: '💰', label: 'Costeador' },
   expediente:   { icon: '📋', label: 'Expediente' },
   fotolab:      { icon: '📸', label: 'Foto Lab' },
+  miPlan:       { icon: '📋', label: 'Mi Plan' },
   misAgentes:   { icon: '🤖', label: 'Mis Agentes' },
   reporteLunes: { icon: '📧', label: 'Reporte' },
   legal:        { icon: '⚖️', label: 'Legal' },
@@ -4316,12 +4317,91 @@ function PlanVsAgentsPanel({ plan, agents, billingStatus, slug, token }) {
   );
 }
 
-function TabMisAgentes({ slug, token }) {
-  const [agents, setAgents] = useState(null);
-  const [plan, setPlan] = useState('esencial');
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+// ═══════════════════════════════════════════════════════════════════
+// TAB: MI PLAN — Uso actual vs límites del plan (REGLA 15 cajón)
+// ═══════════════════════════════════════════════════════════════════
+// METODOLOGÍA (REGLA 14): Plan Usage Visibility Pattern.
+// Endpoint: GET /api/public/tenants/{slug}/config
+// ═══════════════════════════════════════════════════════════════════
+function TabMiPlan({ slug, token }) {
+  const [planData, setPlanData] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    fetch(`${BACKEND}/api/public/tenants/${slug}/config`)
+      .then(r => r.json())
+      .then(d => { setPlanData(d); setLoading(false); })
+      .catch(() => setLoading(false));
+  }, [slug]);
+
+  if (loading) return <div style={{ textAlign: 'center', padding: 40, color: '#94a3b8' }}>⏳ Cargando plan…</div>;
+  if (!planData) return <div style={{ textAlign: 'center', padding: 40, color: '#94a3b8' }}>No se pudo cargar la información del plan.</div>;
+
+  const plan = planData.plan_name || 'esencial';
+  const billing = planData.billing_status || 'unknown';
+  const limits = planData.limits || {};
+  const usage = planData.usage_current_month || {};
+
+  const billingColors = {
+    paid: { bg: '#065f4620', border: '#065f46', text: '#10b981', label: '● Pagado — Estás al día' },
+    piloto_comped: { bg: '#7c3aed20', border: '#7c3aed', text: '#a78bfa', label: '🎁 Piloto — Cortesía' },
+    trial: { bg: '#f59e0b20', border: '#f59e0b', text: '#fbbf24', label: '⏳ Prueba' },
+    past_due: { bg: '#ef444420', border: '#ef4444', text: '#f87171', label: '⚠️ Pago pendiente' },
+  };
+  const bs = billingColors[billing] || billingColors.paid;
+
+  const ProgressBar = ({ label, current, max, unit }) => {
+    const pct = max > 0 ? Math.min((current / max) * 100, 100) : 0;
+    const color = pct > 90 ? '#ef4444' : pct > 70 ? '#f59e0b' : '#10b981';
+    return (
+      <div style={{ marginBottom: 14 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, color: '#94a3b8', marginBottom: 4 }}>
+          <span>{label}</span>
+          <span style={{ color: '#e2e8f0', fontWeight: 700 }}>{current?.toLocaleString() || '—'} / {max?.toLocaleString() || '∞'} {unit || ''}</span>
+        </div>
+        <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: 6, height: 8, overflow: 'hidden' }}>
+          <div style={{ width: `${pct}%`, height: '100%', background: color, borderRadius: 6, transition: 'width 0.5s ease' }} />
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <div style={{ maxWidth: 600 }}>
+      {/* Plan header */}
+      <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 14, padding: '20px 24px', marginBottom: 16 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
+          <div>
+            <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', margin: 0, textTransform: 'capitalize' }}>Plan {plan}</h2>
+            <p style={{ fontSize: 12, color: '#94a3b8', margin: '4px 0 0' }}>Cero comisión sobre la venta</p>
+          </div>
+          <span style={{ padding: '6px 14px', borderRadius: 20, fontSize: 11, fontWeight: 700, background: bs.bg, color: bs.text, border: `1px solid ${bs.border}` }}>{bs.label}</span>
+        </div>
+
+        {/* Usage bars */}
+        <ProgressBar label="Mensajes WhatsApp" current={usage.whatsapp_messages} max={limits.whatsapp_messages} />
+        <ProgressBar label="Pedidos procesados" current={usage.orders} max={limits.orders} />
+        <ProgressBar label="Agentes activos" current={9} max={9} />
+        <ProgressBar label="Almacenamiento" current={usage.storage_gb} max={limits.storage_gb} unit="GB" />
+      </div>
+
+      {/* Billing info */}
+      <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 14, padding: '16px 24px', fontSize: 12, color: '#94a3b8' }}>
+        <p style={{ margin: '0 0 6px' }}><strong style={{ color: '#e2e8f0' }}>Billing:</strong> {bs.label}</p>
+        {billing === 'piloto_comped' && <p style={{ margin: 0 }}>Cupón aplicado: <strong style={{ color: '#a78bfa' }}>VITALICIO_PILOTO (100% off)</strong></p>}
+      </div>
+    </div>
+  );
+}
+
+function TabMisAgentes({ slug, token }) {
+  const [agents, setAgents] = React.useState(null);
+  const [plan, setPlan] = React.useState('esencial');
+  const [loading, setLoading] = React.useState(true);
+  const [subTab, setSubTab] = React.useState('overview');
+
+  React.useEffect(() => {
     if (!token) return;
     fetch(`${BACKEND}/api/client/${slug}/agents`, {
       headers: { 'X-Dashboard-Token': token }
@@ -4333,44 +4413,60 @@ function TabMisAgentes({ slug, token }) {
 
   if (loading) return <div style={{ textAlign: 'center', padding: 40, color: '#94a3b8' }}>⏳ Cargando agentes…</div>;
 
+  const AGENT_IDS = ['A1','A2','A3','A4','A5','A6','A7','A8','A11'];
+
   return (
     <>
-      {/* P1.3 — Plan vs Agents Panel */}
-      <PlanVsAgentsPanel plan={plan} agents={agents} billingStatus={null} slug={slug} token={token} />
-
-      <h2 style={{ fontSize: 15, fontWeight: 700, marginBottom: 4, color: '#44403c' }}>
-        🤖 Mis Agentes <span style={{ fontSize: 10, fontWeight: 400, color: '#a8a29e' }}>Plan {plan}</span>
-      </h2>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 10, marginTop: 12 }}>
-        {Object.entries(CLIENT_AGENT_DEFS).map(([id, def]) => {
-          const status = (agents && agents[id]) || 'inactive';
-          const sc = STATUS_COLORS[status] || STATUS_COLORS.inactive;
-          const isIncluded = true; // 9 agentes en todos los planes (decreto fundador)
-          return (
-            <div key={id} style={{
-              background: sc.bg, border: `1.5px solid ${sc.border}`, borderRadius: 14,
-              padding: '14px 12px', opacity: isIncluded ? 1 : 0.55, transition: 'all .2s',
-            }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
-                <span style={{ fontSize: 22 }}>{def.icon}</span>
-                <span style={{ fontSize: 10, fontWeight: 700, color: sc.text, background: `${sc.text}14`, padding: '2px 8px', borderRadius: 20 }}>
-                  {sc.label}
-                </span>
-              </div>
-              <div style={{ fontSize: 13, fontWeight: 700, color: '#1e293b' }}>{def.name}</div>
-              <div style={{ fontSize: 11, color: '#64748b', marginTop: 2 }}>{def.desc}</div>
-
-            </div>
-          );
+      {/* Sub-nav: Overview + 9 agentes */}
+      <div style={{ display: 'flex', gap: 2, overflowX: 'auto', paddingBottom: 8, marginBottom: 12, borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+        <button onClick={() => setSubTab('overview')} style={{ padding: '6px 14px', fontSize: 11, fontWeight: 600, border: 'none', background: 'none', cursor: 'pointer', color: subTab === 'overview' ? '#fff' : 'rgba(255,255,255,0.5)', borderBottom: subTab === 'overview' ? '2px solid #fff' : '2px solid transparent', whiteSpace: 'nowrap' }}>📋 Vista general</button>
+        {AGENT_IDS.map(id => {
+          const a = AGENT_CONFIGS[id];
+          return a ? (
+            <button key={id} onClick={() => setSubTab(id)} style={{ padding: '6px 14px', fontSize: 11, fontWeight: 600, border: 'none', background: 'none', cursor: 'pointer', color: subTab === id ? a.color : 'rgba(255,255,255,0.5)', borderBottom: subTab === id ? `2px solid ${a.color}` : '2px solid transparent', whiteSpace: 'nowrap' }}>{a.icon} {a.name}</button>
+          ) : null;
         })}
       </div>
-      <div style={{ marginTop: 16, padding: '12px 14px', background: '#f8fafc', borderRadius: 12, border: '1px solid #e2e8f0', fontSize: 12, color: '#64748b', textAlign: 'center' }}>
-        💡 9 agentes AOaaS activos en tu plan <b>{plan}</b>. Límites mensuales según contrato.
-      </div>
-      {/* Live Feed — Bloomberg Terminal UX */}
-      <div style={{ marginTop: 20 }}>
-        <LiveFeed slug={slug} token={token} />
-      </div>
+
+      {/* Sub-tab content */}
+      {subTab === 'overview' && (
+        <>
+          <PlanVsAgentsPanel plan={plan} agents={agents} billingStatus={null} slug={slug} token={token} />
+          <h2 style={{ fontSize: 15, fontWeight: 700, marginBottom: 4, color: '#e2e8f0' }}>
+            🤖 Tus 9 Directores <span style={{ fontSize: 10, fontWeight: 400, color: '#94a3b8' }}>Plan {plan}</span>
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10, marginTop: 12 }}>
+            {AGENT_IDS.map(id => {
+              const a = AGENT_CONFIGS[id];
+              if (!a) return null;
+              const status = (agents && agents[id]) || 'active';
+              return (
+                <div key={id} onClick={() => setSubTab(id)} style={{
+                  background: `${a.color}08`, border: `1px solid ${a.color}30`, borderRadius: 12,
+                  padding: '14px 12px', cursor: 'pointer', transition: 'all .2s',
+                }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
+                    <span style={{ fontSize: 24 }}>{a.icon}</span>
+                    <span style={{ fontSize: 9, fontWeight: 700, color: a.color, background: `${a.color}14`, padding: '2px 8px', borderRadius: 20, textTransform: 'uppercase' }}>
+                      {status === 'active' ? 'Activo' : status}
+                    </span>
+                  </div>
+                  <div style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9' }}>{a.id} — {a.name}</div>
+                  <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 2 }}>{a.subtitle}</div>
+                </div>
+              );
+            })}
+          </div>
+          <div style={{ marginTop: 16, padding: '12px 14px', background: 'rgba(255,255,255,0.03)', borderRadius: 12, border: '1px solid rgba(255,255,255,0.06)', fontSize: 12, color: '#94a3b8', textAlign: 'center' }}>
+            💡 9 directores ejecutivos IA activos en tu plan <b style={{ color: '#e2e8f0' }}>{plan}</b>. Haz click en cualquiera para ver detalle.
+          </div>
+          <div style={{ marginTop: 20 }}>
+            <LiveFeed slug={slug} token={token} />
+          </div>
+        </>
+      )}
+
+      {AGENT_IDS.includes(subTab) && <AgentTab agentId={subTab} />}
     </>
   );
 }
@@ -5349,13 +5445,13 @@ if (!token) return (
           // Map module keys → legacy tab IDs used in render sections below
           const MODULE_TAB_MAP = {
             pedidos: 'pedidos', kpis: 'kpis', inventario: 'inv', costeador: 'cost',
-            expediente: 'exp', fotolab: 'foto', misAgentes: 'misAgentes',
+            expediente: 'exp', fotolab: 'foto', miPlan: 'miPlan', misAgentes: 'misAgentes',
             reporteLunes: 'reporteLunes', citas: 'citas', leads: 'leads',
             pacientes: 'pacientes', reservas: 'reservas', cursos: 'cursos',
           };
           const modules = config?.modules || {};
           // pedidos is always visible (core functionality)
-          const activeMods = ['pedidos', ...Object.keys(TAB_REGISTRY).filter(k => k !== 'pedidos' && (modules[k] === true || k === 'legal'))];
+          const activeMods = ['pedidos', ...Object.keys(TAB_REGISTRY).filter(k => k !== 'pedidos' && (modules[k] === true || k === 'legal' || k === 'miPlan' || k === 'misAgentes'))];
           const tabs = activeMods.map(k => ({ tabId: MODULE_TAB_MAP[k] || k, ...TAB_REGISTRY[k] }));
           return (
             <div style={{ display: 'flex', gap: 2, overflowX: 'auto', paddingBottom: 0 }}>
@@ -6388,7 +6484,10 @@ if (!token) return (
         {/* ═══ TAB: FOTO LAB ═══ */}
         {tab === 'foto' && <TabFotoLab slug={slug} token={token} />}
 
-        {/* ═══ TAB: MIS AGENTES (Fase 3 T6) ═══ */}
+        {/* ═══ TAB: MI PLAN (V2) ═══ */}
+        {tab === 'miPlan' && <TabMiPlan slug={slug} token={token} />}
+
+        {/* ═══ TAB: MIS AGENTES V2 (9 sub-tabs) ═══ */}
         {tab === 'misAgentes' && <TabMisAgentes slug={slug} token={token} />}
 
         {/* ═══ TAB: REPORTE DEL LUNES (Fase 3 T7) ═══ */}
