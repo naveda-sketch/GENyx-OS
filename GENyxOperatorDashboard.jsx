@@ -1868,7 +1868,7 @@ const TabExpedientes = ({ tenants }) => {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
                   <div>
                     <p style={{ ...MONO, fontSize: 9, color: isGenyX ? GENYX_BRAND : '#64748b', marginBottom: 3 }}>
-                      {isGenyX ? 'OPERADOR' : `CLIENTE ${String(i + 1).padStart(3, '0')}`}
+                      {isGenyX ? 'CLIENTE 000' : `CLIENTE ${String(i + 1).padStart(3, '0')}`}
                     </p>
                     <p style={{ fontWeight: 700, fontSize: 13, color: isGenyX ? GB_SOFT : '#f1f5f9' }}>{c.name || c.slug}</p>
                   </div>
@@ -3343,7 +3343,7 @@ const FOTOLAB_PRESETS = [
     desc: 'Tu foto → portada de revista',
     requiresImage: true,
     buildPrompt: (product) =>
-      `Transform this food photo into professional editorial photography${product ? ` of "${product}"` : ''}. Soft natural morning light from a side window. Place the product on a clean marble surface. Kinfolk magazine aesthetic, desaturated tones, ultra-sharp focus, shallow depth of field with beautiful bokeh. Make the product the absolute hero. 4K, photorealistic.`,
+      `Edit this food photo to look like professional editorial photography${product ? ` of "${product}"` : ''}. Keep the EXACT same product, arrangement, and composition from the original photo. Only improve: lighting (soft natural light), color grading (warm editorial tones), sharpness, and background cleanup. Do NOT change the product itself, do NOT rearrange items, do NOT replace the surface unless it improves the shot. The product in the result must be recognizably the same as the input. 4K, photorealistic.`,
   },
   {
     id: 'generate',
@@ -9357,6 +9357,54 @@ function TabInsightsTenant({ slug, token, analytics, fetchAnalytics, setParentTa
   );
 }
 
+// ═══════════════════════════════════════════════════════════════════
+// TabExpedienteCliente — Tenant-side expediente view (read from backend)
+// Endpoint verified REGLA 18: GET /api/client/{slug}/expediente L8377
+// ═══════════════════════════════════════════════════════════════════
+function TabExpedienteCliente({ slug, token }) {
+  const [sections, setSections] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    if (!slug || !token) { setLoading(false); return; }
+    fetch(`${BACKEND}/api/client/${slug}/expediente`, {
+      headers: { 'X-Dashboard-Token': token }
+    })
+    .then(r => r.ok ? r.json() : null)
+    .then(d => { setSections(d?.sections || {}); setLoading(false); })
+    .catch(() => setLoading(false));
+  }, [slug, token]);
+
+  if (loading) return <div style={{ textAlign: 'center', padding: 40, color: '#a8a29e', fontSize: 13 }}>Cargando expediente...</div>;
+  if (!sections || Object.keys(sections).length === 0) return (
+    <div style={{ textAlign: 'center', padding: 40 }}>
+      <div style={{ fontSize: 40, marginBottom: 12 }}>📋</div>
+      <p style={{ color: '#78716c', fontSize: 13 }}>Tu expediente está siendo preparado por el equipo GenyX.</p>
+      <p style={{ color: '#a8a29e', fontSize: 11 }}>Los documentos aparecerán aquí conforme sean procesados.</p>
+    </div>
+  );
+
+  const sectionNames = { legal: '⚖️ Legal', datos: '📋 Datos', operativo: '🔧 Operativo', financiero: '💰 Financiero' };
+  return (
+    <div style={{ maxWidth: 700 }}>
+      <h3 style={{ fontSize: 15, fontWeight: 700, color: '#44403c', marginBottom: 16 }}>📋 Mi Expediente</h3>
+      {Object.entries(sections).map(([secKey, fields]) => (
+        <div key={secKey} style={{ marginBottom: 20, background: '#faf8f5', borderRadius: 12, padding: 16, border: '1px solid #f0ebe4' }}>
+          <h4 style={{ fontSize: 13, fontWeight: 700, color: '#78716c', marginBottom: 10 }}>{sectionNames[secKey] || secKey}</h4>
+          {Object.entries(fields).map(([fieldId, info]) => (
+            <div key={fieldId} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid #f0ebe4', fontSize: 12 }}>
+              <span style={{ color: '#44403c' }}>{fieldId.replace(/_/g, ' ')}</span>
+              <span style={{ color: info.completed ? '#16a34a' : '#d97706', fontWeight: 600 }}>
+                {info.completed ? '✅ Completado' : '⏳ Pendiente'}
+              </span>
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function TabAdminTenant({ slug, token, config }) {
   const [section, setSection] = React.useState('miPlan');
   const subs = [
@@ -9374,11 +9422,7 @@ function TabAdminTenant({ slug, token, config }) {
       </div>
       {section === 'miPlan' && <TabMiPlan slug={slug} token={token} />}
       {section === 'legal' && <TabLegalDocs slug={slug} token={token} />}
-      {section === 'expediente' && (
-        <div style={{ minHeight: 300 }}>
-          <p style={{ fontSize: 13, color: '#78716c', fontStyle: 'italic' }}>Expediente — reutiliza componente V1.</p>
-        </div>
-      )}
+      {section === 'expediente' && <TabExpedienteCliente slug={slug} token={token} />}
     </div>
   );
 }
