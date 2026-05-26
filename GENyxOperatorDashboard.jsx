@@ -9628,7 +9628,7 @@ function MemoryDrillDown() {
 
   if (!adminKey) return (
     <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}>
-      <p style={{ fontSize: 13 }}>Admin key requerida. Configura <code>genyx_admin_key</code> en localStorage.</p>
+      <p style={{ fontSize: 13 }}>Admin key requerida. Inicia sesión como administrador.</p>
     </div>
   );
 
@@ -9641,10 +9641,10 @@ function MemoryDrillDown() {
       {stats && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 20 }}>
           {[
-            { label: 'Events', value: stats.total_events || 0, icon: '📊' },
-            { label: 'Docs ingestados', value: stats.total_documents || 0, icon: '📄' },
-            { label: 'Alertas activas', value: alerts.filter(a => !a.acknowledged).length, icon: '🚨' },
-            { label: 'Tipos', value: stats.event_types ? Object.keys(stats.event_types).length : 0, icon: '🏷️' },
+            { label: 'Events', value: stats.events_lifetime || stats.events_total || 0, icon: '📊' },
+            { label: 'Docs ingestados', value: stats.docs_ingested || 0, icon: '📄' },
+            { label: 'Alertas activas', value: stats.alerts_active || alerts.filter(a => !a.acknowledged).length, icon: '🚨' },
+            { label: 'Tipos', value: stats.tipos_distintos || (stats.event_types ? Object.keys(stats.event_types).length : 0), icon: '🏷️' },
           ].map(k => (
             <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
               <div style={{ fontSize: 20 }}>{k.icon}</div>
@@ -9654,6 +9654,12 @@ function MemoryDrillDown() {
           ))}
         </div>
       )}
+
+      {/* Ingest Doctrine Button */}
+      <IngestDoctrineButton adminKey={adminKey} onComplete={() => {
+        fetch(`${BACKEND}/api/admin/memory/stats`, { headers: { 'X-Admin-Key': adminKey } })
+          .then(r => r.ok ? r.json() : null).then(s => { if (s) setStats(s); });
+      }} />
 
       {/* Recall Search */}
       <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
@@ -9701,6 +9707,7 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
     { id: 'AGUJA', icon: '🧭', name: 'AGUJA', desc: 'Product Evolution Strategist. Cada 10 días: brief market intelligence, tendencias Big Tech, pricing competitivo, propuestas de cambio para GenyX.', status: 'live' },
     { id: 'MEMORY', icon: '🧠', name: 'MEMORY', desc: 'Ojo clínico del fundador. 3 verticales: coherencia doctrinal, coherencia técnica, coherencia operativa.', status: 'live_mvp' },
     { id: 'A12', icon: '🛡️', name: 'A12 Ciberseguridad', desc: 'CISO Digital + DPO operacional. Secrets scanning, CVE check, OWASP audit, PII access audit. LFPDPPP + OWASP Top 10 + PCI DSS.', status: 'propuesta' },
+    { id: 'DATA', icon: '📊', name: 'DATA Fundador', desc: 'Métricas GenyX-wide: plataforma, MEMORY, AGUJA, A12, doctrina, smoke tests. Datos del fundador, NO de tenants.', status: 'live' },
   ];
   return (
     <div style={{ maxWidth: 1000 }}>
@@ -9735,9 +9742,144 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
            selected === 'A12' ? <TabPlaceholderV2 icon="🛡️" title="A12 Ciberseguridad" desc="CISO Digital + DPO operacional — propuesta arquitectural. LFPDPPP + OWASP Top 10 + PCI DSS SAQ-A." /> :
            selected === 'A0' ? <TabPlaceholderV2 icon="🏛️" title="Arquitecto" desc="Diseñador y auditor del sistema GenyX. Bitácora, candados, auto-healing. Drill-down próximamente." /> :
            selected === 'A9' ? <TabPlaceholderV2 icon="🛡️" title="Compliance" desc="Vigía legal y governance. Contratos, DPA, SLA. Drill-down próximamente." /> :
+           selected === 'DATA' ? <TabDataFounder adminKey={typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : ''} /> :
            <TabPlaceholderV2 icon="🤖" title={selected} desc="Drill-down en desarrollo." />}
         </>
       )}
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// IngestDoctrineButton — POST /api/admin/memory/ingest-doctrine
+// Endpoint verified REGLA 18: L6001 main.py
+// ═══════════════════════════════════════════════════════════════════
+function IngestDoctrineButton({ adminKey, onComplete }) {
+  const [loading, setLoading] = React.useState(false);
+  const [result, setResult] = React.useState(null);
+
+  const handleIngest = async () => {
+    if (!adminKey) return;
+    setLoading(true); setResult(null);
+    try {
+      const r = await fetch(`${BACKEND}/api/admin/memory/ingest-doctrine`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Admin-Key': adminKey },
+        body: JSON.stringify({ dry_run: false }),
+      });
+      const d = await r.json();
+      if (r.ok) {
+        setResult({ ok: true, msg: `✅ Discovered: ${d.discovered || 0} · Ingested: ${d.ingested || 0} · Errors: ${d.errors || 0}` });
+        if (onComplete) onComplete();
+      } else {
+        setResult({ ok: false, msg: `❌ ${d.detail || 'Error'}` });
+      }
+    } catch (e) {
+      setResult({ ok: false, msg: `❌ ${e.message}` });
+    }
+    setLoading(false);
+  };
+
+  return (
+    <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div>
+          <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 4 }}>📥 Ingestar Doctrina Viva</p>
+          <p style={{ fontSize: 10, color: '#475569' }}>Escanea CEREBRO_GENYX/ y archivos .md del repo, inyecta a MEMORY.</p>
+        </div>
+        <button onClick={handleIngest} disabled={loading} style={{ padding: '8px 16px', fontSize: 11, fontWeight: 700, border: 'none', borderRadius: 8, cursor: loading ? 'wait' : 'pointer', background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)', color: '#fff', opacity: loading ? 0.6 : 1 }}>
+          {loading ? '⏳ Procesando...' : '🔄 Ingestar'}
+        </button>
+      </div>
+      {result && (
+        <p style={{ marginTop: 8, fontSize: 11, color: result.ok ? '#4ade80' : '#f87171', fontFamily: 'monospace' }}>{result.msg}</p>
+      )}
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// TabDataFounder — DATA founder-level (NOT tenant data)
+// Endpoint verified REGLA 18: GET /api/admin/founder-dashboard L6062
+// ═══════════════════════════════════════════════════════════════════
+function TabDataFounder({ adminKey }) {
+  const [data, setData] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    if (!adminKey) { setLoading(false); return; }
+    fetch(`${BACKEND}/api/admin/founder-dashboard?days=30`, {
+      headers: { 'X-Admin-Key': adminKey }
+    })
+    .then(r => r.ok ? r.json() : null)
+    .then(d => { setData(d); setLoading(false); })
+    .catch(() => setLoading(false));
+  }, [adminKey]);
+
+  if (loading) return <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}><div style={{ fontSize: 32, marginBottom: 12, animation: 'pulse 2s infinite' }}>📊</div><p style={{ fontSize: 13 }}>Cargando datos fundador...</p></div>;
+  if (!data) return <div style={{ textAlign: 'center', padding: 40, color: '#f87171' }}><p style={{ fontSize: 13 }}>No se pudieron cargar los datos.</p></div>;
+
+  const sections = [
+    { key: 'platform', icon: '🏢', label: 'Plataforma', fields: data.platform ? [
+      { k: 'Tenants activos', v: data.platform.tenants_active },
+      { k: 'Tenants total', v: data.platform.tenants_total },
+      { k: 'Versión', v: data.platform.platform_version },
+    ] : [] },
+    { key: 'memory', icon: '🧠', label: 'MEMORY', fields: data.memory ? [
+      { k: 'Events lifetime', v: data.memory.events_lifetime },
+      { k: 'Docs ingestados', v: data.memory.docs_ingested },
+      { k: 'Tipos distintos', v: data.memory.tipos_distintos },
+      { k: 'Alertas activas', v: data.memory.alerts_active },
+    ] : [] },
+    { key: 'aguja', icon: '🧭', label: 'AGUJA', fields: data.aguja ? [
+      { k: 'Briefs total', v: data.aguja.briefs_total },
+      { k: 'Propuestas pendientes', v: data.aguja.proposals_pending },
+      { k: 'Cadencia overdue', v: data.aguja.cadence_overdue },
+    ] : [] },
+    { key: 'a12', icon: '🛡️', label: 'A12 Ciberseguridad', fields: data.a12 ? [
+      { k: 'Compliance score', v: data.a12.compliance_score },
+      { k: 'Incidentes abiertos', v: data.a12.incidents_open },
+      { k: 'Brechas INAI', v: data.a12.breaches_open_inai },
+    ] : [] },
+    { key: 'doctrine', icon: '📜', label: 'Doctrina', fields: data.doctrine ? [
+      { k: 'Cobertura %', v: data.doctrine.coverage_pct != null ? `${data.doctrine.coverage_pct}%` : 'N/A' },
+      { k: 'Agentes full', v: data.doctrine.agents_full },
+      { k: 'Agentes parcial', v: data.doctrine.agents_partial },
+    ] : [] },
+    { key: 'smoke', icon: '🔬', label: 'Smoke Tests', fields: data.smoke ? [
+      { k: 'Último run', v: data.smoke.last_run || 'N/A' },
+      { k: 'Status', v: data.smoke.last_status || 'N/A' },
+    ] : [] },
+  ].filter(s => s.fields.length > 0);
+
+  return (
+    <div style={{ maxWidth: 800 }}>
+      <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }}>📊 DATA — Métricas GenyX</h3>
+      <p style={{ fontSize: 11, color: '#64748b', marginBottom: 20 }}>Últimos {data.days || 30} días · Datos de tu operación como fundador</p>
+      {data.errors && data.errors.length > 0 && (
+        <div style={{ background: 'rgba(248,113,113,0.1)', border: '1px solid rgba(248,113,113,0.25)', borderRadius: 10, padding: 12, marginBottom: 16 }}>
+          <p style={{ fontSize: 10, fontWeight: 700, color: '#f87171', textTransform: 'uppercase', marginBottom: 4 }}>Errores al cargar</p>
+          {data.errors.map((e, i) => <p key={i} style={{ fontSize: 11, color: '#fca5a5', margin: 0 }}>{e}</p>)}
+        </div>
+      )}
+      <div style={{ display: 'grid', gap: 12 }}>
+        {sections.map(s => (
+          <div key={s.key} style={{ background: '#0f172a', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: '14px 18px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
+              <span style={{ fontSize: 18 }}>{s.icon}</span>
+              <p style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9' }}>{s.label}</p>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: 10 }}>
+              {s.fields.map(f => (
+                <div key={f.k} style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 8, padding: 10, textAlign: 'center' }}>
+                  <div style={{ fontSize: 18, fontWeight: 800, color: '#e2e8f0' }}>{f.v ?? '—'}</div>
+                  <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', marginTop: 2 }}>{f.k}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
