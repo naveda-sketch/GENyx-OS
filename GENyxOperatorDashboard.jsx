@@ -6306,7 +6306,7 @@ function GenyXConciergeWidget() {
       const d = await r.json();
       setTyping(false);
       setMsgs(p => [...p, { from: 'bot', text: d.reply || '¡Perfecto! Te podemos ayudar exactamente con eso 🎯\n\n¿Cómo te llamas y cuál es tu WhatsApp o email?' }]);
-    } catch { setTyping(false); setMsgs(p => [...p, { from: 'bot', text: '¡Te entendemos! Con GenyX lo automatizamos en días, no meses.\n\n¿Cómo te llamas y cuál es tu WhatsApp o email?' }]); }
+    } catch { setTyping(false); setMsgs(p => [...p, { from: 'bot', text: '¡Te entendemos! Con GenyX lo automatizamos en 48 hrs.\n\n¿Cómo te llamas y cuál es tu WhatsApp o email?' }]); }
     setPhase('capture');
   }
 
@@ -6573,7 +6573,7 @@ function DashboardPreview() {
 const SEO_META = {
   '/': {
     title: 'GenyX — AOaaS: Tu operación comercial autónoma',
-    desc: '9 agentes de IA orquestados ejecutando tu operación comercial autónoma. AOaaS — Agent Operations as a Service. Activo en días, no meses.',
+    desc: '9 agentes de IA orquestados ejecutando tu operación comercial autónoma. AOaaS — Agent Operations as a Service. Activo en 48h.',
     canonical: 'https://genyxsystems.com/',
     image: 'https://genyxsystems.com/genyx-logo.png',
   },
@@ -6922,7 +6922,7 @@ function BlogPost3() {
           ['9', 'Capacidades ejecutivas operando 24/7'],
           ['12', 'Agentes orquestados (9 visibles + 3 governance)'],
           ['13', 'REGLAs doctrinales con candados técnicos'],
-          ['Días', 'De la sesión de onboarding a vendiendo'],
+          ['48h', 'De la sesión de onboarding a vendiendo'],
           ['$0', 'Comisión por venta cerrada'],
           ['7', 'Frameworks de marketing'],
         ].map(([val, desc]) => (
@@ -8871,11 +8871,11 @@ function GenyXLandingPage() {
 </span></>, 'Un solo agente atendiendo en WhatsApp, tu sitio web, Instagram, Facebook y por llamada telefónica. Tú en un lugar. Tu agente en todos.'],
     [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={GB_LIGHT} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="M7 16V12m4 4V8m4 8V5"/></svg>, 'Centro de Mando', 'Pedidos, ventas, catálogo y métricas de tu negocio desde un solo panel — en tu celular o computadora. Sabes exactamente qué se vendió, cuándo y cuánto.'],
     [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={GB_LIGHT} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 4h18l-7 9v6l-4-2v-4L3 4z"/></svg>, 'Precisión Absoluta', 'Tu agente respeta tu catálogo, tus precios y tus reglas al 100%. Cada pedido sale exacto. Cada cobro es correcto.'],
-    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={GB_LIGHT} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>, 'Vendiendo en días, no meses', 'Una sesión de 45 minutos para entender tu negocio, nosotros configuramos todo, y en días tu agente ya está cerrando ventas.'],
+    [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={GB_LIGHT} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>, 'Vendiendo en 48 horas', 'Una sesión de 45 minutos para entender tu negocio, nosotros configuramos todo, y en 2 días tu agente ya está cerrando ventas.'],
   ];
   const steps = [
     ['01', 'Sesión de ADN', 'Te escuchamos. Entendemos tu negocio, menú, reglas de venta y personalidad de marca. 45 minutos.'],
-    ['02', 'Instalamos tu agente', 'Configuramos tu agente de ventas, lo conectamos a WhatsApp y lo entrenamos con tu catálogo y forma de vender. En días, no meses.'],
+    ['02', 'Instalamos tu agente', 'Configuramos tu agente de ventas, lo conectamos a WhatsApp y lo entrenamos con tu catálogo y forma de vender. 48 horas.'],
     ['03', 'Vendes mientras duermes', 'Tu agente atiende clientes, filtra curiosos, toma pedidos y genera links de pago. Tú recibes reportes cada lunes.'],
   ];
 
@@ -8949,7 +8949,7 @@ function GenyXLandingPage() {
         </a>
         <div style={C.badge}><span style={C.dot} />Marketing · Captación · Venta · Cierre · Entrega · Seguimiento · Analítica · Finanzas · Dirección Ejecutiva</div>
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(74,222,128,0.1)', border:'1px solid rgba(74,222,128,0.35)', color:'#4ade80', fontSize:12, fontWeight:700, padding:'7px 22px', borderRadius:30, marginBottom:16 }}>
-          &#x2713; Setup rápido · Respuesta en segundos · Cero comisión por venta
+          &#x2713; Activo en 48h · Respuesta en segundos · Cero comisión por venta
         </div>
         <h1 style={C.h1}>Instalamos 9 agentes de IA<br /><span style={C.h1accent}>que orquestan tu operación comercial completa — autónoma, sin que tú estés.</span></h1>
         <div style={{ display:'inline-flex', alignItems:'center', gap:8, marginTop:8, marginBottom:4 }}><span style={{ fontSize:13, fontWeight:900, background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', letterSpacing:'.05em' }}>AOaaS</span><span style={{ color:'#475569', fontSize:12 }}>— Agent Operations as a Service</span></div>
@@ -8963,7 +8963,7 @@ function GenyXLandingPage() {
 
       <section style={C.stats}>
         <div style={C.statsGrid}>
-          {[['Segundos', 'Tu cliente recibe respuesta'], ['24/7', 'Incluye fines de semana y días festivos'], ['$0', 'Comisión por venta'], ['Días', 'De la sesión a vendiendo'], ['AOaaS', 'Agent Operations as a Service']].map(([v, l], i) => (
+          {[['Segundos', 'Tu cliente recibe respuesta'], ['24/7', 'Incluye fines de semana y días festivos'], ['$0', 'Comisión por venta'], ['48h', 'De la sesión a vendiendo'], ['AOaaS', 'Agent Operations as a Service']].map(([v, l], i) => (
             <div key={i} style={C.statCell(i)}>
               <p style={C.statVal}>{v}</p>
               <p style={C.statLbl}>{l}</p>
@@ -9184,7 +9184,7 @@ function GenyXLandingPage() {
               <span>DESDE</span><span>$9,900/mes</span>
             </div>
             <div style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 6 }}>
-              {['Trabaja 24/7, los 365 días', 'Siempre consistente', 'Activo en días, no meses — sin reclutamiento', 'Los 9 agentes comparten datos en tiempo real'].map(t => (
+              {['Trabaja 24/7, los 365 días', 'Siempre consistente', 'Activo en 48h — sin reclutamiento', 'Los 9 agentes comparten datos en tiempo real'].map(t => (
                 <div key={t} style={{ fontSize: 12, color: '#64748b', display: 'flex', alignItems: 'center', gap: 6 }}><span style={{ color: '#4ade80' }}>✓</span> {t}</div>
               ))}
             </div>
@@ -9241,7 +9241,7 @@ function GenyXLandingPage() {
             [() => simSvg([['line',{x1:18,y1:20,x2:18,y2:10}],['line',{x1:12,y1:20,x2:12,y2:4}],['line',{x1:6,y1:20,x2:6,y2:14}],'M22 12h-4l-3 9L9 3l-3 9H2'],'lv2'), 'Reportes que te hacen tomar decisiones', '¿Cuál es tu producto más vendido? ¿A qué hora te escriben más? ¿Cuánto vendiste esta semana? Información clara de tu negocio, cada lunes a las 5am.'],
             [() => simSvg([['path',{d:'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2'}],['circle',{cx:9,cy:7,r:4}],['path',{d:'M23 21v-2a4 4 0 00-3-3.87'}],['path',{d:'M16 3.13a4 4 0 010 7.75'}]],'lv3'), 'Tu operación comercial autónoma — siempre activa', 'Atiende a todos tus clientes al mismo tiempo, los 365 días del año, desde el primer mensaje hasta el cobro.'],
             [() => simSvg([['polygon',{points:'12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'}]],'lv4'), 'Hecho a la medida de tu negocio', 'Tu catálogo. Tus precios. Tu personalidad de marca. Tu zona de entrega. Todo configurado para ti. Funciona como si lo hubiera entrenado tu mejor vendedor.'],
-            [() => simSvg(['M13 2L3 14h9l-1 8 10-12h-9l1-8'],'lv5'), 'Vendiendo en días, no meses', 'Una sesión de 45 minutos para entender tu negocio. Nosotros hacemos todo. En días tu agente ya está cerrando ventas.'],
+            [() => simSvg(['M13 2L3 14h9l-1 8 10-12h-9l1-8'],'lv5'), 'Vendiendo en 48 horas', 'Una sesión de 45 minutos para entender tu negocio. Nosotros hacemos todo. En 2 días tu agente ya está cerrando ventas.'],
           ].map(([icoFn, t, d]) => (
             <div key={t} style={{ background:'rgba(255,255,255,0.03)', border:`1px solid ${GBa(0.15)}`, borderRadius:16, padding:'24px 22px', transition:'all 0.25s' }}
               onMouseOver={e => { e.currentTarget.style.borderColor=GBa(0.45); e.currentTarget.style.background=GBa(0.06); }}
@@ -9290,7 +9290,7 @@ function GenyXLandingPage() {
 
       <section id="proceso" style={C.section()}>
         <div style={C.sHead}>
-          <h2 style={{ ...C.sH2, fontSize: 40 }}>De cero a ventas en días, no meses.</h2>
+          <h2 style={{ ...C.sH2, fontSize: 40 }}>De cero a ventas en 48 horas.</h2>
           <p style={C.sP}>Proceso AOaaS. Tres pasos. Sin código. Sin consultor caro.</p>
         </div>
         <div style={C.grid3}>
