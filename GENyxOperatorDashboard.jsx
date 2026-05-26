@@ -9694,35 +9694,20 @@ function MemoryDrillDown() {
 
 function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }) {
   const [selected, setSelected] = React.useState(null);
-  const [section, setSection] = React.useState('agents');
   const backstageAgents = [
-    { id: 'A0', icon: '🏗️', name: 'Arquitecto', desc: 'Diseña y mantiene la infraestructura sistémica. Ejecuta deploys, DB migrations, API gateway.', status: 'live' },
+    { id: 'A0', icon: '🏛️', name: 'Arquitecto', desc: 'Diseñador y auditor del sistema GenyX. Candados, doctrina, auto-healing, bitácora operativa.', status: 'live' },
     { id: 'A9', icon: '🛡️', name: 'Compliance', desc: 'Vigía legal y governance. Valida contratos, DPA, SLA. Audita cada operación contra doctrina.', status: 'live' },
     { id: 'A10', icon: '🚀', name: 'Onboarding', desc: 'Guía nuevos tenants por el setup inicial. Alta automática, configuración modular, activación de agentes.', status: 'live' },
     { id: 'AGUJA', icon: '🧭', name: 'AGUJA', desc: 'Product Evolution Strategist. Cada 10 días: brief market intelligence, tendencias Big Tech, pricing competitivo, propuestas de cambio para GenyX.', status: 'live' },
-    { id: 'MEMORY', icon: '🧠', name: 'MEMORY', desc: 'Ojo clínico del fundador. 3 verticales: coherencia doctrinal, coherencia técnica, coherencia operativa. 214 docs ingestados.', status: 'live_mvp' },
+    { id: 'MEMORY', icon: '🧠', name: 'MEMORY', desc: 'Ojo clínico del fundador. 3 verticales: coherencia doctrinal, coherencia técnica, coherencia operativa.', status: 'live_mvp' },
     { id: 'A12', icon: '🛡️', name: 'A12 Ciberseguridad', desc: 'CISO Digital + DPO operacional. Secrets scanning, CVE check, OWASP audit, PII access audit. LFPDPPP + OWASP Top 10 + PCI DSS.', status: 'propuesta' },
-  ];
-  const opsSubs = [
-    { id: 'agents', icon: '🔒', label: 'Agentes' },
-    { id: 'soporte', icon: '📋', label: 'Soporte' },
-    { id: 'herramientas', icon: '🛠️', label: 'Herramientas' },
-    { id: 'onboarding', icon: '🚀', label: 'Onboarding' },
-    { id: 'expedientes', icon: '🗄️', label: 'Expedientes' },
-    { id: 'bitacora', icon: '📅', label: 'Bitácora' },
-    { id: 'reporte', icon: '📧', label: 'Reporte' },
-    { id: 'data', icon: '📈', label: 'DATA' },
   ];
   return (
     <div style={{ maxWidth: 1000 }}>
-      <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }}>🔒 Backstage + Operaciones</h2>
-      <p style={{ fontSize: 12, color: '#64748b', marginBottom: 12 }}>Solo visible para el fundador. Agentes de infraestructura, governance y herramientas operativas.</p>
-      <div style={{ display: 'flex', gap: 4, overflowX: 'auto', marginBottom: 16, borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: 8 }}>
-        {opsSubs.map(s => (
-          <button key={s.id} onClick={() => { setSection(s.id); setSelected(null); }} style={{ padding: '6px 14px', fontSize: 11, fontWeight: 600, border: 'none', background: section === s.id ? GBa(0.12) : 'none', color: section === s.id ? GB_LIGHT : '#475569', cursor: 'pointer', borderRadius: 6, whiteSpace: 'nowrap' }}>{s.icon} {s.label}</button>
-        ))}
-      </div>
-      {section === 'agents' && !selected && (
+      <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }}>🔒 Backstage</h2>
+      <p style={{ fontSize: 12, color: '#64748b', marginBottom: 20 }}>Solo visible para el fundador. Agentes de infraestructura, governance y herramientas operativas.</p>
+
+      {!selected && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 14 }}>
           {backstageAgents.map(a => (
             <button key={a.id} onClick={() => setSelected(a.id)} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: 20, cursor: 'pointer', textAlign: 'left' }}>
@@ -9740,22 +9725,19 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
           ))}
         </div>
       )}
-      {section === 'agents' && selected && (
+
+      {selected && (
         <>
           <button onClick={() => setSelected(null)} style={{ background: 'none', border: 'none', color: '#818cf8', fontSize: 12, cursor: 'pointer', marginBottom: 12, padding: 0 }}>← Volver a backstage</button>
           {selected === 'MEMORY' ? <MemoryDrillDown /> :
+           selected === 'A10' ? <TabOnboarding /> :
            selected === 'AGUJA' ? <TabPlaceholderV2 icon="🧭" title="AGUJA" desc="Product Evolution Strategist — backend live (commit 00879c6). Dashboard drill-down próximamente." /> :
            selected === 'A12' ? <TabPlaceholderV2 icon="🛡️" title="A12 Ciberseguridad" desc="CISO Digital + DPO operacional — propuesta arquitectural. LFPDPPP + OWASP Top 10 + PCI DSS SAQ-A." /> :
-           <AgentTab agentId={selected} scope="founder" />}
+           selected === 'A0' ? <TabPlaceholderV2 icon="🏛️" title="Arquitecto" desc="Diseñador y auditor del sistema GenyX. Bitácora, candados, auto-healing. Drill-down próximamente." /> :
+           selected === 'A9' ? <TabPlaceholderV2 icon="🛡️" title="Compliance" desc="Vigía legal y governance. Contratos, DPA, SLA. Drill-down próximamente." /> :
+           <TabPlaceholderV2 icon="🤖" title={selected} desc="Drill-down en desarrollo." />}
         </>
       )}
-      {section === 'soporte' && <TabSoporte tenants={tenants} />}
-      {section === 'herramientas' && <TabHerramientas health={health} orders={orders} tenants={tenants} selectedSlug={selectedSlug} />}
-      {section === 'onboarding' && <TabOnboarding />}
-      {section === 'expedientes' && <TabExpedientes tenants={tenants} selectedSlug={selectedSlug} />}
-      {section === 'bitacora' && <TabBitacora />}
-      {section === 'reporte' && <TabReporteLunes tenants={tenants} />}
-      {section === 'data' && <TabData tenants={tenants} orders={orders} selectedSlug={selectedSlug} />}
     </div>
   );
 }
