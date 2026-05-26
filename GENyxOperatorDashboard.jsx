@@ -9256,9 +9256,12 @@ function TabResumenTenant({ slug, token, config }) {
       .catch(() => setLoading(false));
   }, [slug, token]);
 
+  // API returns agents as dict: {A1: 'active', A2: 'inactive', ...}
+  // NOT an array — verified against main.py L7722 (REGLA 18)
   const agentStatus = (id) => {
     if (!agentData?.agents) return null;
-    return agentData.agents.find(a => a.agent_id === id);
+    const status = agentData.agents[id];
+    return status ? { agent_id: id, status } : null;
   };
 
   return (
@@ -9289,7 +9292,7 @@ function TabResumenTenant({ slug, token, config }) {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: 12 }}>
         {Object.values(AGENT_CONFIGS).filter(a => !['A0','A9','A10'].includes(a.id)).map(agent => {
           const st = agentStatus(agent.id);
-          const hasActivity = st && st.total_actions > 0;
+          const hasActivity = st && st.status !== 'inactive';
           return (
             <div key={agent.id} style={{ background: '#fff', borderRadius: 12, padding: 16, border: '1px solid #f5f0e8', transition: 'box-shadow 0.2s' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
@@ -9303,18 +9306,10 @@ function TabResumenTenant({ slug, token, config }) {
                 <div style={{ padding: '3px 8px', background: hasActivity ? '#f0fdf4' : '#fafaf9', borderRadius: 6, fontSize: 10, fontWeight: 600, color: hasActivity ? '#15803d' : '#a8a29e' }}>{hasActivity ? '● Activo' : '○ Idle'}</div>
               </div>
               <div style={{ fontSize: 12, color: '#57534e', lineHeight: 1.5 }}>
-                {st?.last_action ? (
-                  <>{st.last_action}</>
-                ) : (
-                  <span style={{ fontStyle: 'italic', color: '#a8a29e' }}>Sin actividad reciente</span>
-                )}
+                <span style={{ fontStyle: 'italic', color: hasActivity ? '#57534e' : '#a8a29e' }}>
+                  {hasActivity ? 'Operando normalmente' : 'Sin actividad reciente'}
+                </span>
               </div>
-              {hasActivity && (
-                <div style={{ marginTop: 10, display: 'flex', gap: 12, fontSize: 11, color: '#78716c' }}>
-                  <span>{st.total_actions} acciones</span>
-                  {st.success_rate != null && <span>· {Math.round(st.success_rate * 100)}% éxito</span>}
-                </div>
-              )}
             </div>
           );
         })}
