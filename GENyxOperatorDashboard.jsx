@@ -61,6 +61,247 @@ function useGenyxConfig() {
 // Compat: GENYX_CONTACT sigue funcionando como fallback síncrono para
 // componentes que no son hooks (const styles, TABS, etc.)
 const GENYX_CONTACT = GENYX_CONTACT_FALLBACK;
+
+// ═══════════════════════════════════════════════════════════════════
+// AGENT_CONFIGS — 9 directores ejecutivos IA (A1-A8 + A11)
+// ═══════════════════════════════════════════════════════════════════
+// METODOLOGÍA (REGLA 14): Agent-Based Cockpit Foundation Pattern.
+// Source: CEREBRO_GENYX/DOCTRINA_AGENTE_A*.md (as-is 26-may-2026)
+// doctrinal_source_version: 26may
+// A0/A9/A10 NO incluidos (REGLA 8 backstage invisible)
+// ═══════════════════════════════════════════════════════════════════
+
+const AGENT_CONFIGS = {
+  A1: {
+    id: 'A1', name: 'Marketing', icon: '📢', color: '#f472b6',
+    subtitle: 'Genera contenido y estrategia de marketing 24/7',
+    mission: 'Produce y ejecuta la estrategia comercial de presencia pública del tenant. Calendario editorial, publicaciones WA Status/IG/FB, adaptado a industria.',
+    skills: ['Estrategia comercial', 'Calendario editorial', 'WA Status / IG / FB', 'Adaptación por industria'],
+    rules: ['REGLA 7', 'REGLA 11', 'REGLA 13', 'REGLA 14'],
+    candados: ['BE-#3', 'BE-#7', 'BE-#11'],
+    cadence: 'Continuo · publicaciones diarias · estrategia semanal',
+    metrics: ['Engagement rate', 'CTR campañas', 'Costo por lead', 'Brand voice consistency'],
+  },
+  A2: {
+    id: 'A2', name: 'Captación', icon: '🎯', color: '#fb923c',
+    subtitle: 'Prospección + calificación de leads desde múltiples canales',
+    mission: 'Convierte tráfico entrante en oportunidades calificadas. Scoring 1-100, BANT + JTBD. Filtra hot/warm/cold/no-fit antes de pasar a Venta.',
+    skills: ['Scoring de leads', 'BANT + JTBD', 'Nurture sequences', 'Multi-canal'],
+    rules: ['REGLA 7', 'REGLA 10', 'REGLA 11'],
+    candados: ['BE-#3', 'BE-#5', 'BE-#7'],
+    cadence: 'Continuo · respuesta < 60s',
+    metrics: ['Lead qualification rate', 'Time to first response', 'MQL → SQL conversion'],
+  },
+  A3: {
+    id: 'A3', name: 'Venta', icon: '💬', color: '#4ade80',
+    subtitle: 'Conversa, cotiza y arma el pedido 24/7 vía WhatsApp',
+    mission: 'Cara conversacional del tenant 24/7. Descubrimiento → cotización → armado carrito → handoff a A4 para cobro. Mesero v5 con 14 candados de determinismo.',
+    skills: ['Mesero v5', 'Conversación natural', 'Catálogo determinista', 'Manejo de objeciones'],
+    rules: ['REGLA 7', 'REGLA 11', 'REGLA 13'],
+    candados: ['BE-#3', 'BE-#7', 'FE-#anti-phone'],
+    cadence: 'Continuo · 24/7',
+    metrics: ['Conversion rate', 'Ticket promedio', 'Carritos abandonados', 'Top productos'],
+  },
+  A4: {
+    id: 'A4', name: 'Cierre', icon: '💳', color: '#60a5fa',
+    subtitle: 'Activa Stripe + cobro + confirmación automática',
+    mission: 'Cobra y confirma la orden. Link de pago Stripe → webhook → orden pagada → handoff A5. Único agente que toca dinero real.',
+    skills: ['Stripe integration', 'Link de pago', 'Recuperación pagos', 'Refunds'],
+    rules: ['REGLA 6 (A2F)', 'REGLA 13'],
+    candados: ['BE-#3', 'BE-#5', 'BE-#7', 'BE-#11'],
+    cadence: 'On-demand (al cierre venta)',
+    metrics: ['Payment success rate', 'Time to payment', 'Failed transactions'],
+  },
+  A5: {
+    id: 'A5', name: 'Entrega', icon: '📦', color: '#a78bfa',
+    subtitle: 'Coordina logística y notifica al cliente',
+    mission: 'Orquesta transiciones de estado post-pago (preparación → listo → en camino → entregado). Notifica al cliente por WA en cada cambio.',
+    skills: ['Tracking de estado', 'Notificaciones WA', 'Coordinación logística'],
+    rules: ['REGLA 7'],
+    candados: ['BE-#3', 'BE-#7'],
+    cadence: 'On-demand (post-cobro)',
+    metrics: ['On-time delivery %', 'Tiempo promedio entrega', 'Delivery NPS'],
+  },
+  A6: {
+    id: 'A6', name: 'Seguimiento', icon: '♻️', color: '#2dd4bf',
+    subtitle: 'Retención + reactivación + post-venta',
+    mission: 'Reactiva inactivos, nutre recurrentes, recupera carritos abandonados, mide satisfacción. Comunicación 1-a-1 post-compra.',
+    skills: ['Post-purchase nurture', 'Reactivación RFM', 'Carritos abandonados', 'Loyalty/VIP'],
+    rules: ['REGLA 7', 'REGLA 11'],
+    candados: ['BE-#3', 'BE-#7'],
+    cadence: 'Cron · diario',
+    metrics: ['Reactivation rate', 'Retención 30/60/90d', 'Customer LTV'],
+  },
+  A7: {
+    id: 'A7', name: 'Analítica', icon: '📊', color: GB_LIGHT,
+    subtitle: 'KPIs en vivo + reporte semanal + insights',
+    mission: 'Mide la operación del tenant y genera recomendaciones accionables. Weekly report cada lunes. Alertas tempranas ante anomalías.',
+    skills: ['Weekly report', 'KPIs en vivo', 'Alertas tempranas', 'Recomendaciones'],
+    rules: ['REGLA 1', 'REGLA 11', 'REGLA 13', 'REGLA 14'],
+    candados: ['BE-#3', 'BE-#7', 'BE-#9', 'BE-#10'],
+    cadence: 'Continuo · reporte cada lunes',
+    metrics: ['MRR', 'CAC', 'LTV', 'Funnel conversion', 'Cohort retention'],
+  },
+  A8: {
+    id: 'A8', name: 'Finanzas', icon: '💰', color: '#fbbf24',
+    subtitle: 'Márgenes + costos + P&L + gestión de caja',
+    mission: 'Calcula y reporta la salud financiera real del negocio. P&L semanal, breakeven, análisis por producto, alertas financieras.',
+    skills: ['P&L semanal', 'Breakeven analysis', 'Análisis por producto', 'Alertas financieras'],
+    rules: ['REGLA 1', 'REGLA 11', 'REGLA 14'],
+    candados: ['BE-#3', 'BE-#5', 'BE-#7'],
+    cadence: 'Continuo · cierre mensual',
+    metrics: ['Margen bruto', 'EBITDA', 'Burn rate', 'Cash runway'],
+  },
+  A11: {
+    id: 'A11', name: 'CEO Digital', icon: '🎩', color: '#e2e8f0',
+    subtitle: 'Briefing ejecutivo cross-agentes + decisiones consolidadas',
+    mission: 'Traduce 24h de operación autónoma en 1 mensaje accionable cada mañana. Consolida outputs A1-A8. Pyramid Principle.',
+    skills: ['Briefing diario 06:00', 'Consolidación cross-agente', 'Pyramid Principle', 'Recomendaciones accionables'],
+    rules: ['REGLA 1', 'REGLA 7', 'REGLA 14'],
+    candados: ['BE-#3', 'BE-#7', 'BE-#10'],
+    cadence: 'Diario 06:00 CST + briefing semanal lunes',
+    metrics: ['Decisiones presentadas', 'Aprobaciones owner', 'Cross-agent coordination'],
+  },
+};
+
+// ═══ V2 Base Components ═══════════════════════════════════════════
+
+const InfoTooltip = ({ content }) => {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <div style={{ position: 'relative', display: 'inline-block' }}>
+      <button
+        onMouseEnter={() => setOpen(true)}
+        onMouseLeave={() => setOpen(false)}
+        onClick={() => setOpen(!open)}
+        aria-label="Información del agente"
+        style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', color: '#94a3b8', width: 22, height: 22, borderRadius: '50%', cursor: 'pointer', fontSize: 10, fontWeight: 800, display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+      >(i)</button>
+      {open && (
+        <div style={{ position: 'absolute', left: '110%', top: 0, width: 340, background: '#1e293b', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 12, padding: 18, zIndex: 1000, boxShadow: '0 8px 32px rgba(0,0,0,0.5)', fontSize: 12, lineHeight: 1.6, color: '#e2e8f0' }}>
+          {content}
+        </div>
+      )}
+    </div>
+  );
+};
+
+const AgentMissionTooltip = ({ agent }) => (
+  <div>
+    <h4 style={{ fontSize: 14, fontWeight: 800, marginBottom: 8, color: agent.color }}>{agent.icon} {agent.id} — {agent.name}</h4>
+    <p style={{ marginBottom: 8 }}><strong style={{ color: '#94a3b8' }}>Misión:</strong> {agent.mission}</p>
+    <p style={{ marginBottom: 4 }}><strong style={{ color: '#94a3b8' }}>Skills:</strong></p>
+    <ul style={{ margin: '0 0 8px 16px', padding: 0 }}>{agent.skills.map(s => <li key={s} style={{ marginBottom: 2 }}>{s}</li>)}</ul>
+    <p style={{ marginBottom: 4 }}><strong style={{ color: '#94a3b8' }}>Reglas:</strong> {agent.rules.join(' · ')}</p>
+    <p style={{ marginBottom: 4 }}><strong style={{ color: '#94a3b8' }}>Candados:</strong> {agent.candados.join(' · ')}</p>
+    <p><strong style={{ color: '#94a3b8' }}>Cadencia:</strong> {agent.cadence}</p>
+  </div>
+);
+
+const AgentHeader = ({ agent }) => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+    <span style={{ fontSize: 32 }}>{agent.icon}</span>
+    <div style={{ flex: 1 }}>
+      <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', margin: 0 }}>{agent.id} {agent.name}</h2>
+      <p style={{ fontSize: 12, color: '#94a3b8', margin: '2px 0 0' }}>{agent.subtitle}</p>
+    </div>
+    <InfoTooltip content={<AgentMissionTooltip agent={agent} />} />
+    <span style={{ padding: '4px 10px', borderRadius: 8, fontSize: 10, fontWeight: 700, background: agent.color + '20', color: agent.color, textTransform: 'uppercase' }}>Activo</span>
+  </div>
+);
+
+const AgentMetricsPanel = ({ agent }) => (
+  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: 8, marginBottom: 16 }}>
+    {agent.metrics.map(m => (
+      <div key={m} style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 8, padding: '10px 12px', border: '1px solid rgba(255,255,255,0.06)' }}>
+        <p style={{ fontSize: 10, color: '#64748b', margin: 0, textTransform: 'uppercase', letterSpacing: '.04em' }}>{m}</p>
+        <p style={{ fontSize: 18, fontWeight: 800, color: '#f1f5f9', margin: '4px 0 0' }}>—</p>
+      </div>
+    ))}
+  </div>
+);
+
+const AgentChat = ({ agentId, agentName, agentIcon }) => {
+  const [messages, setMessages] = React.useState([]);
+  const [input, setInput] = React.useState('');
+  const [loading, setLoading] = React.useState(false);
+  const messagesEndRef = React.useRef(null);
+
+  React.useEffect(() => { messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [messages]);
+
+  const send = async () => {
+    if (!input.trim()) return;
+    const userMsg = { role: 'user', text: input, ts: new Date().toISOString() };
+    setMessages(m => [...m, userMsg]);
+    setInput('');
+    setLoading(true);
+    try {
+      const r = await fetch(`\${BACKEND}/api/admin/agent-chat/\${agentId}`, {
+        method: 'POST',
+        headers: { ...getAH(), 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: input }),
+      });
+      if (!r.ok) throw new Error('Endpoint no disponible aún (task #30)');
+      const data = await r.json();
+      setMessages(m => [...m, { role: 'agent', text: data.response, ts: new Date().toISOString() }]);
+    } catch (e) {
+      setMessages(m => [...m, { role: 'agent', text: `⏳ Chat con \${agentId} próximamente. El endpoint está en desarrollo.`, ts: new Date().toISOString() }]);
+    } finally { setLoading(false); }
+  };
+
+  return (
+    <div style={{ background: 'rgba(19,25,40,0.9)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden' }}>
+      <div style={{ padding: '14px 18px', borderBottom: '1px solid rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', gap: 8 }}>
+        <span>{agentIcon}</span>
+        <strong style={{ fontSize: 13, color: '#f1f5f9' }}>Chat con {agentId} — {agentName}</strong>
+      </div>
+      <div style={{ flex: 1, overflowY: 'auto', padding: 16, display: 'flex', flexDirection: 'column', gap: 10, minHeight: 200, maxHeight: 420 }}>
+        {messages.length === 0 && <p style={{ color: '#475569', fontStyle: 'italic', fontSize: 12, textAlign: 'center', margin: 'auto 0' }}>Empieza la conversación con {agentId}...</p>}
+        {messages.map((m, i) => (
+          <div key={i} style={{ alignSelf: m.role === 'user' ? 'flex-end' : 'flex-start', maxWidth: '80%', padding: '10px 14px', borderRadius: m.role === 'user' ? '14px 14px 4px 14px' : '14px 14px 14px 4px', background: m.role === 'user' ? GBa(0.2) : 'rgba(255,255,255,0.04)', color: '#e2e8f0', fontSize: 13, lineHeight: 1.5 }}>
+            {m.text}
+          </div>
+        ))}
+        {loading && <div style={{ alignSelf: 'flex-start', padding: '10px 14px', borderRadius: '14px 14px 14px 4px', background: 'rgba(255,255,255,0.04)', color: '#64748b', fontSize: 12, fontStyle: 'italic' }}>{agentId} pensando...</div>}
+        <div ref={messagesEndRef} />
+      </div>
+      <div style={{ padding: 12, borderTop: '1px solid rgba(255,255,255,0.06)', display: 'flex', gap: 8 }}>
+        <textarea
+          value={input}
+          onChange={e => setInput(e.target.value)}
+          onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } }}
+          placeholder={`Pregunta a \${agentId}...`}
+          rows={1}
+          style={{ flex: 1, background: '#1e293b', border: '1px solid rgba(255,255,255,0.1)', color: '#e2e8f0', padding: '8px 12px', borderRadius: 8, fontSize: 13, resize: 'none', outline: 'none', fontFamily: 'inherit' }}
+        />
+        <button onClick={send} disabled={loading || !input.trim()} style={{ ...BTN_SM_BLUE, opacity: loading || !input.trim() ? 0.4 : 1 }}>Enviar</button>
+      </div>
+    </div>
+  );
+};
+
+const AgentTab = ({ agentId }) => {
+  const agent = AGENT_CONFIGS[agentId];
+  if (!agent) return <Empty icon="🤖" msg={`Agente \${agentId} no encontrado.`} />;
+  return (
+    <section style={{ display: 'flex', gap: 20, minHeight: 500 }}>
+      <div style={{ flex: '0 0 58%', display: 'flex', flexDirection: 'column', gap: 14 }}>
+        <div style={CARD}>
+          <AgentHeader agent={agent} />
+          <AgentMetricsPanel agent={agent} />
+          <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: 12 }}>
+            <p style={{ fontSize: 11, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 8 }}>Actividad reciente</p>
+            <p style={{ fontSize: 12, color: '#94a3b8', fontStyle: 'italic' }}>Métricas en vivo próximamente — endpoints en desarrollo.</p>
+          </div>
+        </div>
+      </div>
+      <div style={{ flex: '0 0 40%' }}>
+        <AgentChat agentId={agentId} agentName={agent.name} agentIcon={agent.icon} />
+      </div>
+    </section>
+  );
+};
+
 // ═══════════════════════════════════════════════════════════════════
 // DESIGN TOKENS — Derivados de tenant config (REGLA 11 agnóstico)
 // ═══════════════════════════════════════════════════════════════════
@@ -2454,9 +2695,9 @@ const TabMarketing = ({ selectedSlug }) => {
                         border: `1px solid ${strategy.executed_as_recommended ? 'rgba(74,222,128,0.2)' : 'rgba(251,191,36,0.2)'}`,
                       }}>{strategy.executed_as_recommended ? '✓ Como recomendada' : '✏️ Personalizada'}</span>
                   )}
-                  {/* ── B: A9 Vigía verdict badge ── */}
+                  {/* ── B: Compliance verdict badge ── */}
                   {strategy?.a9_result && (
-                    <span title={strategy.a9_result.verdict === 'BLOCK' ? `A9 bloqueó: ${(strategy.a9_result.patterns_matched || []).join(', ')}` : strategy.a9_result.verdict === 'WARN' ? `A9 observaciones: ${(strategy.a9_result.patterns_matched || []).join(', ')}` : 'A9 Vigía: sin observaciones'}
+                    <span title={strategy.a9_result.verdict === 'BLOCK' ? `Compliance bloqueó: ${(strategy.a9_result.patterns_matched || []).join(', ')}` : strategy.a9_result.verdict === 'WARN' ? `Compliance observaciones: ${(strategy.a9_result.patterns_matched || []).join(', ')}` : 'Compliance: sin observaciones'}
                       style={{ fontSize: 9, fontWeight: 700, padding: '2px 8px', borderRadius: 10, cursor: 'help',
                         background: strategy.a9_result.verdict === 'BLOCK' ? 'rgba(239,68,68,0.1)' : strategy.a9_result.verdict === 'WARN' ? 'rgba(251,191,36,0.08)' : 'rgba(74,222,128,0.06)',
                         color: strategy.a9_result.verdict === 'BLOCK' ? '#f87171' : strategy.a9_result.verdict === 'WARN' ? '#fbbf24' : '#4ade80',
@@ -2469,17 +2710,17 @@ const TabMarketing = ({ selectedSlug }) => {
               {/* ── B: A9 BLOCK/WARN detail ── */}
               {strategy?.a9_result?.verdict === 'BLOCK' && (
                 <div style={{ background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: 10, padding: '12px 14px', marginBottom: 16 }}>
-                  <p style={{ fontFamily: 'monospace', fontSize: 9, color: '#f87171', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '.06em' }}>🛑 A9 Vigía — Estrategia rechazada</p>
+                  <p style={{ fontFamily: 'monospace', fontSize: 9, color: '#f87171', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '.06em' }}>🛑 Estrategia rechazada por compliance</p>
                   {(strategy.a9_result.patterns_matched || []).map((p, i) => <p key={i} style={{ fontSize: 12, color: '#fca5a5', lineHeight: 1.5 }}>• {p}</p>)}
                   {strategy.a9_result.remediation && <p style={{ fontSize: 11, color: '#94a3b8', marginTop: 8, fontStyle: 'italic' }}>Remediación: {strategy.a9_result.remediation}</p>}
-                  <p style={{ fontSize: 10, color: '#64748b', marginTop: 6 }}>Framework: 6D Severity Scoring</p>
+                  <p style={{ fontSize: 10, color: '#64748b', marginTop: 6 }}>Verificación de compliance</p>
                 </div>
               )}
               {strategy?.a9_result?.verdict === 'WARN' && (
                 <div style={{ background: 'rgba(251,191,36,0.04)', border: '1px solid rgba(251,191,36,0.15)', borderRadius: 10, padding: '12px 14px', marginBottom: 16 }}>
-                  <p style={{ fontFamily: 'monospace', fontSize: 9, color: '#fbbf24', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '.06em' }}>⚠️ A9 Vigía — Observaciones</p>
+                  <p style={{ fontFamily: 'monospace', fontSize: 9, color: '#fbbf24', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '.06em' }}>⚠️ Compliance — Observaciones</p>
                   {(strategy.a9_result.patterns_matched || []).map((p, i) => <p key={i} style={{ fontSize: 12, color: '#fde68a', lineHeight: 1.5 }}>• {p}</p>)}
-                  <p style={{ fontSize: 10, color: '#64748b', marginTop: 6 }}>Framework: 6D Severity Scoring</p>
+                  <p style={{ fontSize: 10, color: '#64748b', marginTop: 6 }}>Verificación de compliance</p>
                 </div>
               )}
 
@@ -2490,7 +2731,7 @@ const TabMarketing = ({ selectedSlug }) => {
                   {fund.map((f, i) => <p key={i} style={{ fontSize: 12, color: GB_SOFT, lineHeight: 1.5 }}>• {f}</p>)}
                   {/* ── D: REGLA 14 — Metodología declarada ── */}
                   <p style={{ fontFamily: 'monospace', fontSize: 9, color: '#64748b', marginTop: 8 }}>
-                    Metodología: {strategy?.strategy?.methodology || 'AIDA + JTBD'} · Framework A9: 6D Severity Scoring
+                    Metodología: {strategy?.strategy?.methodology || 'AIDA + JTBD'} · Verificación de compliance
                   </p>
                 </div>
               )}
