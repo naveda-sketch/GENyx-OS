@@ -5045,6 +5045,7 @@ function MandoClientView({ slug }) {
   const [legalOtpExpiry, setLegalOtpExpiry] = useState(null); // Expiry timestamp
   // ── Navigation
   const [tab, setTab] = useState('resumen');  // V3: default to Resumen tab
+  const [subTab, setSubTab] = useState('pedidos');  // V3: legacy sub-tab for hub routing
   // ── Pedidos
   const [orders, setOrders]   = useState([]);
   const [updating, setUpdating] = useState(null);
@@ -5227,14 +5228,14 @@ function MandoClientView({ slug }) {
     try { const r = await fetch(`${BACKEND}/api/dashboard/${slug}/analytics`, { headers: { 'X-Dashboard-Token': token } }); if (r.ok) setAnalytics(await r.json()); } catch {}
     setAnalyticsLoading(false);
   }, [token, slug]);
-  useEffect(() => { if (tab === 'kpis' && token) { setAnalytics(null); fetchAnalytics(); } }, [tab, token]);
+  useEffect(() => { if ((tab === 'insights' && subTab === 'kpis') && token) { setAnalytics(null); fetchAnalytics(); } }, [tab, subTab, token]);
 
   const fetchInventory = useCallback(async () => {
     if (!token) return; setInvLoading(true);
     try { const r = await fetch(`${BACKEND}/api/dashboard/${slug}/inventory`, { headers: { 'X-Dashboard-Token': token } }); if (r.ok) { const d = await r.json(); setInventory(d.items || []); } } catch {}
     setInvLoading(false);
   }, [token, slug]);
-  useEffect(() => { if (tab === 'inv' && token) fetchInventory(); }, [tab, token, fetchInventory]);
+  useEffect(() => { if ((tab === 'operacion' && subTab === 'inventario') && token) fetchInventory(); }, [tab, subTab, token, fetchInventory]);
   const fetchCatalog = useCallback(async () => {
     setCatLoading(true);
     try {
@@ -5245,7 +5246,7 @@ function MandoClientView({ slug }) {
     } catch(e) { console.warn('catalog fetch', e); }
     setCatLoading(false);
   }, [slug, pin]);
-  useEffect(() => { if ((tab === 'inv' || tab === 'cost') && token) fetchCatalog(); }, [tab, token, fetchCatalog]);
+  useEffect(() => { if (((tab === 'operacion' && subTab === 'inventario') || (tab === 'operacion' && subTab === 'costeador')) && token) fetchCatalog(); }, [tab, token, fetchCatalog]);
 
   const [invSaveMsg, setInvSaveMsg] = useState(null);
   const patchInventory = async (productName, stock, unit) => {
@@ -5601,17 +5602,17 @@ if (!token) return (
         {tab === 'operacion' && (
           <TabOperacionTenant slug={slug} token={token} orders={orders} fetchOrders={fetchOrders}
             inventory={inventory} fetchInventory={fetchInventory} catalog={catalog} fetchCatalog={fetchCatalog}
-            analytics={analytics} fetchAnalytics={fetchAnalytics} />
+            analytics={analytics} fetchAnalytics={fetchAnalytics} setParentTab={setSubTab} />
         )}
 
         {tab === 'insights' && (
-          <TabInsightsTenant slug={slug} token={token} analytics={analytics} fetchAnalytics={fetchAnalytics} />
+          <TabInsightsTenant slug={slug} token={token} analytics={analytics} fetchAnalytics={fetchAnalytics} setParentTab={setSubTab} />
         )}
 
         {tab === 'admin' && <TabAdminTenant slug={slug} token={token} config={config} />}
 
         {/* ═══ LEGACY RENDERS (accessed via operacion/insights/admin sub-tabs) ═══ */}
-        {tab === 'pedidos' && (<>
+        {(tab === 'operacion' && subTab === 'pedidos') && (<>
           {/* ━━ Semáforo de Estado ━━ */}
           {(() => {
             const cNuevo = activos.filter(o => !o.production_status || o.production_status === 'nuevo').length;
@@ -5761,7 +5762,7 @@ if (!token) return (
         </>)}
 
         {/* ═══ TAB: KPIs ═══ */}
-        {tab === 'kpis' && (<>
+        {(tab === 'insights' && subTab === 'kpis') && (<>
           <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 12, color: '#44403c' }}>KPIs de mi Negocio <button onClick={() => { setOrders([]); setTimeout(() => window.location.reload(), 50); }} style={{ marginLeft: 10, padding: '3px 9px', fontSize: 11, background: '#f5f0eb', border: '1px solid #e7d5c0', borderRadius: 7, cursor: 'pointer', color: '#78400e', fontWeight: 700, verticalAlign: 'middle' }}>↺</button></h2>
           {analyticsLoading && <div style={{ textAlign: 'center', color: '#a8a29e', padding: 40 }}>Cargando datos…</div>}
           {!analyticsLoading && analytics && (
@@ -5908,7 +5909,7 @@ if (!token) return (
         </>)}
 
         {/* ═══ TAB: INVENTARIO ═══ */}
-        {tab === 'inv' && (<>
+        {(tab === 'operacion' && subTab === 'inventario') && (<>
           <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 12, color: '#44403c' }}>📦 Inventario</h2>
           {/* Agregar producto */}
           <div style={{ ...CARD }}>
@@ -5957,7 +5958,7 @@ if (!token) return (
         </>)}
 
         {/* ═══ TAB: COSTEADOR ═══ */}
-        {tab === 'cost' && (<>
+        {(tab === 'operacion' && subTab === 'costeador') && (<>
           <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 4, color: '#44403c' }}>Costeador de Productos</h2>
           <p style={{ fontSize: 12, color: '#78716c', marginBottom: 14 }}>Calcula el costo real y precio justo de cada producto de tu menú con la fórmula contable completa.</p>
 
@@ -6524,13 +6525,13 @@ if (!token) return (
         </>)}
 
         {/* ═══ TAB: FOTO LAB ═══ */}
-        {tab === 'foto' && <TabFotoLab slug={slug} token={token} />}
+        {(tab === 'insights' && subTab === 'fotolab') && <TabFotoLab slug={slug} token={token} />}
 
 
         {/* ═══ TAB: MIS AGENTES — ELIMINADO V3 (chat individual rompe AOaaS) ═══ */}
 
         {/* ═══ TAB: REPORTE DEL LUNES (Fase 3 T7) ═══ */}
-        {tab === 'reporteLunes' && <TabReporteLunesCliente slug={slug} token={token} />}
+        {(tab === 'insights' && subTab === 'reporteLunes') && <TabReporteLunesCliente slug={slug} token={token} />}
         {tab === 'legal' && <TabLegalDocs slug={slug} token={token} />}
 
         {/* ═══ TABS PLACEHOLDER: módulos no construidos ═══ */}
@@ -9279,10 +9280,7 @@ function TabResumenTenant({ slug, token, config }) {
             <p style={{ fontSize: 10, color: '#b45309', margin: 0 }}>A11 · Resumen ejecutivo automático</p>
           </div>
         </div>
-        <p style={{ fontSize: 14, color: '#451a03', lineHeight: 1.7, margin: 0 }}>Buenos días. Hoy tienes pedidos pendientes de confirmación y tu inventario de pan dulce está por debajo del mínimo. Revisa la sección de Operación para actuar.</p>
-        <div style={{ marginTop: 12, padding: '6px 12px', background: '#fef3c7', borderRadius: 8, fontSize: 11, color: '#92400e' }}>
-          ⚡ <strong>Acciones que requieren tu atención:</strong> 2 pedidos sin confirmar · 1 alerta de inventario
-        </div>
+        <p style={{ fontSize: 14, color: '#451a03', lineHeight: 1.7, margin: 0 }}>Tu equipo de 9 directores ejecutivos IA está operando. Revisa la sección de Operación para ver pedidos e inventario en tiempo real.</p>
       </div>
 
       {/* ── 9 Agent Delivery Cards ── */}
@@ -9317,13 +9315,15 @@ function TabResumenTenant({ slug, token, config }) {
   );
 }
 
-function TabOperacionTenant({ slug, token, orders, fetchOrders, inventory, fetchInventory, catalog, fetchCatalog, analytics, fetchAnalytics }) {
-  const [section, setSection] = React.useState('pedidos');
+function TabOperacionTenant({ slug, token, orders, fetchOrders, inventory, fetchInventory, catalog, fetchCatalog, analytics, fetchAnalytics, setParentTab }) {
+  // V3 Operacion Hub — routes to V1 legacy tab renders via setParentTab
   const subs = [
     { id: 'pedidos', icon: '🚦', label: 'Pedidos' },
     { id: 'inv', icon: '📦', label: 'Inventario' },
     { id: 'cost', icon: '💰', label: 'Costeador' },
   ];
+  const [section, setSection] = React.useState('pedidos');
+  React.useEffect(() => { setParentTab(section === 'cost' ? 'costeador' : section === 'inv' ? 'inventario' : 'pedidos'); }, [section]);
   return (
     <div>
       <h2 style={{ fontSize: 18, fontWeight: 800, color: '#1a1208', marginBottom: 12 }}>🚦 Operación</h2>
@@ -9332,20 +9332,19 @@ function TabOperacionTenant({ slug, token, orders, fetchOrders, inventory, fetch
           <button key={s.id} onClick={() => setSection(s.id)} style={{ padding: '6px 14px', fontSize: 12, fontWeight: 600, border: 'none', background: section === s.id ? '#fef3c7' : 'transparent', color: section === s.id ? '#92400e' : '#78716c', cursor: 'pointer', borderRadius: 6 }}>{s.icon} {s.label}</button>
         ))}
       </div>
-      <div id="operacion-content" style={{ minHeight: 300 }}>
-        <p style={{ fontSize: 13, color: '#78716c', fontStyle: 'italic' }}>Contenido de {section} — reutiliza componentes V1 existentes.</p>
-      </div>
     </div>
   );
 }
 
-function TabInsightsTenant({ slug, token, analytics, fetchAnalytics }) {
-  const [section, setSection] = React.useState('kpis');
+function TabInsightsTenant({ slug, token, analytics, fetchAnalytics, setParentTab }) {
+  // V3 Insights Hub — routes to V1 legacy tab renders via setParentTab
   const subs = [
     { id: 'kpis', icon: '📊', label: 'KPIs' },
-    { id: 'reporte', icon: '📧', label: 'Reporte Semanal' },
-    { id: 'foto', icon: '📸', label: 'Foto Lab' },
+    { id: 'reporteLunes', icon: '📧', label: 'Reporte Semanal' },
+    { id: 'fotolab', icon: '📸', label: 'Foto Lab' },
   ];
+  const [section, setSection] = React.useState('kpis');
+  React.useEffect(() => { setParentTab(section); }, [section]);
   return (
     <div>
       <h2 style={{ fontSize: 18, fontWeight: 800, color: '#1a1208', marginBottom: 12 }}>📊 Insights</h2>
@@ -9353,9 +9352,6 @@ function TabInsightsTenant({ slug, token, analytics, fetchAnalytics }) {
         {subs.map(s => (
           <button key={s.id} onClick={() => setSection(s.id)} style={{ padding: '6px 14px', fontSize: 12, fontWeight: 600, border: 'none', background: section === s.id ? '#fef3c7' : 'transparent', color: section === s.id ? '#92400e' : '#78716c', cursor: 'pointer', borderRadius: 6 }}>{s.icon} {s.label}</button>
         ))}
-      </div>
-      <div id="insights-content" style={{ minHeight: 300 }}>
-        <p style={{ fontSize: 13, color: '#78716c', fontStyle: 'italic' }}>Contenido de {section} próximamente.</p>
       </div>
     </div>
   );
