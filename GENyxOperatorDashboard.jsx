@@ -3016,7 +3016,7 @@ const AgentTab = ({ agentId, scope = 'founder' }) => {
         </div>
       </div>
       <div style={{ flex: '0 0 40%' }}>
-        <AgentChat agentId={agentId} agentName={agent.name} agentIcon={agent.icon} />
+        {isFounder && <AgentChat agentId={agentId} agentName={agent.name} agentIcon={agent.icon} />}
       </div>
     </section>
   );
@@ -3121,22 +3121,25 @@ function TabPlaceholder({ placeholder = 'Este módulo' }) {
 }
 
 // ── TAB_REGISTRY: 12 módulos del ecosistema Mando ────────────────────────────
+// ═══════════════════════════════════════════════════════════════════
+// TAB_REGISTRY V3 — 4 tabs core + verticales condicionales
+// ═══════════════════════════════════════════════════════════════════
+// METODOLOGÍA (REGLA 14): Information Architecture — 1 vista = 1 acción.
+// Principio V3: tenant ve RESULTADOS, NO gobernanza.
+// Chat individual eliminado del mando (esencia AOaaS preservada).
+// ═══════════════════════════════════════════════════════════════════
 const TAB_REGISTRY = {
-  pedidos:      { icon: '🚦', label: 'Pedidos' },
-  kpis:         { icon: '📊', label: 'KPIs' },
-  inventario:   { icon: '📦', label: 'Inventario' },
-  costeador:    { icon: '💰', label: 'Costeador' },
-  expediente:   { icon: '📋', label: 'Expediente' },
-  fotolab:      { icon: '📸', label: 'Foto Lab' },
-  miPlan:       { icon: '📋', label: 'Mi Plan' },
-  misAgentes:   { icon: '🤖', label: 'Mis Agentes' },
-  reporteLunes: { icon: '📧', label: 'Reporte' },
-  legal:        { icon: '⚖️', label: 'Legal' },
-  citas:        { icon: '📅', label: 'Citas',      placeholder: 'Citas y agenda' },
-  leads:        { icon: '🎯', label: 'Leads',      placeholder: 'Pipeline de Leads' },
-  pacientes:    { icon: '🏥', label: 'Pacientes',  placeholder: 'Historial de Pacientes' },
-  reservas:     { icon: '🍽️', label: 'Reservas',    placeholder: 'Reservas' },
-  cursos:       { icon: '🎓', label: 'Cursos',     placeholder: 'Catálogo de Cursos' },
+  // ── 4 tabs CORE (siempre visibles) ──
+  resumen:     { icon: '🎯', label: 'Resumen',        core: true },
+  operacion:   { icon: '🚦', label: 'Operación',      core: true },
+  insights:    { icon: '📊', label: 'Insights',       core: true },
+  admin:       { icon: '⚙️', label: 'Administración', core: true },
+  // ── Verticales condicionales (según config.modules) ──
+  citas:       { icon: '📅', label: 'Citas',      placeholder: 'Citas y agenda' },
+  leads:       { icon: '🎯', label: 'Leads',      placeholder: 'Pipeline de Leads' },
+  pacientes:   { icon: '🏥', label: 'Pacientes',  placeholder: 'Historial de Pacientes' },
+  reservas:    { icon: '🍽️', label: 'Reservas',    placeholder: 'Reservas' },
+  cursos:      { icon: '🎓', label: 'Cursos',     placeholder: 'Catálogo de Cursos' },
 };
 
 // ── Legacy alias for backward compat (tab rendering uses TAB_REGISTRY now)
@@ -5479,14 +5482,13 @@ if (!token) return (
         {(() => {
           // Map module keys → legacy tab IDs used in render sections below
           const MODULE_TAB_MAP = {
-            pedidos: 'pedidos', kpis: 'kpis', inventario: 'inv', costeador: 'cost',
-            expediente: 'exp', fotolab: 'foto', miPlan: 'miPlan', misAgentes: 'misAgentes',
+            resumen: 'resumen', operacion: 'operacion', insights: 'insights', admin: 'admin',
             reporteLunes: 'reporteLunes', citas: 'citas', leads: 'leads',
             pacientes: 'pacientes', reservas: 'reservas', cursos: 'cursos',
           };
           const modules = config?.modules || {};
           // pedidos is always visible (core functionality)
-          const activeMods = ['pedidos', ...Object.keys(TAB_REGISTRY).filter(k => k !== 'pedidos' && (modules[k] === true || k === 'legal' || k === 'miPlan' || k === 'misAgentes'))];
+          const activeMods = [...Object.keys(TAB_REGISTRY).filter(k => TAB_REGISTRY[k].core || modules[k] === true)];
           const tabs = activeMods.map(k => ({ tabId: MODULE_TAB_MAP[k] || k, ...TAB_REGISTRY[k] }));
           return (
             <div style={{ display: 'flex', gap: 2, overflowX: 'auto', paddingBottom: 0 }}>
@@ -5604,6 +5606,22 @@ if (!token) return (
       <main style={{ padding: 18, maxWidth: 720, margin: '0 auto', width: '100%', flex: 1 }}>
 
         {/* ═══ TAB: PEDIDOS ═══ */}
+        {/* ═══ V3: 4 TABS CORE ═══ */}
+        {tab === 'resumen' && <TabResumenTenant slug={slug} token={token} config={config} />}
+
+        {tab === 'operacion' && (
+          <TabOperacionTenant slug={slug} token={token} orders={orders} fetchOrders={fetchOrders}
+            inventory={inventory} fetchInventory={fetchInventory} catalog={catalog} fetchCatalog={fetchCatalog}
+            analytics={analytics} fetchAnalytics={fetchAnalytics} />
+        )}
+
+        {tab === 'insights' && (
+          <TabInsightsTenant slug={slug} token={token} analytics={analytics} fetchAnalytics={fetchAnalytics} />
+        )}
+
+        {tab === 'admin' && <TabAdminTenant slug={slug} token={token} config={config} />}
+
+        {/* ═══ LEGACY RENDERS (accessed via operacion/insights/admin sub-tabs) ═══ */}
         {tab === 'pedidos' && (<>
           {/* ━━ Semáforo de Estado ━━ */}
           {(() => {
@@ -6519,11 +6537,8 @@ if (!token) return (
         {/* ═══ TAB: FOTO LAB ═══ */}
         {tab === 'foto' && <TabFotoLab slug={slug} token={token} />}
 
-        {/* ═══ TAB: MI PLAN (V2) ═══ */}
-        {tab === 'miPlan' && <TabMiPlan slug={slug} token={token} />}
 
-        {/* ═══ TAB: MIS AGENTES V2 (9 sub-tabs) ═══ */}
-        {tab === 'misAgentes' && <TabMisAgentes slug={slug} token={token} />}
+        {/* ═══ TAB: MIS AGENTES — ELIMINADO V3 (chat individual rompe AOaaS) ═══ */}
 
         {/* ═══ TAB: REPORTE DEL LUNES (Fase 3 T7) ═══ */}
         {tab === 'reporteLunes' && <TabReporteLunesCliente slug={slug} token={token} />}
@@ -9230,6 +9245,111 @@ function PlusPage() {
 // ═══════════════════════════════════════════════════════════════════
 // METODOLOGÍA (REGLA 14): Founder-Scope Operations Hub Pattern.
 // ═══════════════════════════════════════════════════════════════════
+
+// ═══════════════════════════════════════════════════════════════════
+// V3: 4 HUB TABs para Mando Tenant (Sprint 2 commit 1)
+// ═══════════════════════════════════════════════════════════════════
+// METODOLOGÍA (REGLA 14): Information Architecture — 1 vista = 1 acción.
+// Principio: Tenant ve RESULTADOS. Chat individual eliminado (AOaaS).
+// ═══════════════════════════════════════════════════════════════════
+
+function TabResumenTenant({ slug, token, config }) {
+  return (
+    <div style={{ maxWidth: 900 }}>
+      <div style={{ marginBottom: 20 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 800, color: '#1a1208', margin: '0 0 4px' }}>🎯 Resumen del día</h2>
+        <p style={{ fontSize: 13, color: '#78716c', margin: 0 }}>Tus agentes trabajaron para ti — esto es lo que lograron.</p>
+      </div>
+      <div style={{ padding: 20, background: '#fffbeb', borderRadius: 14, border: '1px solid #fde68a', marginBottom: 20 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#92400e', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 8 }}>🎩 Briefing de tu CEO Digital</p>
+        <p style={{ fontSize: 14, color: '#451a03', lineHeight: 1.7 }}>Buenos días. Hoy tienes pedidos pendientes de confirmación y tu inventario de pan dulce está por debajo del mínimo. Revisa la sección de Operación para actuar.</p>
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: 12 }}>
+        {Object.values(AGENT_CONFIGS).filter(a => !['A0','A9','A10'].includes(a.id)).map(agent => (
+          <div key={agent.id} style={{ background: '#fff', borderRadius: 12, padding: 14, border: '1px solid #f5f0e8', cursor: 'default' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+              <span style={{ fontSize: 20 }}>{agent.icon}</span>
+              <span style={{ fontSize: 12, fontWeight: 700, color: '#1a1208' }}>{agent.name}</span>
+            </div>
+            <p style={{ fontSize: 11, color: '#78716c', margin: 0 }}>Sin actividad reciente</p>
+            <div style={{ marginTop: 8, padding: '3px 8px', background: '#f0fdf4', borderRadius: 6, display: 'inline-block', fontSize: 10, fontWeight: 600, color: '#15803d' }}>● Activo</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function TabOperacionTenant({ slug, token, orders, fetchOrders, inventory, fetchInventory, catalog, fetchCatalog, analytics, fetchAnalytics }) {
+  const [section, setSection] = React.useState('pedidos');
+  const subs = [
+    { id: 'pedidos', icon: '🚦', label: 'Pedidos' },
+    { id: 'inv', icon: '📦', label: 'Inventario' },
+    { id: 'cost', icon: '💰', label: 'Costeador' },
+  ];
+  return (
+    <div>
+      <h2 style={{ fontSize: 18, fontWeight: 800, color: '#1a1208', marginBottom: 12 }}>🚦 Operación</h2>
+      <div style={{ display: 'flex', gap: 4, borderBottom: '1px solid #e7e5e4', marginBottom: 16, paddingBottom: 8 }}>
+        {subs.map(s => (
+          <button key={s.id} onClick={() => setSection(s.id)} style={{ padding: '6px 14px', fontSize: 12, fontWeight: 600, border: 'none', background: section === s.id ? '#fef3c7' : 'transparent', color: section === s.id ? '#92400e' : '#78716c', cursor: 'pointer', borderRadius: 6 }}>{s.icon} {s.label}</button>
+        ))}
+      </div>
+      <div id="operacion-content" style={{ minHeight: 300 }}>
+        <p style={{ fontSize: 13, color: '#78716c', fontStyle: 'italic' }}>Contenido de {section} — reutiliza componentes V1 existentes.</p>
+      </div>
+    </div>
+  );
+}
+
+function TabInsightsTenant({ slug, token, analytics, fetchAnalytics }) {
+  const [section, setSection] = React.useState('kpis');
+  const subs = [
+    { id: 'kpis', icon: '📊', label: 'KPIs' },
+    { id: 'reporte', icon: '📧', label: 'Reporte Semanal' },
+    { id: 'foto', icon: '📸', label: 'Foto Lab' },
+  ];
+  return (
+    <div>
+      <h2 style={{ fontSize: 18, fontWeight: 800, color: '#1a1208', marginBottom: 12 }}>📊 Insights</h2>
+      <div style={{ display: 'flex', gap: 4, borderBottom: '1px solid #e7e5e4', marginBottom: 16, paddingBottom: 8 }}>
+        {subs.map(s => (
+          <button key={s.id} onClick={() => setSection(s.id)} style={{ padding: '6px 14px', fontSize: 12, fontWeight: 600, border: 'none', background: section === s.id ? '#fef3c7' : 'transparent', color: section === s.id ? '#92400e' : '#78716c', cursor: 'pointer', borderRadius: 6 }}>{s.icon} {s.label}</button>
+        ))}
+      </div>
+      <div id="insights-content" style={{ minHeight: 300 }}>
+        <p style={{ fontSize: 13, color: '#78716c', fontStyle: 'italic' }}>Contenido de {section} próximamente.</p>
+      </div>
+    </div>
+  );
+}
+
+function TabAdminTenant({ slug, token, config }) {
+  const [section, setSection] = React.useState('miPlan');
+  const subs = [
+    { id: 'miPlan', icon: '📋', label: 'Mi Plan' },
+    { id: 'legal', icon: '⚖️', label: 'Legal' },
+    { id: 'expediente', icon: '📋', label: 'Expediente' },
+  ];
+  return (
+    <div>
+      <h2 style={{ fontSize: 18, fontWeight: 800, color: '#1a1208', marginBottom: 12 }}>⚙️ Administración</h2>
+      <div style={{ display: 'flex', gap: 4, borderBottom: '1px solid #e7e5e4', marginBottom: 16, paddingBottom: 8 }}>
+        {subs.map(s => (
+          <button key={s.id} onClick={() => setSection(s.id)} style={{ padding: '6px 14px', fontSize: 12, fontWeight: 600, border: 'none', background: section === s.id ? '#fef3c7' : 'transparent', color: section === s.id ? '#92400e' : '#78716c', cursor: 'pointer', borderRadius: 6 }}>{s.icon} {s.label}</button>
+        ))}
+      </div>
+      {section === 'miPlan' && <TabMiPlan slug={slug} token={token} />}
+      {section === 'legal' && <TabLegalDocs slug={slug} token={token} />}
+      {section === 'expediente' && (
+        <div style={{ minHeight: 300 }}>
+          <p style={{ fontSize: 13, color: '#78716c', fontStyle: 'italic' }}>Expediente — reutiliza componente V1.</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function TabOperaciones({ tenants, health, orders, selectedSlug, setSelectedSlug }) {
   const [section, setSection] = React.useState('soporte');
   const subs = [
