@@ -4489,7 +4489,7 @@ function TabMisAgentes({ slug, token }) {
         </>
       )}
 
-      {AGENT_IDS.includes(subTab) && <AgentTab agentId={subTab} />}
+      {AGENT_IDS.includes(subTab) && <AgentTab agentId={subTab} scope="tenant" />}
     </>
   );
 }
@@ -10155,7 +10155,7 @@ export default function GenyXOperatorDashboard() {
         {tab === 'marketing'    && <TabMarketing selectedSlug={selectedSlug} />}
 
         {/* ═══ AGENTES (9 tabs — uno por director) ═══ */}
-        {tab.startsWith('agent_') && <AgentTab agentId={tab.replace('agent_', '')} />}
+        {tab.startsWith('agent_') && <AgentTab agentId={tab.replace('agent_', '')} scope="founder" />}
 
         {/* ═══ PERSONAL ═══ */}
         {tab === 'aguja'       && <TabPlaceholderV2 icon="🧭" title="AGUJA" desc="Product Evolution Agent — próximamente." />}
