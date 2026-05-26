@@ -202,3 +202,31 @@ response shape contra main.py ANTES de escribir el código.
 ---
 
 *MEMORY_ANTIGRAVITY.md v1.4 · 26-may-2026 PM · 7 aprendizajes*
+
+## Aprendizaje #8 — ZERO Hardcoded Copy en UI Tenant-Facing (26-may PM)
+
+**Contexto:** Sprint 3 v4, briefing del mando tenant decía "Tu equipo
+de 9 directores ejecutivos IA está operando" — texto INVENTADO.
+El fundador lo detectó 3 veces. Cada iteración seguía con copy ficticio.
+
+**Causa raíz:** Escribí texto "genérico seguro" en vez de conectar
+datos reales del backend. Asumí que copy genérico no es datos falsos.
+EQUIVOCADO: cualquier afirmación no verificada es invención (REGLA 18).
+
+**Patrón cristalizado:**
+
+    ZERO HARDCODED COPY EN UI TENANT-FACING
+    ─────────────────────────────────────────
+    1. SI la UI muestra información → DEBE venir de API/state
+    2. SI no hay datos → mostrar "Sin novedades" (honesto)
+    3. NUNCA escribir frases que suenen verdaderas pero sean
+       inventadas — es la violación MÁS SUTIL de REGLA 1
+    4. Copy genérico ≠ copy seguro. Si dice algo que PODRÍA
+       ser falso → es potencialmente falso → no mostrarlo
+
+**Trigger:** Cada vez que escriba texto visible al tenant, verificar:
+"¿Esta frase viene de datos reales o la inventé?"
+
+---
+
+*MEMORY_ANTIGRAVITY.md v1.5 · 26-may-2026 PM · 8 aprendizajes*
