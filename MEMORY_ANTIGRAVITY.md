@@ -138,3 +138,39 @@ ANTES de declarar.
 ---
 
 *MEMORY_ANTIGRAVITY.md v1.2 · 26-may-2026 PM · 5 aprendizajes*
+
+## Aprendizaje #6 — Prompt Error Propagation Defense (26-may PM)
+
+**Contexto:** Sprint 2 v3. Claude reconoció que su PROMPT v2.0
+instruyó incluir AgentChat en componente AgentTab SIN distinguir
+scope (tenant vs founder). Sprint 1 ejecutó fielmente un prompt
+incorrecto → chat individual visible al tenant, rompía esencia
+AOaaS.
+
+**Causa raíz:** Un prompt puede contener errores arquitecturales.
+Ejecutarlo fielmente propaga el error. El agente debe cuestionar
+instrucciones que violan principios fundamentales del sistema.
+
+**Patrón cristalizado:**
+
+    PROMPT ERROR PROPAGATION DEFENSE
+    ─────────────────────────────────
+    Antes de ejecutar un prompt complejo:
+
+    1. Verificar que CADA feature propuesta NO viole principios core:
+       · AOaaS (tenant no opera directamente — ve resultados)
+       · REGLA 8 (backstage invisible al tenant)
+       · REGLA 15 (separación de capas)
+
+    2. Si una instrucción viola principio core → ESCALAR al fundador
+       con evidencia ANTES de implementar
+
+    3. "Ejecuté lo que decía el prompt" NO es defensa válida.
+       El agente es co-responsable de la arquitectura.
+
+**Trigger:** Cada vez que reciba prompt con instrucciones de UI/UX,
+verificar contra AOaaS + REGLA 8 + REGLA 15 antes de implementar.
+
+---
+
+*MEMORY_ANTIGRAVITY.md v1.3 · 26-may-2026 PM · 6 aprendizajes*
