@@ -9475,6 +9475,110 @@ function TabCockpitAgentes({ tenants, selectedSlug }) {
   );
 }
 
+
+// ═══════════════════════════════════════════════════════════════════
+// MEMORY Drill-Down — consume endpoints live (Sprint 3 v4)
+// ═══════════════════════════════════════════════════════════════════
+// Endpoints verified REGLA 18 against main.py:
+//   GET /api/admin/memory/stats   L5950
+//   GET /api/admin/memory/recall  L5831
+//   GET /api/admin/memory/alerts  L5915
+// ═══════════════════════════════════════════════════════════════════
+function MemoryDrillDown() {
+  const [stats, setStats] = React.useState(null);
+  const [alerts, setAlerts] = React.useState([]);
+  const [recallQ, setRecallQ] = React.useState('');
+  const [recallResult, setRecallResult] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const adminKey = typeof window !== 'undefined' ? (localStorage.getItem('genyx_admin_key') || '') : '';
+  const headers = { 'X-Admin-Key': adminKey };
+
+  React.useEffect(() => {
+    if (!adminKey) { setLoading(false); return; }
+    Promise.all([
+      fetch(`${BACKEND}/api/admin/memory/stats`, { headers }).then(r => r.ok ? r.json() : null),
+      fetch(`${BACKEND}/api/admin/memory/alerts`, { headers }).then(r => r.ok ? r.json() : null),
+    ]).then(([s, a]) => {
+      setStats(s);
+      setAlerts(a?.alerts || []);
+      setLoading(false);
+    }).catch(() => setLoading(false));
+  }, [adminKey]);
+
+  const handleRecall = () => {
+    if (!recallQ.trim() || !adminKey) return;
+    fetch(`${BACKEND}/api/admin/memory/recall?topic=${encodeURIComponent(recallQ)}`, { headers })
+      .then(r => r.ok ? r.json() : null)
+      .then(d => setRecallResult(d))
+      .catch(() => {});
+  };
+
+  if (!adminKey) return (
+    <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}>
+      <p style={{ fontSize: 13 }}>Admin key requerida. Configura <code>genyx_admin_key</code> en localStorage.</p>
+    </div>
+  );
+
+  return (
+    <div style={{ maxWidth: 800 }}>
+      <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🧠 MEMORY — Ojo Clínico del Fundador</h3>
+
+      {loading && <p style={{ color: '#64748b', fontSize: 12 }}>Cargando stats...</p>}
+
+      {stats && (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 20 }}>
+          {[
+            { label: 'Events', value: stats.total_events || 0, icon: '📊' },
+            { label: 'Docs ingestados', value: stats.total_documents || 0, icon: '📄' },
+            { label: 'Alertas activas', value: alerts.filter(a => !a.acknowledged).length, icon: '🚨' },
+            { label: 'Tipos', value: stats.event_types ? Object.keys(stats.event_types).length : 0, icon: '🏷️' },
+          ].map(k => (
+            <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
+              <div style={{ fontSize: 20 }}>{k.icon}</div>
+              <div style={{ fontSize: 20, fontWeight: 800, color: '#e2e8f0', marginTop: 4 }}>{k.value}</div>
+              <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Recall Search */}
+      <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>🔍 Recall — búsqueda doctrinal</p>
+        <div style={{ display: 'flex', gap: 8 }}>
+          <input value={recallQ} onChange={e => setRecallQ(e.target.value)} onKeyDown={e => e.key === 'Enter' && handleRecall()} placeholder="Buscar en doctrina..." style={{ flex: 1, padding: '8px 12px', background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8, color: '#e2e8f0', fontSize: 12, outline: 'none' }} />
+          <button onClick={handleRecall} style={{ padding: '8px 16px', background: GBa(0.2), color: GB_LIGHT, border: 'none', borderRadius: 8, fontSize: 12, fontWeight: 600, cursor: 'pointer' }}>Buscar</button>
+        </div>
+        {recallResult && (
+          <div style={{ marginTop: 12, fontSize: 12, color: '#94a3b8', lineHeight: 1.6, maxHeight: 200, overflowY: 'auto' }}>
+            {recallResult.results?.length > 0 ? recallResult.results.map((r, i) => (
+              <div key={i} style={{ padding: 8, borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                <span style={{ fontWeight: 600, color: '#e2e8f0' }}>{r.source || 'doc'}</span>: {r.content?.substring(0, 200)}...
+              </div>
+            )) : <p style={{ fontStyle: 'italic' }}>Sin resultados para "{recallQ}"</p>}
+          </div>
+        )}
+      </div>
+
+      {/* Alerts */}
+      <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>🚨 Alertas ({alerts.length})</p>
+        {alerts.length === 0 ? (
+          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin alertas activas. Sistema operando normalmente.</p>
+        ) : alerts.slice(0, 10).map((a, i) => (
+          <div key={i} style={{ padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div>
+              <span style={{ fontSize: 12, fontWeight: 600, color: a.severity === 'high' ? '#ef4444' : a.severity === 'medium' ? '#f59e0b' : '#10b981' }}>{a.severity?.toUpperCase()}</span>
+              <span style={{ fontSize: 12, color: '#94a3b8', marginLeft: 8 }}>{a.message}</span>
+            </div>
+            <span style={{ fontSize: 10, color: '#475569' }}>{a.created_at?.substring(0, 16)}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }) {
   const [selected, setSelected] = React.useState(null);
   const [section, setSection] = React.useState('agents');
@@ -9526,7 +9630,10 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
       {section === 'agents' && selected && (
         <>
           <button onClick={() => setSelected(null)} style={{ background: 'none', border: 'none', color: '#818cf8', fontSize: 12, cursor: 'pointer', marginBottom: 12, padding: 0 }}>← Volver a backstage</button>
-          <AgentTab agentId={selected} scope="founder" />
+          {selected === 'MEMORY' ? <MemoryDrillDown /> :
+           selected === 'AGUJA' ? <TabPlaceholderV2 icon="🧭" title="AGUJA" desc="Product Evolution Strategist — propuesta arquitectural. MVP pending." /> :
+           selected === 'A12' ? <TabPlaceholderV2 icon="🛡️" title="A12 Ciberseguridad" desc="CISO Digital + DPO operacional — propuesta arquitectural. LFPDPPP + OWASP Top 10 + PCI DSS SAQ-A." /> :
+           <AgentTab agentId={selected} scope="founder" />}
         </>
       )}
       {section === 'soporte' && <TabSoporte tenants={tenants} />}
