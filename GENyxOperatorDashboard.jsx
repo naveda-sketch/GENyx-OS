@@ -8055,9 +8055,9 @@ function PorQueAhoraPage() {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12 }}>
           {[
-            ['12', 'Agentes orquestados', '9 capacidades cliente (A1-A8, A11) + 3 backstage (A0 Arquitecto, A9 Vigía, A10 Telemetría)'],
+            ['9', 'Directores ejecutivos IA', '9 agentes tenant-facing (A1 Marketing · A2 Captación · A3 Venta · A4 Cierre · A5 Entrega · A6 Seguimiento · A7 Analítica · A8 Finanzas · A11 CEO Digital)'],
             ['13', 'REGLAs doctrinales', 'Framework de governance verificable — cada regla con candado técnico que la enforce'],
-            ['A9↔A0', 'Doble red de governance', 'Vigía legal (A9) + Arquitecto sistémico (A0) validan cada operación antes de ejecutar'],
+            ['2', 'Redes de governance', 'Compliance + arquitectura sistémica validan cada operación antes de ejecutar'],
             ['7', 'Frameworks de marketing', '4P\'s, 5C\'s, JTBD, StoryBrand, AIDA, Sombreros de Bono, Pirámide'],
             ['6+', 'Marcos legales cumplidos', 'LFPCA, LFPDPPP, LFCE, Código Comercio MX, IMPI + regulación por industria'],
             ['9', 'Tablas audit log inmutables', 'INSERT-only con triggers, trazabilidad SHA256 tripartita (REGLA 13)'],
