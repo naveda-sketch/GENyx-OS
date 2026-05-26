@@ -1732,7 +1732,7 @@ const TabExpedientes = ({ tenants }) => {
   // Build empty shells for all clients on mount
   useEffect(() => {
     const initial = {};
-    [GenyX_EXPEDIENTE, ...tenants.map(t => ({ ...t, id: t.slug }))]
+    [GenyX_EXPEDIENTE, ...tenants.filter(t => t.slug !== 'genyx-hub').map(t => ({ ...t, id: t.slug }))]
       .forEach(c => {
         const id = c.id || c.slug;
         if (!initial[id]) {
@@ -1838,7 +1838,7 @@ const TabExpedientes = ({ tenants }) => {
     return total > 0 ? Math.round((scored / total) * 100) : 0;
   };
 
-  const allClients = [GenyX_EXPEDIENTE, ...tenants.map((t, i) => ({ ...t, id: t.slug, idx: i + 1 }))];
+  const allClients = [GenyX_EXPEDIENTE, ...tenants.filter(t => t.slug !== 'genyx-hub').map((t, i) => ({ ...t, id: t.slug, idx: i + 1 }))];
   const exp = selected ? (expedientes[selected] || {}) : null;
   const pct = selected ? calcProgress2(selected) : 0;
   const barColor = pct >= 80 ? '#4ade80' : pct >= 50 ? '#fbbf24' : '#f87171';
@@ -1868,7 +1868,7 @@ const TabExpedientes = ({ tenants }) => {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
                   <div>
                     <p style={{ ...MONO, fontSize: 9, color: isGenyX ? GENYX_BRAND : '#64748b', marginBottom: 3 }}>
-                      {isGenyX ? 'CLIENTE 000' : `CLIENTE ${String(i + 1).padStart(3, '0')}`}
+                      {isGenyX ? 'OPERADOR' : `CLIENTE ${String(i + 1).padStart(3, '0')}`}
                     </p>
                     <p style={{ fontWeight: 700, fontSize: 13, color: isGenyX ? GB_SOFT : '#f1f5f9' }}>{c.name || c.slug}</p>
                   </div>
@@ -9486,7 +9486,7 @@ function MemoryDrillDown() {
   const [recallQ, setRecallQ] = React.useState('');
   const [recallResult, setRecallResult] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
-  const adminKey = typeof window !== 'undefined' ? (localStorage.getItem('genyx_admin_key') || '') : '';
+  const adminKey = typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : '';
   const headers = { 'X-Admin-Key': adminKey };
 
   React.useEffect(() => {
