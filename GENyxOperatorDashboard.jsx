@@ -9254,27 +9254,80 @@ function PlusPage() {
 // ═══════════════════════════════════════════════════════════════════
 
 function TabResumenTenant({ slug, token, config }) {
+  const [agentData, setAgentData] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    if (!slug || !token) return;
+    const h = { 'X-Dashboard-Token': token };
+    fetch(`${BACKEND}/api/client/${slug}/agents`, { headers: h })
+      .then(r => r.ok ? r.json() : null)
+      .then(d => { setAgentData(d); setLoading(false); })
+      .catch(() => setLoading(false));
+  }, [slug, token]);
+
+  const agentStatus = (id) => {
+    if (!agentData?.agents) return null;
+    return agentData.agents.find(a => a.agent_id === id);
+  };
+
   return (
     <div style={{ maxWidth: 900 }}>
       <div style={{ marginBottom: 20 }}>
         <h2 style={{ fontSize: 20, fontWeight: 800, color: '#1a1208', margin: '0 0 4px' }}>🎯 Resumen del día</h2>
         <p style={{ fontSize: 13, color: '#78716c', margin: 0 }}>Tus agentes trabajaron para ti — esto es lo que lograron.</p>
       </div>
+
+      {/* ── A11 CEO Digital Briefing ── */}
       <div style={{ padding: 20, background: '#fffbeb', borderRadius: 14, border: '1px solid #fde68a', marginBottom: 20 }}>
-        <p style={{ fontSize: 11, fontWeight: 700, color: '#92400e', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 8 }}>🎩 Briefing de tu CEO Digital</p>
-        <p style={{ fontSize: 14, color: '#451a03', lineHeight: 1.7 }}>Buenos días. Hoy tienes pedidos pendientes de confirmación y tu inventario de pan dulce está por debajo del mínimo. Revisa la sección de Operación para actuar.</p>
-      </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: 12 }}>
-        {Object.values(AGENT_CONFIGS).filter(a => !['A0','A9','A10'].includes(a.id)).map(agent => (
-          <div key={agent.id} style={{ background: '#fff', borderRadius: 12, padding: 14, border: '1px solid #f5f0e8', cursor: 'default' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-              <span style={{ fontSize: 20 }}>{agent.icon}</span>
-              <span style={{ fontSize: 12, fontWeight: 700, color: '#1a1208' }}>{agent.name}</span>
-            </div>
-            <p style={{ fontSize: 11, color: '#78716c', margin: 0 }}>Sin actividad reciente</p>
-            <div style={{ marginTop: 8, padding: '3px 8px', background: '#f0fdf4', borderRadius: 6, display: 'inline-block', fontSize: 10, fontWeight: 600, color: '#15803d' }}>● Activo</div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
+          <span style={{ fontSize: 24 }}>🎩</span>
+          <div>
+            <p style={{ fontSize: 11, fontWeight: 700, color: '#92400e', textTransform: 'uppercase', letterSpacing: '.06em', margin: 0 }}>Briefing de tu CEO Digital</p>
+            <p style={{ fontSize: 10, color: '#b45309', margin: 0 }}>A11 · Resumen ejecutivo automático</p>
           </div>
-        ))}
+        </div>
+        <p style={{ fontSize: 14, color: '#451a03', lineHeight: 1.7, margin: 0 }}>Buenos días. Hoy tienes pedidos pendientes de confirmación y tu inventario de pan dulce está por debajo del mínimo. Revisa la sección de Operación para actuar.</p>
+        <div style={{ marginTop: 12, padding: '6px 12px', background: '#fef3c7', borderRadius: 8, fontSize: 11, color: '#92400e' }}>
+          ⚡ <strong>Acciones que requieren tu atención:</strong> 2 pedidos sin confirmar · 1 alerta de inventario
+        </div>
+      </div>
+
+      {/* ── 9 Agent Delivery Cards ── */}
+      <p style={{ fontSize: 11, fontWeight: 700, color: '#78716c', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 12 }}>Tus 9 directores ejecutivos</p>
+      {loading && <p style={{ fontSize: 12, color: '#78716c' }}>Cargando estado de agentes...</p>}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: 12 }}>
+        {Object.values(AGENT_CONFIGS).filter(a => !['A0','A9','A10'].includes(a.id)).map(agent => {
+          const st = agentStatus(agent.id);
+          const hasActivity = st && st.total_actions > 0;
+          return (
+            <div key={agent.id} style={{ background: '#fff', borderRadius: 12, padding: 16, border: '1px solid #f5f0e8', transition: 'box-shadow 0.2s' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <span style={{ fontSize: 22 }}>{agent.icon}</span>
+                  <div>
+                    <span style={{ fontSize: 13, fontWeight: 700, color: '#1a1208' }}>{agent.name}</span>
+                    <p style={{ fontSize: 10, color: '#a8a29e', margin: 0 }}>{agent.id}</p>
+                  </div>
+                </div>
+                <div style={{ padding: '3px 8px', background: hasActivity ? '#f0fdf4' : '#fafaf9', borderRadius: 6, fontSize: 10, fontWeight: 600, color: hasActivity ? '#15803d' : '#a8a29e' }}>{hasActivity ? '● Activo' : '○ Idle'}</div>
+              </div>
+              <div style={{ fontSize: 12, color: '#57534e', lineHeight: 1.5 }}>
+                {st?.last_action ? (
+                  <>{st.last_action}</>
+                ) : (
+                  <span style={{ fontStyle: 'italic', color: '#a8a29e' }}>Sin actividad reciente</span>
+                )}
+              </div>
+              {hasActivity && (
+                <div style={{ marginTop: 10, display: 'flex', gap: 12, fontSize: 11, color: '#78716c' }}>
+                  <span>{st.total_actions} acciones</span>
+                  {st.success_rate != null && <span>· {Math.round(st.success_rate * 100)}% éxito</span>}
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
