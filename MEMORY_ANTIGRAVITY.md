@@ -100,3 +100,41 @@ exigió auto-auditoría. Al auditar, se descubrió que el scope filter
 ---
 
 *MEMORY_ANTIGRAVITY.md v1.1 · 26-may-2026 · 4 aprendizajes*
+
+## Aprendizaje #5 — Verify IMPLEMENTATION not SIGNATURE (26-may PM)
+
+**Contexto:** Sprint 1 Cockpit V2, declaré "AgentTab scope wired" pero
+el componente no usaba `isFounder` ni renderizaba el badge. Claude
+(sub-regla 17.8 ojo clínico técnico) lo cazó. Fundador detectó que
+mi CDA-3 fue superficial — verificaba SIGNATURES no IMPLEMENTATIONS.
+
+**Causa raíz:** Verifiqué que la prop se PASA en los callers, no que
+el componente la USE internamente. Badge "🔒 Vista cross-tenant" fue
+declarado en commit message pero no existía en JSX.
+
+**Patrón cristalizado:**
+
+    VERIFY IMPLEMENTATION NOT SIGNATURE
+    ────────────────────────────────────
+    Antes de declarar "feature implementada":
+
+    1. grep el COMPONENTE no solo el CALLER:
+       ✗ grep "<Component prop={x}>"        (caller pasa prop)
+       ✓ grep "const Component = (\{ prop"   (componente desestructura)
+
+    2. Para badges/UI: grep JSX excluyendo comentarios:
+       ✗ grep "Badge X"                      (puede ser comentario)
+       ✓ grep -B 2 "Badge X" | grep -v "^//" (verifica JSX context)
+
+    3. CDA-3 obligatoria — tabla CLAIM vs REALIDAD:
+       Por cada feature declarado → comando grep que confirma →
+       resultado Real|Falso. Si CUALQUIER claim falso, corregir
+       antes de push.
+
+**Trigger:** Cada vez que declare "feature implementada" en commit
+message o reporte CDA-3, ejecutar verify-implementation-not-signature
+ANTES de declarar.
+
+---
+
+*MEMORY_ANTIGRAVITY.md v1.2 · 26-may-2026 PM · 5 aprendizajes*
