@@ -9271,17 +9271,37 @@ function TabResumenTenant({ slug, token, config }) {
         <p style={{ fontSize: 13, color: '#78716c', margin: 0 }}>Tus agentes trabajaron para ti — esto es lo que lograron.</p>
       </div>
 
-      {/* ── A11 CEO Digital Briefing ── */}
-      <div style={{ padding: 20, background: '#fffbeb', borderRadius: 14, border: '1px solid #fde68a', marginBottom: 20 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
-          <span style={{ fontSize: 24 }}>🎩</span>
-          <div>
-            <p style={{ fontSize: 11, fontWeight: 700, color: '#92400e', textTransform: 'uppercase', letterSpacing: '.06em', margin: 0 }}>Briefing de tu CEO Digital</p>
-            <p style={{ fontSize: 10, color: '#b45309', margin: 0 }}>A11 · Resumen ejecutivo automático</p>
+      {/* ── A11 CEO Digital Briefing — REGLA 18: solo datos reales ── */}
+      {(() => {
+        // Build briefing from REAL data only
+        const pendientes = (orders || []).filter(o => !o.production_status || o.production_status === 'nuevo').length;
+        const enProceso = (orders || []).filter(o => o.production_status === 'en_produccion').length;
+        const entregados = (orders || []).filter(o => o.production_status === 'entregado').length;
+        const totalPedidos = (orders || []).length;
+        const hasOrders = totalPedidos > 0;
+        const lines = [];
+        if (hasOrders) {
+          if (pendientes > 0) lines.push(`${pendientes} pedido${pendientes > 1 ? 's' : ''} nuevo${pendientes > 1 ? 's' : ''} por confirmar`);
+          if (enProceso > 0) lines.push(`${enProceso} en producción`);
+          if (entregados > 0) lines.push(`${entregados} entregado${entregados > 1 ? 's' : ''}`);
+        }
+        return (
+          <div style={{ padding: 20, background: '#fffbeb', borderRadius: 14, border: '1px solid #fde68a', marginBottom: 20 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
+              <span style={{ fontSize: 24 }}>🎩</span>
+              <div>
+                <p style={{ fontSize: 11, fontWeight: 700, color: '#92400e', textTransform: 'uppercase', letterSpacing: '.06em', margin: 0 }}>Briefing de tu CEO Digital</p>
+                <p style={{ fontSize: 10, color: '#b45309', margin: 0 }}>A11 · Datos en tiempo real</p>
+              </div>
+            </div>
+            {lines.length > 0 ? (
+              <p style={{ fontSize: 14, color: '#451a03', lineHeight: 1.7, margin: 0 }}>{lines.join(' · ')}.</p>
+            ) : (
+              <p style={{ fontSize: 14, color: '#451a03', lineHeight: 1.7, margin: 0 }}>Sin novedades por el momento.</p>
+            )}
           </div>
-        </div>
-        <p style={{ fontSize: 14, color: '#451a03', lineHeight: 1.7, margin: 0 }}>Tu equipo de 9 directores ejecutivos IA está operando. Revisa la sección de Operación para ver pedidos e inventario en tiempo real.</p>
-      </div>
+        );
+      })()}
 
       {/* ── 9 Agent Delivery Cards ── */}
       <p style={{ fontSize: 11, fontWeight: 700, color: '#78716c', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 12 }}>Tus 9 directores ejecutivos</p>
@@ -9364,44 +9384,97 @@ function TabInsightsTenant({ slug, token, analytics, fetchAnalytics, setParentTa
 function TabExpedienteCliente({ slug, token }) {
   const [sections, setSections] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
 
   React.useEffect(() => {
     if (!slug || !token) { setLoading(false); return; }
     fetch(`${BACKEND}/api/client/${slug}/expediente`, {
       headers: { 'X-Dashboard-Token': token }
     })
-    .then(r => r.ok ? r.json() : null)
+    .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
     .then(d => { setSections(d?.sections || {}); setLoading(false); })
-    .catch(() => setLoading(false));
+    .catch(e => { setError(e.message); setLoading(false); });
   }, [slug, token]);
 
-  if (loading) return <div style={{ textAlign: 'center', padding: 40, color: '#a8a29e', fontSize: 13 }}>Cargando expediente...</div>;
-  if (!sections || Object.keys(sections).length === 0) return (
-    <div style={{ textAlign: 'center', padding: 40 }}>
-      <div style={{ fontSize: 40, marginBottom: 12 }}>📋</div>
-      <p style={{ color: '#78716c', fontSize: 13 }}>Tu expediente está siendo preparado por el equipo GenyX.</p>
-      <p style={{ color: '#a8a29e', fontSize: 11 }}>Los documentos aparecerán aquí conforme sean procesados.</p>
+  if (loading) return (
+    <div style={{ textAlign: 'center', padding: 60, color: '#64748b' }}>
+      <div style={{ fontSize: 32, marginBottom: 12, animation: 'pulse 2s infinite' }}>📋</div>
+      <p style={{ fontSize: 13 }}>Cargando expediente...</p>
+    </div>
+  );
+  if (error) return (
+    <div style={{ textAlign: 'center', padding: 60, color: '#f87171' }}>
+      <p style={{ fontSize: 13 }}>Error cargando expediente: {error}</p>
     </div>
   );
 
-  const sectionNames = { legal: '⚖️ Legal', datos: '📋 Datos', operativo: '🔧 Operativo', financiero: '💰 Financiero' };
+  const sectionMeta = {
+    docs: { icon: '📄', label: 'Documentación', order: 1 },
+    legal: { icon: '⚖️', label: 'Legal', order: 2 },
+    datos: { icon: '📋', label: 'Datos Generales', order: 3 },
+    operativo: { icon: '🔧', label: 'Operativo', order: 4 },
+    financiero: { icon: '💰', label: 'Financiero', order: 5 },
+  };
+
+  const statusConfig = {
+    completed: { bg: 'rgba(74,222,128,0.1)', border: 'rgba(74,222,128,0.25)', color: '#4ade80', icon: '✅', label: 'Completado' },
+    pending:   { bg: 'rgba(251,191,36,0.1)', border: 'rgba(251,191,36,0.25)', color: '#fbbf24', icon: '⏳', label: 'Pendiente' },
+  };
+
+  const allFields = Object.entries(sections).flatMap(([, fields]) => Object.values(fields));
+  const completed = allFields.filter(f => f.completed).length;
+  const total = allFields.length;
+  const pct = total > 0 ? Math.round((completed / total) * 100) : 0;
+
   return (
-    <div style={{ maxWidth: 700 }}>
-      <h3 style={{ fontSize: 15, fontWeight: 700, color: '#44403c', marginBottom: 16 }}>📋 Mi Expediente</h3>
-      {Object.entries(sections).map(([secKey, fields]) => (
-        <div key={secKey} style={{ marginBottom: 20, background: '#faf8f5', borderRadius: 12, padding: 16, border: '1px solid #f0ebe4' }}>
-          <h4 style={{ fontSize: 13, fontWeight: 700, color: '#78716c', marginBottom: 10 }}>{sectionNames[secKey] || secKey}</h4>
-          {Object.entries(fields).map(([fieldId, info]) => (
-            <div key={fieldId} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid #f0ebe4', fontSize: 12 }}>
-              <span style={{ color: '#44403c' }}>{fieldId.replace(/_/g, ' ')}</span>
-              <span style={{ color: info.completed ? '#16a34a' : '#d97706', fontWeight: 600 }}>
-                {info.completed ? '✅ Completado' : '⏳ Pendiente'}
-              </span>
-            </div>
-          ))}
+    <>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
+        <div>
+          <h2 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 2 }}>📋 Mi Expediente</h2>
+          <p style={{ fontSize: 11, color: '#64748b' }}>{total} documentos · {completed} completados · {pct}%</p>
         </div>
-      ))}
-    </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <div style={{ width: 120, height: 6, background: 'rgba(255,255,255,0.08)', borderRadius: 4 }}>
+            <div style={{ height: 6, width: `${pct}%`, background: pct >= 80 ? '#4ade80' : pct >= 50 ? '#fbbf24' : '#f87171', borderRadius: 4, transition: 'width 0.4s' }} />
+          </div>
+          <span style={{ fontSize: 12, fontWeight: 800, color: pct >= 80 ? '#4ade80' : pct >= 50 ? '#fbbf24' : '#f87171' }}>{pct}%</span>
+        </div>
+      </div>
+
+      <div style={{ display: 'grid', gap: 10 }}>
+        {Object.entries(sections)
+          .sort(([a], [b]) => (sectionMeta[a]?.order || 99) - (sectionMeta[b]?.order || 99))
+          .map(([secKey, fields]) => {
+            const meta = sectionMeta[secKey] || { icon: '📁', label: secKey };
+            const secCompleted = Object.values(fields).filter(f => f.completed).length;
+            const secTotal = Object.keys(fields).length;
+            return (
+              <div key={secKey} style={{ background: '#0f172a', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: '14px 18px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <span style={{ fontSize: 18 }}>{meta.icon}</span>
+                    <p style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9' }}>{meta.label}</p>
+                  </div>
+                  <span style={{ fontSize: 10, fontWeight: 700, color: secCompleted === secTotal ? '#4ade80' : '#fbbf24', background: secCompleted === secTotal ? 'rgba(74,222,128,0.1)' : 'rgba(251,191,36,0.1)', border: `1px solid ${secCompleted === secTotal ? 'rgba(74,222,128,0.25)' : 'rgba(251,191,36,0.25)'}`, padding: '3px 10px', borderRadius: 6, textTransform: 'uppercase', letterSpacing: '.05em' }}>{secCompleted}/{secTotal}</span>
+                </div>
+                {Object.entries(fields).map(([fieldId, info]) => {
+                  const st = statusConfig[info.completed ? 'completed' : 'pending'];
+                  const fieldName = fieldId.replace(/_/g, ' ').replace(/\w/g, c => c.toUpperCase());
+                  return (
+                    <div key={fieldId} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                        <span style={{ fontSize: 14 }}>{st.icon}</span>
+                        <span style={{ fontSize: 12, color: '#e2e8f0' }}>{fieldName}</span>
+                      </div>
+                      <span style={{ fontSize: 10, fontWeight: 700, color: st.color, background: st.bg, border: `1px solid ${st.border}`, padding: '2px 8px', borderRadius: 6, textTransform: 'uppercase', letterSpacing: '.05em' }}>{st.label}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          })}
+      </div>
+    </>
   );
 }
 
