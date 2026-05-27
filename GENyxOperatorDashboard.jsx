@@ -9271,37 +9271,17 @@ function TabResumenTenant({ slug, token, config }) {
         <p style={{ fontSize: 13, color: '#78716c', margin: 0 }}>Tus agentes trabajaron para ti — esto es lo que lograron.</p>
       </div>
 
-      {/* ── A11 CEO Digital Briefing — REGLA 18: solo datos reales ── */}
-      {(() => {
-        // Build briefing from REAL data only
-        const pendientes = (orders || []).filter(o => !o.production_status || o.production_status === 'nuevo').length;
-        const enProceso = (orders || []).filter(o => o.production_status === 'en_produccion').length;
-        const entregados = (orders || []).filter(o => o.production_status === 'entregado').length;
-        const totalPedidos = (orders || []).length;
-        const hasOrders = totalPedidos > 0;
-        const lines = [];
-        if (hasOrders) {
-          if (pendientes > 0) lines.push(`${pendientes} pedido${pendientes > 1 ? 's' : ''} nuevo${pendientes > 1 ? 's' : ''} por confirmar`);
-          if (enProceso > 0) lines.push(`${enProceso} en producción`);
-          if (entregados > 0) lines.push(`${entregados} entregado${entregados > 1 ? 's' : ''}`);
-        }
-        return (
-          <div style={{ padding: 20, background: '#fffbeb', borderRadius: 14, border: '1px solid #fde68a', marginBottom: 20 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
-              <span style={{ fontSize: 24 }}>🎩</span>
-              <div>
-                <p style={{ fontSize: 11, fontWeight: 700, color: '#92400e', textTransform: 'uppercase', letterSpacing: '.06em', margin: 0 }}>Briefing de tu CEO Digital</p>
-                <p style={{ fontSize: 10, color: '#b45309', margin: 0 }}>A11 · Datos en tiempo real</p>
-              </div>
-            </div>
-            {lines.length > 0 ? (
-              <p style={{ fontSize: 14, color: '#451a03', lineHeight: 1.7, margin: 0 }}>{lines.join(' · ')}.</p>
-            ) : (
-              <p style={{ fontSize: 14, color: '#451a03', lineHeight: 1.7, margin: 0 }}>Sin novedades por el momento.</p>
-            )}
+      {/* ── A11 CEO Digital Briefing — REGLA 18: sin datos inventados ── */}
+      <div style={{ padding: 20, background: '#fffbeb', borderRadius: 14, border: '1px solid #fde68a', marginBottom: 20 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
+          <span style={{ fontSize: 24 }}>🎩</span>
+          <div>
+            <p style={{ fontSize: 11, fontWeight: 700, color: '#92400e', textTransform: 'uppercase', letterSpacing: '.06em', margin: 0 }}>Briefing de tu CEO Digital</p>
+            <p style={{ fontSize: 10, color: '#b45309', margin: 0 }}>A11 · Resumen ejecutivo</p>
           </div>
-        );
-      })()}
+        </div>
+        <p style={{ fontSize: 14, color: '#451a03', lineHeight: 1.7, margin: 0 }}>Revisa la sección de Operación para ver tus pedidos e inventario.</p>
+      </div>
 
       {/* ── 9 Agent Delivery Cards ── */}
       <p style={{ fontSize: 11, fontWeight: 700, color: '#78716c', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 12 }}>Tus 9 directores ejecutivos</p>
