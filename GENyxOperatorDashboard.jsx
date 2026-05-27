@@ -11583,7 +11583,7 @@ export default function GenyXOperatorDashboard() {
           >
             🚨 PÁNICO
           </button>
-          {health && <span style={{ fontSize: 11, color: '#4ade80', background: '#14532d30', border: '1px solid #14532d', padding: '4px 12px', borderRadius: 20, fontFamily: 'monospace' }}>🟢 v{health.version} · {health.tenants_active} tenant(s)</span>}
+          {health && <span style={{ fontSize: 11, color: '#4ade80', background: '#14532d30', border: '1px solid #14532d', padding: '4px 12px', borderRadius: 20, fontFamily: 'monospace' }}>🟢 v{health.version} · {tenants.filter(t => t.status === 'active').length} activo(s) · {tenants.length} tenant(s)</span>}
           <button onClick={() => { sessionStorage.removeItem('genyx_admin_key'); setAdminKey(''); }}
             style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', color: '#475569', padding: '7px 14px', borderRadius: 8, cursor: 'pointer', fontSize: 12 }}
             title="Cerrar sesión">🔒 Salir</button>
