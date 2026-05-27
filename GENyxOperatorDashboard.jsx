@@ -9467,19 +9467,26 @@ function TabExpedienteCliente({ slug, token }) {
                   <div style={{ height: 4, width: `${secPct}%`, background: secColor, borderRadius: 4, transition: 'width 0.4s' }} />
                 </div>
                 {/* Items */}
-                {Object.entries(fields).map(([fieldId, info], idx) => {
+                <div style={{ display: 'grid', gap: 10 }}>
+                {Object.entries(fields).map(([fieldId, info]) => {
                   const st = statusConfig[info.completed ? 'completed' : 'pending'];
                   const fieldName = fieldId.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
                   return (
-                    <div key={fieldId} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 0', borderBottom: idx < Object.keys(fields).length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                        <div style={{ width: 24, height: 24, borderRadius: 6, background: st.bg, border: `1px solid ${st.border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12 }}>{st.icon}</div>
-                        <span style={{ fontSize: 13, color: '#e2e8f0', fontWeight: 500 }}>{fieldName}</span>
+                    <div key={fieldId} style={{ background: '#0f172a', border: `1px solid ${st.border}`, borderRadius: 14, padding: '14px 18px', transition: 'all .2s' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10 }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 10, flex: 1, minWidth: 0 }}>
+                          <span style={{ fontSize: 20 }}>{st.icon}</span>
+                          <div style={{ minWidth: 0 }}>
+                            <p style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9', margin: 0, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{fieldName}</p>
+                            <p style={{ fontSize: 10, color: '#64748b', margin: 0 }}>{info.completed ? 'Verificado' : 'Pendiente de entrega'}</p>
+                          </div>
+                        </div>
+                        <span style={{ fontSize: 10, fontWeight: 700, color: st.color, background: st.bg, border: `1px solid ${st.border}`, padding: '3px 10px', borderRadius: 6, whiteSpace: 'nowrap', textTransform: 'uppercase', letterSpacing: '.05em' }}>{st.label}</span>
                       </div>
-                      <span style={{ fontSize: 10, fontWeight: 700, color: st.color, background: st.bg, border: `1px solid ${st.border}`, padding: '3px 10px', borderRadius: 6, textTransform: 'uppercase', letterSpacing: '.04em', fontFamily: 'monospace' }}>{st.label}</span>
                     </div>
                   );
                 })}
+                </div>
               </div>
             );
           })}
