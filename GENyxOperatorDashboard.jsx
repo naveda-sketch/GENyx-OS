@@ -10249,6 +10249,265 @@ function A12DrillDown() {
 }
 
 
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ORCHESTRATOR DRILL-DOWN — V7 Backstage
+   Conversational Multi-Agent Audit Visualization
+   Endpoints: /api/admin/orchestrator/{stats,recent-alerts,turns,should-invoke}
+   ═══════════════════════════════════════════════════════════════════════ */
+function OrchestratorDrillDown() {
+  const BASE = 'https://paty-backend-dkzk.onrender.com/api/admin';
+  const adminKey = typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : '';
+  const headers = { 'x-admin-key': adminKey };
+
+  const [stats, setStats] = React.useState(null);
+  const [alerts, setAlerts] = React.useState([]);
+  const [turns, setTurns] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
+
+  // Filters
+  const [filterActor, setFilterActor] = React.useState('');
+  const [filterCat, setFilterCat] = React.useState('');
+  const [filterDays, setFilterDays] = React.useState(7);
+
+  // Should-invoke helper
+  const [helperTopic, setHelperTopic] = React.useState('');
+  const [helperResult, setHelperResult] = React.useState(null);
+  const [helperLoading, setHelperLoading] = React.useState(false);
+
+  // Turn detail modal
+  const [selectedTurn, setSelectedTurn] = React.useState(null);
+
+  const CAT_COLORS = {
+    1: { bg: 'rgba(139,92,246,0.15)', color: '#8b5cf6', label: 'DOCTRINAL' },
+    2: { bg: 'rgba(59,130,246,0.15)', color: '#3b82f6', label: 'TÉCNICO' },
+    3: { bg: 'rgba(249,115,22,0.15)', color: '#f97316', label: 'RUNTIME' },
+    null: { bg: 'rgba(100,116,139,0.15)', color: '#64748b', label: 'TRIVIAL' },
+  };
+
+  const fetchAll = React.useCallback(async () => {
+    setLoading(true); setError(null);
+    try {
+      const qs = `?days=${filterDays}&limit=100`;
+      const [sRes, aRes, tRes] = await Promise.all([
+        fetch(`${BASE}/orchestrator/stats?days=${filterDays}`, { headers }),
+        fetch(`${BASE}/orchestrator/recent-alerts?days=${filterDays}&limit=50`, { headers }),
+        fetch(`${BASE}/orchestrator/turns${qs}`, { headers }),
+      ]);
+      if (!sRes.ok || !aRes.ok || !tRes.ok) throw new Error(`Endpoints returned ${sRes.status}/${aRes.status}/${tRes.status}`);
+      const [sJ, aJ, tJ] = await Promise.all([sRes.json(), aRes.json(), tRes.json()]);
+      setStats(sJ);
+      setAlerts(Array.isArray(aJ.turns) ? aJ.turns : Array.isArray(aJ) ? aJ : []);
+      setTurns(Array.isArray(tJ.turns) ? tJ.turns : Array.isArray(tJ) ? tJ : []);
+    } catch (e) { setError(e.message); }
+    setLoading(false);
+  }, [filterDays]);
+
+  React.useEffect(() => { fetchAll(); }, [fetchAll]);
+
+  const handleShouldInvoke = async () => {
+    if (!helperTopic.trim()) return;
+    setHelperLoading(true); setHelperResult(null);
+    try {
+      const r = await fetch(`${BASE}/orchestrator/should-invoke?topic=${encodeURIComponent(helperTopic)}`, { headers });
+      if (!r.ok) throw new Error(`${r.status}`);
+      setHelperResult(await r.json());
+    } catch (e) { setHelperResult({ error: e.message }); }
+    setHelperLoading(false);
+  };
+
+  // Filter turns client-side
+  const filteredTurns = turns.filter(t => {
+    if (filterActor && t.actor !== filterActor) return false;
+    if (filterCat && String(t.categoria) !== filterCat) return false;
+    return true;
+  }).slice(0, 20);
+
+  const uniqueActors = [...new Set(turns.map(t => t.actor).filter(Boolean))].sort();
+
+  const SECTION = { background: '#0f172a', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: '16px 20px', marginBottom: 14 };
+  const SLABEL = { fontSize: 11, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 10, display: 'flex', alignItems: 'center', gap: 8 };
+
+  const turnsPerDay = stats && stats.total_turns ? Math.round((stats.total_turns / filterDays) * 10) / 10 : 0;
+  const cadenceColor = turnsPerDay > 10 ? '#10b981' : turnsPerDay >= 3 ? '#fbbf24' : '#f87171';
+
+  if (loading) return <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}>⏳ Cargando datos del orchestrator...</div>;
+  if (error) return <div style={{ textAlign: 'center', padding: 40 }}><p style={{ color: '#f87171', fontSize: 14 }}>❌ Error: {error}</p><button onClick={fetchAll} style={{ background: 'rgba(99,102,241,0.15)', color: '#818cf8', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 8, padding: '6px 16px', cursor: 'pointer', fontSize: 12, marginTop: 8 }}>Reintentar</button></div>;
+
+  return (
+    <div style={{ maxWidth: 900 }}>
+      {/* ── Header ──────────────────────────────── */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
+        <div>
+          <h3 style={{ fontSize: 18, fontWeight: 800, color: '#f1f5f9', margin: '0 0 4px' }}>🎯 ORCHESTRATOR</h3>
+          <p style={{ fontSize: 12, color: '#94a3b8', margin: 0 }}>Conversational Multi-Agent Audit · Fase 2 dogfooding</p>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <span style={{ fontSize: 13, fontWeight: 800, color: cadenceColor }}>{turnsPerDay}/día</span>
+          <button onClick={fetchAll} style={{ background: 'rgba(99,102,241,0.15)', color: '#818cf8', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 8, padding: '6px 14px', cursor: 'pointer', fontSize: 11, fontWeight: 600 }}>🔄 Refresh</button>
+        </div>
+      </div>
+
+      {/* ── Stats 5 Cards ──────────────────────── */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 10, marginBottom: 18 }}>
+        {[
+          { icon: '📊', val: stats?.total_turns ?? 0, label: 'TOTAL TURNS' },
+          { icon: '🚨', val: stats?.alerts_total ?? 0, label: 'ALERTS' },
+          { icon: '⚡', val: stats?.avg_latency_ms ? `${Math.round(stats.avg_latency_ms)}ms` : '—', label: 'AVG LATENCY' },
+          { icon: '📋', val: stats?.by_categoria ? Object.entries(stats.by_categoria).map(([k,v]) => `C${k}:${v}`).join(' ') : '—', label: 'BY CATEGORÍA' },
+          { icon: '🤖', val: stats?.agents_invoked_freq ? Object.entries(stats.agents_invoked_freq).sort((a,b) => b[1]-a[1]).slice(0,3).map(([k]) => k).join(', ') || '—' : '—', label: 'TOP AGENTS' },
+        ].map((c, i) => (
+          <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: '14px 10px', textAlign: 'center' }}>
+            <div style={{ fontSize: 18, marginBottom: 4 }}>{c.icon}</div>
+            <div style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 2, wordBreak: 'break-all' }}>{c.val}</div>
+            <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.04em' }}>{c.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* ── Recent Turns ───────────────────────── */}
+      <div style={SECTION}>
+        <div style={{ ...SLABEL, justifyContent: 'space-between' }}>
+          <span>📝 RECENT TURNS ({filteredTurns.length})</span>
+          <div style={{ display: 'flex', gap: 6 }}>
+            <select value={filterActor} onChange={e => setFilterActor(e.target.value)} style={{ background: 'rgba(255,255,255,0.06)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 6, padding: '2px 6px', fontSize: 10 }}>
+              <option value="">Actor: todos</option>
+              {uniqueActors.map(a => <option key={a} value={a}>{a}</option>)}
+            </select>
+            <select value={filterCat} onChange={e => setFilterCat(e.target.value)} style={{ background: 'rgba(255,255,255,0.06)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 6, padding: '2px 6px', fontSize: 10 }}>
+              <option value="">Cat: todas</option>
+              <option value="1">1 Doctrinal</option>
+              <option value="2">2 Técnico</option>
+              <option value="3">3 Runtime</option>
+            </select>
+            <select value={filterDays} onChange={e => setFilterDays(Number(e.target.value))} style={{ background: 'rgba(255,255,255,0.06)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 6, padding: '2px 6px', fontSize: 10 }}>
+              <option value={1}>1 día</option>
+              <option value={7}>7 días</option>
+              <option value={30}>30 días</option>
+            </select>
+          </div>
+        </div>
+        {filteredTurns.length === 0 ? (
+          <p style={{ color: '#475569', fontSize: 12, fontStyle: 'italic' }}>Sin turnos registrados — se poblarán conforme Claude opere.</p>
+        ) : (
+          <div style={{ overflowX: 'auto' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 11 }}>
+              <thead>
+                <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+                  {['Timestamp','Actor','Cat','Topic','Agents','Latency'].map(h => (
+                    <th key={h} style={{ padding: '6px 8px', textAlign: 'left', color: '#64748b', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {filteredTurns.map((t, i) => {
+                  const cat = CAT_COLORS[t.categoria] || CAT_COLORS[null];
+                  return (
+                    <tr key={i} onClick={() => setSelectedTurn(t)} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)', cursor: 'pointer' }}>
+                      <td style={{ padding: '8px', color: '#94a3b8', fontFamily: 'monospace', fontSize: 10 }}>{t.timestamp ? new Date(t.timestamp).toLocaleString('es-MX', { hour12: false, month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : '—'}</td>
+                      <td style={{ padding: '8px', color: '#e2e8f0', fontWeight: 600 }}>{t.actor || '—'}</td>
+                      <td style={{ padding: '8px' }}><span style={{ background: cat.bg, color: cat.color, padding: '2px 8px', borderRadius: 6, fontSize: 9, fontWeight: 700 }}>{cat.label}</span></td>
+                      <td style={{ padding: '8px', color: '#94a3b8', maxWidth: 180, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{t.topic || '—'}</td>
+                      <td style={{ padding: '8px' }}>{(t.agents_invoked || []).map((a, j) => <span key={j} style={{ background: 'rgba(99,102,241,0.12)', color: '#818cf8', padding: '1px 6px', borderRadius: 4, fontSize: 9, marginRight: 3 }}>{a}</span>)}</td>
+                      <td style={{ padding: '8px', color: '#94a3b8', fontFamily: 'monospace', fontSize: 10 }}>{t.latency_ms ? `${t.latency_ms}ms` : '—'}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+
+      {/* ── Turn Detail Modal ──────────────────── */}
+      {selectedTurn && (
+        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.7)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' }} onClick={() => setSelectedTurn(null)}>
+          <div onClick={e => e.stopPropagation()} style={{ background: '#1e293b', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 16, padding: 24, maxWidth: 500, width: '90%', maxHeight: '80vh', overflow: 'auto' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 16 }}>
+              <h4 style={{ fontSize: 14, fontWeight: 700, color: '#f1f5f9', margin: 0 }}>Detalle del turno</h4>
+              <button onClick={() => setSelectedTurn(null)} style={{ background: 'none', border: 'none', color: '#64748b', cursor: 'pointer', fontSize: 16 }}>✕</button>
+            </div>
+            <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.8 }}>
+              <p><b style={{ color: '#e2e8f0' }}>Actor:</b> {selectedTurn.actor}</p>
+              <p><b style={{ color: '#e2e8f0' }}>Categoría:</b> {(CAT_COLORS[selectedTurn.categoria] || CAT_COLORS[null]).label}</p>
+              <p><b style={{ color: '#e2e8f0' }}>Topic:</b> {selectedTurn.topic || '—'}</p>
+              <p><b style={{ color: '#e2e8f0' }}>Agents invoked:</b> {(selectedTurn.agents_invoked || []).join(', ') || 'ninguno'}</p>
+              <p><b style={{ color: '#e2e8f0' }}>Latency:</b> {selectedTurn.latency_ms ? `${selectedTurn.latency_ms}ms` : '—'}</p>
+              {selectedTurn.content_summary && <p><b style={{ color: '#e2e8f0' }}>Resumen:</b> {selectedTurn.content_summary}</p>}
+              {selectedTurn.decision_taken && <p><b style={{ color: '#e2e8f0' }}>Decisión:</b> {selectedTurn.decision_taken}</p>}
+              {selectedTurn.alerts_raised && selectedTurn.alerts_raised.length > 0 && (
+                <div>
+                  <b style={{ color: '#e2e8f0' }}>Alertas:</b>
+                  {selectedTurn.alerts_raised.map((al, k) => (
+                    <div key={k} style={{ background: 'rgba(248,113,113,0.1)', border: '1px solid rgba(248,113,113,0.2)', borderRadius: 8, padding: 8, marginTop: 6, fontSize: 11 }}>
+                      <span style={{ color: '#f87171', fontWeight: 700 }}>{al.severity || 'info'}</span> — {al.message || JSON.stringify(al)}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── Pending Alerts ──────────────────────── */}
+      <div style={SECTION}>
+        <div style={SLABEL}>🚨 PENDING ALERTS ({alerts.length})</div>
+        {alerts.length === 0 ? (
+          <p style={{ color: '#475569', fontSize: 12, fontStyle: 'italic' }}>Sin alertas pendientes. Sistema operando normalmente.</p>
+        ) : (
+          alerts.sort((a, b) => {
+            const sev = { high: 0, medium: 1, low: 2, info: 3 };
+            const sa = Math.min(...(a.alerts_raised || []).map(x => sev[x.severity] ?? 3));
+            const sb = Math.min(...(b.alerts_raised || []).map(x => sev[x.severity] ?? 3));
+            return sa - sb;
+          }).map((t, i) => {
+            const maxSev = (t.alerts_raised || []).reduce((acc, x) => {
+              const s = { high: 3, medium: 2, low: 1, info: 0 };
+              return (s[x.severity] || 0) > acc.val ? { val: s[x.severity] || 0, sev: x.severity } : acc;
+            }, { val: 0, sev: 'info' });
+            const sevColor = maxSev.sev === 'high' ? '#f87171' : maxSev.sev === 'medium' ? '#fbbf24' : '#64748b';
+            return (
+              <div key={i} style={{ background: `${sevColor}08`, border: `1px solid ${sevColor}30`, borderRadius: 10, padding: 12, marginBottom: 8 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
+                  <span style={{ fontSize: 11, fontWeight: 700, color: sevColor, textTransform: 'uppercase' }}>{maxSev.sev}</span>
+                  <span style={{ fontSize: 10, color: '#64748b', fontFamily: 'monospace' }}>{t.actor}</span>
+                </div>
+                {(t.alerts_raised || []).map((al, j) => (
+                  <p key={j} style={{ fontSize: 11, color: '#94a3b8', margin: '2px 0' }}>{al.message || JSON.stringify(al)}</p>
+                ))}
+              </div>
+            );
+          })
+        )}
+      </div>
+
+      {/* ── Should-Invoke Helper ────────────────── */}
+      <div style={SECTION}>
+        <div style={SLABEL}>🧪 SHOULD-INVOKE HELPER</div>
+        <div style={{ display: 'flex', gap: 8, marginBottom: 10 }}>
+          <input value={helperTopic} onChange={e => setHelperTopic(e.target.value)} onKeyDown={e => e.key === 'Enter' && handleShouldInvoke()} placeholder="Probar topic..." style={{ flex: 1, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8, padding: '8px 12px', color: '#e2e8f0', fontSize: 12, outline: 'none' }} />
+          <button onClick={handleShouldInvoke} disabled={helperLoading} style={{ background: 'rgba(99,102,241,0.15)', color: '#818cf8', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 8, padding: '8px 16px', cursor: 'pointer', fontSize: 11, fontWeight: 600 }}>{helperLoading ? '...' : 'Probar'}</button>
+        </div>
+        {helperResult && (
+          helperResult.error ? (
+            <p style={{ color: '#f87171', fontSize: 11 }}>Error: {helperResult.error}</p>
+          ) : (
+            <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 10, padding: 12 }}>
+              <p style={{ fontSize: 11, color: '#94a3b8', margin: '2px 0' }}><b style={{ color: '#e2e8f0' }}>Categoría:</b> {helperResult.categoria ?? '—'} {helperResult.categoria && <span style={{ background: (CAT_COLORS[helperResult.categoria] || CAT_COLORS[null]).bg, color: (CAT_COLORS[helperResult.categoria] || CAT_COLORS[null]).color, padding: '1px 6px', borderRadius: 4, fontSize: 9, fontWeight: 700, marginLeft: 4 }}>{(CAT_COLORS[helperResult.categoria] || CAT_COLORS[null]).label}</span>}</p>
+              <p style={{ fontSize: 11, color: '#94a3b8', margin: '2px 0' }}><b style={{ color: '#e2e8f0' }}>Agents:</b> {(helperResult.recommended_agents || []).join(', ') || 'ninguno'}</p>
+              <p style={{ fontSize: 11, color: '#94a3b8', margin: '2px 0' }}><b style={{ color: '#e2e8f0' }}>Confidence:</b> {helperResult.confidence ?? '—'}</p>
+            </div>
+          )
+        )}
+      </div>
+
+      <p style={{ fontSize: 9, color: '#475569', textAlign: 'center', marginTop: 12 }}>Orchestrator · Auditoría conversacional multi-agente · Datos en tiempo real</p>
+    </div>
+  );
+}
+
 function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }) {
   const [selected, setSelected] = React.useState(null);
   const backstageAgents = [
@@ -10259,6 +10518,7 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
     { id: 'MEMORY', icon: '🧠', name: 'MEMORY', desc: 'Ojo clínico del fundador. 3 verticales: coherencia doctrinal, coherencia técnica, coherencia operativa.', status: 'live_mvp' },
     { id: 'A12', icon: '🛡️', name: 'A12 Ciberseguridad', desc: 'CISO Digital + DPO operacional. Secrets scanning, CVE check, OWASP audit, PII access audit. LFPDPPP + OWASP Top 10 + PCI DSS.', status: 'propuesta' },
     { id: 'DATA', icon: '📊', name: 'DATA Fundador', desc: 'Métricas GenyX-wide: plataforma, MEMORY, AGUJA, A12, doctrina, smoke tests. Datos del fundador, NO de tenants.', status: 'live' },
+    { id: 'ORCHESTRATOR', icon: '🎯', name: 'ORCHESTRATOR', desc: 'Conversational Multi-Agent Audit. Audita cada turno conversacional, clasifica en 3 categorías, invoca agentes y genera alertas.', status: 'live' },
   ];
   return (
     <div style={{ maxWidth: 1000 }}>
@@ -10293,6 +10553,7 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
            selected === 'A12' ? <A12DrillDown /> :
            selected === 'A0' ? <A0DrillDown /> :
            selected === 'A9' ? <A9DrillDown /> :
+           selected === 'ORCHESTRATOR' ? <OrchestratorDrillDown /> :
            selected === 'DATA' ? <TabDataFounder adminKey={typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : ''} /> :
            <TabPlaceholderV2 icon="🤖" title={selected} desc="Drill-down en desarrollo." />}
         </>
