@@ -6988,7 +6988,7 @@ const SEO_META = {
   },
   '/whitepaper': {
     title: 'Whitepaper: From Agents to Operations — AOaaS | GenyX',
-    desc: 'Whitepaper técnico: cómo GenyX construyó AOaaS. 12 agentes orquestados, 13 REGLAs, governance interna, trazabilidad SHA256.',
+    desc: 'Whitepaper técnico: cómo GenyX construyó AOaaS. 9 agentes operativos + governance interna, 13 REGLAs, trazabilidad SHA256.',
     canonical: 'https://genyxsystems.com/whitepaper',
     image: 'https://genyxsystems.com/aoaas-og.png',
   },
@@ -7000,7 +7000,7 @@ const SEO_META = {
   },
   '/blog/aoaas-vs-aaas-cual-es-la-diferencia': {
     title: 'AOaaS vs AaaS: la diferencia real [2026] | GenyX',
-    desc: 'AOaaS orquesta 12 agentes como sistema operativo. AaaS opera 1 agente como herramienta. Tabla comparativa + análisis técnico.',
+    desc: 'AOaaS orquesta 9 agentes como sistema operativo. AaaS opera 1 agente como herramienta. Tabla comparativa + análisis técnico.',
     canonical: 'https://genyxsystems.com/blog/aoaas-vs-aaas-cual-es-la-diferencia',
     image: 'https://genyxsystems.com/aoaas-og.png',
   },
@@ -7054,7 +7054,7 @@ const BLOG_POSTS = [
     slug: 'aoaas-vs-aaas-cual-es-la-diferencia',
     title: 'AOaaS vs AaaS: ¿Cuál es la diferencia real? [2026]',
     metaTitle: 'AOaaS vs AaaS: la diferencia real | GenyX 2026',
-    metaDesc: 'AOaaS orquesta 12 agentes como sistema operativo. AaaS opera 1 agente como herramienta. Tabla comparativa + análisis técnico.',
+    metaDesc: 'AOaaS orquesta 9 agentes como sistema operativo. AaaS opera 1 agente como herramienta. Tabla comparativa + análisis técnico.',
     date: '2026-05-21',
     readTime: '6 min',
     category: 'Categoría',
@@ -7181,7 +7181,7 @@ function BlogPost1() {
       <p style={B.src}>Fuente: <a href="https://www.deloitte.com/us/en/insights/industry/technology/technology-media-and-telecom-predictions/2026/saas-ai-agents.html" target="_blank" rel="noopener noreferrer" style={B.srcLink}>Deloitte TMT Predictions 2026</a></p>
 
       <h2 style={B.h2}>2. ¿Qué es AOaaS?</h2>
-      <p style={B.p}>AOaaS — Agent Operations as a Service — es la categoría que <a href="/por-que-aoaas" style={B.srcLink}>GenyX crea en 2026</a> por diferenciación técnica real. En vez de 1 agente para 1 función, AOaaS orquesta <span style={B.strong}>12 agentes como un sistema operativo completo</span>: marketing, captación, venta, cierre, entrega, seguimiento, analítica, finanzas y dirección ejecutiva.</p>
+      <p style={B.p}>AOaaS — Agent Operations as a Service — es la categoría que <a href="/por-que-aoaas" style={B.srcLink}>GenyX crea en 2026</a> por diferenciación técnica real. En vez de 1 agente para 1 función, AOaaS orquesta <span style={B.strong}>9 agentes como un sistema operativo completo</span>: marketing, captación, venta, cierre, entrega, seguimiento, analítica, finanzas y dirección ejecutiva.</p>
       <p style={B.p}>La diferencia clave: AOaaS incluye <span style={B.strong}>governance interna</span> (13 REGLAs doctrinales + cláusula 7b contractual) y <span style={B.strong}>trazabilidad legal</span> (3 hashes SHA256 + audit log inmutable). No es un agente más inteligente — es una organización digital con accountability.</p>
 
       <h2 style={B.h2}>3. Tabla comparativa: 5 ejes</h2>
@@ -7230,7 +7230,7 @@ function BlogPost2() {
     <BlogLayout post={post} allPosts={BLOG_POSTS}>
       <div style={B.toc}>
         <p style={{ fontSize: 11, fontWeight: 700, color: '#64748b', marginBottom: 8, textTransform: 'uppercase' }}>Contenido</p>
-        {['El patrón de category creation', 'Qué resuelve AOaaS que AaaS no puede', 'La arquitectura: 12 agentes orquestados', 'Governance como diferenciador', 'La apuesta'].map((t, i) => (
+        {['El patrón de category creation', 'Qué resuelve AOaaS que AaaS no puede', 'La arquitectura: 9 agentes orquestados', 'Governance como diferenciador', 'La apuesta'].map((t, i) => (
           <p key={i} style={{ fontSize: 13, color: GB_LIGHT, marginBottom: 4 }}>{i+1}. {t}</p>
         ))}
       </div>
@@ -7257,15 +7257,15 @@ function BlogPost2() {
         ))}
       </div>
 
-      <h2 style={B.h2}>3. La arquitectura: 12 agentes orquestados</h2>
+      <h2 style={B.h2}>3. La arquitectura: 9 agentes orquestados</h2>
       <p style={B.p}>AOaaS no es "muchos agentes juntos". Es una <span style={B.strong}>organización ejecutiva digital</span> donde cada agente tiene un rol especializado y todos se coordinan:</p>
-      <p style={B.p}>9 capacidades visibles al negocio: Marketing, Captación, Venta, Cierre, Entrega, Seguimiento, Analítica, Finanzas y Dirección Ejecutiva. Más 3 agentes backstage que proveen governance, compliance legal y telemetría.</p>
+      <p style={B.p}>9 capacidades visibles al negocio: Marketing, Captación, Venta, Cierre, Entrega, Seguimiento, Analítica, Finanzas y Dirección Ejecutiva. Con governance interna automatizada que provee compliance legal y trazabilidad.</p>
       <p style={B.p}>La analogía: AaaS es contratar un especialista freelance. AOaaS es activar un C-suite digital que se coordina internamente, reporta al fundador y opera bajo reglas verificables.</p>
 
       <h2 style={B.h2}>4. Governance como diferenciador</h2>
       <p style={B.p}>Lo que separa a AOaaS de "muchos agentes AaaS juntos" es la <span style={B.strong}>governance interna</span>:</p>
       <p style={B.p}>• <span style={B.strong}>13 REGLAs doctrinales</span> — cada una con un candado técnico que la enforce automáticamente.<br />
-      • <span style={B.strong}>Doble red A9↔A0</span> — vigía legal + arquitecto sistémico validan cada operación.<br />
+      • <span style={B.strong}>Governance automatizada</span> — compliance legal + arquitectura sistémica validan cada operación.<br />
       • <span style={B.strong}>Cláusula 7b contractual</span> — trazabilidad legal con 3 hashes SHA256 (original → aprobado → publicado).<br />
       • <span style={B.strong}>Audit logs inmutables</span> — INSERT-only con triggers SQL. Sin edición posible.</p>
       <p style={B.p}>Esto no existe en AaaS estándar. Un chatbot de ventas no tiene governance interna. Un agente de soporte no tiene trazabilidad legal. AOaaS sí — por diseño, no por parche.</p>
@@ -7479,7 +7479,7 @@ function WhitepaperPage() {
               'Por qué el 88% de los pilotos AI fallan — y cómo evitarlo',
               'Arquitectura: de 1 agente a 12 orquestados con governance',
               'El framework de 13 REGLAs + candados técnicos',
-              'Doble red A9↔A0: compliance legal automatizado',
+              'Governance interna: compliance legal automatizado',
               'Trazabilidad tripartita: 3 hashes SHA256 por operación',
               'Category creation: el patrón Stripe/Snowflake/Notion/Anthropic',
               'Roadmap AOaaS: de Mes 1 a Mes 12',
@@ -7721,9 +7721,9 @@ function PorQueAOaaSPage() {
             </thead>
             <tbody>
               {[
-                ['1 agente especializado', '12 agentes orquestados como organización ejecutiva digital'],
+                ['1 agente especializado', '9 agentes orquestados como organización ejecutiva digital'],
                 ['Función única (chatbot, sales, support)', 'Operación completa: marketing → venta → cierre → entrega → seguimiento → analítica → finanzas'],
-                ['Sin governance interna', 'Doble red A9↔A0 + 13 REGLAs doctrinales + cláusula 7b contractual'],
+                ['Sin governance interna', 'Governance interna + 13 REGLAs doctrinales + cláusula 7b contractual'],
                 ['Configuración global', 'Tenant-first per-configuration — cada negocio es el centro'],
                 ['Posicionado como herramienta', 'Posicionado como sistema operativo'],
               ].map(([left, right], i) => (
@@ -7785,7 +7785,7 @@ function PorQueAOaaSPage() {
                 <span style={{ color: '#64748b', textDecoration: 'line-through', fontWeight: 400 }}>"AaaS"</span>
               </p>
               <p style={{ fontSize: 14, color: '#94a3b8', lineHeight: 1.7 }}>
-                12 agentes orquestados + governance interna + trazabilidad legal tripartita.
+                9 agentes orquestados + governance interna + trazabilidad legal tripartita.
                 Mismo patrón de category creation: diferenciación técnica real verificable.
               </p>
             </div>
@@ -7952,9 +7952,9 @@ function PorQueAhoraPage() {
             </thead>
             <tbody>
               {[
-                ['1 agente especializado (chatbot, sales, support)', '12 agentes orquestados como organización ejecutiva digital'],
+                ['1 agente especializado (chatbot, sales, support)', '9 agentes orquestados como organización ejecutiva digital'],
                 ['Función única', 'Operación completa: marketing → venta → cierre → entrega → seguimiento → analítica → finanzas'],
-                ['Sin governance interna', 'Doble red A9↔A0 + 13 REGLAs doctrinales + cláusula 7b contractual'],
+                ['Sin governance interna', 'Governance interna + 13 REGLAs doctrinales + cláusula 7b contractual'],
                 ['Configuración global', 'Tenant-first per-configuration'],
                 ['Posicionado como herramienta', 'Posicionado como sistema operativo'],
               ].map(([aaas, aoaas], i) => (
@@ -8306,9 +8306,9 @@ function PlanesPage() {
 
         {/* Herramientas por industria */}
         <div style={S.section}>
-          <div style={S.sTitle}>🧩 Herramientas por industria</div>
+          <div style={S.sTitle}>🧩 Módulos operativos incluidos</div>
           <div style={S.card}>
-            <p style={{ ...S.li, marginBottom: 16 }}>Además de los 9 agentes, activamos herramientas según tu negocio:</p>
+            <p style={{ ...S.li, marginBottom: 16 }}>Además de los 9 agentes, activamos módulos operativos según tu operación:</p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 10, marginBottom: 16 }}>
               {[
                 ['📦 Inventario', 'Control de stock en tiempo real'],
@@ -8324,7 +8324,7 @@ function PlanesPage() {
                 </div>
               ))}
             </div>
-            <p style={S.note}>Las herramientas se activan sin costo adicional según tu plan e industria.</p>
+            <p style={S.note}>Los módulos se activan sin costo adicional según tu plan.</p>
           </div>
         </div>
 
