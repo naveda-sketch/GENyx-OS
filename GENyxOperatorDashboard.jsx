@@ -1732,7 +1732,7 @@ const TabExpedientes = ({ tenants }) => {
   // Build empty shells for all clients on mount
   useEffect(() => {
     const initial = {};
-    [GenyX_EXPEDIENTE, ...tenants.filter(t => t.slug !== 'genyx-hub').map(t => ({ ...t, id: t.slug }))]
+    [GenyX_EXPEDIENTE, ...tenants.filter(t => t.slug !== 'genyx-hub' && t.slug !== '__genyx__').map(t => ({ ...t, id: t.slug }))]
       .forEach(c => {
         const id = c.id || c.slug;
         if (!initial[id]) {
@@ -1838,7 +1838,16 @@ const TabExpedientes = ({ tenants }) => {
     return total > 0 ? Math.round((scored / total) * 100) : 0;
   };
 
-  const allClients = [GenyX_EXPEDIENTE, ...tenants.filter(t => t.slug !== 'genyx-hub').map((t, i) => ({ ...t, id: t.slug, idx: i + 1 }))];
+  // Tenant numbering canónico (REGLA 17.7 — soberanía fundador):
+  // T00 = GenyX, T01 = Panadería Paty, T02 = Kovay, T03 = Carnivor
+  const TENANT_ORDER = { 'panaderia-paty': 1, 'kovay-resort': 2, 'carnivor': 3 };
+  const allClients = [
+    { ...GenyX_EXPEDIENTE, _tNum: 0 },
+    ...tenants
+      .filter(t => t.slug !== 'genyx-hub' && t.slug !== '__genyx__')
+      .map(t => ({ ...t, id: t.slug, _tNum: TENANT_ORDER[t.slug] || 99 }))
+      .sort((a, b) => a._tNum - b._tNum)
+  ];
   const exp = selected ? (expedientes[selected] || {}) : null;
   const pct = selected ? calcProgress2(selected) : 0;
   const barColor = pct >= 80 ? '#4ade80' : pct >= 50 ? '#fbbf24' : '#f87171';
@@ -1868,7 +1877,7 @@ const TabExpedientes = ({ tenants }) => {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
                   <div>
                     <p style={{ ...MONO, fontSize: 9, color: isGenyX ? GENYX_BRAND : '#64748b', marginBottom: 3 }}>
-                      {isGenyX ? 'CLIENTE 000' : `CLIENTE ${String(i + 1).padStart(3, '0')}`}
+                      {isGenyX ? 'T00 · GenyX' : `T${String(c._tNum || i).padStart(2, '0')}`}
                     </p>
                     <p style={{ fontWeight: 700, fontSize: 13, color: isGenyX ? GB_SOFT : '#f1f5f9' }}>{c.name || c.slug}</p>
                   </div>
@@ -10632,7 +10641,7 @@ export default function GenyXOperatorDashboard() {
         fetch(`${BACKEND}/api/dashboard/orders`),
       ]);
       if (hR.ok) setHealth(await hR.json());
-      if (tR.ok) { const d = await tR.json(); setTenants(d.tenants || []); }
+      if (tR.ok) { const d = await tR.json(); setTenants((d.tenants || []).filter(t => t.slug !== 'genyx-hub')); }
       if (oR.ok) setOrders(await oR.json());
     } catch (e) { console.error('[Dashboard]', e); }
     setLoading(false);
