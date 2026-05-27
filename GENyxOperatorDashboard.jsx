@@ -9690,6 +9690,545 @@ function MemoryDrillDown() {
   );
 }
 
+
+
+// ═══════════════════════════════════════════════════════════════════
+// A0 DrillDown — Arquitecto (REGLA 8: FOUNDER-ONLY)
+// Endpoint: GET /api/admin/architect-report
+// ═══════════════════════════════════════════════════════════════════
+function A0DrillDown() {
+  const [data, setData] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const adminKey = typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : '';
+  const headers = { 'X-Admin-Key': adminKey };
+
+  React.useEffect(() => {
+    if (!adminKey) { setLoading(false); return; }
+    fetch(`${BACKEND}/api/admin/architect-report`, { headers })
+      .then(r => r.ok ? r.json() : null)
+      .then(d => { setData(d); setLoading(false); })
+      .catch(() => setLoading(false));
+  }, [adminKey]);
+
+  if (!adminKey) return (
+    <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}>
+      <p style={{ fontSize: 13 }}>Admin key requerida. Inicia sesión como administrador.</p>
+    </div>
+  );
+
+  const runs = data?.runs || data?.architect_runs || [];
+  const repairs = data?.repairs || data?.repair_log || [];
+  const heartbeats = data?.heartbeats || [];
+
+  return (
+    <div style={{ maxWidth: 800 }}>
+      <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🏛️ A0 — Arquitecto del Sistema</h3>
+
+      {loading && <p style={{ color: '#64748b', fontSize: 12 }}>Cargando stats...</p>}
+
+      {data && (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 20 }}>
+          {[
+            { label: 'Audits', value: data.audits_count || data.audits || 0, icon: '📋' },
+            { label: 'Meta-reviews', value: data.meta_reviews || data.meta_review_count || 0, icon: '🔎' },
+            { label: 'Auto-healings', value: data.auto_healings || data.healing_count || 0, icon: '🔧' },
+            { label: 'Heartbeats OK', value: data.heartbeats_ok || heartbeats.filter(h => h.status === 'ok' || h.status === 'healthy').length, icon: '💚' },
+          ].map(k => (
+            <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
+              <div style={{ fontSize: 20 }}>{k.icon}</div>
+              <div style={{ fontSize: 20, fontWeight: 800, color: '#e2e8f0', marginTop: 4 }}>{k.value}</div>
+              <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Bitácora reciente */}
+      <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>📋 Bitácora reciente</p>
+        {runs.length === 0 ? (
+          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin datos — los datos se poblarán conforme A0 ejecute.</p>
+        ) : runs.slice(0, 10).map((r, i) => (
+          <div key={i} style={{ padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div>
+              <span style={{ fontSize: 12, fontWeight: 600, color: '#e2e8f0' }}>{r.action || r.type || 'run'}</span>
+              <span style={{ fontSize: 11, color: '#94a3b8', marginLeft: 8 }}>{r.summary || r.detail || ''}</span>
+            </div>
+            <span style={{ fontSize: 10, color: '#475569', whiteSpace: 'nowrap' }}>{(r.timestamp || r.created_at || '').substring(0, 16)}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Auto-healing log */}
+      <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>🔧 Auto-healing log</p>
+        {repairs.length === 0 ? (
+          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin datos — los datos se poblarán conforme A0 ejecute.</p>
+        ) : repairs.slice(0, 5).map((r, i) => (
+          <div key={i} style={{ padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div>
+              <span style={{ fontSize: 12, fontWeight: 600, color: r.status === 'failed' ? '#ef4444' : '#10b981' }}>{r.status?.toUpperCase() || 'OK'}</span>
+              <span style={{ fontSize: 11, color: '#94a3b8', marginLeft: 8 }}>{r.target || r.component || ''} — {r.description || r.action || ''}</span>
+            </div>
+            <span style={{ fontSize: 10, color: '#475569', whiteSpace: 'nowrap' }}>{(r.timestamp || r.created_at || '').substring(0, 16)}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Agent heartbeats */}
+      <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>💓 Agent heartbeats</p>
+        {heartbeats.length === 0 ? (
+          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin datos — los datos se poblarán conforme A0 ejecute.</p>
+        ) : (
+          <table style={{ width: '100%', fontSize: 12, borderCollapse: 'collapse' }}>
+            <thead>
+              <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#64748b', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>Agent</th>
+                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#64748b', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>Last Heartbeat</th>
+                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#64748b', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {heartbeats.map((h, i) => (
+                <tr key={i} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+                  <td style={{ padding: '6px 8px', color: '#e2e8f0', fontWeight: 600 }}>{h.agent_id || h.agent}</td>
+                  <td style={{ padding: '6px 8px', color: '#94a3b8' }}>{(h.last_heartbeat || h.timestamp || '').substring(0, 19)}</td>
+                  <td style={{ padding: '6px 8px' }}>
+                    <span style={{ fontSize: 10, fontWeight: 700, padding: '2px 8px', borderRadius: 6,
+                      background: (h.status === 'ok' || h.status === 'healthy') ? 'rgba(16,185,129,0.15)' : 'rgba(239,68,68,0.15)',
+                      color: (h.status === 'ok' || h.status === 'healthy') ? '#10b981' : '#ef4444',
+                    }}>{h.status?.toUpperCase() || 'UNKNOWN'}</span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
+    </div>
+  );
+}
+
+
+// ═══════════════════════════════════════════════════════════════════
+// A9 DrillDown — Compliance / Vigía (REGLA 8: FOUNDER-ONLY)
+// Endpoint: GET /api/admin/vigia-report
+// ═══════════════════════════════════════════════════════════════════
+function A9DrillDown() {
+  const [data, setData] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const adminKey = typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : '';
+  const headers = { 'X-Admin-Key': adminKey };
+
+  React.useEffect(() => {
+    if (!adminKey) { setLoading(false); return; }
+    fetch(`${BACKEND}/api/admin/vigia-report`, { headers })
+      .then(r => r.ok ? r.json() : null)
+      .then(d => { setData(d); setLoading(false); })
+      .catch(() => setLoading(false));
+  }, [adminKey]);
+
+  if (!adminKey) return (
+    <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}>
+      <p style={{ fontSize: 13 }}>Admin key requerida. Inicia sesión como administrador.</p>
+    </div>
+  );
+
+  const reviews = data?.reviews || data?.recent_reviews || [];
+  const pipeline = data?.pipeline || data?.filters || {};
+  const FILTERS = ['LEGAL', 'PLATAFORMA', 'METODOLOGÍA', 'VERACIDAD', 'AGREGADO'];
+
+  return (
+    <div style={{ maxWidth: 800 }}>
+      <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🛡️ A9 — Compliance / Vigía</h3>
+
+      {loading && <p style={{ color: '#64748b', fontSize: 12 }}>Cargando stats...</p>}
+
+      {data && (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 20 }}>
+          {[
+            { label: 'Reviews PASS', value: data.reviews_pass || data.pass_count || 0, icon: '✅' },
+            { label: 'Reviews WARN', value: data.reviews_warn || data.warn_count || 0, icon: '⚠️' },
+            { label: 'Reviews BLOCK', value: data.reviews_block || data.block_count || 0, icon: '🚫' },
+            { label: 'Alertas críticas', value: data.critical_alerts || data.alertas_criticas || 0, icon: '🚨' },
+          ].map(k => (
+            <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
+              <div style={{ fontSize: 20 }}>{k.icon}</div>
+              <div style={{ fontSize: 20, fontWeight: 800, color: '#e2e8f0', marginTop: 4 }}>{k.value}</div>
+              <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Pipeline 5-filter visual */}
+      <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 12 }}>🔗 Pipeline 5-filter</p>
+        <div style={{ display: 'flex', gap: 6, justifyContent: 'center', flexWrap: 'wrap' }}>
+          {FILTERS.map((f, i) => {
+            const fd = pipeline[f] || pipeline[f.toLowerCase()] || {};
+            return (
+              <React.Fragment key={f}>
+                <div style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8, padding: '10px 12px', textAlign: 'center', minWidth: 100 }}>
+                  <div style={{ fontSize: 10, fontWeight: 700, color: '#e2e8f0', marginBottom: 6 }}>{f}</div>
+                  <div style={{ display: 'flex', gap: 6, justifyContent: 'center', fontSize: 9, fontWeight: 600 }}>
+                    <span style={{ color: '#10b981' }}>✓{fd.pass || 0}</span>
+                    <span style={{ color: '#f59e0b' }}>⚠{fd.warn || 0}</span>
+                    <span style={{ color: '#ef4444' }}>✗{fd.block || 0}</span>
+                  </div>
+                </div>
+                {i < FILTERS.length - 1 && <span style={{ alignSelf: 'center', color: '#475569', fontSize: 16 }}>→</span>}
+              </React.Fragment>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Últimos 10 reviews */}
+      <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>📝 Últimos reviews ({reviews.length})</p>
+        {reviews.length === 0 ? (
+          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin reviews — A9 pobla esta sección al auditar operaciones.</p>
+        ) : reviews.slice(0, 10).map((r, i) => (
+          <div key={i} style={{ padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: 8, alignItems: 'center', flex: 1 }}>
+              <span style={{ fontSize: 11, color: '#94a3b8', fontWeight: 600, minWidth: 60 }}>{r.type || r.review_type || '—'}</span>
+              <span style={{ fontSize: 11, color: '#64748b' }}>{r.filter || r.filter_name || '—'}</span>
+              <span style={{ fontSize: 10, fontWeight: 700, padding: '2px 8px', borderRadius: 6,
+                background: (r.status === 'pass' || r.status === 'PASS') ? 'rgba(16,185,129,0.15)' : (r.status === 'warn' || r.status === 'WARN') ? 'rgba(245,158,11,0.15)' : 'rgba(239,68,68,0.15)',
+                color: (r.status === 'pass' || r.status === 'PASS') ? '#10b981' : (r.status === 'warn' || r.status === 'WARN') ? '#f59e0b' : '#ef4444',
+              }}>{r.status?.toUpperCase() || '—'}</span>
+              <span style={{ fontSize: 10, color: r.severity === 'high' || r.severity === 'critical' ? '#ef4444' : '#64748b' }}>{r.severity || ''}</span>
+            </div>
+            <span style={{ fontSize: 10, color: '#475569', whiteSpace: 'nowrap' }}>{(r.timestamp || r.created_at || '').substring(0, 16)}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+
+// ═══════════════════════════════════════════════════════════════════
+// AGUJA DrillDown — Product Evolution (REGLA 8: FOUNDER-ONLY)
+// Endpoints: /api/admin/aguja/stats, /briefs, /proposals, /cadence-check
+// ═══════════════════════════════════════════════════════════════════
+function AgujaDrillDown() {
+  const [stats, setStats] = React.useState(null);
+  const [briefs, setBriefs] = React.useState([]);
+  const [proposals, setProposals] = React.useState([]);
+  const [cadence, setCadence] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const adminKey = typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : '';
+  const headers = { 'X-Admin-Key': adminKey };
+
+  React.useEffect(() => {
+    if (!adminKey) { setLoading(false); return; }
+    Promise.all([
+      fetch(`${BACKEND}/api/admin/aguja/stats?days=30`, { headers }).then(r => r.ok ? r.json() : null),
+      fetch(`${BACKEND}/api/admin/aguja/briefs?limit=5`, { headers }).then(r => r.ok ? r.json() : null),
+      fetch(`${BACKEND}/api/admin/aguja/proposals?status=proposed&limit=10`, { headers }).then(r => r.ok ? r.json() : null),
+      fetch(`${BACKEND}/api/admin/aguja/cadence-check?cadence_type=regular_10d`, { headers }).then(r => r.ok ? r.json() : null),
+    ]).then(([s, b, p, c]) => {
+      setStats(s);
+      setBriefs(b?.briefs || b?.items || []);
+      setProposals(p?.proposals || p?.items || []);
+      setCadence(c);
+      setLoading(false);
+    }).catch(() => setLoading(false));
+  }, [adminKey]);
+
+  const handleProposalAction = (id, newStatus) => {
+    fetch(`${BACKEND}/api/admin/aguja/proposal/${id}/acknowledge`, {
+      method: 'POST',
+      headers: { ...headers, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ new_status: newStatus }),
+    }).then(r => {
+      if (r.ok) {
+        setProposals(prev => prev.map(p => p.id === id || p.proposal_id === id ? { ...p, status: newStatus } : p));
+      }
+    }).catch(() => {});
+  };
+
+  if (!adminKey) return (
+    <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}>
+      <p style={{ fontSize: 13 }}>Admin key requerida. Inicia sesión como administrador.</p>
+    </div>
+  );
+
+  const cadenceOk = cadence?.is_on_track || cadence?.on_schedule || false;
+  const daysSinceBrief = stats?.days_since_last_brief ?? cadence?.days_since_last ?? '—';
+
+  return (
+    <div style={{ maxWidth: 800 }}>
+      <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🧭 AGUJA — Product Evolution Strategist</h3>
+
+      {loading && <p style={{ color: '#64748b', fontSize: 12 }}>Cargando stats...</p>}
+
+      {stats && (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 10, marginBottom: 20 }}>
+          {[
+            { label: 'Briefs total', value: stats.briefs_total || stats.total_briefs || 0, icon: '📊' },
+            { label: 'Signals (30d)', value: stats.signals_30d || stats.signals || 0, icon: '📡' },
+            { label: 'Proposals pending', value: stats.proposals_pending || proposals.length, icon: '📝' },
+            { label: 'Days since brief', value: daysSinceBrief, icon: '📅' },
+            { label: 'Cadencia', value: cadenceOk ? '✅ OK' : '⚠️ Overdue', icon: '🔄' },
+          ].map(k => (
+            <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
+              <div style={{ fontSize: 18 }}>{k.icon}</div>
+              <div style={{ fontSize: 17, fontWeight: 800, color: '#e2e8f0', marginTop: 4 }}>{k.value}</div>
+              <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Briefs recientes */}
+      <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>📊 Briefs recientes</p>
+        {briefs.length === 0 ? (
+          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin briefs — AGUJA generará briefs de intelligence periódicamente.</p>
+        ) : briefs.map((b, i) => (
+          <div key={i} style={{ padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
+            <div style={{ flex: 1 }}>
+              <span style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', marginRight: 8 }}>{b.brief_id || b.id || `brief-${i}`}</span>
+              <span style={{ fontSize: 10, color: '#64748b', marginRight: 8 }}>{b.period || ''}</span>
+              <span style={{ fontSize: 10, padding: '1px 6px', borderRadius: 4, background: 'rgba(99,102,241,0.1)', color: '#a5b4fc' }}>{b.cadence_type || 'regular'}</span>
+              <p style={{ fontSize: 11, color: '#94a3b8', margin: '4px 0 0', lineHeight: 1.4 }}>{(b.summary || b.title || '').substring(0, 120)}{(b.summary || b.title || '').length > 120 ? '...' : ''}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Proposals pending */}
+      <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>📝 Proposals pending ({proposals.filter(p => p.status === 'proposed' || p.status === 'pending').length})</p>
+        {proposals.length === 0 ? (
+          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin proposals pendientes.</p>
+        ) : proposals.map((p, i) => {
+          const pid = p.id || p.proposal_id;
+          const isPending = p.status === 'proposed' || p.status === 'pending';
+          return (
+            <div key={i} style={{ padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8 }}>
+                <div style={{ flex: 1 }}>
+                  <span style={{ fontSize: 12, fontWeight: 600, color: '#e2e8f0' }}>{p.title || p.summary || `Proposal ${pid}`}</span>
+                  <p style={{ fontSize: 11, color: '#94a3b8', margin: '4px 0 0', lineHeight: 1.4 }}>{(p.description || p.detail || '').substring(0, 150)}{(p.description || p.detail || '').length > 150 ? '...' : ''}</p>
+                  {!isPending && <span style={{ fontSize: 10, fontWeight: 700, color: p.status === 'approved' ? '#10b981' : p.status === 'rejected' ? '#ef4444' : '#f59e0b', marginTop: 4, display: 'inline-block' }}>{p.status?.toUpperCase()}</span>}
+                </div>
+                {isPending && (
+                  <div style={{ display: 'flex', gap: 4, flexShrink: 0, marginTop: 2 }}>
+                    <button onClick={() => handleProposalAction(pid, 'approved')} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(16,185,129,0.15)', color: '#10b981' }}>✓ Approve</button>
+                    <button onClick={() => handleProposalAction(pid, 'rejected')} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(239,68,68,0.15)', color: '#ef4444' }}>✗ Reject</button>
+                    <button onClick={() => handleProposalAction(pid, 'deferred')} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(245,158,11,0.15)', color: '#f59e0b' }}>◐ Defer</button>
+                  </div>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+
+// ═══════════════════════════════════════════════════════════════════
+// A12 DrillDown — Ciberseguridad (REGLA 8: FOUNDER-ONLY)
+// Endpoints: /api/admin/cybersec/stats, /incidents, /breaches, /vendors, /lfpdppp-responsible
+// ═══════════════════════════════════════════════════════════════════
+function A12DrillDown() {
+  const [stats, setStats] = React.useState(null);
+  const [incidents, setIncidents] = React.useState([]);
+  const [breaches, setBreaches] = React.useState([]);
+  const [vendors, setVendors] = React.useState([]);
+  const [responsible, setResponsible] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const adminKey = typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : '';
+  const headers = { 'X-Admin-Key': adminKey };
+
+  React.useEffect(() => {
+    if (!adminKey) { setLoading(false); return; }
+    Promise.all([
+      fetch(`${BACKEND}/api/admin/cybersec/stats?days=30`, { headers }).then(r => r.ok ? r.json() : null),
+      fetch(`${BACKEND}/api/admin/cybersec/incidents?days=30&limit=10`, { headers }).then(r => r.ok ? r.json() : null),
+      fetch(`${BACKEND}/api/admin/cybersec/breaches?days=365&limit=10`, { headers }).then(r => r.ok ? r.json() : null),
+      fetch(`${BACKEND}/api/admin/cybersec/vendors?status=active&limit=5`, { headers }).then(r => r.ok ? r.json() : null),
+      fetch(`${BACKEND}/api/admin/cybersec/lfpdppp-responsible`, { headers }).then(r => r.ok ? r.json() : null),
+    ]).then(([s, inc, br, v, resp]) => {
+      setStats(s);
+      setIncidents(inc?.incidents || inc?.items || []);
+      setBreaches(br?.breaches || br?.items || []);
+      setVendors(v?.vendors || v?.items || []);
+      setResponsible(resp);
+      setLoading(false);
+    }).catch(() => setLoading(false));
+  }, [adminKey]);
+
+  if (!adminKey) return (
+    <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}>
+      <p style={{ fontSize: 13 }}>Admin key requerida. Inicia sesión como administrador.</p>
+    </div>
+  );
+
+  const STACK_BADGES = ['SOC2', 'ISO27001', 'PCI_SAQ_A', 'NIST_CSF', 'OWASP_TOP10', 'LFPDPPP'];
+  const stackData = stats?.stack_fase1 || stats?.compliance_stack || {};
+
+  return (
+    <div style={{ maxWidth: 800 }}>
+      <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🛡️ A12 — Ciberseguridad (CISO + DPO)</h3>
+
+      {loading && <p style={{ color: '#64748b', fontSize: 12 }}>Cargando stats...</p>}
+
+      {stats && (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 10, marginBottom: 20 }}>
+          {[
+            { label: 'Compliance %', value: `${stats.compliance_pct || stats.compliance_score || 0}%`, icon: '📊' },
+            { label: 'Incidentes', value: stats.incidents_count || stats.incidents_30d || incidents.length, icon: '🚨' },
+            { label: 'Brechas INAI', value: stats.breaches_count || stats.breaches_365d || breaches.length, icon: '⚖️' },
+            { label: 'Vendors due', value: stats.vendors_due || stats.vendors_review_due || 0, icon: '🏢' },
+            { label: 'PII anomalies', value: stats.pii_anomalies || stats.pii_alerts || 0, icon: '🔐' },
+          ].map(k => (
+            <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
+              <div style={{ fontSize: 18 }}>{k.icon}</div>
+              <div style={{ fontSize: 17, fontWeight: 800, color: '#e2e8f0', marginTop: 4 }}>{k.value}</div>
+              <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Stack Fase 1 badges */}
+      <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 10 }}>🏅 Stack Fase 1 — Compliance Badges</p>
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', justifyContent: 'center' }}>
+          {STACK_BADGES.map(badge => {
+            const bd = stackData[badge] || stackData[badge.toLowerCase()] || {};
+            const active = bd.active || bd.compliant || bd.status === 'active';
+            return (
+              <div key={badge} style={{ padding: '8px 14px', borderRadius: 8, fontSize: 11, fontWeight: 700, textAlign: 'center',
+                background: active ? 'rgba(16,185,129,0.12)' : 'rgba(255,255,255,0.04)',
+                border: `1px solid ${active ? 'rgba(16,185,129,0.3)' : 'rgba(255,255,255,0.08)'}`,
+                color: active ? '#10b981' : '#64748b',
+              }}>
+                {active ? '✓ ' : '○ '}{badge.replace(/_/g, ' ')}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Incidentes recientes */}
+      <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>🚨 Incidentes recientes</p>
+        {incidents.length === 0 ? (
+          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin incidentes reportados. Sistema operando normalmente.</p>
+        ) : incidents.map((inc, i) => (
+          <div key={i} style={{ padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
+            <div style={{ display: 'flex', gap: 8, alignItems: 'center', flex: 1 }}>
+              <span style={{ fontSize: 11, fontWeight: 600, color: '#e2e8f0', minWidth: 80 }}>{inc.incident_type || inc.type || '—'}</span>
+              <span style={{ fontSize: 10, fontWeight: 700, padding: '2px 8px', borderRadius: 6,
+                background: inc.severity === 'critical' ? 'rgba(239,68,68,0.2)' : inc.severity === 'high' ? 'rgba(239,68,68,0.12)' : inc.severity === 'medium' ? 'rgba(245,158,11,0.15)' : 'rgba(16,185,129,0.12)',
+                color: inc.severity === 'critical' || inc.severity === 'high' ? '#ef4444' : inc.severity === 'medium' ? '#f59e0b' : '#10b981',
+              }}>{inc.severity?.toUpperCase() || '—'}</span>
+              <span style={{ fontSize: 10, padding: '2px 6px', borderRadius: 4, background: 'rgba(255,255,255,0.05)', color: '#94a3b8' }}>{inc.status || '—'}</span>
+              <span style={{ fontSize: 11, color: '#94a3b8', flex: 1 }}>{(inc.description || '').substring(0, 80)}{(inc.description || '').length > 80 ? '...' : ''}</span>
+            </div>
+            <span style={{ fontSize: 10, color: '#475569', whiteSpace: 'nowrap' }}>{(inc.date || inc.created_at || inc.timestamp || '').substring(0, 16)}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Brechas LFPDPPP */}
+      <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>⚖️ Brechas LFPDPPP</p>
+        {breaches.length === 0 ? (
+          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin brechas reportadas. Cumplimiento LFPDPPP al día.</p>
+        ) : breaches.map((b, i) => {
+          const dueDate = b.inai_notification_due_at || b.notification_due;
+          const isOverdue = dueDate && new Date(dueDate) < new Date();
+          return (
+            <div key={i} style={{ padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', background: isOverdue ? 'rgba(239,68,68,0.05)' : 'transparent', marginLeft: isOverdue ? -8 : 0, marginRight: isOverdue ? -8 : 0, paddingLeft: isOverdue ? 8 : 0, paddingRight: isOverdue ? 8 : 0, borderRadius: isOverdue ? 6 : 0 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
+                <div style={{ display: 'flex', gap: 8, alignItems: 'center', flex: 1 }}>
+                  <span style={{ fontSize: 11, fontWeight: 600, color: '#e2e8f0' }}>{b.breach_type || b.type || '—'}</span>
+                  <span style={{ fontSize: 10, color: '#94a3b8' }}>{b.data_categories || b.categories || '—'}</span>
+                  <span style={{ fontSize: 10, padding: '2px 6px', borderRadius: 4, background: 'rgba(255,255,255,0.05)', color: '#94a3b8' }}>{b.status || '—'}</span>
+                </div>
+                <div style={{ textAlign: 'right', flexShrink: 0 }}>
+                  <div style={{ fontSize: 10, color: isOverdue ? '#ef4444' : '#64748b' }}>
+                    {isOverdue && '🔴 '}{dueDate ? `INAI due: ${dueDate.substring(0, 10)}` : 'No due date'}
+                  </div>
+                  {isOverdue && <div style={{ fontSize: 9, fontWeight: 700, color: '#ef4444' }}>⚠ OVERDUE</div>}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Top 5 vendors by risk */}
+      <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>🏢 Top 5 vendors por riesgo</p>
+        {vendors.length === 0 ? (
+          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin vendors registrados.</p>
+        ) : (
+          <table style={{ width: '100%', fontSize: 12, borderCollapse: 'collapse' }}>
+            <thead>
+              <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#64748b', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>Vendor</th>
+                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#64748b', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>Category</th>
+                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#64748b', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>Risk</th>
+                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#64748b', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>DPA</th>
+                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#64748b', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>Next Review</th>
+              </tr>
+            </thead>
+            <tbody>
+              {vendors.map((v, i) => (
+                <tr key={i} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+                  <td style={{ padding: '6px 8px', color: '#e2e8f0', fontWeight: 600 }}>{v.vendor_name || v.name}</td>
+                  <td style={{ padding: '6px 8px', color: '#94a3b8' }}>{v.category || '—'}</td>
+                  <td style={{ padding: '6px 8px' }}>
+                    <span style={{ fontSize: 10, fontWeight: 700, padding: '2px 8px', borderRadius: 6,
+                      background: v.risk_level === 'high' || v.risk_level === 'critical' ? 'rgba(239,68,68,0.15)' : v.risk_level === 'medium' ? 'rgba(245,158,11,0.15)' : 'rgba(16,185,129,0.15)',
+                      color: v.risk_level === 'high' || v.risk_level === 'critical' ? '#ef4444' : v.risk_level === 'medium' ? '#f59e0b' : '#10b981',
+                    }}>{v.risk_level?.toUpperCase() || '—'}</span>
+                  </td>
+                  <td style={{ padding: '6px 8px' }}>
+                    <span style={{ fontSize: 10, fontWeight: 700, padding: '2px 6px', borderRadius: 4,
+                      background: (v.dpa_signed || v.has_dpa) ? 'rgba(16,185,129,0.12)' : 'rgba(239,68,68,0.12)',
+                      color: (v.dpa_signed || v.has_dpa) ? '#10b981' : '#ef4444',
+                    }}>{(v.dpa_signed || v.has_dpa) ? '✓ DPA' : '✗ NO DPA'}</span>
+                  </td>
+                  <td style={{ padding: '6px 8px', color: '#94a3b8', fontSize: 11 }}>{(v.next_review_due || v.review_date || '').substring(0, 10) || '—'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
+
+      {/* Responsable LFPDPPP */}
+      <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>👤 Responsable LFPDPPP</p>
+        {responsible ? (
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, fontSize: 12 }}>
+            <div><span style={{ color: '#64748b' }}>Nombre: </span><span style={{ color: '#e2e8f0', fontWeight: 600 }}>{responsible.name || responsible.nombre || '—'}</span></div>
+            <div><span style={{ color: '#64748b' }}>Cargo: </span><span style={{ color: '#e2e8f0' }}>{responsible.role || responsible.cargo || '—'}</span></div>
+            <div><span style={{ color: '#64748b' }}>Email: </span><span style={{ color: '#818cf8' }}>{responsible.email || '—'}</span></div>
+            <div><span style={{ color: '#64748b' }}>Designado: </span><span style={{ color: '#e2e8f0' }}>{(responsible.designated_at || responsible.fecha || '').substring(0, 10) || '—'}</span></div>
+            {responsible.aviso_privacidad_url && <div style={{ gridColumn: '1 / -1' }}><span style={{ color: '#64748b' }}>Aviso privacidad: </span><a href={responsible.aviso_privacidad_url} target="_blank" rel="noopener noreferrer" style={{ color: '#818cf8', fontSize: 11 }}>{responsible.aviso_privacidad_url}</a></div>}
+          </div>
+        ) : (
+          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin datos de responsable LFPDPPP configurados.</p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+
 function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }) {
   const [selected, setSelected] = React.useState(null);
   const backstageAgents = [
@@ -9730,10 +10269,10 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
           <button onClick={() => setSelected(null)} style={{ background: 'none', border: 'none', color: '#818cf8', fontSize: 12, cursor: 'pointer', marginBottom: 12, padding: 0 }}>← Volver a backstage</button>
           {selected === 'MEMORY' ? <MemoryDrillDown /> :
            selected === 'A10' ? <TabOnboarding /> :
-           selected === 'AGUJA' ? <TabPlaceholderV2 icon="🧭" title="AGUJA" desc="Product Evolution Strategist — backend live (commit 00879c6). Dashboard drill-down próximamente." /> :
-           selected === 'A12' ? <TabPlaceholderV2 icon="🛡️" title="A12 Ciberseguridad" desc="CISO Digital + DPO operacional — propuesta arquitectural. LFPDPPP + OWASP Top 10 + PCI DSS SAQ-A." /> :
-           selected === 'A0' ? <TabPlaceholderV2 icon="🏛️" title="Arquitecto" desc="Diseñador y auditor del sistema GenyX. Bitácora, candados, auto-healing. Drill-down próximamente." /> :
-           selected === 'A9' ? <TabPlaceholderV2 icon="🛡️" title="Compliance" desc="Vigía legal y governance. Contratos, DPA, SLA. Drill-down próximamente." /> :
+           selected === 'AGUJA' ? <AgujaDrillDown /> :
+           selected === 'A12' ? <A12DrillDown /> :
+           selected === 'A0' ? <A0DrillDown /> :
+           selected === 'A9' ? <A9DrillDown /> :
            selected === 'DATA' ? <TabDataFounder adminKey={typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : ''} /> :
            <TabPlaceholderV2 icon="🤖" title={selected} desc="Drill-down en desarrollo." />}
         </>
