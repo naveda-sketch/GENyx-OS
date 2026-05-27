@@ -587,7 +587,10 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
       const totalRevenue  = parseFloat(org.total_revenue)    || 0;
       const subscription  = parseFloat(org.plan_monthly_fee) || 9900;
       return { ...t, ...org, revenueMonth: totalRevenue, subscription };
-    }).sort((a, b) => (a.name || a.slug).localeCompare(b.name || b.slug));
+    }).sort((a, b) => {
+      const TORDER = { 'panaderia-paty': 1, 'kovay-resort': 2, 'carnivor': 3 };
+      return (TORDER[a.slug] || 99) - (TORDER[b.slug] || 99);
+    });
   }, [tenants, orgSettings]);
 
   const handleSaveSettings = async (slug) => {
@@ -645,7 +648,7 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
       {/* ── GenyX #000 — solo visible cuando no hay cliente filtrado ─── */}
       {!selectedSlug && (
       <div style={{ marginBottom: 20 }}>
-        <p style={{ ...MONO, color: GENYX_BRAND, fontSize: 10, marginBottom: 8, letterSpacing: '.08em' }}>CLIENTE 000 — OPERADOR</p>
+        <p style={{ ...MONO, color: GENYX_BRAND, fontSize: 10, marginBottom: 8, letterSpacing: '.08em' }}>T00 — OPERADOR</p>
         <div style={{ ...CARD, border: `1px solid ${GBa(0.35)}`, background: GBa(0.06) }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
             <div>
@@ -676,7 +679,7 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
               {/* Card Header */}
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
                 <div>
-                  <p style={{ ...MONO, color: '#64748b', marginBottom: 4 }}>CLIENTE {String(i + 1).padStart(3, '0')}</p>
+                  <p style={{ ...MONO, color: '#64748b', marginBottom: 4 }}>T{String(({ 'panaderia-paty': 1, 'kovay-resort': 2, 'carnivor': 3 })[t.slug] || (i + 1)).padStart(2, '0')}</p>
                   <h3 style={{ fontWeight: 700, fontSize: 16, color: '#f1f5f9' }}>{t.name || t.slug}</h3>
                   <div style={{ display: 'flex', gap: 6, alignItems: 'center', marginTop: 4, flexWrap: 'wrap' }}>
                     <span style={{ fontSize: 12, color: '#64748b' }}>{t.industry || 'Sin clasificar'}</span>
