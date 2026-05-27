@@ -9418,47 +9418,65 @@ function TabExpedienteCliente({ slug, token }) {
   const total = allFields.length;
   const pct = total > 0 ? Math.round((completed / total) * 100) : 0;
 
+  const barColor = pct >= 80 ? '#4ade80' : pct >= 50 ? '#fbbf24' : '#f87171';
+
   return (
-    <>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
-        <div>
-          <h2 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 2 }}>📋 Mi Expediente</h2>
-          <p style={{ fontSize: 11, color: '#64748b' }}>{total} documentos · {completed} completados · {pct}%</p>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <div style={{ width: 120, height: 6, background: 'rgba(255,255,255,0.08)', borderRadius: 4 }}>
-            <div style={{ height: 6, width: `${pct}%`, background: pct >= 80 ? '#4ade80' : pct >= 50 ? '#fbbf24' : '#f87171', borderRadius: 4, transition: 'width 0.4s' }} />
+    <div style={{ maxWidth: 700 }}>
+      {/* ── Header profesional (simetría con Legal) ──────────── */}
+      <div style={{ background: 'linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.06))', border: `1px solid ${GBa(0.2)}`, borderRadius: 16, padding: '20px 24px', marginBottom: 20 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+          <div>
+            <h2 style={{ fontSize: 18, fontWeight: 800, color: '#f1f5f9', margin: '0 0 4px' }}>📋 Expediente Digital</h2>
+            <p style={{ fontSize: 12, color: '#94a3b8', margin: 0 }}>{total} documentos · {completed} completados</p>
           </div>
-          <span style={{ fontSize: 12, fontWeight: 800, color: pct >= 80 ? '#4ade80' : pct >= 50 ? '#fbbf24' : '#f87171' }}>{pct}%</span>
+          <div style={{ textAlign: 'center' }}>
+            <div style={{ fontSize: 28, fontWeight: 800, color: barColor }}>{pct}%</div>
+            <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>Completado</div>
+          </div>
+        </div>
+        <div style={{ height: 8, background: 'rgba(255,255,255,0.06)', borderRadius: 8 }}>
+          <div style={{ height: 8, width: `${pct}%`, background: `linear-gradient(90deg, ${barColor}, ${pct >= 80 ? '#22d3ee' : barColor})`, borderRadius: 8, transition: 'width 0.6s ease' }} />
         </div>
       </div>
 
-      <div style={{ display: 'grid', gap: 10 }}>
+      {/* ── Secciones (simetría visual con Legal cards) ──────── */}
+      <div style={{ display: 'grid', gap: 14 }}>
         {Object.entries(sections)
           .sort(([a], [b]) => (sectionMeta[a]?.order || 99) - (sectionMeta[b]?.order || 99))
           .map(([secKey, fields]) => {
             const meta = sectionMeta[secKey] || { icon: '📁', label: secKey };
             const secCompleted = Object.values(fields).filter(f => f.completed).length;
             const secTotal = Object.keys(fields).length;
+            const secPct = secTotal > 0 ? Math.round((secCompleted / secTotal) * 100) : 0;
+            const secColor = secPct >= 100 ? '#4ade80' : secPct >= 50 ? '#fbbf24' : '#f87171';
             return (
-              <div key={secKey} style={{ background: '#0f172a', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: '14px 18px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                    <span style={{ fontSize: 18 }}>{meta.icon}</span>
-                    <p style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9' }}>{meta.label}</p>
+              <div key={secKey} style={{ background: '#0f172a', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: '16px 20px', transition: 'border-color 0.2s' }}>
+                {/* Section header with progress */}
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <div style={{ width: 36, height: 36, background: 'rgba(255,255,255,0.04)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}>{meta.icon}</div>
+                    <div>
+                      <p style={{ fontSize: 14, fontWeight: 700, color: '#f1f5f9', margin: 0 }}>{meta.label}</p>
+                      <p style={{ fontSize: 10, color: '#64748b', margin: 0 }}>{secCompleted} de {secTotal} completados</p>
+                    </div>
                   </div>
-                  <span style={{ fontSize: 10, fontWeight: 700, color: secCompleted === secTotal ? '#4ade80' : '#fbbf24', background: secCompleted === secTotal ? 'rgba(74,222,128,0.1)' : 'rgba(251,191,36,0.1)', border: `1px solid ${secCompleted === secTotal ? 'rgba(74,222,128,0.25)' : 'rgba(251,191,36,0.25)'}`, padding: '3px 10px', borderRadius: 6, textTransform: 'uppercase', letterSpacing: '.05em' }}>{secCompleted}/{secTotal}</span>
+                  <span style={{ fontSize: 11, fontWeight: 800, color: secColor, background: secPct >= 100 ? 'rgba(74,222,128,0.1)' : 'rgba(251,191,36,0.1)', border: `1px solid ${secPct >= 100 ? 'rgba(74,222,128,0.25)' : 'rgba(251,191,36,0.25)'}`, padding: '4px 12px', borderRadius: 8 }}>{secCompleted}/{secTotal}</span>
                 </div>
-                {Object.entries(fields).map(([fieldId, info]) => {
+                {/* Section progress bar */}
+                <div style={{ height: 4, background: 'rgba(255,255,255,0.06)', borderRadius: 4, marginBottom: 14 }}>
+                  <div style={{ height: 4, width: `${secPct}%`, background: secColor, borderRadius: 4, transition: 'width 0.4s' }} />
+                </div>
+                {/* Items */}
+                {Object.entries(fields).map(([fieldId, info], idx) => {
                   const st = statusConfig[info.completed ? 'completed' : 'pending'];
-                  const fieldName = fieldId.replace(/_/g, ' ').replace(/\w/g, c => c.toUpperCase());
+                  const fieldName = fieldId.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
                   return (
-                    <div key={fieldId} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                        <span style={{ fontSize: 14 }}>{st.icon}</span>
-                        <span style={{ fontSize: 12, color: '#e2e8f0' }}>{fieldName}</span>
+                    <div key={fieldId} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 0', borderBottom: idx < Object.keys(fields).length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                        <div style={{ width: 24, height: 24, borderRadius: 6, background: st.bg, border: `1px solid ${st.border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12 }}>{st.icon}</div>
+                        <span style={{ fontSize: 13, color: '#e2e8f0', fontWeight: 500 }}>{fieldName}</span>
                       </div>
-                      <span style={{ fontSize: 10, fontWeight: 700, color: st.color, background: st.bg, border: `1px solid ${st.border}`, padding: '2px 8px', borderRadius: 6, textTransform: 'uppercase', letterSpacing: '.05em' }}>{st.label}</span>
+                      <span style={{ fontSize: 10, fontWeight: 700, color: st.color, background: st.bg, border: `1px solid ${st.border}`, padding: '3px 10px', borderRadius: 6, textTransform: 'uppercase', letterSpacing: '.04em', fontFamily: 'monospace' }}>{st.label}</span>
                     </div>
                   );
                 })}
@@ -9466,7 +9484,9 @@ function TabExpedienteCliente({ slug, token }) {
             );
           })}
       </div>
-    </>
+
+      <p style={{ fontSize: 9, color: '#475569', textAlign: 'center', marginTop: 16 }}>Expediente digital · Actualizado en tiempo real · Datos protegidos LFPDPPP</p>
+    </div>
   );
 }
 
