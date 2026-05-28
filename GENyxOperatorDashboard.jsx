@@ -11456,6 +11456,7 @@ export default function GenyXOperatorDashboard() {
   }, []);
 
   const [tenants, setTenants]   = useState([]);
+  const [realTenantCount, setRealTenantCount] = useState(null); // #55: real vs pilot
   const [orders, setOrders]     = useState([]);
   const [health, setHealth]     = useState(null);
   const [loading, setLoading]   = useState(true);
@@ -11473,6 +11474,11 @@ export default function GenyXOperatorDashboard() {
       if (hR.ok) setHealth(await hR.json());
       if (tR.ok) { const d = await tR.json(); setTenants((d.tenants || []).filter(t => t.slug !== 'genyx-hub')); }
       if (oR.ok) setOrders(await oR.json());
+      // #55: fetch real tenant count for badge accuracy
+      try {
+        const rtR = await fetch(`${BACKEND}/api/admin/orgs/real-tenants`, { headers: getAH() });
+        if (rtR.ok) { const rtD = await rtR.json(); setRealTenantCount(rtD.real_tenants_count ?? null); }
+      } catch {}
     } catch (e) { console.error('[Dashboard]', e); }
     setLoading(false);
   }, []);
@@ -11590,7 +11596,7 @@ export default function GenyXOperatorDashboard() {
           >
             🚨 PÁNICO
           </button>
-          {health && <span style={{ fontSize: 11, color: '#4ade80', background: '#14532d30', border: '1px solid #14532d', padding: '4px 12px', borderRadius: 20, fontFamily: 'monospace' }}>🟢 v{health.version} · {tenants.filter(t => t.status === 'active').length} activo(s) · {tenants.length} tenant(s)</span>}
+          {health && <span style={{ fontSize: 11, color: '#4ade80', background: '#14532d30', border: '1px solid #14532d', padding: '4px 12px', borderRadius: 20, fontFamily: 'monospace' }}>🟢 v{health.version} · {realTenantCount != null ? realTenantCount : tenants.filter(t => t.status === 'active').length} activo(s) · {tenants.length} tenant(s)</span>}
           <button onClick={() => { sessionStorage.removeItem('genyx_admin_key'); setAdminKey(''); }}
             style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', color: '#475569', padding: '7px 14px', borderRadius: 8, cursor: 'pointer', fontSize: 12 }}
             title="Cerrar sesión">🔒 Salir</button>
