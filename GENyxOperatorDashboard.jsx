@@ -9181,24 +9181,33 @@ function PlusPage() {
 
 function TabResumenTenant({ slug, token, config }) {
   const [agentData, setAgentData] = React.useState(null);
+  const [kpiData, setKpiData] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
     if (!slug || !token) return;
     const h = { 'X-Dashboard-Token': token };
-    fetch(`${BACKEND}/api/client/${slug}/agents`, { headers: h })
-      .then(r => r.ok ? r.json() : null)
-      .then(d => { setAgentData(d); setLoading(false); })
-      .catch(() => setLoading(false));
+    Promise.all([
+      fetch(`${BACKEND}/api/client/${slug}/agents`, { headers: h }).then(r => r.ok ? r.json() : null),
+      fetch(`${BACKEND}/api/client/${slug}/agents-live-feed`, { headers: h }).then(r => r.ok ? r.json() : null).catch(() => null),
+    ]).then(([agents, feed]) => {
+      setAgentData(agents);
+      setKpiData(feed);
+      setLoading(false);
+    }).catch(() => setLoading(false));
   }, [slug, token]);
 
   // API returns agents as dict: {A1: 'active', A2: 'inactive', ...}
-  // NOT an array — verified against main.py L7722 (REGLA 18)
+  // NOT an array — verified against main.py L9290 (REGLA 18)
   const agentStatus = (id) => {
     if (!agentData?.agents) return null;
     const status = agentData.agents[id];
     return status ? { agent_id: id, status } : null;
   };
+
+  // Feed events per agent for last 24h summary
+  const feedEvents = kpiData?.events || kpiData?.feed || [];
+  const agentEventCount = (id) => feedEvents.filter(e => e.agent_id === id || e.agent === id).length;
 
   return (
     <div style={{ maxWidth: 900 }}>
@@ -9219,29 +9228,40 @@ function TabResumenTenant({ slug, token, config }) {
         <p style={{ fontSize: 14, color: '#451a03', lineHeight: 1.7, margin: 0 }}>Revisa la sección de Operación para ver tus pedidos e inventario.</p>
       </div>
 
-      {/* ── 9 Agent Delivery Cards ── */}
+      {/* ── ⚡ Acciones que requieren tu atención ── */}
+      <div style={{ padding: '14px 18px', background: '#fef3c7', borderRadius: 12, border: '1px solid #fde68a', marginBottom: 20, display: 'flex', alignItems: 'center', gap: 10 }}>
+        <span style={{ fontSize: 18 }}>⚡</span>
+        <div>
+          <p style={{ fontSize: 12, fontWeight: 700, color: '#92400e', margin: 0 }}>Acciones que requieren tu atención</p>
+          <p style={{ fontSize: 11, color: '#b45309', margin: '2px 0 0' }}>Sin acciones pendientes — tus agentes operan con autonomía.</p>
+        </div>
+      </div>
+
+      {/* ── 9 Agent Delivery Cards — V3 mejoradas ── */}
       <p style={{ fontSize: 11, fontWeight: 700, color: '#78716c', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 12 }}>Tus 9 directores ejecutivos</p>
       {loading && <p style={{ fontSize: 12, color: '#78716c' }}>Cargando estado de agentes...</p>}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: 12 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 12 }}>
         {Object.values(AGENT_CONFIGS).filter(a => !['A0','A9','A10'].includes(a.id)).map(agent => {
           const st = agentStatus(agent.id);
           const hasActivity = st && st.status !== 'inactive';
+          const evtCount = agentEventCount(agent.id);
           return (
-            <div key={agent.id} style={{ background: '#fff', borderRadius: 12, padding: 16, border: '1px solid #f5f0e8', transition: 'box-shadow 0.2s' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <span style={{ fontSize: 22 }}>{agent.icon}</span>
+            <div key={agent.id} style={{ background: '#fff', borderRadius: 14, padding: '16px 18px', border: '1px solid #f5f0e8', transition: 'all 0.2s', cursor: 'default' }}
+              onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.06)'; e.currentTarget.style.borderColor = '#e2d9cc'; }}
+              onMouseLeave={e => { e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.borderColor = '#f5f0e8'; }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                  <span style={{ fontSize: 26 }}>{agent.icon}</span>
                   <div>
                     <span style={{ fontSize: 13, fontWeight: 700, color: '#1a1208' }}>{agent.name}</span>
-                    <p style={{ fontSize: 10, color: '#a8a29e', margin: 0 }}>{agent.id}</p>
+                    <p style={{ fontSize: 10, color: '#a8a29e', margin: '1px 0 0' }}>{agent.id} · {agent.subtitle || 'Director ejecutivo'}</p>
                   </div>
                 </div>
-                <div style={{ padding: '3px 8px', background: hasActivity ? '#f0fdf4' : '#fafaf9', borderRadius: 6, fontSize: 10, fontWeight: 600, color: hasActivity ? '#15803d' : '#a8a29e' }}>{hasActivity ? '● Activo' : '○ Idle'}</div>
+                <div style={{ padding: '3px 10px', background: hasActivity ? '#f0fdf4' : '#fafaf9', borderRadius: 8, fontSize: 10, fontWeight: 600, color: hasActivity ? '#15803d' : '#a8a29e', border: `1px solid ${hasActivity ? '#bbf7d0' : '#f0ece4'}` }}>{hasActivity ? '● Activo' : '○ Idle'}</div>
               </div>
-              <div style={{ fontSize: 12, color: '#57534e', lineHeight: 1.5 }}>
-                <span style={{ fontStyle: 'italic', color: hasActivity ? '#57534e' : '#a8a29e' }}>
-                  {hasActivity ? 'Operando normalmente' : 'Sin actividad reciente'}
-                </span>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 8, paddingTop: 8, borderTop: '1px solid #faf5ef' }}>
+                <span style={{ fontSize: 11, color: '#78716c' }}>{evtCount > 0 ? `${evtCount} acciones · 24h` : 'Sin actividad reciente'}</span>
               </div>
             </div>
           );
