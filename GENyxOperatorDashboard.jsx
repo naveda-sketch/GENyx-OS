@@ -295,7 +295,6 @@ const MODULES_DEFS = [
   { id: 'expediente',   icon: '📋', name: 'Expediente Digital' },
   { id: 'kpis',         icon: '📊', name: 'KPIs en Vivo' },
   { id: 'reporteLunes', icon: '📧', name: 'Reporte del Lunes' },
-  { id: 'misAgentes',   icon: '🤖', name: 'Mis Agentes' },
   { id: 'reservas',     icon: '🍽️', name: 'Reservas' },
   { id: 'cursos',       icon: '🎓', name: 'Catálogo de Cursos' },
 ];
@@ -4434,81 +4433,6 @@ function TabMiPlan({ slug, token }) {
   );
 }
 
-function TabMisAgentes({ slug, token }) {
-  const [agents, setAgents] = React.useState(null);
-  const [plan, setPlan] = React.useState('esencial');
-  const [loading, setLoading] = React.useState(true);
-  const [subTab, setSubTab] = React.useState('overview');
-
-  React.useEffect(() => {
-    if (!token) return;
-    fetch(`${BACKEND}/api/client/${slug}/agents`, {
-      headers: { 'X-Dashboard-Token': token }
-    })
-      .then(r => r.json())
-      .then(d => { setAgents(d.agents || {}); setPlan(d.plan || 'esencial'); setLoading(false); })
-      .catch(() => setLoading(false));
-  }, [slug, token]);
-
-  if (loading) return <div style={{ textAlign: 'center', padding: 40, color: '#94a3b8' }}>⏳ Cargando agentes…</div>;
-
-  const AGENT_IDS = ['A1','A2','A3','A4','A5','A6','A7','A8','A11'];
-
-  return (
-    <>
-      {/* Sub-nav: Overview + 9 agentes */}
-      <div style={{ display: 'flex', gap: 2, overflowX: 'auto', paddingBottom: 8, marginBottom: 12, borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-        <button onClick={() => setSubTab('overview')} style={{ padding: '6px 14px', fontSize: 11, fontWeight: 600, border: 'none', background: 'none', cursor: 'pointer', color: subTab === 'overview' ? '#fff' : 'rgba(255,255,255,0.5)', borderBottom: subTab === 'overview' ? '2px solid #fff' : '2px solid transparent', whiteSpace: 'nowrap' }}>📋 Vista general</button>
-        {AGENT_IDS.map(id => {
-          const a = AGENT_CONFIGS[id];
-          return a ? (
-            <button key={id} onClick={() => setSubTab(id)} style={{ padding: '6px 14px', fontSize: 11, fontWeight: 600, border: 'none', background: 'none', cursor: 'pointer', color: subTab === id ? a.color : 'rgba(255,255,255,0.5)', borderBottom: subTab === id ? `2px solid ${a.color}` : '2px solid transparent', whiteSpace: 'nowrap' }}>{a.icon} {a.name}</button>
-          ) : null;
-        })}
-      </div>
-
-      {/* Sub-tab content */}
-      {subTab === 'overview' && (
-        <>
-          <PlanVsAgentsPanel plan={plan} agents={agents} billingStatus={null} slug={slug} token={token} />
-          <h2 style={{ fontSize: 15, fontWeight: 700, marginBottom: 4, color: '#e2e8f0' }}>
-            🤖 Tus 9 Directores <span style={{ fontSize: 10, fontWeight: 400, color: '#94a3b8' }}>Plan {plan}</span>
-          </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10, marginTop: 12 }}>
-            {AGENT_IDS.map(id => {
-              const a = AGENT_CONFIGS[id];
-              if (!a) return null;
-              const status = (agents && agents[id]) || 'active';
-              return (
-                <div key={id} onClick={() => setSubTab(id)} style={{
-                  background: `${a.color}08`, border: `1px solid ${a.color}30`, borderRadius: 12,
-                  padding: '14px 12px', cursor: 'pointer', transition: 'all .2s',
-                }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
-                    <span style={{ fontSize: 24 }}>{a.icon}</span>
-                    <span style={{ fontSize: 9, fontWeight: 700, color: a.color, background: `${a.color}14`, padding: '2px 8px', borderRadius: 20, textTransform: 'uppercase' }}>
-                      {status === 'active' ? 'Activo' : status}
-                    </span>
-                  </div>
-                  <div style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9' }}>{a.id} — {a.name}</div>
-                  <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 2 }}>{a.subtitle}</div>
-                </div>
-              );
-            })}
-          </div>
-          <div style={{ marginTop: 16, padding: '12px 14px', background: 'rgba(255,255,255,0.03)', borderRadius: 12, border: '1px solid rgba(255,255,255,0.06)', fontSize: 12, color: '#94a3b8', textAlign: 'center' }}>
-            💡 9 directores ejecutivos IA activos en tu plan <b style={{ color: '#e2e8f0' }}>{plan}</b>. Haz click en cualquiera para ver detalle.
-          </div>
-          <div style={{ marginTop: 20 }}>
-            <LiveFeed slug={slug} token={token} />
-          </div>
-        </>
-      )}
-
-      {AGENT_IDS.includes(subTab) && <AgentTab agentId={subTab} scope="tenant" />}
-    </>
-  );
-}
 
 // ══════════════════════════════════════════════════════════════════════════════
 // 📧 TAB REPORTE DEL LUNES — Vista cliente (Fase 3 T7)
