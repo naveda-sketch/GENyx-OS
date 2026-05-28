@@ -8304,7 +8304,7 @@ function PlanesPage() {
           </div>
         </div>
 
-        {/* Herramientas por industria */}
+        {/* Módulos operativos incluidos */}
         <div style={S.section}>
           <div style={S.sTitle}>🧩 Módulos operativos incluidos</div>
           <div style={S.card}>
