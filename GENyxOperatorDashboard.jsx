@@ -155,6 +155,7 @@ const TAB_GROUPS = [
     { id: 'cockpit_resumen',   label: '🎯 Resumen' },
     { id: 'clientes',          label: '🏢 Tenants' },
     { id: 'cockpit_agentes',   label: '🤖 Agentes' },
+    { id: 'radar',             label: '🛰️ RADAR' },
     { id: 'backstage',         label: '🔒 Backstage' },
   ]},
 ];
@@ -10279,6 +10280,296 @@ function TabDataFounder({ adminKey }) {
   );
 }
 
+
+// ═══════════════════════════════════════════════════════════════════
+// 🛰️ TAB RADAR INTEL — Competitive Intelligence Cockpit (V8)
+// ═══════════════════════════════════════════════════════════════════
+// METODOLOGÍA (REGLA 14): Grounded Research Pattern — Bloomberg Terminal
+// Endpoint: POST /api/admin/radar/scan-trends (verified main.py L7508)
+// Signals: GET /api/admin/audit-log/aguja_market_signals (generic audit-log)
+// Stats: GET /api/admin/radar/stats (verified main.py L7563)
+// REGLA 8: SOLO founder scope — backstage invisible al tenant
+// ═══════════════════════════════════════════════════════════════════
+
+const RADAR_CATEGORIES = [
+  { id: 'competitors', label: '🎯 Competitors', query: 'Latest funding + product updates Sierra AI, Decagon, Cognition Labs Q2 2026' },
+  { id: 'industry', label: '🏭 Industry', query: 'Multi-agent AI platforms enterprise B2B trends 2026' },
+  { id: 'regulation', label: '⚖️ Regulation Mx', query: 'LFPDPPP updates 2026 AI compliance México regulatory' },
+  { id: 'tech', label: '⚡ Tech Trends', query: 'Defense-in-depth post-2024 evolution beyond 4 layers' },
+  { id: 'chaos', label: '🔥 Chaos Eng', query: 'Chaos engineering 2026 Netflix evolution successors enterprise' },
+  { id: 'soc2', label: '🛡️ SOC 2 Prep', query: 'SOC 2 Type II 2026 Vanta vs Drata vs Secureframe comparison startup' },
+  { id: 'dora', label: '📏 DORA Metrics', query: 'DORA 2025 report key findings DevOps Elite tier' },
+];
+
+function RadarSignalModal({ signal, onClose, onReInvestigate }) {
+  if (!signal) return null;
+  const impactColors = { high: '#ef4444', medium: '#f59e0b', low: '#22c55e' };
+  const impactBg = { high: 'rgba(239,68,68,0.08)', medium: 'rgba(245,158,11,0.08)', low: 'rgba(34,197,94,0.08)' };
+  const impact = (signal.impact_estimate || 'medium').toLowerCase();
+  return (
+    <div onClick={onClose} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(4px)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
+      <div onClick={e => e.stopPropagation()} style={{ background: '#0f172a', borderRadius: 16, border: '1px solid rgba(255,255,255,0.08)', maxWidth: 680, width: '100%', maxHeight: '85vh', overflow: 'auto', padding: 28 }}>
+        {/* Header */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
+          <div style={{ flex: 1 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
+              <span style={{ padding: '3px 10px', borderRadius: 6, fontSize: 10, fontWeight: 700, textTransform: 'uppercase', color: impactColors[impact], background: impactBg[impact], border: `1px solid ${impactColors[impact]}30` }}>{impact}</span>
+              {signal.signal_type && <span style={{ fontSize: 10, color: '#64748b', fontFamily: 'monospace' }}>{signal.signal_type}</span>}
+              {signal.horizon && <span style={{ fontSize: 10, color: '#94a3b8', background: 'rgba(255,255,255,0.05)', padding: '2px 6px', borderRadius: 4 }}>{signal.horizon}</span>}
+            </div>
+            <h3 style={{ fontSize: 17, fontWeight: 700, color: '#f1f5f9', margin: 0, lineHeight: 1.4 }}>{signal.title}</h3>
+          </div>
+          <button onClick={onClose} style={{ background: 'none', border: 'none', color: '#64748b', fontSize: 20, cursor: 'pointer', padding: '0 4px' }}>✕</button>
+        </div>
+
+        {/* Description */}
+        <p style={{ fontSize: 13, color: '#cbd5e1', lineHeight: 1.7, margin: '0 0 16px' }}>{signal.description}</p>
+
+        {/* Evidence URL */}
+        {signal.evidence_url && (
+          <div style={{ padding: '10px 14px', background: 'rgba(99,102,241,0.06)', borderRadius: 10, border: '1px solid rgba(99,102,241,0.15)', marginBottom: 16 }}>
+            <p style={{ fontSize: 10, fontWeight: 700, color: '#818cf8', textTransform: 'uppercase', letterSpacing: '.06em', margin: '0 0 4px' }}>📎 Source</p>
+            <a href={signal.evidence_url} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: '#a5b4fc', wordBreak: 'break-all', textDecoration: 'underline' }}>{signal.evidence_url}</a>
+          </div>
+        )}
+
+        {/* Applicability */}
+        {signal.applicability_to_genyx && (
+          <div style={{ padding: '10px 14px', background: 'rgba(34,197,94,0.05)', borderRadius: 10, border: '1px solid rgba(34,197,94,0.12)', marginBottom: 16 }}>
+            <p style={{ fontSize: 10, fontWeight: 700, color: '#4ade80', textTransform: 'uppercase', letterSpacing: '.06em', margin: '0 0 4px' }}>🎯 Aplicabilidad GenyX</p>
+            <p style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6, margin: 0 }}>{signal.applicability_to_genyx}</p>
+          </div>
+        )}
+
+        {/* Tags */}
+        {signal.tags && (
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 16 }}>
+            {(typeof signal.tags === 'string' ? JSON.parse(signal.tags) : signal.tags).map((t, i) => (
+              <span key={i} style={{ fontSize: 10, color: '#64748b', background: 'rgba(255,255,255,0.04)', padding: '3px 8px', borderRadius: 4, border: '1px solid rgba(255,255,255,0.06)' }}>{t}</span>
+            ))}
+          </div>
+        )}
+
+        {/* Meta */}
+        <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', paddingTop: 12, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+          {signal.confidence && <span style={{ fontSize: 10, color: '#64748b' }}>Confidence: <b style={{ color: '#94a3b8' }}>{signal.confidence}</b></span>}
+          {signal.created_at && <span style={{ fontSize: 10, color: '#64748b' }}>Fecha: <b style={{ color: '#94a3b8' }}>{new Date(signal.created_at).toLocaleDateString()}</b></span>}
+          {signal.source && <span style={{ fontSize: 10, color: '#64748b' }}>Fuente: <b style={{ color: '#94a3b8' }}>{signal.source}</b></span>}
+          {onReInvestigate && <button onClick={() => onReInvestigate(signal.title)} style={{ marginLeft: 'auto', fontSize: 11, fontWeight: 600, color: '#818cf8', background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.2)', borderRadius: 6, padding: '4px 12px', cursor: 'pointer' }}>🔄 Re-investigar</button>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function TabRadarIntel() {
+  const [query, setQuery] = React.useState('');
+  const [signals, setSignals] = React.useState([]);
+  const [scanResult, setScanResult] = React.useState(null);
+  const [stats, setStats] = React.useState(null);
+  const [loading, setLoading] = React.useState(false);
+  const [loadingHistory, setLoadingHistory] = React.useState(true);
+  const [selectedSignal, setSelectedSignal] = React.useState(null);
+  const [starred, setStarred] = React.useState(() => {
+    try { return JSON.parse(sessionStorage.getItem('radar_starred') || '{}'); } catch { return {}; }
+  });
+  const [showStarredOnly, setShowStarredOnly] = React.useState(false);
+  const [recentQueries, setRecentQueries] = React.useState(() => {
+    try { return JSON.parse(sessionStorage.getItem('radar_recent') || '[]'); } catch { return []; }
+  });
+
+  const adminKey = React.useMemo(() => {
+    try { return sessionStorage.getItem('genyx_admin_key') || localStorage.getItem('genyx_admin_key') || ''; } catch { return ''; }
+  }, []);
+  const headers = React.useMemo(() => ({ 'X-Admin-Key': adminKey, 'Content-Type': 'application/json' }), [adminKey]);
+
+  // Load persisted signals on mount
+  React.useEffect(() => {
+    fetch(`${BACKEND}/api/admin/audit-log/aguja_market_signals?limit=50`, { headers: { 'X-Admin-Key': adminKey } })
+      .then(r => r.ok ? r.json() : null)
+      .then(d => { if (d?.rows) setSignals(d.rows); setLoadingHistory(false); })
+      .catch(() => setLoadingHistory(false));
+    fetch(`${BACKEND}/api/admin/radar/stats`, { headers: { 'X-Admin-Key': adminKey } })
+      .then(r => r.ok ? r.json() : null)
+      .then(d => { if (d) setStats(d); })
+      .catch(() => {});
+  }, [adminKey]);
+
+  const runScan = React.useCallback(async (q) => {
+    if (!q.trim()) return;
+    setLoading(true);
+    setScanResult(null);
+    // Save to recent queries
+    const updated = [q, ...recentQueries.filter(r => r !== q)].slice(0, 10);
+    setRecentQueries(updated);
+    try { sessionStorage.setItem('radar_recent', JSON.stringify(updated)); } catch {}
+
+    try {
+      const r = await fetch(`${BACKEND}/api/admin/radar/scan-trends`, {
+        method: 'POST', headers,
+        body: JSON.stringify({ query: q, max_signals: 8 }),
+      });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      const data = await r.json();
+      setScanResult(data);
+      // Merge new signals with existing (avoid duplicates by title)
+      if (data.signals) {
+        setSignals(prev => {
+          const existing = new Set(prev.map(s => s.title));
+          const newOnes = data.signals.filter(s => !existing.has(s.title));
+          return [...newOnes, ...prev];
+        });
+      }
+    } catch (e) {
+      setScanResult({ error: e.message });
+    }
+    setLoading(false);
+  }, [headers, recentQueries]);
+
+  const toggleStar = (title) => {
+    const next = { ...starred, [title]: !starred[title] };
+    setStarred(next);
+    try { sessionStorage.setItem('radar_starred', JSON.stringify(next)); } catch {}
+  };
+
+  const filteredSignals = showStarredOnly ? signals.filter(s => starred[s.title]) : signals;
+
+  return (
+    <div style={{ maxWidth: 900 }}>
+      {/* Header */}
+      <div style={{ marginBottom: 20 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', margin: '0 0 4px', display: 'flex', alignItems: 'center', gap: 8 }}>
+          🛰️ RADAR Intel
+          {stats && <span style={{ fontSize: 11, fontWeight: 400, color: '#64748b', fontFamily: 'monospace' }}>{stats.signals_total} signals · {stats.model}</span>}
+        </h2>
+        <p style={{ fontSize: 13, color: '#64748b', margin: 0 }}>Competitive intelligence grounded con Gemini 2.5 Pro + Google Search.</p>
+      </div>
+
+      {/* Search */}
+      <div style={{ display: 'flex', gap: 8, marginBottom: 14 }}>
+        <input
+          value={query} onChange={e => setQuery(e.target.value)}
+          onKeyDown={e => e.key === 'Enter' && runScan(query)}
+          placeholder="¿Qué pregunta investigar?"
+          style={{ flex: 1, padding: '10px 14px', fontSize: 13, background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 10, color: '#f1f5f9', outline: 'none' }}
+        />
+        <button onClick={() => runScan(query)} disabled={loading || !query.trim()}
+          style={{ padding: '10px 20px', fontSize: 13, fontWeight: 700, background: loading ? 'rgba(99,102,241,0.2)' : 'linear-gradient(135deg, #6366f1, #8b5cf6)', border: 'none', borderRadius: 10, color: '#fff', cursor: loading ? 'wait' : 'pointer', whiteSpace: 'nowrap', opacity: !query.trim() ? 0.5 : 1 }}>
+          {loading ? '⏳ Investigando...' : '🔍 Lanzar'}
+        </button>
+      </div>
+
+      {/* Recent queries */}
+      {recentQueries.length > 0 && (
+        <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap', marginBottom: 10 }}>
+          <span style={{ fontSize: 10, color: '#475569', alignSelf: 'center' }}>Recientes:</span>
+          {recentQueries.slice(0, 5).map((q, i) => (
+            <button key={i} onClick={() => { setQuery(q); runScan(q); }} style={{ fontSize: 10, color: '#94a3b8', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 4, padding: '2px 8px', cursor: 'pointer', maxWidth: 180, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{q}</button>
+          ))}
+        </div>
+      )}
+
+      {/* Preset categories */}
+      <div style={{ marginBottom: 20 }}>
+        <p style={{ fontSize: 10, fontWeight: 700, color: '#475569', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 8 }}>📂 Categorías rápidas</p>
+        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+          {RADAR_CATEGORIES.map(c => (
+            <button key={c.id} onClick={() => { setQuery(c.query); runScan(c.query); }}
+              disabled={loading}
+              style={{ fontSize: 11, fontWeight: 600, color: '#cbd5e1', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 8, padding: '6px 12px', cursor: loading ? 'wait' : 'pointer', transition: 'all 0.2s' }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(99,102,241,0.12)'; e.currentTarget.style.borderColor = 'rgba(99,102,241,0.3)'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; }}
+            >{c.label}</button>
+          ))}
+        </div>
+      </div>
+
+      {/* Loading cold-start indicator */}
+      {loading && (
+        <div style={{ padding: 24, background: 'rgba(99,102,241,0.06)', borderRadius: 14, border: '1px solid rgba(99,102,241,0.15)', marginBottom: 20, textAlign: 'center' }}>
+          <div style={{ fontSize: 32, marginBottom: 8, animation: 'pulse 2s infinite' }}>🛰️</div>
+          <p style={{ fontSize: 13, fontWeight: 600, color: '#a5b4fc', margin: '0 0 4px' }}>Investigando con Gemini 2.5 Pro grounded...</p>
+          <p style={{ fontSize: 11, color: '#64748b', margin: 0 }}>Esto puede tomar 30-60 segundos (cold-start Render + grounding Google Search)</p>
+        </div>
+      )}
+
+      {/* Scan result summary */}
+      {scanResult && !scanResult.error && (
+        <div style={{ padding: '12px 16px', background: 'rgba(34,197,94,0.06)', borderRadius: 12, border: '1px solid rgba(34,197,94,0.12)', marginBottom: 16 }}>
+          <p style={{ fontSize: 12, fontWeight: 700, color: '#4ade80', margin: '0 0 4px' }}>✅ Scan completo · {scanResult.signals?.length || 0} signals · {scanResult.signals_persisted || 0} persistidos</p>
+          {scanResult.summary && <p style={{ fontSize: 11, color: '#94a3b8', margin: 0, lineHeight: 1.5 }}>{scanResult.summary}</p>}
+        </div>
+      )}
+      {scanResult?.error && (
+        <div style={{ padding: '12px 16px', background: 'rgba(239,68,68,0.06)', borderRadius: 12, border: '1px solid rgba(239,68,68,0.15)', marginBottom: 16 }}>
+          <p style={{ fontSize: 12, color: '#f87171', margin: 0 }}>❌ Error: {scanResult.error}</p>
+        </div>
+      )}
+
+      {/* Filter bar */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#475569', textTransform: 'uppercase', letterSpacing: '.06em', margin: 0 }}>
+          📊 Signals {showStarredOnly ? '(★ importantes)' : `(${filteredSignals.length})`}
+        </p>
+        <button onClick={() => setShowStarredOnly(!showStarredOnly)}
+          style={{ fontSize: 10, fontWeight: 600, color: showStarredOnly ? '#fbbf24' : '#64748b', background: showStarredOnly ? 'rgba(251,191,36,0.1)' : 'rgba(255,255,255,0.03)', border: `1px solid ${showStarredOnly ? 'rgba(251,191,36,0.3)' : 'rgba(255,255,255,0.06)'}`, borderRadius: 6, padding: '4px 10px', cursor: 'pointer' }}>
+          {showStarredOnly ? '★ Solo importantes' : '☆ Filtrar importantes'}
+        </button>
+      </div>
+
+      {/* Empty state */}
+      {!loading && !loadingHistory && filteredSignals.length === 0 && (
+        <div style={{ padding: 40, textAlign: 'center', background: 'rgba(255,255,255,0.02)', borderRadius: 14, border: '1px dashed rgba(255,255,255,0.08)' }}>
+          <div style={{ fontSize: 48, marginBottom: 12 }}>🛰️</div>
+          <p style={{ fontSize: 14, fontWeight: 600, color: '#94a3b8', margin: '0 0 6px' }}>{showStarredOnly ? 'No hay signals marcados como importantes' : 'Sin signals todavía'}</p>
+          <p style={{ fontSize: 12, color: '#64748b', margin: 0 }}>{showStarredOnly ? 'Marca signals con ★ para verlos aquí' : 'Click "🎯 Competitors" arriba para tu primera investigación'}</p>
+        </div>
+      )}
+
+      {loadingHistory && <p style={{ fontSize: 12, color: '#64748b', textAlign: 'center', padding: 20 }}>Cargando historial de signals...</p>}
+
+      {/* Signals list */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+        {filteredSignals.map((s, i) => {
+          const impact = (s.impact_estimate || 'medium').toLowerCase();
+          const impactIcon = { high: '🔴', medium: '🟠', low: '🟡' };
+          const impactColor = { high: '#fca5a5', medium: '#fbbf24', low: '#86efac' };
+          return (
+            <div key={s.title + i} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '12px 16px', background: 'rgba(255,255,255,0.02)', borderRadius: 12, border: '1px solid rgba(255,255,255,0.06)', cursor: 'pointer', transition: 'all 0.15s' }}
+              onClick={() => setSelectedSignal(s)}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'; }}
+            >
+              <button onClick={e => { e.stopPropagation(); toggleStar(s.title); }}
+                style={{ background: 'none', border: 'none', fontSize: 16, cursor: 'pointer', padding: 0, color: starred[s.title] ? '#fbbf24' : '#334155' }}>
+                {starred[s.title] ? '★' : '☆'}
+              </button>
+              <span style={{ fontSize: 14 }}>{impactIcon[impact] || '🟠'}</span>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <p style={{ fontSize: 13, fontWeight: 600, color: '#e2e8f0', margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{s.title}</p>
+                <p style={{ fontSize: 10, color: '#64748b', margin: '2px 0 0' }}>
+                  {s.signal_type || 'signal'} · {s.confidence || '-'} confidence
+                  {s.created_at && ` · ${new Date(s.created_at).toLocaleDateString()}`}
+                </p>
+              </div>
+              <span style={{ fontSize: 10, fontWeight: 700, color: impactColor[impact], textTransform: 'uppercase' }}>{impact}</span>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Signal modal */}
+      {selectedSignal && (
+        <RadarSignalModal
+          signal={selectedSignal}
+          onClose={() => setSelectedSignal(null)}
+          onReInvestigate={(q) => { setSelectedSignal(null); setQuery(q); runScan(q); }}
+        />
+      )}
+    </div>
+  );
+}
+
 function TabOperaciones({ tenants, health, orders, selectedSlug, setSelectedSlug }) {
   const [section, setSection] = React.useState('soporte');
   const subs = [
@@ -11221,6 +11512,7 @@ export default function GenyXOperatorDashboard() {
         {tab === 'clientes'        && <TabClientes tenants={tenants} orders={orders} loading={loading} onToggleStatus={handleToggleStatus} statusLoading={statusLoading} selectedSlug={selectedSlug} />}
         {tab === 'cockpit_agentes' && <TabCockpitAgentes tenants={tenants} selectedSlug={selectedSlug} />}
         {tab === 'backstage'       && <TabBackstage tenants={tenants} health={health} orders={orders} selectedSlug={selectedSlug} setSelectedSlug={setSelectedSlug} />}
+        {tab === 'radar'           && <TabRadarIntel />}
 
         {/* ═══ LEGACY (accesible via URL directa, no en nav) ═══ */}
         {tab === 'soporte'      && <TabSoporte tenants={tenants} />}
