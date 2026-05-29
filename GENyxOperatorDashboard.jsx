@@ -10307,7 +10307,7 @@ function RadarSignalModal({ signal, onClose, onReInvestigate }) {
   const impactBg = { high: 'rgba(239,68,68,0.08)', medium: 'rgba(245,158,11,0.08)', low: 'rgba(34,197,94,0.08)' };
   const impact = (signal.impact_estimate || 'medium').toLowerCase();
   return (
-    <div onClick={onClose} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(4px)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
+    <div role="dialog" aria-modal="true" aria-label="Detalle de signal" onKeyDown={e => { if (e.key === 'Escape') onClose(); }} onClick={onClose} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(4px)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
       <div onClick={e => e.stopPropagation()} style={{ background: '#0f172a', borderRadius: 16, border: '1px solid rgba(255,255,255,0.08)', maxWidth: 680, width: '100%', maxHeight: '85vh', overflow: 'auto', padding: 28 }}>
         {/* Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
@@ -10319,7 +10319,7 @@ function RadarSignalModal({ signal, onClose, onReInvestigate }) {
             </div>
             <h3 style={{ fontSize: 17, fontWeight: 700, color: '#f1f5f9', margin: 0, lineHeight: 1.4 }}>{signal.title}</h3>
           </div>
-          <button onClick={onClose} style={{ background: 'none', border: 'none', color: '#64748b', fontSize: 20, cursor: 'pointer', padding: '0 4px' }}>✕</button>
+          <button onClick={onClose} aria-label="Cerrar modal" style={{ background: 'none', border: 'none', color: '#64748b', fontSize: 20, cursor: 'pointer', padding: '0 4px' }}>✕</button>
         </div>
 
         {/* Description */}
@@ -10450,11 +10450,11 @@ function TabRadarIntel() {
         <input
           value={query} onChange={e => setQuery(e.target.value)}
           onKeyDown={e => e.key === 'Enter' && runScan(query)}
-          placeholder="¿Qué pregunta investigar?"
+          placeholder="¿Qué pregunta investigar?" aria-label="Buscar competitive intelligence"
           style={{ flex: 1, padding: '10px 14px', fontSize: 13, background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 10, color: '#f1f5f9', outline: 'none' }}
         />
         <button onClick={() => runScan(query)} disabled={loading || !query.trim()}
-          style={{ padding: '10px 20px', fontSize: 13, fontWeight: 700, background: loading ? 'rgba(99,102,241,0.2)' : 'linear-gradient(135deg, #6366f1, #8b5cf6)', border: 'none', borderRadius: 10, color: '#fff', cursor: loading ? 'wait' : 'pointer', whiteSpace: 'nowrap', opacity: !query.trim() ? 0.5 : 1 }}>
+          aria-label="Lanzar investigación" style={{ padding: '10px 20px', fontSize: 13, fontWeight: 700, background: loading ? 'rgba(99,102,241,0.2)' : 'linear-gradient(135deg, #6366f1, #8b5cf6)', border: 'none', borderRadius: 10, color: '#fff', cursor: loading ? 'wait' : 'pointer', whiteSpace: 'nowrap', opacity: !query.trim() ? 0.5 : 1 }}>
           {loading ? '⏳ Investigando...' : '🔍 Lanzar'}
         </button>
       </div>
@@ -10475,7 +10475,7 @@ function TabRadarIntel() {
         <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
           {RADAR_CATEGORIES.map(c => (
             <button key={c.id} onClick={() => { setQuery(c.query); runScan(c.query); }}
-              disabled={loading}
+              disabled={loading} aria-label={`Investigar: ${c.label}`}
               style={{ fontSize: 11, fontWeight: 600, color: '#cbd5e1', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 8, padding: '6px 12px', cursor: loading ? 'wait' : 'pointer', transition: 'all 0.2s' }}
               onMouseEnter={e => { e.currentTarget.style.background = 'rgba(99,102,241,0.12)'; e.currentTarget.style.borderColor = 'rgba(99,102,241,0.3)'; }}
               onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; }}
@@ -10541,6 +10541,7 @@ function TabRadarIntel() {
               onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'; }}
             >
               <button onClick={e => { e.stopPropagation(); toggleStar(s.title); }}
+                aria-label={starred[s.title] ? 'Quitar de importantes' : 'Marcar como importante'}
                 style={{ background: 'none', border: 'none', fontSize: 16, cursor: 'pointer', padding: 0, color: starred[s.title] ? '#fbbf24' : '#334155' }}>
                 {starred[s.title] ? '★' : '☆'}
               </button>
