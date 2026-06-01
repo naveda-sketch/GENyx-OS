@@ -1199,6 +1199,7 @@ const TabAnalista = ({ tenants, orders, selectedSlug, setSelectedSlug }) => {
     if (selectedSlug) { fetchAnalytics(selectedSlug); }
     else if (tenants.length === 1) { setSelectedSlug(tenants[0].slug); }
     else { setData(null); }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedSlug, tenants]);
 
   // Métricas agregadas de plataforma (cuando no hay cliente seleccionado)
@@ -2263,6 +2264,7 @@ const TabMarketing = ({ selectedSlug }) => {
     setLoading(false);
   }, [slug]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { if (isAuthed() && slug) fetchDashboard(); }, [fetchDashboard]);
 
   // ── P3 REGLA 13: editable captions + diff visual ──
@@ -2274,6 +2276,7 @@ const TabMarketing = ({ selectedSlug }) => {
   // Destructure data early so hooks can reference derived values
   const { agent_status, strategy, recent_log, config: mktConfig, stats } = data || {};
   const strat = strategy?.strategy || {};
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const cal = strat.calendar || [];
   const fund = strat.fundamento || [];
   const isPending = strategy?.status === 'pending';
@@ -3438,6 +3441,7 @@ function TabFotoLab({ slug, token }) {
         log(`📦 Catálogo cargado: ${prods.length} productos`);
       })
       .catch(e => log(`⚠️ Error cargando catálogo: ${e.message}`));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug]);
 
   // ── Auto-compress image ────────────────────────────────────────────────────
@@ -3555,6 +3559,7 @@ function TabFotoLab({ slug, token }) {
       if (srcImg?.url) URL.revokeObjectURL(srcImg.url);
       if (resultImg?.url) URL.revokeObjectURL(resultImg.url);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // ── Styles ─────────────────────────────────────────────────────────────────
@@ -4148,6 +4153,7 @@ function TabLegalDocs({ slug, token }) {
   // Auto-request OTP when sign modal opens
   useEffect(() => {
     if (signDocSlug && !signOtpSent) requestSignOtp(signDocSlug);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [signDocSlug]);
 
   // Submit signature
@@ -4797,6 +4803,7 @@ function MandoClientView({ slug }) {
     try { const r = await fetch(`${BACKEND}/api/dashboard/${slug}/analytics`, { headers: { 'X-Dashboard-Token': token } }); if (r.ok) setAnalytics(await r.json()); } catch {}
     setAnalyticsLoading(false);
   }, [token, slug]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { if ((tab === 'insights' && subTab === 'kpis') && token) { setAnalytics(null); fetchAnalytics(); } }, [tab, subTab, token]);
 
   const fetchInventory = useCallback(async () => {
@@ -4815,6 +4822,7 @@ function MandoClientView({ slug }) {
     } catch(e) { console.warn('catalog fetch', e); }
     setCatLoading(false);
   }, [slug, pin]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { if (((tab === 'operacion' && subTab === 'inventario') || (tab === 'operacion' && subTab === 'costeador')) && token) fetchCatalog(); }, [tab, token, fetchCatalog]);
 
   const [invSaveMsg, setInvSaveMsg] = useState(null);
@@ -4880,6 +4888,7 @@ function MandoClientView({ slug }) {
   // Auto-request OTPs when modal opens
   useEffect(() => {
     if (showLegalModal && !legalOtpSent) requestLegalOtp();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showLegalModal]);
 
   // Cooldown timer (60s between resends)
@@ -6242,6 +6251,7 @@ function GenyXConciergeWidget() {
   const inpRef = React.useRef(null);
 
   React.useEffect(() => { const t = setTimeout(() => setPulse(false), 8000); return () => clearTimeout(t); }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(() => { if (open && msgs.length === 0) addReply('Hola 👋 Bienvenido a GenyX.\n\nAyudamos a negocios como el tuyo a vender más con 9 agentes de IA que se vuelven más inteligentes con el tiempo.\n\n¿A qué se dedica tu negocio?'); }, [open]);
   React.useEffect(() => { botRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [msgs, typing]);
   React.useEffect(() => { if (open && phase !== 'done') setTimeout(() => inpRef.current?.focus(), 150); }, [open, phase]);
@@ -8095,6 +8105,7 @@ function MandoSimulator() {
     timers.push(setTimeout(() => { setStep(6); setShowCalendar(true); }, 12500));
 
     return () => timers.forEach(t => clearTimeout(t));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [started]);
 
   // ── Sparkline SVG ──
@@ -8912,6 +8923,7 @@ function TabOperacionTenant({ slug, token, orders, fetchOrders, inventory, fetch
     { id: 'cost', icon: '💰', label: 'Costeador' },
   ];
   const [section, setSection] = React.useState('pedidos');
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(() => { setParentTab(section === 'cost' ? 'costeador' : section === 'inv' ? 'inventario' : 'pedidos'); }, [section]);
   return (
     <div>
@@ -8933,6 +8945,7 @@ function TabInsightsTenant({ slug, token, analytics, fetchAnalytics, setParentTa
     { id: 'fotolab', icon: '📸', label: 'Foto Lab' },
   ];
   const [section, setSection] = React.useState('kpis');
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(() => { setParentTab(section); }, [section]);
   return (
     <div>
@@ -9329,6 +9342,7 @@ function MemoryDrillDown() {
       setAlerts(a?.alerts || []);
       setLoading(false);
     }).catch(() => setLoading(false));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [adminKey]);
 
   const handleRecall = () => {
@@ -9433,6 +9447,7 @@ function A0DrillDown() {
       .then(r => r.ok ? r.json() : null)
       .then(d => { setData(d); setLoading(false); })
       .catch(() => setLoading(false));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [adminKey]);
 
   if (!adminKey) return (
@@ -9552,6 +9567,7 @@ function A9DrillDown() {
       .then(r => r.ok ? r.json() : null)
       .then(d => { setData(d); setLoading(false); })
       .catch(() => setLoading(false));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [adminKey]);
 
   if (!adminKey) return (
@@ -9662,6 +9678,7 @@ function AgujaDrillDown() {
       setCadence(c);
       setLoading(false);
     }).catch(() => setLoading(false));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [adminKey]);
 
   const handleProposalAction = (id, newStatus) => {
@@ -9868,6 +9885,7 @@ function A12DrillDown() {
       setResponsible(resp);
       setLoading(false);
     }).catch(() => setLoading(false));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [adminKey]);
 
   if (!adminKey) return (
@@ -10086,6 +10104,7 @@ function OrchestratorDrillDown() {
       setTurns(Array.isArray(tJ.turns) ? tJ.turns : Array.isArray(tJ) ? tJ : []);
     } catch (e) { setError(e.message); }
     setLoading(false);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterDays]);
 
   React.useEffect(() => { fetchAll(); }, [fetchAll]);
@@ -10319,6 +10338,7 @@ function PostmortemsDrillDown() {
       .then(r => r.ok ? r.json() : [])
       .then(d => { setIncidents(Array.isArray(d) ? d : d.incidents || []); setLoading(false); })
       .catch(() => setLoading(false));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [adminKey]);
 
   React.useEffect(() => { fetchIncidents(); }, [fetchIncidents]);
