@@ -9800,8 +9800,8 @@ function AgujaDrillDown() {
                 </div>
                 {isPending && (
                   <div style={{ display: 'flex', gap: 4, flexShrink: 0, marginTop: 2, alignItems: 'center' }}>
-                    <button onClick={() => { if (window.confirm(`Sub-regla 17.7 — Decisión soberana\n\n¿Aprobar proposal "${p.title || pid}"?\n\nImpact: ${p.estimated_impact || '?'} · Effort: ${p.estimated_effort || '?'}\n\nEsta acción se registra en MEMORY.`)) handleProposalAction(pid, 'approved'); }} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(16,185,129,0.15)', color: '#10b981' }}>✓ Approve</button>
-                    <button onClick={() => { if (window.confirm(`Sub-regla 17.7 — Decisión soberana\n\n¿Rechazar proposal "${p.title || pid}"?\n\nEsta acción se registra en MEMORY.`)) handleProposalAction(pid, 'rejected'); }} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(239,68,68,0.15)', color: '#ef4444' }}>✗ Reject</button>
+                    <button onClick={() => { const r = window.prompt(`Sub-regla 17.7 — Decisión soberana\n\n¿Aprobar proposal "${p.title || pid}"?\nImpact: ${p.estimated_impact || '?'} · Effort: ${p.estimated_effort || '?'}\n\nEscribe PROCEDER para confirmar (se registra en MEMORY):`); if (r === 'PROCEDER') handleProposalAction(pid, 'approved'); }} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(16,185,129,0.15)', color: '#10b981' }}>✓ Approve</button>
+                    <button onClick={() => { const r = window.prompt(`Sub-regla 17.7 — Decisión soberana\n\n¿Rechazar proposal "${p.title || pid}"?\n\nEscribe PROCEDER para confirmar (se registra en MEMORY):`); if (r === 'PROCEDER') handleProposalAction(pid, 'rejected'); }} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(239,68,68,0.15)', color: '#ef4444' }}>✗ Reject</button>
                     <button onClick={() => handleProposalAction(pid, 'deferred')} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(245,158,11,0.15)', color: '#f59e0b' }}>◐ Defer</button>
                   </div>
                 )}
@@ -10425,7 +10425,7 @@ function PostmortemsDrillDown() {
               </div>
               <div style={{ display: 'flex', gap: 4, flexShrink: 0 }}>
                 {inc.status === 'open' && (
-                  <button onClick={() => { if (window.confirm(`Sub-regla 17.7 — ¿Resolver incident #${inc.id}?\n\n${inc.description?.substring(0, 100)}\n\nEsta acción NO es reversible.`)) handleResolve(inc.id); }} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(16,185,129,0.15)', color: '#10b981' }}>✓ Resolve</button>
+                  <button onClick={() => { const r = window.prompt(`Sub-regla 17.7 — ¿Resolver incident #${inc.id}?\n\n${inc.description?.substring(0, 100)}\n\nAcción irreversible. Escribe PROCEDER para confirmar:`); if (r === 'PROCEDER') handleResolve(inc.id); }} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(16,185,129,0.15)', color: '#10b981' }}>✓ Resolve</button>
                 )}
                 <button onClick={() => handleGenPostmortem(inc.id)} disabled={generating === inc.id} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(99,102,241,0.15)', color: '#a5b4fc', opacity: generating === inc.id ? 0.5 : 1 }}>
                   {generating === inc.id ? '⏳ Generating...' : '🔬 Postmortem'}
@@ -10460,6 +10460,171 @@ function PostmortemsDrillDown() {
   );
 }
 
+
+// ═══════════════════════════════════════════════════════════════════
+// 🔔 AlertsBanner — Real-time MEMORY alerts (Layer 5G §3.3)
+// REGLA 8: FOUNDER-ONLY · Sub-regla 17.8: ojo clínico FE · 17.10: cristalización proactiva
+// Polling: 30s · Sticky top · Dismissible per session
+// Fail-open: si falla polling, no bloquear UI
+// ═══════════════════════════════════════════════════════════════════
+function AlertsBanner({ adminKey }) {
+  const [alerts, setAlerts] = React.useState([]);
+  const [dismissed, setDismissed] = React.useState(false);
+  const headers = React.useMemo(() => ({ 'X-Admin-Key': adminKey }), [adminKey]);
+
+  React.useEffect(() => {
+    if (!adminKey || dismissed) return;
+    const fetchAlerts = () => {
+      fetch(`${BACKEND}/api/admin/memory/alerts`, { headers })
+        .then(r => r.ok ? r.json() : { alerts: [] })
+        .then(d => {
+          const unack = (d.alerts || []).filter(a => !a.acknowledged);
+          setAlerts(unack);
+        })
+        .catch(() => {}); // fail-open
+    };
+    fetchAlerts();
+    const interval = setInterval(fetchAlerts, 30000); // 30s polling sub-regla 17.8
+    return () => clearInterval(interval);
+  }, [adminKey, dismissed, headers]);
+
+  const handleAcknowledgeAll = () => {
+    alerts.forEach(a => {
+      const aid = a.alert_id || a.id;
+      if (aid) {
+        fetch(`${BACKEND}/api/admin/memory/alert/${aid}/acknowledge`, {
+          method: 'POST', headers,
+        }).catch(() => {});
+      }
+    });
+    setAlerts([]);
+  };
+
+  if (!adminKey || alerts.length === 0 || dismissed) return null;
+
+  const hasCritical = alerts.some(a => a.severity === 'critical');
+
+  return (
+    <div style={{
+      background: hasCritical ? 'rgba(239,68,68,0.12)' : 'rgba(245,158,11,0.12)',
+      border: `1px solid ${hasCritical ? 'rgba(239,68,68,0.25)' : 'rgba(245,158,11,0.25)'}`,
+      borderRadius: 10, padding: '10px 16px', marginBottom: 16,
+      display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12,
+    }} role="alert" aria-label="MEMORY alerts banner">
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8, flex: 1 }}>
+        <span style={{ fontSize: 16 }}>{hasCritical ? '🚨' : '🔔'}</span>
+        <span style={{ fontSize: 12, fontWeight: 700, color: hasCritical ? '#fca5a5' : '#fcd34d' }}>
+          {alerts.length} alerta{alerts.length > 1 ? 's' : ''} MEMORY activa{alerts.length > 1 ? 's' : ''}
+        </span>
+        <span style={{ fontSize: 10, color: '#94a3b8' }}>
+          {alerts[0]?.message?.substring(0, 80) || 'Revisar en Backstage → MEMORY'}
+        </span>
+      </div>
+      <div style={{ display: 'flex', gap: 6, flexShrink: 0 }}>
+        <button onClick={handleAcknowledgeAll} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(16,185,129,0.15)', color: '#10b981' }}>✓ Acknowledge all</button>
+        <button onClick={() => setDismissed(true)} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(255,255,255,0.05)', color: '#64748b' }}>Dismiss</button>
+      </div>
+    </div>
+  );
+}
+
+
+// ═══════════════════════════════════════════════════════════════════
+// 🛡️ Layer5CoverageTab — Defense-in-Depth visibility (Layer 5G §3.2)
+// REGLA 8: FOUNDER-ONLY · REGLA 19: Tier 4 visibility
+// BE-#21 drift-coverage endpoint = 404 → mock data con disclaimer explícito (sub-regla 18.1)
+// ═══════════════════════════════════════════════════════════════════
+function Layer5CoverageTab() {
+  const adminKey = typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : '';
+  const headers = React.useMemo(() => ({ 'X-Admin-Key': adminKey }), [adminKey]);
+  const [memStats, setMemStats] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    if (!adminKey) { setLoading(false); return; }
+    fetch(`${BACKEND}/api/admin/memory/stats`, { headers })
+      .then(r => r.ok ? r.json() : null)
+      .then(d => { setMemStats(d); setLoading(false); })
+      .catch(() => setLoading(false));
+  }, [adminKey, headers]);
+
+  if (!adminKey) return <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}><p style={{ fontSize: 13 }}>Admin key requerida.</p></div>;
+
+  // Layer 5 coverage data — mock where BE-#21 not yet implemented
+  const layers = [
+    { id: '5A', name: 'PreToolUse hook', status: 'active', detail: 'Claude pre-response MEMORY check', source: 'BE Sprint #1' },
+    { id: '5B', name: 'PostToolUse hook', status: 'pending', detail: 'Post-tool validation', source: 'BE-#17 pendiente' },
+    { id: '5C', name: 'UserPromptSubmit', status: 'pending', detail: 'Pre-submission coherence check', source: 'BE-#20 pendiente' },
+    { id: '5D', name: 'MEMORY runtime', status: 'active', detail: `${memStats?.events_total || '?'} events · ${memStats?.docs_ingested || '?'} docs`, source: 'Sprint #1 shipped' },
+    { id: '5E', name: 'A9 cross-agent runtime', status: 'active', detail: 'Handoffs runtime validation', source: '/handoffs-runtime live' },
+    { id: '5F', name: 'AGUJA cadence', status: 'active', detail: 'Loop active · 3 briefs / 25 signals', source: 'AGUJA Sprint #1' },
+    { id: '5G', name: 'FE UI guards', status: 'active', detail: 'This sprint — sovereign guards + alerts', source: 'Sprint #1.5 FE' },
+    { id: '5H', name: 'CONFIRMADOR', status: 'pending', detail: 'Multi-agent confirmation protocol', source: 'BE-#22 pendiente' },
+  ];
+
+  const statusColor = { active: '#10b981', pending: '#f59e0b', critical: '#ef4444' };
+  const statusIcon = { active: '🟢', pending: '🟡', critical: '🔴' };
+  const activeCount = layers.filter(l => l.status === 'active').length;
+
+  return (
+    <div style={{ maxWidth: 800 }}>
+      <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }}>🛡️ Layer 5 Coverage — Defense-in-Depth</h3>
+      <p style={{ fontSize: 10, color: '#f59e0b', fontWeight: 600, marginBottom: 16, padding: '4px 8px', background: 'rgba(245,158,11,0.08)', borderRadius: 6, display: 'inline-block' }}>⚠️ v0.1 mock — BE-#21 drift-coverage endpoint pendiente</p>
+
+      {loading && <p style={{ color: '#64748b', fontSize: 12 }}>Cargando...</p>}
+
+      {/* Coverage summary */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10, marginBottom: 20 }}>
+        {[
+          { label: 'Layers active', value: `${activeCount}/8`, icon: '🛡️', color: activeCount >= 6 ? '#10b981' : '#f59e0b' },
+          { label: 'MEMORY events', value: memStats?.events_total || '—', icon: '🧠' },
+          { label: 'Coverage', value: `${Math.round(activeCount / 8 * 100)}%`, icon: '📊', color: activeCount >= 6 ? '#10b981' : '#f59e0b' },
+        ].map(k => (
+          <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
+            <div style={{ fontSize: 18 }}>{k.icon}</div>
+            <div style={{ fontSize: 17, fontWeight: 800, color: k.color || '#e2e8f0', marginTop: 4 }}>{k.value}</div>
+            <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Layer list */}
+      <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
+        {layers.map((l, i) => (
+          <div key={l.id} style={{ padding: '8px 0', borderBottom: i < layers.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none', display: 'flex', alignItems: 'center', gap: 10 }}>
+            <span style={{ fontSize: 14, width: 20 }}>{statusIcon[l.status]}</span>
+            <span style={{ fontSize: 11, fontWeight: 800, color: statusColor[l.status], width: 30 }}>{l.id}</span>
+            <span style={{ fontSize: 11, fontWeight: 600, color: '#e2e8f0', width: 180 }}>{l.name}</span>
+            <span style={{ fontSize: 10, color: '#94a3b8', flex: 1 }}>{l.detail}</span>
+            <span style={{ fontSize: 9, color: '#64748b', fontStyle: 'italic' }}>{l.source}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* MEMORY adoption per agent */}
+      {memStats && (
+        <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16 }}>
+          <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 10 }}>📊 MEMORY stats</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10 }}>
+            {[
+              { label: 'Events total', value: memStats.events_total },
+              { label: 'Docs ingested', value: memStats.docs_ingested },
+              { label: 'Event types', value: memStats.tipos_distintos },
+            ].map(m => (
+              <div key={m.label} style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: 15, fontWeight: 800, color: '#e2e8f0' }}>{m.value || '—'}</div>
+                <div style={{ fontSize: 9, color: '#64748b', textTransform: 'uppercase' }}>{m.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <p style={{ fontSize: 9, color: '#475569', textAlign: 'center', marginTop: 12 }}>Layer 5 · Defense-in-depth · v0.1 mock data</p>
+    </div>
+  );
+}
+
 function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }) {
   const [selected, setSelected] = React.useState(null);
   const backstageAgents = [
@@ -10472,9 +10637,11 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
     { id: 'DATA', icon: '📊', name: 'DATA Fundador', desc: 'Métricas GenyX-wide: plataforma, MEMORY, AGUJA, A12, doctrina, smoke tests. Datos del fundador, NO de tenants.', status: 'live' },
     { id: 'ORCHESTRATOR', icon: '🎯', name: 'ORCHESTRATOR', desc: 'Conversational Multi-Agent Audit. Audita cada turno conversacional, clasifica en 3 categorías, invoca agentes y genera alertas.', status: 'live' },
     { id: 'POSTMORTEMS', icon: '🔬', name: 'Postmortems', desc: 'Blameless incident postmortems. Timeline, root cause analysis, action items. Big Tech pattern #6 (Google SRE).', status: 'live' },
+    { id: 'LAYER5', icon: '🛡️', name: 'Layer 5 Coverage', desc: 'Defense-in-depth visibility. 8 layers runtime (5A-5H). MEMORY adoption, drift coverage, gap heatmap.', status: 'live' },
   ];
   return (
     <div style={{ maxWidth: 1000 }}>
+      <AlertsBanner adminKey={typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : ''} />
       <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }}>🔒 Backstage</h2>
       <p style={{ fontSize: 12, color: '#64748b', marginBottom: 20 }}>Solo visible para el fundador. Agentes de infraestructura, governance y herramientas operativas.</p>
 
@@ -10508,6 +10675,7 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
            selected === 'A9' ? <A9DrillDown /> :
            selected === 'ORCHESTRATOR' ? <OrchestratorDrillDown /> :
            selected === 'POSTMORTEMS' ? <PostmortemsDrillDown /> :
+           selected === 'LAYER5' ? <Layer5CoverageTab /> :
            selected === 'DATA' ? <TabDataFounder adminKey={typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : ''} /> :
            <TabPlaceholderV2 icon="🤖" title={selected} desc="Drill-down en desarrollo." />}
         </>
