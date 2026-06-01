@@ -9782,9 +9782,9 @@ function AgujaDrillDown() {
                   {!isPending && <span style={{ fontSize: 10, fontWeight: 700, color: p.status === 'approved' ? '#10b981' : p.status === 'rejected' ? '#ef4444' : '#f59e0b', marginTop: 4, display: 'inline-block' }}>{p.status?.toUpperCase()}</span>}
                 </div>
                 {isPending && (
-                  <div style={{ display: 'flex', gap: 4, flexShrink: 0, marginTop: 2 }}>
-                    <button onClick={() => handleProposalAction(pid, 'approved')} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(16,185,129,0.15)', color: '#10b981' }}>✓ Approve</button>
-                    <button onClick={() => handleProposalAction(pid, 'rejected')} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(239,68,68,0.15)', color: '#ef4444' }}>✗ Reject</button>
+                  <div style={{ display: 'flex', gap: 4, flexShrink: 0, marginTop: 2, alignItems: 'center' }}>
+                    <button onClick={() => { if (window.confirm(`Sub-regla 17.7 — Decisión soberana\n\n¿Aprobar proposal "${p.title || pid}"?\n\nImpact: ${p.estimated_impact || '?'} · Effort: ${p.estimated_effort || '?'}\n\nEsta acción se registra en MEMORY.`)) handleProposalAction(pid, 'approved'); }} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(16,185,129,0.15)', color: '#10b981' }}>✓ Approve</button>
+                    <button onClick={() => { if (window.confirm(`Sub-regla 17.7 — Decisión soberana\n\n¿Rechazar proposal "${p.title || pid}"?\n\nEsta acción se registra en MEMORY.`)) handleProposalAction(pid, 'rejected'); }} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(239,68,68,0.15)', color: '#ef4444' }}>✗ Reject</button>
                     <button onClick={() => handleProposalAction(pid, 'deferred')} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(245,158,11,0.15)', color: '#f59e0b' }}>◐ Defer</button>
                   </div>
                 )}
@@ -10405,7 +10405,7 @@ function PostmortemsDrillDown() {
               </div>
               <div style={{ display: 'flex', gap: 4, flexShrink: 0 }}>
                 {inc.status === 'open' && (
-                  <button onClick={() => handleResolve(inc.id)} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(16,185,129,0.15)', color: '#10b981' }}>✓ Resolve</button>
+                  <button onClick={() => { if (window.confirm(`Sub-regla 17.7 — ¿Resolver incident #${inc.id}?\n\n${inc.description?.substring(0, 100)}\n\nEsta acción NO es reversible.`)) handleResolve(inc.id); }} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(16,185,129,0.15)', color: '#10b981' }}>✓ Resolve</button>
                 )}
                 <button onClick={() => handleGenPostmortem(inc.id)} disabled={generating === inc.id} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(99,102,241,0.15)', color: '#a5b4fc', opacity: generating === inc.id ? 0.5 : 1 }}>
                   {generating === inc.id ? '⏳ Generating...' : '🔬 Postmortem'}
