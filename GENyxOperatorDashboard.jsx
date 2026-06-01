@@ -9310,8 +9310,14 @@ function MemoryDrillDown() {
   const [recallQ, setRecallQ] = React.useState('');
   const [recallResult, setRecallResult] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
+  const [expandedBrief, setExpandedBrief] = React.useState(null);
+  const [propFilter, setPropFilter] = React.useState('all');
   const adminKey = typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : '';
   const headers = { 'X-Admin-Key': adminKey };
+
+  const filteredProposals = propFilter === 'all' ? proposals :
+    propFilter === 'pending' ? proposals.filter(p => p.status === 'proposed' || p.status === 'pending') :
+    proposals.filter(p => p.status === propFilter);
 
   React.useEffect(() => {
     if (!adminKey) { setLoading(false); return; }
@@ -9666,6 +9672,19 @@ function AgujaDrillDown() {
     }).then(r => {
       if (r.ok) {
         setProposals(prev => prev.map(p => p.id === id || p.proposal_id === id ? { ...p, status: newStatus } : p));
+        // V2-5: Audit log to MEMORY — founder decision tracked
+        fetch(`${BACKEND}/api/admin/memory/event`, {
+          method: 'POST',
+          headers: { ...headers, 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            event_type: 'decision',
+            content: `AGUJA proposal #${id} ${newStatus} by founder via cockpit`,
+            agent: 'founder',
+            tags: ['aguja', 'proposal', newStatus],
+            priority: 'high',
+            source_ref: `aguja:proposal:${id}`,
+          }),
+        }).catch(() => {});
       }
     }).catch(() => {});
   };
@@ -9709,24 +9728,47 @@ function AgujaDrillDown() {
         {briefs.length === 0 ? (
           <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin briefs — AGUJA generará briefs de intelligence periódicamente.</p>
         ) : briefs.map((b, i) => (
-          <div key={i} style={{ padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
-            <div style={{ flex: 1 }}>
-              <span style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', marginRight: 8 }}>{b.brief_id || `brief-${b.id}`}</span>
-              <span style={{ fontSize: 10, color: '#64748b', marginRight: 8 }}>{b.created_at?.substring(0, 10) || ''}</span>
-              <span style={{ fontSize: 10, padding: '1px 6px', borderRadius: 4, background: b.cadence_type === 'urgent' ? 'rgba(239,68,68,0.1)' : 'rgba(99,102,241,0.1)', color: b.cadence_type === 'urgent' ? '#fca5a5' : '#a5b4fc' }}>{b.cadence_type || 'regular'}</span>
-              <span style={{ fontSize: 10, color: '#64748b', marginLeft: 6 }}>{b.market_signals_count || 0} signals</span>
-              <p style={{ fontSize: 11, color: '#94a3b8', margin: '4px 0 0', lineHeight: 1.4 }}>{(b.executive_summary || b.top_priority_action || '').substring(0, 150)}{(b.executive_summary || '').length > 150 ? '...' : ''}</p>
+          <div key={i} style={{ padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', cursor: 'pointer' }} onClick={() => setExpandedBrief(expandedBrief === b.brief_id ? null : b.brief_id)}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
+              <div style={{ flex: 1 }}>
+                <span style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', marginRight: 8 }}>{expandedBrief === b.brief_id ? '▼' : '▶'} {b.brief_id || `brief-${b.id}`}</span>
+                <span style={{ fontSize: 10, color: '#64748b', marginRight: 8 }}>{b.created_at?.substring(0, 10) || ''}</span>
+                <span style={{ fontSize: 10, padding: '1px 6px', borderRadius: 4, background: b.cadence_type === 'urgent' ? 'rgba(239,68,68,0.1)' : 'rgba(99,102,241,0.1)', color: b.cadence_type === 'urgent' ? '#fca5a5' : '#a5b4fc' }}>{b.cadence_type || 'regular'}</span>
+                <span style={{ fontSize: 10, color: '#64748b', marginLeft: 6 }}>{b.market_signals_count || 0} signals</span>
+              </div>
             </div>
+            {expandedBrief === b.brief_id && (
+              <div style={{ marginTop: 8, padding: 12, background: 'rgba(0,0,0,0.15)', borderRadius: 8 }}>
+                <p style={{ fontSize: 11, color: '#cbd5e1', lineHeight: 1.6, margin: '0 0 8px' }}>{b.executive_summary || 'Sin resumen ejecutivo.'}</p>
+                <p style={{ fontSize: 10, color: '#94a3b8', margin: '0 0 4px' }}><span style={{ fontWeight: 700 }}>Top priority:</span> {b.top_priority_action || '—'}</p>
+                <p style={{ fontSize: 10, color: '#64748b', margin: 0 }}>Período: {b.period_start?.substring(0, 10) || '?'} → {b.period_end?.substring(0, 10) || '?'} · {b.proposals_count || 0} proposals</p>
+              </div>
+            )}
           </div>
         ))}
       </div>
 
-      {/* Proposals pending */}
+      {/* Proposals with filter tabs */}
       <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16 }}>
-        <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>📝 Proposals pending ({proposals.filter(p => p.status === 'proposed' || p.status === 'pending').length})</p>
-        {proposals.length === 0 ? (
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>📝 Proposals ({proposals.length})</p>
+        <div style={{ display: 'flex', gap: 4, marginBottom: 10 }}>
+          {[
+            { id: 'all', label: `Todos (${proposals.length})` },
+            { id: 'pending', label: `⏳ Pendientes (${proposals.filter(p => p.status === 'proposed' || p.status === 'pending').length})` },
+            { id: 'approved', label: `✅ Aprobadas (${proposals.filter(p => p.status === 'approved').length})` },
+            { id: 'rejected', label: `❌ Rechazadas (${proposals.filter(p => p.status === 'rejected').length})` },
+            { id: 'deferred', label: `◐ Diferidas (${proposals.filter(p => p.status === 'deferred').length})` },
+          ].map(f => (
+            <button key={f.id} onClick={() => setPropFilter(f.id)} style={{
+              padding: '4px 10px', fontSize: 9, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer',
+              background: propFilter === f.id ? 'rgba(99,102,241,0.2)' : 'rgba(255,255,255,0.05)',
+              color: propFilter === f.id ? '#a5b4fc' : '#94a3b8',
+            }}>{f.label}</button>
+          ))}
+        </div>
+        {filteredProposals.length === 0 ? (
           <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin proposals pendientes.</p>
-        ) : proposals.map((p, i) => {
+        ) : filteredProposals.map((p, i) => {
           const pid = p.id || p.proposal_id;
           const isPending = p.status === 'proposed' || p.status === 'pending';
           return (
@@ -9783,9 +9825,12 @@ function AgujaDrillDown() {
         <div style={{ background: cadence.overdue ? 'rgba(239,68,68,0.06)' : 'rgba(16,185,129,0.06)', border: `1px solid ${cadence.overdue ? 'rgba(239,68,68,0.15)' : 'rgba(16,185,129,0.15)'}`, borderRadius: 12, padding: 14, marginTop: 16, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
             <span style={{ fontSize: 11, fontWeight: 700, color: cadence.overdue ? '#ef4444' : '#10b981' }}>{cadence.overdue ? '⚠️ OVERDUE' : '✅ On Track'}</span>
-            <span style={{ fontSize: 11, color: '#94a3b8', marginLeft: 8 }}>Ciclo 10 días</span>
+            <span style={{ fontSize: 11, color: '#94a3b8', marginLeft: 8 }}>Ciclo 10 días{cadence.days_since != null ? ` · Día ${cadence.days_since}/10` : ''}</span>
           </div>
-          <span style={{ fontSize: 10, color: '#64748b' }}>Último brief: {cadence.last_brief_date?.substring(0, 10) || 'nunca'}</span>
+          <div style={{ textAlign: 'right' }}>
+            <span style={{ fontSize: 10, color: '#64748b', display: 'block' }}>Último: {cadence.last_brief_date?.substring(0, 10) || 'nunca'}</span>
+            {cadence.overdue && cadence.days_since != null && <span style={{ fontSize: 10, color: '#ef4444', fontWeight: 700 }}>⚠️ {cadence.days_since - 10}d overdue</span>}
+          </div>
         </div>
       )}
     </div>
