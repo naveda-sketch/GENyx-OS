@@ -9186,6 +9186,62 @@ function TabCockpitAgentes({ tenants, selectedSlug }) {
 
 
 // ═══════════════════════════════════════════════════════════════════
+
+// ═══════════════════════════════════════════════════════════════════
+// 🤖 CLAUDE ADOPTION STATUS — Sub-regla 17.11 enforcement visibility
+// ═══════════════════════════════════════════════════════════════════
+// METODOLOGÍA (REGLA 14): Layer 5 Runtime Agent Behavior monitoring
+// REGLA 8: SOLO founder scope — backstage invisible al tenant
+// ═══════════════════════════════════════════════════════════════════
+function ClaudeAdoptionStatus({ stats, alerts }) {
+  const claudeAlerts = (alerts || []).filter(a =>
+    (a.message || '').toLowerCase().includes('claude') ||
+    (a.message || '').toLowerCase().includes('17.11') ||
+    (a.message || '').toLowerCase().includes('subuso')
+  );
+  const claudeEvents = stats?.events_by_type || {};
+  const totalTurns = Object.values(claudeEvents).reduce((s, v) => s + v, 0);
+  const last24h = stats?.events_total || 0;
+  const minRequired = 5;
+  const isCompliant = last24h >= minRequired;
+  const statusColor = isCompliant ? '#10b981' : last24h > 0 ? '#f59e0b' : '#ef4444';
+  const statusText = isCompliant ? '✅ Compliant' : last24h > 0 ? '⚠️ Drift' : '🔴 Critical';
+  const statusBg = isCompliant ? 'rgba(16,185,129,0.06)' : last24h > 0 ? 'rgba(245,158,11,0.06)' : 'rgba(239,68,68,0.06)';
+  const statusBorder = isCompliant ? 'rgba(16,185,129,0.15)' : last24h > 0 ? 'rgba(245,158,11,0.15)' : 'rgba(239,68,68,0.15)';
+
+  return (
+    <div style={{ background: statusBg, border: `1px solid ${statusBorder}`, borderRadius: 12, padding: 16, marginTop: 16 }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', margin: 0 }}>🤖 Claude Adoption — Sub-regla 17.11</p>
+        <span style={{ fontSize: 11, fontWeight: 700, color: statusColor }}>{statusText}</span>
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10 }}>
+        <div style={{ background: 'rgba(0,0,0,0.2)', borderRadius: 8, padding: 10, textAlign: 'center' }}>
+          <div style={{ fontSize: 18, fontWeight: 800, color: statusColor }}>{last24h}</div>
+          <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600 }}>TURNOS 24H (mín: {minRequired})</div>
+        </div>
+        <div style={{ background: 'rgba(0,0,0,0.2)', borderRadius: 8, padding: 10, textAlign: 'center' }}>
+          <div style={{ fontSize: 18, fontWeight: 800, color: '#e2e8f0' }}>{totalTurns}</div>
+          <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600 }}>EVENTS LIFETIME</div>
+        </div>
+        <div style={{ background: 'rgba(0,0,0,0.2)', borderRadius: 8, padding: 10, textAlign: 'center' }}>
+          <div style={{ fontSize: 18, fontWeight: 800, color: claudeAlerts.length > 0 ? '#f59e0b' : '#10b981' }}>{claudeAlerts.length}</div>
+          <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600 }}>ALERTAS CLAUDE</div>
+        </div>
+      </div>
+      {claudeAlerts.length > 0 && (
+        <div style={{ marginTop: 10, fontSize: 11, color: '#94a3b8', lineHeight: 1.5 }}>
+          {claudeAlerts.slice(0, 3).map((a, i) => (
+            <div key={i} style={{ padding: '4px 0', borderTop: i > 0 ? '1px solid rgba(255,255,255,0.04)' : 'none' }}>
+              <span style={{ color: statusColor, fontWeight: 600 }}>{a.severity?.toUpperCase()}</span>: {a.message?.substring(0, 120)}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // MEMORY Drill-Down — consume endpoints live (Sprint 3 v4)
 // ═══════════════════════════════════════════════════════════════════
 // Endpoints verified REGLA 18 against main.py:
@@ -9290,6 +9346,9 @@ function MemoryDrillDown() {
           </div>
         ))}
       </div>
+
+      {/* Claude Adoption Status — Sub-regla 17.11 enforcement visibility */}
+      <ClaudeAdoptionStatus stats={stats} alerts={alerts} />
     </div>
   );
 }
