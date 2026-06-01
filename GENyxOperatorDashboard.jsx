@@ -9323,14 +9323,8 @@ function MemoryDrillDown() {
   const [recallQ, setRecallQ] = React.useState('');
   const [recallResult, setRecallResult] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
-  const [expandedBrief, setExpandedBrief] = React.useState(null);
-  const [propFilter, setPropFilter] = React.useState('all');
   const adminKey = typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : '';
   const headers = { 'X-Admin-Key': adminKey };
-
-  const filteredProposals = propFilter === 'all' ? proposals :
-    propFilter === 'pending' ? proposals.filter(p => p.status === 'proposed' || p.status === 'pending') :
-    proposals.filter(p => p.status === propFilter);
 
   React.useEffect(() => {
     if (!adminKey) { setLoading(false); return; }
@@ -9661,8 +9655,14 @@ function AgujaDrillDown() {
   const [proposals, setProposals] = React.useState([]);
   const [cadence, setCadence] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
+  const [expandedBrief, setExpandedBrief] = React.useState(null);
+  const [propFilter, setPropFilter] = React.useState('all');
   const adminKey = typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : '';
   const headers = { 'X-Admin-Key': adminKey };
+
+  const filteredProposals = propFilter === 'all' ? proposals :
+    propFilter === 'pending' ? proposals.filter(p => p.status === 'proposed' || p.status === 'pending') :
+    proposals.filter(p => p.status === propFilter);
 
   React.useEffect(() => {
     if (!adminKey) { setLoading(false); return; }
