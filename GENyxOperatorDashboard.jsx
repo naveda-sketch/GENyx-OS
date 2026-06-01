@@ -9188,6 +9188,61 @@ function TabCockpitAgentes({ tenants, selectedSlug }) {
 // ═══════════════════════════════════════════════════════════════════
 
 // ═══════════════════════════════════════════════════════════════════
+// 🚀 ANTIGRAVITY ADOPTION STATUS — Layer 5 ecosystem-wide enforcement
+// ═══════════════════════════════════════════════════════════════════
+// REGLA 8: SOLO founder scope — backstage invisible al tenant
+// Sub-regla 17.11: TODOS los agentes deben invocar MEMORY
+// ═══════════════════════════════════════════════════════════════════
+function AntigravityAdoptionStatus({ stats }) {
+  const [commits, setCommits] = React.useState(null);
+  const adminKey = typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : '';
+
+  React.useEffect(() => {
+    if (!adminKey) return;
+    fetch(`${BACKEND}/api/admin/memory/recall?topic=antigravity+commit+sprint&limit=5`, { headers: { 'X-Admin-Key': adminKey } })
+      .then(r => r.ok ? r.json() : null)
+      .then(d => setCommits(d))
+      .catch(() => {});
+  }, [adminKey]);
+
+  const lastEvent = commits?.events?.[0];
+  const eventCount = commits?.count || 0;
+  const hasRecent = lastEvent && (Date.now() - new Date(lastEvent.created_at).getTime()) < 48 * 60 * 60 * 1000;
+  const statusColor = hasRecent ? '#10b981' : eventCount > 0 ? '#f59e0b' : '#ef4444';
+  const statusText = hasRecent ? '✅ Active' : eventCount > 0 ? '⚠️ Idle >48h' : '🔴 No events';
+  const statusBg = hasRecent ? 'rgba(16,185,129,0.06)' : eventCount > 0 ? 'rgba(245,158,11,0.06)' : 'rgba(239,68,68,0.06)';
+  const statusBorder = hasRecent ? 'rgba(16,185,129,0.15)' : eventCount > 0 ? 'rgba(245,158,11,0.15)' : 'rgba(239,68,68,0.15)';
+
+  return (
+    <div style={{ background: statusBg, border: `1px solid ${statusBorder}`, borderRadius: 12, padding: 16, marginTop: 16 }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', margin: 0 }}>🚀 Antigravity Adoption — Layer 5</p>
+        <span style={{ fontSize: 11, fontWeight: 700, color: statusColor }}>{statusText}</span>
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10 }}>
+        <div style={{ background: 'rgba(0,0,0,0.2)', borderRadius: 8, padding: 10, textAlign: 'center' }}>
+          <div style={{ fontSize: 18, fontWeight: 800, color: statusColor }}>{eventCount}</div>
+          <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600 }}>MEMORY EVENTS</div>
+        </div>
+        <div style={{ background: 'rgba(0,0,0,0.2)', borderRadius: 8, padding: 10, textAlign: 'center' }}>
+          <div style={{ fontSize: 18, fontWeight: 800, color: '#e2e8f0' }}>{lastEvent ? new Date(lastEvent.created_at).toLocaleDateString() : '—'}</div>
+          <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600 }}>ÚLTIMO EVENT</div>
+        </div>
+        <div style={{ background: 'rgba(0,0,0,0.2)', borderRadius: 8, padding: 10, textAlign: 'center' }}>
+          <div style={{ fontSize: 18, fontWeight: 800, color: '#e2e8f0' }}>{stats?.events_total || 0}</div>
+          <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600 }}>TOTAL ECOSYSTEM</div>
+        </div>
+      </div>
+      {lastEvent && (
+        <div style={{ marginTop: 10, fontSize: 11, color: '#94a3b8', lineHeight: 1.5, padding: '6px 8px', background: 'rgba(0,0,0,0.15)', borderRadius: 6 }}>
+          <span style={{ fontWeight: 600, color: '#cbd5e1' }}>Último:</span> {lastEvent.content?.substring(0, 150)}...
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════
 // 🤖 CLAUDE ADOPTION STATUS — Sub-regla 17.11 enforcement visibility
 // ═══════════════════════════════════════════════════════════════════
 // METODOLOGÍA (REGLA 14): Layer 5 Runtime Agent Behavior monitoring
@@ -9347,8 +9402,9 @@ function MemoryDrillDown() {
         ))}
       </div>
 
-      {/* Claude Adoption Status — Sub-regla 17.11 enforcement visibility */}
+      {/* Agent Adoption Status — Sub-regla 17.11 enforcement visibility */}
       <ClaudeAdoptionStatus stats={stats} alerts={alerts} />
+      <AntigravityAdoptionStatus stats={stats} />
     </div>
   );
 }
