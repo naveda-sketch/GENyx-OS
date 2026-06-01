@@ -10539,98 +10539,123 @@ function AlertsBanner({ adminKey }) {
 // ═══════════════════════════════════════════════════════════════════
 // 🛡️ Layer5CoverageTab — Defense-in-Depth visibility (Layer 5G §3.2)
 // REGLA 8: FOUNDER-ONLY · REGLA 19: Tier 4 visibility
-// BE-#21 drift-coverage endpoint = 404 → mock data con disclaimer explícito (sub-regla 18.1)
+// BE-#21 drift-coverage endpoint LIVE (PR #30 merged 7dd36ad)
 // ═══════════════════════════════════════════════════════════════════
 function Layer5CoverageTab() {
   const adminKey = typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : '';
   const headers = React.useMemo(() => ({ 'X-Admin-Key': adminKey }), [adminKey]);
-  const [memStats, setMemStats] = React.useState(null);
+  const [data, setData] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
     if (!adminKey) { setLoading(false); return; }
-    fetch(`${BACKEND}/api/admin/memory/stats`, { headers })
+    fetch(`${BACKEND}/api/admin/drift-coverage?window_hours=24`, { headers })
       .then(r => r.ok ? r.json() : null)
-      .then(d => { setMemStats(d); setLoading(false); })
+      .then(d => { setData(d); setLoading(false); })
       .catch(() => setLoading(false));
-  }, [adminKey, headers]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [adminKey]);
 
   if (!adminKey) return <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}><p style={{ fontSize: 13 }}>Admin key requerida.</p></div>;
 
-  // Layer 5 coverage data — mock where BE-#21 not yet implemented
-  const layers = [
-    { id: '5A', name: 'PreToolUse hook', status: 'active', detail: 'Claude pre-response MEMORY check', source: 'BE Sprint #1' },
-    { id: '5B', name: 'PostToolUse hook', status: 'pending', detail: 'Post-tool validation', source: 'BE-#17 pendiente' },
-    { id: '5C', name: 'UserPromptSubmit', status: 'pending', detail: 'Pre-submission coherence check', source: 'BE-#20 pendiente' },
-    { id: '5D', name: 'MEMORY runtime', status: 'active', detail: `${memStats?.events_total || '?'} events · ${memStats?.docs_ingested || '?'} docs`, source: 'Sprint #1 shipped' },
-    { id: '5E', name: 'A9 cross-agent runtime', status: 'active', detail: 'Handoffs runtime validation', source: '/handoffs-runtime live' },
-    { id: '5F', name: 'AGUJA cadence', status: 'active', detail: 'Loop active · 3 briefs / 25 signals', source: 'AGUJA Sprint #1' },
-    { id: '5G', name: 'FE UI guards', status: 'active', detail: 'This sprint — sovereign guards + alerts', source: 'Sprint #1.5 FE' },
-    { id: '5H', name: 'CONFIRMADOR', status: 'pending', detail: 'Multi-agent confirmation protocol', source: 'BE-#22 pendiente' },
-  ];
-
-  const statusColor = { active: '#10b981', pending: '#f59e0b', critical: '#ef4444' };
-  const statusIcon = { active: '🟢', pending: '🟡', critical: '🔴' };
-  const activeCount = layers.filter(l => l.status === 'active').length;
+  const statusColor = { green: '#10b981', yellow: '#f59e0b', red: '#ef4444' };
+  const statusIcon = { green: '🟢', yellow: '🟡', red: '🔴' };
+  const summary = data?.layer_summary || {};
+  const layers = data?.layer_5_coverage || {};
+  const adoption = data?.memory_adoption?.per_agent || {};
+  const driftAlerts = data?.drift_detection || {};
+  const gapHeatmap = data?.gap_heatmap || {};
 
   return (
     <div style={{ maxWidth: 800 }}>
       <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }} id="layer5-coverage-heading">🛡️ Layer 5 Coverage — Defense-in-Depth</h3>
-      <p style={{ fontSize: 10, color: '#f59e0b', fontWeight: 600, marginBottom: 16, padding: '4px 8px', background: 'rgba(245,158,11,0.08)', borderRadius: 6, display: 'inline-block' }}>⚠️ v0.1 mock — BE-#21 drift-coverage endpoint pendiente</p>
+      <p style={{ fontSize: 10, color: '#10b981', fontWeight: 600, marginBottom: 16, padding: '4px 8px', background: 'rgba(16,185,129,0.08)', borderRadius: 6, display: 'inline-block' }}>✅ Live data — BE-#21 drift-coverage endpoint (PR #30)</p>
 
-      {loading && <p style={{ color: '#64748b', fontSize: 12 }}>Cargando...</p>}
+      {loading && <p style={{ color: '#64748b', fontSize: 12 }}>Cargando drift-coverage...</p>}
 
-      {/* Coverage summary */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10, marginBottom: 20 }}>
-        {[
-          { label: 'Layers active', value: `${activeCount}/8`, icon: '🛡️', color: activeCount >= 6 ? '#10b981' : '#f59e0b' },
-          { label: 'MEMORY events', value: memStats?.events_total || '—', icon: '🧠' },
-          { label: 'Coverage', value: `${Math.round(activeCount / 8 * 100)}%`, icon: '📊', color: activeCount >= 6 ? '#10b981' : '#f59e0b' },
-        ].map(k => (
-          <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
-            <div style={{ fontSize: 18 }}>{k.icon}</div>
-            <div style={{ fontSize: 17, fontWeight: 800, color: k.color || '#e2e8f0', marginTop: 4 }}>{k.value}</div>
-            <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
-          </div>
-        ))}
-      </div>
-
-      {/* Layer list */}
-      <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
-        {layers.map((l, i) => (
-          <div key={l.id} role="listitem" aria-label={`Layer ${l.id}: ${l.name} — ${l.status}`} tabIndex={0} style={{ padding: '8px 0', borderBottom: i < layers.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none', display: 'flex', alignItems: 'center', gap: 10, outline: 'none' }} onKeyDown={e => e.key === 'Enter' && e.target.click()}>
-            <span style={{ fontSize: 14, width: 20 }}>{statusIcon[l.status]}</span>
-            <span style={{ fontSize: 11, fontWeight: 800, color: statusColor[l.status], width: 30 }}>{l.id}</span>
-            <span style={{ fontSize: 11, fontWeight: 600, color: '#e2e8f0', width: 180 }}>{l.name}</span>
-            <span style={{ fontSize: 10, color: '#94a3b8', flex: 1 }}>{l.detail}</span>
-            <span style={{ fontSize: 9, color: '#64748b', fontStyle: 'italic' }}>{l.source}</span>
-          </div>
-        ))}
-      </div>
-
-      {/* MEMORY adoption per agent */}
-      {memStats && (
-        <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16 }}>
-          <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 10 }}>📊 MEMORY stats</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10 }}>
-            {[
-              { label: 'Events total', value: memStats.events_total },
-              { label: 'Docs ingested', value: memStats.docs_ingested },
-              { label: 'Event types', value: memStats.tipos_distintos },
-            ].map(m => (
-              <div key={m.label} style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: 15, fontWeight: 800, color: '#e2e8f0' }}>{m.value || '—'}</div>
-                <div style={{ fontSize: 9, color: '#64748b', textTransform: 'uppercase' }}>{m.label}</div>
-              </div>
-            ))}
-          </div>
+      {/* Coverage summary KPIs */}
+      {summary.total && (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 10, marginBottom: 20 }}>
+          {[
+            { label: 'Coverage', value: `${summary.coverage_pct || 0}%`, icon: '🛡️', color: summary.coverage_pct >= 60 ? '#10b981' : '#f59e0b' },
+            { label: 'Green', value: summary.green || 0, icon: '🟢' },
+            { label: 'Yellow', value: summary.yellow || 0, icon: '🟡', color: summary.yellow > 0 ? '#f59e0b' : '#10b981' },
+            { label: 'Red', value: summary.red || 0, icon: '🔴', color: summary.red > 0 ? '#ef4444' : '#10b981' },
+          ].map(k => (
+            <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
+              <div style={{ fontSize: 18 }}>{k.icon}</div>
+              <div style={{ fontSize: 17, fontWeight: 800, color: k.color || '#e2e8f0', marginTop: 4 }}>{k.value}</div>
+              <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
+            </div>
+          ))}
         </div>
       )}
 
-      <p style={{ fontSize: 9, color: '#475569', textAlign: 'center', marginTop: 12 }}>Layer 5 · Defense-in-depth · v0.1 mock data</p>
+      {/* Layer list — REAL DATA */}
+      <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 10 }}>🛡️ Layer 5A–5H Status</p>
+        {Object.entries(layers).map(([key, layer], i) => {
+          const id = key.substring(0, 2).toUpperCase();
+          const name = key.substring(3).replace(/_/g, ' ');
+          return (
+            <div key={key} role="listitem" aria-label={`Layer ${id}: ${name} — ${layer.status}`} tabIndex={0} style={{ padding: '8px 0', borderBottom: i < Object.keys(layers).length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none', display: 'flex', alignItems: 'center', gap: 10, outline: 'none' }}>
+              <span style={{ fontSize: 14, width: 20 }}>{statusIcon[layer.status] || '⚪'}</span>
+              <span style={{ fontSize: 11, fontWeight: 800, color: statusColor[layer.status] || '#64748b', width: 30 }}>{id}</span>
+              <span style={{ fontSize: 11, fontWeight: 600, color: '#e2e8f0', width: 180 }}>{name}</span>
+              <span style={{ fontSize: 10, color: '#94a3b8', flex: 1 }}>{layer.evidence || '—'}</span>
+              <span style={{ fontSize: 9, color: '#64748b', fontStyle: 'italic' }}>{layer.candado || ''}{layer.reason ? ` · ${layer.reason.substring(0, 40)}` : ''}</span>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* MEMORY adoption per agent — REAL DATA */}
+      {Object.keys(adoption).length > 0 && (
+        <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
+          <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 10 }}>📊 MEMORY adoption 24h (per agent)</p>
+          {Object.entries(adoption).map(([agent, count]) => {
+            const maxBar = 10;
+            const filled = Math.min(count, maxBar);
+            const bar = '█'.repeat(filled) + '░'.repeat(maxBar - filled);
+            const label = count === 0 ? 'no events' : count < 3 ? 'low' : count < 6 ? 'ok' : 'active';
+            const color = count === 0 ? '#ef4444' : count < 3 ? '#f59e0b' : '#10b981';
+            return (
+              <div key={agent} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '3px 0' }}>
+                <span style={{ fontSize: 11, fontWeight: 600, color: '#cbd5e1', width: 100, textTransform: 'capitalize' }}>{agent}:</span>
+                <span style={{ fontSize: 10, fontWeight: 600, color: '#e2e8f0', width: 30, textAlign: 'right' }}>{count}</span>
+                <span style={{ fontSize: 11, fontFamily: 'monospace', color, letterSpacing: 1 }}>{bar}</span>
+                <span style={{ fontSize: 9, color }}>{label}</span>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Drift detection */}
+      {Array.isArray(driftAlerts) && driftAlerts.length > 0 && (
+        <div style={{ background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.15)', borderRadius: 12, padding: 14, marginBottom: 16 }}>
+          <p style={{ fontSize: 11, fontWeight: 700, color: '#fca5a5', marginBottom: 6 }}>🚨 Drift caught last 24h: {driftAlerts.length}</p>
+          {driftAlerts.slice(0, 3).map((d, i) => (
+            <p key={i} style={{ fontSize: 10, color: '#94a3b8', margin: '2px 0' }}>{d.message || d.content || JSON.stringify(d).substring(0, 100)}</p>
+          ))}
+        </div>
+      )}
+
+      {/* Gap heatmap */}
+      {Array.isArray(gapHeatmap) && gapHeatmap.length > 0 && (
+        <div style={{ background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.15)', borderRadius: 12, padding: 14, marginBottom: 16 }}>
+          <p style={{ fontSize: 11, fontWeight: 700, color: '#fcd34d', marginBottom: 6 }}>🎯 Gap heatmap: {gapHeatmap.length} gap{gapHeatmap.length > 1 ? 's' : ''}</p>
+          {gapHeatmap.slice(0, 5).map((g, i) => (
+            <p key={i} style={{ fontSize: 10, color: '#94a3b8', margin: '2px 0' }}>{g.agent_id || g.type || '?'}: {g.notes || g.message || '—'}</p>
+          ))}
+        </div>
+      )}
+
+      <p style={{ fontSize: 9, color: '#475569', textAlign: 'center', marginTop: 12 }}>Layer 5 · Defense-in-depth · Live data from /api/admin/drift-coverage</p>
     </div>
   );
 }
+
 
 function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }) {
   const [selected, setSelected] = React.useState(null);
