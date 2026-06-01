@@ -10247,6 +10247,154 @@ function OrchestratorDrillDown() {
   );
 }
 
+
+// ═══════════════════════════════════════════════════════════════════
+// 🔬 POSTMORTEMS DrillDown — Blameless Incident Analysis (Q3-S5)
+// ═══════════════════════════════════════════════════════════════════
+// METODOLOGÍA (REGLA 14): Big Tech Pattern #6 — Google SRE Blameless Postmortems
+// REGLA 8: SOLO founder scope — backstage invisible al tenant
+// Endpoints:
+//   GET  /api/admin/incidents                          (list all)
+//   POST /api/admin/incidents                          (create)
+//   POST /api/admin/incidents/{id}/postmortem           (generate LLM postmortem)
+//   POST /api/admin/cybersec/incident/{id}/resolve      (resolve)
+// ═══════════════════════════════════════════════════════════════════
+function PostmortemsDrillDown() {
+  const [incidents, setIncidents] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
+  const [filter, setFilter] = React.useState('all');
+  const [generating, setGenerating] = React.useState(null);
+  const [postmortem, setPostmortem] = React.useState(null);
+  const adminKey = typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : '';
+  const headers = { 'X-Admin-Key': adminKey };
+
+  const fetchIncidents = React.useCallback(() => {
+    if (!adminKey) { setLoading(false); return; }
+    fetch(`${BACKEND}/api/admin/incidents`, { headers })
+      .then(r => r.ok ? r.json() : [])
+      .then(d => { setIncidents(Array.isArray(d) ? d : d.incidents || []); setLoading(false); })
+      .catch(() => setLoading(false));
+  }, [adminKey]);
+
+  React.useEffect(() => { fetchIncidents(); }, [fetchIncidents]);
+
+  const handleGenPostmortem = (id) => {
+    setGenerating(id);
+    fetch(`${BACKEND}/api/admin/incidents/${id}/postmortem`, { method: 'POST', headers })
+      .then(r => r.ok ? r.json() : null)
+      .then(d => { setPostmortem({ id, data: d }); setGenerating(null); })
+      .catch(() => setGenerating(null));
+  };
+
+  const handleResolve = (id) => {
+    fetch(`${BACKEND}/api/admin/cybersec/incident/${id}/resolve`, {
+      method: 'POST', headers: { ...headers, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ resolution_summary: 'Resolved via Cockpit', resolved_by: 'founder' }),
+    }).then(r => { if (r.ok) fetchIncidents(); }).catch(() => {});
+  };
+
+  if (!adminKey) return (
+    <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}>
+      <p style={{ fontSize: 13 }}>Admin key requerida.</p>
+    </div>
+  );
+
+  const severityColor = { P1: '#ef4444', P2: '#f59e0b', P3: '#6366f1', P4: '#64748b' };
+  const filtered = filter === 'all' ? incidents : filter === 'open' ? incidents.filter(i => i.status === 'open') : incidents.filter(i => i.status === 'resolved');
+  const openCount = incidents.filter(i => i.status === 'open').length;
+  const resolvedCount = incidents.filter(i => i.status === 'resolved').length;
+  const p1Count = incidents.filter(i => i.severity === 'P1').length;
+  const p2Count = incidents.filter(i => i.severity === 'P2').length;
+
+  return (
+    <div style={{ maxWidth: 800 }}>
+      <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🔬 Postmortems — Blameless Incident Analysis</h3>
+
+      {loading && <p style={{ color: '#64748b', fontSize: 12 }}>Cargando incidents...</p>}
+
+      {/* KPI Cards */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 10, marginBottom: 20 }}>
+        {[
+          { label: 'Total', value: incidents.length, icon: '📋' },
+          { label: 'Open', value: openCount, icon: '🔴', color: openCount > 0 ? '#ef4444' : '#10b981' },
+          { label: 'Resolved', value: resolvedCount, icon: '✅' },
+          { label: 'P1 Critical', value: p1Count, icon: '🚨', color: p1Count > 0 ? '#ef4444' : '#10b981' },
+          { label: 'P2 High', value: p2Count, icon: '⚠️', color: p2Count > 0 ? '#f59e0b' : '#10b981' },
+        ].map(k => (
+          <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
+            <div style={{ fontSize: 18 }}>{k.icon}</div>
+            <div style={{ fontSize: 17, fontWeight: 800, color: k.color || '#e2e8f0', marginTop: 4 }}>{k.value}</div>
+            <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Filter tabs */}
+      <div style={{ display: 'flex', gap: 6, marginBottom: 16 }}>
+        {[
+          { id: 'all', label: `Todos (${incidents.length})` },
+          { id: 'open', label: `🔴 Open (${openCount})` },
+          { id: 'resolved', label: `✅ Resolved (${resolvedCount})` },
+        ].map(f => (
+          <button key={f.id} onClick={() => setFilter(f.id)} style={{
+            padding: '6px 14px', fontSize: 11, fontWeight: 700, border: 'none', borderRadius: 8, cursor: 'pointer',
+            background: filter === f.id ? 'rgba(99,102,241,0.2)' : 'rgba(255,255,255,0.05)',
+            color: filter === f.id ? '#a5b4fc' : '#94a3b8',
+          }}>{f.label}</button>
+        ))}
+      </div>
+
+      {/* Incident list */}
+      <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16 }}>
+        {filtered.length === 0 ? (
+          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin incidents en este filtro.</p>
+        ) : filtered.map((inc, i) => (
+          <div key={inc.id || i} style={{ padding: '10px 0', borderBottom: i < filtered.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8 }}>
+              <div style={{ flex: 1 }}>
+                <span style={{ fontSize: 10, fontWeight: 800, color: severityColor[inc.severity] || '#64748b', marginRight: 6 }}>{inc.severity}</span>
+                <span style={{ fontSize: 10, fontWeight: 600, color: '#818cf8', marginRight: 6 }}>{inc.slug || '—'}</span>
+                <span style={{ fontSize: 10, padding: '1px 6px', borderRadius: 4, background: inc.status === 'open' ? 'rgba(239,68,68,0.1)' : 'rgba(16,185,129,0.1)', color: inc.status === 'open' ? '#fca5a5' : '#6ee7b7' }}>{inc.status}</span>
+                <p style={{ fontSize: 11, color: '#94a3b8', margin: '4px 0 0', lineHeight: 1.4 }}>{inc.description?.substring(0, 120)}</p>
+                <span style={{ fontSize: 9, color: '#475569' }}>{inc.created_at?.substring(0, 16)}{inc.resolved_at ? ` · resolved ${inc.resolved_at.substring(0, 16)}` : ''}{inc.resolution_minutes ? ` · ${inc.resolution_minutes}min` : ''}</span>
+              </div>
+              <div style={{ display: 'flex', gap: 4, flexShrink: 0 }}>
+                {inc.status === 'open' && (
+                  <button onClick={() => handleResolve(inc.id)} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(16,185,129,0.15)', color: '#10b981' }}>✓ Resolve</button>
+                )}
+                <button onClick={() => handleGenPostmortem(inc.id)} disabled={generating === inc.id} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(99,102,241,0.15)', color: '#a5b4fc', opacity: generating === inc.id ? 0.5 : 1 }}>
+                  {generating === inc.id ? '⏳ Generating...' : '🔬 Postmortem'}
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Postmortem modal */}
+      {postmortem && (
+        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.7)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }} onClick={() => setPostmortem(null)} role="dialog" aria-label="Postmortem detail">
+          <div style={{ background: '#1e293b', borderRadius: 16, padding: 24, maxWidth: 700, maxHeight: '80vh', overflowY: 'auto', width: '100%', border: '1px solid rgba(255,255,255,0.1)' }} onClick={e => e.stopPropagation()}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
+              <h4 style={{ fontSize: 14, fontWeight: 800, color: '#f1f5f9', margin: 0 }}>🔬 Postmortem — Incident #{postmortem.id}</h4>
+              <button onClick={() => setPostmortem(null)} style={{ background: 'none', border: 'none', color: '#64748b', fontSize: 18, cursor: 'pointer' }} aria-label="Cerrar postmortem">✕</button>
+            </div>
+            {postmortem.data ? (
+              <div style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.7, whiteSpace: 'pre-wrap' }}>
+                {postmortem.data.postmortem || postmortem.data.analysis || postmortem.data.report || JSON.stringify(postmortem.data, null, 2)}
+              </div>
+            ) : (
+              <p style={{ color: '#64748b', fontSize: 12, fontStyle: 'italic' }}>Error generando postmortem. Verifica que el incident tenga datos suficientes.</p>
+            )}
+          </div>
+        </div>
+      )}
+
+      <p style={{ fontSize: 9, color: '#475569', textAlign: 'center', marginTop: 12 }}>Postmortems · Blameless incident analysis · Google SRE pattern</p>
+    </div>
+  );
+}
+
 function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }) {
   const [selected, setSelected] = React.useState(null);
   const backstageAgents = [
@@ -10258,6 +10406,7 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
     { id: 'A12', icon: '🛡️', name: 'A12 Ciberseguridad', desc: 'CISO Digital + DPO operacional. Secrets scanning, CVE check, OWASP audit, PII access audit. LFPDPPP + OWASP Top 10 + PCI DSS.', status: 'propuesta' },
     { id: 'DATA', icon: '📊', name: 'DATA Fundador', desc: 'Métricas GenyX-wide: plataforma, MEMORY, AGUJA, A12, doctrina, smoke tests. Datos del fundador, NO de tenants.', status: 'live' },
     { id: 'ORCHESTRATOR', icon: '🎯', name: 'ORCHESTRATOR', desc: 'Conversational Multi-Agent Audit. Audita cada turno conversacional, clasifica en 3 categorías, invoca agentes y genera alertas.', status: 'live' },
+    { id: 'POSTMORTEMS', icon: '🔬', name: 'Postmortems', desc: 'Blameless incident postmortems. Timeline, root cause analysis, action items. Big Tech pattern #6 (Google SRE).', status: 'live' },
   ];
   return (
     <div style={{ maxWidth: 1000 }}>
@@ -10293,6 +10442,7 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
            selected === 'A0' ? <A0DrillDown /> :
            selected === 'A9' ? <A9DrillDown /> :
            selected === 'ORCHESTRATOR' ? <OrchestratorDrillDown /> :
+           selected === 'POSTMORTEMS' ? <PostmortemsDrillDown /> :
            selected === 'DATA' ? <TabDataFounder adminKey={typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : ''} /> :
            <TabPlaceholderV2 icon="🤖" title={selected} desc="Drill-down en desarrollo." />}
         </>
