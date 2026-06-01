@@ -9676,7 +9676,7 @@ function AgujaDrillDown() {
     </div>
   );
 
-  const cadenceOk = cadence?.is_on_track || cadence?.on_schedule || false;
+  const cadenceOk = !cadence?.overdue;
   const daysSinceBrief = stats?.days_since_last_brief ?? cadence?.days_since_last ?? '—';
 
   return (
@@ -9688,11 +9688,11 @@ function AgujaDrillDown() {
       {stats && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 10, marginBottom: 20 }}>
           {[
-            { label: 'Briefs total', value: stats.briefs_total || stats.total_briefs || 0, icon: '📊' },
-            { label: 'Signals (30d)', value: stats.signals_30d || stats.signals || 0, icon: '📡' },
-            { label: 'Proposals pending', value: stats.proposals_pending || proposals.length, icon: '📝' },
-            { label: 'Days since brief', value: daysSinceBrief, icon: '📅' },
-            { label: 'Cadencia', value: cadenceOk ? '✅ OK' : '⚠️ Overdue', icon: '🔄' },
+            { label: 'Briefs', value: stats.briefs?.total || 0, icon: '📊' },
+            { label: 'Signals (30d)', value: stats.signals?.total || 0, icon: '📡' },
+            { label: 'High Impact', value: stats.signals?.by_impact?.high || 0, icon: '🔴' },
+            { label: 'Proposals', value: stats.proposals?.pending_review_count || proposals.length, icon: '📝' },
+            { label: 'Cadencia', value: cadence?.overdue ? '⚠️ Overdue' : '✅ OK', icon: '🔄' },
           ].map(k => (
             <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
               <div style={{ fontSize: 18 }}>{k.icon}</div>
@@ -9711,10 +9711,11 @@ function AgujaDrillDown() {
         ) : briefs.map((b, i) => (
           <div key={i} style={{ padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
             <div style={{ flex: 1 }}>
-              <span style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', marginRight: 8 }}>{b.brief_id || b.id || `brief-${i}`}</span>
-              <span style={{ fontSize: 10, color: '#64748b', marginRight: 8 }}>{b.period || ''}</span>
-              <span style={{ fontSize: 10, padding: '1px 6px', borderRadius: 4, background: 'rgba(99,102,241,0.1)', color: '#a5b4fc' }}>{b.cadence_type || 'regular'}</span>
-              <p style={{ fontSize: 11, color: '#94a3b8', margin: '4px 0 0', lineHeight: 1.4 }}>{(b.summary || b.title || '').substring(0, 120)}{(b.summary || b.title || '').length > 120 ? '...' : ''}</p>
+              <span style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', marginRight: 8 }}>{b.brief_id || `brief-${b.id}`}</span>
+              <span style={{ fontSize: 10, color: '#64748b', marginRight: 8 }}>{b.created_at?.substring(0, 10) || ''}</span>
+              <span style={{ fontSize: 10, padding: '1px 6px', borderRadius: 4, background: b.cadence_type === 'urgent' ? 'rgba(239,68,68,0.1)' : 'rgba(99,102,241,0.1)', color: b.cadence_type === 'urgent' ? '#fca5a5' : '#a5b4fc' }}>{b.cadence_type || 'regular'}</span>
+              <span style={{ fontSize: 10, color: '#64748b', marginLeft: 6 }}>{b.market_signals_count || 0} signals</span>
+              <p style={{ fontSize: 11, color: '#94a3b8', margin: '4px 0 0', lineHeight: 1.4 }}>{(b.executive_summary || b.top_priority_action || '').substring(0, 150)}{(b.executive_summary || '').length > 150 ? '...' : ''}</p>
             </div>
           </div>
         ))}
@@ -9732,8 +9733,10 @@ function AgujaDrillDown() {
             <div key={i} style={{ padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8 }}>
                 <div style={{ flex: 1 }}>
-                  <span style={{ fontSize: 12, fontWeight: 600, color: '#e2e8f0' }}>{p.title || p.summary || `Proposal ${pid}`}</span>
-                  <p style={{ fontSize: 11, color: '#94a3b8', margin: '4px 0 0', lineHeight: 1.4 }}>{(p.description || p.detail || '').substring(0, 150)}{(p.description || p.detail || '').length > 150 ? '...' : ''}</p>
+                  <span style={{ fontSize: 12, fontWeight: 600, color: '#e2e8f0' }}>{p.title || `Proposal ${pid}`}</span>
+                  {p.priority && <span style={{ fontSize: 9, fontWeight: 700, marginLeft: 8, padding: '1px 6px', borderRadius: 4, background: p.priority === 'high' ? 'rgba(239,68,68,0.12)' : 'rgba(99,102,241,0.1)', color: p.priority === 'high' ? '#fca5a5' : '#a5b4fc' }}>{p.priority}</span>}
+                  <p style={{ fontSize: 11, color: '#94a3b8', margin: '4px 0 0', lineHeight: 1.4 }}>{(p.rationale || '').substring(0, 150)}{(p.rationale || '').length > 150 ? '...' : ''}</p>
+                  {p.estimated_impact && <span style={{ fontSize: 9, color: '#64748b' }}>Impact: {p.estimated_impact} · Effort: {p.estimated_effort || '?'}</span>}
                   {!isPending && <span style={{ fontSize: 10, fontWeight: 700, color: p.status === 'approved' ? '#10b981' : p.status === 'rejected' ? '#ef4444' : '#f59e0b', marginTop: 4, display: 'inline-block' }}>{p.status?.toUpperCase()}</span>}
                 </div>
                 {isPending && (
@@ -9748,6 +9751,43 @@ function AgujaDrillDown() {
           );
         })}
       </div>
+
+      {/* Signals breakdown por tipo */}
+      {stats?.signals?.by_type && (
+        <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginTop: 16 }}>
+          <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 10 }}>📡 Signals por tipo (30d)</p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+            {Object.entries(stats.signals.by_type).map(([type, count]) => {
+              const colors = { big_tech_move: '#ef4444', competitor_action: '#f59e0b', emerging_tech: '#10b981', platform_change: '#6366f1', regulatory_shift: '#ec4899', sector_trend: '#06b6d4' };
+              return (
+                <div key={type} style={{ background: 'rgba(0,0,0,0.2)', borderRadius: 8, padding: '8px 12px', display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <span style={{ width: 8, height: 8, borderRadius: '50%', background: colors[type] || '#64748b', display: 'inline-block' }}></span>
+                  <span style={{ fontSize: 11, color: '#cbd5e1', fontWeight: 600 }}>{type.replace(/_/g, ' ')}</span>
+                  <span style={{ fontSize: 13, fontWeight: 800, color: '#e2e8f0' }}>{count}</span>
+                </div>
+              );
+            })}
+          </div>
+          {stats.signals.by_impact && (
+            <div style={{ marginTop: 10, display: 'flex', gap: 12 }}>
+              {Object.entries(stats.signals.by_impact).map(([imp, cnt]) => (
+                <span key={imp} style={{ fontSize: 10, color: imp === 'high' ? '#ef4444' : '#f59e0b', fontWeight: 700 }}>{imp.toUpperCase()}: {cnt}</span>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Cadence status */}
+      {cadence && (
+        <div style={{ background: cadence.overdue ? 'rgba(239,68,68,0.06)' : 'rgba(16,185,129,0.06)', border: `1px solid ${cadence.overdue ? 'rgba(239,68,68,0.15)' : 'rgba(16,185,129,0.15)'}`, borderRadius: 12, padding: 14, marginTop: 16, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
+            <span style={{ fontSize: 11, fontWeight: 700, color: cadence.overdue ? '#ef4444' : '#10b981' }}>{cadence.overdue ? '⚠️ OVERDUE' : '✅ On Track'}</span>
+            <span style={{ fontSize: 11, color: '#94a3b8', marginLeft: 8 }}>Ciclo 10 días</span>
+          </div>
+          <span style={{ fontSize: 10, color: '#64748b' }}>Último brief: {cadence.last_brief_date?.substring(0, 10) || 'nunca'}</span>
+        </div>
+      )}
     </div>
   );
 }
