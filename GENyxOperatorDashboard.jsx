@@ -10657,6 +10657,113 @@ function Layer5CoverageTab() {
 }
 
 
+
+// ═══════════════════════════════════════════════════════════════════
+// 📊 DORACockpitTab — DORA Metrics (Q3-S3, Big Tech Pattern #4)
+// REGLA 8: FOUNDER-ONLY · REGLA 14: State of DevOps Report 2024
+// Endpoints: GET /api/admin/dora/score
+// ═══════════════════════════════════════════════════════════════════
+function DORACockpitTab() {
+  const adminKey = typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : '';
+  const headers = React.useMemo(() => ({ 'X-Admin-Key': adminKey }), [adminKey]);
+  const [dora, setDora] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    if (!adminKey) { setLoading(false); return; }
+    fetch(`${BACKEND}/api/admin/dora/score?window_days=30`, { headers })
+      .then(r => r.ok ? r.json() : null)
+      .then(d => { setDora(d); setLoading(false); })
+      .catch(() => setLoading(false));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [adminKey]);
+
+  if (!adminKey) return <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}><p style={{ fontSize: 13 }}>Admin key requerida.</p></div>;
+
+  const tierColor = { Elite: '#10b981', High: '#6366f1', Medium: '#f59e0b', Low: '#ef4444' };
+  const m = dora?.metrics || {};
+  const bd = dora?.breakdown || {};
+
+  return (
+    <div style={{ maxWidth: 800 }}>
+      <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>📊 DORA Metrics — DevOps Excellence</h3>
+
+      {loading && <p style={{ color: '#64748b', fontSize: 12 }}>Cargando DORA score...</p>}
+
+      {dora && (
+        <>
+          {/* Tier badge */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20, padding: '12px 16px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12 }}>
+            <div style={{ fontSize: 32, fontWeight: 900, color: tierColor[dora.tier] || '#64748b' }}>{dora.tier}</div>
+            <div>
+              <p style={{ fontSize: 11, color: '#94a3b8', margin: 0 }}>DORA Performance Tier · {dora.window_days}d window</p>
+              <p style={{ fontSize: 9, color: '#64748b', margin: '2px 0 0' }}>{dora.note || 'State of DevOps Report 2024 thresholds'}</p>
+            </div>
+          </div>
+
+          {/* 4 DORA metrics */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 10, marginBottom: 20 }}>
+            {[
+              { label: 'Deploy Freq', value: m.deployment_frequency_per_day?.toFixed(2) || '0', unit: '/day', icon: '🚀', target: '≥1.0 (Elite)' },
+              { label: 'Lead Time', value: m.lead_time_hours?.toFixed(1) || '0', unit: 'hrs', icon: '⏱️', target: '≤1h (Elite)' },
+              { label: 'MTTR', value: m.mttr_hours?.toFixed(1) || '0', unit: 'hrs', icon: '🔧', target: '≤1h (Elite)' },
+              { label: 'Change Fail %', value: m.change_failure_rate_pct?.toFixed(1) || '0', unit: '%', icon: '❌', target: '≤15% (Elite)' },
+            ].map(k => (
+              <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
+                <div style={{ fontSize: 18 }}>{k.icon}</div>
+                <div style={{ fontSize: 20, fontWeight: 800, color: '#e2e8f0', marginTop: 4 }}>{k.value}<span style={{ fontSize: 10, color: '#64748b', marginLeft: 2 }}>{k.unit}</span></div>
+                <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
+                <div style={{ fontSize: 8, color: '#475569', marginTop: 2 }}>{k.target}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Breakdown */}
+          <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
+            <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 10 }}>📋 Breakdown ({dora.window_days}d)</p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 10 }}>
+              {[
+                { label: 'Total deploys', value: bd.total_deploys || 0 },
+                { label: 'Successful', value: bd.successful_deploys || 0, color: '#10b981' },
+                { label: 'Failed', value: bd.failed_deploys || 0, color: bd.failed_deploys > 0 ? '#ef4444' : '#10b981' },
+                { label: 'Incidents w/ MTTR', value: bd.incidents_with_mttr || 0 },
+              ].map(b => (
+                <div key={b.label} style={{ textAlign: 'center' }}>
+                  <div style={{ fontSize: 15, fontWeight: 800, color: b.color || '#e2e8f0' }}>{b.value}</div>
+                  <div style={{ fontSize: 9, color: '#64748b', textTransform: 'uppercase' }}>{b.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Tier thresholds reference */}
+          <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16 }}>
+            <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>🎯 Tier Thresholds (State of DevOps 2024)</p>
+            <div style={{ display: 'grid', gridTemplateColumns: '120px repeat(4, 1fr)', gap: 4, fontSize: 10 }}>
+              <span style={{ color: '#64748b', fontWeight: 700 }}>Tier</span>
+              <span style={{ color: '#64748b', fontWeight: 700 }}>Deploy Freq</span>
+              <span style={{ color: '#64748b', fontWeight: 700 }}>Lead Time</span>
+              <span style={{ color: '#64748b', fontWeight: 700 }}>MTTR</span>
+              <span style={{ color: '#64748b', fontWeight: 700 }}>Fail Rate</span>
+              {dora.thresholds && Object.entries(dora.thresholds).map(([tier, t]) => (
+                <React.Fragment key={tier}>
+                  <span style={{ color: tierColor[tier], fontWeight: 700 }}>{tier}</span>
+                  <span style={{ color: '#94a3b8' }}>≥{t.deployment_frequency_per_day_min}/d</span>
+                  <span style={{ color: '#94a3b8' }}>≤{t.lead_time_hours_max}h</span>
+                  <span style={{ color: '#94a3b8' }}>≤{t.mttr_hours_max}h</span>
+                  <span style={{ color: '#94a3b8' }}>≤{t.change_failure_rate_pct_max}%</span>
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+
+      <p style={{ fontSize: 9, color: '#475569', textAlign: 'center', marginTop: 12 }}>DORA · State of DevOps Report 2024 · Live data from /api/admin/dora/score</p>
+    </div>
+  );
+}
+
 function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }) {
   const [selected, setSelected] = React.useState(null);
   const backstageAgents = [
@@ -10670,6 +10777,7 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
     { id: 'ORCHESTRATOR', icon: '🎯', name: 'ORCHESTRATOR', desc: 'Conversational Multi-Agent Audit. Audita cada turno conversacional, clasifica en 3 categorías, invoca agentes y genera alertas.', status: 'live' },
     { id: 'POSTMORTEMS', icon: '🔬', name: 'Postmortems', desc: 'Blameless incident postmortems. Timeline, root cause analysis, action items. Big Tech pattern #6 (Google SRE).', status: 'live' },
     { id: 'LAYER5', icon: '🛡️', name: 'Layer 5 Coverage', desc: 'Defense-in-depth visibility. 8 layers runtime (5A-5H). MEMORY adoption, drift coverage, gap heatmap.', status: 'live' },
+    { id: 'DORA', icon: '📊', name: 'DORA Metrics', desc: 'DevOps Excellence — Deployment Frequency, Lead Time, MTTR, Change Failure Rate. State of DevOps 2024 tiers.', status: 'live' },
   ];
   return (
     <div style={{ maxWidth: 1000 }}>
@@ -10708,6 +10816,7 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
            selected === 'ORCHESTRATOR' ? <OrchestratorDrillDown /> :
            selected === 'POSTMORTEMS' ? <PostmortemsDrillDown /> :
            selected === 'LAYER5' ? <Layer5CoverageTab /> :
+           selected === 'DORA' ? <DORACockpitTab /> :
            selected === 'DATA' ? <TabDataFounder adminKey={typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : ''} /> :
            <TabPlaceholderV2 icon="🤖" title={selected} desc="Drill-down en desarrollo." />}
         </>
@@ -11124,6 +11233,9 @@ function TabRadarIntel() {
                 </p>
               </div>
               <span style={{ fontSize: 10, fontWeight: 700, color: impactColor[impact], textTransform: 'uppercase' }}>{impact}</span>
+              {s.evidence_url && (
+                <a href={s.evidence_url} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} aria-label={`Ver fuente original: ${s.title}`} style={{ fontSize: 9, fontWeight: 600, color: '#818cf8', background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.2)', borderRadius: 4, padding: '2px 8px', textDecoration: 'none', whiteSpace: 'nowrap' }}>🔗 Ver original</a>
+              )}
             </div>
           );
         })}
