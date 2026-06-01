@@ -10474,18 +10474,25 @@ function AlertsBanner({ adminKey }) {
 
   React.useEffect(() => {
     if (!adminKey || dismissed) return;
+    let pollInterval = 30000; // start 30s, backoff on failure
+    let failCount = 0;
     const fetchAlerts = () => {
       fetch(`${BACKEND}/api/admin/memory/alerts`, { headers })
         .then(r => r.ok ? r.json() : { alerts: [] })
         .then(d => {
           const unack = (d.alerts || []).filter(a => !a.acknowledged);
           setAlerts(unack);
+          failCount = 0; // reset on success
+          pollInterval = 30000;
         })
-        .catch(() => {}); // fail-open
+        .catch(() => {
+          failCount++;
+          pollInterval = Math.min(30000 * Math.pow(2, failCount), 300000); // backoff 30s→60s→120s→cap 5min
+        });
     };
     fetchAlerts();
-    const interval = setInterval(fetchAlerts, 30000); // 30s polling sub-regla 17.8
-    return () => clearInterval(interval);
+    const intervalId = setInterval(() => fetchAlerts(), pollInterval);
+    return () => clearInterval(intervalId);
   }, [adminKey, dismissed, headers]);
 
   const handleAcknowledgeAll = () => {
@@ -10516,7 +10523,7 @@ function AlertsBanner({ adminKey }) {
         <span style={{ fontSize: 12, fontWeight: 700, color: hasCritical ? '#fca5a5' : '#fcd34d' }}>
           {alerts.length} alerta{alerts.length > 1 ? 's' : ''} MEMORY activa{alerts.length > 1 ? 's' : ''}
         </span>
-        <span style={{ fontSize: 10, color: '#94a3b8' }}>
+        <span style={{ fontSize: 10, color: '#94a3b8', cursor: 'pointer', textDecoration: 'underline', textDecorationStyle: 'dotted' }} onClick={e => { e.stopPropagation(); const memBtn = document.querySelector('[data-agent-id="MEMORY"]'); if (memBtn) memBtn.click(); }} role="button" tabIndex={0} aria-label="Ir a MEMORY">
           {alerts[0]?.message?.substring(0, 80) || 'Revisar en Backstage → MEMORY'}
         </span>
       </div>
@@ -10568,7 +10575,7 @@ function Layer5CoverageTab() {
 
   return (
     <div style={{ maxWidth: 800 }}>
-      <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }}>🛡️ Layer 5 Coverage — Defense-in-Depth</h3>
+      <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }} id="layer5-coverage-heading">🛡️ Layer 5 Coverage — Defense-in-Depth</h3>
       <p style={{ fontSize: 10, color: '#f59e0b', fontWeight: 600, marginBottom: 16, padding: '4px 8px', background: 'rgba(245,158,11,0.08)', borderRadius: 6, display: 'inline-block' }}>⚠️ v0.1 mock — BE-#21 drift-coverage endpoint pendiente</p>
 
       {loading && <p style={{ color: '#64748b', fontSize: 12 }}>Cargando...</p>}
@@ -10591,7 +10598,7 @@ function Layer5CoverageTab() {
       {/* Layer list */}
       <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
         {layers.map((l, i) => (
-          <div key={l.id} style={{ padding: '8px 0', borderBottom: i < layers.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none', display: 'flex', alignItems: 'center', gap: 10 }}>
+          <div key={l.id} role="listitem" aria-label={`Layer ${l.id}: ${l.name} — ${l.status}`} tabIndex={0} style={{ padding: '8px 0', borderBottom: i < layers.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none', display: 'flex', alignItems: 'center', gap: 10, outline: 'none' }} onKeyDown={e => e.key === 'Enter' && e.target.click()}>
             <span style={{ fontSize: 14, width: 20 }}>{statusIcon[l.status]}</span>
             <span style={{ fontSize: 11, fontWeight: 800, color: statusColor[l.status], width: 30 }}>{l.id}</span>
             <span style={{ fontSize: 11, fontWeight: 600, color: '#e2e8f0', width: 180 }}>{l.name}</span>
@@ -10648,7 +10655,7 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
       {!selected && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 14 }}>
           {backstageAgents.map(a => (
-            <button key={a.id} onClick={() => setSelected(a.id)} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: 20, cursor: 'pointer', textAlign: 'left' }}>
+            <button key={a.id} data-agent-id={a.id} onClick={() => setSelected(a.id)} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: 20, cursor: 'pointer', textAlign: 'left' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <span style={{ fontSize: 32 }}>{a.icon}</span>
                 <span style={{ fontSize: 9, fontWeight: 700, padding: '2px 8px', borderRadius: 6, textTransform: 'uppercase',
