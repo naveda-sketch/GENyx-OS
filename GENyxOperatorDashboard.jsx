@@ -9146,11 +9146,11 @@ function TabCockpitResumen({ tenants, orders, selectedSlug, health }) {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: 12 }}>
         {[
           { id: 'A0', icon: '🏗️', name: 'Arquitecto', status: 'OK', desc: 'Infraestructura estable' },
-          { id: 'A9', icon: '🛡️', name: 'Compliance', status: 'OK', desc: 'Legal y governance al día' },
-          { id: 'A10', icon: '🚀', name: 'Onboarding', status: 'OK', desc: 'Guía setup nuevos tenants' },
-          { id: 'AGUJA', icon: '🧭', name: 'AGUJA', status: 'OK', desc: 'Product Evolution — backend live' },
-          { id: 'MEMORY', icon: '🧠', name: 'MEMORY', status: 'MVP', desc: '214 docs · Endpoints live' },
-          { id: 'A12', icon: '🛡️', name: 'A12 Ciberseg', status: 'PROP', desc: 'CISO Digital propuesta' },
+          { id: 'A9', icon: '🛡️', name: 'Cumplimiento', status: 'OK', desc: 'Legal y gobernanza al día' },
+          { id: 'A10', icon: '🚀', name: 'Onboarding', status: 'OK', desc: 'Guía configuración nuevos clientes' },
+          { id: 'AGUJA', icon: '🧭', name: 'AGUJA', status: 'OK', desc: 'Evolución de producto — activo' },
+          { id: 'MEMORY', icon: '🧠', name: 'MEMORY', status: 'MVP', desc: '214 docs · Endpoints activos' },
+          { id: 'A12', icon: '🛡️', name: 'A12 Ciberseg', status: 'PROP', desc: 'CISO Digital — propuesta' },
         ].map(b => (
           <div key={b.id} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 6 }}>
@@ -9349,7 +9349,7 @@ function MemoryDrillDown() {
 
   if (!adminKey) return (
     <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}>
-      <p style={{ fontSize: 13 }}>Admin key requerida. Inicia sesión como administrador.</p>
+      <p style={{ fontSize: 13 }}>Clave de administrador requerida. Inicia sesión como administrador.</p>
     </div>
   );
 
@@ -9357,7 +9357,7 @@ function MemoryDrillDown() {
     <div style={{ maxWidth: 800 }}>
       <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🧠 MEMORY — Ojo Clínico del Fundador</h3>
 
-      {loading && <p style={{ color: '#9ca3af', fontSize: 12 }}>Cargando stats...</p>}
+      {loading && <p style={{ color: '#9ca3af', fontSize: 12 }}>Cargando estadísticas...</p>}
 
       {stats && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 20 }}>
@@ -9446,7 +9446,7 @@ function A0DrillDown() {
 
   if (!adminKey) return (
     <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}>
-      <p style={{ fontSize: 13 }}>Admin key requerida. Inicia sesión como administrador.</p>
+      <p style={{ fontSize: 13 }}>Clave de administrador requerida. Inicia sesión como administrador.</p>
     </div>
   );
 
@@ -9458,7 +9458,7 @@ function A0DrillDown() {
     <div style={{ maxWidth: 800 }}>
       <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🏛️ A0 — Arquitecto del Sistema</h3>
 
-      {loading && <p style={{ color: '#9ca3af', fontSize: 12 }}>Cargando stats...</p>}
+      {loading && <p style={{ color: '#9ca3af', fontSize: 12 }}>Cargando estadísticas...</p>}
 
       {data && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 20 }}>
@@ -9566,7 +9566,7 @@ function A9DrillDown() {
 
   if (!adminKey) return (
     <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}>
-      <p style={{ fontSize: 13 }}>Admin key requerida. Inicia sesión como administrador.</p>
+      <p style={{ fontSize: 13 }}>Clave de administrador requerida. Inicia sesión como administrador.</p>
     </div>
   );
 
@@ -9578,7 +9578,7 @@ function A9DrillDown() {
     <div style={{ maxWidth: 800 }}>
       <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🛡️ A9 — Compliance / Vigía</h3>
 
-      {loading && <p style={{ color: '#9ca3af', fontSize: 12 }}>Cargando stats...</p>}
+      {loading && <p style={{ color: '#9ca3af', fontSize: 12 }}>Cargando estadísticas...</p>}
 
       {data && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 20 }}>
@@ -9708,7 +9708,7 @@ function AgujaDrillDown() {
 
   if (!adminKey) return (
     <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}>
-      <p style={{ fontSize: 13 }}>Admin key requerida. Inicia sesión como administrador.</p>
+      <p style={{ fontSize: 13 }}>Clave de administrador requerida. Inicia sesión como administrador.</p>
     </div>
   );
 
@@ -9717,9 +9717,9 @@ function AgujaDrillDown() {
 
   return (
     <div style={{ maxWidth: 800 }}>
-      <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🧭 AGUJA — Product Evolution Strategist</h3>
+      <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🧭 AGUJA — Estratega de Evolución de Producto</h3>
 
-      {loading && <p style={{ color: '#9ca3af', fontSize: 12 }}>Cargando stats...</p>}
+      {loading && <p style={{ color: '#9ca3af', fontSize: 12 }}>Cargando estadísticas...</p>}
 
       {stats && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 10, marginBottom: 20 }}>
@@ -9743,7 +9743,7 @@ function AgujaDrillDown() {
       <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
         <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>📊 Briefs recientes</p>
         {briefs.length === 0 ? (
-          <p style={{ fontSize: 12, color: '#9ca3af', fontStyle: 'italic' }}>Sin briefs — AGUJA generará briefs de intelligence periódicamente.</p>
+          <p style={{ fontSize: 12, color: '#9ca3af', fontStyle: 'italic' }}>Sin briefs — AGUJA generará briefs de inteligencia periódicamente.</p>
         ) : briefs.map((b, i) => (
           <div key={i} style={{ padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', cursor: 'pointer' }} onClick={() => setExpandedBrief(expandedBrief === b.brief_id ? null : b.brief_id)}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
@@ -9757,7 +9757,7 @@ function AgujaDrillDown() {
             {expandedBrief === b.brief_id && (
               <div style={{ marginTop: 8, padding: 12, background: 'rgba(0,0,0,0.15)', borderRadius: 8 }}>
                 <p style={{ fontSize: 11, color: '#cbd5e1', lineHeight: 1.6, margin: '0 0 8px' }}>{b.executive_summary || 'Sin resumen ejecutivo.'}</p>
-                <p style={{ fontSize: 10, color: '#94a3b8', margin: '0 0 4px' }}><span style={{ fontWeight: 700 }}>Top priority:</span> {b.top_priority_action || '—'}</p>
+                <p style={{ fontSize: 10, color: '#94a3b8', margin: '0 0 4px' }}><span style={{ fontWeight: 700 }}>Prioridad principal:</span> {b.top_priority_action || '—'}</p>
                 <p style={{ fontSize: 10, color: '#9ca3af', margin: 0 }}>Período: {b.period_start?.substring(0, 10) || '?'} → {b.period_end?.substring(0, 10) || '?'} · {b.proposals_count || 0} proposals</p>
               </div>
             )}
@@ -9784,7 +9784,7 @@ function AgujaDrillDown() {
           ))}
         </div>
         {filteredProposals.length === 0 ? (
-          <p style={{ fontSize: 12, color: '#9ca3af', fontStyle: 'italic' }}>Sin proposals pendientes.</p>
+          <p style={{ fontSize: 12, color: '#9ca3af', fontStyle: 'italic' }}>Sin propuestas pendientes.</p>
         ) : filteredProposals.map((p, i) => {
           const pid = p.id || p.proposal_id;
           const isPending = p.status === 'proposed' || p.status === 'pending';
@@ -9814,7 +9814,7 @@ function AgujaDrillDown() {
       {/* Signals breakdown por tipo */}
       {stats?.signals?.by_type && (
         <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginTop: 16 }}>
-          <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 10 }}>📡 Signals por tipo (30d)</p>
+          <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 10 }}>📡 Señales por tipo (30d)</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
             {Object.entries(stats.signals.by_type).map(([type, count]) => {
               const colors = { big_tech_move: '#ef4444', competitor_action: '#f59e0b', emerging_tech: '#10b981', platform_change: '#6366f1', regulatory_shift: '#ec4899', sector_trend: '#06b6d4' };
@@ -9890,7 +9890,7 @@ function A12DrillDown() {
 
   if (!adminKey) return (
     <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}>
-      <p style={{ fontSize: 13 }}>Admin key requerida. Inicia sesión como administrador.</p>
+      <p style={{ fontSize: 13 }}>Clave de administrador requerida. Inicia sesión como administrador.</p>
     </div>
   );
 
@@ -9901,7 +9901,7 @@ function A12DrillDown() {
     <div style={{ maxWidth: 800 }}>
       <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🛡️ A12 — Ciberseguridad (CISO + DPO)</h3>
 
-      {loading && <p style={{ color: '#9ca3af', fontSize: 12 }}>Cargando stats...</p>}
+      {loading && <p style={{ color: '#9ca3af', fontSize: 12 }}>Cargando estadísticas...</p>}
 
       {stats && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 10, marginBottom: 20 }}>
@@ -10366,7 +10366,7 @@ function PostmortemsDrillDown() {
 
   if (!adminKey) return (
     <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}>
-      <p style={{ fontSize: 13 }}>Admin key requerida.</p>
+      <p style={{ fontSize: 13 }}>Clave de administrador requerida.</p>
     </div>
   );
 
@@ -10562,7 +10562,7 @@ function Layer5CoverageTab() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [adminKey]);
 
-  if (!adminKey) return <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}><p style={{ fontSize: 13 }}>Admin key requerida.</p></div>;
+  if (!adminKey) return <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}><p style={{ fontSize: 13 }}>Clave de administrador requerida.</p></div>;
 
   const statusColor = { green: '#10b981', yellow: '#f59e0b', red: '#ef4444' };
   const statusIcon = { green: '🟢', yellow: '🟡', red: '🔴' };
@@ -10684,7 +10684,7 @@ function DORACockpitTab() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [adminKey]);
 
-  if (!adminKey) return <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}><p style={{ fontSize: 13 }}>Admin key requerida.</p></div>;
+  if (!adminKey) return <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}><p style={{ fontSize: 13 }}>Clave de administrador requerida.</p></div>;
 
   const tierColor = { Elite: '#10b981', High: '#6366f1', Medium: '#f59e0b', Low: '#ef4444' };
   const m = dora?.metrics || {};
@@ -10773,7 +10773,7 @@ function DORACockpitTab() {
 
 // ═══════════════════════════════════════════════════════════════════
 // 🐒 ChaosTab — Chaos Engineering (Big Tech #1 · Q3-S4.5)
-// REGLA 8: FOUNDER-ONLY · REGLA 14: Chaos experiments visibility
+// REGLA 8: FOUNDER-ONLY · REGLA 14: Experimentos de caos visibility
 // Endpoints: GET /api/admin/chaos/audit-log
 // ═══════════════════════════════════════════════════════════════════
 function ChaosTab() {
@@ -10793,7 +10793,7 @@ function ChaosTab() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [adminKey]);
 
-  if (!adminKey) return <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}><p style={{ fontSize: 13 }}>Admin key requerida.</p></div>;
+  if (!adminKey) return <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}><p style={{ fontSize: 13 }}>Clave de administrador requerida.</p></div>;
 
   const statusColor = { success: '#10b981', failed: '#ef4444', running: '#3b82f6', aborted: '#f59e0b', deviated: '#a855f7' };
   const statusIcon = { success: '🟢', failed: '🔴', running: '🔵', aborted: '🟡', deviated: '🟣' };
@@ -10805,17 +10805,17 @@ function ChaosTab() {
 
   return (
     <div style={{ maxWidth: 800 }}>
-      <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🐒 Chaos Engineering — Big Tech #1</h3>
+      <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🐒 Ingeniería del Caos — Big Tech #1</h3>
 
       {loading && <p style={{ color: '#9ca3af', fontSize: 12 }}>Cargando experiments...</p>}
 
       {/* KPIs */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 10, marginBottom: 20 }}>
         {[
-          { label: 'Total experiments', value: experiments.length, icon: '🧪' },
-          { label: 'Last run', value: experiments[0]?.run_started_at?.substring(0, 10) || '—', icon: '📅' },
-          { label: 'Success rate', value: experiments.length > 0 ? `${Math.round(successCount / experiments.length * 100)}%` : '—', icon: '✅', color: successCount === experiments.length ? '#10b981' : '#f59e0b' },
-          { label: 'Deviations', value: deviatedCount, icon: '⚡', color: deviatedCount > 0 ? '#a855f7' : '#10b981' },
+          { label: 'Total experimentos', value: experiments.length, icon: '🧪' },
+          { label: 'Última ejecución', value: experiments[0]?.run_started_at?.substring(0, 10) || '—', icon: '📅' },
+          { label: 'Tasa de éxito', value: experiments.length > 0 ? `${Math.round(successCount / experiments.length * 100)}%` : '—', icon: '✅', color: successCount === experiments.length ? '#10b981' : '#f59e0b' },
+          { label: 'Desviaciones', value: deviatedCount, icon: '⚡', color: deviatedCount > 0 ? '#a855f7' : '#10b981' },
         ].map(k => (
           <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
             <div style={{ fontSize: 18 }}>{k.icon}</div>
@@ -10836,7 +10836,7 @@ function ChaosTab() {
       {!loading && experiments.length === 0 && (
         <div style={{ padding: 40, textAlign: 'center', background: 'rgba(255,255,255,0.02)', borderRadius: 14, border: '1px dashed rgba(255,255,255,0.08)' }}>
           <div style={{ fontSize: 48, marginBottom: 12 }}>🐒</div>
-          <p style={{ fontSize: 14, fontWeight: 600, color: '#94a3b8', margin: '0 0 6px' }}>Sin chaos experiments registrados aún</p>
+          <p style={{ fontSize: 14, fontWeight: 600, color: '#94a3b8', margin: '0 0 6px' }}>Sin experimentos de caos registrados aún</p>
           <p style={{ fontSize: 12, color: '#9ca3af', margin: 0 }}>El cron chaos-weekly corre lunes 04:00 UTC. Workflow: .github/workflows/chaos-weekly.yml</p>
         </div>
       )}
@@ -10856,17 +10856,17 @@ function ChaosTab() {
             </div>
             {selected === i && (
               <div style={{ marginTop: 10, paddingTop: 10, borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-                <p style={{ fontSize: 11, color: '#94a3b8', margin: '0 0 4px' }}><b style={{ color: '#cbd5e1' }}>Hypothesis:</b> {e.hypothesis || '—'}</p>
-                {e.deviation_detected && <p style={{ fontSize: 11, color: '#a855f7', margin: '4px 0' }}>⚡ Deviation: {e.deviation_detail || 'Detected'}</p>}
-                {e.rollback_action && <p style={{ fontSize: 11, color: '#f59e0b', margin: '4px 0' }}>🔄 Rollback: {e.rollback_action}</p>}
-                <p style={{ fontSize: 10, color: '#9ca3af', margin: '4px 0 0' }}>Started: {e.run_started_at || '?'} · Target: {e.target_endpoint || '?'}</p>
+                <p style={{ fontSize: 11, color: '#94a3b8', margin: '0 0 4px' }}><b style={{ color: '#cbd5e1' }}>Hipótesis:</b> {e.hypothesis || '—'}</p>
+                {e.deviation_detected && <p style={{ fontSize: 11, color: '#a855f7', margin: '4px 0' }}>⚡ Desviación: {e.deviation_detail || 'Detected'}</p>}
+                {e.rollback_action && <p style={{ fontSize: 11, color: '#f59e0b', margin: '4px 0' }}>🔄 Reversión: {e.rollback_action}</p>}
+                <p style={{ fontSize: 10, color: '#9ca3af', margin: '4px 0 0' }}>Inicio: {e.run_started_at || '?'} · Objetivo: {e.target_endpoint || '?'}</p>
               </div>
             )}
           </div>
         ))}
       </div>
 
-      <p style={{ fontSize: 9, color: '#9ca3af', textAlign: 'center', marginTop: 12 }}>Chaos Engineering · Big Tech #1 · Live data from /api/admin/chaos/audit-log</p>
+      <p style={{ fontSize: 9, color: '#9ca3af', textAlign: 'center', marginTop: 12 }}>Chaos Engineering · Big Tech #1 · Datos en vivo desde /api/admin/chaos/audit-log</p>
     </div>
   );
 }
@@ -10874,18 +10874,18 @@ function ChaosTab() {
 function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }) {
   const [selected, setSelected] = React.useState(null);
   const backstageAgents = [
-    { id: 'A0', icon: '🏛️', name: 'Arquitecto', desc: 'Diseñador y auditor del sistema GenyX. Candados, doctrina, auto-healing, bitácora operativa.', status: 'live' },
-    { id: 'A9', icon: '🛡️', name: 'Compliance', desc: 'Vigía legal y governance. Valida contratos, DPA, SLA. Audita cada operación contra doctrina.', status: 'live' },
-    { id: 'A10', icon: '🚀', name: 'Onboarding', desc: 'Guía nuevos tenants por el setup inicial. Alta automática, configuración modular, activación de agentes.', status: 'live' },
-    { id: 'AGUJA', icon: '🧭', name: 'AGUJA', desc: 'Product Evolution Strategist. Cada 10 días: brief market intelligence, tendencias Big Tech, pricing competitivo, propuestas de cambio para GenyX.', status: 'live' },
-    { id: 'MEMORY', icon: '🧠', name: 'MEMORY', desc: 'Ojo clínico del fundador. 3 verticales: coherencia doctrinal, coherencia técnica, coherencia operativa.', status: 'live_mvp' },
-    { id: 'A12', icon: '🛡️', name: 'A12 Ciberseguridad', desc: 'CISO Digital + DPO operacional. Secrets scanning, CVE check, OWASP audit, PII access audit. LFPDPPP + OWASP Top 10 + PCI DSS.', status: 'propuesta' },
-    { id: 'DATA', icon: '📊', name: 'DATA Fundador', desc: 'Métricas GenyX-wide: plataforma, MEMORY, AGUJA, A12, doctrina, smoke tests. Datos del fundador, NO de tenants.', status: 'live' },
-    { id: 'ORCHESTRATOR', icon: '🎯', name: 'ORCHESTRATOR', desc: 'Conversational Multi-Agent Audit. Audita cada turno conversacional, clasifica en 3 categorías, invoca agentes y genera alertas.', status: 'live' },
-    { id: 'POSTMORTEMS', icon: '🔬', name: 'Postmortems', desc: 'Blameless incident postmortems. Timeline, root cause analysis, action items. Big Tech pattern #6 (Google SRE).', status: 'live' },
-    { id: 'LAYER5', icon: '🛡️', name: 'Layer 5 Coverage', desc: 'Defense-in-depth visibility. 8 layers runtime (5A-5H). MEMORY adoption, drift coverage, gap heatmap.', status: 'live' },
-    { id: 'DORA', icon: '📊', name: 'DORA Metrics', desc: 'DevOps Excellence — Deployment Frequency, Lead Time, MTTR, Change Failure Rate. State of DevOps 2024 tiers.', status: 'live' },
-    { id: 'CHAOS', icon: '🐒', name: 'Chaos Engineering', desc: 'Chaos experiments — fault injection, latency, partitions. Big Tech Pattern #1. Weekly cron + manual triggers.', status: 'live' },
+    { id: 'A0', icon: '🏛️', name: 'Arquitecto', desc: 'Diseña y audita la arquitectura del sistema GenyX. Gestiona candados técnicos, doctrina, auto-healing y bitácora operativa.', info: 'A0 es el cerebro arquitectónico. Verifica que cada componente cumpla las reglas y candados del sistema.', status: 'activo' },
+    { id: 'A9', icon: '🛡️', name: 'Cumplimiento', desc: 'Vigía legal y de gobernanza. Valida contratos, DPA, SLA. Audita cada operación contra la doctrina vigente.', info: 'A9 garantiza que toda operación cumpla con las reglas legales, de privacidad (LFPDPPP) y gobernanza Tier 4.', status: 'activo' },
+    { id: 'A10', icon: '🚀', name: 'Onboarding', desc: 'Guía a nuevos clientes en su configuración inicial. Alta automática, módulos y activación de agentes.', info: 'A10 es el primer contacto del tenant. Configura módulos, activa agentes y valida que todo esté listo para operar.', status: 'activo' },
+    { id: 'AGUJA', icon: '🧭', name: 'AGUJA', desc: 'Estratega de evolución de producto. Cada 10 días genera briefs de inteligencia de mercado, tendencias y propuestas de cambio.', info: 'AGUJA analiza el mercado, competencia y tendencias Big Tech para proponer mejoras estratégicas al producto.', status: 'activo' },
+    { id: 'MEMORY', icon: '🧠', name: 'MEMORY', desc: 'Ojo clínico del fundador. 3 verticales: coherencia doctrinal, técnica y operativa.', info: 'MEMORY registra cada evento del sistema, detecta alertas de coherencia y permite recall de cualquier decisión pasada.', status: 'activo_mvp' },
+    { id: 'A12', icon: '🛡️', name: 'A12 Ciberseguridad', desc: 'CISO Digital + DPO operacional. Escaneo de secretos, CVE, auditoría OWASP, acceso PII. LFPDPPP + OWASP Top 10.', info: 'A12 es el guardia de ciberseguridad. Detecta vulnerabilidades, audita accesos y asegura cumplimiento de seguridad.', status: 'propuesta' },
+    { id: 'DATA', icon: '📊', name: 'DATA Fundador', desc: 'Métricas globales GenyX: plataforma, MEMORY, AGUJA, A12, doctrina y smoke tests. Datos del fundador.', info: 'DATA consolida todas las métricas de la plataforma en un solo panel para visibilidad total del fundador.', status: 'activo' },
+    { id: 'ORCHESTRATOR', icon: '🎯', name: 'Orquestador', desc: 'Auditoría conversacional multi-agente. Clasifica cada turno, invoca agentes especializados y genera alertas.', info: 'El Orquestador decide qué agente debe actuar en cada momento de una conversación con el cliente.', status: 'activo' },
+    { id: 'POSTMORTEMS', icon: '🔬', name: 'Postmortems', desc: 'Análisis de incidentes sin culpa. Línea de tiempo, causa raíz y acciones correctivas. Patrón Big Tech #6.', info: 'Postmortems documenta cada incidente de manera blameless, identifica causa raíz y define acciones para evitar recurrencia.', status: 'activo' },
+    { id: 'LAYER5', icon: '🛡️', name: 'Cobertura Capa 5', desc: 'Visibilidad defensa en profundidad. 8 capas runtime (5A-5H). Adopción MEMORY, cobertura de drift.', info: 'Capa 5 muestra el estado de las 8 capas de defensa runtime, detectando brechas y desviaciones de la doctrina.', status: 'activo' },
+    { id: 'DORA', icon: '📊', name: 'Métricas DORA', desc: 'Excelencia DevOps — Frecuencia de despliegue, Tiempo de entrega, MTTR, Tasa de fallos. Tiers State of DevOps 2024.', info: 'DORA mide la madurez de tu proceso de desarrollo con 4 métricas clave del informe State of DevOps.', status: 'activo' },
+    { id: 'CHAOS', icon: '🐒', name: 'Ingeniería del Caos', desc: 'Experimentos de caos — inyección de fallos, latencia, particiones. Patrón Big Tech #1. Cron semanal + manual.', info: 'Chaos prueba la resiliencia del sistema inyectando fallos controlados para descubrir vulnerabilidades antes que los usuarios.', status: 'activo' },
   ];
   return (
     <div style={{ maxWidth: 1000 }}>
@@ -10900,13 +10900,14 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <span style={{ fontSize: 32 }}>{a.icon}</span>
                 <span style={{ fontSize: 9, fontWeight: 700, padding: '2px 8px', borderRadius: 6, textTransform: 'uppercase',
-                  background: a.status === 'live' ? 'rgba(16,185,129,0.15)' : a.status === 'live_mvp' ? 'rgba(59,130,246,0.15)' : a.status === 'propuesta' ? 'rgba(245,158,11,0.15)' : 'rgba(100,116,139,0.15)',
-                  color: a.status === 'live' ? '#10b981' : a.status === 'live_mvp' ? '#3b82f6' : a.status === 'propuesta' ? '#f59e0b' : '#9ca3af',
-                }}>{a.status === 'live' ? '● LIVE' : a.status === 'live_mvp' ? '● MVP' : a.status === 'propuesta' ? '◐ PROPUESTA' : '○ PENDING'}</span>
+                  background: a.status === 'activo' ? 'rgba(16,185,129,0.15)' : a.status === 'activo_mvp' ? 'rgba(59,130,246,0.15)' : a.status === 'propuesta' ? 'rgba(245,158,11,0.15)' : 'rgba(100,116,139,0.15)',
+                  color: a.status === 'activo' ? '#10b981' : a.status === 'activo_mvp' ? '#3b82f6' : a.status === 'propuesta' ? '#f59e0b' : '#9ca3af',
+                }}>{a.status === 'activo' ? '● ACTIVO' : a.status === 'activo_mvp' ? '● MVP' : a.status === 'propuesta' ? '◐ PROPUESTA' : '○ PENDIENTE'}</span>
               </div>
               <div style={{ fontSize: 14, fontWeight: 700, color: '#f1f5f9', marginTop: 8 }}>{a.name}</div>
               <div style={{ fontSize: 10, color: '#9ca3af', marginBottom: 8 }}>{a.id}</div>
               <p style={{ fontSize: 12, color: '#94a3b8', margin: 0, lineHeight: 1.5 }}>{a.desc}</p>
+              {a.info && <p style={{ fontSize: 10, color: '#818cf8', margin: '6px 0 0', lineHeight: 1.4, display: 'flex', alignItems: 'flex-start', gap: 4 }}><span style={{ flexShrink: 0 }}>ℹ️</span> {a.info}</p>}
             </button>
           ))}
         </div>
