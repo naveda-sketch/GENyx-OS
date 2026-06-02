@@ -10300,7 +10300,7 @@ function OrchestratorDrillDown() {
             <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 10, padding: 12 }}>
               <p style={{ fontSize: 11, color: '#94a3b8', margin: '2px 0' }}><b style={{ color: '#e2e8f0' }}>Categoría:</b> {helperResult.categoria ?? '—'} {helperResult.categoria && <span style={{ background: (CAT_COLORS[helperResult.categoria] || CAT_COLORS[null]).bg, color: (CAT_COLORS[helperResult.categoria] || CAT_COLORS[null]).color, padding: '1px 6px', borderRadius: 4, fontSize: 9, fontWeight: 700, marginLeft: 4 }}>{(CAT_COLORS[helperResult.categoria] || CAT_COLORS[null]).label}</span>}</p>
               <p style={{ fontSize: 11, color: '#94a3b8', margin: '2px 0' }}><b style={{ color: '#e2e8f0' }}>Agents:</b> {(helperResult.recommended_agents || []).join(', ') || 'ninguno'}</p>
-              <p style={{ fontSize: 11, color: '#94a3b8', margin: '2px 0' }}><b style={{ color: '#e2e8f0' }}>Confidence:</b> {helperResult.confidence ?? '—'}</p>
+              <p style={{ fontSize: 11, color: '#94a3b8', margin: '2px 0' }}><b style={{ color: '#e2e8f0' }}>Confianza:</b> {helperResult.confidence ?? '—'}</p>
             </div>
           )
         )}
@@ -11081,13 +11081,13 @@ function TabDataFounder({ adminKey }) {
 // ═══════════════════════════════════════════════════════════════════
 
 const RADAR_CATEGORIES = [
-  { id: 'competitors', label: '🎯 Competitors', query: 'Latest funding + product updates Sierra AI, Decagon, Cognition Labs Q2 2026' },
-  { id: 'industry', label: '🏭 Industry', query: 'Multi-agent AI platforms enterprise B2B trends 2026' },
-  { id: 'regulation', label: '⚖️ Regulation Mx', query: 'LFPDPPP updates 2026 AI compliance México regulatory' },
-  { id: 'tech', label: '⚡ Tech Trends', query: 'Defense-in-depth post-2024 evolution beyond 4 layers' },
-  { id: 'chaos', label: '🔥 Chaos Eng', query: 'Chaos engineering 2026 Netflix evolution successors enterprise' },
-  { id: 'soc2', label: '🛡️ SOC 2 Prep', query: 'SOC 2 Type II 2026 Vanta vs Drata vs Secureframe comparison startup' },
-  { id: 'dora', label: '📏 DORA Metrics', query: 'DORA 2025 report key findings DevOps Elite tier' },
+  { id: 'competitors', label: '🎯 Competidores', query: 'Latest funding + product updates Sierra AI, Decagon, Cognition Labs Q2 2026' },
+  { id: 'industry', label: '🏭 Industria', query: 'Multi-agent AI platforms enterprise B2B trends 2026' },
+  { id: 'regulation', label: '⚖️ Regulación Mx', query: 'LFPDPPP updates 2026 AI compliance México regulatory' },
+  { id: 'tech', label: '⚡ Tendencias Tech', query: 'Defense-in-depth post-2024 evolution beyond 4 layers' },
+  { id: 'chaos', label: '🔥 Ingeniería Caos', query: 'Chaos engineering 2026 Netflix evolution successors enterprise' },
+  { id: 'soc2', label: '🛡️ Prep SOC 2', query: 'SOC 2 Type II 2026 Vanta vs Drata vs Secureframe comparison startup' },
+  { id: 'dora', label: '📏 Métricas DORA', query: 'DORA 2025 report key findings DevOps Elite tier' },
 ];
 
 function RadarSignalModal({ signal, onClose, onReInvestigate }) {
@@ -11141,7 +11141,7 @@ function RadarSignalModal({ signal, onClose, onReInvestigate }) {
 
         {/* Meta */}
         <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', paddingTop: 12, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-          {signal.confidence && <span style={{ fontSize: 10, color: '#9ca3af' }}>Confidence: <b style={{ color: '#94a3b8' }}>{signal.confidence}</b></span>}
+          {signal.confidence && <span style={{ fontSize: 10, color: '#9ca3af' }}>Confianza: <b style={{ color: '#94a3b8' }}>{signal.confidence}</b></span>}
           {signal.created_at && <span style={{ fontSize: 10, color: '#9ca3af' }}>Fecha: <b style={{ color: '#94a3b8' }}>{new Date(signal.created_at).toLocaleDateString()}</b></span>}
           {signal.source && <span style={{ fontSize: 10, color: '#9ca3af' }}>Fuente: <b style={{ color: '#94a3b8' }}>{signal.source}</b></span>}
           {onReInvestigate && <button onClick={() => onReInvestigate(signal.title)} style={{ marginLeft: 'auto', fontSize: 11, fontWeight: 600, color: '#818cf8', background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.2)', borderRadius: 6, padding: '4px 12px', cursor: 'pointer' }}>🔄 Re-investigar</button>}
@@ -11228,10 +11228,10 @@ function TabRadarIntel() {
       {/* Header */}
       <div style={{ marginBottom: 20 }}>
         <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', margin: '0 0 4px', display: 'flex', alignItems: 'center', gap: 8 }}>
-          🛰️ RADAR Intel
-          {stats && <span style={{ fontSize: 11, fontWeight: 400, color: '#9ca3af', fontFamily: 'monospace' }}>{stats.signals_total} signals · {stats.model}</span>}
+          🛰️ RADAR Inteligencia
+          {stats && <span style={{ fontSize: 11, fontWeight: 400, color: '#9ca3af', fontFamily: 'monospace' }}>{stats.signals_total} señales · {stats.model}</span>}
         </h2>
-        <p style={{ fontSize: 13, color: '#9ca3af', margin: 0 }}>Competitive intelligence grounded con Gemini 2.5 Pro + Google Search.</p>
+        <p style={{ fontSize: 13, color: '#9ca3af', margin: 0 }}>Inteligencia competitiva con Gemini 2.5 Pro + Google Search.</p>
       </div>
 
       {/* Search */}
@@ -11277,7 +11277,7 @@ function TabRadarIntel() {
       {loading && (
         <div style={{ padding: 24, background: 'rgba(99,102,241,0.06)', borderRadius: 14, border: '1px solid rgba(99,102,241,0.15)', marginBottom: 20, textAlign: 'center' }}>
           <div style={{ fontSize: 32, marginBottom: 8, animation: 'pulse 2s infinite' }}>🛰️</div>
-          <p style={{ fontSize: 13, fontWeight: 600, color: '#a5b4fc', margin: '0 0 4px' }}>Investigando con Gemini 2.5 Pro grounded...</p>
+          <p style={{ fontSize: 13, fontWeight: 600, color: '#a5b4fc', margin: '0 0 4px' }}>Investigando con Gemini 2.5 Pro...</p>
           <p style={{ fontSize: 11, color: '#9ca3af', margin: 0 }}>Esto puede tomar 30-60 segundos (cold-start Render + grounding Google Search)</p>
         </div>
       )}
@@ -11285,7 +11285,7 @@ function TabRadarIntel() {
       {/* Scan result summary */}
       {scanResult && !scanResult.error && (
         <div style={{ padding: '12px 16px', background: 'rgba(34,197,94,0.06)', borderRadius: 12, border: '1px solid rgba(34,197,94,0.12)', marginBottom: 16 }}>
-          <p style={{ fontSize: 12, fontWeight: 700, color: '#4ade80', margin: '0 0 4px' }}>✅ Scan completo · {scanResult.signals?.length || 0} signals · {scanResult.signals_persisted || 0} persistidos</p>
+          <p style={{ fontSize: 12, fontWeight: 700, color: '#4ade80', margin: '0 0 4px' }}>✅ Scan completo · {scanResult.signals?.length || 0} señales · {scanResult.signals_persisted || 0} persistidas</p>
           {scanResult.summary && <p style={{ fontSize: 11, color: '#94a3b8', margin: 0, lineHeight: 1.5 }}>{scanResult.summary}</p>}
         </div>
       )}
@@ -11310,12 +11310,12 @@ function TabRadarIntel() {
       {!loading && !loadingHistory && filteredSignals.length === 0 && (
         <div style={{ padding: 40, textAlign: 'center', background: 'rgba(255,255,255,0.02)', borderRadius: 14, border: '1px dashed rgba(255,255,255,0.08)' }}>
           <div style={{ fontSize: 48, marginBottom: 12 }}>🛰️</div>
-          <p style={{ fontSize: 14, fontWeight: 600, color: '#94a3b8', margin: '0 0 6px' }}>{showStarredOnly ? 'No hay signals marcados como importantes' : 'Sin signals todavía'}</p>
-          <p style={{ fontSize: 12, color: '#9ca3af', margin: 0 }}>{showStarredOnly ? 'Marca signals con ★ para verlos aquí' : 'Click "🎯 Competitors" arriba para tu primera investigación'}</p>
+          <p style={{ fontSize: 14, fontWeight: 600, color: '#94a3b8', margin: '0 0 6px' }}>{showStarredOnly ? 'No hay señales marcadas como importantes' : 'Sin señales todavía'}</p>
+          <p style={{ fontSize: 12, color: '#9ca3af', margin: 0 }}>{showStarredOnly ? 'Marca señales con ★ para verlas aquí' : 'Clic en "🎯 Competidores" arriba para tu primera investigación'}</p>
         </div>
       )}
 
-      {loadingHistory && <p style={{ fontSize: 12, color: '#9ca3af', textAlign: 'center', padding: 20 }}>Cargando historial de signals...</p>}
+      {loadingHistory && <p style={{ fontSize: 12, color: '#9ca3af', textAlign: 'center', padding: 20 }}>Cargando historial de señales...</p>}
 
       {/* Signals list */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
