@@ -94,7 +94,7 @@ const TOKENS = (brandColor) => {
     text: '#f1f5f9',
     textMuted: '#94a3b8',
     textDim: '#64748b',
-    textFaint: '#475569',
+    textFaint: '#64748b',
 
     success: '#10b981',
     warning: '#f59e0b',
@@ -797,9 +797,9 @@ const NewsFeed = ({ health, orders, tenants }) => {
 
       {/* News headlines */}
       {loading ? (
-        <p style={{ fontSize: 12, color: '#475569', textAlign: 'center', padding: '12px 0' }}>Cargando noticias…</p>
+        <p style={{ fontSize: 12, color: '#64748b', textAlign: 'center', padding: '12px 0' }}>Cargando noticias…</p>
       ) : news.length === 0 ? (
-        <p style={{ fontSize: 12, color: '#475569', textAlign: 'center', padding: '12px 0' }}>No se pudieron cargar las noticias. Intenta recargando.</p>
+        <p style={{ fontSize: 12, color: '#64748b', textAlign: 'center', padding: '12px 0' }}>No se pudieron cargar las noticias. Intenta recargando.</p>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           {news.map((item, i) => (
@@ -815,7 +815,7 @@ const NewsFeed = ({ health, orders, tenants }) => {
         </div>
       )}
 
-      {health && <div style={{ marginTop: 12, padding: '6px 12px', background: '#0f172a50', borderRadius: 8, fontSize: 10, color: '#475569' }}>
+      {health && <div style={{ marginTop: 12, padding: '6px 12px', background: '#0f172a50', borderRadius: 8, fontSize: 10, color: '#64748b' }}>
         🟢 Backend v{health.version} en línea · {health.tenants_active} tenant(s)
       </div>}
     </div>
@@ -1079,7 +1079,7 @@ function SystemAuditPanel() {
               </div>
             );
           })}
-          <p style={{ ...MONO, fontSize: 9, color: '#475569', textAlign: 'right', marginTop: 4 }}>
+          <p style={{ ...MONO, fontSize: 9, color: '#64748b', textAlign: 'right', marginTop: 4 }}>
             Completado en {auditResult.ms}ms
           </p>
         </div>
@@ -1141,14 +1141,14 @@ const TabHerramientas = ({ health, orders, tenants, selectedSlug }) => {
         <h3 style={{ fontWeight: 700, fontSize: 14, color: '#f87171', marginBottom: 6 }}>🚨 Botón de Pánico — Gestión de Cliente</h3>
         <p style={{ fontSize: 12, color: '#64748b', marginBottom: 16 }}>Suspende o reactiva un cliente que no ha pagado. Su bot se desactiva inmediatamente pero sus datos se conservan.</p>
         <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 12 }}>
-          <select value={panicSlug} onChange={e => setPanicSlug(e.target.value)}
+          <select aria-label="Seleccionar tenant para acción" value={panicSlug} onChange={e => setPanicSlug(e.target.value)}
             style={{ flex: 1, minWidth: 180, background: '#1e293b', border: '1px solid rgba(255,255,255,0.1)', color: '#cbd5e1', padding: '8px 12px', borderRadius: 8, fontSize: 13 }}>
             <option value="">— Seleccionar cliente —</option>
             {tenants.map(t => <option key={t.slug} value={t.slug}>{t.name || t.slug} ({t.status})</option>)}
           </select>
         </div>
         {panicSlug && <PanicConfirmBlock tenantName={tenants.find(t => t.slug === panicSlug)?.name || panicSlug} onPanic={handlePanic} panicStatus={panicStatus} />}
-        {!panicSlug && <p style={{ fontSize: 12, color: '#475569', fontStyle: 'italic' }}>Selecciona un cliente para habilitar las acciones.</p>}
+        {!panicSlug && <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Selecciona un cliente para habilitar las acciones.</p>}
       </div>
 
       {/* ── Reset Sesión ── */}
@@ -1606,7 +1606,7 @@ const TabReporteLunes = ({ tenants }) => {
         </p>
         <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
           <label style={LABEL}>Selecciona cliente:</label>
-          <select value={selectedSlug} onChange={e => setSelectedSlug(e.target.value)} style={{ ...INPUT, maxWidth: 280 }}>
+          <select aria-label="Filtrar por tenant" value={selectedSlug} onChange={e => setSelectedSlug(e.target.value)} style={{ ...INPUT, maxWidth: 280 }}>
             <option value="">— Selecciona un cliente —</option>
             {tenants.map(t => <option key={t.slug} value={t.slug}>{t.name || t.slug}</option>)}
           </select>
@@ -1893,7 +1893,7 @@ const TabExpedientes = ({ tenants }) => {
               </div>
             );
           })}
-          <p style={{ fontSize: 10, color: '#475569', marginTop: 4, textAlign: 'center' }}>
+          <p style={{ fontSize: 10, color: '#64748b', marginTop: 4, textAlign: 'center' }}>
             Clic en un cliente para abrir su expediente
           </p>
         </div>
@@ -1926,7 +1926,7 @@ const TabExpedientes = ({ tenants }) => {
                 {saveMsg && <span style={{ fontSize: 12, color: saveMsg.startsWith('✅') ? '#4ade80' : '#f87171' }}>{saveMsg}</span>}
                 {loadingExp && <span style={{ fontSize: 11, color: '#64748b' }}>⏳ Cargando del servidor...</span>}
               </div>
-              <p style={{ fontSize: 10, color: '#475569', marginTop: 8 }}>
+              <p style={{ fontSize: 10, color: '#64748b', marginTop: 8 }}>
                 Clic en el ícono de estado para ciclarlo: ⬜→✅→⚠️→❌→➖ · Escribe en el campo para guardar el valor real.
               </p>
             </div>
@@ -1955,10 +1955,10 @@ const TabExpedientes = ({ tenants }) => {
                             placeholder={field}
                             value={entry.value || ''}
                             onChange={e => setFieldValue(selected, section.key, field, e.target.value)}
-                            style={{ ...INPUT, fontSize: 12, padding: '5px 10px', background: 'rgba(255,255,255,0.03)', color: entry.value ? '#e2e8f0' : '#475569' }}
+                            style={{ ...INPUT, fontSize: 12, padding: '5px 10px', background: 'rgba(255,255,255,0.03)', color: entry.value ? '#e2e8f0' : '#64748b' }}
                           />
                           {/* Field label (right) */}
-                          <span style={{ fontSize: 10, color: '#475569', whiteSpace: 'nowrap', minWidth: 0 }}></span>
+                          <span style={{ fontSize: 10, color: '#64748b', whiteSpace: 'nowrap', minWidth: 0 }}></span>
                         </div>
                       );
                     })}
@@ -2034,7 +2034,7 @@ const TabManuales = () => {
               <button onClick={() => copyCmd(s.cmd, s.cmdId)} style={{ position: 'absolute', top: 8, right: 8, fontSize: 10, background: '#1e293b', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)', padding: '4px 10px', borderRadius: 6, cursor: 'pointer' }}>
                 {copiedCmd === s.cmdId ? '✅' : '📋'}
               </button>
-              {s.expected && <p style={{ fontSize: 10, ...MONO, color: '#475569' }}>Esperado: {s.expected}</p>}
+              {s.expected && <p style={{ fontSize: 10, ...MONO, color: '#64748b' }}>Esperado: {s.expected}</p>}
             </div>
           )}
         </div>
@@ -2092,7 +2092,7 @@ const TabOnboarding = () => {
     width: 28, height: 28, borderRadius: '50%', display: 'flex', alignItems: 'center',
     justifyContent: 'center', fontSize: 12, fontWeight: 700,
     background: step >= n ? GENYX_BRAND : 'rgba(255,255,255,0.08)',
-    color: step >= n ? '#fff' : '#475569', flexShrink: 0
+    color: step >= n ? '#fff' : '#64748b', flexShrink: 0
   });
 
   if (result) return (
@@ -2131,7 +2131,7 @@ const TabOnboarding = () => {
           <React.Fragment key={i}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer' }} onClick={() => i + 1 < step && setStep(i + 1)}>
               <div style={stepStyle(i + 1)}>{i + 1}</div>
-              <span style={{ fontSize: 12, color: step === i + 1 ? GB_SOFT : '#475569', fontWeight: step === i + 1 ? 700 : 400 }}>{label}</span>
+              <span style={{ fontSize: 12, color: step === i + 1 ? GB_SOFT : '#64748b', fontWeight: step === i + 1 ? 700 : 400 }}>{label}</span>
             </div>
             {i < 2 && <div style={{ flex: 1, height: 1, background: step > i + 1 ? GENYX_BRAND : 'rgba(255,255,255,0.08)' }} />}
           </React.Fragment>
@@ -2155,12 +2155,12 @@ const TabOnboarding = () => {
             <div>
               <label style={LABEL}>Slug (ID único del cajón) *</label>
               <input style={{ ...INPUT, fontFamily: 'monospace', color: GB_SOFT }} value={form.slug} placeholder="tacos-el-guero" onChange={e => set('slug', e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, ''))} />
-              <p style={{ fontSize: 10, color: '#475569', marginTop: 4 }}>Se usa en la URL del dashboard: mando.genyxsystems.com/<strong>{form.slug || 'slug'}</strong></p>
+              <p style={{ fontSize: 10, color: '#64748b', marginTop: 4 }}>Se usa en la URL del dashboard: mando.genyxsystems.com/<strong>{form.slug || 'slug'}</strong></p>
             </div>
             <div>
               <label style={LABEL}>Dashboard PIN *</label>
               <input style={INPUT} value={form.dashboard_pin} placeholder="guero2024" onChange={e => set('dashboard_pin', e.target.value)} />
-              <p style={{ fontSize: 10, color: '#475569', marginTop: 4 }}>El cliente usa este PIN para acceder a su dashboard.</p>
+              <p style={{ fontSize: 10, color: '#64748b', marginTop: 4 }}>El cliente usa este PIN para acceder a su dashboard.</p>
             </div>
             <div>
               <label style={LABEL}>Meta Phone Number ID (WaB)</label>
@@ -2169,7 +2169,7 @@ const TabOnboarding = () => {
             <div>
               <label style={LABEL}>Redes Sociales (cancel URL de Stripe)</label>
               <input style={INPUT} value={form.social_url} placeholder="https://instagram.com/negocio (Instagram, Facebook, TikTok...)" onChange={e => set('social_url', e.target.value)} />
-              <p style={{ fontSize: 10, color: '#475569', marginTop: 4 }}>Si el cliente cancela el pago, lo llevas aquí. Sin RRSS → va al WaB. Sin nada → página cierra-pestaña.</p>
+              <p style={{ fontSize: 10, color: '#64748b', marginTop: 4 }}>Si el cliente cancela el pago, lo llevas aquí. Sin RRSS → va al WaB. Sin nada → página cierra-pestaña.</p>
             </div>
           </div>
         )}
@@ -2574,7 +2574,7 @@ const TabMarketing = ({ selectedSlug }) => {
                         ))}
                       </div>
                     </div>
-                    <span style={{ fontSize: 10, color: '#475569', fontFamily: 'monospace', whiteSpace: 'nowrap' }}>{entry.date}</span>
+                    <span style={{ fontSize: 10, color: '#64748b', fontFamily: 'monospace', whiteSpace: 'nowrap' }}>{entry.date}</span>
                   </div>
                 ))}
               </div>
@@ -2629,7 +2629,7 @@ const TabMarketing = ({ selectedSlug }) => {
                       <button onClick={handleRequestEmailCode} disabled={otpCode.length !== 6}
                         style={{ width: '100%', padding: '10px 14px', borderRadius: 8, fontSize: 13, fontWeight: 700,
                           background: otpCode.length === 6 ? GBa(0.15) : 'rgba(255,255,255,0.04)',
-                          color: otpCode.length === 6 ? GB_SOFT : '#475569',
+                          color: otpCode.length === 6 ? GB_SOFT : '#64748b',
                           border: `1px solid ${otpCode.length === 6 ? GBa(0.3) : 'rgba(255,255,255,0.08)'}`,
                           cursor: otpCode.length === 6 ? 'pointer' : 'not-allowed',
                           opacity: otpCode.length === 6 ? 1 : 0.4 }}>
@@ -2662,7 +2662,7 @@ const TabMarketing = ({ selectedSlug }) => {
                   {/* Botones */}
                   <div style={{ display: 'flex', gap: 8 }}>
                     <button onClick={handleApprove} disabled={otpCode.length !== 6 || emailCode.length !== 6}
-                      style={{ flex: 1, background: (otpCode.length === 6 && emailCode.length === 6) ? '#14532d' : 'rgba(255,255,255,0.04)', color: (otpCode.length === 6 && emailCode.length === 6) ? '#86efac' : '#475569', padding: '12px 20px', borderRadius: 8, fontSize: 14, fontWeight: 700, cursor: (otpCode.length === 6 && emailCode.length === 6) ? 'pointer' : 'not-allowed', border: `1px solid ${(otpCode.length === 6 && emailCode.length === 6) ? 'rgba(34,197,94,0.3)' : 'rgba(255,255,255,0.08)'}`, opacity: (otpCode.length === 6 && emailCode.length === 6) ? 1 : 0.4 }}>
+                      style={{ flex: 1, background: (otpCode.length === 6 && emailCode.length === 6) ? '#14532d' : 'rgba(255,255,255,0.04)', color: (otpCode.length === 6 && emailCode.length === 6) ? '#86efac' : '#64748b', padding: '12px 20px', borderRadius: 8, fontSize: 14, fontWeight: 700, cursor: (otpCode.length === 6 && emailCode.length === 6) ? 'pointer' : 'not-allowed', border: `1px solid ${(otpCode.length === 6 && emailCode.length === 6) ? 'rgba(34,197,94,0.3)' : 'rgba(255,255,255,0.08)'}`, opacity: (otpCode.length === 6 && emailCode.length === 6) ? 1 : 0.4 }}>
                       ✅ Aprobar Estrategia
                     </button>
                     <button onClick={() => setShowReject(!showReject)}
@@ -2689,7 +2689,7 @@ const TabMarketing = ({ selectedSlug }) => {
             <div style={{ background: 'rgba(19,25,40,0.9)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: '40px 22px', textAlign: 'center' }}>
               <p style={{ fontSize: 36, marginBottom: 10 }}>📋</p>
               <p style={{ fontSize: 14, color: '#64748b' }}>No hay estrategia generada aún.</p>
-              <p style={{ fontSize: 12, color: '#475569', marginTop: 4 }}>Genera una para esta semana.</p>
+              <p style={{ fontSize: 12, color: '#64748b', marginTop: 4 }}>Genera una para esta semana.</p>
             </div>
           )}
 
@@ -2724,7 +2724,7 @@ const TabMarketing = ({ selectedSlug }) => {
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span style={{ fontSize: 11, color: '#64748b' }}>Email</span>
-                <span style={{ fontSize: 12, color: config.owner_email ? '#e2e8f0' : '#475569', fontFamily: 'monospace' }}>{config.owner_email || '—'}</span>
+                <span style={{ fontSize: 12, color: config.owner_email ? '#e2e8f0' : '#64748b', fontFamily: 'monospace' }}>{config.owner_email || '—'}</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span style={{ fontSize: 11, color: '#64748b' }}>Redes</span>
@@ -2737,7 +2737,7 @@ const TabMarketing = ({ selectedSlug }) => {
           <div style={{ background: 'rgba(19,25,40,0.9)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: '16px 18px' }}>
             <h4 style={{ fontWeight: 700, fontSize: 12, color: '#94a3b8', marginBottom: 12, textTransform: 'uppercase', letterSpacing: '.06em' }}>📜 Historial reciente</h4>
             {recent_log.length === 0 ? (
-              <p style={{ fontSize: 12, color: '#475569', textAlign: 'center', padding: '16px 0' }}>Sin acciones registradas</p>
+              <p style={{ fontSize: 12, color: '#64748b', textAlign: 'center', padding: '16px 0' }}>Sin acciones registradas</p>
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: 6, maxHeight: 400, overflowY: 'auto' }}>
                 {recent_log.map((entry, i) => (
@@ -2746,7 +2746,7 @@ const TabMarketing = ({ selectedSlug }) => {
                       <span style={{ fontSize: 14 }}>{TYPE_EMOJI[entry.type] || '📌'}</span>
                       <div>
                         <p style={{ fontSize: 11, fontWeight: 600, color: '#e2e8f0' }}>{entry.type}</p>
-                        <p style={{ fontSize: 9, color: '#475569', fontFamily: 'monospace' }}>{entry.executed_at ? new Date(entry.executed_at + 'Z').toLocaleString('es-MX', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : '—'}</p>
+                        <p style={{ fontSize: 9, color: '#64748b', fontFamily: 'monospace' }}>{entry.executed_at ? new Date(entry.executed_at + 'Z').toLocaleString('es-MX', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : '—'}</p>
                       </div>
                     </div>
                     <span style={{ fontSize: 9, padding: '2px 8px', borderRadius: 4, fontWeight: 700, textTransform: 'uppercase',
@@ -2766,7 +2766,7 @@ const TabMarketing = ({ selectedSlug }) => {
 };
 
 const Spinner = () => <div style={{ display: 'flex', justifyContent: 'center', padding: 60 }}><div style={{ width: 32, height: 32, border: '2px solid #3b82f6', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} /></div>;
-const Empty = ({ icon, msg, sub }) => <div style={{ textAlign: 'center', padding: '60px 24px', color: '#475569' }}><p style={{ fontSize: 36, marginBottom: 10 }}>{icon}</p><p style={{ fontSize: 14 }}>{msg}</p>{sub && <p style={{ fontSize: 12, marginTop: 8, color: '#f59e0b' }}>⚠️ {sub}</p>}</div>;
+const Empty = ({ icon, msg, sub }) => <div style={{ textAlign: 'center', padding: '60px 24px', color: '#64748b' }}><p style={{ fontSize: 36, marginBottom: 10 }}>{icon}</p><p style={{ fontSize: 14 }}>{msg}</p>{sub && <p style={{ fontSize: 12, marginTop: 8, color: '#f59e0b' }}>⚠️ {sub}</p>}</div>;
 const KpiCard = ({ label, value, icon }) => <div style={{ ...CARD, textAlign: 'center', padding: '16px 12px' }}><p style={{ fontSize: 22, marginBottom: 4 }}>{icon}</p><p style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9' }}>{value}</p><p style={{ fontSize: 11, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.05em' }}>{label}</p></div>;
 const KpiMini = ({ label, value }) => <div><p style={{ fontSize: 16, fontWeight: 700, color: '#f1f5f9' }}>{value}</p><p style={{ fontSize: 11, color: '#64748b' }}>{label}</p></div>;
 
@@ -2973,7 +2973,7 @@ const AgentChat = ({ agentId, agentName, agentIcon }) => {
         <strong style={{ fontSize: 13, color: '#f1f5f9' }}>Chat con {agentId} — {agentName}</strong>
       </div>
       <div style={{ flex: 1, overflowY: 'auto', padding: 16, display: 'flex', flexDirection: 'column', gap: 10, minHeight: 200, maxHeight: 420 }}>
-        {messages.length === 0 && <p style={{ color: '#475569', fontStyle: 'italic', fontSize: 12, textAlign: 'center', margin: 'auto 0' }}>Empieza la conversación con {agentId}...</p>}
+        {messages.length === 0 && <p style={{ color: '#64748b', fontStyle: 'italic', fontSize: 12, textAlign: 'center', margin: 'auto 0' }}>Empieza la conversación con {agentId}...</p>}
         {messages.map((m, i) => (
           <div key={i} style={{ alignSelf: m.role === 'user' ? 'flex-end' : 'flex-start', maxWidth: '80%', padding: '10px 14px', borderRadius: m.role === 'user' ? '14px 14px 4px 14px' : '14px 14px 14px 4px', background: m.role === 'user' ? GBa(0.2) : 'rgba(255,255,255,0.04)', color: '#e2e8f0', fontSize: 13, lineHeight: 1.5 }}>
             {m.text}
@@ -3075,7 +3075,7 @@ function AdminLoginScreen({ onAuth }) {
         </div>
         {/* Card */}
         <div style={{ background: '#0c1220', border: `1px solid ${GBa(0.25)}`, borderRadius: 16, padding: '32px 28px', boxShadow: `0 0 40px ${GBa(0.08)}` }}>
-          <p style={{ fontSize: 11, color: '#475569', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '.1em', marginBottom: 20, textTransform: 'uppercase' }}>$ authenticate --role=admin</p>
+          <p style={{ fontSize: 11, color: '#64748b', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '.1em', marginBottom: 20, textTransform: 'uppercase' }}>$ authenticate --role=admin</p>
           <form onSubmit={handleSubmit}>
             <label style={{ fontSize: 11, color: '#64748b', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', display: 'block', marginBottom: 8 }}>Admin Key</label>
             <div style={{ position: 'relative', marginBottom: 20 }}>
@@ -3297,7 +3297,7 @@ function EditarMenuCompacto({ catalog, catLoading, slug, pin, fetchCatalog }) {
         Selecciona un producto y actualiza su precio. El cambio se aplica al sistema inmediatamente.
       </div>
       <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center' }}>
-        <select value={selProd} onChange={e => { setSelProd(e.target.value); const p = catalog.find(x => x.product_name === e.target.value); setNewPrice(p ? String(p.price) : ''); }}
+        <select aria-label="Seleccionar producto" value={selProd} onChange={e => { setSelProd(e.target.value); const p = catalog.find(x => x.product_name === e.target.value); setNewPrice(p ? String(p.price) : ''); }}
           style={{ flex: 2, minWidth: 180, padding: '8px 10px', borderRadius: 8, border: '1.5px solid #e7d5c0', fontSize: 13, background: '#faf7f2', color: '#44403c', cursor: 'pointer' }}>
           <option value=''>▼ Selecciona producto del menú</option>
           {catalog.map(p => <option key={p.product_name} value={p.product_name}>{p.product_name} — ${p.price} MXN</option>)}
@@ -3627,7 +3627,7 @@ function TabFotoLab({ slug, token }) {
       {/* ── Product selector ── */}
       <div style={CARD_S}>
         <label style={LBL}>Producto</label>
-        <select value={product} onChange={e => setProduct(e.target.value)} style={SEL}>
+        <select aria-label="Producto" value={product} onChange={e => setProduct(e.target.value)} style={SEL}>
           <option value="">— Selecciona producto —</option>
           {products.map(p => <option key={p} value={p}>{p}</option>)}
         </select>
@@ -3637,19 +3637,19 @@ function TabFotoLab({ slug, token }) {
       <div style={{ ...CARD_S, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
         <div>
           <label style={LBL}>📐 Ángulo</label>
-          <select value={fotoAngle} onChange={e => setFotoAngle(e.target.value)} style={{ ...SEL, fontSize: 11 }}>
+          <select aria-label="Ángulo de foto" value={fotoAngle} onChange={e => setFotoAngle(e.target.value)} style={{ ...SEL, fontSize: 11 }}>
             {FOTO_ANGLES.map(a => <option key={a.id} value={a.id}>{a.label}</option>)}
           </select>
         </div>
         <div>
           <label style={LBL}>🪵 Superficie</label>
-          <select value={fotoSurface} onChange={e => setFotoSurface(e.target.value)} style={{ ...SEL, fontSize: 11 }}>
+          <select aria-label="Superficie de foto" value={fotoSurface} onChange={e => setFotoSurface(e.target.value)} style={{ ...SEL, fontSize: 11 }}>
             {FOTO_SURFACES.map(s => <option key={s.id} value={s.id}>{s.label}</option>)}
           </select>
         </div>
         <div>
           <label style={LBL}>💡 Iluminación</label>
-          <select value={fotoLighting} onChange={e => setFotoLighting(e.target.value)} style={{ ...SEL, fontSize: 11 }}>
+          <select aria-label="Iluminación de foto" value={fotoLighting} onChange={e => setFotoLighting(e.target.value)} style={{ ...SEL, fontSize: 11 }}>
             {FOTO_LIGHTING.map(l => <option key={l.id} value={l.id}>{l.label}</option>)}
           </select>
         </div>
@@ -3917,7 +3917,7 @@ function SupportModal({ slug, token, open, onClose }) {
               style={O.textarea}
             />
             <div style={O.row}>
-              <select value={severity} onChange={e => setSeverity(e.target.value)} style={O.select}>
+              <select aria-label="Seleccionar severidad" value={severity} onChange={e => setSeverity(e.target.value)} style={O.select}>
                 <option value="low">Baja prioridad</option>
                 <option value="medium">Media</option>
                 <option value="high">Alta</option>
@@ -3982,7 +3982,7 @@ function SupportModal({ slug, token, open, onClose }) {
                     <strong>Fundador:</strong> {t.founder_response}
                   </p>
                 )}
-                <small style={{ color: '#475569', fontSize: 10 }}>{fmtDate(t.created_at)}</small>
+                <small style={{ color: '#64748b', fontSize: 10 }}>{fmtDate(t.created_at)}</small>
               </div>
             ))}
           </div>
@@ -4270,8 +4270,8 @@ function TabLegalDocs({ slug, token }) {
                 <div style={{ marginTop: 12, paddingTop: 12, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
                   {doc.changelog && (<div style={{ marginBottom: 10 }}><p style={{ fontSize: 10, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Descripción</p><p style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6, whiteSpace: 'pre-wrap' }}>{doc.changelog}</p></div>)}
                   {(doc.accepted_at || (docStatus === 'accepted' && doc.tenant_version_accepted)) && <p style={{ fontSize: 10, color: '#4ade80' }}>Firmado: v{doc.tenant_version_accepted || doc.accepted_at}</p>}
-                  {doc.content_hash && <p style={{ fontSize: 9, color: '#475569', fontFamily: 'monospace', marginTop: 6 }}>SHA256: {doc.content_hash.substring(0, 16)}...</p>}
-                  {!doc.content_hash && doc.doc_slug && <p style={{ fontSize: 9, color: '#475569', fontFamily: 'monospace', marginTop: 6 }}>Doc: {doc.doc_slug}</p>}
+                  {doc.content_hash && <p style={{ fontSize: 9, color: '#64748b', fontFamily: 'monospace', marginTop: 6 }}>SHA256: {doc.content_hash.substring(0, 16)}...</p>}
+                  {!doc.content_hash && doc.doc_slug && <p style={{ fontSize: 9, color: '#64748b', fontFamily: 'monospace', marginTop: 6 }}>Doc: {doc.doc_slug}</p>}
                   {needsSign && <p style={{ fontSize: 11, color: '#fbbf24', marginTop: 8 }}>📝 Este documento requiere tu firma con verificación A2F.</p>}
                 </div>
               )}
@@ -4297,7 +4297,7 @@ function TabLegalDocs({ slug, token }) {
               {signOtpSent && signMasked && (
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 6 }}>
                   <p style={{ fontSize: 11, color: '#4ade80' }}>✅ Códigos enviados a {signMasked.wa} y {signMasked.email}</p>
-                  <button onClick={() => { if (signCooldown <= 0) requestSignOtp(signDocSlug); }} disabled={signSending || signCooldown > 0} style={{ fontSize: 10, color: signCooldown > 0 ? '#475569' : '#94a3b8', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 6, padding: '3px 10px', cursor: signCooldown > 0 ? 'not-allowed' : 'pointer' }}>{signCooldown > 0 ? `Reenviar (${signCooldown}s)` : 'Reenviar'}</button>
+                  <button onClick={() => { if (signCooldown <= 0) requestSignOtp(signDocSlug); }} disabled={signSending || signCooldown > 0} style={{ fontSize: 10, color: signCooldown > 0 ? '#64748b' : '#94a3b8', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 6, padding: '3px 10px', cursor: signCooldown > 0 ? 'not-allowed' : 'pointer' }}>{signCooldown > 0 ? `Reenviar (${signCooldown}s)` : 'Reenviar'}</button>
                 </div>
               )}
             </div>
@@ -4340,7 +4340,7 @@ function TabLegalDocs({ slug, token }) {
         </div>
       )}
 
-      <p style={{ fontSize: 9, color: '#475569', textAlign: 'center', marginTop: 16 }}>Trazabilidad SHA256 · Registro inmutable · A2F B3 por documento</p>
+      <p style={{ fontSize: 9, color: '#64748b', textAlign: 'center', marginTop: 16 }}>Trazabilidad SHA256 · Registro inmutable · A2F B3 por documento</p>
     </>
   );
 }
@@ -5126,7 +5126,7 @@ if (!token) return (
                     <p style={{ fontSize: 11, color: '#4ade80' }}>✅ Códigos enviados a {legalOtpMasked.wa} y {legalOtpMasked.email}</p>
                     {legalOtpExpiry && (() => { const rem = Math.max(0, Math.floor((new Date(legalOtpExpiry) - Date.now()) / 1000)); const m = Math.floor(rem / 60); const s = rem % 60; return rem > 0 ? <p style={{ fontSize: 10, color: rem < 120 ? '#fbbf24' : '#64748b', marginTop: 2 }}>⏱️ Expiran en {m}:{String(s).padStart(2, '0')}</p> : null; })()}
                   </div>
-                  <button onClick={() => { if (legalOtpCooldown <= 0) requestLegalOtp(); }} disabled={legalOtpSending || legalOtpCooldown > 0} style={{ fontSize: 10, color: legalOtpCooldown > 0 ? '#475569' : '#94a3b8', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 6, padding: '3px 10px', cursor: legalOtpCooldown > 0 ? 'not-allowed' : 'pointer' }}>{legalOtpCooldown > 0 ? `Reenviar (${legalOtpCooldown}s)` : 'Reenviar'}</button>
+                  <button onClick={() => { if (legalOtpCooldown <= 0) requestLegalOtp(); }} disabled={legalOtpSending || legalOtpCooldown > 0} style={{ fontSize: 10, color: legalOtpCooldown > 0 ? '#64748b' : '#94a3b8', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 6, padding: '3px 10px', cursor: legalOtpCooldown > 0 ? 'not-allowed' : 'pointer' }}>{legalOtpCooldown > 0 ? `Reenviar (${legalOtpCooldown}s)` : 'Reenviar'}</button>
                 </div>
               )}
               {!legalOtpSending && !legalOtpSent && (
@@ -5166,7 +5166,7 @@ if (!token) return (
                 {legalAccepting ? 'Verificando...' : 'Aceptar y firmar'}
               </button>
             </div>
-            <p style={{ fontSize: 9, color: '#475569', textAlign: 'center', marginTop: 10 }}>Este contrato protege tu negocio y a GenyX por igual.</p>
+            <p style={{ fontSize: 9, color: '#64748b', textAlign: 'center', marginTop: 10 }}>Este contrato protege tu negocio y a GenyX por igual.</p>
           </div>
         </div>
       )}
@@ -5493,13 +5493,13 @@ if (!token) return (
           <div style={{ ...CARD }}>
             <div style={{ fontSize: 12, fontWeight: 700, color: '#44403c', marginBottom: 10 }}>+ Agregar / Actualizar producto</div>
             <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-              <select value={newProd.name} onChange={e => setNewProd(p => ({ ...p, name: e.target.value }))}
+              <select aria-label="Seleccionar opción" value={newProd.name} onChange={e => setNewProd(p => ({ ...p, name: e.target.value }))}
                 style={{ ...INP, flex: 2, minWidth: 160, cursor: 'pointer', color: newProd.name ? '#44403c' : '#a8a29e' }}>
                 <option value=''>▼ Selecciona producto del menú</option>
                 {catalog.map(p => <option key={p.product_name} value={p.product_name}>{p.product_name}</option>)}
               </select>
               <input placeholder="Stock" type="number" value={newProd.stock} onChange={e => setNewProd(p => ({ ...p, stock: e.target.value }))} style={{ ...INP, width: 70 }} />
-              <select value={newProd.unit} onChange={e => setNewProd(p => ({ ...p, unit: e.target.value }))} style={{ ...INP }}>
+              <select aria-label="Seleccionar unidad" value={newProd.unit} onChange={e => setNewProd(p => ({ ...p, unit: e.target.value }))} style={{ ...INP }}>
                 {['pza', 'kg', 'lt', 'paq', 'caja', 'bolsa'].map(u => <option key={u}>{u}</option>)}
               </select>
               <button onClick={addInventoryItem} style={BTN(brandColor)}>Guardar</button>
@@ -5658,7 +5658,7 @@ if (!token) return (
                 </div>
                 <div style={{ fontSize: 12, color: '#78716c', marginBottom: 10 }}>¿Qué producto de tu menú vas a costear hoy?</div>
                 {menuItems.length > 0 ? (
-                  <select value={recName} onChange={e => setRecName(e.target.value)}
+                  <select aria-label="Seleccionar receta" value={recName} onChange={e => setRecName(e.target.value)}
                     style={{ ...INP, width: '100%', fontSize: 14, fontWeight: 600, boxSizing: 'border-box', borderColor: recName ? brandColor : '#e7e0d8' }}>
                     <option value="">-- Selecciona un producto de tu menú --</option>
                     {menuItems.map(p => <option key={p}>{p}</option>)}
@@ -5714,7 +5714,7 @@ if (!token) return (
                 <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 10 }}>
                   <input placeholder="Ingrediente (ej. Insumo principal)" value={newIng.name} onChange={e => setNewIng(p => ({ ...p, name: e.target.value }))} style={{ ...INP, flex: 2, minWidth: 100 }} />
                   <input placeholder="Costo $" type="number" value={newIng.cost} onChange={e => setNewIng(p => ({ ...p, cost: e.target.value }))} style={{ ...INP, width: 80 }} />
-                  <select value={newIng.unit} onChange={e => setNewIng(p => ({ ...p, unit: e.target.value }))} style={{ ...INP }}>
+                  <select aria-label="Seleccionar unidad" value={newIng.unit} onChange={e => setNewIng(p => ({ ...p, unit: e.target.value }))} style={{ ...INP }}>
                     {['pz', 'kg', 'g', 'lt', 'ml', 'taza', 'cda'].map(u => <option key={u}>{u}</option>)}
                   </select>
                   <button onClick={() => {
@@ -5755,7 +5755,7 @@ if (!token) return (
                                           onChange={e => setPurchCalc(p => ({ ...p, cantidad: e.target.value }))}
                                           style={{ ...INP, width: 80, marginTop: 3 }} /></div>
                                       <div><div style={{ fontSize: 10, color:'#78716c', fontWeight: 600 }}>Unidad</div>
-                                        <select value={purchCalc.unidad} onChange={e => setPurchCalc(p => ({ ...p, unidad: e.target.value }))} style={{ ...INP, marginTop: 3 }}>
+                                        <select aria-label="Unidad de compra" value={purchCalc.unidad} onChange={e => setPurchCalc(p => ({ ...p, unidad: e.target.value }))} style={{ ...INP, marginTop: 3 }}>
                                           {['g','ml','pz','kg','lt'].map(u => <option key={u}>{u}</option>)}
                                         </select></div>
                                       <button onClick={() => {
@@ -5901,7 +5901,7 @@ if (!token) return (
                   ))}
                   {ings.length > 0 ? (
                     <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginTop: 6 }}>
-                      <select id="ing-select" style={{ ...INP, flex: 1 }}>{ings.map(i => <option key={i.name}>{i.name}</option>)}</select>
+                      <select aria-label="Seleccionar ingrediente" id="ing-select" style={{ ...INP, flex: 1 }}>{ings.map(i => <option key={i.name}>{i.name}</option>)}</select>
                       <input id="ing-qty" placeholder="Cantidad" type="number" step="0.01" defaultValue="1" style={{ ...INP, width: 80 }} />
                       <button onClick={() => {
                         const sel = document.getElementById('ing-select')?.value;
@@ -6413,10 +6413,10 @@ function WhatsAppSimulator() {
     const on = activeAgents.has(ag.id), proc = processingAgents.has(ag.id);
     return (
       <div key={ag.id} title={ag.tip} style={{ background: on?GBa(0.06):proc?'rgba(129,140,248,0.08)':'rgba(6,9,18,0.6)', border:`1px solid ${on?GBa(0.3):proc?'rgba(129,140,248,0.4)':'rgba(255,255,255,0.04)'}`, borderRadius:12, padding:14, display:'flex', flexDirection:'column', alignItems:'center', gap:8, transition:'all .4s cubic-bezier(.4,0,.2,1)', animation:proc?'simAgPulse 1.5s infinite':'none', cursor:'help', position:'relative' }}>
-        <div style={{ width:42, height:42, borderRadius:`50%`, display:`flex`, alignItems:`center`, justifyContent:`center`, fontSize:11, fontWeight:800, background:on?`linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`:proc?`linear-gradient(135deg,#818cf8,#c084fc)`:`rgba(255,255,255,0.05)`, border:`2px solid ${on||proc?`transparent`:`rgba(255,255,255,0.08)`}`, color:on||proc?'white':'#475569', boxShadow:on?`0 0 30px ${GBa(0.3)}`:proc?'0 0 30px rgba(129,140,248,0.3)':'none', transition:'all .4s' }}>{ag.id}</div>
-        <div style={{ fontSize:10, fontWeight:600, color:on||proc?'#f1f5f9':'#475569', textAlign:'center' }}>{ag.name}</div>
-        <div style={{ fontSize:9, color:on?GB_LIGHT:'#475569', textAlign:'center', opacity:on?1:0.7 }}>{ag.role}</div>
-        <div style={{ position:'absolute', top:4, right:6, fontSize:9, color:'#475569', opacity:0.6, cursor:'help' }}>ⓘ</div>
+        <div style={{ width:42, height:42, borderRadius:`50%`, display:`flex`, alignItems:`center`, justifyContent:`center`, fontSize:11, fontWeight:800, background:on?`linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`:proc?`linear-gradient(135deg,#818cf8,#c084fc)`:`rgba(255,255,255,0.05)`, border:`2px solid ${on||proc?`transparent`:`rgba(255,255,255,0.08)`}`, color:on||proc?'white':'#64748b', boxShadow:on?`0 0 30px ${GBa(0.3)}`:proc?'0 0 30px rgba(129,140,248,0.3)':'none', transition:'all .4s' }}>{ag.id}</div>
+        <div style={{ fontSize:10, fontWeight:600, color:on||proc?'#f1f5f9':'#64748b', textAlign:'center' }}>{ag.name}</div>
+        <div style={{ fontSize:9, color:on?GB_LIGHT:'#64748b', textAlign:'center', opacity:on?1:0.7 }}>{ag.role}</div>
+        <div style={{ position:'absolute', top:4, right:6, fontSize:9, color:'#64748b', opacity:0.6, cursor:'help' }}>ⓘ</div>
       </div>
     );
   };
@@ -6468,20 +6468,20 @@ function WhatsAppSimulator() {
             {[['orders','Pedidos'],['revenue','Revenue'],['agents','Agentes activos'],['patterns','Patrones']].map(([k,l]) => (
               <div key={k} style={{ background:'rgba(6,9,18,0.8)', padding:'14px 16px', textAlign:'center' }}>
                 <div style={{ fontSize:`1.3rem`, fontWeight:800, background:`linear-gradient(135deg,${GENYX_BRAND},#818cf8)`, WebkitBackgroundClip:`text`, WebkitTextFillColor:'transparent' }}>{k==='revenue'?`$${metrics[k].toLocaleString()}`:k==='agents'?`${metrics[k]}/8`:metrics[k]}</div>
-                <div style={{ fontSize:10, color:'#475569', fontWeight:500, textTransform:'uppercase', letterSpacing:'0.5px', marginTop:2 }}>{l}</div>
+                <div style={{ fontSize:10, color:'#64748b', fontWeight:500, textTransform:'uppercase', letterSpacing:'0.5px', marginTop:2 }}>{l}</div>
               </div>
             ))}
           </div>
           <div style={{ padding:'16px 20px', borderTop:`1px solid ${GBa(0.12)}`, maxHeight:140, overflowY:'auto' }}>
-            <h4 style={{ fontSize:11, color:'#475569', textTransform:'uppercase', letterSpacing:'1px', marginBottom:8, marginTop:0 }}>Actividad en vivo</h4>
+            <h4 style={{ fontSize:11, color:'#64748b', textTransform:'uppercase', letterSpacing:'1px', marginBottom:8, marginTop:0 }}>Actividad en vivo</h4>
             {logs.map((l, i) => (
               <div key={i} style={{ display:'flex', alignItems:'center', gap:8, padding:'4px 0', fontSize:12, color:'#94a3b8', animation:'simFUp .3s ease' }}>
                 <span style={{ width:5, height:5, borderRadius:'50%', background:l.c, flexShrink:0 }} />
                 <span>{l.m}</span>
-                <span style={{ color:'#475569', fontSize:10, marginLeft:'auto' }}>{l.time}</span>
+                <span style={{ color:'#64748b', fontSize:10, marginLeft:'auto' }}>{l.time}</span>
               </div>
             ))}
-            {logs.length===0 && <div style={{ fontSize:12, color:'#475569' }}>Esperando primera interacción...</div>}
+            {logs.length===0 && <div style={{ fontSize:12, color:'#64748b' }}>Esperando primera interacción...</div>}
           </div>
         </div>
       </div>
@@ -6679,8 +6679,8 @@ function BlogLayout({ children, post, allPosts }) {
           <a href="/blog" style={{ color: '#64748b', fontSize: 12, textDecoration: 'none' }}>← Blog</a>
           <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginTop: 16, marginBottom: 16 }}>
             <span style={{ fontSize: 10, fontWeight: 700, color: GB_LIGHT, background: GBa(0.1), padding: '3px 10px', borderRadius: 6, border: `1px solid ${GBa(0.2)}` }}>{post.category}</span>
-            <span style={{ fontSize: 11, color: '#475569' }}>{new Date(post.date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-            <span style={{ fontSize: 11, color: '#475569' }}>· {post.readTime}</span>
+            <span style={{ fontSize: 11, color: '#64748b' }}>{new Date(post.date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+            <span style={{ fontSize: 11, color: '#64748b' }}>· {post.readTime}</span>
           </div>
           <h1 style={{ fontSize: 40, fontWeight: 900, lineHeight: 1.15, marginBottom: 16 }}>{post.title}</h1>
           <p style={{ color: '#64748b', fontSize: 16, lineHeight: 1.7 }}>{post.metaDesc}</p>
@@ -6706,10 +6706,10 @@ function BlogLayout({ children, post, allPosts }) {
         </div>
       </article>
       <footer style={{ textAlign: 'center', padding: '40px 24px', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
-        <p style={{ fontSize: 11, color: '#475569' }}>GenyX Systems © 2026 · AOaaS — Agent Operations as a Service</p>
+        <p style={{ fontSize: 11, color: '#64748b' }}>GenyX Systems © 2026 · AOaaS — Agent Operations as a Service</p>
         <div style={{ marginTop: 10, display: 'flex', gap: 16, justifyContent: 'center' }}>
-          <a href="/" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Inicio</a>
-          <a href="/blog" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Blog</a>
+          <a href="/" style={{ color: '#64748b', fontSize: 11, textDecoration: 'none' }}>Inicio</a>
+          <a href="/blog" style={{ color: '#64748b', fontSize: 11, textDecoration: 'none' }}>Blog</a>
           <a href="/por-que-aoaas" style={{ color: GB_LIGHT, fontSize: 11, textDecoration: 'none' }}>Manifesto</a>
         </div>
       </footer>
@@ -6723,7 +6723,7 @@ const B = {
   strong: { color: '#f1f5f9', fontWeight: 700 },
   h2: { fontSize: 24, fontWeight: 800, color: '#f1f5f9', marginTop: 48, marginBottom: 16 },
   h3: { fontSize: 18, fontWeight: 700, color: '#e2e8f0', marginTop: 32, marginBottom: 12 },
-  src: { fontSize: 11, color: '#475569', fontStyle: 'italic' },
+  src: { fontSize: 11, color: '#64748b', fontStyle: 'italic' },
   srcLink: { color: `${GENYX_BRAND}`, textDecoration: 'none' },
   card: { background: GBa(0.04), border: `1px solid ${GBa(0.12)}`, borderRadius: 16, padding: '24px 20px', marginBottom: 20 },
   toc: { background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 12, padding: '16px 20px', marginBottom: 32 },
@@ -6958,7 +6958,7 @@ function BlogIndexPage() {
               onMouseOut={e => { e.currentTarget.style.borderColor = GBa(0.1); e.currentTarget.style.background = GBa(0.03); }}>
               <div style={{ display: 'flex', gap: 10, alignItems: 'center', marginBottom: 10 }}>
                 <span style={{ fontSize: 10, fontWeight: 700, color: GB_LIGHT, background: GBa(0.1), padding: '2px 8px', borderRadius: 4, border: `1px solid ${GBa(0.15)}` }}>{post.category}</span>
-                <span style={{ fontSize: 11, color: '#475569' }}>{new Date(post.date).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric' })} · {post.readTime}</span>
+                <span style={{ fontSize: 11, color: '#64748b' }}>{new Date(post.date).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric' })} · {post.readTime}</span>
               </div>
               <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', marginBottom: 8, lineHeight: 1.3 }}>{post.title}</h2>
               <p style={{ fontSize: 14, color: '#64748b', lineHeight: 1.7 }}>{post.excerpt}</p>
@@ -6970,7 +6970,7 @@ function BlogIndexPage() {
         </div>
       </div>
       <footer style={{ textAlign: 'center', padding: '40px 24px', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
-        <p style={{ fontSize: 11, color: '#475569' }}>GenyX Systems © 2026 · AOaaS — Agent Operations as a Service</p>
+        <p style={{ fontSize: 11, color: '#64748b' }}>GenyX Systems © 2026 · AOaaS — Agent Operations as a Service</p>
       </footer>
     </div>
   );
@@ -7059,9 +7059,9 @@ function WhitepaperPage() {
           </div>
 
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-            <span style={{ fontSize: 11, color: '#475569', background: 'rgba(255,255,255,0.03)', padding: '4px 12px', borderRadius: 6, border: '1px solid rgba(255,255,255,0.06)' }}>10-15 páginas</span>
-            <span style={{ fontSize: 11, color: '#475569', background: 'rgba(255,255,255,0.03)', padding: '4px 12px', borderRadius: 6, border: '1px solid rgba(255,255,255,0.06)' }}>PDF descargable</span>
-            <span style={{ fontSize: 11, color: '#475569', background: 'rgba(255,255,255,0.03)', padding: '4px 12px', borderRadius: 6, border: '1px solid rgba(255,255,255,0.06)' }}>Datos con fuentes verificables</span>
+            <span style={{ fontSize: 11, color: '#64748b', background: 'rgba(255,255,255,0.03)', padding: '4px 12px', borderRadius: 6, border: '1px solid rgba(255,255,255,0.06)' }}>10-15 páginas</span>
+            <span style={{ fontSize: 11, color: '#64748b', background: 'rgba(255,255,255,0.03)', padding: '4px 12px', borderRadius: 6, border: '1px solid rgba(255,255,255,0.06)' }}>PDF descargable</span>
+            <span style={{ fontSize: 11, color: '#64748b', background: 'rgba(255,255,255,0.03)', padding: '4px 12px', borderRadius: 6, border: '1px solid rgba(255,255,255,0.06)' }}>Datos con fuentes verificables</span>
           </div>
         </div>
 
@@ -7104,7 +7104,7 @@ function WhitepaperPage() {
                     onMouseOut={e => e.target.style.transform = 'translateY(0)'}>
                     Quiero el whitepaper →
                   </button>
-                  <p style={{ fontSize: 10, color: '#475569', textAlign: 'center' }}>Solo para enviarte el whitepaper. Cero spam. Sin vender tu dato.</p>
+                  <p style={{ fontSize: 10, color: '#64748b', textAlign: 'center' }}>Solo para enviarte el whitepaper. Cero spam. Sin vender tu dato.</p>
                 </form>
               </>
             )}
@@ -7119,7 +7119,7 @@ function WhitepaperPage() {
             ].map(([val, label]) => (
               <div key={label} style={{ textAlign: 'center', padding: '12px 8px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.04)', borderRadius: 10 }}>
                 <div style={{ fontSize: 20, fontWeight: 900, ...W.gradient }}>{val}</div>
-                <div style={{ fontSize: 10, color: '#475569' }}>{label}</div>
+                <div style={{ fontSize: 10, color: '#64748b' }}>{label}</div>
               </div>
             ))}
           </div>
@@ -7149,11 +7149,11 @@ function WhitepaperPage() {
       </section>
 
       <footer style={{ textAlign: 'center', padding: '40px 24px', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
-        <p style={{ fontSize: 11, color: '#475569' }}>GenyX Systems © 2026 · AOaaS — Agent Operations as a Service</p>
+        <p style={{ fontSize: 11, color: '#64748b' }}>GenyX Systems © 2026 · AOaaS — Agent Operations as a Service</p>
         <div style={{ marginTop: 10, display: 'flex', gap: 16, justifyContent: 'center' }}>
-          <a href="/" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Inicio</a>
+          <a href="/" style={{ color: '#64748b', fontSize: 11, textDecoration: 'none' }}>Inicio</a>
           <a href="/por-que-aoaas" style={{ color: GB_LIGHT, fontSize: 11, textDecoration: 'none' }}>Manifesto</a>
-          <a href="/blog" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Blog</a>
+          <a href="/blog" style={{ color: '#64748b', fontSize: 11, textDecoration: 'none' }}>Blog</a>
         </div>
       </footer>
     </div>
@@ -7175,7 +7175,7 @@ function PorQueAOaaSPage() {
     p: { color: '#94a3b8', fontSize: 15, lineHeight: 2.0 },
     strong: { color: '#f1f5f9', fontWeight: 700 },
     gradient: { background: 'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
-    source: { fontSize: 11, color: '#475569', fontStyle: 'italic', marginTop: 12 },
+    source: { fontSize: 11, color: '#64748b', fontStyle: 'italic', marginTop: 12 },
     srcLink: { color: `${GENYX_BRAND}`, textDecoration: 'none' },
     divider: { height: 1, background: `linear-gradient(90deg, transparent, ${GBa(0.25)}, transparent)`, margin: '0 auto', maxWidth: 200 },
   };
@@ -7326,12 +7326,12 @@ function PorQueAOaaSPage() {
             <div key={co} style={{ display: 'flex', gap: 20, alignItems: 'flex-start', padding: '24px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
               <div style={{ minWidth: 100, textAlign: 'right' }}>
                 <span style={{ fontSize: 14, fontWeight: 800, color: '#64748b' }}>{co}</span>
-                <span style={{ display: 'block', fontSize: 11, color: '#475569' }}>{year}</span>
+                <span style={{ display: 'block', fontSize: 11, color: '#64748b' }}>{year}</span>
               </div>
               <div style={{ flex: 1 }}>
                 <p style={{ fontSize: 14, color: '#e2e8f0', marginBottom: 4 }}>
                   Creó <span style={{ color: GB_LIGHT, fontWeight: 700 }}>"{created}"</span>
-                  <span style={{ color: '#475569' }}> cuando existía </span>
+                  <span style={{ color: '#64748b' }}> cuando existía </span>
                   <span style={{ color: '#64748b', textDecoration: 'line-through' }}>"{replaced}"</span>
                 </p>
                 <p style={{ fontSize: 12, color: '#64748b' }}>{why}</p>
@@ -7414,22 +7414,22 @@ function PorQueAOaaSPage() {
             <input name="email" type="email" required placeholder="tu@email.com" style={{ flex: 1, padding: '10px 16px', borderRadius: 10, border: `1px solid ${GBa(0.2)}`, background: 'rgba(15,23,42,0.5)', color: '#e2e8f0', fontSize: 13, outline: 'none' }} />
             <button type="submit" style={{ padding: `10px 20px`, borderRadius: 10, border: `none`, background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: `#fff`, fontSize: 12, fontWeight: 700, cursor: `pointer`, whiteSpace: 'nowrap' }}>Suscribirme →</button>
           </form>
-          <p style={{ fontSize: 9, color: '#475569', marginTop: 10 }}>Prometemos solo contenido valioso. Puedes cancelar en cualquier momento.</p>
+          <p style={{ fontSize: 9, color: '#64748b', marginTop: 10 }}>Prometemos solo contenido valioso. Puedes cancelar en cualquier momento.</p>
         </div>
       </section>
 
       {/* ── Footer ── */}
       <footer style={{ textAlign: 'center', padding: '40px 24px 56px', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
-        <p style={{ fontSize: 11, color: '#475569' }}>GenyX Systems © 2026 · Guadalajara, México · AOaaS</p>
+        <p style={{ fontSize: 11, color: '#64748b' }}>GenyX Systems © 2026 · Guadalajara, México · AOaaS</p>
         <p style={{ fontSize: 10, color: '#334155', marginTop: 6, maxWidth: 500, margin: '6px auto 0' }}>
           AOaaS — Agent Operations as a Service. Categoría creada por GenyX por diferenciación técnica real verificable. Decreto fundador 21-may-2026.
         </p>
         <div style={{ marginTop: 14, display: 'flex', gap: 16, justifyContent: 'center' }}>
-          <a href="/" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Inicio</a>
-          <a href="/por-que-ahora" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Por qué ahora</a>
-          <a href="/por-que-aoaas" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Manifesto AOaaS</a>
-          <a href="/privacidad" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Privacidad</a>
-          <a href="/terminos" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Términos</a>
+          <a href="/" style={{ color: '#64748b', fontSize: 11, textDecoration: 'none' }}>Inicio</a>
+          <a href="/por-que-ahora" style={{ color: '#64748b', fontSize: 11, textDecoration: 'none' }}>Por qué ahora</a>
+          <a href="/por-que-aoaas" style={{ color: '#64748b', fontSize: 11, textDecoration: 'none' }}>Manifesto AOaaS</a>
+          <a href="/privacidad" style={{ color: '#64748b', fontSize: 11, textDecoration: 'none' }}>Privacidad</a>
+          <a href="/terminos" style={{ color: '#64748b', fontSize: 11, textDecoration: 'none' }}>Términos</a>
         </div>
       </footer>
     </div>
@@ -7553,7 +7553,7 @@ function PorQueAhoraPage() {
               <div key={i} style={{ display: 'flex', gap: 8, alignItems: 'baseline', fontSize: 13 }}>
                 <span style={{ color: i === 5 ? GB_LIGHT : '#64748b', fontWeight: i === 5 ? 800 : 600, minWidth: 130 }}>{co}</span>
                 <span style={{ color: i === 5 ? GB_VIOLET : '#94a3b8' }}>{created}</span>
-                <span style={{ color: '#475569' }}>{when}</span>
+                <span style={{ color: '#64748b' }}>{when}</span>
               </div>
             ))}
           </div>
@@ -7689,11 +7689,11 @@ function PorQueAhoraPage() {
 
       {/* Footer */}
       <footer style={{ textAlign: 'center', padding: '32px 24px 48px', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
-        <p style={{ fontSize: 11, color: '#475569' }}>GenyX Systems © 2026 · Guadalajara, México · AOaaS</p>
+        <p style={{ fontSize: 11, color: '#64748b' }}>GenyX Systems © 2026 · Guadalajara, México · AOaaS</p>
         <p style={{ fontSize: 10, color: '#334155', marginTop: 4 }}>Cada dato en esta página tiene URL fuente verificable. Regla de oro: si no tiene fuente, no se publica.</p>
         <div style={{ marginTop: 12, display: 'flex', gap: 16, justifyContent: 'center' }}>
-          <a href="/privacidad" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Privacidad</a>
-          <a href="/terminos" style={{ color: '#475569', fontSize: 11, textDecoration: 'none' }}>Términos</a>
+          <a href="/privacidad" style={{ color: '#64748b', fontSize: 11, textDecoration: 'none' }}>Privacidad</a>
+          <a href="/terminos" style={{ color: '#64748b', fontSize: 11, textDecoration: 'none' }}>Términos</a>
           <a href="/" style={{ color: GB_LIGHT, fontSize: 11, textDecoration: 'none' }}>Inicio</a>
         </div>
       </footer>
@@ -7904,7 +7904,7 @@ function PlanesPage() {
         </div>
 
         <div style={{ textAlign: 'center', marginTop: 48, paddingTop: 24, borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-          <p style={{ fontSize: 11, color: '#475569' }}>GenyX Systems · Precios en MXN · IVA no incluido</p>
+          <p style={{ fontSize: 11, color: '#64748b' }}>GenyX Systems · Precios en MXN · IVA no incluido</p>
           <p style={{ fontSize: 11, color: '#334155', marginTop: 4 }}>Matriz v3 — Mayo 2026</p>
         </div>
       </div>
@@ -8196,7 +8196,7 @@ function MandoSimulator() {
           }}>
             {/* ── Greeting ── */}
             <div style={{ animation: step >= 0 ? 'mandoFadeIn 0.6s ease' : 'none', marginBottom: 14 }}>
-              <div style={{ fontSize: 10, color: '#475569', fontWeight: 600, letterSpacing: '.05em', marginBottom: 2 }}>GENY<span style={{ color: GB_LIGHT }}>X</span> MANDO</div>
+              <div style={{ fontSize: 10, color: '#64748b', fontWeight: 600, letterSpacing: '.05em', marginBottom: 2 }}>GENY<span style={{ color: GB_LIGHT }}>X</span> MANDO</div>
               <div style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', lineHeight: 1.3 }}>
                 {getGreeting()} ☀️
               </div>
@@ -8270,7 +8270,7 @@ function MandoSimulator() {
               marginBottom: 12,
               opacity: step >= 4 ? 1 : 0, transition: 'opacity 0.4s',
             }}>
-              <div style={{ fontSize: 9, fontWeight: 700, color: '#475569', marginBottom: 6, letterSpacing: '.05em', textTransform: 'uppercase' }}>9 Agentes</div>
+              <div style={{ fontSize: 9, fontWeight: 700, color: '#64748b', marginBottom: 6, letterSpacing: '.05em', textTransform: 'uppercase' }}>9 Agentes</div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, justifyContent: 'center', position: 'relative' }}>
                 {MANDO_AGENTS.map((a) => {
                   const lit = agentsLit.includes(a.id);
@@ -8309,7 +8309,7 @@ function MandoSimulator() {
                         }}>
                           <div style={{ fontSize: 10, fontWeight: 700, color: a.color, marginBottom: 2 }}>{a.icon} {a.name}</div>
                           <div style={{ fontSize: 9, color: '#94a3b8', lineHeight: 1.4 }}>{a.lastAction}</div>
-                          <div style={{ fontSize: 8, color: '#475569', marginTop: 3 }}>{a.actions} acciones hoy</div>
+                          <div style={{ fontSize: 8, color: '#64748b', marginTop: 3 }}>{a.actions} acciones hoy</div>
                         </div>
                       )}
                     </div>
@@ -8322,7 +8322,7 @@ function MandoSimulator() {
             <div style={{
               opacity: step >= 5 ? 1 : 0, transition: 'opacity 0.4s', marginBottom: 12,
             }}>
-              <div style={{ fontSize: 9, fontWeight: 700, color: '#475569', marginBottom: 6, letterSpacing: '.05em', textTransform: 'uppercase' }}>Actividad</div>
+              <div style={{ fontSize: 9, fontWeight: 700, color: '#64748b', marginBottom: 6, letterSpacing: '.05em', textTransform: 'uppercase' }}>Actividad</div>
               <div style={{ maxHeight: 120, overflowY: 'auto' }}>
                 {feedItems.map((item, i) => (
                   <div key={i} style={{
@@ -8330,7 +8330,7 @@ function MandoSimulator() {
                     padding: '4px 0', borderBottom: i < feedItems.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
                     animation: 'mandoSlideIn 0.35s ease',
                   }}>
-                    <span style={{ fontSize: 8, color: '#475569', fontFamily: 'monospace', minWidth: 32 }}>{item.time}</span>
+                    <span style={{ fontSize: 8, color: '#64748b', fontFamily: 'monospace', minWidth: 32 }}>{item.time}</span>
                     <span style={{ fontSize: 10 }}>{item.icon}</span>
                     <span style={{ fontSize: 9, color: '#94a3b8', flex: 1, lineHeight: 1.3 }}>{item.text}</span>
                   </div>
@@ -8475,7 +8475,7 @@ function SimuladorGenyX() {
           <input type="range" min={0} max={3} value={SIM_LOSS_LABELS.indexOf(loss)}
             onChange={e => setLoss(SIM_LOSS_LABELS[Number(e.target.value)])}
             style={{ width:'100%', accentColor:`${GENYX_BRAND}` }} />
-          <div style={{ display:'flex', justifyContent:'space-between', fontSize:11, color:'#475569', marginTop:4 }}>
+          <div style={{ display:'flex', justifyContent:'space-between', fontSize:11, color:'#64748b', marginTop:4 }}>
             {SIM_LOSS_LABELS.map(l => <span key={l}>{l}</span>)}
           </div>
         </div>
@@ -8512,7 +8512,7 @@ function SimuladorGenyX() {
           <div style={{ height:4, background:'rgba(255,255,255,0.06)', borderRadius:4, marginTop:8, maxWidth:400, margin:'8px auto' }}>
             <div style={{ height:4, background:`linear-gradient(90deg,${GENYX_BRAND},#c084fc)`, borderRadius:4, width:`${progress*100}%`, transition:'width .08s' }} />
           </div>
-          <div style={{ fontSize:11, color:'#475569', marginTop:6 }}>Viernes — Simulación de un día completo</div>
+          <div style={{ fontSize:11, color:'#64748b', marginTop:6 }}>Viernes — Simulación de un día completo</div>
         </div>
         <div style={{...Z.priv, display:'flex', alignItems:'center', justifyContent:'center', gap:8}}><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> Estos datos se quedan en tu navegador. No se envían a GenyX.</div>
         {/* Main grid: feed + agents */}
@@ -8542,7 +8542,7 @@ function SimuladorGenyX() {
                 return (
                   <div key={ag.key} style={{ background: active ? GBa(0.15) : 'rgba(255,255,255,0.03)', border: active ? `1px solid ${GBa(0.5)}` : '1px solid rgba(255,255,255,0.07)', borderRadius:12, padding:'14px 10px', textAlign:'center', transition:'all .3s' }}>
                     <div style={{ marginBottom:4 }}>{SIM_AG_ICONS[ag.key]()}</div>
-                    <div style={{ fontSize:10, fontWeight:700, color: active ? GB_SOFT : '#475569' }}>{ag.key}</div>
+                    <div style={{ fontSize:10, fontWeight:700, color: active ? GB_SOFT : '#64748b' }}>{ag.key}</div>
                   </div>
                 );
               })}
@@ -8555,7 +8555,7 @@ function SimuladorGenyX() {
             <div key={i} style={{ background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.07)', borderRadius:12, padding:'16px 12px', textAlign:'center' }}>
               <div style={{ fontSize:16 }}>{ic}</div>
               <div style={{ fontSize:22, fontWeight:900, color:GB_LIGHT, transition:'all .4s' }}>{v}</div>
-              <div style={{ fontSize:10, color:'#475569', textTransform:'uppercase', letterSpacing:'.06em' }}>{l}</div>
+              <div style={{ fontSize:10, color:'#64748b', textTransform:'uppercase', letterSpacing:'.06em' }}>{l}</div>
             </div>
           ))}
         </div>
@@ -8674,7 +8674,7 @@ function LandingAuthGate({ children }) {
       <div style={{ textAlign: 'center', maxWidth: 380, padding: '40px 32px' }}>
         <div style={{ width: 56, height: 56, border: `2px solid ${GENYX_BRAND}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, fontWeight: 900, color: GB_LIGHT, margin: '0 auto 24px', borderRadius: 12 }}>G</div>
         <h1 style={{ color: '#f1f5f9', fontSize: 24, fontWeight: 800, marginBottom: 8, letterSpacing: '-0.5px' }}>GenyX</h1>
-        <p style={{ color: '#475569', fontSize: 13, marginBottom: 32, lineHeight: 1.6 }}>Acceso restringido.<br />Ingresa tu clave para continuar.</p>
+        <p style={{ color: '#64748b', fontSize: 13, marginBottom: 32, lineHeight: 1.6 }}>Acceso restringido.<br />Ingresa tu clave para continuar.</p>
         <form onSubmit={handleSubmit}>
           <input
             type="password"
@@ -8694,7 +8694,7 @@ function LandingAuthGate({ children }) {
             style={{
               width: '100%', padding: '14px 24px', borderRadius: 12, border: 'none', cursor: 'pointer',
               background: pw ? `linear-gradient(135deg, ${GENYX_BRAND}, #8b5cf6)` : 'rgba(255,255,255,0.06)',
-              color: pw ? '#fff' : '#475569', fontSize: 14, fontWeight: 700, transition: 'all 0.2s',
+              color: pw ? '#fff' : '#64748b', fontSize: 14, fontWeight: 700, transition: 'all 0.2s',
               boxShadow: pw ? `0 0 28px ${GBa(0.25)}` : 'none',
             }}
           >{checking ? 'Verificando...' : 'Acceder'}</button>
@@ -8740,7 +8740,7 @@ function PlusPage() {
     note: { background: GBa(0.06), border: `1px solid ${GBa(0.15)}`, borderRadius: 12, padding: '20px 24px', fontSize: 13, color: '#94a3b8', lineHeight: 1.7 },
     cta: { display: 'inline-block', marginTop: 32, background: 'linear-gradient(135deg,' + GENYX_BRAND + ',#8b5cf6)', color: '#fff', padding: '14px 36px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: `0 0 28px ${GBa(0.3)}` },
     back: { display: 'inline-block', marginTop: 16, color: '#64748b', fontSize: 12, textDecoration: 'none' },
-    footer: { borderTop: '1px solid rgba(255,255,255,0.06)', padding: '24px 0', marginTop: 60, fontSize: 10, color: '#475569', textAlign: 'center' },
+    footer: { borderTop: '1px solid rgba(255,255,255,0.06)', padding: '24px 0', marginTop: 60, fontSize: 10, color: '#64748b', textAlign: 'center' },
   };
 
   const MODULES = [
@@ -8802,7 +8802,7 @@ function PlusPage() {
         </div>
 
         <div style={S.footer}>
-          GenyX © 2026 · Tu operación comercial autónoma · <a href="/terminos" style={{ color: '#475569' }}>Términos</a> · <a href="/privacidad" style={{ color: '#475569' }}>Privacidad</a>
+          GenyX © 2026 · Tu operación comercial autónoma · <a href="/terminos" style={{ color: '#64748b' }}>Términos</a> · <a href="/privacidad" style={{ color: '#64748b' }}>Privacidad</a>
         </div>
       </div>
     </div>
@@ -9082,7 +9082,7 @@ function TabExpedienteCliente({ slug, token }) {
           })}
       </div>
 
-      <p style={{ fontSize: 9, color: '#475569', textAlign: 'center', marginTop: 16 }}>Expediente digital · Actualizado en tiempo real · Datos protegidos LFPDPPP</p>
+      <p style={{ fontSize: 9, color: '#64748b', textAlign: 'center', marginTop: 16 }}>Expediente digital · Actualizado en tiempo real · Datos protegidos LFPDPPP</p>
     </div>
   );
 }
@@ -9411,7 +9411,7 @@ function MemoryDrillDown() {
               <span style={{ fontSize: 12, fontWeight: 600, color: a.severity === 'high' ? '#ef4444' : a.severity === 'medium' ? '#f59e0b' : '#10b981' }}>{a.severity?.toUpperCase()}</span>
               <span style={{ fontSize: 12, color: '#94a3b8', marginLeft: 8 }}>{a.message}</span>
             </div>
-            <span style={{ fontSize: 10, color: '#475569' }}>{a.created_at?.substring(0, 16)}</span>
+            <span style={{ fontSize: 10, color: '#64748b' }}>{a.created_at?.substring(0, 16)}</span>
           </div>
         ))}
       </div>
@@ -9488,7 +9488,7 @@ function A0DrillDown() {
               <span style={{ fontSize: 12, fontWeight: 600, color: '#e2e8f0' }}>{r.action || r.type || 'run'}</span>
               <span style={{ fontSize: 11, color: '#94a3b8', marginLeft: 8 }}>{r.summary || r.detail || ''}</span>
             </div>
-            <span style={{ fontSize: 10, color: '#475569', whiteSpace: 'nowrap' }}>{(r.timestamp || r.created_at || '').substring(0, 16)}</span>
+            <span style={{ fontSize: 10, color: '#64748b', whiteSpace: 'nowrap' }}>{(r.timestamp || r.created_at || '').substring(0, 16)}</span>
           </div>
         ))}
       </div>
@@ -9504,7 +9504,7 @@ function A0DrillDown() {
               <span style={{ fontSize: 12, fontWeight: 600, color: r.status === 'failed' ? '#ef4444' : '#10b981' }}>{r.status?.toUpperCase() || 'OK'}</span>
               <span style={{ fontSize: 11, color: '#94a3b8', marginLeft: 8 }}>{r.target || r.component || ''} — {r.description || r.action || ''}</span>
             </div>
-            <span style={{ fontSize: 10, color: '#475569', whiteSpace: 'nowrap' }}>{(r.timestamp || r.created_at || '').substring(0, 16)}</span>
+            <span style={{ fontSize: 10, color: '#64748b', whiteSpace: 'nowrap' }}>{(r.timestamp || r.created_at || '').substring(0, 16)}</span>
           </div>
         ))}
       </div>
@@ -9613,7 +9613,7 @@ function A9DrillDown() {
                     <span style={{ color: '#ef4444' }}>✗{fd.block || 0}</span>
                   </div>
                 </div>
-                {i < FILTERS.length - 1 && <span style={{ alignSelf: 'center', color: '#475569', fontSize: 16 }}>→</span>}
+                {i < FILTERS.length - 1 && <span style={{ alignSelf: 'center', color: '#64748b', fontSize: 16 }}>→</span>}
               </React.Fragment>
             );
           })}
@@ -9636,7 +9636,7 @@ function A9DrillDown() {
               }}>{r.status?.toUpperCase() || '—'}</span>
               <span style={{ fontSize: 10, color: r.severity === 'high' || r.severity === 'critical' ? '#ef4444' : '#64748b' }}>{r.severity || ''}</span>
             </div>
-            <span style={{ fontSize: 10, color: '#475569', whiteSpace: 'nowrap' }}>{(r.timestamp || r.created_at || '').substring(0, 16)}</span>
+            <span style={{ fontSize: 10, color: '#64748b', whiteSpace: 'nowrap' }}>{(r.timestamp || r.created_at || '').substring(0, 16)}</span>
           </div>
         ))}
       </div>
@@ -9957,7 +9957,7 @@ function A12DrillDown() {
               <span style={{ fontSize: 10, padding: '2px 6px', borderRadius: 4, background: 'rgba(255,255,255,0.05)', color: '#94a3b8' }}>{inc.status || '—'}</span>
               <span style={{ fontSize: 11, color: '#94a3b8', flex: 1 }}>{(inc.description || '').substring(0, 80)}{(inc.description || '').length > 80 ? '...' : ''}</span>
             </div>
-            <span style={{ fontSize: 10, color: '#475569', whiteSpace: 'nowrap' }}>{(inc.date || inc.created_at || inc.timestamp || '').substring(0, 16)}</span>
+            <span style={{ fontSize: 10, color: '#64748b', whiteSpace: 'nowrap' }}>{(inc.date || inc.created_at || inc.timestamp || '').substring(0, 16)}</span>
           </div>
         ))}
       </div>
@@ -10174,17 +10174,17 @@ function OrchestratorDrillDown() {
         <div style={{ ...SLABEL, justifyContent: 'space-between' }}>
           <span>📝 RECENT TURNS ({filteredTurns.length})</span>
           <div style={{ display: 'flex', gap: 6 }}>
-            <select value={filterActor} onChange={e => setFilterActor(e.target.value)} style={{ background: 'rgba(255,255,255,0.06)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 6, padding: '2px 6px', fontSize: 10 }}>
+            <select aria-label="Filtrar por actor" value={filterActor} onChange={e => setFilterActor(e.target.value)} style={{ background: 'rgba(255,255,255,0.06)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 6, padding: '2px 6px', fontSize: 10 }}>
               <option value="">Actor: todos</option>
               {uniqueActors.map(a => <option key={a} value={a}>{a}</option>)}
             </select>
-            <select value={filterCat} onChange={e => setFilterCat(e.target.value)} style={{ background: 'rgba(255,255,255,0.06)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 6, padding: '2px 6px', fontSize: 10 }}>
+            <select aria-label="Filtrar por categoría" value={filterCat} onChange={e => setFilterCat(e.target.value)} style={{ background: 'rgba(255,255,255,0.06)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 6, padding: '2px 6px', fontSize: 10 }}>
               <option value="">Cat: todas</option>
               <option value="1">1 Doctrinal</option>
               <option value="2">2 Técnico</option>
               <option value="3">3 Runtime</option>
             </select>
-            <select value={filterDays} onChange={e => setFilterDays(Number(e.target.value))} style={{ background: 'rgba(255,255,255,0.06)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 6, padding: '2px 6px', fontSize: 10 }}>
+            <select aria-label="Filtrar por periodo" value={filterDays} onChange={e => setFilterDays(Number(e.target.value))} style={{ background: 'rgba(255,255,255,0.06)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 6, padding: '2px 6px', fontSize: 10 }}>
               <option value={1}>1 día</option>
               <option value={7}>7 días</option>
               <option value={30}>30 días</option>
@@ -10192,7 +10192,7 @@ function OrchestratorDrillDown() {
           </div>
         </div>
         {filteredTurns.length === 0 ? (
-          <p style={{ color: '#475569', fontSize: 12, fontStyle: 'italic' }}>Sin turnos registrados — se poblarán conforme Claude opere.</p>
+          <p style={{ color: '#64748b', fontSize: 12, fontStyle: 'italic' }}>Sin turnos registrados — se poblarán conforme Claude opere.</p>
         ) : (
           <div style={{ overflowX: 'auto' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 11 }}>
@@ -10258,7 +10258,7 @@ function OrchestratorDrillDown() {
       <div style={SECTION}>
         <div style={SLABEL}>🚨 PENDING ALERTS ({alerts.length})</div>
         {alerts.length === 0 ? (
-          <p style={{ color: '#475569', fontSize: 12, fontStyle: 'italic' }}>Sin alertas pendientes. Sistema operando normalmente.</p>
+          <p style={{ color: '#64748b', fontSize: 12, fontStyle: 'italic' }}>Sin alertas pendientes. Sistema operando normalmente.</p>
         ) : (
           alerts.sort((a, b) => {
             const sev = { high: 0, medium: 1, low: 2, info: 3 };
@@ -10306,7 +10306,7 @@ function OrchestratorDrillDown() {
         )}
       </div>
 
-      <p style={{ fontSize: 9, color: '#475569', textAlign: 'center', marginTop: 12 }}>Orchestrator · Auditoría conversacional multi-agente · Datos en tiempo real</p>
+      <p style={{ fontSize: 9, color: '#64748b', textAlign: 'center', marginTop: 12 }}>Orchestrator · Auditoría conversacional multi-agente · Datos en tiempo real</p>
     </div>
   );
 }
@@ -10427,7 +10427,7 @@ function PostmortemsDrillDown() {
                 <span style={{ fontSize: 10, fontWeight: 600, color: '#818cf8', marginRight: 6 }}>{inc.slug || '—'}</span>
                 <span style={{ fontSize: 10, padding: '1px 6px', borderRadius: 4, background: inc.status === 'open' ? 'rgba(239,68,68,0.1)' : 'rgba(16,185,129,0.1)', color: inc.status === 'open' ? '#fca5a5' : '#6ee7b7' }}>{inc.status}</span>
                 <p style={{ fontSize: 11, color: '#94a3b8', margin: '4px 0 0', lineHeight: 1.4 }}>{inc.description?.substring(0, 120)}</p>
-                <span style={{ fontSize: 9, color: '#475569' }}>{inc.created_at?.substring(0, 16)}{inc.resolved_at ? ` · resolved ${inc.resolved_at.substring(0, 16)}` : ''}{inc.resolution_minutes ? ` · ${inc.resolution_minutes}min` : ''}</span>
+                <span style={{ fontSize: 9, color: '#64748b' }}>{inc.created_at?.substring(0, 16)}{inc.resolved_at ? ` · resolved ${inc.resolved_at.substring(0, 16)}` : ''}{inc.resolution_minutes ? ` · ${inc.resolution_minutes}min` : ''}</span>
               </div>
               <div style={{ display: 'flex', gap: 4, flexShrink: 0 }}>
                 {inc.status === 'open' && (
@@ -10461,7 +10461,7 @@ function PostmortemsDrillDown() {
         </div>
       )}
 
-      <p style={{ fontSize: 9, color: '#475569', textAlign: 'center', marginTop: 12 }}>Postmortems · Blameless incident analysis · Google SRE pattern</p>
+      <p style={{ fontSize: 9, color: '#64748b', textAlign: 'center', marginTop: 12 }}>Postmortems · Blameless incident analysis · Google SRE pattern</p>
     </div>
   );
 }
@@ -10657,7 +10657,7 @@ function Layer5CoverageTab() {
         </div>
       )}
 
-      <p style={{ fontSize: 9, color: '#475569', textAlign: 'center', marginTop: 12 }}>Layer 5 · Defense-in-depth · Live data from /api/admin/drift-coverage</p>
+      <p style={{ fontSize: 9, color: '#64748b', textAlign: 'center', marginTop: 12 }}>Layer 5 · Defense-in-depth · Live data from /api/admin/drift-coverage</p>
     </div>
   );
 }
@@ -10719,7 +10719,7 @@ function DORACockpitTab() {
                 <div style={{ fontSize: 18 }}>{k.icon}</div>
                 <div style={{ fontSize: 20, fontWeight: 800, color: '#e2e8f0', marginTop: 4 }}>{k.value}<span style={{ fontSize: 10, color: '#64748b', marginLeft: 2 }}>{k.unit}</span></div>
                 <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
-                <div style={{ fontSize: 8, color: '#475569', marginTop: 2 }}>{k.target}</div>
+                <div style={{ fontSize: 8, color: '#64748b', marginTop: 2 }}>{k.target}</div>
               </div>
             ))}
           </div>
@@ -10765,7 +10765,7 @@ function DORACockpitTab() {
         </>
       )}
 
-      <p style={{ fontSize: 9, color: '#475569', textAlign: 'center', marginTop: 12 }}>DORA · State of DevOps Report 2024 · Live data from /api/admin/dora/score</p>
+      <p style={{ fontSize: 9, color: '#64748b', textAlign: 'center', marginTop: 12 }}>DORA · State of DevOps Report 2024 · Live data from /api/admin/dora/score</p>
     </div>
   );
 }
@@ -10859,14 +10859,14 @@ function ChaosTab() {
                 <p style={{ fontSize: 11, color: '#94a3b8', margin: '0 0 4px' }}><b style={{ color: '#cbd5e1' }}>Hypothesis:</b> {e.hypothesis || '—'}</p>
                 {e.deviation_detected && <p style={{ fontSize: 11, color: '#a855f7', margin: '4px 0' }}>⚡ Deviation: {e.deviation_detail || 'Detected'}</p>}
                 {e.rollback_action && <p style={{ fontSize: 11, color: '#f59e0b', margin: '4px 0' }}>🔄 Rollback: {e.rollback_action}</p>}
-                <p style={{ fontSize: 10, color: '#475569', margin: '4px 0 0' }}>Started: {e.run_started_at || '?'} · Target: {e.target_endpoint || '?'}</p>
+                <p style={{ fontSize: 10, color: '#64748b', margin: '4px 0 0' }}>Started: {e.run_started_at || '?'} · Target: {e.target_endpoint || '?'}</p>
               </div>
             )}
           </div>
         ))}
       </div>
 
-      <p style={{ fontSize: 9, color: '#475569', textAlign: 'center', marginTop: 12 }}>Chaos Engineering · Big Tech #1 · Live data from /api/admin/chaos/audit-log</p>
+      <p style={{ fontSize: 9, color: '#64748b', textAlign: 'center', marginTop: 12 }}>Chaos Engineering · Big Tech #1 · Live data from /api/admin/chaos/audit-log</p>
     </div>
   );
 }
@@ -10969,7 +10969,7 @@ function IngestDoctrineButton({ adminKey, onComplete }) {
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div>
           <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 4 }}>📥 Ingestar Doctrina Viva</p>
-          <p style={{ fontSize: 10, color: '#475569' }}>Escanea CEREBRO_GENYX/ y archivos .md del repo, inyecta a MEMORY.</p>
+          <p style={{ fontSize: 10, color: '#64748b' }}>Escanea CEREBRO_GENYX/ y archivos .md del repo, inyecta a MEMORY.</p>
         </div>
         <button onClick={handleIngest} disabled={loading} style={{ padding: '8px 16px', fontSize: 11, fontWeight: 700, border: 'none', borderRadius: 8, cursor: loading ? 'wait' : 'pointer', background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)', color: '#fff', opacity: loading ? 0.6 : 1 }}>
           {loading ? '⏳ Procesando...' : '🔄 Ingestar'}
@@ -11250,7 +11250,7 @@ function TabRadarIntel() {
       {/* Recent queries */}
       {recentQueries.length > 0 && (
         <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap', marginBottom: 10 }}>
-          <span style={{ fontSize: 10, color: '#475569', alignSelf: 'center' }}>Recientes:</span>
+          <span style={{ fontSize: 10, color: '#64748b', alignSelf: 'center' }}>Recientes:</span>
           {recentQueries.slice(0, 5).map((q, i) => (
             <button key={i} onClick={() => { setQuery(q); runScan(q); }} style={{ fontSize: 10, color: '#94a3b8', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 4, padding: '2px 8px', cursor: 'pointer', maxWidth: 180, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{q}</button>
           ))}
@@ -11259,7 +11259,7 @@ function TabRadarIntel() {
 
       {/* Preset categories */}
       <div style={{ marginBottom: 20 }}>
-        <p style={{ fontSize: 10, fontWeight: 700, color: '#475569', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 8 }}>📂 Categorías rápidas</p>
+        <p style={{ fontSize: 10, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 8 }}>📂 Categorías rápidas</p>
         <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
           {RADAR_CATEGORIES.map(c => (
             <button key={c.id} onClick={() => { setQuery(c.query); runScan(c.query); }}
@@ -11296,7 +11296,7 @@ function TabRadarIntel() {
 
       {/* Filter bar */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-        <p style={{ fontSize: 11, fontWeight: 700, color: '#475569', textTransform: 'uppercase', letterSpacing: '.06em', margin: 0 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.06em', margin: 0 }}>
           📊 Signals {showStarredOnly ? '(★ importantes)' : `(${filteredSignals.length})`}
         </p>
         <button onClick={() => setShowStarredOnly(!showStarredOnly)}
@@ -11378,7 +11378,7 @@ function TabOperaciones({ tenants, health, orders, selectedSlug, setSelectedSlug
     <>
       <div style={{ display: 'flex', gap: 4, overflowX: 'auto', marginBottom: 16, borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: 8 }}>
         {subs.map(s => (
-          <button key={s.id} onClick={() => setSection(s.id)} style={{ padding: '6px 14px', fontSize: 11, fontWeight: 600, border: 'none', background: section === s.id ? GBa(0.12) : 'none', color: section === s.id ? GB_LIGHT : '#475569', cursor: 'pointer', borderRadius: 6, whiteSpace: 'nowrap' }}>{s.icon} {s.label}</button>
+          <button key={s.id} onClick={() => setSection(s.id)} style={{ padding: '6px 14px', fontSize: 11, fontWeight: 600, border: 'none', background: section === s.id ? GBa(0.12) : 'none', color: section === s.id ? GB_LIGHT : '#64748b', cursor: 'pointer', borderRadius: 6, whiteSpace: 'nowrap' }}>{s.icon} {s.label}</button>
         ))}
       </div>
       {section === 'soporte' && <TabSoporte tenants={tenants} />}
@@ -11399,7 +11399,7 @@ function TabPlaceholderV2({ icon, title, desc }) {
       <div style={{ fontSize: 56, marginBottom: 16 }}>{icon}</div>
       <h2 style={{ fontSize: 22, fontWeight: 800, color: '#f1f5f9', margin: '0 0 8px' }}>{title}</h2>
       <p style={{ fontSize: 14, color: '#64748b', maxWidth: 400, margin: '0 auto' }}>{desc}</p>
-      <div style={{ marginTop: 20, padding: '8px 20px', background: 'rgba(255,255,255,0.04)', borderRadius: 8, display: 'inline-block', fontSize: 11, color: '#475569', fontWeight: 600 }}>🚧 En desarrollo</div>
+      <div style={{ marginTop: 20, padding: '8px 20px', background: 'rgba(255,255,255,0.04)', borderRadius: 8, display: 'inline-block', fontSize: 11, color: '#64748b', fontWeight: 600 }}>🚧 En desarrollo</div>
     </div>
   );
 }
@@ -11420,7 +11420,7 @@ function TabIdeasSandbox() {
         placeholder="Escribe tus ideas, estrategias, notas..."
         style={{ width: '100%', minHeight: 400, background: '#0f1623', border: '1px solid rgba(255,255,255,0.1)', color: '#e2e8f0', padding: 16, borderRadius: 12, fontSize: 14, lineHeight: 1.7, resize: 'vertical', outline: 'none', fontFamily: 'inherit' }}
       />
-      <p style={{ fontSize: 10, color: '#475569', marginTop: 8 }}>Auto-guardado · {text.length} caracteres · localStorage</p>
+      <p style={{ fontSize: 10, color: '#64748b', marginTop: 8 }}>Auto-guardado · {text.length} caracteres · localStorage</p>
     </div>
   );
 }
@@ -11448,7 +11448,7 @@ function TabDoctrinaLive() {
           </div>
           {dvs.details && <pre style={{ fontSize: 11, color: '#94a3b8', background: '#0f1623', padding: 12, borderRadius: 8, overflow: 'auto', maxHeight: 300 }}>{JSON.stringify(dvs.details, null, 2)}</pre>}
         </div>
-      ) : <p style={{ color: '#475569', fontSize: 12 }}>Cargando Doctrine Vitality Score...</p>}
+      ) : <p style={{ color: '#64748b', fontSize: 12 }}>Cargando Doctrine Vitality Score...</p>}
       {audits && (
         <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 14, padding: 20 }}>
           <h3 style={{ fontSize: 14, fontWeight: 700, color: '#e2e8f0', marginBottom: 12 }}>Últimos Self-Audits</h3>
@@ -11456,7 +11456,7 @@ function TabDoctrinaLive() {
             <div key={i} style={{ padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 12, color: '#94a3b8', display: 'flex', gap: 12 }}>
               <span style={{ fontWeight: 700, color: a.status === 'pass' ? '#10b981' : '#f59e0b' }}>{a.status}</span>
               <span>{a.agent_id}</span>
-              <span style={{ color: '#475569' }}>{a.task_ref}</span>
+              <span style={{ color: '#64748b' }}>{a.task_ref}</span>
             </div>
           ))}
         </div>
@@ -11541,7 +11541,7 @@ function GenyXLandingPage() {
     statsGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 20, overflow: 'hidden' },
     statCell: (i) => ({ padding: '30px 24px', textAlign: 'center', borderRight: i < 3 ? '1px solid rgba(255,255,255,0.07)' : 'none' }),
     statVal: { fontSize: 34, fontWeight: 800, color: GB_LIGHT, marginBottom: 6 },
-    statLbl: { fontSize: 11, color: '#475569', textTransform: 'uppercase', letterSpacing: '.08em' },
+    statLbl: { fontSize: 11, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.08em' },
     section: (pb=120) => ({ padding: `0 24px ${pb}px`, maxWidth: 1100, margin: '0 auto' }),
     sHead: { textAlign: 'center', marginBottom: 64 },
     sH2: { fontSize: 42, fontWeight: 800, marginBottom: 14, letterSpacing: '-1px' },
@@ -11560,9 +11560,9 @@ function GenyXLandingPage() {
     ctaSub: { color: '#64748b', marginBottom: 40, lineHeight: 1.7 },
     ctaBtn: { display: `block`, background: `linear-gradient(135deg, ${GENYX_BRAND}, #8b5cf6)`, color: `#fff`, padding: '16px 32px', borderRadius: 12, fontSize: 15, fontWeight: 700, textDecoration: 'none', boxShadow: `0 0 32px ${GBa(0.3)}` },
     footer: { borderTop: '1px solid rgba(255,255,255,0.06)', padding: '32px 48px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 },
-    ftrBrand: { fontSize: 13, color: '#475569', fontWeight: 700 },
+    ftrBrand: { fontSize: 13, color: '#64748b', fontWeight: 700 },
     ftrLinks: { display: 'flex', gap: 24 },
-    ftrLink: { fontSize: 12, color: '#475569', textDecoration: 'none' },
+    ftrLink: { fontSize: 12, color: '#64748b', textDecoration: 'none' },
   };
   const hoverCard = (e, on) => { e.currentTarget.style.borderColor = on ? GBa(0.4) : 'rgba(255,255,255,0.07)'; e.currentTarget.style.background = on ? GBa(0.06) : 'rgba(255,255,255,0.03)'; };
 
@@ -11592,7 +11592,7 @@ function GenyXLandingPage() {
           &#x2713; Activo en 48h · Respuesta en segundos · Cero comisión por venta
         </div>
         <h1 style={C.h1}>Instalamos 9 agentes de IA<br /><span style={C.h1accent}>que orquestan tu operación comercial completa — autónoma, sin que tú estés.</span></h1>
-        <div style={{ display:'inline-flex', alignItems:'center', gap:8, marginTop:8, marginBottom:4 }}><span style={{ fontSize:13, fontWeight:900, background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', letterSpacing:'.05em' }}>AOaaS</span><span style={{ color:'#475569', fontSize:12 }}>— Agent Operations as a Service</span></div>
+        <div style={{ display:'inline-flex', alignItems:'center', gap:8, marginTop:8, marginBottom:4 }}><span style={{ fontSize:13, fontWeight:900, background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', letterSpacing:'.05em' }}>AOaaS</span><span style={{ color:'#64748b', fontSize:12 }}>— Agent Operations as a Service</span></div>
         <p style={{ marginTop: 16, fontSize: 17, color: '#94a3b8', fontStyle: 'italic', lineHeight: 1.6 }}>9 directores ejecutivos IA. <strong style={{ color: '#f1f5f9', fontStyle: 'normal' }}>Tu operación comercial autónoma.</strong></p>
         <p style={C.sub}>Operación 24/7 + inteligencia ejecutiva + accountability medible. Todo lo que necesita tu negocio para crecer. Dos capas: la operativa (atender, vender, cobrar, entregar) y la estratégica (interpretar tus datos y planear tus finanzas y marketing). El fundador toma la decisión. La IA hace el trabajo.</p>
         <div style={C.btns}>
@@ -11662,7 +11662,7 @@ function GenyXLandingPage() {
         {/* ── 3 macro-bloques de capacidades (REGLA 11 agnóstico) ── */}
         <div style={{ marginTop: 40, textAlign: 'center' }}>
           <p style={{ fontSize: 14, color: GB_SOFT, fontWeight: 700, marginBottom: 6 }}>9 agentes. Todos los planes. Cualquier negocio.</p>
-          <p style={{ fontSize: 12, color: '#475569', marginBottom: 24 }}>Tú diriges la estrategia. Los agentes operan, miden y proponen. Mantienes la dirección sin la operación diaria.</p>
+          <p style={{ fontSize: 12, color: '#64748b', marginBottom: 24 }}>Tú diriges la estrategia. Los agentes operan, miden y proponen. Mantienes la dirección sin la operación diaria.</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 14 }}>
             {[
               [
@@ -11696,7 +11696,7 @@ function GenyXLandingPage() {
               </div>
             ))}
           </div>
-          <p style={{ fontSize: 11, color: '#475569', fontStyle: 'italic', marginTop: 16 }}>Módulos verticales opcionales según tu industria. <a href="/plus" style={{ color: GB_LIGHT, textDecoration: 'underline' }}>Ver detalles →</a></p>
+          <p style={{ fontSize: 11, color: '#64748b', fontStyle: 'italic', marginTop: 16 }}>Módulos verticales opcionales según tu industria. <a href="/plus" style={{ color: GB_LIGHT, textDecoration: 'underline' }}>Ver detalles →</a></p>
         </div>
       </section>
 
@@ -11766,9 +11766,9 @@ function GenyXLandingPage() {
             </div>
             <p style={{ fontWeight: 700, marginBottom: 10, color: '#1e293b' }}>Sugerencias basadas en tus datos:</p>
             <div style={{ paddingLeft: 8, display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 20 }}>
-              <div style={{ color: '#475569' }}>→ Recomendaciones de producción o agenda según los patrones que detectamos</div>
-              <div style={{ color: '#475569' }}>→ Las acciones automáticas que ya tomamos con tus clientes inactivos esta semana</div>
-              <div style={{ color: '#475569' }}>→ Cómo evolucionaron tus métricas vs la semana pasada</div>
+              <div style={{ color: '#64748b' }}>→ Recomendaciones de producción o agenda según los patrones que detectamos</div>
+              <div style={{ color: '#64748b' }}>→ Las acciones automáticas que ya tomamos con tus clientes inactivos esta semana</div>
+              <div style={{ color: '#64748b' }}>→ Cómo evolucionaron tus métricas vs la semana pasada</div>
             </div>
             <p style={{ color: '#64748b' }}>Que tengas una semana increíble.</p>
           </div>
@@ -11805,7 +11805,7 @@ function GenyXLandingPage() {
                 <div key={t} style={{ fontSize: 12, color: '#64748b', display: 'flex', alignItems: 'center', gap: 6 }}><span style={{ color: '#64748b' }}>→</span> {t}</div>
               ))}
             </div>
-            <div style={{ marginTop: 12, fontSize: 10, color: '#475569', fontStyle: 'italic' }}>Fuente: Computrabajo, OCC, Glassdoor, Indeed, Talent.com — Mayo 2026</div>
+            <div style={{ marginTop: 12, fontSize: 10, color: '#64748b', fontStyle: 'italic' }}>Fuente: Computrabajo, OCC, Glassdoor, Indeed, Talent.com — Mayo 2026</div>
           </div>
           {/* GenyX */}
           <div style={{ background: 'rgba(74,222,128,0.06)', border: '2px solid rgba(74,222,128,0.3)', borderRadius: 20, padding: '32px 28px' }}>
@@ -11816,7 +11816,7 @@ function GenyXLandingPage() {
               </div>
             ))}
             {['IMSS', 'Aguinaldo', 'PTU', 'Infonavit', 'Vacaciones'].map(label => (
-              <div key={label} style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#475569' }}>
+              <div key={label} style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#64748b' }}>
                 <span>{label}</span><span style={{ fontWeight: 700, color: '#4ade80' }}>$0</span>
               </div>
             ))}
@@ -11973,7 +11973,7 @@ function GenyXLandingPage() {
           <a href="https://mando.genyxsystems.com" style={{ ...C.ftrLink, color:GENYX_BRAND, fontWeight:700 }}>→ Accede a tu Mando</a>
         </div>
         <p style={{ fontSize: 9, color: '#334155', maxWidth: 600, lineHeight: 1.5, marginTop: 8 }}>
-          GenyX opera con IA generativa. Outputs validados por governance pipeline (REGLAs 1-13). <a href="/terminos" style={{ color: '#475569', textDecoration: 'underline' }}>SLA</a> garantiza disponibilidad — no precisión absoluta de outputs IA. <a href="/terminos" style={{ color: '#475569', textDecoration: 'underline' }}>Cláusula 7b</a> delimita responsabilidad.
+          GenyX opera con IA generativa. Outputs validados por governance pipeline (REGLAs 1-13). <a href="/terminos" style={{ color: '#64748b', textDecoration: 'underline' }}>SLA</a> garantiza disponibilidad — no precisión absoluta de outputs IA. <a href="/terminos" style={{ color: '#64748b', textDecoration: 'underline' }}>Cláusula 7b</a> delimita responsabilidad.
         </p>
       </footer>
     </div>
@@ -12236,8 +12236,8 @@ export default function GenyXOperatorDashboard() {
             <div style={{ width: 30, height: 30, border: `2px solid ${GENYX_BRAND}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 800, color: GB_LIGHT }}>G</div>
             <div>
               <p style={{ fontWeight: 700, fontSize: 13, color: '#fff', letterSpacing: '.03em' }}>Geny<span style={{ color: GB_LIGHT }}>X</span></p>
-              <p style={{ fontSize: 10, color: '#475569', fontFamily: 'monospace' }}>Centro de Mando GenyX</p>
-              <p style={{ fontSize: 9, color: '#475569', fontStyle: 'italic' }}>Tu operación comercial autónoma</p>
+              <p style={{ fontSize: 10, color: '#64748b', fontFamily: 'monospace' }}>Centro de Mando GenyX</p>
+              <p style={{ fontSize: 9, color: '#64748b', fontStyle: 'italic' }}>Tu operación comercial autónoma</p>
             </div>
           </div>
         </div>
@@ -12257,7 +12257,7 @@ export default function GenyXOperatorDashboard() {
           </button>
           {health && <span style={{ fontSize: 11, color: '#4ade80', background: '#14532d30', border: '1px solid #14532d', padding: '4px 12px', borderRadius: 20, fontFamily: 'monospace' }}>🟢 v{health.version} · {realTenantCount != null ? realTenantCount : tenants.filter(t => t.status === 'active').length} activo(s) · {tenants.length} tenant(s)</span>}
           <button onClick={() => { sessionStorage.removeItem('genyx_admin_key'); setAdminKey(''); }}
-            style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', color: '#475569', padding: '7px 14px', borderRadius: 8, cursor: 'pointer', fontSize: 12 }}
+            style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', color: '#64748b', padding: '7px 14px', borderRadius: 8, cursor: 'pointer', fontSize: 12 }}
             title="Cerrar sesión">🔒 Salir</button>
         </div>
       </header>
@@ -12270,7 +12270,7 @@ export default function GenyXOperatorDashboard() {
               {gi > 0 && <span style={{ width: 1, height: 20, background: 'rgba(255,255,255,0.08)', margin: '0 6px', flexShrink: 0 }} />}
               <span style={{ fontSize: 8, fontWeight: 800, color: '#334155', letterSpacing: '.1em', textTransform: 'uppercase', padding: '0 6px', whiteSpace: 'nowrap', flexShrink: 0 }}>{g.group}</span>
               {g.tabs.map(t => (
-                <button key={t.id} onClick={() => setTab(t.id)} style={{ padding: '12px 12px', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.04em', border: 'none', background: 'none', cursor: 'pointer', color: tab === t.id ? GENYX_BRAND : '#475569', borderBottom: `2px solid ${tab === t.id ? GENYX_BRAND : 'transparent'}`, transition: 'all 0.2s', whiteSpace: 'nowrap', position: 'relative' }}>
+                <button key={t.id} onClick={() => setTab(t.id)} style={{ padding: '12px 12px', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.04em', border: 'none', background: 'none', cursor: 'pointer', color: tab === t.id ? GENYX_BRAND : '#64748b', borderBottom: `2px solid ${tab === t.id ? GENYX_BRAND : 'transparent'}`, transition: 'all 0.2s', whiteSpace: 'nowrap', position: 'relative' }}>
                   {t.label}
                   {t.hasBadge && escalatedCount > 0 && <span style={{ marginLeft: 4, background: '#ef4444', color: '#fff', padding: '1px 5px', borderRadius: 10, fontSize: 8, fontWeight: 800, verticalAlign: 'super' }}>{escalatedCount}</span>}
                 </button>
@@ -12287,13 +12287,13 @@ export default function GenyXOperatorDashboard() {
         <select
           value={selectedSlug}
           onChange={e => setSelectedSlug(e.target.value)}
-          style={{ background: '#0f1623', border: `1px solid ${GBa(0.35)}`, color: selectedSlug ? GB_SOFT : '#475569', padding: '5px 12px', borderRadius: 8, fontSize: 12, fontWeight: 600, cursor: 'pointer', outline: 'none' }}
+          style={{ background: '#0f1623', border: `1px solid ${GBa(0.35)}`, color: selectedSlug ? GB_SOFT : '#64748b', padding: '5px 12px', borderRadius: 8, fontSize: 12, fontWeight: 600, cursor: 'pointer', outline: 'none' }}
         >
           <option value="">-- Todos --</option>
           {tenants.map(t => <option key={t.slug} value={t.slug}>{t.name || t.slug}</option>)}
         </select>
         {selectedSlug && (
-          <button onClick={() => setSelectedSlug('')} style={{ fontSize: 11, color: '#475569', background: 'transparent', border: 'none', cursor: 'pointer', padding: '4px 8px' }}>✕ Limpiar</button>
+          <button onClick={() => setSelectedSlug('')} style={{ fontSize: 11, color: '#64748b', background: 'transparent', border: 'none', cursor: 'pointer', padding: '4px 8px' }}>✕ Limpiar</button>
         )}
       </div>
 
