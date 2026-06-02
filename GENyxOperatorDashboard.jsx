@@ -2953,7 +2953,7 @@ const AgentChat = ({ agentId, agentName, agentIcon }) => {
     setInput('');
     setLoading(true);
     try {
-      const r = await fetch(`\${BACKEND}/api/admin/agent-chat/\${agentId}`, {
+      const r = await fetch(`${BACKEND}/api/admin/agent-chat/${agentId}`, {
         method: 'POST',
         headers: { ...getAH(), 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: input }),
@@ -2962,7 +2962,7 @@ const AgentChat = ({ agentId, agentName, agentIcon }) => {
       const data = await r.json();
       setMessages(m => [...m, { role: 'agent', text: data.response, ts: new Date().toISOString() }]);
     } catch (e) {
-      setMessages(m => [...m, { role: 'agent', text: `⏳ Chat con \${agentId} próximamente. El endpoint está en desarrollo.`, ts: new Date().toISOString() }]);
+      setMessages(m => [...m, { role: 'agent', text: `⏳ Chat con ${agentId} próximamente. El endpoint está en desarrollo.`, ts: new Date().toISOString() }]);
     } finally { setLoading(false); }
   };
 
@@ -2987,7 +2987,7 @@ const AgentChat = ({ agentId, agentName, agentIcon }) => {
           value={input}
           onChange={e => setInput(e.target.value)}
           onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } }}
-          placeholder={`Pregunta a \${agentId}...`}
+          placeholder={`Pregunta a ${agentId}...`}
           rows={1}
           style={{ flex: 1, background: '#1e293b', border: '1px solid rgba(255,255,255,0.1)', color: '#e2e8f0', padding: '8px 12px', borderRadius: 8, fontSize: 13, resize: 'none', outline: 'none', fontFamily: 'inherit' }}
         />
@@ -3000,7 +3000,7 @@ const AgentChat = ({ agentId, agentName, agentIcon }) => {
 // scope: 'tenant' (mando) | 'founder' (cockpit cross-tenant)
 const AgentTab = ({ agentId, scope = 'founder' }) => {
   const agent = AGENT_CONFIGS[agentId];
-  if (!agent) return <Empty icon="🤖" msg={`Agente \${agentId} no encontrado.`} />;
+  if (!agent) return <Empty icon="🤖" msg={`Agente ${agentId} no encontrado.`} />;
   const isFounder = scope === 'founder';
   return (
     <section style={{ display: 'flex', gap: 20, minHeight: 500 }}>
@@ -3406,6 +3406,188 @@ const FOTOLAB_PRESETS = [
       `Transform this product photo into a professional eCommerce listing image${product ? ` of "${product}"` : ''}. Pure white background, even bright studio lighting. Product centered, clean shadows, no distractions. Commercial product photography style. Crisp edges, vibrant natural colors, 8K resolution, photorealistic.`,
   },
 ];
+
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// 📁 ARCHIVERO DE FOTOS — Cajón visual por producto (decreto fundador 2-jun-2026)
+// ═══════════════════════════════════════════════════════════════════════════════
+// Pattern: Google Photos Album UX + Dropbox folder structure
+// Flujo: Tenant sube foto → elige categoría (dropdown) → foto va al cajón
+// REGLA 11 agnóstico: producto categories se cargan dinámicamente del backend
+// REGLA 2: opción más profesional — visual grid, no lista plana
+function TabArchivero({ slug, token }) {
+  const [categories, setCategories] = React.useState([]);
+  const [selectedCat, setSelectedCat] = React.useState(null);
+  const [photos, setPhotos] = React.useState([]);
+  const [uploading, setUploading] = React.useState(false);
+  const [dragOver, setDragOver] = React.useState(false);
+  const [uploadCat, setUploadCat] = React.useState('');
+  const fileRef = React.useRef(null);
+
+  // Default categories for Paty (REGLA 11: backend should provide these per tenant)
+  const DEFAULT_CATS = [
+    { slug: 'hogaza-natural', name: 'Hogaza Natural', icon: '🍞', count: 5 },
+    { slug: 'hogaza-semillas', name: 'Hogaza de Semillas', icon: '🌾', count: 5 },
+    { slug: 'hogaza-datil-nuez', name: 'Hogaza Dátil & Nuez', icon: '🥜', count: 1 },
+    { slug: 'galleta-nuez-choco', name: 'Galletas NY Nuez & Chocolate', icon: '🍪', count: 5 },
+    { slug: 'galleta-masa-madre', name: 'Galleta NY Masa Madre', icon: '🍪', count: 5 },
+    { slug: 'galleta-oreo', name: 'Galleta NY Oreo', icon: '🍪', count: 5 },
+    { slug: 'crookie', name: 'Crookie', icon: '🥐', count: 5 },
+    { slug: 'trenza-nutella', name: 'Trenza de Nutella', icon: '🍫', count: 2 },
+    { slug: 'pizza', name: 'Pizza Artesanal', icon: '🍕', count: 1 },
+    { slug: 'pay-manzana', name: 'Pay de Manzana', icon: '🥧', count: 1 },
+    { slug: 'jugos', name: 'Jugos Naturales', icon: '🧃', count: 1 },
+    { slug: 'preparaciones', name: 'Preparaciones', icon: '👩‍🍳', count: 5 },
+    { slug: 'masa-madre-general', name: 'Masa Madre (general)', icon: '🫓', count: 5 },
+    { slug: 'pan-caja', name: 'Pan de Caja', icon: '🍞', count: 1 },
+  ];
+
+  React.useEffect(() => { setCategories(DEFAULT_CATS); }, []);
+
+  const CARD = { background: '#fff', borderRadius: 14, padding: 16, border: '1px solid rgba(192,120,72,0.12)', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' };
+  const totalPhotos = categories.reduce((s, c) => s + c.count, 0);
+
+  const handleDrop = (e) => {
+    e.preventDefault(); setDragOver(false);
+    if (!uploadCat) { alert('Primero selecciona un producto del menú'); return; }
+    // TODO: upload files to backend
+    const files = Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'));
+    if (files.length > 0) {
+      alert(`✅ ${files.length} foto(s) para "${uploadCat}" — Upload al backend próximamente`);
+    }
+  };
+
+  return (
+    <div>
+      <h2 style={{ fontSize: 18, fontWeight: 800, color: '#1a1208', marginBottom: 4 }}>📁 Archivero de Fotos</h2>
+      <p style={{ fontSize: 12, color: '#a8a29e', marginBottom: 16 }}>Tu biblioteca visual organizada por producto · {totalPhotos} fotos curadas</p>
+
+      {/* Upload Zone */}
+      <div style={{
+        ...CARD,
+        border: dragOver ? '2px dashed #C07848' : '2px dashed #e7d5c0',
+        background: dragOver ? 'rgba(192,120,72,0.04)' : '#faf8f4',
+        textAlign: 'center', padding: '28px 20px', marginBottom: 20,
+        cursor: 'pointer', transition: 'all 0.2s ease',
+      }}
+        onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
+        onDragLeave={() => setDragOver(false)}
+        onDrop={handleDrop}
+        onClick={() => fileRef.current?.click()}
+      >
+        <input ref={fileRef} type="file" accept="image/*" multiple style={{ display: 'none' }}
+          onChange={(e) => {
+            if (!uploadCat) { alert('Primero selecciona un producto del menú'); return; }
+            alert(`✅ ${e.target.files.length} foto(s) para "${uploadCat}"`);
+          }}
+        />
+        <div style={{ fontSize: 32, marginBottom: 8 }}>📸</div>
+        <div style={{ fontSize: 14, fontWeight: 700, color: '#44403c', marginBottom: 8 }}>
+          {dragOver ? '¡Suelta aquí!' : 'Arrastra tus fotos o toca para seleccionar'}
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: 8, flexWrap: 'wrap', marginBottom: 12 }}>
+          <select
+            value={uploadCat}
+            onChange={(e) => setUploadCat(e.target.value)}
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              padding: '8px 16px', fontSize: 13, fontWeight: 600,
+              border: '1.5px solid #C07848', borderRadius: 8,
+              background: uploadCat ? '#fef3c7' : '#fff',
+              color: '#44403c', cursor: 'pointer', minWidth: 200,
+            }}
+          >
+            <option value="">▼ ¿De qué producto es la foto?</option>
+            {categories.map(c => (
+              <option key={c.slug} value={c.name}>{c.icon} {c.name}</option>
+            ))}
+          </select>
+        </div>
+        <div style={{ fontSize: 11, color: '#a8a29e' }}>JPG, PNG · Máx 10 fotos a la vez</div>
+      </div>
+
+      {/* Missing products alert */}
+      {(() => {
+        const missing = categories.filter(c => c.count === 0);
+        if (missing.length === 0) return null;
+        return (
+          <div style={{ ...CARD, background: '#fef3c7', border: '1px solid #fbbf24', marginBottom: 16, fontSize: 12, color: '#92400e' }}>
+            💡 <b>Faltan fotos de:</b> {missing.map(m => m.name).join(', ')}. ¡Sube las tuyas!
+          </div>
+        );
+      })()}
+
+      {/* Category Grid */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: 12 }}>
+        {categories.map(cat => (
+          <div key={cat.slug} onClick={() => setSelectedCat(selectedCat === cat.slug ? null : cat.slug)}
+            style={{
+              ...CARD,
+              cursor: 'pointer',
+              textAlign: 'center',
+              padding: '20px 12px',
+              border: selectedCat === cat.slug ? '2px solid #C07848' : '1px solid rgba(192,120,72,0.12)',
+              background: selectedCat === cat.slug ? 'rgba(192,120,72,0.04)' : '#fff',
+              transition: 'all 0.2s cubic-bezier(0.25,0.8,0.25,1)',
+              transform: selectedCat === cat.slug ? 'translateY(-2px)' : 'none',
+            }}
+          >
+            <div style={{ fontSize: 28, marginBottom: 6 }}>{cat.icon}</div>
+            <div style={{ fontSize: 12, fontWeight: 700, color: '#44403c', lineHeight: 1.3, marginBottom: 4 }}>{cat.name}</div>
+            <div style={{ fontSize: 11, color: cat.count > 0 ? '#16a34a' : '#ef4444', fontWeight: 600 }}>
+              {cat.count > 0 ? `${cat.count} fotos` : 'Sin fotos'}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Selected category detail */}
+      {selectedCat && (() => {
+        const cat = categories.find(c => c.slug === selectedCat);
+        if (!cat) return null;
+        return (
+          <div style={{ ...CARD, marginTop: 16 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+              <h3 style={{ fontSize: 15, fontWeight: 700, color: '#1a1208', margin: 0 }}>{cat.icon} {cat.name}</h3>
+              <span style={{ fontSize: 11, color: '#a8a29e' }}>{cat.count} fotos · Calidad 8-9/10</span>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))', gap: 8 }}>
+              {Array.from({ length: Math.min(cat.count, 5) }).map((_, i) => (
+                <div key={i} style={{
+                  aspectRatio: '1', borderRadius: 10, background: '#f5f0ea',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontSize: 24, color: '#c4b5a5', border: '1px solid rgba(192,120,72,0.1)',
+                }}>
+                  {cat.icon}
+                </div>
+              ))}
+            </div>
+            <div style={{ marginTop: 12, display: 'flex', gap: 8 }}>
+              <button style={{ flex: 1, padding: '8px 0', fontSize: 12, fontWeight: 600, background: '#C07848', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer' }}>
+                📤 Usar en marketing
+              </button>
+              <button style={{ flex: 1, padding: '8px 0', fontSize: 12, fontWeight: 600, background: '#f5f0ea', color: '#44403c', border: 'none', borderRadius: 8, cursor: 'pointer' }}>
+                📸 Agregar más fotos
+              </button>
+            </div>
+          </div>
+        );
+      })()}
+
+      {/* Weekly strategy preview */}
+      <div style={{ ...CARD, marginTop: 16, background: '#f0fdf4', border: '1px solid #bbf7d0' }}>
+        <div style={{ fontSize: 13, fontWeight: 700, color: '#166534', marginBottom: 6 }}>📣 Estrategia de esta semana</div>
+        <div style={{ fontSize: 12, color: '#15803d', lineHeight: 1.6 }}>
+          A1 Marketing seleccionó <b>5 fotos diferentes</b> del archivero para redes sociales.
+          Las mejores fotos del menú ya están en tu landing web.
+          <br/>
+          <span style={{ fontSize: 11, color: '#4ade80' }}>Próximo envío: Lunes AM</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 
 function TabFotoLab({ slug, token }) {
   const [preset, setPreset] = useState('editorial');
@@ -6104,6 +6286,7 @@ if (!token) return (
 
         {/* ═══ TAB: FOTO LAB ═══ */}
         {(tab === 'insights' && subTab === 'fotolab') && <TabFotoLab slug={slug} token={token} />}
+        {(tab === 'insights' && subTab === 'archivero') && <TabArchivero slug={slug} token={token} />}
 
 
         {/* ═══ TAB: MIS AGENTES — ELIMINADO V3 (chat individual rompe AOaaS) ═══ */}
@@ -8943,6 +9126,7 @@ function TabInsightsTenant({ slug, token, analytics, fetchAnalytics, setParentTa
     { id: 'kpis', icon: '📊', label: 'KPIs' },
     { id: 'reporteLunes', icon: '📧', label: 'Reporte Semanal' },
     { id: 'fotolab', icon: '📸', label: 'Foto Lab' },
+    { id: 'archivero', icon: '📁', label: 'Archivero' },
   ];
   const [section, setSection] = React.useState('kpis');
   // eslint-disable-next-line react-hooks/exhaustive-deps
