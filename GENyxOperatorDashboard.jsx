@@ -3532,7 +3532,13 @@ function TabArchivero({ slug, token }) {
               transform: selectedCat === cat.slug ? 'translateY(-2px)' : 'none',
             }}
           >
-            <div style={{ fontSize: 28, marginBottom: 6 }}>{cat.icon}</div>
+            {cat.photos && cat.photos.length > 0 ? (
+              <div style={{ width: 48, height: 48, borderRadius: 8, overflow: 'hidden', margin: '0 auto 6px', border: '1px solid rgba(192,120,72,0.1)' }}>
+                <img src={cat.photos[0]} alt={cat.name} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
+            ) : (
+              <div style={{ fontSize: 28, marginBottom: 6 }}>{cat.icon}</div>
+            )}
             <div style={{ fontSize: 12, fontWeight: 700, color: '#44403c', lineHeight: 1.3, marginBottom: 4 }}>{cat.name}</div>
             <div style={{ fontSize: 11, color: cat.count > 0 ? '#16a34a' : '#ef4444', fontWeight: 600 }}>
               {cat.count > 0 ? `${cat.count} fotos` : 'Sin fotos'}
@@ -3552,15 +3558,19 @@ function TabArchivero({ slug, token }) {
               <span style={{ fontSize: 11, color: '#a8a29e' }}>{cat.count} fotos · Calidad 8-9/10</span>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))', gap: 8 }}>
-              {Array.from({ length: Math.min(cat.count, 5) }).map((_, i) => (
+              {(cat.photos || []).slice(0, 6).map((url, i) => (
                 <div key={i} style={{
-                  aspectRatio: '1', borderRadius: 10, background: '#f5f0ea',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: 24, color: '#c4b5a5', border: '1px solid rgba(192,120,72,0.1)',
+                  aspectRatio: '1', borderRadius: 10, overflow: 'hidden',
+                  border: '1px solid rgba(192,120,72,0.1)', background: '#f5f0ea',
                 }}>
-                  {cat.icon}
+                  <img src={url} alt={`${cat.name} ${i+1}`} loading="lazy" style={{
+                    width: '100%', height: '100%', objectFit: 'cover',
+                  }} />
                 </div>
               ))}
+              {cat.photos && cat.photos.length === 0 && (
+                <div style={{ aspectRatio: '1', borderRadius: 10, background: '#f5f0ea', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>{cat.icon}</div>
+              )}
             </div>
             <div style={{ marginTop: 12, display: 'flex', gap: 8 }}>
               <button style={{ flex: 1, padding: '8px 0', fontSize: 12, fontWeight: 600, background: '#C07848', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer' }}>
