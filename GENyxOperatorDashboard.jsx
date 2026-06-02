@@ -93,8 +93,8 @@ const TOKENS = (brandColor) => {
 
     text: '#f1f5f9',
     textMuted: '#94a3b8',
-    textDim: '#64748b',
-    textFaint: '#64748b',
+    textDim: '#9ca3af',
+    textFaint: '#9ca3af',
 
     success: '#10b981',
     warning: '#f59e0b',
@@ -120,7 +120,7 @@ const BILLING_CFG = {
   past_due:      { l: '⚠ Past due', bg: '#f59e0b20', c: '#f59e0b' },
   inactive:      { l: '✕ Inactive', bg: '#ef444420', c: '#ef4444' },
   piloto_comped: { l: '🎁 Piloto',   bg: 'rgba(99,102,241,0.15)', c: '#a5b4fc' },
-  unknown:       { l: '?',          bg: '#64748b20', c: '#94a3b8' },
+  unknown:       { l: '?',          bg: '#9ca3af20', c: '#94a3b8' },
 };
 const BillingBadge = ({ status }) => {
   const s = BILLING_CFG[status] || BILLING_CFG.unknown;
@@ -133,7 +133,7 @@ const TicketsBadge = ({ count }) => {
 
 const StatusBadge = ({ s }) => {
   const map = { active: ['#16a34a', '#f0fdf4'], paused: ['#d97706', '#fefce8'], trial: ['#2563eb', '#eff6ff'], suspended: ['#dc2626', '#fef2f2'] };
-  const [c, bg] = map[s] || ['#64748b', '#f8fafc'];
+  const [c, bg] = map[s] || ['#9ca3af', '#f8fafc'];
   return <span style={{ background: bg, color: c, border: `1px solid ${c}25`, padding: '2px 10px', borderRadius: 12, fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em' }}>{s}</span>;
 };
 
@@ -205,7 +205,7 @@ const TabFarmacopeia = () => {
     <section>
       <div style={{ marginBottom: 24 }}>
         <h2 style={H2}>💊 Farmacopeia GenyX</h2>
-        <p style={{ fontSize: 12, color: '#64748b', marginTop: 4 }}>
+        <p style={{ fontSize: 12, color: '#9ca3af', marginTop: 4 }}>
           Base de conocimiento de bugs resueltos · <strong style={{ color: '#4ade80' }}>Regla de oro:</strong> buscar aquí <em>primero</em> antes de tocar código.
         </p>
       </div>
@@ -222,15 +222,15 @@ const TabFarmacopeia = () => {
             placeholder="Buscar por síntoma, diagnóstico, fix o commit…"
             style={{ ...INPUT, paddingLeft: 38, width: '100%', fontSize: 13 }}
           />
-          {q && <button onClick={() => setQ('')} style={{ position: 'absolute', right: 10, top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', color: '#64748b', cursor: 'pointer', fontSize: 18, lineHeight: 1 }}>×</button>}
+          {q && <button onClick={() => setQ('')} style={{ position: 'absolute', right: 10, top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', color: '#9ca3af', cursor: 'pointer', fontSize: 18, lineHeight: 1 }}>×</button>}
         </div>
-        <span style={{ ...MONO, color: '#64748b', fontSize: 11, whiteSpace: 'nowrap' }}>{results.length} resultado(s)</span>
+        <span style={{ ...MONO, color: '#9ca3af', fontSize: 11, whiteSpace: 'nowrap' }}>{results.length} resultado(s)</span>
       </div>
 
       {/* Lista */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
         {results.length === 0 && (
-          <div style={{ ...CARD, textAlign: 'center', color: '#64748b', padding: 32 }}>
+          <div style={{ ...CARD, textAlign: 'center', color: '#9ca3af', padding: 32 }}>
             <p style={{ fontSize: 28, marginBottom: 8 }}>🤷‍♂️</p>
             <p>No se encontró para <strong style={{ color: '#f1f5f9' }}>"{q}"</strong></p>
             <p style={{ fontSize: 11, marginTop: 6 }}>Si es un bug nuevo, resuélvelo y agrégalo aquí.</p>
@@ -247,19 +247,19 @@ const TabFarmacopeia = () => {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12 }}>
               <div style={{ flex: 1 }}>
                 <p style={{ fontWeight: 700, fontSize: 13, color: '#f1f5f9', marginBottom: selected !== i ? 4 : 0 }}>⚡ {e.sintoma}</p>
-                {selected !== i && <p style={{ fontSize: 11, color: '#64748b' }}>{e.diagnostico.substring(0, 90)}{e.diagnostico.length > 90 ? '…' : ''}</p>}
+                {selected !== i && <p style={{ fontSize: 11, color: '#9ca3af' }}>{e.diagnostico.substring(0, 90)}{e.diagnostico.length > 90 ? '…' : ''}</p>}
               </div>
               <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexShrink: 0 }}>
                 <span style={{ ...MONO, fontSize: 9, color: GENYX_BRAND, background: GBa(0.1), padding: '2px 7px', borderRadius: 4 }}>{e.commit}</span>
                 <span style={{ fontSize: 14 }}>{e.estado}</span>
-                <span style={{ color: '#64748b', fontSize: 11 }}>{selected === i ? '▲' : '▼'}</span>
+                <span style={{ color: '#9ca3af', fontSize: 11 }}>{selected === i ? '▲' : '▼'}</span>
               </div>
             </div>
 
             {selected === i && (
               <div style={{ marginTop: 14, paddingTop: 14, borderTop: '1px solid rgba(255,255,255,0.06)', display: 'flex', flexDirection: 'column', gap: 10 }}>
                 <div>
-                  <p style={{ ...MONO, fontSize: 9, color: '#64748b', marginBottom: 4, textTransform: 'uppercase', letterSpacing: '.06em' }}>Diagnóstico</p>
+                  <p style={{ ...MONO, fontSize: 9, color: '#9ca3af', marginBottom: 4, textTransform: 'uppercase', letterSpacing: '.06em' }}>Diagnóstico</p>
                   <p style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6 }}>{e.diagnostico}</p>
                 </div>
                 <div style={{ background: 'rgba(74,222,128,0.05)', border: '1px solid rgba(74,222,128,0.15)', borderRadius: 8, padding: '10px 14px' }}>
@@ -335,9 +335,9 @@ function ModulesEditorModal({ tenant, onClose, onSave }) {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 20 }}>
           <div>
             <h3 style={{ fontSize: 16, fontWeight: 700, color: '#f1f5f9' }}>⚙️ Módulos · {tenant.name || tenant.slug}</h3>
-            <p style={{ fontSize: 12, color: '#64748b', marginTop: 4 }}>{activeCount} de {MODULES_DEFS.length} activos</p>
+            <p style={{ fontSize: 12, color: '#9ca3af', marginTop: 4 }}>{activeCount} de {MODULES_DEFS.length} activos</p>
           </div>
-          <button onClick={onClose} style={{ background: 'none', border: 'none', color: '#64748b', fontSize: 20, cursor: 'pointer' }}>✕</button>
+          <button onClick={onClose} style={{ background: 'none', border: 'none', color: '#9ca3af', fontSize: 20, cursor: 'pointer' }}>✕</button>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 8, marginBottom: 20 }}>
@@ -349,7 +349,7 @@ function ModulesEditorModal({ tenant, onClose, onSave }) {
               display: 'flex', alignItems: 'center', gap: 10, transition: 'all 0.15s'
             }}>
               <span style={{ fontSize: 18 }}>{m.icon}</span>
-              <span style={{ fontSize: 13, color: modules[m.id] ? GB_SOFT : '#64748b', fontWeight: 600, flex: 1 }}>{m.name}</span>
+              <span style={{ fontSize: 13, color: modules[m.id] ? GB_SOFT : '#9ca3af', fontWeight: 600, flex: 1 }}>{m.name}</span>
               <span style={{ width: 18, height: 18, borderRadius: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12,
                 background: modules[m.id] ? GENYX_BRAND : 'rgba(255,255,255,0.06)', color: '#fff' }}>
                 {modules[m.id] ? '✓' : ''}
@@ -433,12 +433,12 @@ const TabSoporte = ({ tenants }) => {
 
   const fmtD = (d) => { try { return new Date(d).toLocaleString('es-MX', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }); } catch { return d; } };
   const sLabel = (s) => ({ open: 'Abierto', agent_resolved: 'Resuelto', escalated: 'Escalado', founder_responded: 'Respondido', closed: 'Cerrado' }[s] || s);
-  const sColor = (s) => ({ open: '#f59e0b', agent_resolved: '#10b981', escalated: '#3b82f6', founder_responded: '#10b981', closed: '#64748b' }[s] || '#64748b');
+  const sColor = (s) => ({ open: '#f59e0b', agent_resolved: '#10b981', escalated: '#3b82f6', founder_responded: '#10b981', closed: '#9ca3af' }[s] || '#9ca3af');
 
   const FILTER_BTN = (active) => ({
     padding: '6px 14px', borderRadius: 8, fontSize: 11, fontWeight: 700, border: 'none', cursor: 'pointer',
     background: active ? GBa(0.2) : 'rgba(255,255,255,0.04)',
-    color: active ? GB_LIGHT : '#64748b',
+    color: active ? GB_LIGHT : '#9ca3af',
   });
 
   return (
@@ -463,7 +463,7 @@ const TabSoporte = ({ tenants }) => {
               <div style={{ fontWeight: 700, color: '#f1f5f9', fontSize: 14 }}>
                 #{t.id} — {t.business_name || t.org_slug}
               </div>
-              <div style={{ fontSize: 11, color: '#64748b', marginTop: 4 }}>
+              <div style={{ fontSize: 11, color: '#9ca3af', marginTop: 4 }}>
                 {t.tab_context && <><span style={{ color: GB_LIGHT }}>📂 {t.tab_context}</span> · </>}
                 Severity: <strong style={{ color: t.severity === 'critical' ? '#ef4444' : t.severity === 'high' ? '#f59e0b' : '#94a3b8' }}>{t.severity}</strong> · {fmtD(t.created_at)}
               </div>
@@ -482,7 +482,7 @@ const TabSoporte = ({ tenants }) => {
             <div style={{ marginTop: 8, padding: 12, background: GBa(0.04), borderRadius: 8, borderLeft: `3px solid ${GENYX_BRAND}`, fontSize: 13 }}>
               <strong style={{ color: GB_LIGHT, fontSize: 11 }}>Agente respondió{t.agent_confidence ? ` (${(t.agent_confidence * 100).toFixed(0)}%)` : ''}:</strong>
               <p style={{ marginTop: 4, lineHeight: 1.6, color: '#e2e8f0' }}>{t.agent_response}</p>
-              {t.agent_reasoning && <small style={{ color: '#64748b' }}>Razón: {t.agent_reasoning}</small>}
+              {t.agent_reasoning && <small style={{ color: '#9ca3af' }}>Razón: {t.agent_reasoning}</small>}
             </div>
           )}
 
@@ -632,7 +632,7 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
       {onboardingUrl && (
         <div style={{ ...CARD, background: GBa(0.08), border: `1px solid ${GBa(0.3)}`, marginBottom: 20 }}>
           <p style={{ color: GB_SOFT, fontWeight: 700, marginBottom: 8 }}>🔗 Configuración de Pago (Stripe)</p>
-          <p style={{ fontSize: 12, color: '#64748b', marginBottom: 12 }}>Envía este link al cliente para completar la configuración de cobros en Stripe. Expira en 24h.</p>
+          <p style={{ fontSize: 12, color: '#9ca3af', marginBottom: 12 }}>Envía este link al cliente para completar la configuración de cobros en Stripe. Expira en 24h.</p>
           <div style={{ display: 'flex', gap: 8 }}>
             <input readOnly value={onboardingUrl} style={{ ...INPUT, flex: 1, fontSize: 11 }} />
             <button onClick={() => { navigator.clipboard.writeText(onboardingUrl); }} style={BTN_SM_BLUE}>Copiar</button>
@@ -679,10 +679,10 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
               {/* Card Header */}
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
                 <div>
-                  <p style={{ ...MONO, color: '#64748b', marginBottom: 4 }}>T{String(({ 'panaderia-paty': 1, 'kovay-resort': 2, 'carnivor': 3 })[t.slug] || (i + 1)).padStart(2, '0')}</p>
+                  <p style={{ ...MONO, color: '#9ca3af', marginBottom: 4 }}>T{String(({ 'panaderia-paty': 1, 'kovay-resort': 2, 'carnivor': 3 })[t.slug] || (i + 1)).padStart(2, '0')}</p>
                   <h3 style={{ fontWeight: 700, fontSize: 16, color: '#f1f5f9' }}>{t.name || t.slug}</h3>
                   <div style={{ display: 'flex', gap: 6, alignItems: 'center', marginTop: 4, flexWrap: 'wrap' }}>
-                    <span style={{ fontSize: 12, color: '#64748b' }}>{t.industry || 'Sin clasificar'}</span>
+                    <span style={{ fontSize: 12, color: '#9ca3af' }}>{t.industry || 'Sin clasificar'}</span>
                     <BillingBadge status={billingByTenant[t.slug]} />
                     <TicketsBadge count={ticketsByTenant[t.slug]} />
                   </div>
@@ -783,7 +783,7 @@ const NewsFeed = ({ health, orders, tenants }) => {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 8, marginBottom: 14 }}>
         <div>
           <h3 style={{ fontWeight: 700, fontSize: 14, color: GB_LIGHT, marginBottom: 3 }}>☀️ 15 Minutos de Lectura</h3>
-          <p style={{ fontSize: 11, color: '#64748b' }}>{new Date().toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
+          <p style={{ fontSize: 11, color: '#9ca3af' }}>{new Date().toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
         </div>
         <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
           <span style={{ fontSize: 10, ...MONO, background: '#1e1b4b', color: GB_LIGHT, padding: '4px 10px', borderRadius: 6 }}>Tech · IA · Negocios</span>
@@ -797,9 +797,9 @@ const NewsFeed = ({ health, orders, tenants }) => {
 
       {/* News headlines */}
       {loading ? (
-        <p style={{ fontSize: 12, color: '#64748b', textAlign: 'center', padding: '12px 0' }}>Cargando noticias…</p>
+        <p style={{ fontSize: 12, color: '#9ca3af', textAlign: 'center', padding: '12px 0' }}>Cargando noticias…</p>
       ) : news.length === 0 ? (
-        <p style={{ fontSize: 12, color: '#64748b', textAlign: 'center', padding: '12px 0' }}>No se pudieron cargar las noticias. Intenta recargando.</p>
+        <p style={{ fontSize: 12, color: '#9ca3af', textAlign: 'center', padding: '12px 0' }}>No se pudieron cargar las noticias. Intenta recargando.</p>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           {news.map((item, i) => (
@@ -815,7 +815,7 @@ const NewsFeed = ({ health, orders, tenants }) => {
         </div>
       )}
 
-      {health && <div style={{ marginTop: 12, padding: '6px 12px', background: '#0f172a50', borderRadius: 8, fontSize: 10, color: '#64748b' }}>
+      {health && <div style={{ marginTop: 12, padding: '6px 12px', background: '#0f172a50', borderRadius: 8, fontSize: 10, color: '#9ca3af' }}>
         🟢 Backend v{health.version} en línea · {health.tenants_active} tenant(s)
       </div>}
     </div>
@@ -868,7 +868,7 @@ const TabData = ({ tenants, orders }) => {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
         <div>
           <h2 style={H2}>📈 GenyX — Intelligence Hub</h2>
-          <p style={{ ...MONO, color: '#64748b', fontSize: 11, marginTop: 4 }}>{today}</p>
+          <p style={{ ...MONO, color: '#9ca3af', fontSize: 11, marginTop: 4 }}>{today}</p>
         </div>
         <span style={{ ...MONO, fontSize: 10, color: '#4ade80', background: 'rgba(74,222,128,0.1)', padding: '4px 12px', borderRadius: 20, border: '1px solid rgba(74,222,128,0.2)' }}>
           {tenants.filter(t => t.status === 'active').length} clientes activos
@@ -886,7 +886,7 @@ const TabData = ({ tenants, orders }) => {
           <div key={i} style={{ ...CARD, textAlign: 'center', padding: 16 }}>
             <div style={{ fontSize: 24, marginBottom: 8 }}>{kpi.icon}</div>
             <div style={{ fontSize: 20, fontWeight: 800, color: kpi.color }}>{kpi.value}</div>
-            <div style={{ fontSize: 10, color: '#64748b', marginTop: 4, textTransform: 'uppercase', letterSpacing: '.05em' }}>{kpi.label}</div>
+            <div style={{ fontSize: 10, color: '#9ca3af', marginTop: 4, textTransform: 'uppercase', letterSpacing: '.05em' }}>{kpi.label}</div>
           </div>
         ))}
       </div>
@@ -901,9 +901,9 @@ const TabData = ({ tenants, orders }) => {
               <span style={{ marginLeft: 10, fontSize: 10, color: c.status === 'active' ? '#4ade80' : '#f87171', textTransform: 'uppercase' }}>{c.status}</span>
             </div>
             <div style={{ display: 'flex', gap: 20, textAlign: 'right' }}>
-              <div><div style={{ fontSize: 13, fontWeight: 700, color: '#4ade80' }}>{$$(c.revenue)}</div><div style={{ fontSize: 10, color: '#64748b' }}>Revenue</div></div>
-              <div><div style={{ fontSize: 13, fontWeight: 700, color: GB_LIGHT }}>{$$(c.subscription)}</div><div style={{ fontSize: 10, color: '#64748b' }}>Suscripción</div></div>
-              <div><div style={{ fontSize: 13, fontWeight: 700, color: '#38bdf8' }}>{c.orders}</div><div style={{ fontSize: 10, color: '#64748b' }}>Pedidos</div></div>
+              <div><div style={{ fontSize: 13, fontWeight: 700, color: '#4ade80' }}>{$$(c.revenue)}</div><div style={{ fontSize: 10, color: '#9ca3af' }}>Revenue</div></div>
+              <div><div style={{ fontSize: 13, fontWeight: 700, color: GB_LIGHT }}>{$$(c.subscription)}</div><div style={{ fontSize: 10, color: '#9ca3af' }}>Suscripción</div></div>
+              <div><div style={{ fontSize: 13, fontWeight: 700, color: '#38bdf8' }}>{c.orders}</div><div style={{ fontSize: 10, color: '#9ca3af' }}>Pedidos</div></div>
             </div>
           </div>
         ))}
@@ -914,12 +914,12 @@ const TabData = ({ tenants, orders }) => {
         <h3 style={{ ...H2, fontSize: 14, marginBottom: 16, color: GB_SOFT }}>⚡ GenyX — Como Negocio</h3>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
           <div>
-            <p style={{ ...MONO, fontSize: 10, color: '#64748b', marginBottom: 8 }}>MRR (SUSCRIPCIONES)</p>
+            <p style={{ ...MONO, fontSize: 10, color: '#9ca3af', marginBottom: 8 }}>MRR (SUSCRIPCIONES)</p>
             <p style={{ fontSize: 28, fontWeight: 800, color: GB_LIGHT }}>{$$(g.totalSubscription)}</p>
-            <p style={{ fontSize: 11, color: '#64748b', marginTop: 4 }}>Acumulado de {g.clientBreakdown.length} cliente(s)</p>
+            <p style={{ fontSize: 11, color: '#9ca3af', marginTop: 4 }}>Acumulado de {g.clientBreakdown.length} cliente(s)</p>
           </div>
           <div>
-            <p style={{ ...MONO, fontSize: 10, color: '#64748b', marginBottom: 8 }}>MÉTRICAS PLATAFORMA</p>
+            <p style={{ ...MONO, fontSize: 10, color: '#9ca3af', marginBottom: 8 }}>MÉTRICAS PLATAFORMA</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
               {[
                 ['Clientes activos', tenants.filter(t => t.status === 'active').length],
@@ -1036,7 +1036,7 @@ function SystemAuditPanel() {
 
   const allOk    = auditResult && Object.values(auditResult).filter(v => v && v.ok !== undefined).every(v => v.ok !== false);
   const hasError = auditResult && Object.values(auditResult).filter(v => v && v.ok !== undefined).some(v => v.ok === false);
-  const semColor = !auditResult ? '#64748b' : hasError ? '#ef4444' : allOk ? '#22c55e' : '#f59e0b';
+  const semColor = !auditResult ? '#9ca3af' : hasError ? '#ef4444' : allOk ? '#22c55e' : '#f59e0b';
   const semIcon  = !auditResult ? '⚪' : hasError ? '🔴' : allOk ? '🟢' : '🟡';
 
   return (
@@ -1046,7 +1046,7 @@ function SystemAuditPanel() {
           <h3 style={{ fontWeight: 700, fontSize: 14, color: '#f1f5f9', marginBottom: 2 }}>
             {semIcon} Auditoría Rápida del Sistema
           </h3>
-          <p style={{ fontSize: 11, color: '#64748b' }}>
+          <p style={{ fontSize: 11, color: '#9ca3af' }}>
             Verifica backend · agent_core · órdenes · webhook
           </p>
         </div>
@@ -1069,7 +1069,7 @@ function SystemAuditPanel() {
                 <span style={{ fontSize: 14, lineHeight: 1.4 }}>{dot}</span>
                 <div>
                   <p style={{ fontSize: 12, fontWeight: 600, color: c.ok === false ? '#fca5a5' : '#e2e8f0' }}>{c.label}</p>
-                  <p style={{ fontSize: 10, color: '#64748b' }}>{c.detail}</p>
+                  <p style={{ fontSize: 10, color: '#9ca3af' }}>{c.detail}</p>
                 </div>
                 {c.ok === false && (
                   <span style={{ marginLeft: 'auto', fontSize: 10, color: '#f87171', background: 'rgba(239,68,68,0.1)', padding: '2px 8px', borderRadius: 4, whiteSpace: 'nowrap' }}>
@@ -1079,7 +1079,7 @@ function SystemAuditPanel() {
               </div>
             );
           })}
-          <p style={{ ...MONO, fontSize: 9, color: '#64748b', textAlign: 'right', marginTop: 4 }}>
+          <p style={{ ...MONO, fontSize: 9, color: '#9ca3af', textAlign: 'right', marginTop: 4 }}>
             Completado en {auditResult.ms}ms
           </p>
         </div>
@@ -1139,7 +1139,7 @@ const TabHerramientas = ({ health, orders, tenants, selectedSlug }) => {
       {/* ── Botón de Pánico ── */}
       <div style={{ ...CARD, border: '1px solid rgba(239,68,68,0.2)', marginBottom: 20 }}>
         <h3 style={{ fontWeight: 700, fontSize: 14, color: '#f87171', marginBottom: 6 }}>🚨 Botón de Pánico — Gestión de Cliente</h3>
-        <p style={{ fontSize: 12, color: '#64748b', marginBottom: 16 }}>Suspende o reactiva un cliente que no ha pagado. Su bot se desactiva inmediatamente pero sus datos se conservan.</p>
+        <p style={{ fontSize: 12, color: '#9ca3af', marginBottom: 16 }}>Suspende o reactiva un cliente que no ha pagado. Su bot se desactiva inmediatamente pero sus datos se conservan.</p>
         <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 12 }}>
           <select aria-label="Seleccionar tenant para acción" value={panicSlug} onChange={e => setPanicSlug(e.target.value)}
             style={{ flex: 1, minWidth: 180, background: '#1e293b', border: '1px solid rgba(255,255,255,0.1)', color: '#cbd5e1', padding: '8px 12px', borderRadius: 8, fontSize: 13 }}>
@@ -1148,13 +1148,13 @@ const TabHerramientas = ({ health, orders, tenants, selectedSlug }) => {
           </select>
         </div>
         {panicSlug && <PanicConfirmBlock tenantName={tenants.find(t => t.slug === panicSlug)?.name || panicSlug} onPanic={handlePanic} panicStatus={panicStatus} />}
-        {!panicSlug && <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Selecciona un cliente para habilitar las acciones.</p>}
+        {!panicSlug && <p style={{ fontSize: 12, color: '#9ca3af', fontStyle: 'italic' }}>Selecciona un cliente para habilitar las acciones.</p>}
       </div>
 
       {/* ── Reset Sesión ── */}
       <div style={CARD}>
         <h3 style={{ fontWeight: 700, fontSize: 14, color: '#f0f0f5', marginBottom: 4 }}>🗑️ Reiniciar Sesión de Chat</h3>
-        <p style={{ fontSize: 12, color: '#64748b', marginBottom: 12 }}>Borra la memoria de un usuario. Formato: <code style={{ color: '#60a5fa' }}>clone-id:wa_521XXXXXXXXXX</code></p>
+        <p style={{ fontSize: 12, color: '#9ca3af', marginBottom: 12 }}>Borra la memoria de un usuario. Formato: <code style={{ color: '#60a5fa' }}>clone-id:wa_521XXXXXXXXXX</code></p>
         <div style={{ display: 'flex', gap: 8 }}>
           <input type="text" value={resetKey} onChange={e => setResetKey(e.target.value)} placeholder="clone_id:session_id" style={{ ...INPUT, flex: 1 }} />
           <button onClick={handleReset} disabled={!resetKey.trim()} style={{ ...BTN_SM_RED, opacity: resetKey.trim() ? 1 : 0.5 }}>Reiniciar</button>
@@ -1223,7 +1223,7 @@ const TabAnalista = ({ tenants, orders, selectedSlug, setSelectedSlug }) => {
     <section style={{ maxWidth: 800 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 24, flexWrap: 'wrap' }}>
         <h2 style={{ ...H2, margin: 0 }}>📊 Analista de Negocios</h2>
-        {!selectedSlug && <span style={{ fontSize: 12, color: '#64748b' }}>Selecciona un cliente arriba para ver su análisis</span>}
+        {!selectedSlug && <span style={{ fontSize: 12, color: '#9ca3af' }}>Selecciona un cliente arriba para ver su análisis</span>}
         {selectedSlug && <span style={{ fontSize: 12, color: GENYX_BRAND, fontWeight: 600 }}>→ {tenants.find(t => t.slug === selectedSlug)?.name || selectedSlug}</span>}
       </div>
 
@@ -1286,7 +1286,7 @@ const TabAnalista = ({ tenants, orders, selectedSlug, setSelectedSlug }) => {
                 {data.by_weekday.map((d, i) => (
                   <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
                     <div style={{ width: `100%`, background: `linear-gradient(180deg, ${GENYX_BRAND}, #4f46e5)`, borderRadius: `4px 4px 0 0`, height: `${(d.ingresos / Math.max(...data.by_weekday.map(x => x.ingresos), 1)) * 70}px`, minHeight: 4, transition: 'height 0.5s' }} />
-                    <span style={{ fontSize: 9, color: '#64748b' }}>{d.dia.substring(0, 3)}</span>
+                    <span style={{ fontSize: 9, color: '#9ca3af' }}>{d.dia.substring(0, 3)}</span>
                   </div>
                 ))}
               </div>
@@ -1385,9 +1385,9 @@ const TabAgentes = ({ tenants }) => {
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
           <thead>
             <tr>
-              <th style={{ textAlign: 'left', padding: '10px 12px', color: '#64748b', borderBottom: '1px solid rgba(255,255,255,0.08)', fontWeight: 600, minWidth: 140 }}>Cliente</th>
+              <th style={{ textAlign: 'left', padding: '10px 12px', color: '#9ca3af', borderBottom: '1px solid rgba(255,255,255,0.08)', fontWeight: 600, minWidth: 140 }}>Cliente</th>
               {AGENT_DEFS.map(a => (
-                <th key={a.id} style={{ textAlign: 'center', padding: '10px 6px', color: '#64748b', borderBottom: '1px solid rgba(255,255,255,0.08)', fontWeight: 600, minWidth: 50 }}>
+                <th key={a.id} style={{ textAlign: 'center', padding: '10px 6px', color: '#9ca3af', borderBottom: '1px solid rgba(255,255,255,0.08)', fontWeight: 600, minWidth: 50 }}>
                   <div>{a.icon}</div>
                   <div style={{ fontSize: 10 }}>{a.name}</div>
                 </th>
@@ -1401,7 +1401,7 @@ const TabAgentes = ({ tenants }) => {
                 <tr key={t.slug} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
                   <td style={{ padding: '10px 12px' }}>
                     <div style={{ fontWeight: 600, color: '#f1f5f9', fontSize: 13 }}>{t.name || t.slug}</div>
-                    <div style={{ fontSize: 10, color: '#64748b' }}>{(t.plan_name || 'Esencial').toUpperCase()}</div>
+                    <div style={{ fontSize: 10, color: '#9ca3af' }}>{(t.plan_name || 'Esencial').toUpperCase()}</div>
                   </td>
                   {AGENT_DEFS.map(a => {
                     const dotKey = getDot(t.plan_name, a, status[a.id]);
@@ -1421,7 +1421,7 @@ const TabAgentes = ({ tenants }) => {
 
       {/* Leyenda */}
       <div style={{ ...CARD, padding: '12px 16px' }}>
-        <span style={{ fontSize: 11, color: '#64748b', marginRight: 12 }}>Leyenda:</span>
+        <span style={{ fontSize: 11, color: '#9ca3af', marginRight: 12 }}>Leyenda:</span>
         <div style={{ display: 'inline-flex', gap: 16, flexWrap: 'wrap' }}>
           {Object.entries(AGENT_STATUS_DOTS).map(([key, { color, label }]) => (
             <span key={key} style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 11, color: '#94a3b8' }}>
@@ -1514,7 +1514,7 @@ const TabBitacora = () => {
             onChange={e => setDraft(p => ({ ...p, body: e.target.value }))}
             style={{ ...INPUT, height: 120, resize: 'vertical', marginBottom: 10, fontFamily: 'monospace', fontSize: 12 }} />
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
-            <span style={{ fontSize: 11, color: '#64748b' }}>Tag:</span>
+            <span style={{ fontSize: 11, color: '#9ca3af' }}>Tag:</span>
             {BITACORA_TAGS.map(t => (
               <button key={t.id} onClick={() => setDraft(p => ({ ...p, tag: t.id }))}
                 style={{ padding: '4px 10px', borderRadius: 6, fontSize: 11, fontWeight: 600, cursor: 'pointer',
@@ -1559,11 +1559,11 @@ const TabBitacora = () => {
                     <span style={{ fontWeight: 700, fontSize: 14, color: '#f1f5f9' }}>{e.title}</span>
                     <div style={{ display: 'flex', gap: 8, marginTop: 4, alignItems: 'center' }}>
                       <span style={{ fontSize: 10, padding: '2px 8px', borderRadius: 4, background: `${tagDef.color}20`, color: tagDef.color, fontWeight: 600 }}>{tagDef.label}</span>
-                      <span style={{ fontSize: 10, color: '#64748b' }}>{e.created_at ? fmt(e.created_at) : '—'}</span>
+                      <span style={{ fontSize: 10, color: '#9ca3af' }}>{e.created_at ? fmt(e.created_at) : '—'}</span>
                     </div>
                   </div>
                   <button onClick={() => handleDelete(e.id)}
-                    style={{ background: 'none', border: 'none', color: '#64748b', cursor: 'pointer', fontSize: 14, padding: 4 }} title="Eliminar">🗑</button>
+                    style={{ background: 'none', border: 'none', color: '#9ca3af', cursor: 'pointer', fontSize: 14, padding: 4 }} title="Eliminar">🗑</button>
                 </div>
                 <p style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.7, whiteSpace: 'pre-wrap' }}>{e.body}</p>
               </div>
@@ -1601,7 +1601,7 @@ const TabReporteLunes = ({ tenants }) => {
     <section>
       <div style={{ marginBottom: 24 }}>
         <h2 style={{ ...H2, margin: 0, marginBottom: 6 }}>📧 Reporte del Lunes — Preview</h2>
-        <p style={{ fontSize: 12, color: '#64748b', marginBottom: 16 }}>
+        <p style={{ fontSize: 12, color: '#9ca3af', marginBottom: 16 }}>
           Vista previa del email semanal. Esta vista NO envía emails — solo simula cómo se verá.
         </p>
         <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
@@ -1627,9 +1627,9 @@ const TabReporteLunes = ({ tenants }) => {
           <div style={{ ...CARD, overflow: 'hidden', border: `1px solid ${GBa(0.2)}` }}>
             {/* Email header */}
             <div style={{ background: GBa(0.08), padding: '14px 20px', borderBottom: '1px solid rgba(255,255,255,0.06)', fontSize: 12 }}>
-              <p style={{ color: '#64748b' }}><strong style={{ color: '#94a3b8' }}>De:</strong> Tu Agente de Inteligencia Financiera GenyX</p>
-              <p style={{ color: '#64748b' }}><strong style={{ color: '#94a3b8' }}>Para:</strong> {report.email || '—'}</p>
-              <p style={{ color: '#64748b' }}><strong style={{ color: '#94a3b8' }}>Asunto:</strong> Tu reporte semanal — {report.fecha || new Date().toLocaleDateString('es-MX')}</p>
+              <p style={{ color: '#9ca3af' }}><strong style={{ color: '#94a3b8' }}>De:</strong> Tu Agente de Inteligencia Financiera GenyX</p>
+              <p style={{ color: '#9ca3af' }}><strong style={{ color: '#94a3b8' }}>Para:</strong> {report.email || '—'}</p>
+              <p style={{ color: '#9ca3af' }}><strong style={{ color: '#94a3b8' }}>Asunto:</strong> Tu reporte semanal — {report.fecha || new Date().toLocaleDateString('es-MX')}</p>
             </div>
             {/* Email body */}
             <div style={{ padding: '24px 20px' }}>
@@ -1643,24 +1643,24 @@ const TabReporteLunes = ({ tenants }) => {
               {/* KPI cards */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 10, marginBottom: 24 }}>
                 <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 10, padding: '12px 14px', textAlign: 'center' }}>
-                  <p style={{ fontSize: 11, color: '#64748b', marginBottom: 4 }}>📊 Producto estrella</p>
+                  <p style={{ fontSize: 11, color: '#9ca3af', marginBottom: 4 }}>📊 Producto estrella</p>
                   <p style={{ fontSize: 14, fontWeight: 700, color: '#f1f5f9' }}>{report.producto_estrella?.name || '—'}</p>
-                  <p style={{ fontSize: 10, color: '#64748b' }}>×{report.producto_estrella?.qty || 0} · {report.producto_estrella?.margen || 0}% margen</p>
+                  <p style={{ fontSize: 10, color: '#9ca3af' }}>×{report.producto_estrella?.qty || 0} · {report.producto_estrella?.margen || 0}% margen</p>
                 </div>
                 <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 10, padding: '12px 14px', textAlign: 'center' }}>
-                  <p style={{ fontSize: 11, color: '#64748b', marginBottom: 4 }}>⏰ Hora pico</p>
+                  <p style={{ fontSize: 11, color: '#9ca3af', marginBottom: 4 }}>⏰ Hora pico</p>
                   <p style={{ fontSize: 14, fontWeight: 700, color: '#f1f5f9' }}>{report.hora_pico || '—'}</p>
-                  <p style={{ fontSize: 10, color: '#64748b' }}>Día: {report.dia_pico || '—'}</p>
+                  <p style={{ fontSize: 10, color: '#9ca3af' }}>Día: {report.dia_pico || '—'}</p>
                 </div>
                 <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 10, padding: '12px 14px', textAlign: 'center' }}>
-                  <p style={{ fontSize: 11, color: '#64748b', marginBottom: 4 }}>👥 Cliente top</p>
+                  <p style={{ fontSize: 11, color: '#9ca3af', marginBottom: 4 }}>👥 Cliente top</p>
                   <p style={{ fontSize: 14, fontWeight: 700, color: '#f1f5f9' }}>{report.cliente_top?.name || '—'}</p>
-                  <p style={{ fontSize: 10, color: '#64748b' }}>{report.cliente_top?.compras || 0} compras</p>
+                  <p style={{ fontSize: 10, color: '#9ca3af' }}>{report.cliente_top?.compras || 0} compras</p>
                 </div>
                 <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 10, padding: '12px 14px', textAlign: 'center' }}>
-                  <p style={{ fontSize: 11, color: '#64748b', marginBottom: 4 }}>💤 Inactivos</p>
+                  <p style={{ fontSize: 11, color: '#9ca3af', marginBottom: 4 }}>💤 Inactivos</p>
                   <p style={{ fontSize: 14, fontWeight: 700, color: '#f1f5f9' }}>{report.inactivos || 0}</p>
-                  <p style={{ fontSize: 10, color: '#64748b' }}>60+ días sin volver</p>
+                  <p style={{ fontSize: 10, color: '#9ca3af' }}>60+ días sin volver</p>
                 </div>
               </div>
 
@@ -1680,7 +1680,7 @@ const TabReporteLunes = ({ tenants }) => {
           {/* Banner no-envío */}
           <div style={{ marginTop: 16, padding: '14px 20px', background: 'rgba(234,179,8,0.08)', border: '1px solid rgba(234,179,8,0.25)', borderRadius: 10, textAlign: 'center' }}>
             <p style={{ fontSize: 13, fontWeight: 700, color: '#fbbf24', marginBottom: 4 }}>⚠️ MODO PREVIEW</p>
-            <p style={{ fontSize: 12, color: '#64748b' }}>El envío automático cada lunes 8am se habilita en Fase 4 (Resend integration).</p>
+            <p style={{ fontSize: 12, color: '#9ca3af' }}>El envío automático cada lunes 8am se habilita en Fase 4 (Resend integration).</p>
           </div>
         </>
       )}
@@ -1860,7 +1860,7 @@ const TabExpedientes = ({ tenants }) => {
     <section style={{ maxWidth: 1100 }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
         <h2 style={H2}>🗄️ Expedientes de Clientes</h2>
-        <span style={{ ...MONO, color: '#64748b' }}>{allClients.length} cliente(s)</span>
+        <span style={{ ...MONO, color: '#9ca3af' }}>{allClients.length} cliente(s)</span>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: selected ? '260px 1fr' : '1fr', gap: 20, alignItems: 'start' }}>
@@ -1880,7 +1880,7 @@ const TabExpedientes = ({ tenants }) => {
                   padding: '14px 16px', transition: 'all 0.15s' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
                   <div>
-                    <p style={{ ...MONO, fontSize: 9, color: isGenyX ? GENYX_BRAND : '#64748b', marginBottom: 3 }}>
+                    <p style={{ ...MONO, fontSize: 9, color: isGenyX ? GENYX_BRAND : '#9ca3af', marginBottom: 3 }}>
                       {isGenyX ? 'T00 · GenyX' : `T${String(c._tNum || i).padStart(2, '0')}`}
                     </p>
                     <p style={{ fontWeight: 700, fontSize: 13, color: isGenyX ? GB_SOFT : '#f1f5f9' }}>{c.name || c.slug}</p>
@@ -1893,7 +1893,7 @@ const TabExpedientes = ({ tenants }) => {
               </div>
             );
           })}
-          <p style={{ fontSize: 10, color: '#64748b', marginTop: 4, textAlign: 'center' }}>
+          <p style={{ fontSize: 10, color: '#9ca3af', marginTop: 4, textAlign: 'center' }}>
             Clic en un cliente para abrir su expediente
           </p>
         </div>
@@ -1908,11 +1908,11 @@ const TabExpedientes = ({ tenants }) => {
                 <div>
                   <p style={{ ...MONO, color: GENYX_BRAND, fontSize: 9, marginBottom: 4 }}>EXPEDIENTE</p>
                   <h3 style={{ fontWeight: 800, fontSize: 16, color: GB_SOFT }}>{exp.name || exp.slug}</h3>
-                  <p style={{ fontSize: 11, color: '#64748b', marginTop: 2 }}>{exp.industry || 'Sin clasificar'} · Inicio: {exp.startDate || '—'}</p>
+                  <p style={{ fontSize: 11, color: '#9ca3af', marginTop: 2 }}>{exp.industry || 'Sin clasificar'} · Inicio: {exp.startDate || '—'}</p>
                 </div>
                 <div style={{ textAlign: 'right' }}>
                   <p style={{ fontSize: 28, fontWeight: 800, color: barColor }}>{pct}%</p>
-                  <p style={{ fontSize: 10, color: '#64748b' }}>Completitud</p>
+                  <p style={{ fontSize: 10, color: '#9ca3af' }}>Completitud</p>
                 </div>
               </div>
               <div style={{ height: 5, background: 'rgba(255,255,255,0.08)', borderRadius: 5, marginBottom: 12 }}>
@@ -1924,9 +1924,9 @@ const TabExpedientes = ({ tenants }) => {
                   {saving ? '⏳ Guardando...' : '💾 Guardar expediente'}
                 </button>
                 {saveMsg && <span style={{ fontSize: 12, color: saveMsg.startsWith('✅') ? '#4ade80' : '#f87171' }}>{saveMsg}</span>}
-                {loadingExp && <span style={{ fontSize: 11, color: '#64748b' }}>⏳ Cargando del servidor...</span>}
+                {loadingExp && <span style={{ fontSize: 11, color: '#9ca3af' }}>⏳ Cargando del servidor...</span>}
               </div>
-              <p style={{ fontSize: 10, color: '#64748b', marginTop: 8 }}>
+              <p style={{ fontSize: 10, color: '#9ca3af', marginTop: 8 }}>
                 Clic en el ícono de estado para ciclarlo: ⬜→✅→⚠️→❌→➖ · Escribe en el campo para guardar el valor real.
               </p>
             </div>
@@ -1955,10 +1955,10 @@ const TabExpedientes = ({ tenants }) => {
                             placeholder={field}
                             value={entry.value || ''}
                             onChange={e => setFieldValue(selected, section.key, field, e.target.value)}
-                            style={{ ...INPUT, fontSize: 12, padding: '5px 10px', background: 'rgba(255,255,255,0.03)', color: entry.value ? '#e2e8f0' : '#64748b' }}
+                            style={{ ...INPUT, fontSize: 12, padding: '5px 10px', background: 'rgba(255,255,255,0.03)', color: entry.value ? '#e2e8f0' : '#9ca3af' }}
                           />
                           {/* Field label (right) */}
-                          <span style={{ fontSize: 10, color: '#64748b', whiteSpace: 'nowrap', minWidth: 0 }}></span>
+                          <span style={{ fontSize: 10, color: '#9ca3af', whiteSpace: 'nowrap', minWidth: 0 }}></span>
                         </div>
                       );
                     })}
@@ -1970,7 +1970,7 @@ const TabExpedientes = ({ tenants }) => {
             {/* Config del cajón */}
             <div style={{ ...CARD, border: '1px solid rgba(251,191,36,0.2)', background: 'rgba(251,191,36,0.04)' }}>
               <h3 style={{ ...H3, color: '#fbbf24', marginBottom: 12 }}>⚙️ Configuración del Cajón</h3>
-              <p style={{ fontSize: 11, color: '#64748b', marginBottom: 12 }}>Datos operativos sincronizados desde la DB.</p>
+              <p style={{ fontSize: 11, color: '#9ca3af', marginBottom: 12 }}>Datos operativos sincronizados desde la DB.</p>
               {[
                 ['Slug', exp.slug],
                 ['Plan mensual', exp.plan_monthly_fee ? `$${exp.plan_monthly_fee.toLocaleString('es-MX')} MXN/mes` : '—'],
@@ -1981,7 +1981,7 @@ const TabExpedientes = ({ tenants }) => {
                 ['Número WaB (GenyX)', exp.meta_phone || '⚠️ Pendiente asignar'],
               ].map(([l, v]) => (
                 <div key={l} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 12 }}>
-                  <span style={{ color: '#64748b' }}>{l}</span>
+                  <span style={{ color: '#9ca3af' }}>{l}</span>
                   <span style={{ color: '#e2e8f0', fontFamily: 'monospace', fontSize: 11 }}>{v}</span>
                 </div>
               ))}
@@ -2020,12 +2020,12 @@ const TabManuales = () => {
     <section style={{ maxWidth: 720 }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
         <h2 style={H2}>📚 Manuales de Emergencia</h2>
-        <span style={{ fontSize: 10, ...MONO, color: '#64748b', background: '#1e293b', padding: '4px 10px', borderRadius: 6 }}>GenyX · IVaaS</span>
+        <span style={{ fontSize: 10, ...MONO, color: '#9ca3af', background: '#1e293b', padding: '4px 10px', borderRadius: 6 }}>GenyX · IVaaS</span>
       </div>
       {scenarios.map((s, i) => (
         <div key={i} style={{ ...CARD, marginBottom: 12 }}>
           <h3 style={{ ...H3, display: 'flex', alignItems: 'center', gap: 8 }}>{s.emoji} Escenario {i + 1}: {s.title}</h3>
-          <p style={{ fontSize: 12, color: '#64748b', marginBottom: 8 }}>{s.desc}</p>
+          <p style={{ fontSize: 12, color: '#9ca3af', marginBottom: 8 }}>{s.desc}</p>
           {s.solution && <p style={{ fontSize: 12, color: '#60a5fa', marginBottom: 8 }}>✦ {s.solution}</p>}
           {s.warning && <p style={{ fontSize: 12, color: '#fbbf24', background: '#78350f20', border: '1px solid #78350f40', borderRadius: 8, padding: '8px 12px', marginBottom: 8 }}>⚠️ {s.warning}</p>}
           {s.cmd && (
@@ -2034,7 +2034,7 @@ const TabManuales = () => {
               <button onClick={() => copyCmd(s.cmd, s.cmdId)} style={{ position: 'absolute', top: 8, right: 8, fontSize: 10, background: '#1e293b', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)', padding: '4px 10px', borderRadius: 6, cursor: 'pointer' }}>
                 {copiedCmd === s.cmdId ? '✅' : '📋'}
               </button>
-              {s.expected && <p style={{ fontSize: 10, ...MONO, color: '#64748b' }}>Esperado: {s.expected}</p>}
+              {s.expected && <p style={{ fontSize: 10, ...MONO, color: '#9ca3af' }}>Esperado: {s.expected}</p>}
             </div>
           )}
         </div>
@@ -2044,7 +2044,7 @@ const TabManuales = () => {
         {chassis.map(([f, w]) => (
           <div key={f} style={{ display: 'flex', gap: 12, padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 12 }}>
             <code style={{ color: '#fca5a5', minWidth: 220, flexShrink: 0 }}>{f}</code>
-            <span style={{ color: '#64748b' }}>{w}</span>
+            <span style={{ color: '#9ca3af' }}>{w}</span>
           </div>
         ))}
       </div>
@@ -2092,7 +2092,7 @@ const TabOnboarding = () => {
     width: 28, height: 28, borderRadius: '50%', display: 'flex', alignItems: 'center',
     justifyContent: 'center', fontSize: 12, fontWeight: 700,
     background: step >= n ? GENYX_BRAND : 'rgba(255,255,255,0.08)',
-    color: step >= n ? '#fff' : '#64748b', flexShrink: 0
+    color: step >= n ? '#fff' : '#9ca3af', flexShrink: 0
   });
 
   if (result) return (
@@ -2105,7 +2105,7 @@ const TabOnboarding = () => {
           {[['Slug', result.slug], ['Clone ID', result.clone_id], ['Dashboard PIN', result.dashboard_pin], ['Dashboard Token', result.dashboard_token]]
             .map(([k, v]) => (
               <div key={k} style={{ background: 'rgba(0,0,0,0.3)', borderRadius: 8, padding: '8px 14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
-                <span style={{ fontSize: 11, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.04em' }}>{k}</span>
+                <span style={{ fontSize: 11, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.04em' }}>{k}</span>
                 <code style={{ fontSize: 12, color: GB_SOFT }}>{v}</code>
               </div>
           ))}
@@ -2122,7 +2122,7 @@ const TabOnboarding = () => {
     <section style={{ maxWidth: 640 }}>
       <div style={{ marginBottom: 24 }}>
         <h2 style={{ ...H2, marginBottom: 4 }}>🚀 Activar Nuevo Cliente</h2>
-        <p style={{ fontSize: 13, color: '#64748b' }}>Completa el formulario para dar de alta un cajón hermético sin tocar código.</p>
+        <p style={{ fontSize: 13, color: '#9ca3af' }}>Completa el formulario para dar de alta un cajón hermético sin tocar código.</p>
       </div>
 
       {/* Stepper */}
@@ -2131,7 +2131,7 @@ const TabOnboarding = () => {
           <React.Fragment key={i}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer' }} onClick={() => i + 1 < step && setStep(i + 1)}>
               <div style={stepStyle(i + 1)}>{i + 1}</div>
-              <span style={{ fontSize: 12, color: step === i + 1 ? GB_SOFT : '#64748b', fontWeight: step === i + 1 ? 700 : 400 }}>{label}</span>
+              <span style={{ fontSize: 12, color: step === i + 1 ? GB_SOFT : '#9ca3af', fontWeight: step === i + 1 ? 700 : 400 }}>{label}</span>
             </div>
             {i < 2 && <div style={{ flex: 1, height: 1, background: step > i + 1 ? GENYX_BRAND : 'rgba(255,255,255,0.08)' }} />}
           </React.Fragment>
@@ -2155,12 +2155,12 @@ const TabOnboarding = () => {
             <div>
               <label style={LABEL}>Slug (ID único del cajón) *</label>
               <input style={{ ...INPUT, fontFamily: 'monospace', color: GB_SOFT }} value={form.slug} placeholder="tacos-el-guero" onChange={e => set('slug', e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, ''))} />
-              <p style={{ fontSize: 10, color: '#64748b', marginTop: 4 }}>Se usa en la URL del dashboard: mando.genyxsystems.com/<strong>{form.slug || 'slug'}</strong></p>
+              <p style={{ fontSize: 10, color: '#9ca3af', marginTop: 4 }}>Se usa en la URL del dashboard: mando.genyxsystems.com/<strong>{form.slug || 'slug'}</strong></p>
             </div>
             <div>
               <label style={LABEL}>Dashboard PIN *</label>
               <input style={INPUT} value={form.dashboard_pin} placeholder="guero2024" onChange={e => set('dashboard_pin', e.target.value)} />
-              <p style={{ fontSize: 10, color: '#64748b', marginTop: 4 }}>El cliente usa este PIN para acceder a su dashboard.</p>
+              <p style={{ fontSize: 10, color: '#9ca3af', marginTop: 4 }}>El cliente usa este PIN para acceder a su dashboard.</p>
             </div>
             <div>
               <label style={LABEL}>Meta Phone Number ID (WaB)</label>
@@ -2169,7 +2169,7 @@ const TabOnboarding = () => {
             <div>
               <label style={LABEL}>Redes Sociales (cancel URL de Stripe)</label>
               <input style={INPUT} value={form.social_url} placeholder="https://instagram.com/negocio (Instagram, Facebook, TikTok...)" onChange={e => set('social_url', e.target.value)} />
-              <p style={{ fontSize: 10, color: '#64748b', marginTop: 4 }}>Si el cliente cancela el pago, lo llevas aquí. Sin RRSS → va al WaB. Sin nada → página cierra-pestaña.</p>
+              <p style={{ fontSize: 10, color: '#9ca3af', marginTop: 4 }}>Si el cliente cancela el pago, lo llevas aquí. Sin RRSS → va al WaB. Sin nada → página cierra-pestaña.</p>
             </div>
           </div>
         )}
@@ -2178,7 +2178,7 @@ const TabOnboarding = () => {
         {step === 2 && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             <h3 style={H3}>Configuración del Agente</h3>
-            <p style={{ fontSize: 12, color: '#64748b' }}>Describe la personalidad y tono del asistente. Si lo dejas vacío, se genera automáticamente un template base.</p>
+            <p style={{ fontSize: 12, color: '#9ca3af' }}>Describe la personalidad y tono del asistente. Si lo dejas vacío, se genera automáticamente un template base.</p>
             <div>
               <label style={LABEL}>Personalidad del Asistente (opcional)</label>
               <textarea
@@ -2199,7 +2199,7 @@ TU SALUDO OFICIAL:
         {step === 3 && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             <h3 style={H3}>Catálogo de Productos</h3>
-            <p style={{ fontSize: 12, color: '#64748b' }}>Escribe el catálogo en texto libre. El agente lo usa como referencia de precios y productos disponibles. Se puede actualizar después sin redespliegue.</p>
+            <p style={{ fontSize: 12, color: '#9ca3af' }}>Escribe el catálogo en texto libre. El agente lo usa como referencia de precios y productos disponibles. Se puede actualizar después sin redespliegue.</p>
             <div>
               <label style={LABEL}>Catálogo (opcional — añadir después si no tienes listo)</label>
               <textarea
@@ -2423,7 +2423,7 @@ const TabMarketing = ({ selectedSlug }) => {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
         <div>
           <h2 style={{ fontSize: 18, fontWeight: 700, color: '#f1f5f9' }}>📢 Agente 1 — Marketing</h2>
-          <p style={{ fontSize: 12, color: '#64748b', marginTop: 4 }}>
+          <p style={{ fontSize: 12, color: '#9ca3af', marginTop: 4 }}>
             Estrategia semanal autónoma · {slug}
           </p>
         </div>
@@ -2451,7 +2451,7 @@ const TabMarketing = ({ selectedSlug }) => {
           <div key={i} style={{ background: 'rgba(19,25,40,0.9)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: '16px 12px', textAlign: 'center' }}>
             <div style={{ fontSize: 22, marginBottom: 4 }}>{kpi.icon}</div>
             <div style={{ fontSize: 20, fontWeight: 800, color: kpi.color }}>{kpi.value}</div>
-            <div style={{ fontSize: 10, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.05em' }}>{kpi.label}</div>
+            <div style={{ fontSize: 10, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.05em' }}>{kpi.label}</div>
           </div>
         ))}
       </div>
@@ -2465,7 +2465,7 @@ const TabMarketing = ({ selectedSlug }) => {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
                 <div>
                   <h3 style={{ fontWeight: 700, fontSize: 14, color: '#f1f5f9' }}>📅 Semana {strategy.week_start} → {strategy.week_end}</h3>
-                  <p style={{ fontSize: 11, color: '#64748b', marginTop: 2 }}>Generada: {strategy.created_at ? new Date(strategy.created_at + 'Z').toLocaleString('es-MX') : '—'}</p>
+                  <p style={{ fontSize: 11, color: '#9ca3af', marginTop: 2 }}>Generada: {strategy.created_at ? new Date(strategy.created_at + 'Z').toLocaleString('es-MX') : '—'}</p>
                 </div>
                 <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
                   <span style={{
@@ -2500,14 +2500,14 @@ const TabMarketing = ({ selectedSlug }) => {
                   <p style={{ fontFamily: 'monospace', fontSize: 9, color: '#f87171', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '.06em' }}>🛑 Estrategia rechazada por compliance</p>
                   {(strategy.a9_result.patterns_matched || []).map((p, i) => <p key={i} style={{ fontSize: 12, color: '#fca5a5', lineHeight: 1.5 }}>• {p}</p>)}
                   {strategy.a9_result.remediation && <p style={{ fontSize: 11, color: '#94a3b8', marginTop: 8, fontStyle: 'italic' }}>Remediación: {strategy.a9_result.remediation}</p>}
-                  <p style={{ fontSize: 10, color: '#64748b', marginTop: 6 }}>Verificación de compliance</p>
+                  <p style={{ fontSize: 10, color: '#9ca3af', marginTop: 6 }}>Verificación de compliance</p>
                 </div>
               )}
               {strategy?.a9_result?.verdict === 'WARN' && (
                 <div style={{ background: 'rgba(251,191,36,0.04)', border: '1px solid rgba(251,191,36,0.15)', borderRadius: 10, padding: '12px 14px', marginBottom: 16 }}>
                   <p style={{ fontFamily: 'monospace', fontSize: 9, color: '#fbbf24', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '.06em' }}>⚠️ Compliance — Observaciones</p>
                   {(strategy.a9_result.patterns_matched || []).map((p, i) => <p key={i} style={{ fontSize: 12, color: '#fde68a', lineHeight: 1.5 }}>• {p}</p>)}
-                  <p style={{ fontSize: 10, color: '#64748b', marginTop: 6 }}>Verificación de compliance</p>
+                  <p style={{ fontSize: 10, color: '#9ca3af', marginTop: 6 }}>Verificación de compliance</p>
                 </div>
               )}
 
@@ -2517,7 +2517,7 @@ const TabMarketing = ({ selectedSlug }) => {
                   <p style={{ fontFamily: 'monospace', fontSize: 9, color: GB_LIGHT, marginBottom: 8, textTransform: 'uppercase', letterSpacing: '.06em' }}>📊 Fundamento (datos reales)</p>
                   {fund.map((f, i) => <p key={i} style={{ fontSize: 12, color: GB_SOFT, lineHeight: 1.5 }}>• {f}</p>)}
                   {/* ── D: REGLA 14 — Metodología declarada ── */}
-                  <p style={{ fontFamily: 'monospace', fontSize: 9, color: '#64748b', marginTop: 8 }}>
+                  <p style={{ fontFamily: 'monospace', fontSize: 9, color: '#9ca3af', marginTop: 8 }}>
                     Metodología: {strategy?.strategy?.methodology || 'AIDA + JTBD'} · Verificación de compliance
                   </p>
                 </div>
@@ -2529,7 +2529,7 @@ const TabMarketing = ({ selectedSlug }) => {
                   <div key={i} style={{ display: 'flex', gap: 12, padding: '10px 12px', background: 'rgba(15,23,42,0.5)', borderRadius: 8, alignItems: 'flex-start' }}>
                     <div style={{ minWidth: 40, textAlign: 'center' }}>
                       <span style={{ fontSize: 20 }}>{TYPE_EMOJI[entry.type] || '📌'}</span>
-                      <p style={{ fontSize: 9, color: '#64748b', marginTop: 2 }}>{entry.day_name?.substring(0, 3)}</p>
+                      <p style={{ fontSize: 9, color: '#9ca3af', marginTop: 2 }}>{entry.day_name?.substring(0, 3)}</p>
                     </div>
                     <div style={{ flex: 1 }}>
                       <p style={{ fontSize: 12, fontWeight: 600, color: '#e2e8f0', marginBottom: 2 }}>{entry.label}</p>
@@ -2574,7 +2574,7 @@ const TabMarketing = ({ selectedSlug }) => {
                         ))}
                       </div>
                     </div>
-                    <span style={{ fontSize: 10, color: '#64748b', fontFamily: 'monospace', whiteSpace: 'nowrap' }}>{entry.date}</span>
+                    <span style={{ fontSize: 10, color: '#9ca3af', fontFamily: 'monospace', whiteSpace: 'nowrap' }}>{entry.date}</span>
                   </div>
                 ))}
               </div>
@@ -2590,7 +2590,7 @@ const TabMarketing = ({ selectedSlug }) => {
                           style={{ background: showDiff ? GBa(0.15) : 'rgba(255,255,255,0.06)', border: `1px solid ${GBa(0.3)}`, color: GB_SOFT, padding: '4px 12px', borderRadius: 6, fontSize: 11, fontWeight: 600, cursor: 'pointer' }}>
                           {showDiff ? '✏️ Modo edición' : '🔍 Ver cambios'}
                         </button>
-                        <span style={{ fontSize: 10, color: '#64748b' }}>
+                        <span style={{ fontSize: 10, color: '#9ca3af' }}>
                           {Object.keys(editedCaptions).length} caption(s) modificado(s) · ~{modPct}% cambio
                         </span>
                       </div>
@@ -2601,7 +2601,7 @@ const TabMarketing = ({ selectedSlug }) => {
                         </div>
                       )}
                       {modPct <= 50 && modPct > 0 && (
-                        <p style={{ fontSize: 10, color: '#64748b', fontStyle: 'italic' }}>
+                        <p style={{ fontSize: 10, color: '#9ca3af', fontStyle: 'italic' }}>
                           ℹ️ Tus ediciones quedarán registradas para trazabilidad (REGLA 13). Esto es normal y OK.
                         </p>
                       )}
@@ -2629,7 +2629,7 @@ const TabMarketing = ({ selectedSlug }) => {
                       <button onClick={handleRequestEmailCode} disabled={otpCode.length !== 6}
                         style={{ width: '100%', padding: '10px 14px', borderRadius: 8, fontSize: 13, fontWeight: 700,
                           background: otpCode.length === 6 ? GBa(0.15) : 'rgba(255,255,255,0.04)',
-                          color: otpCode.length === 6 ? GB_SOFT : '#64748b',
+                          color: otpCode.length === 6 ? GB_SOFT : '#9ca3af',
                           border: `1px solid ${otpCode.length === 6 ? GBa(0.3) : 'rgba(255,255,255,0.08)'}`,
                           cursor: otpCode.length === 6 ? 'pointer' : 'not-allowed',
                           opacity: otpCode.length === 6 ? 1 : 0.4 }}>
@@ -2662,7 +2662,7 @@ const TabMarketing = ({ selectedSlug }) => {
                   {/* Botones */}
                   <div style={{ display: 'flex', gap: 8 }}>
                     <button onClick={handleApprove} disabled={otpCode.length !== 6 || emailCode.length !== 6}
-                      style={{ flex: 1, background: (otpCode.length === 6 && emailCode.length === 6) ? '#14532d' : 'rgba(255,255,255,0.04)', color: (otpCode.length === 6 && emailCode.length === 6) ? '#86efac' : '#64748b', padding: '12px 20px', borderRadius: 8, fontSize: 14, fontWeight: 700, cursor: (otpCode.length === 6 && emailCode.length === 6) ? 'pointer' : 'not-allowed', border: `1px solid ${(otpCode.length === 6 && emailCode.length === 6) ? 'rgba(34,197,94,0.3)' : 'rgba(255,255,255,0.08)'}`, opacity: (otpCode.length === 6 && emailCode.length === 6) ? 1 : 0.4 }}>
+                      style={{ flex: 1, background: (otpCode.length === 6 && emailCode.length === 6) ? '#14532d' : 'rgba(255,255,255,0.04)', color: (otpCode.length === 6 && emailCode.length === 6) ? '#86efac' : '#9ca3af', padding: '12px 20px', borderRadius: 8, fontSize: 14, fontWeight: 700, cursor: (otpCode.length === 6 && emailCode.length === 6) ? 'pointer' : 'not-allowed', border: `1px solid ${(otpCode.length === 6 && emailCode.length === 6) ? 'rgba(34,197,94,0.3)' : 'rgba(255,255,255,0.08)'}`, opacity: (otpCode.length === 6 && emailCode.length === 6) ? 1 : 0.4 }}>
                       ✅ Aprobar Estrategia
                     </button>
                     <button onClick={() => setShowReject(!showReject)}
@@ -2688,8 +2688,8 @@ const TabMarketing = ({ selectedSlug }) => {
           ) : (
             <div style={{ background: 'rgba(19,25,40,0.9)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: '40px 22px', textAlign: 'center' }}>
               <p style={{ fontSize: 36, marginBottom: 10 }}>📋</p>
-              <p style={{ fontSize: 14, color: '#64748b' }}>No hay estrategia generada aún.</p>
-              <p style={{ fontSize: 12, color: '#64748b', marginTop: 4 }}>Genera una para esta semana.</p>
+              <p style={{ fontSize: 14, color: '#9ca3af' }}>No hay estrategia generada aún.</p>
+              <p style={{ fontSize: 12, color: '#9ca3af', marginTop: 4 }}>Genera una para esta semana.</p>
             </div>
           )}
 
@@ -2719,15 +2719,15 @@ const TabMarketing = ({ selectedSlug }) => {
             <h4 style={{ fontWeight: 700, fontSize: 12, color: '#94a3b8', marginBottom: 12, textTransform: 'uppercase', letterSpacing: '.06em' }}>⚙️ Configuración</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ fontSize: 11, color: '#64748b' }}>Teléfono dueño</span>
+                <span style={{ fontSize: 11, color: '#9ca3af' }}>Teléfono dueño</span>
                 <span style={{ fontSize: 12, color: config.notify_phone ? '#e2e8f0' : '#f87171', fontFamily: 'monospace' }}>{config.notify_phone || '⚠️ No configurado'}</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ fontSize: 11, color: '#64748b' }}>Email</span>
-                <span style={{ fontSize: 12, color: config.owner_email ? '#e2e8f0' : '#64748b', fontFamily: 'monospace' }}>{config.owner_email || '—'}</span>
+                <span style={{ fontSize: 11, color: '#9ca3af' }}>Email</span>
+                <span style={{ fontSize: 12, color: config.owner_email ? '#e2e8f0' : '#9ca3af', fontFamily: 'monospace' }}>{config.owner_email || '—'}</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ fontSize: 11, color: '#64748b' }}>Redes</span>
+                <span style={{ fontSize: 11, color: '#9ca3af' }}>Redes</span>
                 <span style={{ fontSize: 11, color: GB_LIGHT }}>{config.social_url ? '✅ Vinculada' : '—'}</span>
               </div>
             </div>
@@ -2737,7 +2737,7 @@ const TabMarketing = ({ selectedSlug }) => {
           <div style={{ background: 'rgba(19,25,40,0.9)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: '16px 18px' }}>
             <h4 style={{ fontWeight: 700, fontSize: 12, color: '#94a3b8', marginBottom: 12, textTransform: 'uppercase', letterSpacing: '.06em' }}>📜 Historial reciente</h4>
             {recent_log.length === 0 ? (
-              <p style={{ fontSize: 12, color: '#64748b', textAlign: 'center', padding: '16px 0' }}>Sin acciones registradas</p>
+              <p style={{ fontSize: 12, color: '#9ca3af', textAlign: 'center', padding: '16px 0' }}>Sin acciones registradas</p>
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: 6, maxHeight: 400, overflowY: 'auto' }}>
                 {recent_log.map((entry, i) => (
@@ -2746,13 +2746,13 @@ const TabMarketing = ({ selectedSlug }) => {
                       <span style={{ fontSize: 14 }}>{TYPE_EMOJI[entry.type] || '📌'}</span>
                       <div>
                         <p style={{ fontSize: 11, fontWeight: 600, color: '#e2e8f0' }}>{entry.type}</p>
-                        <p style={{ fontSize: 9, color: '#64748b', fontFamily: 'monospace' }}>{entry.executed_at ? new Date(entry.executed_at + 'Z').toLocaleString('es-MX', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : '—'}</p>
+                        <p style={{ fontSize: 9, color: '#9ca3af', fontFamily: 'monospace' }}>{entry.executed_at ? new Date(entry.executed_at + 'Z').toLocaleString('es-MX', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : '—'}</p>
                       </div>
                     </div>
                     <span style={{ fontSize: 9, padding: '2px 8px', borderRadius: 4, fontWeight: 700, textTransform: 'uppercase',
-                      background: `${STATUS_COLOR[entry.status] || '#64748b'}15`,
-                      color: STATUS_COLOR[entry.status] || '#64748b',
-                      border: `1px solid ${STATUS_COLOR[entry.status] || '#64748b'}30`,
+                      background: `${STATUS_COLOR[entry.status] || '#9ca3af'}15`,
+                      color: STATUS_COLOR[entry.status] || '#9ca3af',
+                      border: `1px solid ${STATUS_COLOR[entry.status] || '#9ca3af'}30`,
                     }}>{entry.status}</span>
                   </div>
                 ))}
@@ -2766,16 +2766,16 @@ const TabMarketing = ({ selectedSlug }) => {
 };
 
 const Spinner = () => <div style={{ display: 'flex', justifyContent: 'center', padding: 60 }}><div style={{ width: 32, height: 32, border: '2px solid #3b82f6', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} /></div>;
-const Empty = ({ icon, msg, sub }) => <div style={{ textAlign: 'center', padding: '60px 24px', color: '#64748b' }}><p style={{ fontSize: 36, marginBottom: 10 }}>{icon}</p><p style={{ fontSize: 14 }}>{msg}</p>{sub && <p style={{ fontSize: 12, marginTop: 8, color: '#f59e0b' }}>⚠️ {sub}</p>}</div>;
-const KpiCard = ({ label, value, icon }) => <div style={{ ...CARD, textAlign: 'center', padding: '16px 12px' }}><p style={{ fontSize: 22, marginBottom: 4 }}>{icon}</p><p style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9' }}>{value}</p><p style={{ fontSize: 11, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.05em' }}>{label}</p></div>;
-const KpiMini = ({ label, value }) => <div><p style={{ fontSize: 16, fontWeight: 700, color: '#f1f5f9' }}>{value}</p><p style={{ fontSize: 11, color: '#64748b' }}>{label}</p></div>;
+const Empty = ({ icon, msg, sub }) => <div style={{ textAlign: 'center', padding: '60px 24px', color: '#9ca3af' }}><p style={{ fontSize: 36, marginBottom: 10 }}>{icon}</p><p style={{ fontSize: 14 }}>{msg}</p>{sub && <p style={{ fontSize: 12, marginTop: 8, color: '#f59e0b' }}>⚠️ {sub}</p>}</div>;
+const KpiCard = ({ label, value, icon }) => <div style={{ ...CARD, textAlign: 'center', padding: '16px 12px' }}><p style={{ fontSize: 22, marginBottom: 4 }}>{icon}</p><p style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9' }}>{value}</p><p style={{ fontSize: 11, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.05em' }}>{label}</p></div>;
+const KpiMini = ({ label, value }) => <div><p style={{ fontSize: 16, fontWeight: 700, color: '#f1f5f9' }}>{value}</p><p style={{ fontSize: 11, color: '#9ca3af' }}>{label}</p></div>;
 
 // ── Shared styles ─────────────────────────────────────────────────────────────
 const CARD = { background: 'rgba(19,25,40,0.9)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: '20px 22px' };
 const H2 = { fontSize: 18, fontWeight: 700, color: '#f1f5f9' };
 const H3 = { fontSize: 14, fontWeight: 700, color: '#e2e8f0' };
 const MONO = { fontFamily: 'monospace', fontSize: 11 };
-const LABEL = { display: 'block', fontSize: 11, color: '#64748b', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '.05em' };
+const LABEL = { display: 'block', fontSize: 11, color: '#9ca3af', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '.05em' };
 const INPUT = { width: '100%', background: '#1e293b', border: '1px solid rgba(255,255,255,0.1)', color: '#e2e8f0', padding: '8px 12px', borderRadius: 8, fontSize: 13, boxSizing: 'border-box', outline: 'none' };
 const BTN_SM_BLUE = { background: '#2563eb', color: '#fff', padding: '6px 14px', borderRadius: 8, fontSize: 12, fontWeight: 600, textDecoration: 'none', cursor: 'pointer', border: 'none' };
 
@@ -2931,7 +2931,7 @@ const AgentMetricsPanel = ({ agent }) => (
   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: 8, marginBottom: 16 }}>
     {agent.metrics.map(m => (
       <div key={m} style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 8, padding: '10px 12px', border: '1px solid rgba(255,255,255,0.06)' }}>
-        <p style={{ fontSize: 10, color: '#64748b', margin: 0, textTransform: 'uppercase', letterSpacing: '.04em' }}>{m}</p>
+        <p style={{ fontSize: 10, color: '#9ca3af', margin: 0, textTransform: 'uppercase', letterSpacing: '.04em' }}>{m}</p>
         <p style={{ fontSize: 18, fontWeight: 800, color: '#f1f5f9', margin: '4px 0 0' }}>—</p>
       </div>
     ))}
@@ -2973,13 +2973,13 @@ const AgentChat = ({ agentId, agentName, agentIcon }) => {
         <strong style={{ fontSize: 13, color: '#f1f5f9' }}>Chat con {agentId} — {agentName}</strong>
       </div>
       <div style={{ flex: 1, overflowY: 'auto', padding: 16, display: 'flex', flexDirection: 'column', gap: 10, minHeight: 200, maxHeight: 420 }}>
-        {messages.length === 0 && <p style={{ color: '#64748b', fontStyle: 'italic', fontSize: 12, textAlign: 'center', margin: 'auto 0' }}>Empieza la conversación con {agentId}...</p>}
+        {messages.length === 0 && <p style={{ color: '#9ca3af', fontStyle: 'italic', fontSize: 12, textAlign: 'center', margin: 'auto 0' }}>Empieza la conversación con {agentId}...</p>}
         {messages.map((m, i) => (
           <div key={i} style={{ alignSelf: m.role === 'user' ? 'flex-end' : 'flex-start', maxWidth: '80%', padding: '10px 14px', borderRadius: m.role === 'user' ? '14px 14px 4px 14px' : '14px 14px 14px 4px', background: m.role === 'user' ? GBa(0.2) : 'rgba(255,255,255,0.04)', color: '#e2e8f0', fontSize: 13, lineHeight: 1.5 }}>
             {m.text}
           </div>
         ))}
-        {loading && <div style={{ alignSelf: 'flex-start', padding: '10px 14px', borderRadius: '14px 14px 14px 4px', background: 'rgba(255,255,255,0.04)', color: '#64748b', fontSize: 12, fontStyle: 'italic' }}>{agentId} pensando...</div>}
+        {loading && <div style={{ alignSelf: 'flex-start', padding: '10px 14px', borderRadius: '14px 14px 14px 4px', background: 'rgba(255,255,255,0.04)', color: '#9ca3af', fontSize: 12, fontStyle: 'italic' }}>{agentId} pensando...</div>}
         <div ref={messagesEndRef} />
       </div>
       <div style={{ padding: 12, borderTop: '1px solid rgba(255,255,255,0.06)', display: 'flex', gap: 8 }}>
@@ -3014,7 +3014,7 @@ const AgentTab = ({ agentId, scope = 'founder' }) => {
           )}
           <AgentMetricsPanel agent={agent} scope={scope} />
           <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: 12 }}>
-            <p style={{ fontSize: 11, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 8 }}>Actividad reciente</p>
+            <p style={{ fontSize: 11, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 8 }}>Actividad reciente</p>
             <p style={{ fontSize: 12, color: '#94a3b8', fontStyle: 'italic' }}>Métricas en vivo próximamente — endpoints en desarrollo.</p>
           </div>
         </div>
@@ -3075,9 +3075,9 @@ function AdminLoginScreen({ onAuth }) {
         </div>
         {/* Card */}
         <div style={{ background: '#0c1220', border: `1px solid ${GBa(0.25)}`, borderRadius: 16, padding: '32px 28px', boxShadow: `0 0 40px ${GBa(0.08)}` }}>
-          <p style={{ fontSize: 11, color: '#64748b', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '.1em', marginBottom: 20, textTransform: 'uppercase' }}>$ authenticate --role=admin</p>
+          <p style={{ fontSize: 11, color: '#9ca3af', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '.1em', marginBottom: 20, textTransform: 'uppercase' }}>$ authenticate --role=admin</p>
           <form onSubmit={handleSubmit}>
-            <label style={{ fontSize: 11, color: '#64748b', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', display: 'block', marginBottom: 8 }}>Admin Key</label>
+            <label style={{ fontSize: 11, color: '#9ca3af', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', display: 'block', marginBottom: 8 }}>Admin Key</label>
             <div style={{ position: 'relative', marginBottom: 20 }}>
               <span style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', color: GENYX_BRAND, fontFamily: 'monospace', fontSize: 14 }}>›</span>
               <input
@@ -3090,7 +3090,7 @@ function AdminLoginScreen({ onAuth }) {
             </div>
             {error && <p style={{ color: '#f87171', fontSize: 12, marginBottom: 16, fontFamily: 'JetBrains Mono, monospace' }}>⚠ {error}</p>}
             <button type="submit" disabled={loading}
-              style={{ width: '100%', padding: '12px', background: loading ? GBa(0.3) : GBa(0.15), border: `1px solid ${GBa(0.5)}`, color: loading ? '#64748b' : GB_SOFT, borderRadius: 8, fontSize: 13, fontWeight: 700, cursor: loading ? 'wait' : 'pointer', transition: 'all 0.2s', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '.04em' }}>
+              style={{ width: '100%', padding: '12px', background: loading ? GBa(0.3) : GBa(0.15), border: `1px solid ${GBa(0.5)}`, color: loading ? '#9ca3af' : GB_SOFT, borderRadius: 8, fontSize: 13, fontWeight: 700, cursor: loading ? 'wait' : 'pointer', transition: 'all 0.2s', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '.04em' }}>
               {loading ? 'Verificando…' : '> Acceder'}
             </button>
           </form>
@@ -3112,7 +3112,7 @@ const PROD_STATUS = {
 // ── TabPlaceholder: módulos no construidos aún ───────────────────────────────
 function TabPlaceholder({ placeholder = 'Este módulo' }) {
   return (
-    <div style={{ padding: 60, textAlign: 'center', color: '#64748b' }}>
+    <div style={{ padding: 60, textAlign: 'center', color: '#9ca3af' }}>
       <div style={{ fontSize: 56, marginBottom: 16 }}>🚧</div>
       <h3 style={{ fontSize: 20, color: '#1a1208', marginBottom: 10, fontWeight: 700 }}>
         {placeholder} próximamente
@@ -3591,7 +3591,7 @@ function TabFotoLab({ slug, token }) {
       </div>
 
       {/* Preset description */}
-      <div style={{ ...CARD_S, padding: '8px 12px', background: '#f8fafc', fontSize: 12, color: '#64748b' }}>
+      <div style={{ ...CARD_S, padding: '8px 12px', background: '#f8fafc', fontSize: 12, color: '#9ca3af' }}>
         {activePreset.icon} <b>{activePreset.label}</b> — {activePreset.desc}
         {!activePreset.requiresImage && <span style={{ display: 'block', marginTop: 4, fontSize: 11, color: '#22c55e', fontWeight: 600 }}>✅ No necesita foto</span>}
       </div>
@@ -3869,7 +3869,7 @@ function SupportModal({ slug, token, open, onClose }) {
 
   const fmtDate = (d) => { try { return new Date(d).toLocaleDateString('es-MX', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }); } catch { return d; } };
   const statusLabel = (s) => ({ open: 'Abierta', agent_resolved: 'Resuelta', escalated: 'Escalada', founder_responded: 'Respondida', closed: 'Cerrada' }[s] || s);
-  const statusColor = (s) => ({ open: '#f59e0b', agent_resolved: '#10b981', escalated: '#3b82f6', founder_responded: '#10b981', closed: '#64748b' }[s] || '#64748b');
+  const statusColor = (s) => ({ open: '#f59e0b', agent_resolved: '#10b981', escalated: '#3b82f6', founder_responded: '#10b981', closed: '#9ca3af' }[s] || '#9ca3af');
 
   const O = {
     overlay: { position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 16 },
@@ -3878,7 +3878,7 @@ function SupportModal({ slug, token, open, onClose }) {
     sub: { fontSize: 13, color: '#94a3b8', lineHeight: 1.6, marginBottom: 20 },
     tabs: { display: 'flex', gap: 4, marginBottom: 20, background: 'rgba(255,255,255,0.04)', borderRadius: 10, padding: 3 },
     tabActive: { flex: 1, padding: '8px 12px', fontSize: 12, fontWeight: 700, border: 'none', borderRadius: 8, cursor: 'pointer', background: GBa(0.15), color: GB_LIGHT },
-    tabIdle: { flex: 1, padding: '8px 12px', fontSize: 12, fontWeight: 600, border: 'none', borderRadius: 8, cursor: 'pointer', background: 'transparent', color: '#64748b' },
+    tabIdle: { flex: 1, padding: '8px 12px', fontSize: 12, fontWeight: 600, border: 'none', borderRadius: 8, cursor: 'pointer', background: 'transparent', color: '#9ca3af' },
     textarea: { width: '100%', minHeight: 100, background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 10, padding: 12, fontSize: 13, color: '#f1f5f9', resize: 'vertical', outline: 'none', fontFamily: "'Inter', sans-serif", boxSizing: 'border-box' },
     row: { display: 'flex', gap: 8, marginTop: 10 },
     select: { flex: 1, background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8, padding: '8px 10px', fontSize: 12, color: '#f1f5f9', outline: 'none' },
@@ -3890,7 +3890,7 @@ function SupportModal({ slug, token, open, onClose }) {
     escalated: { display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(59,130,246,0.1)', color: '#3b82f6', padding: '4px 12px', borderRadius: 20, fontSize: 12, fontWeight: 700 },
     error: { marginTop: 12, background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: 10, padding: 12, fontSize: 13, color: '#ef4444' },
     ticket: { background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 10, padding: '12px 14px', marginBottom: 8 },
-    close: { width: '100%', marginTop: 16, padding: '10px', borderRadius: 8, border: '1px solid rgba(255,255,255,0.1)', background: 'transparent', color: '#64748b', fontSize: 12, cursor: 'pointer' },
+    close: { width: '100%', marginTop: 16, padding: '10px', borderRadius: 8, border: '1px solid rgba(255,255,255,0.1)', background: 'transparent', color: '#9ca3af', fontSize: 12, cursor: 'pointer' },
     newQuery: { marginTop: 12, padding: '8px 16px', borderRadius: 8, border: `1px solid ${GBa(0.2)}`, background: 'transparent', color: GB_LIGHT, fontSize: 12, fontWeight: 600, cursor: 'pointer' },
   };
 
@@ -3982,7 +3982,7 @@ function SupportModal({ slug, token, open, onClose }) {
                     <strong>Fundador:</strong> {t.founder_response}
                   </p>
                 )}
-                <small style={{ color: '#64748b', fontSize: 10 }}>{fmtDate(t.created_at)}</small>
+                <small style={{ color: '#9ca3af', fontSize: 10 }}>{fmtDate(t.created_at)}</small>
               </div>
             ))}
           </div>
@@ -4203,7 +4203,7 @@ function TabLegalDocs({ slug, token }) {
   };
 
   if (loading) return (
-    <div style={{ textAlign: 'center', padding: 60, color: '#64748b' }}>
+    <div style={{ textAlign: 'center', padding: 60, color: '#9ca3af' }}>
       <div style={{ fontSize: 32, marginBottom: 12, animation: 'pulse 2s infinite' }}>⚖️</div>
       <p style={{ fontSize: 13 }}>Cargando documentos legales...</p>
     </div>
@@ -4216,7 +4216,7 @@ function TabLegalDocs({ slug, token }) {
   );
 
   if (!docs || docs.length === 0) return (
-    <div style={{ textAlign: 'center', padding: 60, color: '#64748b' }}>
+    <div style={{ textAlign: 'center', padding: 60, color: '#9ca3af' }}>
       <p style={{ fontSize: 13 }}>No hay documentos legales disponibles.</p>
     </div>
   );
@@ -4233,7 +4233,7 @@ function TabLegalDocs({ slug, token }) {
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
         <div>
           <h2 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 2 }}>⚖️ Mis Documentos Legales</h2>
-          <p style={{ fontSize: 11, color: '#64748b' }}>{docs.length} documentos en tu expediente legal</p>
+          <p style={{ fontSize: 11, color: '#9ca3af' }}>{docs.length} documentos en tu expediente legal</p>
         </div>
       </div>
 
@@ -4253,7 +4253,7 @@ function TabLegalDocs({ slug, token }) {
                   <span style={{ fontSize: 20 }}>{st.icon}</span>
                   <div style={{ minWidth: 0 }}>
                     <p style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{docTitle}</p>
-                    <p style={{ fontSize: 10, color: '#64748b' }}>v{docVersion} · {doc.released_at}</p>
+                    <p style={{ fontSize: 10, color: '#9ca3af' }}>v{docVersion} · {doc.released_at}</p>
                   </div>
                 </div>
                 <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
@@ -4268,10 +4268,10 @@ function TabLegalDocs({ slug, token }) {
               </div>
               {isExpanded && (
                 <div style={{ marginTop: 12, paddingTop: 12, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-                  {doc.changelog && (<div style={{ marginBottom: 10 }}><p style={{ fontSize: 10, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Descripción</p><p style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6, whiteSpace: 'pre-wrap' }}>{doc.changelog}</p></div>)}
+                  {doc.changelog && (<div style={{ marginBottom: 10 }}><p style={{ fontSize: 10, fontWeight: 700, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Descripción</p><p style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6, whiteSpace: 'pre-wrap' }}>{doc.changelog}</p></div>)}
                   {(doc.accepted_at || (docStatus === 'accepted' && doc.tenant_version_accepted)) && <p style={{ fontSize: 10, color: '#4ade80' }}>Firmado: v{doc.tenant_version_accepted || doc.accepted_at}</p>}
-                  {doc.content_hash && <p style={{ fontSize: 9, color: '#64748b', fontFamily: 'monospace', marginTop: 6 }}>SHA256: {doc.content_hash.substring(0, 16)}...</p>}
-                  {!doc.content_hash && doc.doc_slug && <p style={{ fontSize: 9, color: '#64748b', fontFamily: 'monospace', marginTop: 6 }}>Doc: {doc.doc_slug}</p>}
+                  {doc.content_hash && <p style={{ fontSize: 9, color: '#9ca3af', fontFamily: 'monospace', marginTop: 6 }}>SHA256: {doc.content_hash.substring(0, 16)}...</p>}
+                  {!doc.content_hash && doc.doc_slug && <p style={{ fontSize: 9, color: '#9ca3af', fontFamily: 'monospace', marginTop: 6 }}>Doc: {doc.doc_slug}</p>}
                   {needsSign && <p style={{ fontSize: 11, color: '#fbbf24', marginTop: 8 }}>📝 Este documento requiere tu firma con verificación A2F.</p>}
                 </div>
               )}
@@ -4287,9 +4287,9 @@ function TabLegalDocs({ slug, token }) {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
               <div>
                 <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }}>Firma de documento</h3>
-                <p style={{ fontSize: 11, color: '#64748b' }}>{signDocSlug}</p>
+                <p style={{ fontSize: 11, color: '#9ca3af' }}>{signDocSlug}</p>
               </div>
-              <button onClick={() => { setSignDocSlug(null); setSignOtpWa(''); setSignOtpEmail(''); setSignChecked(false); setSignMsg(''); setSignOtpSent(false); setSignMasked(null); setSignCooldown(0); }} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#64748b', width: 32, height: 32, borderRadius: 8, cursor: 'pointer', fontSize: 16, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>✕</button>
+              <button onClick={() => { setSignDocSlug(null); setSignOtpWa(''); setSignOtpEmail(''); setSignChecked(false); setSignMsg(''); setSignOtpSent(false); setSignMasked(null); setSignCooldown(0); }} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#9ca3af', width: 32, height: 32, borderRadius: 8, cursor: 'pointer', fontSize: 16, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>✕</button>
             </div>
             {/* OTP status */}
             <div style={{ marginBottom: 12 }}>
@@ -4297,18 +4297,18 @@ function TabLegalDocs({ slug, token }) {
               {signOtpSent && signMasked && (
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 6 }}>
                   <p style={{ fontSize: 11, color: '#4ade80' }}>✅ Códigos enviados a {signMasked.wa} y {signMasked.email}</p>
-                  <button onClick={() => { if (signCooldown <= 0) requestSignOtp(signDocSlug); }} disabled={signSending || signCooldown > 0} style={{ fontSize: 10, color: signCooldown > 0 ? '#64748b' : '#94a3b8', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 6, padding: '3px 10px', cursor: signCooldown > 0 ? 'not-allowed' : 'pointer' }}>{signCooldown > 0 ? `Reenviar (${signCooldown}s)` : 'Reenviar'}</button>
+                  <button onClick={() => { if (signCooldown <= 0) requestSignOtp(signDocSlug); }} disabled={signSending || signCooldown > 0} style={{ fontSize: 10, color: signCooldown > 0 ? '#9ca3af' : '#94a3b8', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 6, padding: '3px 10px', cursor: signCooldown > 0 ? 'not-allowed' : 'pointer' }}>{signCooldown > 0 ? `Reenviar (${signCooldown}s)` : 'Reenviar'}</button>
                 </div>
               )}
             </div>
             {/* OTP inputs */}
             <div style={{ display: 'flex', gap: 10, marginBottom: 14 }}>
               <div style={{ flex: 1 }}>
-                <label style={{ display: 'block', fontSize: 10, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Código WhatsApp</label>
+                <label style={{ display: 'block', fontSize: 10, color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Código WhatsApp</label>
                 <input type="text" maxLength={6} value={signOtpWa} onChange={e => setSignOtpWa(e.target.value.replace(/\D/g,''))} placeholder="000000" style={{ width: '100%', boxSizing: 'border-box', background: 'rgba(15,23,42,0.8)', border: `1px solid ${GBa(0.2)}`, color: '#f1f5f9', padding: '10px 12px', borderRadius: 8, fontSize: 18, fontFamily: 'monospace', letterSpacing: 6, textAlign: 'center', outline: 'none' }} />
               </div>
               <div style={{ flex: 1 }}>
-                <label style={{ display: 'block', fontSize: 10, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Código Email</label>
+                <label style={{ display: 'block', fontSize: 10, color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Código Email</label>
                 <input type="text" maxLength={6} value={signOtpEmail} onChange={e => setSignOtpEmail(e.target.value.replace(/\D/g,''))} placeholder="000000" style={{ width: '100%', boxSizing: 'border-box', background: 'rgba(15,23,42,0.8)', border: `1px solid ${GBa(0.2)}`, color: '#f1f5f9', padding: '10px 12px', borderRadius: 8, fontSize: 18, fontFamily: 'monospace', letterSpacing: 6, textAlign: 'center', outline: 'none' }} />
               </div>
             </div>
@@ -4333,14 +4333,14 @@ function TabLegalDocs({ slug, token }) {
           <div style={{ background: '#0f172a', border: `1px solid ${GBa(0.25)}`, borderRadius: 20, padding: '28px 24px', maxWidth: 640, width: '100%', maxHeight: '85vh', overflow: 'auto' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
               <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9' }}>{viewDoc.title}</h3>
-              <button onClick={() => setViewDoc(null)} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#64748b', width: 32, height: 32, borderRadius: 8, cursor: 'pointer', fontSize: 16, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>✕</button>
+              <button onClick={() => setViewDoc(null)} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#9ca3af', width: 32, height: 32, borderRadius: 8, cursor: 'pointer', fontSize: 16, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>✕</button>
             </div>
             <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.8, whiteSpace: 'pre-wrap', fontFamily: "'Inter', sans-serif" }}>{viewDoc.content}</div>
           </div>
         </div>
       )}
 
-      <p style={{ fontSize: 9, color: '#64748b', textAlign: 'center', marginTop: 16 }}>Trazabilidad SHA256 · Registro inmutable · A2F B3 por documento</p>
+      <p style={{ fontSize: 9, color: '#9ca3af', textAlign: 'center', marginTop: 16 }}>Trazabilidad SHA256 · Registro inmutable · A2F B3 por documento</p>
     </>
   );
 }
@@ -4364,7 +4364,7 @@ function TabReporteLunesCliente({ slug, token }) {
 
   if (!reports || reports.length === 0) {
     return (
-      <div style={{ textAlign: 'center', padding: 60, color: '#64748b' }}>
+      <div style={{ textAlign: 'center', padding: 60, color: '#9ca3af' }}>
         <div style={{ fontSize: 56, marginBottom: 16 }}>📧</div>
         <h3 style={{ fontSize: 18, color: '#1e293b', marginBottom: 8, fontWeight: 700 }}>Aún no hay reportes</h3>
         <p style={{ fontSize: 13, lineHeight: 1.6, maxWidth: 360, margin: '0 auto' }}>
@@ -4915,7 +4915,7 @@ function MandoClientView({ slug }) {
 
   // ── Loading state (Fase 3: tenant config loading)
   if (cfgLoading) return (
-    <div style={{ minHeight:'100vh', display:'flex', alignItems:'center', justifyContent:'center', background:'#faf7f2', color:'#64748b', fontFamily:"'Inter', system-ui, sans-serif" }}>
+    <div style={{ minHeight:'100vh', display:'flex', alignItems:'center', justifyContent:'center', background:'#faf7f2', color:'#9ca3af', fontFamily:"'Inter', system-ui, sans-serif" }}>
       <div style={{ textAlign:'center' }}>
         <div style={{ fontSize:28, marginBottom:12 }}>⏳</div>
         <div style={{ fontSize:14, fontWeight:600 }}>Cargando tu Mando...</div>
@@ -4928,7 +4928,7 @@ function MandoClientView({ slug }) {
     <div style={{ minHeight:'100vh', display:'flex', alignItems:'center', justifyContent:'center', background:'#faf7f2', color:'#ef4444', fontFamily:"'Inter', system-ui, sans-serif", flexDirection:'column', gap:12 }}>
       <div style={{ fontSize:28 }}>⚠️</div>
       <div style={{ fontSize:14, fontWeight:700 }}>No se pudo cargar tu Mando.</div>
-      <div style={{ fontSize:12, color:'#64748b' }}>Verifica tu conexión o contacta soporte: hola@genyxsystems.com</div>
+      <div style={{ fontSize:12, color:'#9ca3af' }}>Verifica tu conexión o contacta soporte: hola@genyxsystems.com</div>
     </div>
   );
 
@@ -5092,9 +5092,9 @@ if (!token) return (
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
               <div>
                 <h3 style={{ fontSize: 18, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }}>Actualización de Términos</h3>
-                <p style={{ fontSize: 12, color: '#64748b' }}>Versión {legalStatus?.tenant_version_accepted || '5.0'} → {legalStatus?.current_version || '5.1'}</p>
+                <p style={{ fontSize: 12, color: '#9ca3af' }}>Versión {legalStatus?.tenant_version_accepted || '5.0'} → {legalStatus?.current_version || '5.1'}</p>
               </div>
-              <button onClick={() => { setShowLegalModal(false); setLegalChecked(false); setLegalMsg(''); setLegalOtpSent(false); setLegalOtpMasked(null); setLegalOtpWa(''); setLegalOtpEmail(''); setLegalOtpCooldown(0); setLegalOtpExpiry(null); }} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#64748b', width: 32, height: 32, borderRadius: 8, cursor: 'pointer', fontSize: 16, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>✕</button>
+              <button onClick={() => { setShowLegalModal(false); setLegalChecked(false); setLegalMsg(''); setLegalOtpSent(false); setLegalOtpMasked(null); setLegalOtpWa(''); setLegalOtpEmail(''); setLegalOtpCooldown(0); setLegalOtpExpiry(null); }} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#9ca3af', width: 32, height: 32, borderRadius: 8, cursor: 'pointer', fontSize: 16, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>✕</button>
             </div>
 
             {/* P5: Diff visual — changelog con badge NUEVO */}
@@ -5124,9 +5124,9 @@ if (!token) return (
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 6 }}>
                   <div>
                     <p style={{ fontSize: 11, color: '#4ade80' }}>✅ Códigos enviados a {legalOtpMasked.wa} y {legalOtpMasked.email}</p>
-                    {legalOtpExpiry && (() => { const rem = Math.max(0, Math.floor((new Date(legalOtpExpiry) - Date.now()) / 1000)); const m = Math.floor(rem / 60); const s = rem % 60; return rem > 0 ? <p style={{ fontSize: 10, color: rem < 120 ? '#fbbf24' : '#64748b', marginTop: 2 }}>⏱️ Expiran en {m}:{String(s).padStart(2, '0')}</p> : null; })()}
+                    {legalOtpExpiry && (() => { const rem = Math.max(0, Math.floor((new Date(legalOtpExpiry) - Date.now()) / 1000)); const m = Math.floor(rem / 60); const s = rem % 60; return rem > 0 ? <p style={{ fontSize: 10, color: rem < 120 ? '#fbbf24' : '#9ca3af', marginTop: 2 }}>⏱️ Expiran en {m}:{String(s).padStart(2, '0')}</p> : null; })()}
                   </div>
-                  <button onClick={() => { if (legalOtpCooldown <= 0) requestLegalOtp(); }} disabled={legalOtpSending || legalOtpCooldown > 0} style={{ fontSize: 10, color: legalOtpCooldown > 0 ? '#64748b' : '#94a3b8', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 6, padding: '3px 10px', cursor: legalOtpCooldown > 0 ? 'not-allowed' : 'pointer' }}>{legalOtpCooldown > 0 ? `Reenviar (${legalOtpCooldown}s)` : 'Reenviar'}</button>
+                  <button onClick={() => { if (legalOtpCooldown <= 0) requestLegalOtp(); }} disabled={legalOtpSending || legalOtpCooldown > 0} style={{ fontSize: 10, color: legalOtpCooldown > 0 ? '#9ca3af' : '#94a3b8', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 6, padding: '3px 10px', cursor: legalOtpCooldown > 0 ? 'not-allowed' : 'pointer' }}>{legalOtpCooldown > 0 ? `Reenviar (${legalOtpCooldown}s)` : 'Reenviar'}</button>
                 </div>
               )}
               {!legalOtpSending && !legalOtpSent && (
@@ -5138,12 +5138,12 @@ if (!token) return (
             </div>
             <div style={{ display: 'flex', gap: 10, marginBottom: 14 }}>
               <div style={{ flex: 1 }}>
-                <label style={{ display: 'block', fontSize: 10, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Código WhatsApp</label>
+                <label style={{ display: 'block', fontSize: 10, color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Código WhatsApp</label>
                 <input type="text" maxLength={6} value={legalOtpWa} onChange={e => setLegalOtpWa(e.target.value.replace(/\D/g,''))} placeholder="000000"
                   style={{ width: '100%', boxSizing: 'border-box', background: 'rgba(15,23,42,0.8)', border: `1px solid ${GBa(0.2)}`, color: '#f1f5f9', padding: '10px 12px', borderRadius: 8, fontSize: 18, fontFamily: 'monospace', letterSpacing: 6, textAlign: 'center', outline: 'none' }} />
               </div>
               <div style={{ flex: 1 }}>
-                <label style={{ display: 'block', fontSize: 10, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Código Email</label>
+                <label style={{ display: 'block', fontSize: 10, color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Código Email</label>
                 <input type="text" maxLength={6} value={legalOtpEmail} onChange={e => setLegalOtpEmail(e.target.value.replace(/\D/g,''))} placeholder="000000"
                   style={{ width: '100%', boxSizing: 'border-box', background: 'rgba(15,23,42,0.8)', border: `1px solid ${GBa(0.2)}`, color: '#f1f5f9', padding: '10px 12px', borderRadius: 8, fontSize: 18, fontFamily: 'monospace', letterSpacing: 6, textAlign: 'center', outline: 'none' }} />
               </div>
@@ -5166,7 +5166,7 @@ if (!token) return (
                 {legalAccepting ? 'Verificando...' : 'Aceptar y firmar'}
               </button>
             </div>
-            <p style={{ fontSize: 9, color: '#64748b', textAlign: 'center', marginTop: 10 }}>Este contrato protege tu negocio y a GenyX por igual.</p>
+            <p style={{ fontSize: 9, color: '#9ca3af', textAlign: 'center', marginTop: 10 }}>Este contrato protege tu negocio y a GenyX por igual.</p>
           </div>
         </div>
       )}
@@ -5201,7 +5201,7 @@ if (!token) return (
               { label: '🔴 Nuevos',       count: cNuevo, bg: '#fef2f2', txt: '#b91c1c' },
               { label: '🟡 En Proceso',   count: cProd,  bg: '#fffbeb', txt: '#b45309' },
               { label: '🟢 Entregados',   count: cEntr,  bg: '#f0fdf4', txt: '#15803d' },
-              { label: '⏳ Por Cobrar',   count: cPend,  bg: '#f8fafc', txt: '#64748b' },
+              { label: '⏳ Por Cobrar',   count: cPend,  bg: '#f8fafc', txt: '#9ca3af' },
             ];
             return (
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 6, marginBottom: 14 }}>
@@ -5297,7 +5297,7 @@ if (!token) return (
                   <div key={o.id} style={{ ...CARD, borderLeft: '4px solid #94a3b8', marginBottom: 8, opacity: 0.85 }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
                       <div style={{ fontWeight: 700, fontSize: 13 }}>#{o.id} · {o.customer_name || 'Cliente'}</div>
-                      <span style={{ background: '#f1f5f9', color: '#64748b', padding: '2px 8px', borderRadius: 12, fontSize: 10, fontWeight: 700 }}>PENDIENTE</span>
+                      <span style={{ background: '#f1f5f9', color: '#9ca3af', padding: '2px 8px', borderRadius: 12, fontSize: 10, fontWeight: 700 }}>PENDIENTE</span>
                     </div>
                     <div style={{ fontSize: 11, color: '#78716c', marginBottom: 8 }}>
                       {o.whatsapp && <span>📱 {o.whatsapp} · </span>}
@@ -6136,7 +6136,7 @@ if (!token) return (
             <div style={{ textAlign: 'center', marginBottom: 16 }}>
               <div style={{ fontSize: 40, marginBottom: 8 }}>📋</div>
               <h2 style={{ fontSize: 18, fontWeight: 800, color: '#1e293b', margin: 0 }}>Términos y Condiciones</h2>
-              <p style={{ fontSize: 12, color: '#64748b', marginTop: 4 }}>GenyX Systems · Abril 2026</p>
+              <p style={{ fontSize: 12, color: '#9ca3af', marginTop: 4 }}>GenyX Systems · Abril 2026</p>
             </div>
 
             <div style={{ fontSize: 12, lineHeight: 1.7, color: '#44403c', background: '#f8fafc', borderRadius: 12, padding: 16, marginBottom: 16, maxHeight: 240, overflowY: 'auto', border: '1px solid #e2e8f0' }}>
@@ -6303,7 +6303,7 @@ function GenyXConciergeWidget() {
                 <div style={{ maxWidth:'84%', padding:'9px 13px', borderRadius:m.from==='user'?'16px 16px 4px 16px':'16px 16px 16px 4px', background:m.from==='user'?BC:'rgba(255,255,255,0.07)', color:m.from==='user'?'#fff':'#cbd5e1', fontSize:13, lineHeight:1.65, whiteSpace:'pre-line' }}>{m.text}</div>
               </div>
             ))}
-            {typing && (<div style={{ display:'flex', alignItems:'center', gap:5, padding:'8px 12px', background:'rgba(255,255,255,0.07)', borderRadius:'16px 16px 16px 4px', width:'fit-content' }}>{[0,1,2].map(i => (<div key={i} style={{ width:6, height:6, borderRadius:'50%', background:'#64748b', animation:`gcb ${1.2}s ${i*0.2}s infinite` }} />))}</div>)}
+            {typing && (<div style={{ display:'flex', alignItems:'center', gap:5, padding:'8px 12px', background:'rgba(255,255,255,0.07)', borderRadius:'16px 16px 16px 4px', width:'fit-content' }}>{[0,1,2].map(i => (<div key={i} style={{ width:6, height:6, borderRadius:'50%', background:'#9ca3af', animation:`gcb ${1.2}s ${i*0.2}s infinite` }} />))}</div>)}
             {phase==='done' && (<a href="mailto:hola@genyxsystems.com" style={{ display:'block', marginTop:8, background:`linear-gradient(135deg,${BC},${BD})`, color:'#fff', textAlign:'center', padding:'10px 16px', borderRadius:10, fontSize:12, fontWeight:700, textDecoration:'none' }}>📧 hola@genyxsystems.com</a>)}
             <div ref={botRef} />
           </div>
@@ -6413,10 +6413,10 @@ function WhatsAppSimulator() {
     const on = activeAgents.has(ag.id), proc = processingAgents.has(ag.id);
     return (
       <div key={ag.id} title={ag.tip} style={{ background: on?GBa(0.06):proc?'rgba(129,140,248,0.08)':'rgba(6,9,18,0.6)', border:`1px solid ${on?GBa(0.3):proc?'rgba(129,140,248,0.4)':'rgba(255,255,255,0.04)'}`, borderRadius:12, padding:14, display:'flex', flexDirection:'column', alignItems:'center', gap:8, transition:'all .4s cubic-bezier(.4,0,.2,1)', animation:proc?'simAgPulse 1.5s infinite':'none', cursor:'help', position:'relative' }}>
-        <div style={{ width:42, height:42, borderRadius:`50%`, display:`flex`, alignItems:`center`, justifyContent:`center`, fontSize:11, fontWeight:800, background:on?`linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`:proc?`linear-gradient(135deg,#818cf8,#c084fc)`:`rgba(255,255,255,0.05)`, border:`2px solid ${on||proc?`transparent`:`rgba(255,255,255,0.08)`}`, color:on||proc?'white':'#64748b', boxShadow:on?`0 0 30px ${GBa(0.3)}`:proc?'0 0 30px rgba(129,140,248,0.3)':'none', transition:'all .4s' }}>{ag.id}</div>
-        <div style={{ fontSize:10, fontWeight:600, color:on||proc?'#f1f5f9':'#64748b', textAlign:'center' }}>{ag.name}</div>
-        <div style={{ fontSize:9, color:on?GB_LIGHT:'#64748b', textAlign:'center', opacity:on?1:0.7 }}>{ag.role}</div>
-        <div style={{ position:'absolute', top:4, right:6, fontSize:9, color:'#64748b', opacity:0.6, cursor:'help' }}>ⓘ</div>
+        <div style={{ width:42, height:42, borderRadius:`50%`, display:`flex`, alignItems:`center`, justifyContent:`center`, fontSize:11, fontWeight:800, background:on?`linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`:proc?`linear-gradient(135deg,#818cf8,#c084fc)`:`rgba(255,255,255,0.05)`, border:`2px solid ${on||proc?`transparent`:`rgba(255,255,255,0.08)`}`, color:on||proc?'white':'#9ca3af', boxShadow:on?`0 0 30px ${GBa(0.3)}`:proc?'0 0 30px rgba(129,140,248,0.3)':'none', transition:'all .4s' }}>{ag.id}</div>
+        <div style={{ fontSize:10, fontWeight:600, color:on||proc?'#f1f5f9':'#9ca3af', textAlign:'center' }}>{ag.name}</div>
+        <div style={{ fontSize:9, color:on?GB_LIGHT:'#9ca3af', textAlign:'center', opacity:on?1:0.7 }}>{ag.role}</div>
+        <div style={{ position:'absolute', top:4, right:6, fontSize:9, color:'#9ca3af', opacity:0.6, cursor:'help' }}>ⓘ</div>
       </div>
     );
   };
@@ -6468,20 +6468,20 @@ function WhatsAppSimulator() {
             {[['orders','Pedidos'],['revenue','Revenue'],['agents','Agentes activos'],['patterns','Patrones']].map(([k,l]) => (
               <div key={k} style={{ background:'rgba(6,9,18,0.8)', padding:'14px 16px', textAlign:'center' }}>
                 <div style={{ fontSize:`1.3rem`, fontWeight:800, background:`linear-gradient(135deg,${GENYX_BRAND},#818cf8)`, WebkitBackgroundClip:`text`, WebkitTextFillColor:'transparent' }}>{k==='revenue'?`$${metrics[k].toLocaleString()}`:k==='agents'?`${metrics[k]}/8`:metrics[k]}</div>
-                <div style={{ fontSize:10, color:'#64748b', fontWeight:500, textTransform:'uppercase', letterSpacing:'0.5px', marginTop:2 }}>{l}</div>
+                <div style={{ fontSize:10, color:'#9ca3af', fontWeight:500, textTransform:'uppercase', letterSpacing:'0.5px', marginTop:2 }}>{l}</div>
               </div>
             ))}
           </div>
           <div style={{ padding:'16px 20px', borderTop:`1px solid ${GBa(0.12)}`, maxHeight:140, overflowY:'auto' }}>
-            <h4 style={{ fontSize:11, color:'#64748b', textTransform:'uppercase', letterSpacing:'1px', marginBottom:8, marginTop:0 }}>Actividad en vivo</h4>
+            <h4 style={{ fontSize:11, color:'#9ca3af', textTransform:'uppercase', letterSpacing:'1px', marginBottom:8, marginTop:0 }}>Actividad en vivo</h4>
             {logs.map((l, i) => (
               <div key={i} style={{ display:'flex', alignItems:'center', gap:8, padding:'4px 0', fontSize:12, color:'#94a3b8', animation:'simFUp .3s ease' }}>
                 <span style={{ width:5, height:5, borderRadius:'50%', background:l.c, flexShrink:0 }} />
                 <span>{l.m}</span>
-                <span style={{ color:'#64748b', fontSize:10, marginLeft:'auto' }}>{l.time}</span>
+                <span style={{ color:'#9ca3af', fontSize:10, marginLeft:'auto' }}>{l.time}</span>
               </div>
             ))}
-            {logs.length===0 && <div style={{ fontSize:12, color:'#64748b' }}>Esperando primera interacción...</div>}
+            {logs.length===0 && <div style={{ fontSize:12, color:'#9ca3af' }}>Esperando primera interacción...</div>}
           </div>
         </div>
       </div>
@@ -6507,7 +6507,7 @@ function DashboardPreview() {
       <div style={{ textAlign: 'center', marginBottom: 40 }}>
         <div style={{ fontSize: 11, fontWeight: 700, color: GB_LIGHT, letterSpacing: '.1em', marginBottom: 12 }}>TU CENTRO DE MANDO</div>
         <h2 style={{ fontSize: 36, fontWeight: 900, color: `#f1f5f9`, marginBottom: 10 }}>Ve cada venta.<br /><span style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip: `text`, WebkitTextFillColor: 'transparent' }}>En tiempo real.</span></h2>
-        <p style={{ color: '#64748b', fontSize: 14, maxWidth: 460, margin: '0 auto' }}>Pedidos, ingresos, clientes y métricas — desde tu celular o computadora. Sin instalar nada.</p>
+        <p style={{ color: '#9ca3af', fontSize: 14, maxWidth: 460, margin: '0 auto' }}>Pedidos, ingresos, clientes y métricas — desde tu celular o computadora. Sin instalar nada.</p>
       </div>
       <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', border: `1px solid ${GBa(0.3)}`, boxShadow: `0 32px 80px ${GBa(0.15)}, 0 0 0 1px ${GBa(0.1)}` }}>
         <img src="/dashboard-preview.png" alt="Centro de Mando GenyX — Panel de control en tiempo real" style={{ width: '100%', display: 'block' }} loading="lazy" />
@@ -6670,20 +6670,20 @@ function BlogLayout({ children, post, allPosts }) {
         </a>
         <div style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
           <a href="/blog" style={{ color: GB_LIGHT, fontSize: 13, textDecoration: 'none', fontWeight: 600 }}>Blog</a>
-          <a href="/por-que-aoaas" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>AOaaS</a>
+          <a href="/por-que-aoaas" style={{ color: '#9ca3af', fontSize: 13, textDecoration: 'none' }}>AOaaS</a>
           <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, leí el blog AOaaS")}`} style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: '#fff', padding: '8px 20px', borderRadius: 10, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>Contacto →</a>
         </div>
       </nav>
       <article style={{ maxWidth: 720, margin: '0 auto', padding: '140px 24px 80px' }}>
         <div style={{ marginBottom: 40 }}>
-          <a href="/blog" style={{ color: '#64748b', fontSize: 12, textDecoration: 'none' }}>← Blog</a>
+          <a href="/blog" style={{ color: '#9ca3af', fontSize: 12, textDecoration: 'none' }}>← Blog</a>
           <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginTop: 16, marginBottom: 16 }}>
             <span style={{ fontSize: 10, fontWeight: 700, color: GB_LIGHT, background: GBa(0.1), padding: '3px 10px', borderRadius: 6, border: `1px solid ${GBa(0.2)}` }}>{post.category}</span>
-            <span style={{ fontSize: 11, color: '#64748b' }}>{new Date(post.date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-            <span style={{ fontSize: 11, color: '#64748b' }}>· {post.readTime}</span>
+            <span style={{ fontSize: 11, color: '#9ca3af' }}>{new Date(post.date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+            <span style={{ fontSize: 11, color: '#9ca3af' }}>· {post.readTime}</span>
           </div>
           <h1 style={{ fontSize: 40, fontWeight: 900, lineHeight: 1.15, marginBottom: 16 }}>{post.title}</h1>
-          <p style={{ color: '#64748b', fontSize: 16, lineHeight: 1.7 }}>{post.metaDesc}</p>
+          <p style={{ color: '#9ca3af', fontSize: 16, lineHeight: 1.7 }}>{post.metaDesc}</p>
         </div>
         {children}
         {/* CTA + Related */}
@@ -6692,24 +6692,24 @@ function BlogLayout({ children, post, allPosts }) {
           <a href="/por-que-aoaas" style={{ color: GB_LIGHT, fontSize: 14, fontWeight: 600, textDecoration: 'none' }}>Lee el manifesto completo →</a>
         </div>
         <div style={{ marginTop: 48 }}>
-          <p style={{ fontSize: 12, fontWeight: 700, color: '#64748b', marginBottom: 16, textTransform: 'uppercase', letterSpacing: '.08em' }}>Más sobre AOaaS</p>
+          <p style={{ fontSize: 12, fontWeight: 700, color: '#9ca3af', marginBottom: 16, textTransform: 'uppercase', letterSpacing: '.08em' }}>Más sobre AOaaS</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             {allPosts.filter(p => p.slug !== post.slug).map(p => (
               <a key={p.slug} href={`/blog/${p.slug}`} style={{ display: 'block', padding: '14px 18px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: 12, textDecoration: 'none', transition: 'border-color 0.2s' }}
                 onMouseOver={e => e.currentTarget.style.borderColor = GBa(0.3)}
                 onMouseOut={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)'}>
                 <span style={{ fontSize: 14, fontWeight: 600, color: '#e2e8f0' }}>{p.title}</span>
-                <span style={{ display: 'block', fontSize: 12, color: '#64748b', marginTop: 4 }}>{p.excerpt.substring(0, 90)}...</span>
+                <span style={{ display: 'block', fontSize: 12, color: '#9ca3af', marginTop: 4 }}>{p.excerpt.substring(0, 90)}...</span>
               </a>
             ))}
           </div>
         </div>
       </article>
       <footer style={{ textAlign: 'center', padding: '40px 24px', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
-        <p style={{ fontSize: 11, color: '#64748b' }}>GenyX Systems © 2026 · AOaaS — Agent Operations as a Service</p>
+        <p style={{ fontSize: 11, color: '#9ca3af' }}>GenyX Systems © 2026 · AOaaS — Agent Operations as a Service</p>
         <div style={{ marginTop: 10, display: 'flex', gap: 16, justifyContent: 'center' }}>
-          <a href="/" style={{ color: '#64748b', fontSize: 11, textDecoration: 'none' }}>Inicio</a>
-          <a href="/blog" style={{ color: '#64748b', fontSize: 11, textDecoration: 'none' }}>Blog</a>
+          <a href="/" style={{ color: '#9ca3af', fontSize: 11, textDecoration: 'none' }}>Inicio</a>
+          <a href="/blog" style={{ color: '#9ca3af', fontSize: 11, textDecoration: 'none' }}>Blog</a>
           <a href="/por-que-aoaas" style={{ color: GB_LIGHT, fontSize: 11, textDecoration: 'none' }}>Manifesto</a>
         </div>
       </footer>
@@ -6723,7 +6723,7 @@ const B = {
   strong: { color: '#f1f5f9', fontWeight: 700 },
   h2: { fontSize: 24, fontWeight: 800, color: '#f1f5f9', marginTop: 48, marginBottom: 16 },
   h3: { fontSize: 18, fontWeight: 700, color: '#e2e8f0', marginTop: 32, marginBottom: 12 },
-  src: { fontSize: 11, color: '#64748b', fontStyle: 'italic' },
+  src: { fontSize: 11, color: '#9ca3af', fontStyle: 'italic' },
   srcLink: { color: `${GENYX_BRAND}`, textDecoration: 'none' },
   card: { background: GBa(0.04), border: `1px solid ${GBa(0.12)}`, borderRadius: 16, padding: '24px 20px', marginBottom: 20 },
   toc: { background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 12, padding: '16px 20px', marginBottom: 32 },
@@ -6736,7 +6736,7 @@ function BlogPost1() {
   return (
     <BlogLayout post={post} allPosts={BLOG_POSTS}>
       <div style={B.toc}>
-        <p style={{ fontSize: 11, fontWeight: 700, color: '#64748b', marginBottom: 8, textTransform: 'uppercase' }}>Contenido</p>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#9ca3af', marginBottom: 8, textTransform: 'uppercase' }}>Contenido</p>
         {['¿Qué es AaaS?', '¿Qué es AOaaS?', 'Tabla comparativa: 5 ejes', '¿Cuándo usar cada modelo?', 'Conclusión'].map((t, i) => (
           <p key={i} style={{ fontSize: 13, color: GB_LIGHT, marginBottom: 4 }}>{i+1}. {t}</p>
         ))}
@@ -6755,8 +6755,8 @@ function BlogPost1() {
       <div style={B.card}>
         <table style={{ width: '100%', borderCollapse: 'collapse' }}>
           <thead><tr>
-            <th style={{ textAlign: 'left', padding: '12px 14px', color: '#64748b', borderBottom: '2px solid rgba(255,255,255,0.06)', fontSize: 12, fontWeight: 700 }}>Eje</th>
-            <th style={{ textAlign: 'left', padding: '12px 14px', color: '#64748b', borderBottom: '2px solid rgba(255,255,255,0.06)', fontSize: 12, fontWeight: 700 }}>AaaS</th>
+            <th style={{ textAlign: 'left', padding: '12px 14px', color: '#9ca3af', borderBottom: '2px solid rgba(255,255,255,0.06)', fontSize: 12, fontWeight: 700 }}>Eje</th>
+            <th style={{ textAlign: 'left', padding: '12px 14px', color: '#9ca3af', borderBottom: '2px solid rgba(255,255,255,0.06)', fontSize: 12, fontWeight: 700 }}>AaaS</th>
             <th style={{ textAlign: 'left', padding: '12px 14px', color: GB_LIGHT, borderBottom: `2px solid ${GBa(0.2)}`, fontSize: 12, fontWeight: 700 }}>AOaaS</th>
           </tr></thead>
           <tbody>
@@ -6769,7 +6769,7 @@ function BlogPost1() {
             ].map(([eje, aaas, aoaas], i) => (
               <tr key={i}>
                 <td style={{ padding: '10px 14px', color: '#94a3b8', borderBottom: '1px solid rgba(255,255,255,0.03)', fontSize: 13, fontWeight: 600 }}>{eje}</td>
-                <td style={{ padding: '10px 14px', color: '#64748b', borderBottom: '1px solid rgba(255,255,255,0.03)', fontSize: 13 }}>{aaas}</td>
+                <td style={{ padding: '10px 14px', color: '#9ca3af', borderBottom: '1px solid rgba(255,255,255,0.03)', fontSize: 13 }}>{aaas}</td>
                 <td style={{ padding: '10px 14px', color: '#e2e8f0', borderBottom: '1px solid rgba(255,255,255,0.03)', fontSize: 13, fontWeight: 600 }}>{aoaas}</td>
               </tr>
             ))}
@@ -6796,7 +6796,7 @@ function BlogPost2() {
   return (
     <BlogLayout post={post} allPosts={BLOG_POSTS}>
       <div style={B.toc}>
-        <p style={{ fontSize: 11, fontWeight: 700, color: '#64748b', marginBottom: 8, textTransform: 'uppercase' }}>Contenido</p>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#9ca3af', marginBottom: 8, textTransform: 'uppercase' }}>Contenido</p>
         {['El patrón de category creation', 'Qué resuelve AOaaS que AaaS no puede', 'La arquitectura: 9 agentes orquestados', 'Governance como diferenciador', 'La apuesta'].map((t, i) => (
           <p key={i} style={{ fontSize: 13, color: GB_LIGHT, marginBottom: 4 }}>{i+1}. {t}</p>
         ))}
@@ -6851,7 +6851,7 @@ function BlogPost3() {
   return (
     <BlogLayout post={post} allPosts={BLOG_POSTS}>
       <div style={B.toc}>
-        <p style={{ fontSize: 11, fontWeight: 700, color: '#64748b', marginBottom: 8, textTransform: 'uppercase' }}>Contenido</p>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#9ca3af', marginBottom: 8, textTransform: 'uppercase' }}>Contenido</p>
         {['El canal ya está definido: WhatsApp', 'El problema del 88%', 'Por qué AOaaS encaja en LATAM', 'Qué entrega GenyX hoy', 'Inversión transparente', 'Siguiente paso'].map((t, i) => (
           <p key={i} style={{ fontSize: 13, color: GB_LIGHT, marginBottom: 4 }}>{i+1}. {t}</p>
         ))}
@@ -6897,10 +6897,10 @@ function BlogPost3() {
       <div style={B.card}>
         <table style={{ width: '100%', borderCollapse: 'collapse' }}>
           <thead><tr>
-            <th style={{ textAlign: 'left', padding: '10px 12px', color: '#64748b', borderBottom: '2px solid rgba(255,255,255,0.06)', fontSize: 12 }}>Plan</th>
-            <th style={{ textAlign: 'left', padding: '10px 12px', color: '#64748b', borderBottom: '2px solid rgba(255,255,255,0.06)', fontSize: 12 }}>Mensual</th>
-            <th style={{ textAlign: 'left', padding: '10px 12px', color: '#64748b', borderBottom: '2px solid rgba(255,255,255,0.06)', fontSize: 12 }}>Setup</th>
-            <th style={{ textAlign: 'left', padding: '10px 12px', color: '#64748b', borderBottom: '2px solid rgba(255,255,255,0.06)', fontSize: 12 }}>Perfil</th>
+            <th style={{ textAlign: 'left', padding: '10px 12px', color: '#9ca3af', borderBottom: '2px solid rgba(255,255,255,0.06)', fontSize: 12 }}>Plan</th>
+            <th style={{ textAlign: 'left', padding: '10px 12px', color: '#9ca3af', borderBottom: '2px solid rgba(255,255,255,0.06)', fontSize: 12 }}>Mensual</th>
+            <th style={{ textAlign: 'left', padding: '10px 12px', color: '#9ca3af', borderBottom: '2px solid rgba(255,255,255,0.06)', fontSize: 12 }}>Setup</th>
+            <th style={{ textAlign: 'left', padding: '10px 12px', color: '#9ca3af', borderBottom: '2px solid rgba(255,255,255,0.06)', fontSize: 12 }}>Perfil</th>
           </tr></thead>
           <tbody>
             {[
@@ -6912,7 +6912,7 @@ function BlogPost3() {
                 <td style={{ padding: '10px 12px', color: '#e2e8f0', borderBottom: '1px solid rgba(255,255,255,0.03)', fontSize: 13, fontWeight: i === 1 ? 700 : 400 }}>{plan}{i === 1 ? ' ★' : ''}</td>
                 <td style={{ padding: '10px 12px', color: '#e2e8f0', borderBottom: '1px solid rgba(255,255,255,0.03)', fontSize: 13 }}>{price}</td>
                 <td style={{ padding: '10px 12px', color: '#94a3b8', borderBottom: '1px solid rgba(255,255,255,0.03)', fontSize: 13 }}>{setup}</td>
-                <td style={{ padding: '10px 12px', color: '#64748b', borderBottom: '1px solid rgba(255,255,255,0.03)', fontSize: 13 }}>{perfil}</td>
+                <td style={{ padding: '10px 12px', color: '#9ca3af', borderBottom: '1px solid rgba(255,255,255,0.03)', fontSize: 13 }}>{perfil}</td>
               </tr>
             ))}
           </tbody>
@@ -6938,8 +6938,8 @@ function BlogIndexPage() {
           <span style={{ fontWeight: 800, fontSize: 15, color: '#f1f5f9' }}>GenyX</span>
         </a>
         <div style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
-          <a href="/por-que-aoaas" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>AOaaS</a>
-          <a href="/por-que-ahora" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>Por qué ahora</a>
+          <a href="/por-que-aoaas" style={{ color: '#9ca3af', fontSize: 13, textDecoration: 'none' }}>AOaaS</a>
+          <a href="/por-que-ahora" style={{ color: '#9ca3af', fontSize: 13, textDecoration: 'none' }}>Por qué ahora</a>
         </div>
       </nav>
       <div style={{ maxWidth: 800, margin: '0 auto', padding: '140px 24px 80px' }}>
@@ -6949,7 +6949,7 @@ function BlogIndexPage() {
             AOaaS —<br />
             <span style={{ background: 'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>pensamiento en profundidad.</span>
           </h1>
-          <p style={{ color: '#64748b', fontSize: 16 }}>Agent Operations as a Service. Análisis, datos verificados y visión de categoría.</p>
+          <p style={{ color: '#9ca3af', fontSize: 16 }}>Agent Operations as a Service. Análisis, datos verificados y visión de categoría.</p>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           {BLOG_POSTS.map(post => (
@@ -6958,10 +6958,10 @@ function BlogIndexPage() {
               onMouseOut={e => { e.currentTarget.style.borderColor = GBa(0.1); e.currentTarget.style.background = GBa(0.03); }}>
               <div style={{ display: 'flex', gap: 10, alignItems: 'center', marginBottom: 10 }}>
                 <span style={{ fontSize: 10, fontWeight: 700, color: GB_LIGHT, background: GBa(0.1), padding: '2px 8px', borderRadius: 4, border: `1px solid ${GBa(0.15)}` }}>{post.category}</span>
-                <span style={{ fontSize: 11, color: '#64748b' }}>{new Date(post.date).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric' })} · {post.readTime}</span>
+                <span style={{ fontSize: 11, color: '#9ca3af' }}>{new Date(post.date).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric' })} · {post.readTime}</span>
               </div>
               <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', marginBottom: 8, lineHeight: 1.3 }}>{post.title}</h2>
-              <p style={{ fontSize: 14, color: '#64748b', lineHeight: 1.7 }}>{post.excerpt}</p>
+              <p style={{ fontSize: 14, color: '#9ca3af', lineHeight: 1.7 }}>{post.excerpt}</p>
             </a>
           ))}
         </div>
@@ -6970,7 +6970,7 @@ function BlogIndexPage() {
         </div>
       </div>
       <footer style={{ textAlign: 'center', padding: '40px 24px', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
-        <p style={{ fontSize: 11, color: '#64748b' }}>GenyX Systems © 2026 · AOaaS — Agent Operations as a Service</p>
+        <p style={{ fontSize: 11, color: '#9ca3af' }}>GenyX Systems © 2026 · AOaaS — Agent Operations as a Service</p>
       </footer>
     </div>
   );
@@ -7020,8 +7020,8 @@ function WhitepaperPage() {
           <span style={{ fontWeight: 800, fontSize: 15, color: '#f1f5f9' }}>GenyX</span>
         </a>
         <div style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
-          <a href="/por-que-aoaas" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>AOaaS</a>
-          <a href="/blog" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>Blog</a>
+          <a href="/por-que-aoaas" style={{ color: '#9ca3af', fontSize: 13, textDecoration: 'none' }}>AOaaS</a>
+          <a href="/blog" style={{ color: '#9ca3af', fontSize: 13, textDecoration: 'none' }}>Blog</a>
         </div>
       </nav>
 
@@ -7041,7 +7041,7 @@ function WhitepaperPage() {
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 32 }}>
-            <p style={{ fontSize: 13, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.06em' }}>En este whitepaper:</p>
+            <p style={{ fontSize: 13, fontWeight: 700, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.06em' }}>En este whitepaper:</p>
             {[
               'Por qué el 88% de los pilotos AI fallan — y cómo evitarlo',
               'Arquitectura: de 1 agente a 12 orquestados con governance',
@@ -7059,9 +7059,9 @@ function WhitepaperPage() {
           </div>
 
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-            <span style={{ fontSize: 11, color: '#64748b', background: 'rgba(255,255,255,0.03)', padding: '4px 12px', borderRadius: 6, border: '1px solid rgba(255,255,255,0.06)' }}>10-15 páginas</span>
-            <span style={{ fontSize: 11, color: '#64748b', background: 'rgba(255,255,255,0.03)', padding: '4px 12px', borderRadius: 6, border: '1px solid rgba(255,255,255,0.06)' }}>PDF descargable</span>
-            <span style={{ fontSize: 11, color: '#64748b', background: 'rgba(255,255,255,0.03)', padding: '4px 12px', borderRadius: 6, border: '1px solid rgba(255,255,255,0.06)' }}>Datos con fuentes verificables</span>
+            <span style={{ fontSize: 11, color: '#9ca3af', background: 'rgba(255,255,255,0.03)', padding: '4px 12px', borderRadius: 6, border: '1px solid rgba(255,255,255,0.06)' }}>10-15 páginas</span>
+            <span style={{ fontSize: 11, color: '#9ca3af', background: 'rgba(255,255,255,0.03)', padding: '4px 12px', borderRadius: 6, border: '1px solid rgba(255,255,255,0.06)' }}>PDF descargable</span>
+            <span style={{ fontSize: 11, color: '#9ca3af', background: 'rgba(255,255,255,0.03)', padding: '4px 12px', borderRadius: 6, border: '1px solid rgba(255,255,255,0.06)' }}>Datos con fuentes verificables</span>
           </div>
         </div>
 
@@ -7075,7 +7075,7 @@ function WhitepaperPage() {
                 <p style={{ color: '#94a3b8', fontSize: 14, lineHeight: 1.7, marginBottom: 24 }}>
                   Te notificaremos a <span style={{ color: GB_LIGHT, fontWeight: 600 }}>{email}</span> cuando el whitepaper esté listo para descargar.
                 </p>
-                <p style={{ color: '#64748b', fontSize: 13, marginBottom: 20 }}>Mientras tanto, explora:</p>
+                <p style={{ color: '#9ca3af', fontSize: 13, marginBottom: 20 }}>Mientras tanto, explora:</p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                   <a href="/por-que-aoaas" style={{ color: GB_LIGHT, fontSize: 14, textDecoration: 'none', fontWeight: 600 }}>Manifesto AOaaS →</a>
                   <a href="/blog" style={{ color: GB_LIGHT, fontSize: 14, textDecoration: 'none', fontWeight: 600 }}>Blog AOaaS →</a>
@@ -7085,15 +7085,15 @@ function WhitepaperPage() {
             ) : (
               <>
                 <h2 style={{ fontSize: 22, fontWeight: 800, color: '#f1f5f9', marginBottom: 6 }}>Recibe el whitepaper</h2>
-                <p style={{ color: '#64748b', fontSize: 13, marginBottom: 24 }}>Déjanos tu correo y te lo enviamos cuando esté listo. Sin spam.</p>
+                <p style={{ color: '#9ca3af', fontSize: 13, marginBottom: 24 }}>Déjanos tu correo y te lo enviamos cuando esté listo. Sin spam.</p>
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                   <div>
-                    <label style={{ display: 'block', fontSize: 11, fontWeight: 600, color: '#64748b', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '.05em' }}>Nombre</label>
+                    <label style={{ display: 'block', fontSize: 11, fontWeight: 600, color: '#9ca3af', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '.05em' }}>Nombre</label>
                     <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Tu nombre"
                       style={W.input} onFocus={e => e.target.style.borderColor = GBa(0.5)} onBlur={e => e.target.style.borderColor = GBa(0.2)} />
                   </div>
                   <div>
-                    <label style={{ display: 'block', fontSize: 11, fontWeight: 600, color: '#64748b', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '.05em' }}>Correo *</label>
+                    <label style={{ display: 'block', fontSize: 11, fontWeight: 600, color: '#9ca3af', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '.05em' }}>Correo *</label>
                     <input type="email" value={email} onChange={e => { setEmail(e.target.value); setError(''); }} placeholder="tu@empresa.com" required
                       style={{ ...W.input, borderColor: error ? 'rgba(239,68,68,0.5)' : GBa(0.2) }}
                       onFocus={e => e.target.style.borderColor = GBa(0.5)} onBlur={e => e.target.style.borderColor = error ? 'rgba(239,68,68,0.5)' : GBa(0.2)} />
@@ -7104,7 +7104,7 @@ function WhitepaperPage() {
                     onMouseOut={e => e.target.style.transform = 'translateY(0)'}>
                     Quiero el whitepaper →
                   </button>
-                  <p style={{ fontSize: 10, color: '#64748b', textAlign: 'center' }}>Solo para enviarte el whitepaper. Cero spam. Sin vender tu dato.</p>
+                  <p style={{ fontSize: 10, color: '#9ca3af', textAlign: 'center' }}>Solo para enviarte el whitepaper. Cero spam. Sin vender tu dato.</p>
                 </form>
               </>
             )}
@@ -7119,7 +7119,7 @@ function WhitepaperPage() {
             ].map(([val, label]) => (
               <div key={label} style={{ textAlign: 'center', padding: '12px 8px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.04)', borderRadius: 10 }}>
                 <div style={{ fontSize: 20, fontWeight: 900, ...W.gradient }}>{val}</div>
-                <div style={{ fontSize: 10, color: '#64748b' }}>{label}</div>
+                <div style={{ fontSize: 10, color: '#9ca3af' }}>{label}</div>
               </div>
             ))}
           </div>
@@ -7142,18 +7142,18 @@ function WhitepaperPage() {
             <div key={title} style={{ background: GBa(0.03), border: `1px solid ${GBa(0.1)}`, borderRadius: 14, padding: '20px 18px' }}>
               <div style={{ fontSize: 24, marginBottom: 8 }}>{ico}</div>
               <p style={{ fontWeight: 700, color: '#f1f5f9', fontSize: 14, marginBottom: 4 }}>{title}</p>
-              <p style={{ fontSize: 12, color: '#64748b', lineHeight: 1.6 }}>{desc}</p>
+              <p style={{ fontSize: 12, color: '#9ca3af', lineHeight: 1.6 }}>{desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       <footer style={{ textAlign: 'center', padding: '40px 24px', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
-        <p style={{ fontSize: 11, color: '#64748b' }}>GenyX Systems © 2026 · AOaaS — Agent Operations as a Service</p>
+        <p style={{ fontSize: 11, color: '#9ca3af' }}>GenyX Systems © 2026 · AOaaS — Agent Operations as a Service</p>
         <div style={{ marginTop: 10, display: 'flex', gap: 16, justifyContent: 'center' }}>
-          <a href="/" style={{ color: '#64748b', fontSize: 11, textDecoration: 'none' }}>Inicio</a>
+          <a href="/" style={{ color: '#9ca3af', fontSize: 11, textDecoration: 'none' }}>Inicio</a>
           <a href="/por-que-aoaas" style={{ color: GB_LIGHT, fontSize: 11, textDecoration: 'none' }}>Manifesto</a>
-          <a href="/blog" style={{ color: '#64748b', fontSize: 11, textDecoration: 'none' }}>Blog</a>
+          <a href="/blog" style={{ color: '#9ca3af', fontSize: 11, textDecoration: 'none' }}>Blog</a>
         </div>
       </footer>
     </div>
@@ -7175,7 +7175,7 @@ function PorQueAOaaSPage() {
     p: { color: '#94a3b8', fontSize: 15, lineHeight: 2.0 },
     strong: { color: '#f1f5f9', fontWeight: 700 },
     gradient: { background: 'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
-    source: { fontSize: 11, color: '#64748b', fontStyle: 'italic', marginTop: 12 },
+    source: { fontSize: 11, color: '#9ca3af', fontStyle: 'italic', marginTop: 12 },
     srcLink: { color: `${GENYX_BRAND}`, textDecoration: 'none' },
     divider: { height: 1, background: `linear-gradient(90deg, transparent, ${GBa(0.25)}, transparent)`, margin: '0 auto', maxWidth: 200 },
   };
@@ -7218,7 +7218,7 @@ function PorQueAOaaSPage() {
           <span style={{ fontWeight: 800, fontSize: 15, color: '#f1f5f9' }}>GenyX</span>
         </a>
         <div style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
-          <a href="/por-que-ahora" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>Por qué ahora</a>
+          <a href="/por-que-ahora" style={{ color: '#9ca3af', fontSize: 13, textDecoration: 'none' }}>Por qué ahora</a>
           <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, leí el manifesto AOaaS y quiero saber más")}`} style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: '#fff', padding: '8px 20px', borderRadius: 10, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>Hablar con el fundador →</a>
         </div>
       </nav>
@@ -7282,7 +7282,7 @@ function PorQueAOaaSPage() {
           <table style={{ width: '100%', borderCollapse: 'collapse' }}>
             <thead>
               <tr>
-                <th style={{ textAlign: 'left', padding: '14px 16px', color: '#64748b', borderBottom: '2px solid rgba(255,255,255,0.06)', fontSize: 12, fontWeight: 700, width: '45%' }}>AaaS estándar</th>
+                <th style={{ textAlign: 'left', padding: '14px 16px', color: '#9ca3af', borderBottom: '2px solid rgba(255,255,255,0.06)', fontSize: 12, fontWeight: 700, width: '45%' }}>AaaS estándar</th>
                 <th style={{ textAlign: 'left', padding: '14px 16px', color: GB_LIGHT, borderBottom: `2px solid ${GBa(0.2)}`, fontSize: 12, fontWeight: 700, width: '55%' }}>AOaaS</th>
               </tr>
             </thead>
@@ -7295,7 +7295,7 @@ function PorQueAOaaSPage() {
                 ['Posicionado como herramienta', 'Posicionado como sistema operativo'],
               ].map(([left, right], i) => (
                 <tr key={i}>
-                  <td style={{ padding: '14px 16px', color: '#64748b', borderBottom: '1px solid rgba(255,255,255,0.03)', verticalAlign: 'top', fontSize: 14, lineHeight: 1.7 }}>{left}</td>
+                  <td style={{ padding: '14px 16px', color: '#9ca3af', borderBottom: '1px solid rgba(255,255,255,0.03)', verticalAlign: 'top', fontSize: 14, lineHeight: 1.7 }}>{left}</td>
                   <td style={{ padding: '14px 16px', color: '#e2e8f0', borderBottom: '1px solid rgba(255,255,255,0.03)', verticalAlign: 'top', fontSize: 14, fontWeight: 600, lineHeight: 1.7 }}>{right}</td>
                 </tr>
               ))}
@@ -7325,16 +7325,16 @@ function PorQueAOaaSPage() {
           ].map(([co, year, created, replaced, why], i) => (
             <div key={co} style={{ display: 'flex', gap: 20, alignItems: 'flex-start', padding: '24px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
               <div style={{ minWidth: 100, textAlign: 'right' }}>
-                <span style={{ fontSize: 14, fontWeight: 800, color: '#64748b' }}>{co}</span>
-                <span style={{ display: 'block', fontSize: 11, color: '#64748b' }}>{year}</span>
+                <span style={{ fontSize: 14, fontWeight: 800, color: '#9ca3af' }}>{co}</span>
+                <span style={{ display: 'block', fontSize: 11, color: '#9ca3af' }}>{year}</span>
               </div>
               <div style={{ flex: 1 }}>
                 <p style={{ fontSize: 14, color: '#e2e8f0', marginBottom: 4 }}>
                   Creó <span style={{ color: GB_LIGHT, fontWeight: 700 }}>"{created}"</span>
-                  <span style={{ color: '#64748b' }}> cuando existía </span>
-                  <span style={{ color: '#64748b', textDecoration: 'line-through' }}>"{replaced}"</span>
+                  <span style={{ color: '#9ca3af' }}> cuando existía </span>
+                  <span style={{ color: '#9ca3af', textDecoration: 'line-through' }}>"{replaced}"</span>
                 </p>
-                <p style={{ fontSize: 12, color: '#64748b' }}>{why}</p>
+                <p style={{ fontSize: 12, color: '#9ca3af' }}>{why}</p>
               </div>
             </div>
           ))}
@@ -7348,8 +7348,8 @@ function PorQueAOaaSPage() {
             <div style={{ flex: 1 }}>
               <p style={{ fontSize: 16, color: '#f1f5f9', fontWeight: 700, marginBottom: 8 }}>
                 Crea <span style={S.gradient}>"AOaaS"</span>
-                <span style={{ color: '#64748b', fontWeight: 400 }}> cuando existe </span>
-                <span style={{ color: '#64748b', textDecoration: 'line-through', fontWeight: 400 }}>"AaaS"</span>
+                <span style={{ color: '#9ca3af', fontWeight: 400 }}> cuando existe </span>
+                <span style={{ color: '#9ca3af', textDecoration: 'line-through', fontWeight: 400 }}>"AaaS"</span>
               </p>
               <p style={{ fontSize: 14, color: '#94a3b8', lineHeight: 1.7 }}>
                 9 agentes orquestados + governance interna + trazabilidad legal tripartita.
@@ -7376,7 +7376,7 @@ function PorQueAOaaSPage() {
               onMouseOver={e => e.currentTarget.style.borderColor = GBa(0.35)}
               onMouseOut={e => e.currentTarget.style.borderColor = GBa(0.1)}>
               <span style={{ fontSize: 15, fontWeight: 700, color: '#e2e8f0' }}>{title}</span>
-              <span style={{ display: 'block', fontSize: 13, color: '#64748b', marginTop: 4, lineHeight: 1.6 }}>{desc}</span>
+              <span style={{ display: 'block', fontSize: 13, color: '#9ca3af', marginTop: 4, lineHeight: 1.6 }}>{desc}</span>
             </a>
           ))}
         </div>
@@ -7392,7 +7392,7 @@ function PorQueAOaaSPage() {
             AOaaS es la categoría.<br />
             <span style={S.gradient}>GenyX es el primer player.</span>
           </h2>
-          <p style={{ color: '#64748b', fontSize: 15, marginBottom: 36, maxWidth: 460, margin: '0 auto 36px' }}>
+          <p style={{ color: '#9ca3af', fontSize: 15, marginBottom: 36, maxWidth: 460, margin: '0 auto 36px' }}>
             Si operas un negocio y quieres implementar tu operación comercial autónoma — hablemos.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -7400,7 +7400,7 @@ function PorQueAOaaSPage() {
             <a href="/por-que-ahora#agentes" style={{ background: 'rgba(255,255,255,0.05)', color: GB_SOFT, padding: '14px 32px', borderRadius: 12, fontSize: 14, fontWeight: 600, textDecoration: 'none', border: `1px solid ${GBa(0.2)}` }}>Conoce los 9 agentes →</a>
           </div>
           <div style={{ marginTop: 20 }}>
-            <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, leí el manifesto AOaaS. Quiero contactar a GenyX.")}`} style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>💬 Contacto directo con el fundador</a>
+            <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, leí el manifesto AOaaS. Quiero contactar a GenyX.")}`} style={{ color: '#9ca3af', fontSize: 13, textDecoration: 'none' }}>💬 Contacto directo con el fundador</a>
           </div>
         </div>
       </section>
@@ -7414,22 +7414,22 @@ function PorQueAOaaSPage() {
             <input name="email" type="email" required placeholder="tu@email.com" style={{ flex: 1, padding: '10px 16px', borderRadius: 10, border: `1px solid ${GBa(0.2)}`, background: 'rgba(15,23,42,0.5)', color: '#e2e8f0', fontSize: 13, outline: 'none' }} />
             <button type="submit" style={{ padding: `10px 20px`, borderRadius: 10, border: `none`, background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: `#fff`, fontSize: 12, fontWeight: 700, cursor: `pointer`, whiteSpace: 'nowrap' }}>Suscribirme →</button>
           </form>
-          <p style={{ fontSize: 9, color: '#64748b', marginTop: 10 }}>Prometemos solo contenido valioso. Puedes cancelar en cualquier momento.</p>
+          <p style={{ fontSize: 9, color: '#9ca3af', marginTop: 10 }}>Prometemos solo contenido valioso. Puedes cancelar en cualquier momento.</p>
         </div>
       </section>
 
       {/* ── Footer ── */}
       <footer style={{ textAlign: 'center', padding: '40px 24px 56px', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
-        <p style={{ fontSize: 11, color: '#64748b' }}>GenyX Systems © 2026 · Guadalajara, México · AOaaS</p>
+        <p style={{ fontSize: 11, color: '#9ca3af' }}>GenyX Systems © 2026 · Guadalajara, México · AOaaS</p>
         <p style={{ fontSize: 10, color: '#334155', marginTop: 6, maxWidth: 500, margin: '6px auto 0' }}>
           AOaaS — Agent Operations as a Service. Categoría creada por GenyX por diferenciación técnica real verificable. Decreto fundador 21-may-2026.
         </p>
         <div style={{ marginTop: 14, display: 'flex', gap: 16, justifyContent: 'center' }}>
-          <a href="/" style={{ color: '#64748b', fontSize: 11, textDecoration: 'none' }}>Inicio</a>
-          <a href="/por-que-ahora" style={{ color: '#64748b', fontSize: 11, textDecoration: 'none' }}>Por qué ahora</a>
-          <a href="/por-que-aoaas" style={{ color: '#64748b', fontSize: 11, textDecoration: 'none' }}>Manifesto AOaaS</a>
-          <a href="/privacidad" style={{ color: '#64748b', fontSize: 11, textDecoration: 'none' }}>Privacidad</a>
-          <a href="/terminos" style={{ color: '#64748b', fontSize: 11, textDecoration: 'none' }}>Términos</a>
+          <a href="/" style={{ color: '#9ca3af', fontSize: 11, textDecoration: 'none' }}>Inicio</a>
+          <a href="/por-que-ahora" style={{ color: '#9ca3af', fontSize: 11, textDecoration: 'none' }}>Por qué ahora</a>
+          <a href="/por-que-aoaas" style={{ color: '#9ca3af', fontSize: 11, textDecoration: 'none' }}>Manifesto AOaaS</a>
+          <a href="/privacidad" style={{ color: '#9ca3af', fontSize: 11, textDecoration: 'none' }}>Privacidad</a>
+          <a href="/terminos" style={{ color: '#9ca3af', fontSize: 11, textDecoration: 'none' }}>Términos</a>
         </div>
       </footer>
     </div>
@@ -7449,7 +7449,7 @@ function PorQueAhoraPage() {
     label: { fontSize: 11, fontWeight: 800, color: GB_LIGHT, letterSpacing: '.12em', textTransform: 'uppercase', marginBottom: 12 },
     h2: { fontSize: 36, fontWeight: 900, color: '#f1f5f9', lineHeight: 1.25, marginBottom: 16 },
     p: { color: '#94a3b8', fontSize: 15, lineHeight: 1.9 },
-    source: { fontSize: 11, color: '#64748b', fontStyle: 'italic', marginTop: 8 },
+    source: { fontSize: 11, color: '#9ca3af', fontStyle: 'italic', marginTop: 8 },
     sourceLink: { color: GB_LIGHT, textDecoration: 'none' },
     stat: { display: 'flex', gap: 16, alignItems: 'center', padding: '16px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' },
     statVal: { fontSize: 32, fontWeight: 900, background: `linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', minWidth: 120, textAlign: 'right' },
@@ -7467,7 +7467,7 @@ function PorQueAhoraPage() {
           <span style={{ fontWeight: 800, fontSize: 15, color: '#f1f5f9' }}>GenyX</span>
         </a>
         <div style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
-          <a href="/" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>← Inicio</a>
+          <a href="/" style={{ color: '#9ca3af', fontSize: 13, textDecoration: 'none' }}>← Inicio</a>
           <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, quiero saber más sobre GenyX")}`} style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: '#fff', padding: '8px 20px', borderRadius: 10, fontSize: 12, fontWeight: 700, textDecoration: 'none' }}>Hablar con GenyX →</a>
         </div>
       </nav>
@@ -7513,7 +7513,7 @@ function PorQueAhoraPage() {
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
             <thead>
               <tr>
-                <th style={{ textAlign: 'left', padding: '10px 12px', color: '#64748b', borderBottom: '1px solid rgba(255,255,255,0.08)', fontSize: 11, fontWeight: 700 }}>AaaS estándar (lo que hace el mercado)</th>
+                <th style={{ textAlign: 'left', padding: '10px 12px', color: '#9ca3af', borderBottom: '1px solid rgba(255,255,255,0.08)', fontSize: 11, fontWeight: 700 }}>AaaS estándar (lo que hace el mercado)</th>
                 <th style={{ textAlign: 'left', padding: '10px 12px', color: GB_LIGHT, borderBottom: `1px solid ${GBa(0.2)}`, fontSize: 11, fontWeight: 700 }}>AOaaS (lo que hacemos nosotros)</th>
               </tr>
             </thead>
@@ -7526,7 +7526,7 @@ function PorQueAhoraPage() {
                 ['Posicionado como herramienta', 'Posicionado como sistema operativo'],
               ].map(([aaas, aoaas], i) => (
                 <tr key={i}>
-                  <td style={{ padding: '10px 12px', color: '#64748b', borderBottom: '1px solid rgba(255,255,255,0.04)', verticalAlign: 'top' }}>{aaas}</td>
+                  <td style={{ padding: '10px 12px', color: '#9ca3af', borderBottom: '1px solid rgba(255,255,255,0.04)', verticalAlign: 'top' }}>{aaas}</td>
                   <td style={{ padding: '10px 12px', color: '#e2e8f0', borderBottom: '1px solid rgba(255,255,255,0.04)', verticalAlign: 'top', fontWeight: 600 }}>{aoaas}</td>
                 </tr>
               ))}
@@ -7551,9 +7551,9 @@ function PorQueAhoraPage() {
               ['GenyX (2026)', 'crea "AOaaS"', 'cuando existe "AaaS"'],
             ].map(([co, created, when], i) => (
               <div key={i} style={{ display: 'flex', gap: 8, alignItems: 'baseline', fontSize: 13 }}>
-                <span style={{ color: i === 5 ? GB_LIGHT : '#64748b', fontWeight: i === 5 ? 800 : 600, minWidth: 130 }}>{co}</span>
+                <span style={{ color: i === 5 ? GB_LIGHT : '#9ca3af', fontWeight: i === 5 ? 800 : 600, minWidth: 130 }}>{co}</span>
                 <span style={{ color: i === 5 ? GB_VIOLET : '#94a3b8' }}>{created}</span>
-                <span style={{ color: '#64748b' }}>{when}</span>
+                <span style={{ color: '#9ca3af' }}>{when}</span>
               </div>
             ))}
           </div>
@@ -7649,7 +7649,7 @@ function PorQueAhoraPage() {
             <div key={label} style={C.card}>
               <div style={{ ...C.statVal, fontSize: 40, marginBottom: 8, textAlign: 'left' }}>{val}</div>
               <p style={{ fontWeight: 700, color: '#f1f5f9', fontSize: 14, marginBottom: 4 }}>{label}</p>
-              <p style={{ fontSize: 11, color: '#64748b', lineHeight: 1.5 }}>{detail}</p>
+              <p style={{ fontSize: 11, color: '#9ca3af', lineHeight: 1.5 }}>{detail}</p>
             </div>
           ))}
         </div>
@@ -7678,22 +7678,22 @@ function PorQueAhoraPage() {
             ¿Listo para implementar tu<br />
             <span style={C.gradient}>operación comercial autónoma?</span>
           </h2>
-          <p style={{ color: '#64748b', fontSize: 15, marginBottom: 28 }}>En 15 minutos te decimos qué plan se ajusta a tu negocio — sin compromiso.</p>
+          <p style={{ color: '#9ca3af', fontSize: 15, marginBottom: 28 }}>En 15 minutos te decimos qué plan se ajusta a tu negocio — sin compromiso.</p>
           <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, vi los datos de mercado y quiero saber más sobre GenyX")}`} style={{ display: `inline-block`, background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: `#fff`, padding: '14px 36px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: `0 0 28px ${GBa(0.3)}` }}>Hablar con GenyX →</a>
           <div style={{ marginTop: 16, display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="/" style={{ color: GB_LIGHT, fontSize: 13, textDecoration: 'none' }}>← Volver al inicio</a>
-            <a href="/whitepaper" style={{ color: '#64748b', fontSize: 13, textDecoration: 'none' }}>📄 Lee el whitepaper completo</a>
+            <a href="/whitepaper" style={{ color: '#9ca3af', fontSize: 13, textDecoration: 'none' }}>📄 Lee el whitepaper completo</a>
           </div>
         </div>
       </section>
 
       {/* Footer */}
       <footer style={{ textAlign: 'center', padding: '32px 24px 48px', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
-        <p style={{ fontSize: 11, color: '#64748b' }}>GenyX Systems © 2026 · Guadalajara, México · AOaaS</p>
+        <p style={{ fontSize: 11, color: '#9ca3af' }}>GenyX Systems © 2026 · Guadalajara, México · AOaaS</p>
         <p style={{ fontSize: 10, color: '#334155', marginTop: 4 }}>Cada dato en esta página tiene URL fuente verificable. Regla de oro: si no tiene fuente, no se publica.</p>
         <div style={{ marginTop: 12, display: 'flex', gap: 16, justifyContent: 'center' }}>
-          <a href="/privacidad" style={{ color: '#64748b', fontSize: 11, textDecoration: 'none' }}>Privacidad</a>
-          <a href="/terminos" style={{ color: '#64748b', fontSize: 11, textDecoration: 'none' }}>Términos</a>
+          <a href="/privacidad" style={{ color: '#9ca3af', fontSize: 11, textDecoration: 'none' }}>Privacidad</a>
+          <a href="/terminos" style={{ color: '#9ca3af', fontSize: 11, textDecoration: 'none' }}>Términos</a>
           <a href="/" style={{ color: GB_LIGHT, fontSize: 11, textDecoration: 'none' }}>Inicio</a>
         </div>
       </footer>
@@ -7707,7 +7707,7 @@ function PorQueAhoraPage() {
 // ══════════════════════════════════════════════════════════════════════════════
 function PlanesPage() {
   const GENYX_CONTACT = useGenyxConfig();
-  const S = { page: { minHeight: '100vh', background: '#05080f', fontFamily: "'Inter',sans-serif", color: '#cbd5e1', padding: '60px 24px 80px' }, container: { maxWidth: 960, margin: '0 auto' }, h1: { fontSize: 38, fontWeight: 900, color: '#f1f5f9', marginBottom: 8, textAlign: 'center' }, sub: { fontSize: 15, color: '#64748b', textAlign: 'center', maxWidth: 640, margin: '0 auto 48px' }, section: { marginBottom: 48 }, sTitle: { fontSize: 18, fontWeight: 800, color: GB_SOFT, marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }, card: { background: GBa(0.06), border: `1px solid ${GBa(0.2)}`, borderRadius: 16, padding: '24px 28px', marginBottom: 16 }, li: { fontSize: 14, color: '#cbd5e1', lineHeight: 1.8, marginBottom: 6 }, table: { width: '100%', borderCollapse: 'collapse', fontSize: 13 }, th: { textAlign: 'left', padding: '10px 12px', borderBottom: `2px solid ${GBa(0.3)}`, color: GB_LIGHT, fontWeight: 700, fontSize: 12 }, td: { padding: '10px 12px', borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#cbd5e1' }, tdH: { padding: '10px 12px', borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#f1f5f9', fontWeight: 700 }, note: { fontSize: 12, color: '#64748b', fontStyle: 'italic', marginTop: 16, lineHeight: 1.7 } };
+  const S = { page: { minHeight: '100vh', background: '#05080f', fontFamily: "'Inter',sans-serif", color: '#cbd5e1', padding: '60px 24px 80px' }, container: { maxWidth: 960, margin: '0 auto' }, h1: { fontSize: 38, fontWeight: 900, color: '#f1f5f9', marginBottom: 8, textAlign: 'center' }, sub: { fontSize: 15, color: '#9ca3af', textAlign: 'center', maxWidth: 640, margin: '0 auto 48px' }, section: { marginBottom: 48 }, sTitle: { fontSize: 18, fontWeight: 800, color: GB_SOFT, marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }, card: { background: GBa(0.06), border: `1px solid ${GBa(0.2)}`, borderRadius: 16, padding: '24px 28px', marginBottom: 16 }, li: { fontSize: 14, color: '#cbd5e1', lineHeight: 1.8, marginBottom: 6 }, table: { width: '100%', borderCollapse: 'collapse', fontSize: 13 }, th: { textAlign: 'left', padding: '10px 12px', borderBottom: `2px solid ${GBa(0.3)}`, color: GB_LIGHT, fontWeight: 700, fontSize: 12 }, td: { padding: '10px 12px', borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#cbd5e1' }, tdH: { padding: '10px 12px', borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#f1f5f9', fontWeight: 700 }, note: { fontSize: 12, color: '#9ca3af', fontStyle: 'italic', marginTop: 16, lineHeight: 1.7 } };
 
   return (
     <div style={S.page}>
@@ -7887,7 +7887,7 @@ function PlanesPage() {
               ].map(([name, desc]) => (
                 <div key={name} style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 10, padding: '12px 14px' }}>
                   <div style={{ fontWeight: 700, color: '#f1f5f9', fontSize: 13, marginBottom: 4 }}>{name}</div>
-                  <div style={{ fontSize: 11, color: '#64748b' }}>{desc}</div>
+                  <div style={{ fontSize: 11, color: '#9ca3af' }}>{desc}</div>
                 </div>
               ))}
             </div>
@@ -7898,13 +7898,13 @@ function PlanesPage() {
         {/* CTA */}
         <div style={{ textAlign: 'center', marginTop: 32, padding: '40px 24px', background: `linear-gradient(135deg, ${GBa(0.08)}, rgba(139,92,246,0.06))`, borderRadius: 20, border: `1px solid ${GBa(0.2)}` }}>
           <h2 style={{ fontSize: 28, fontWeight: 900, color: '#f1f5f9', marginBottom: 12 }}>¿Cuál es el plan para tu negocio?</h2>
-          <p style={{ color: '#64748b', fontSize: 14, marginBottom: 24 }}>En 15 minutos te decimos qué plan se ajusta a tu operación — sin compromiso.</p>
+          <p style={{ color: '#9ca3af', fontSize: 14, marginBottom: 24 }}>En 15 minutos te decimos qué plan se ajusta a tu operación — sin compromiso.</p>
           <a href={`${GENYX_CONTACT.sales_url}&body=${encodeURIComponent("Hola, quiero saber qué plan de GenyX es para mi negocio")}`} style={{ display: `inline-block`, background: `linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color: `#fff`, padding: '14px 36px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: `0 0 28px ${GBa(0.3)}` }}>Hablar con GenyX →</a>
           <div style={{ marginTop: 16 }}><a href="/" style={{ color: GB_LIGHT, fontSize: 13, textDecoration: 'none' }}>← Volver al inicio</a></div>
         </div>
 
         <div style={{ textAlign: 'center', marginTop: 48, paddingTop: 24, borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-          <p style={{ fontSize: 11, color: '#64748b' }}>GenyX Systems · Precios en MXN · IVA no incluido</p>
+          <p style={{ fontSize: 11, color: '#9ca3af' }}>GenyX Systems · Precios en MXN · IVA no incluido</p>
           <p style={{ fontSize: 11, color: '#334155', marginTop: 4 }}>Matriz v3 — Mayo 2026</p>
         </div>
       </div>
@@ -8157,7 +8157,7 @@ function MandoSimulator() {
             Tu Centro de Mando te lo muestra.
           </span>
         </h2>
-        <p style={{ color: '#64748b', fontSize: 15, maxWidth: 520, margin: '0 auto' }}>
+        <p style={{ color: '#9ca3af', fontSize: 15, maxWidth: 520, margin: '0 auto' }}>
           Sin abrir la computadora. Sin pedir reportes. Un briefing inteligente en tu bolsillo.
         </p>
       </div>
@@ -8196,11 +8196,11 @@ function MandoSimulator() {
           }}>
             {/* ── Greeting ── */}
             <div style={{ animation: step >= 0 ? 'mandoFadeIn 0.6s ease' : 'none', marginBottom: 14 }}>
-              <div style={{ fontSize: 10, color: '#64748b', fontWeight: 600, letterSpacing: '.05em', marginBottom: 2 }}>GENY<span style={{ color: GB_LIGHT }}>X</span> MANDO</div>
+              <div style={{ fontSize: 10, color: '#9ca3af', fontWeight: 600, letterSpacing: '.05em', marginBottom: 2 }}>GENY<span style={{ color: GB_LIGHT }}>X</span> MANDO</div>
               <div style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', lineHeight: 1.3 }}>
                 {getGreeting()} ☀️
               </div>
-              <div style={{ fontSize: 11, color: '#64748b', marginTop: 2 }}>Aquí va lo importante de hoy.</div>
+              <div style={{ fontSize: 11, color: '#9ca3af', marginTop: 2 }}>Aquí va lo importante de hoy.</div>
             </div>
 
             {/* ── KPIs ── */}
@@ -8219,7 +8219,7 @@ function MandoSimulator() {
                   borderRadius: 12, padding: '10px 10px 8px', position: 'relative',
                 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
-                    <span style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em' }}>{label}</span>
+                    <span style={{ fontSize: 9, color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em' }}>{label}</span>
                     <span style={{ fontSize: 12 }}>{icon}</span>
                   </div>
                   <div style={{ fontSize: 22, fontWeight: 900, color: '#f1f5f9', lineHeight: 1, marginBottom: 4, animation: step === 1 ? 'mandoCountUp 0.4s ease' : 'none' }}>
@@ -8270,7 +8270,7 @@ function MandoSimulator() {
               marginBottom: 12,
               opacity: step >= 4 ? 1 : 0, transition: 'opacity 0.4s',
             }}>
-              <div style={{ fontSize: 9, fontWeight: 700, color: '#64748b', marginBottom: 6, letterSpacing: '.05em', textTransform: 'uppercase' }}>9 Agentes</div>
+              <div style={{ fontSize: 9, fontWeight: 700, color: '#9ca3af', marginBottom: 6, letterSpacing: '.05em', textTransform: 'uppercase' }}>9 Agentes</div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, justifyContent: 'center', position: 'relative' }}>
                 {MANDO_AGENTS.map((a) => {
                   const lit = agentsLit.includes(a.id);
@@ -8295,7 +8295,7 @@ function MandoSimulator() {
                         animation: lit ? 'mandoPulse 2s ease-in-out infinite' : 'none',
                         transition: 'background 0.3s',
                       }} />
-                      <span style={{ fontSize: 7, color: '#64748b', fontWeight: 500, textAlign: 'center', lineHeight: 1 }}>
+                      <span style={{ fontSize: 7, color: '#9ca3af', fontWeight: 500, textAlign: 'center', lineHeight: 1 }}>
                         {a.id}
                       </span>
                       {/* Tooltip */}
@@ -8309,7 +8309,7 @@ function MandoSimulator() {
                         }}>
                           <div style={{ fontSize: 10, fontWeight: 700, color: a.color, marginBottom: 2 }}>{a.icon} {a.name}</div>
                           <div style={{ fontSize: 9, color: '#94a3b8', lineHeight: 1.4 }}>{a.lastAction}</div>
-                          <div style={{ fontSize: 8, color: '#64748b', marginTop: 3 }}>{a.actions} acciones hoy</div>
+                          <div style={{ fontSize: 8, color: '#9ca3af', marginTop: 3 }}>{a.actions} acciones hoy</div>
                         </div>
                       )}
                     </div>
@@ -8322,7 +8322,7 @@ function MandoSimulator() {
             <div style={{
               opacity: step >= 5 ? 1 : 0, transition: 'opacity 0.4s', marginBottom: 12,
             }}>
-              <div style={{ fontSize: 9, fontWeight: 700, color: '#64748b', marginBottom: 6, letterSpacing: '.05em', textTransform: 'uppercase' }}>Actividad</div>
+              <div style={{ fontSize: 9, fontWeight: 700, color: '#9ca3af', marginBottom: 6, letterSpacing: '.05em', textTransform: 'uppercase' }}>Actividad</div>
               <div style={{ maxHeight: 120, overflowY: 'auto' }}>
                 {feedItems.map((item, i) => (
                   <div key={i} style={{
@@ -8330,7 +8330,7 @@ function MandoSimulator() {
                     padding: '4px 0', borderBottom: i < feedItems.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
                     animation: 'mandoSlideIn 0.35s ease',
                   }}>
-                    <span style={{ fontSize: 8, color: '#64748b', fontFamily: 'monospace', minWidth: 32 }}>{item.time}</span>
+                    <span style={{ fontSize: 8, color: '#9ca3af', fontFamily: 'monospace', minWidth: 32 }}>{item.time}</span>
                     <span style={{ fontSize: 10 }}>{item.icon}</span>
                     <span style={{ fontSize: 9, color: '#94a3b8', flex: 1, lineHeight: 1.3 }}>{item.text}</span>
                   </div>
@@ -8349,7 +8349,7 @@ function MandoSimulator() {
                   <span style={{ fontSize: 12 }}>📅</span>
                   <div>
                     <div style={{ fontSize: 9, fontWeight: 700, color: '#4ade80' }}>Mesa de Estrategia</div>
-                    <div style={{ fontSize: 8, color: '#64748b' }}>Viernes {nextFriday()} · 6:00 PM</div>
+                    <div style={{ fontSize: 8, color: '#9ca3af' }}>Viernes {nextFriday()} · 6:00 PM</div>
                   </div>
                 </div>
               </div>
@@ -8369,7 +8369,7 @@ function MandoSimulator() {
         <p style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', marginBottom: 8 }}>
           Tu operación completa. <span style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>En tu bolsillo.</span>
         </p>
-        <p style={{ fontSize: 13, color: '#64748b', maxWidth: 400, margin: '0 auto', lineHeight: 1.6 }}>
+        <p style={{ fontSize: 13, color: '#9ca3af', maxWidth: 400, margin: '0 auto', lineHeight: 1.6 }}>
           Cada mañana tu Centro de Mando consolida la información de los 9 agentes en un briefing — sin que tengas que abrir tu computadora.
         </p>
       </div>
@@ -8436,7 +8436,7 @@ function SimuladorGenyX() {
     label: { fontSize:11, fontWeight:700, color:GB_LIGHT, letterSpacing:'.1em', marginBottom:12, textAlign:'center' },
     h2: { fontSize:36, fontWeight:900, color:'#f1f5f9', marginBottom:10, textAlign:'center', lineHeight:1.2 },
     h2a: { background:`linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' },
-    sub: { color:'#64748b', fontSize:14, textAlign:'center', maxWidth:520, margin:'0 auto 32px' },
+    sub: { color:'#9ca3af', fontSize:14, textAlign:'center', maxWidth:520, margin:'0 auto 32px' },
     card: { background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.07)', borderRadius:16, padding:'24px 20px', cursor:'pointer', transition:'all .25s', textAlign:'center' },
     cardHover: { borderColor:GBa(0.5), background:GBa(0.08), transform:'translateY(-3px)' },
     cardOff: { borderColor:'rgba(255,255,255,0.07)', background:'rgba(255,255,255,0.03)', transform:'translateY(0)' },
@@ -8475,7 +8475,7 @@ function SimuladorGenyX() {
           <input type="range" min={0} max={3} value={SIM_LOSS_LABELS.indexOf(loss)}
             onChange={e => setLoss(SIM_LOSS_LABELS[Number(e.target.value)])}
             style={{ width:'100%', accentColor:`${GENYX_BRAND}` }} />
-          <div style={{ display:'flex', justifyContent:'space-between', fontSize:11, color:'#64748b', marginTop:4 }}>
+          <div style={{ display:'flex', justifyContent:'space-between', fontSize:11, color:'#9ca3af', marginTop:4 }}>
             {SIM_LOSS_LABELS.map(l => <span key={l}>{l}</span>)}
           </div>
         </div>
@@ -8504,7 +8504,7 @@ function SimuladorGenyX() {
         {/* Skip button */}
         <div style={{ textAlign:'right', marginBottom:8 }}>
           <button onClick={() => { setRunning(false); setRevealed(timeline); const skipC=Math.round(inputs.mensajes*cfg.conv); setCounters({a:inputs.mensajes,c:skipC,cb:skipC*inputs.ticket}); setDone(true); setPhase(4); }}
-            style={{ background:'transparent', border:'none', color:'#64748b', fontSize:12, cursor:'pointer' }}>Saltar → ver resultado</button>
+            style={{ background:'transparent', border:'none', color:'#9ca3af', fontSize:12, cursor:'pointer' }}>Saltar → ver resultado</button>
         </div>
         {/* Clock */}
         <div style={{ textAlign:'center', marginBottom:20 }}>
@@ -8512,7 +8512,7 @@ function SimuladorGenyX() {
           <div style={{ height:4, background:'rgba(255,255,255,0.06)', borderRadius:4, marginTop:8, maxWidth:400, margin:'8px auto' }}>
             <div style={{ height:4, background:`linear-gradient(90deg,${GENYX_BRAND},#c084fc)`, borderRadius:4, width:`${progress*100}%`, transition:'width .08s' }} />
           </div>
-          <div style={{ fontSize:11, color:'#64748b', marginTop:6 }}>Viernes — Simulación de un día completo</div>
+          <div style={{ fontSize:11, color:'#9ca3af', marginTop:6 }}>Viernes — Simulación de un día completo</div>
         </div>
         <div style={{...Z.priv, display:'flex', alignItems:'center', justifyContent:'center', gap:8}}><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> Estos datos se quedan en tu navegador. No se envían a GenyX.</div>
         {/* Main grid: feed + agents */}
@@ -8535,14 +8535,14 @@ function SimuladorGenyX() {
           </div>
           {/* Agent panel */}
           <div>
-            <div style={{ fontSize:11, fontWeight:700, color:'#64748b', marginBottom:10, letterSpacing:'.08em' }}>AGENTES</div>
+            <div style={{ fontSize:11, fontWeight:700, color:'#9ca3af', marginBottom:10, letterSpacing:'.08em' }}>AGENTES</div>
             <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:8 }}>
               {SIM_AGENTS.map(ag => {
                 const active = !!agentActive[ag.key];
                 return (
                   <div key={ag.key} style={{ background: active ? GBa(0.15) : 'rgba(255,255,255,0.03)', border: active ? `1px solid ${GBa(0.5)}` : '1px solid rgba(255,255,255,0.07)', borderRadius:12, padding:'14px 10px', textAlign:'center', transition:'all .3s' }}>
                     <div style={{ marginBottom:4 }}>{SIM_AG_ICONS[ag.key]()}</div>
-                    <div style={{ fontSize:10, fontWeight:700, color: active ? GB_SOFT : '#64748b' }}>{ag.key}</div>
+                    <div style={{ fontSize:10, fontWeight:700, color: active ? GB_SOFT : '#9ca3af' }}>{ag.key}</div>
                   </div>
                 );
               })}
@@ -8555,7 +8555,7 @@ function SimuladorGenyX() {
             <div key={i} style={{ background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.07)', borderRadius:12, padding:'16px 12px', textAlign:'center' }}>
               <div style={{ fontSize:16 }}>{ic}</div>
               <div style={{ fontSize:22, fontWeight:900, color:GB_LIGHT, transition:'all .4s' }}>{v}</div>
-              <div style={{ fontSize:10, color:'#64748b', textTransform:'uppercase', letterSpacing:'.06em' }}>{l}</div>
+              <div style={{ fontSize:10, color:'#9ca3af', textTransform:'uppercase', letterSpacing:'.06em' }}>{l}</div>
             </div>
           ))}
         </div>
@@ -8593,13 +8593,13 @@ function SimuladorGenyX() {
           {[['→ Recibiste la Mesa de Estrategia del viernes 6pm'],['→ 1 código OTP para aprobar el plan de la semana'],['→ Tiempo estimado de decisión: 10–15 min'],['→ Margen promedio estimado: ~'+Math.round(cfg.margen*100)+'%*']].map(([t],i) => (
             <div key={i} style={{ fontSize:13, color:'#94a3b8', padding:'6px 0', lineHeight:1.6 }}>{t}</div>
           ))}
-          <div style={{ fontSize:11, color:'#64748b', fontStyle:'italic', marginTop:8 }}>*Tu margen REAL lo calcula GenyX cuando cargas tus costos en el Costeador.</div>
+          <div style={{ fontSize:11, color:'#9ca3af', fontStyle:'italic', marginTop:8 }}>*Tu margen REAL lo calcula GenyX cuando cargas tus costos en el Costeador.</div>
         </div>
       </div>
 
       {/* Comparison */}
       <div style={{ background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.07)', borderRadius:20, padding:'28px 24px', marginBottom:32 }}>
-        <div style={{ fontSize:12, fontWeight:800, color:'#64748b', marginBottom:16, letterSpacing:'.08em' }}>COMPARATIVA</div>
+        <div style={{ fontSize:12, fontWeight:800, color:'#9ca3af', marginBottom:16, letterSpacing:'.08em' }}>COMPARATIVA</div>
         <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:20 }}>
           <div>
             <div style={{ fontSize:12, fontWeight:700, color:'#94a3b8', marginBottom:10 }}>ANTES DE GENYX</div>
@@ -8630,7 +8630,7 @@ function SimuladorGenyX() {
       <div style={{ display:'flex', gap:14, justifyContent:'center', flexWrap:'wrap' }}>
         <a href={`${GENYX_CONTACT.sales_url}&body=${encodeURIComponent("Hola, vi el simulador de GenyX y quiero saber más")}`} style={{ ...Z.btn, textDecoration:'none', display:'inline-block' }}>Quiero esto para mi negocio →</a>
         <a href="/planes" style={{ ...Z.btn2, textDecoration:'none', display:'inline-block' }}>Ver planes</a>
-        <button style={{ ...Z.btn2, borderColor:'rgba(255,255,255,0.15)', color:'#64748b' }} onClick={() => { setPhase(2); setDone(false); }}>↺ Simular de nuevo</button>
+        <button style={{ ...Z.btn2, borderColor:'rgba(255,255,255,0.15)', color:'#9ca3af' }} onClick={() => { setPhase(2); setDone(false); }}>↺ Simular de nuevo</button>
       </div>
     </section>
   );
@@ -8674,7 +8674,7 @@ function LandingAuthGate({ children }) {
       <div style={{ textAlign: 'center', maxWidth: 380, padding: '40px 32px' }}>
         <div style={{ width: 56, height: 56, border: `2px solid ${GENYX_BRAND}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, fontWeight: 900, color: GB_LIGHT, margin: '0 auto 24px', borderRadius: 12 }}>G</div>
         <h1 style={{ color: '#f1f5f9', fontSize: 24, fontWeight: 800, marginBottom: 8, letterSpacing: '-0.5px' }}>GenyX</h1>
-        <p style={{ color: '#64748b', fontSize: 13, marginBottom: 32, lineHeight: 1.6 }}>Acceso restringido.<br />Ingresa tu clave para continuar.</p>
+        <p style={{ color: '#9ca3af', fontSize: 13, marginBottom: 32, lineHeight: 1.6 }}>Acceso restringido.<br />Ingresa tu clave para continuar.</p>
         <form onSubmit={handleSubmit}>
           <input
             type="password"
@@ -8694,7 +8694,7 @@ function LandingAuthGate({ children }) {
             style={{
               width: '100%', padding: '14px 24px', borderRadius: 12, border: 'none', cursor: 'pointer',
               background: pw ? `linear-gradient(135deg, ${GENYX_BRAND}, #8b5cf6)` : 'rgba(255,255,255,0.06)',
-              color: pw ? '#fff' : '#64748b', fontSize: 14, fontWeight: 700, transition: 'all 0.2s',
+              color: pw ? '#fff' : '#9ca3af', fontSize: 14, fontWeight: 700, transition: 'all 0.2s',
               boxShadow: pw ? `0 0 28px ${GBa(0.25)}` : 'none',
             }}
           >{checking ? 'Verificando...' : 'Acceder'}</button>
@@ -8739,8 +8739,8 @@ function PlusPage() {
     howLabel: { fontWeight: 700, color: '#e2e8f0' },
     note: { background: GBa(0.06), border: `1px solid ${GBa(0.15)}`, borderRadius: 12, padding: '20px 24px', fontSize: 13, color: '#94a3b8', lineHeight: 1.7 },
     cta: { display: 'inline-block', marginTop: 32, background: 'linear-gradient(135deg,' + GENYX_BRAND + ',#8b5cf6)', color: '#fff', padding: '14px 36px', borderRadius: 12, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: `0 0 28px ${GBa(0.3)}` },
-    back: { display: 'inline-block', marginTop: 16, color: '#64748b', fontSize: 12, textDecoration: 'none' },
-    footer: { borderTop: '1px solid rgba(255,255,255,0.06)', padding: '24px 0', marginTop: 60, fontSize: 10, color: '#64748b', textAlign: 'center' },
+    back: { display: 'inline-block', marginTop: 16, color: '#9ca3af', fontSize: 12, textDecoration: 'none' },
+    footer: { borderTop: '1px solid rgba(255,255,255,0.06)', padding: '24px 0', marginTop: 60, fontSize: 10, color: '#9ca3af', textAlign: 'center' },
   };
 
   const MODULES = [
@@ -8802,7 +8802,7 @@ function PlusPage() {
         </div>
 
         <div style={S.footer}>
-          GenyX © 2026 · Tu operación comercial autónoma · <a href="/terminos" style={{ color: '#64748b' }}>Términos</a> · <a href="/privacidad" style={{ color: '#64748b' }}>Privacidad</a>
+          GenyX © 2026 · Tu operación comercial autónoma · <a href="/terminos" style={{ color: '#9ca3af' }}>Términos</a> · <a href="/privacidad" style={{ color: '#9ca3af' }}>Privacidad</a>
         </div>
       </div>
     </div>
@@ -8979,7 +8979,7 @@ function TabExpedienteCliente({ slug, token }) {
   }, [slug, token]);
 
   if (loading) return (
-    <div style={{ textAlign: 'center', padding: 60, color: '#64748b' }}>
+    <div style={{ textAlign: 'center', padding: 60, color: '#9ca3af' }}>
       <div style={{ fontSize: 32, marginBottom: 12, animation: 'pulse 2s infinite' }}>📋</div>
       <p style={{ fontSize: 13 }}>Cargando expediente...</p>
     </div>
@@ -9021,7 +9021,7 @@ function TabExpedienteCliente({ slug, token }) {
           </div>
           <div style={{ textAlign: 'center' }}>
             <div style={{ fontSize: 28, fontWeight: 800, color: barColor }}>{pct}%</div>
-            <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>Completado</div>
+            <div style={{ fontSize: 9, color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase' }}>Completado</div>
           </div>
         </div>
         <div style={{ height: 8, background: 'rgba(255,255,255,0.06)', borderRadius: 8 }}>
@@ -9047,7 +9047,7 @@ function TabExpedienteCliente({ slug, token }) {
                     <div style={{ width: 36, height: 36, background: 'rgba(255,255,255,0.04)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}>{meta.icon}</div>
                     <div>
                       <p style={{ fontSize: 14, fontWeight: 700, color: '#f1f5f9', margin: 0 }}>{meta.label}</p>
-                      <p style={{ fontSize: 10, color: '#64748b', margin: 0 }}>{secCompleted} de {secTotal} completados</p>
+                      <p style={{ fontSize: 10, color: '#9ca3af', margin: 0 }}>{secCompleted} de {secTotal} completados</p>
                     </div>
                   </div>
                   <span style={{ fontSize: 11, fontWeight: 800, color: secColor, background: secPct >= 100 ? 'rgba(74,222,128,0.1)' : 'rgba(251,191,36,0.1)', border: `1px solid ${secPct >= 100 ? 'rgba(74,222,128,0.25)' : 'rgba(251,191,36,0.25)'}`, padding: '4px 12px', borderRadius: 8 }}>{secCompleted}/{secTotal}</span>
@@ -9068,7 +9068,7 @@ function TabExpedienteCliente({ slug, token }) {
                           <span style={{ fontSize: 20 }}>{st.icon}</span>
                           <div style={{ minWidth: 0 }}>
                             <p style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9', margin: 0, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{fieldName}</p>
-                            <p style={{ fontSize: 10, color: '#64748b', margin: 0 }}>{info.completed ? 'Verificado' : 'Pendiente de entrega'}</p>
+                            <p style={{ fontSize: 10, color: '#9ca3af', margin: 0 }}>{info.completed ? 'Verificado' : 'Pendiente de entrega'}</p>
                           </div>
                         </div>
                         <span style={{ fontSize: 10, fontWeight: 700, color: st.color, background: st.bg, border: `1px solid ${st.border}`, padding: '3px 10px', borderRadius: 6, whiteSpace: 'nowrap', textTransform: 'uppercase', letterSpacing: '.05em' }}>{st.label}</span>
@@ -9082,7 +9082,7 @@ function TabExpedienteCliente({ slug, token }) {
           })}
       </div>
 
-      <p style={{ fontSize: 9, color: '#64748b', textAlign: 'center', marginTop: 16 }}>Expediente digital · Actualizado en tiempo real · Datos protegidos LFPDPPP</p>
+      <p style={{ fontSize: 9, color: '#9ca3af', textAlign: 'center', marginTop: 16 }}>Expediente digital · Actualizado en tiempo real · Datos protegidos LFPDPPP</p>
     </div>
   );
 }
@@ -9130,7 +9130,7 @@ function TabCockpitResumen({ tenants, orders, selectedSlug, health }) {
           <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, textAlign: 'center' }}>
             <div style={{ fontSize: 24 }}>{k.icon}</div>
             <div style={{ fontSize: 22, fontWeight: 800, color: k.color, marginTop: 4 }}>{k.value}</div>
-            <div style={{ fontSize: 10, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em' }}>{k.label}</div>
+            <div style={{ fontSize: 10, color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em' }}>{k.label}</div>
           </div>
         ))}
       </div>
@@ -9142,7 +9142,7 @@ function TabCockpitResumen({ tenants, orders, selectedSlug, health }) {
       </div>
 
       {/* 5 backstage cards */}
-      <p style={{ fontSize: 11, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 12 }}>Backstage · Solo founder</p>
+      <p style={{ fontSize: 11, fontWeight: 700, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 12 }}>Backstage · Solo founder</p>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: 12 }}>
         {[
           { id: 'A0', icon: '🏗️', name: 'Arquitecto', status: 'OK', desc: 'Infraestructura estable' },
@@ -9157,8 +9157,8 @@ function TabCockpitResumen({ tenants, orders, selectedSlug, health }) {
               <span style={{ fontSize: 18 }}>{b.icon}</span>
               <span style={{ fontSize: 12, fontWeight: 700, color: '#e2e8f0' }}>{b.name}</span>
             </div>
-            <p style={{ fontSize: 11, color: '#64748b', margin: 0 }}>{b.desc}</p>
-            <div style={{ marginTop: 6, fontSize: 9, fontWeight: 700, color: b.status === 'OK' ? '#10b981' : '#64748b', textTransform: 'uppercase' }}>{b.status}</div>
+            <p style={{ fontSize: 11, color: '#9ca3af', margin: 0 }}>{b.desc}</p>
+            <div style={{ marginTop: 6, fontSize: 9, fontWeight: 700, color: b.status === 'OK' ? '#10b981' : '#9ca3af', textTransform: 'uppercase' }}>{b.status}</div>
           </div>
         ))}
       </div>
@@ -9180,7 +9180,7 @@ function TabCockpitAgentes({ tenants, selectedSlug }) {
                 <span style={{ fontSize: 24 }}>{a.icon}</span>
                 <div>
                   <div style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9' }}>{a.name}</div>
-                  <div style={{ fontSize: 10, color: '#64748b' }}>{a.id}</div>
+                  <div style={{ fontSize: 10, color: '#9ca3af' }}>{a.id}</div>
                 </div>
               </div>
               <p style={{ fontSize: 11, color: '#94a3b8', margin: 0 }}>{a.mission}</p>
@@ -9235,15 +9235,15 @@ function AntigravityAdoptionStatus({ stats }) {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10 }}>
         <div style={{ background: 'rgba(0,0,0,0.2)', borderRadius: 8, padding: 10, textAlign: 'center' }}>
           <div style={{ fontSize: 18, fontWeight: 800, color: statusColor }}>{eventCount}</div>
-          <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600 }}>MEMORY EVENTS</div>
+          <div style={{ fontSize: 9, color: '#9ca3af', fontWeight: 600 }}>MEMORY EVENTS</div>
         </div>
         <div style={{ background: 'rgba(0,0,0,0.2)', borderRadius: 8, padding: 10, textAlign: 'center' }}>
           <div style={{ fontSize: 18, fontWeight: 800, color: '#e2e8f0' }}>{lastEvent ? new Date(lastEvent.created_at).toLocaleDateString() : '—'}</div>
-          <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600 }}>ÚLTIMO EVENT</div>
+          <div style={{ fontSize: 9, color: '#9ca3af', fontWeight: 600 }}>ÚLTIMO EVENT</div>
         </div>
         <div style={{ background: 'rgba(0,0,0,0.2)', borderRadius: 8, padding: 10, textAlign: 'center' }}>
           <div style={{ fontSize: 18, fontWeight: 800, color: '#e2e8f0' }}>{stats?.events_total || 0}</div>
-          <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600 }}>TOTAL ECOSYSTEM</div>
+          <div style={{ fontSize: 9, color: '#9ca3af', fontWeight: 600 }}>TOTAL ECOSYSTEM</div>
         </div>
       </div>
       {lastEvent && (
@@ -9286,15 +9286,15 @@ function ClaudeAdoptionStatus({ stats, alerts }) {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10 }}>
         <div style={{ background: 'rgba(0,0,0,0.2)', borderRadius: 8, padding: 10, textAlign: 'center' }}>
           <div style={{ fontSize: 18, fontWeight: 800, color: statusColor }}>{last24h}</div>
-          <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600 }}>TURNOS 24H (mín: {minRequired})</div>
+          <div style={{ fontSize: 9, color: '#9ca3af', fontWeight: 600 }}>TURNOS 24H (mín: {minRequired})</div>
         </div>
         <div style={{ background: 'rgba(0,0,0,0.2)', borderRadius: 8, padding: 10, textAlign: 'center' }}>
           <div style={{ fontSize: 18, fontWeight: 800, color: '#e2e8f0' }}>{totalTurns}</div>
-          <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600 }}>EVENTS LIFETIME</div>
+          <div style={{ fontSize: 9, color: '#9ca3af', fontWeight: 600 }}>EVENTS LIFETIME</div>
         </div>
         <div style={{ background: 'rgba(0,0,0,0.2)', borderRadius: 8, padding: 10, textAlign: 'center' }}>
           <div style={{ fontSize: 18, fontWeight: 800, color: claudeAlerts.length > 0 ? '#f59e0b' : '#10b981' }}>{claudeAlerts.length}</div>
-          <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600 }}>ALERTAS CLAUDE</div>
+          <div style={{ fontSize: 9, color: '#9ca3af', fontWeight: 600 }}>ALERTAS CLAUDE</div>
         </div>
       </div>
       {claudeAlerts.length > 0 && (
@@ -9348,7 +9348,7 @@ function MemoryDrillDown() {
   };
 
   if (!adminKey) return (
-    <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}>
+    <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}>
       <p style={{ fontSize: 13 }}>Admin key requerida. Inicia sesión como administrador.</p>
     </div>
   );
@@ -9357,7 +9357,7 @@ function MemoryDrillDown() {
     <div style={{ maxWidth: 800 }}>
       <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🧠 MEMORY — Ojo Clínico del Fundador</h3>
 
-      {loading && <p style={{ color: '#64748b', fontSize: 12 }}>Cargando stats...</p>}
+      {loading && <p style={{ color: '#9ca3af', fontSize: 12 }}>Cargando stats...</p>}
 
       {stats && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 20 }}>
@@ -9370,7 +9370,7 @@ function MemoryDrillDown() {
             <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
               <div style={{ fontSize: 20 }}>{k.icon}</div>
               <div style={{ fontSize: 20, fontWeight: 800, color: '#e2e8f0', marginTop: 4 }}>{k.value}</div>
-              <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
+              <div style={{ fontSize: 9, color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
             </div>
           ))}
         </div>
@@ -9404,14 +9404,14 @@ function MemoryDrillDown() {
       <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16 }}>
         <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>🚨 Alertas ({alerts.length})</p>
         {alerts.length === 0 ? (
-          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin alertas activas. Sistema operando normalmente.</p>
+          <p style={{ fontSize: 12, color: '#9ca3af', fontStyle: 'italic' }}>Sin alertas activas. Sistema operando normalmente.</p>
         ) : alerts.slice(0, 10).map((a, i) => (
           <div key={i} style={{ padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div>
               <span style={{ fontSize: 12, fontWeight: 600, color: a.severity === 'high' ? '#ef4444' : a.severity === 'medium' ? '#f59e0b' : '#10b981' }}>{a.severity?.toUpperCase()}</span>
               <span style={{ fontSize: 12, color: '#94a3b8', marginLeft: 8 }}>{a.message}</span>
             </div>
-            <span style={{ fontSize: 10, color: '#64748b' }}>{a.created_at?.substring(0, 16)}</span>
+            <span style={{ fontSize: 10, color: '#9ca3af' }}>{a.created_at?.substring(0, 16)}</span>
           </div>
         ))}
       </div>
@@ -9445,7 +9445,7 @@ function A0DrillDown() {
   }, [adminKey]);
 
   if (!adminKey) return (
-    <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}>
+    <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}>
       <p style={{ fontSize: 13 }}>Admin key requerida. Inicia sesión como administrador.</p>
     </div>
   );
@@ -9458,7 +9458,7 @@ function A0DrillDown() {
     <div style={{ maxWidth: 800 }}>
       <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🏛️ A0 — Arquitecto del Sistema</h3>
 
-      {loading && <p style={{ color: '#64748b', fontSize: 12 }}>Cargando stats...</p>}
+      {loading && <p style={{ color: '#9ca3af', fontSize: 12 }}>Cargando stats...</p>}
 
       {data && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 20 }}>
@@ -9471,7 +9471,7 @@ function A0DrillDown() {
             <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
               <div style={{ fontSize: 20 }}>{k.icon}</div>
               <div style={{ fontSize: 20, fontWeight: 800, color: '#e2e8f0', marginTop: 4 }}>{k.value}</div>
-              <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
+              <div style={{ fontSize: 9, color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
             </div>
           ))}
         </div>
@@ -9481,14 +9481,14 @@ function A0DrillDown() {
       <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
         <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>📋 Bitácora reciente</p>
         {runs.length === 0 ? (
-          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin datos — los datos se poblarán conforme A0 ejecute.</p>
+          <p style={{ fontSize: 12, color: '#9ca3af', fontStyle: 'italic' }}>Sin datos — los datos se poblarán conforme A0 ejecute.</p>
         ) : runs.slice(0, 10).map((r, i) => (
           <div key={i} style={{ padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div>
               <span style={{ fontSize: 12, fontWeight: 600, color: '#e2e8f0' }}>{r.action || r.type || 'run'}</span>
               <span style={{ fontSize: 11, color: '#94a3b8', marginLeft: 8 }}>{r.summary || r.detail || ''}</span>
             </div>
-            <span style={{ fontSize: 10, color: '#64748b', whiteSpace: 'nowrap' }}>{(r.timestamp || r.created_at || '').substring(0, 16)}</span>
+            <span style={{ fontSize: 10, color: '#9ca3af', whiteSpace: 'nowrap' }}>{(r.timestamp || r.created_at || '').substring(0, 16)}</span>
           </div>
         ))}
       </div>
@@ -9497,14 +9497,14 @@ function A0DrillDown() {
       <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
         <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>🔧 Auto-healing log</p>
         {repairs.length === 0 ? (
-          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin datos — los datos se poblarán conforme A0 ejecute.</p>
+          <p style={{ fontSize: 12, color: '#9ca3af', fontStyle: 'italic' }}>Sin datos — los datos se poblarán conforme A0 ejecute.</p>
         ) : repairs.slice(0, 5).map((r, i) => (
           <div key={i} style={{ padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div>
               <span style={{ fontSize: 12, fontWeight: 600, color: r.status === 'failed' ? '#ef4444' : '#10b981' }}>{r.status?.toUpperCase() || 'OK'}</span>
               <span style={{ fontSize: 11, color: '#94a3b8', marginLeft: 8 }}>{r.target || r.component || ''} — {r.description || r.action || ''}</span>
             </div>
-            <span style={{ fontSize: 10, color: '#64748b', whiteSpace: 'nowrap' }}>{(r.timestamp || r.created_at || '').substring(0, 16)}</span>
+            <span style={{ fontSize: 10, color: '#9ca3af', whiteSpace: 'nowrap' }}>{(r.timestamp || r.created_at || '').substring(0, 16)}</span>
           </div>
         ))}
       </div>
@@ -9513,14 +9513,14 @@ function A0DrillDown() {
       <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16 }}>
         <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>💓 Agent heartbeats</p>
         {heartbeats.length === 0 ? (
-          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin datos — los datos se poblarán conforme A0 ejecute.</p>
+          <p style={{ fontSize: 12, color: '#9ca3af', fontStyle: 'italic' }}>Sin datos — los datos se poblarán conforme A0 ejecute.</p>
         ) : (
           <table style={{ width: '100%', fontSize: 12, borderCollapse: 'collapse' }}>
             <thead>
               <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
-                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#64748b', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>Agent</th>
-                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#64748b', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>Last Heartbeat</th>
-                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#64748b', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>Status</th>
+                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#9ca3af', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>Agent</th>
+                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#9ca3af', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>Last Heartbeat</th>
+                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#9ca3af', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>Status</th>
               </tr>
             </thead>
             <tbody>
@@ -9565,7 +9565,7 @@ function A9DrillDown() {
   }, [adminKey]);
 
   if (!adminKey) return (
-    <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}>
+    <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}>
       <p style={{ fontSize: 13 }}>Admin key requerida. Inicia sesión como administrador.</p>
     </div>
   );
@@ -9578,7 +9578,7 @@ function A9DrillDown() {
     <div style={{ maxWidth: 800 }}>
       <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🛡️ A9 — Compliance / Vigía</h3>
 
-      {loading && <p style={{ color: '#64748b', fontSize: 12 }}>Cargando stats...</p>}
+      {loading && <p style={{ color: '#9ca3af', fontSize: 12 }}>Cargando stats...</p>}
 
       {data && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 20 }}>
@@ -9591,7 +9591,7 @@ function A9DrillDown() {
             <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
               <div style={{ fontSize: 20 }}>{k.icon}</div>
               <div style={{ fontSize: 20, fontWeight: 800, color: '#e2e8f0', marginTop: 4 }}>{k.value}</div>
-              <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
+              <div style={{ fontSize: 9, color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
             </div>
           ))}
         </div>
@@ -9613,7 +9613,7 @@ function A9DrillDown() {
                     <span style={{ color: '#ef4444' }}>✗{fd.block || 0}</span>
                   </div>
                 </div>
-                {i < FILTERS.length - 1 && <span style={{ alignSelf: 'center', color: '#64748b', fontSize: 16 }}>→</span>}
+                {i < FILTERS.length - 1 && <span style={{ alignSelf: 'center', color: '#9ca3af', fontSize: 16 }}>→</span>}
               </React.Fragment>
             );
           })}
@@ -9624,19 +9624,19 @@ function A9DrillDown() {
       <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16 }}>
         <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>📝 Últimos reviews ({reviews.length})</p>
         {reviews.length === 0 ? (
-          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin reviews — A9 pobla esta sección al auditar operaciones.</p>
+          <p style={{ fontSize: 12, color: '#9ca3af', fontStyle: 'italic' }}>Sin reviews — A9 pobla esta sección al auditar operaciones.</p>
         ) : reviews.slice(0, 10).map((r, i) => (
           <div key={i} style={{ padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
             <div style={{ display: 'flex', gap: 8, alignItems: 'center', flex: 1 }}>
               <span style={{ fontSize: 11, color: '#94a3b8', fontWeight: 600, minWidth: 60 }}>{r.type || r.review_type || '—'}</span>
-              <span style={{ fontSize: 11, color: '#64748b' }}>{r.filter || r.filter_name || '—'}</span>
+              <span style={{ fontSize: 11, color: '#9ca3af' }}>{r.filter || r.filter_name || '—'}</span>
               <span style={{ fontSize: 10, fontWeight: 700, padding: '2px 8px', borderRadius: 6,
                 background: (r.status === 'pass' || r.status === 'PASS') ? 'rgba(16,185,129,0.15)' : (r.status === 'warn' || r.status === 'WARN') ? 'rgba(245,158,11,0.15)' : 'rgba(239,68,68,0.15)',
                 color: (r.status === 'pass' || r.status === 'PASS') ? '#10b981' : (r.status === 'warn' || r.status === 'WARN') ? '#f59e0b' : '#ef4444',
               }}>{r.status?.toUpperCase() || '—'}</span>
-              <span style={{ fontSize: 10, color: r.severity === 'high' || r.severity === 'critical' ? '#ef4444' : '#64748b' }}>{r.severity || ''}</span>
+              <span style={{ fontSize: 10, color: r.severity === 'high' || r.severity === 'critical' ? '#ef4444' : '#9ca3af' }}>{r.severity || ''}</span>
             </div>
-            <span style={{ fontSize: 10, color: '#64748b', whiteSpace: 'nowrap' }}>{(r.timestamp || r.created_at || '').substring(0, 16)}</span>
+            <span style={{ fontSize: 10, color: '#9ca3af', whiteSpace: 'nowrap' }}>{(r.timestamp || r.created_at || '').substring(0, 16)}</span>
           </div>
         ))}
       </div>
@@ -9707,7 +9707,7 @@ function AgujaDrillDown() {
   };
 
   if (!adminKey) return (
-    <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}>
+    <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}>
       <p style={{ fontSize: 13 }}>Admin key requerida. Inicia sesión como administrador.</p>
     </div>
   );
@@ -9719,7 +9719,7 @@ function AgujaDrillDown() {
     <div style={{ maxWidth: 800 }}>
       <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🧭 AGUJA — Product Evolution Strategist</h3>
 
-      {loading && <p style={{ color: '#64748b', fontSize: 12 }}>Cargando stats...</p>}
+      {loading && <p style={{ color: '#9ca3af', fontSize: 12 }}>Cargando stats...</p>}
 
       {stats && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 10, marginBottom: 20 }}>
@@ -9733,7 +9733,7 @@ function AgujaDrillDown() {
             <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
               <div style={{ fontSize: 18 }}>{k.icon}</div>
               <div style={{ fontSize: 17, fontWeight: 800, color: '#e2e8f0', marginTop: 4 }}>{k.value}</div>
-              <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
+              <div style={{ fontSize: 9, color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
             </div>
           ))}
         </div>
@@ -9743,22 +9743,22 @@ function AgujaDrillDown() {
       <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
         <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>📊 Briefs recientes</p>
         {briefs.length === 0 ? (
-          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin briefs — AGUJA generará briefs de intelligence periódicamente.</p>
+          <p style={{ fontSize: 12, color: '#9ca3af', fontStyle: 'italic' }}>Sin briefs — AGUJA generará briefs de intelligence periódicamente.</p>
         ) : briefs.map((b, i) => (
           <div key={i} style={{ padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', cursor: 'pointer' }} onClick={() => setExpandedBrief(expandedBrief === b.brief_id ? null : b.brief_id)}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
               <div style={{ flex: 1 }}>
                 <span style={{ fontSize: 11, fontWeight: 700, color: '#818cf8', marginRight: 8 }}>{expandedBrief === b.brief_id ? '▼' : '▶'} {b.brief_id || `brief-${b.id}`}</span>
-                <span style={{ fontSize: 10, color: '#64748b', marginRight: 8 }}>{b.created_at?.substring(0, 10) || ''}</span>
+                <span style={{ fontSize: 10, color: '#9ca3af', marginRight: 8 }}>{b.created_at?.substring(0, 10) || ''}</span>
                 <span style={{ fontSize: 10, padding: '1px 6px', borderRadius: 4, background: b.cadence_type === 'urgent' ? 'rgba(239,68,68,0.1)' : 'rgba(99,102,241,0.1)', color: b.cadence_type === 'urgent' ? '#fca5a5' : '#a5b4fc' }}>{b.cadence_type || 'regular'}</span>
-                <span style={{ fontSize: 10, color: '#64748b', marginLeft: 6 }}>{b.market_signals_count || 0} signals</span>
+                <span style={{ fontSize: 10, color: '#9ca3af', marginLeft: 6 }}>{b.market_signals_count || 0} signals</span>
               </div>
             </div>
             {expandedBrief === b.brief_id && (
               <div style={{ marginTop: 8, padding: 12, background: 'rgba(0,0,0,0.15)', borderRadius: 8 }}>
                 <p style={{ fontSize: 11, color: '#cbd5e1', lineHeight: 1.6, margin: '0 0 8px' }}>{b.executive_summary || 'Sin resumen ejecutivo.'}</p>
                 <p style={{ fontSize: 10, color: '#94a3b8', margin: '0 0 4px' }}><span style={{ fontWeight: 700 }}>Top priority:</span> {b.top_priority_action || '—'}</p>
-                <p style={{ fontSize: 10, color: '#64748b', margin: 0 }}>Período: {b.period_start?.substring(0, 10) || '?'} → {b.period_end?.substring(0, 10) || '?'} · {b.proposals_count || 0} proposals</p>
+                <p style={{ fontSize: 10, color: '#9ca3af', margin: 0 }}>Período: {b.period_start?.substring(0, 10) || '?'} → {b.period_end?.substring(0, 10) || '?'} · {b.proposals_count || 0} proposals</p>
               </div>
             )}
           </div>
@@ -9784,7 +9784,7 @@ function AgujaDrillDown() {
           ))}
         </div>
         {filteredProposals.length === 0 ? (
-          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin proposals pendientes.</p>
+          <p style={{ fontSize: 12, color: '#9ca3af', fontStyle: 'italic' }}>Sin proposals pendientes.</p>
         ) : filteredProposals.map((p, i) => {
           const pid = p.id || p.proposal_id;
           const isPending = p.status === 'proposed' || p.status === 'pending';
@@ -9795,7 +9795,7 @@ function AgujaDrillDown() {
                   <span style={{ fontSize: 12, fontWeight: 600, color: '#e2e8f0' }}>{p.title || `Proposal ${pid}`}</span>
                   {p.priority && <span style={{ fontSize: 9, fontWeight: 700, marginLeft: 8, padding: '1px 6px', borderRadius: 4, background: p.priority === 'high' ? 'rgba(239,68,68,0.12)' : 'rgba(99,102,241,0.1)', color: p.priority === 'high' ? '#fca5a5' : '#a5b4fc' }}>{p.priority}</span>}
                   <p style={{ fontSize: 11, color: '#94a3b8', margin: '4px 0 0', lineHeight: 1.4 }}>{(p.rationale || '').substring(0, 150)}{(p.rationale || '').length > 150 ? '...' : ''}</p>
-                  {p.estimated_impact && <span style={{ fontSize: 9, color: '#64748b' }}>Impact: {p.estimated_impact} · Effort: {p.estimated_effort || '?'}</span>}
+                  {p.estimated_impact && <span style={{ fontSize: 9, color: '#9ca3af' }}>Impact: {p.estimated_impact} · Effort: {p.estimated_effort || '?'}</span>}
                   {!isPending && <span style={{ fontSize: 10, fontWeight: 700, color: p.status === 'approved' ? '#10b981' : p.status === 'rejected' ? '#ef4444' : '#f59e0b', marginTop: 4, display: 'inline-block' }}>{p.status?.toUpperCase()}</span>}
                 </div>
                 {isPending && (
@@ -9820,7 +9820,7 @@ function AgujaDrillDown() {
               const colors = { big_tech_move: '#ef4444', competitor_action: '#f59e0b', emerging_tech: '#10b981', platform_change: '#6366f1', regulatory_shift: '#ec4899', sector_trend: '#06b6d4' };
               return (
                 <div key={type} style={{ background: 'rgba(0,0,0,0.2)', borderRadius: 8, padding: '8px 12px', display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <span style={{ width: 8, height: 8, borderRadius: '50%', background: colors[type] || '#64748b', display: 'inline-block' }}></span>
+                  <span style={{ width: 8, height: 8, borderRadius: '50%', background: colors[type] || '#9ca3af', display: 'inline-block' }}></span>
                   <span style={{ fontSize: 11, color: '#cbd5e1', fontWeight: 600 }}>{type.replace(/_/g, ' ')}</span>
                   <span style={{ fontSize: 13, fontWeight: 800, color: '#e2e8f0' }}>{count}</span>
                 </div>
@@ -9845,7 +9845,7 @@ function AgujaDrillDown() {
             <span style={{ fontSize: 11, color: '#94a3b8', marginLeft: 8 }}>Ciclo 10 días{cadence.days_since != null ? ` · Día ${cadence.days_since}/10` : ''}</span>
           </div>
           <div style={{ textAlign: 'right' }}>
-            <span style={{ fontSize: 10, color: '#64748b', display: 'block' }}>Último: {cadence.last_brief_date?.substring(0, 10) || 'nunca'}</span>
+            <span style={{ fontSize: 10, color: '#9ca3af', display: 'block' }}>Último: {cadence.last_brief_date?.substring(0, 10) || 'nunca'}</span>
             {cadence.overdue && cadence.days_since != null && <span style={{ fontSize: 10, color: '#ef4444', fontWeight: 700 }}>⚠️ {cadence.days_since - 10}d overdue</span>}
           </div>
         </div>
@@ -9889,7 +9889,7 @@ function A12DrillDown() {
   }, [adminKey]);
 
   if (!adminKey) return (
-    <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}>
+    <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}>
       <p style={{ fontSize: 13 }}>Admin key requerida. Inicia sesión como administrador.</p>
     </div>
   );
@@ -9901,7 +9901,7 @@ function A12DrillDown() {
     <div style={{ maxWidth: 800 }}>
       <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🛡️ A12 — Ciberseguridad (CISO + DPO)</h3>
 
-      {loading && <p style={{ color: '#64748b', fontSize: 12 }}>Cargando stats...</p>}
+      {loading && <p style={{ color: '#9ca3af', fontSize: 12 }}>Cargando stats...</p>}
 
       {stats && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 10, marginBottom: 20 }}>
@@ -9915,7 +9915,7 @@ function A12DrillDown() {
             <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
               <div style={{ fontSize: 18 }}>{k.icon}</div>
               <div style={{ fontSize: 17, fontWeight: 800, color: '#e2e8f0', marginTop: 4 }}>{k.value}</div>
-              <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
+              <div style={{ fontSize: 9, color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
             </div>
           ))}
         </div>
@@ -9932,7 +9932,7 @@ function A12DrillDown() {
               <div key={badge} style={{ padding: '8px 14px', borderRadius: 8, fontSize: 11, fontWeight: 700, textAlign: 'center',
                 background: active ? 'rgba(16,185,129,0.12)' : 'rgba(255,255,255,0.04)',
                 border: `1px solid ${active ? 'rgba(16,185,129,0.3)' : 'rgba(255,255,255,0.08)'}`,
-                color: active ? '#10b981' : '#64748b',
+                color: active ? '#10b981' : '#9ca3af',
               }}>
                 {active ? '✓ ' : '○ '}{badge.replace(/_/g, ' ')}
               </div>
@@ -9945,7 +9945,7 @@ function A12DrillDown() {
       <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
         <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>🚨 Incidentes recientes</p>
         {incidents.length === 0 ? (
-          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin incidentes reportados. Sistema operando normalmente.</p>
+          <p style={{ fontSize: 12, color: '#9ca3af', fontStyle: 'italic' }}>Sin incidentes reportados. Sistema operando normalmente.</p>
         ) : incidents.map((inc, i) => (
           <div key={i} style={{ padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
             <div style={{ display: 'flex', gap: 8, alignItems: 'center', flex: 1 }}>
@@ -9957,7 +9957,7 @@ function A12DrillDown() {
               <span style={{ fontSize: 10, padding: '2px 6px', borderRadius: 4, background: 'rgba(255,255,255,0.05)', color: '#94a3b8' }}>{inc.status || '—'}</span>
               <span style={{ fontSize: 11, color: '#94a3b8', flex: 1 }}>{(inc.description || '').substring(0, 80)}{(inc.description || '').length > 80 ? '...' : ''}</span>
             </div>
-            <span style={{ fontSize: 10, color: '#64748b', whiteSpace: 'nowrap' }}>{(inc.date || inc.created_at || inc.timestamp || '').substring(0, 16)}</span>
+            <span style={{ fontSize: 10, color: '#9ca3af', whiteSpace: 'nowrap' }}>{(inc.date || inc.created_at || inc.timestamp || '').substring(0, 16)}</span>
           </div>
         ))}
       </div>
@@ -9966,7 +9966,7 @@ function A12DrillDown() {
       <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
         <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>⚖️ Brechas LFPDPPP</p>
         {breaches.length === 0 ? (
-          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin brechas reportadas. Cumplimiento LFPDPPP al día.</p>
+          <p style={{ fontSize: 12, color: '#9ca3af', fontStyle: 'italic' }}>Sin brechas reportadas. Cumplimiento LFPDPPP al día.</p>
         ) : breaches.map((b, i) => {
           const dueDate = b.inai_notification_due_at || b.notification_due;
           const isOverdue = dueDate && new Date(dueDate) < new Date();
@@ -9979,7 +9979,7 @@ function A12DrillDown() {
                   <span style={{ fontSize: 10, padding: '2px 6px', borderRadius: 4, background: 'rgba(255,255,255,0.05)', color: '#94a3b8' }}>{b.status || '—'}</span>
                 </div>
                 <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                  <div style={{ fontSize: 10, color: isOverdue ? '#ef4444' : '#64748b' }}>
+                  <div style={{ fontSize: 10, color: isOverdue ? '#ef4444' : '#9ca3af' }}>
                     {isOverdue && '🔴 '}{dueDate ? `INAI due: ${dueDate.substring(0, 10)}` : 'No due date'}
                   </div>
                   {isOverdue && <div style={{ fontSize: 9, fontWeight: 700, color: '#ef4444' }}>⚠ OVERDUE</div>}
@@ -9994,16 +9994,16 @@ function A12DrillDown() {
       <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
         <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>🏢 Top 5 vendors por riesgo</p>
         {vendors.length === 0 ? (
-          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin vendors registrados.</p>
+          <p style={{ fontSize: 12, color: '#9ca3af', fontStyle: 'italic' }}>Sin vendors registrados.</p>
         ) : (
           <table style={{ width: '100%', fontSize: 12, borderCollapse: 'collapse' }}>
             <thead>
               <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
-                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#64748b', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>Vendor</th>
-                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#64748b', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>Category</th>
-                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#64748b', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>Risk</th>
-                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#64748b', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>DPA</th>
-                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#64748b', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>Next Review</th>
+                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#9ca3af', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>Vendor</th>
+                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#9ca3af', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>Category</th>
+                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#9ca3af', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>Risk</th>
+                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#9ca3af', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>DPA</th>
+                <th style={{ textAlign: 'left', padding: '6px 8px', color: '#9ca3af', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>Next Review</th>
               </tr>
             </thead>
             <tbody>
@@ -10036,14 +10036,14 @@ function A12DrillDown() {
         <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>👤 Responsable LFPDPPP</p>
         {responsible ? (
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, fontSize: 12 }}>
-            <div><span style={{ color: '#64748b' }}>Nombre: </span><span style={{ color: '#e2e8f0', fontWeight: 600 }}>{responsible.name || responsible.nombre || '—'}</span></div>
-            <div><span style={{ color: '#64748b' }}>Cargo: </span><span style={{ color: '#e2e8f0' }}>{responsible.role || responsible.cargo || '—'}</span></div>
-            <div><span style={{ color: '#64748b' }}>Email: </span><span style={{ color: '#818cf8' }}>{responsible.email || '—'}</span></div>
-            <div><span style={{ color: '#64748b' }}>Designado: </span><span style={{ color: '#e2e8f0' }}>{(responsible.designated_at || responsible.fecha || '').substring(0, 10) || '—'}</span></div>
-            {responsible.aviso_privacidad_url && <div style={{ gridColumn: '1 / -1' }}><span style={{ color: '#64748b' }}>Aviso privacidad: </span><a href={responsible.aviso_privacidad_url} target="_blank" rel="noopener noreferrer" style={{ color: '#818cf8', fontSize: 11 }}>{responsible.aviso_privacidad_url}</a></div>}
+            <div><span style={{ color: '#9ca3af' }}>Nombre: </span><span style={{ color: '#e2e8f0', fontWeight: 600 }}>{responsible.name || responsible.nombre || '—'}</span></div>
+            <div><span style={{ color: '#9ca3af' }}>Cargo: </span><span style={{ color: '#e2e8f0' }}>{responsible.role || responsible.cargo || '—'}</span></div>
+            <div><span style={{ color: '#9ca3af' }}>Email: </span><span style={{ color: '#818cf8' }}>{responsible.email || '—'}</span></div>
+            <div><span style={{ color: '#9ca3af' }}>Designado: </span><span style={{ color: '#e2e8f0' }}>{(responsible.designated_at || responsible.fecha || '').substring(0, 10) || '—'}</span></div>
+            {responsible.aviso_privacidad_url && <div style={{ gridColumn: '1 / -1' }}><span style={{ color: '#9ca3af' }}>Aviso privacidad: </span><a href={responsible.aviso_privacidad_url} target="_blank" rel="noopener noreferrer" style={{ color: '#818cf8', fontSize: 11 }}>{responsible.aviso_privacidad_url}</a></div>}
           </div>
         ) : (
-          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin datos de responsable LFPDPPP configurados.</p>
+          <p style={{ fontSize: 12, color: '#9ca3af', fontStyle: 'italic' }}>Sin datos de responsable LFPDPPP configurados.</p>
         )}
       </div>
     </div>
@@ -10085,7 +10085,7 @@ function OrchestratorDrillDown() {
     1: { bg: 'rgba(139,92,246,0.15)', color: '#8b5cf6', label: 'DOCTRINAL' },
     2: { bg: 'rgba(59,130,246,0.15)', color: '#3b82f6', label: 'TÉCNICO' },
     3: { bg: 'rgba(249,115,22,0.15)', color: '#f97316', label: 'RUNTIME' },
-    null: { bg: 'rgba(100,116,139,0.15)', color: '#64748b', label: 'TRIVIAL' },
+    null: { bg: 'rgba(100,116,139,0.15)', color: '#9ca3af', label: 'TRIVIAL' },
   };
 
   const fetchAll = React.useCallback(async () => {
@@ -10130,12 +10130,12 @@ function OrchestratorDrillDown() {
   const uniqueActors = [...new Set(turns.map(t => t.actor).filter(Boolean))].sort();
 
   const SECTION = { background: '#0f172a', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: '16px 20px', marginBottom: 14 };
-  const SLABEL = { fontSize: 11, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 10, display: 'flex', alignItems: 'center', gap: 8 };
+  const SLABEL = { fontSize: 11, fontWeight: 700, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 10, display: 'flex', alignItems: 'center', gap: 8 };
 
   const turnsPerDay = stats && stats.total_turns ? Math.round((stats.total_turns / filterDays) * 10) / 10 : 0;
   const cadenceColor = turnsPerDay > 10 ? '#10b981' : turnsPerDay >= 3 ? '#fbbf24' : '#f87171';
 
-  if (loading) return <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}>⏳ Cargando datos del orchestrator...</div>;
+  if (loading) return <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}>⏳ Cargando datos del orchestrator...</div>;
   if (error) return <div style={{ textAlign: 'center', padding: 40 }}><p style={{ color: '#f87171', fontSize: 14 }}>❌ Error: {error}</p><button onClick={fetchAll} style={{ background: 'rgba(99,102,241,0.15)', color: '#818cf8', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 8, padding: '6px 16px', cursor: 'pointer', fontSize: 12, marginTop: 8 }}>Reintentar</button></div>;
 
   return (
@@ -10164,7 +10164,7 @@ function OrchestratorDrillDown() {
           <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: '14px 10px', textAlign: 'center' }}>
             <div style={{ fontSize: 18, marginBottom: 4 }}>{c.icon}</div>
             <div style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 2, wordBreak: 'break-all' }}>{c.val}</div>
-            <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.04em' }}>{c.label}</div>
+            <div style={{ fontSize: 9, color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.04em' }}>{c.label}</div>
           </div>
         ))}
       </div>
@@ -10192,14 +10192,14 @@ function OrchestratorDrillDown() {
           </div>
         </div>
         {filteredTurns.length === 0 ? (
-          <p style={{ color: '#64748b', fontSize: 12, fontStyle: 'italic' }}>Sin turnos registrados — se poblarán conforme Claude opere.</p>
+          <p style={{ color: '#9ca3af', fontSize: 12, fontStyle: 'italic' }}>Sin turnos registrados — se poblarán conforme Claude opere.</p>
         ) : (
           <div style={{ overflowX: 'auto' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 11 }}>
               <thead>
                 <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
                   {['Timestamp','Actor','Cat','Topic','Agents','Latency'].map(h => (
-                    <th key={h} style={{ padding: '6px 8px', textAlign: 'left', color: '#64748b', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>{h}</th>
+                    <th key={h} style={{ padding: '6px 8px', textAlign: 'left', color: '#9ca3af', fontWeight: 600, fontSize: 10, textTransform: 'uppercase' }}>{h}</th>
                   ))}
                 </tr>
               </thead>
@@ -10229,7 +10229,7 @@ function OrchestratorDrillDown() {
           <div onClick={e => e.stopPropagation()} style={{ background: '#1e293b', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 16, padding: 24, maxWidth: 500, width: '90%', maxHeight: '80vh', overflow: 'auto' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 16 }}>
               <h4 style={{ fontSize: 14, fontWeight: 700, color: '#f1f5f9', margin: 0 }}>Detalle del turno</h4>
-              <button onClick={() => setSelectedTurn(null)} style={{ background: 'none', border: 'none', color: '#64748b', cursor: 'pointer', fontSize: 16 }}>✕</button>
+              <button onClick={() => setSelectedTurn(null)} style={{ background: 'none', border: 'none', color: '#9ca3af', cursor: 'pointer', fontSize: 16 }}>✕</button>
             </div>
             <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.8 }}>
               <p><b style={{ color: '#e2e8f0' }}>Actor:</b> {selectedTurn.actor}</p>
@@ -10258,7 +10258,7 @@ function OrchestratorDrillDown() {
       <div style={SECTION}>
         <div style={SLABEL}>🚨 PENDING ALERTS ({alerts.length})</div>
         {alerts.length === 0 ? (
-          <p style={{ color: '#64748b', fontSize: 12, fontStyle: 'italic' }}>Sin alertas pendientes. Sistema operando normalmente.</p>
+          <p style={{ color: '#9ca3af', fontSize: 12, fontStyle: 'italic' }}>Sin alertas pendientes. Sistema operando normalmente.</p>
         ) : (
           alerts.sort((a, b) => {
             const sev = { high: 0, medium: 1, low: 2, info: 3 };
@@ -10270,12 +10270,12 @@ function OrchestratorDrillDown() {
               const s = { high: 3, medium: 2, low: 1, info: 0 };
               return (s[x.severity] || 0) > acc.val ? { val: s[x.severity] || 0, sev: x.severity } : acc;
             }, { val: 0, sev: 'info' });
-            const sevColor = maxSev.sev === 'high' ? '#f87171' : maxSev.sev === 'medium' ? '#fbbf24' : '#64748b';
+            const sevColor = maxSev.sev === 'high' ? '#f87171' : maxSev.sev === 'medium' ? '#fbbf24' : '#9ca3af';
             return (
               <div key={i} style={{ background: `${sevColor}08`, border: `1px solid ${sevColor}30`, borderRadius: 10, padding: 12, marginBottom: 8 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
                   <span style={{ fontSize: 11, fontWeight: 700, color: sevColor, textTransform: 'uppercase' }}>{maxSev.sev}</span>
-                  <span style={{ fontSize: 10, color: '#64748b', fontFamily: 'monospace' }}>{t.actor}</span>
+                  <span style={{ fontSize: 10, color: '#9ca3af', fontFamily: 'monospace' }}>{t.actor}</span>
                 </div>
                 {(t.alerts_raised || []).map((al, j) => (
                   <p key={j} style={{ fontSize: 11, color: '#94a3b8', margin: '2px 0' }}>{al.message || JSON.stringify(al)}</p>
@@ -10306,7 +10306,7 @@ function OrchestratorDrillDown() {
         )}
       </div>
 
-      <p style={{ fontSize: 9, color: '#64748b', textAlign: 'center', marginTop: 12 }}>Orchestrator · Auditoría conversacional multi-agente · Datos en tiempo real</p>
+      <p style={{ fontSize: 9, color: '#9ca3af', textAlign: 'center', marginTop: 12 }}>Orchestrator · Auditoría conversacional multi-agente · Datos en tiempo real</p>
     </div>
   );
 }
@@ -10365,12 +10365,12 @@ function PostmortemsDrillDown() {
   };
 
   if (!adminKey) return (
-    <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}>
+    <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}>
       <p style={{ fontSize: 13 }}>Admin key requerida.</p>
     </div>
   );
 
-  const severityColor = { P1: '#ef4444', P2: '#f59e0b', P3: '#6366f1', P4: '#64748b' };
+  const severityColor = { P1: '#ef4444', P2: '#f59e0b', P3: '#6366f1', P4: '#9ca3af' };
   const filtered = filter === 'all' ? incidents : filter === 'open' ? incidents.filter(i => i.status === 'open') : incidents.filter(i => i.status === 'resolved');
   const openCount = incidents.filter(i => i.status === 'open').length;
   const resolvedCount = incidents.filter(i => i.status === 'resolved').length;
@@ -10381,7 +10381,7 @@ function PostmortemsDrillDown() {
     <div style={{ maxWidth: 800 }}>
       <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🔬 Postmortems — Blameless Incident Analysis</h3>
 
-      {loading && <p style={{ color: '#64748b', fontSize: 12 }}>Cargando incidents...</p>}
+      {loading && <p style={{ color: '#9ca3af', fontSize: 12 }}>Cargando incidents...</p>}
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 10, marginBottom: 20 }}>
@@ -10395,7 +10395,7 @@ function PostmortemsDrillDown() {
           <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
             <div style={{ fontSize: 18 }}>{k.icon}</div>
             <div style={{ fontSize: 17, fontWeight: 800, color: k.color || '#e2e8f0', marginTop: 4 }}>{k.value}</div>
-            <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
+            <div style={{ fontSize: 9, color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
           </div>
         ))}
       </div>
@@ -10418,16 +10418,16 @@ function PostmortemsDrillDown() {
       {/* Incident list */}
       <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16 }}>
         {filtered.length === 0 ? (
-          <p style={{ fontSize: 12, color: '#64748b', fontStyle: 'italic' }}>Sin incidents en este filtro.</p>
+          <p style={{ fontSize: 12, color: '#9ca3af', fontStyle: 'italic' }}>Sin incidents en este filtro.</p>
         ) : filtered.map((inc, i) => (
           <div key={inc.id || i} style={{ padding: '10px 0', borderBottom: i < filtered.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8 }}>
               <div style={{ flex: 1 }}>
-                <span style={{ fontSize: 10, fontWeight: 800, color: severityColor[inc.severity] || '#64748b', marginRight: 6 }}>{inc.severity}</span>
+                <span style={{ fontSize: 10, fontWeight: 800, color: severityColor[inc.severity] || '#9ca3af', marginRight: 6 }}>{inc.severity}</span>
                 <span style={{ fontSize: 10, fontWeight: 600, color: '#818cf8', marginRight: 6 }}>{inc.slug || '—'}</span>
                 <span style={{ fontSize: 10, padding: '1px 6px', borderRadius: 4, background: inc.status === 'open' ? 'rgba(239,68,68,0.1)' : 'rgba(16,185,129,0.1)', color: inc.status === 'open' ? '#fca5a5' : '#6ee7b7' }}>{inc.status}</span>
                 <p style={{ fontSize: 11, color: '#94a3b8', margin: '4px 0 0', lineHeight: 1.4 }}>{inc.description?.substring(0, 120)}</p>
-                <span style={{ fontSize: 9, color: '#64748b' }}>{inc.created_at?.substring(0, 16)}{inc.resolved_at ? ` · resolved ${inc.resolved_at.substring(0, 16)}` : ''}{inc.resolution_minutes ? ` · ${inc.resolution_minutes}min` : ''}</span>
+                <span style={{ fontSize: 9, color: '#9ca3af' }}>{inc.created_at?.substring(0, 16)}{inc.resolved_at ? ` · resolved ${inc.resolved_at.substring(0, 16)}` : ''}{inc.resolution_minutes ? ` · ${inc.resolution_minutes}min` : ''}</span>
               </div>
               <div style={{ display: 'flex', gap: 4, flexShrink: 0 }}>
                 {inc.status === 'open' && (
@@ -10448,20 +10448,20 @@ function PostmortemsDrillDown() {
           <div style={{ background: '#1e293b', borderRadius: 16, padding: 24, maxWidth: 700, maxHeight: '80vh', overflowY: 'auto', width: '100%', border: '1px solid rgba(255,255,255,0.1)' }} onClick={e => e.stopPropagation()}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
               <h4 style={{ fontSize: 14, fontWeight: 800, color: '#f1f5f9', margin: 0 }}>🔬 Postmortem — Incident #{postmortem.id}</h4>
-              <button onClick={() => setPostmortem(null)} style={{ background: 'none', border: 'none', color: '#64748b', fontSize: 18, cursor: 'pointer' }} aria-label="Cerrar postmortem">✕</button>
+              <button onClick={() => setPostmortem(null)} style={{ background: 'none', border: 'none', color: '#9ca3af', fontSize: 18, cursor: 'pointer' }} aria-label="Cerrar postmortem">✕</button>
             </div>
             {postmortem.data ? (
               <div style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.7, whiteSpace: 'pre-wrap' }}>
                 {postmortem.data.postmortem || postmortem.data.analysis || postmortem.data.report || JSON.stringify(postmortem.data, null, 2)}
               </div>
             ) : (
-              <p style={{ color: '#64748b', fontSize: 12, fontStyle: 'italic' }}>Error generando postmortem. Verifica que el incident tenga datos suficientes.</p>
+              <p style={{ color: '#9ca3af', fontSize: 12, fontStyle: 'italic' }}>Error generando postmortem. Verifica que el incident tenga datos suficientes.</p>
             )}
           </div>
         </div>
       )}
 
-      <p style={{ fontSize: 9, color: '#64748b', textAlign: 'center', marginTop: 12 }}>Postmortems · Blameless incident analysis · Google SRE pattern</p>
+      <p style={{ fontSize: 9, color: '#9ca3af', textAlign: 'center', marginTop: 12 }}>Postmortems · Blameless incident analysis · Google SRE pattern</p>
     </div>
   );
 }
@@ -10535,7 +10535,7 @@ function AlertsBanner({ adminKey }) {
       </div>
       <div style={{ display: 'flex', gap: 6, flexShrink: 0 }}>
         <button onClick={handleAcknowledgeAll} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(16,185,129,0.15)', color: '#10b981' }}>✓ Acknowledge all</button>
-        <button onClick={() => setDismissed(true)} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(255,255,255,0.05)', color: '#64748b' }}>Dismiss</button>
+        <button onClick={() => setDismissed(true)} style={{ padding: '4px 10px', fontSize: 10, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', background: 'rgba(255,255,255,0.05)', color: '#9ca3af' }}>Dismiss</button>
       </div>
     </div>
   );
@@ -10562,7 +10562,7 @@ function Layer5CoverageTab() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [adminKey]);
 
-  if (!adminKey) return <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}><p style={{ fontSize: 13 }}>Admin key requerida.</p></div>;
+  if (!adminKey) return <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}><p style={{ fontSize: 13 }}>Admin key requerida.</p></div>;
 
   const statusColor = { green: '#10b981', yellow: '#f59e0b', red: '#ef4444' };
   const statusIcon = { green: '🟢', yellow: '🟡', red: '🔴' };
@@ -10577,7 +10577,7 @@ function Layer5CoverageTab() {
       <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }} id="layer5-coverage-heading">🛡️ Layer 5 Coverage — Defense-in-Depth</h3>
       <p style={{ fontSize: 10, color: '#10b981', fontWeight: 600, marginBottom: 16, padding: '4px 8px', background: 'rgba(16,185,129,0.08)', borderRadius: 6, display: 'inline-block' }}>✅ Live data — BE-#21 drift-coverage endpoint (PR #30)</p>
 
-      {loading && <p style={{ color: '#64748b', fontSize: 12 }}>Cargando drift-coverage...</p>}
+      {loading && <p style={{ color: '#9ca3af', fontSize: 12 }}>Cargando drift-coverage...</p>}
 
       {/* Coverage summary KPIs */}
       {summary.total && (
@@ -10591,7 +10591,7 @@ function Layer5CoverageTab() {
             <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
               <div style={{ fontSize: 18 }}>{k.icon}</div>
               <div style={{ fontSize: 17, fontWeight: 800, color: k.color || '#e2e8f0', marginTop: 4 }}>{k.value}</div>
-              <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
+              <div style={{ fontSize: 9, color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
             </div>
           ))}
         </div>
@@ -10606,10 +10606,10 @@ function Layer5CoverageTab() {
           return (
             <div key={key} role="listitem" aria-label={`Layer ${id}: ${name} — ${layer.status}`} tabIndex={0} style={{ padding: '8px 0', borderBottom: i < Object.keys(layers).length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none', display: 'flex', alignItems: 'center', gap: 10, outline: 'none' }}>
               <span style={{ fontSize: 14, width: 20 }}>{statusIcon[layer.status] || '⚪'}</span>
-              <span style={{ fontSize: 11, fontWeight: 800, color: statusColor[layer.status] || '#64748b', width: 30 }}>{id}</span>
+              <span style={{ fontSize: 11, fontWeight: 800, color: statusColor[layer.status] || '#9ca3af', width: 30 }}>{id}</span>
               <span style={{ fontSize: 11, fontWeight: 600, color: '#e2e8f0', width: 180 }}>{name}</span>
               <span style={{ fontSize: 10, color: '#94a3b8', flex: 1 }}>{layer.evidence || '—'}</span>
-              <span style={{ fontSize: 9, color: '#64748b', fontStyle: 'italic' }}>{layer.candado || ''}{layer.reason ? ` · ${layer.reason.substring(0, 40)}` : ''}</span>
+              <span style={{ fontSize: 9, color: '#9ca3af', fontStyle: 'italic' }}>{layer.candado || ''}{layer.reason ? ` · ${layer.reason.substring(0, 40)}` : ''}</span>
             </div>
           );
         })}
@@ -10657,7 +10657,7 @@ function Layer5CoverageTab() {
         </div>
       )}
 
-      <p style={{ fontSize: 9, color: '#64748b', textAlign: 'center', marginTop: 12 }}>Layer 5 · Defense-in-depth · Live data from /api/admin/drift-coverage</p>
+      <p style={{ fontSize: 9, color: '#9ca3af', textAlign: 'center', marginTop: 12 }}>Layer 5 · Defense-in-depth · Live data from /api/admin/drift-coverage</p>
     </div>
   );
 }
@@ -10684,7 +10684,7 @@ function DORACockpitTab() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [adminKey]);
 
-  if (!adminKey) return <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}><p style={{ fontSize: 13 }}>Admin key requerida.</p></div>;
+  if (!adminKey) return <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}><p style={{ fontSize: 13 }}>Admin key requerida.</p></div>;
 
   const tierColor = { Elite: '#10b981', High: '#6366f1', Medium: '#f59e0b', Low: '#ef4444' };
   const m = dora?.metrics || {};
@@ -10694,16 +10694,16 @@ function DORACockpitTab() {
     <div style={{ maxWidth: 800 }}>
       <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>📊 DORA Metrics — DevOps Excellence</h3>
 
-      {loading && <p style={{ color: '#64748b', fontSize: 12 }}>Cargando DORA score...</p>}
+      {loading && <p style={{ color: '#9ca3af', fontSize: 12 }}>Cargando DORA score...</p>}
 
       {dora && (
         <>
           {/* Tier badge */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20, padding: '12px 16px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12 }}>
-            <div style={{ fontSize: 32, fontWeight: 900, color: tierColor[dora.tier] || '#64748b' }}>{dora.tier}</div>
+            <div style={{ fontSize: 32, fontWeight: 900, color: tierColor[dora.tier] || '#9ca3af' }}>{dora.tier}</div>
             <div>
               <p style={{ fontSize: 11, color: '#94a3b8', margin: 0 }}>DORA Performance Tier · {dora.window_days}d window</p>
-              <p style={{ fontSize: 9, color: '#64748b', margin: '2px 0 0' }}>{dora.note || 'State of DevOps Report 2024 thresholds'}</p>
+              <p style={{ fontSize: 9, color: '#9ca3af', margin: '2px 0 0' }}>{dora.note || 'State of DevOps Report 2024 thresholds'}</p>
             </div>
           </div>
 
@@ -10717,9 +10717,9 @@ function DORACockpitTab() {
             ].map(k => (
               <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
                 <div style={{ fontSize: 18 }}>{k.icon}</div>
-                <div style={{ fontSize: 20, fontWeight: 800, color: '#e2e8f0', marginTop: 4 }}>{k.value}<span style={{ fontSize: 10, color: '#64748b', marginLeft: 2 }}>{k.unit}</span></div>
-                <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
-                <div style={{ fontSize: 8, color: '#64748b', marginTop: 2 }}>{k.target}</div>
+                <div style={{ fontSize: 20, fontWeight: 800, color: '#e2e8f0', marginTop: 4 }}>{k.value}<span style={{ fontSize: 10, color: '#9ca3af', marginLeft: 2 }}>{k.unit}</span></div>
+                <div style={{ fontSize: 9, color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
+                <div style={{ fontSize: 8, color: '#9ca3af', marginTop: 2 }}>{k.target}</div>
               </div>
             ))}
           </div>
@@ -10736,7 +10736,7 @@ function DORACockpitTab() {
               ].map(b => (
                 <div key={b.label} style={{ textAlign: 'center' }}>
                   <div style={{ fontSize: 15, fontWeight: 800, color: b.color || '#e2e8f0' }}>{b.value}</div>
-                  <div style={{ fontSize: 9, color: '#64748b', textTransform: 'uppercase' }}>{b.label}</div>
+                  <div style={{ fontSize: 9, color: '#9ca3af', textTransform: 'uppercase' }}>{b.label}</div>
                 </div>
               ))}
             </div>
@@ -10746,11 +10746,11 @@ function DORACockpitTab() {
           <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16 }}>
             <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 8 }}>🎯 Tier Thresholds (State of DevOps 2024)</p>
             <div style={{ display: 'grid', gridTemplateColumns: '120px repeat(4, 1fr)', gap: 4, fontSize: 10 }}>
-              <span style={{ color: '#64748b', fontWeight: 700 }}>Tier</span>
-              <span style={{ color: '#64748b', fontWeight: 700 }}>Deploy Freq</span>
-              <span style={{ color: '#64748b', fontWeight: 700 }}>Lead Time</span>
-              <span style={{ color: '#64748b', fontWeight: 700 }}>MTTR</span>
-              <span style={{ color: '#64748b', fontWeight: 700 }}>Fail Rate</span>
+              <span style={{ color: '#9ca3af', fontWeight: 700 }}>Tier</span>
+              <span style={{ color: '#9ca3af', fontWeight: 700 }}>Deploy Freq</span>
+              <span style={{ color: '#9ca3af', fontWeight: 700 }}>Lead Time</span>
+              <span style={{ color: '#9ca3af', fontWeight: 700 }}>MTTR</span>
+              <span style={{ color: '#9ca3af', fontWeight: 700 }}>Fail Rate</span>
               {dora.thresholds && Object.entries(dora.thresholds).map(([tier, t]) => (
                 <React.Fragment key={tier}>
                   <span style={{ color: tierColor[tier], fontWeight: 700 }}>{tier}</span>
@@ -10765,7 +10765,7 @@ function DORACockpitTab() {
         </>
       )}
 
-      <p style={{ fontSize: 9, color: '#64748b', textAlign: 'center', marginTop: 12 }}>DORA · State of DevOps Report 2024 · Live data from /api/admin/dora/score</p>
+      <p style={{ fontSize: 9, color: '#9ca3af', textAlign: 'center', marginTop: 12 }}>DORA · State of DevOps Report 2024 · Live data from /api/admin/dora/score</p>
     </div>
   );
 }
@@ -10793,7 +10793,7 @@ function ChaosTab() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [adminKey]);
 
-  if (!adminKey) return <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}><p style={{ fontSize: 13 }}>Admin key requerida.</p></div>;
+  if (!adminKey) return <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}><p style={{ fontSize: 13 }}>Admin key requerida.</p></div>;
 
   const statusColor = { success: '#10b981', failed: '#ef4444', running: '#3b82f6', aborted: '#f59e0b', deviated: '#a855f7' };
   const statusIcon = { success: '🟢', failed: '🔴', running: '🔵', aborted: '🟡', deviated: '🟣' };
@@ -10807,7 +10807,7 @@ function ChaosTab() {
     <div style={{ maxWidth: 800 }}>
       <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🐒 Chaos Engineering — Big Tech #1</h3>
 
-      {loading && <p style={{ color: '#64748b', fontSize: 12 }}>Cargando experiments...</p>}
+      {loading && <p style={{ color: '#9ca3af', fontSize: 12 }}>Cargando experiments...</p>}
 
       {/* KPIs */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 10, marginBottom: 20 }}>
@@ -10820,7 +10820,7 @@ function ChaosTab() {
           <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
             <div style={{ fontSize: 18 }}>{k.icon}</div>
             <div style={{ fontSize: 17, fontWeight: 800, color: k.color || '#e2e8f0', marginTop: 4 }}>{k.value}</div>
-            <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
+            <div style={{ fontSize: 9, color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
           </div>
         ))}
       </div>
@@ -10837,7 +10837,7 @@ function ChaosTab() {
         <div style={{ padding: 40, textAlign: 'center', background: 'rgba(255,255,255,0.02)', borderRadius: 14, border: '1px dashed rgba(255,255,255,0.08)' }}>
           <div style={{ fontSize: 48, marginBottom: 12 }}>🐒</div>
           <p style={{ fontSize: 14, fontWeight: 600, color: '#94a3b8', margin: '0 0 6px' }}>Sin chaos experiments registrados aún</p>
-          <p style={{ fontSize: 12, color: '#64748b', margin: 0 }}>El cron chaos-weekly corre lunes 04:00 UTC. Workflow: .github/workflows/chaos-weekly.yml</p>
+          <p style={{ fontSize: 12, color: '#9ca3af', margin: 0 }}>El cron chaos-weekly corre lunes 04:00 UTC. Workflow: .github/workflows/chaos-weekly.yml</p>
         </div>
       )}
 
@@ -10850,23 +10850,23 @@ function ChaosTab() {
               <span style={{ fontSize: 14 }}>{faultIcon[e.fault_type] || '🧪'}</span>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <p style={{ fontSize: 13, fontWeight: 600, color: '#e2e8f0', margin: 0 }}>{e.experiment_name || e.experiment_id}</p>
-                <p style={{ fontSize: 10, color: '#64748b', margin: '2px 0 0' }}>{e.experiment_id} · {e.fault_type} · {e.duration_seconds || '?'}s · {e.triggered_by || '?'}</p>
+                <p style={{ fontSize: 10, color: '#9ca3af', margin: '2px 0 0' }}>{e.experiment_id} · {e.fault_type} · {e.duration_seconds || '?'}s · {e.triggered_by || '?'}</p>
               </div>
-              <span style={{ fontSize: 10, fontWeight: 700, color: statusColor[e.run_status] || '#64748b', textTransform: 'uppercase' }}>{e.run_status}</span>
+              <span style={{ fontSize: 10, fontWeight: 700, color: statusColor[e.run_status] || '#9ca3af', textTransform: 'uppercase' }}>{e.run_status}</span>
             </div>
             {selected === i && (
               <div style={{ marginTop: 10, paddingTop: 10, borderTop: '1px solid rgba(255,255,255,0.05)' }}>
                 <p style={{ fontSize: 11, color: '#94a3b8', margin: '0 0 4px' }}><b style={{ color: '#cbd5e1' }}>Hypothesis:</b> {e.hypothesis || '—'}</p>
                 {e.deviation_detected && <p style={{ fontSize: 11, color: '#a855f7', margin: '4px 0' }}>⚡ Deviation: {e.deviation_detail || 'Detected'}</p>}
                 {e.rollback_action && <p style={{ fontSize: 11, color: '#f59e0b', margin: '4px 0' }}>🔄 Rollback: {e.rollback_action}</p>}
-                <p style={{ fontSize: 10, color: '#64748b', margin: '4px 0 0' }}>Started: {e.run_started_at || '?'} · Target: {e.target_endpoint || '?'}</p>
+                <p style={{ fontSize: 10, color: '#9ca3af', margin: '4px 0 0' }}>Started: {e.run_started_at || '?'} · Target: {e.target_endpoint || '?'}</p>
               </div>
             )}
           </div>
         ))}
       </div>
 
-      <p style={{ fontSize: 9, color: '#64748b', textAlign: 'center', marginTop: 12 }}>Chaos Engineering · Big Tech #1 · Live data from /api/admin/chaos/audit-log</p>
+      <p style={{ fontSize: 9, color: '#9ca3af', textAlign: 'center', marginTop: 12 }}>Chaos Engineering · Big Tech #1 · Live data from /api/admin/chaos/audit-log</p>
     </div>
   );
 }
@@ -10891,7 +10891,7 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
     <div style={{ maxWidth: 1000 }}>
       <AlertsBanner adminKey={typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : ''} />
       <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }}>🔒 Backstage</h2>
-      <p style={{ fontSize: 12, color: '#64748b', marginBottom: 20 }}>Solo visible para el fundador. Agentes de infraestructura, governance y herramientas operativas.</p>
+      <p style={{ fontSize: 12, color: '#9ca3af', marginBottom: 20 }}>Solo visible para el fundador. Agentes de infraestructura, governance y herramientas operativas.</p>
 
       {!selected && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 14 }}>
@@ -10901,11 +10901,11 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
                 <span style={{ fontSize: 32 }}>{a.icon}</span>
                 <span style={{ fontSize: 9, fontWeight: 700, padding: '2px 8px', borderRadius: 6, textTransform: 'uppercase',
                   background: a.status === 'live' ? 'rgba(16,185,129,0.15)' : a.status === 'live_mvp' ? 'rgba(59,130,246,0.15)' : a.status === 'propuesta' ? 'rgba(245,158,11,0.15)' : 'rgba(100,116,139,0.15)',
-                  color: a.status === 'live' ? '#10b981' : a.status === 'live_mvp' ? '#3b82f6' : a.status === 'propuesta' ? '#f59e0b' : '#64748b',
+                  color: a.status === 'live' ? '#10b981' : a.status === 'live_mvp' ? '#3b82f6' : a.status === 'propuesta' ? '#f59e0b' : '#9ca3af',
                 }}>{a.status === 'live' ? '● LIVE' : a.status === 'live_mvp' ? '● MVP' : a.status === 'propuesta' ? '◐ PROPUESTA' : '○ PENDING'}</span>
               </div>
               <div style={{ fontSize: 14, fontWeight: 700, color: '#f1f5f9', marginTop: 8 }}>{a.name}</div>
-              <div style={{ fontSize: 10, color: '#64748b', marginBottom: 8 }}>{a.id}</div>
+              <div style={{ fontSize: 10, color: '#9ca3af', marginBottom: 8 }}>{a.id}</div>
               <p style={{ fontSize: 12, color: '#94a3b8', margin: 0, lineHeight: 1.5 }}>{a.desc}</p>
             </button>
           ))}
@@ -10969,7 +10969,7 @@ function IngestDoctrineButton({ adminKey, onComplete }) {
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div>
           <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 4 }}>📥 Ingestar Doctrina Viva</p>
-          <p style={{ fontSize: 10, color: '#64748b' }}>Escanea CEREBRO_GENYX/ y archivos .md del repo, inyecta a MEMORY.</p>
+          <p style={{ fontSize: 10, color: '#9ca3af' }}>Escanea CEREBRO_GENYX/ y archivos .md del repo, inyecta a MEMORY.</p>
         </div>
         <button onClick={handleIngest} disabled={loading} style={{ padding: '8px 16px', fontSize: 11, fontWeight: 700, border: 'none', borderRadius: 8, cursor: loading ? 'wait' : 'pointer', background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)', color: '#fff', opacity: loading ? 0.6 : 1 }}>
           {loading ? '⏳ Procesando...' : '🔄 Ingestar'}
@@ -11000,7 +11000,7 @@ function TabDataFounder({ adminKey }) {
     .catch(() => setLoading(false));
   }, [adminKey]);
 
-  if (loading) return <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}><div style={{ fontSize: 32, marginBottom: 12, animation: 'pulse 2s infinite' }}>📊</div><p style={{ fontSize: 13 }}>Cargando datos fundador...</p></div>;
+  if (loading) return <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}><div style={{ fontSize: 32, marginBottom: 12, animation: 'pulse 2s infinite' }}>📊</div><p style={{ fontSize: 13 }}>Cargando datos fundador...</p></div>;
   if (!data) return <div style={{ textAlign: 'center', padding: 40, color: '#f87171' }}><p style={{ fontSize: 13 }}>No se pudieron cargar los datos.</p></div>;
 
   const sections = [
@@ -11039,7 +11039,7 @@ function TabDataFounder({ adminKey }) {
   return (
     <div style={{ maxWidth: 800 }}>
       <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }}>📊 DATA — Métricas GenyX</h3>
-      <p style={{ fontSize: 11, color: '#64748b', marginBottom: 20 }}>Últimos {data.days || 30} días · Datos de tu operación como fundador</p>
+      <p style={{ fontSize: 11, color: '#9ca3af', marginBottom: 20 }}>Últimos {data.days || 30} días · Datos de tu operación como fundador</p>
       {data.errors && data.errors.length > 0 && (
         <div style={{ background: 'rgba(248,113,113,0.1)', border: '1px solid rgba(248,113,113,0.25)', borderRadius: 10, padding: 12, marginBottom: 16 }}>
           <p style={{ fontSize: 10, fontWeight: 700, color: '#f87171', textTransform: 'uppercase', marginBottom: 4 }}>Errores al cargar</p>
@@ -11057,7 +11057,7 @@ function TabDataFounder({ adminKey }) {
               {s.fields.map(f => (
                 <div key={f.k} style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 8, padding: 10, textAlign: 'center' }}>
                   <div style={{ fontSize: 18, fontWeight: 800, color: '#e2e8f0' }}>{f.v ?? '—'}</div>
-                  <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase', marginTop: 2 }}>{f.k}</div>
+                  <div style={{ fontSize: 9, color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase', marginTop: 2 }}>{f.k}</div>
                 </div>
               ))}
             </div>
@@ -11102,12 +11102,12 @@ function RadarSignalModal({ signal, onClose, onReInvestigate }) {
           <div style={{ flex: 1 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
               <span style={{ padding: '3px 10px', borderRadius: 6, fontSize: 10, fontWeight: 700, textTransform: 'uppercase', color: impactColors[impact], background: impactBg[impact], border: `1px solid ${impactColors[impact]}30` }}>{impact}</span>
-              {signal.signal_type && <span style={{ fontSize: 10, color: '#64748b', fontFamily: 'monospace' }}>{signal.signal_type}</span>}
+              {signal.signal_type && <span style={{ fontSize: 10, color: '#9ca3af', fontFamily: 'monospace' }}>{signal.signal_type}</span>}
               {signal.horizon && <span style={{ fontSize: 10, color: '#94a3b8', background: 'rgba(255,255,255,0.05)', padding: '2px 6px', borderRadius: 4 }}>{signal.horizon}</span>}
             </div>
             <h3 style={{ fontSize: 17, fontWeight: 700, color: '#f1f5f9', margin: 0, lineHeight: 1.4 }}>{signal.title}</h3>
           </div>
-          <button onClick={onClose} aria-label="Cerrar modal" style={{ background: 'none', border: 'none', color: '#64748b', fontSize: 20, cursor: 'pointer', padding: '0 4px' }}>✕</button>
+          <button onClick={onClose} aria-label="Cerrar modal" style={{ background: 'none', border: 'none', color: '#9ca3af', fontSize: 20, cursor: 'pointer', padding: '0 4px' }}>✕</button>
         </div>
 
         {/* Description */}
@@ -11133,16 +11133,16 @@ function RadarSignalModal({ signal, onClose, onReInvestigate }) {
         {signal.tags && (
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 16 }}>
             {(typeof signal.tags === 'string' ? JSON.parse(signal.tags) : signal.tags).map((t, i) => (
-              <span key={i} style={{ fontSize: 10, color: '#64748b', background: 'rgba(255,255,255,0.04)', padding: '3px 8px', borderRadius: 4, border: '1px solid rgba(255,255,255,0.06)' }}>{t}</span>
+              <span key={i} style={{ fontSize: 10, color: '#9ca3af', background: 'rgba(255,255,255,0.04)', padding: '3px 8px', borderRadius: 4, border: '1px solid rgba(255,255,255,0.06)' }}>{t}</span>
             ))}
           </div>
         )}
 
         {/* Meta */}
         <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', paddingTop: 12, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-          {signal.confidence && <span style={{ fontSize: 10, color: '#64748b' }}>Confidence: <b style={{ color: '#94a3b8' }}>{signal.confidence}</b></span>}
-          {signal.created_at && <span style={{ fontSize: 10, color: '#64748b' }}>Fecha: <b style={{ color: '#94a3b8' }}>{new Date(signal.created_at).toLocaleDateString()}</b></span>}
-          {signal.source && <span style={{ fontSize: 10, color: '#64748b' }}>Fuente: <b style={{ color: '#94a3b8' }}>{signal.source}</b></span>}
+          {signal.confidence && <span style={{ fontSize: 10, color: '#9ca3af' }}>Confidence: <b style={{ color: '#94a3b8' }}>{signal.confidence}</b></span>}
+          {signal.created_at && <span style={{ fontSize: 10, color: '#9ca3af' }}>Fecha: <b style={{ color: '#94a3b8' }}>{new Date(signal.created_at).toLocaleDateString()}</b></span>}
+          {signal.source && <span style={{ fontSize: 10, color: '#9ca3af' }}>Fuente: <b style={{ color: '#94a3b8' }}>{signal.source}</b></span>}
           {onReInvestigate && <button onClick={() => onReInvestigate(signal.title)} style={{ marginLeft: 'auto', fontSize: 11, fontWeight: 600, color: '#818cf8', background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.2)', borderRadius: 6, padding: '4px 12px', cursor: 'pointer' }}>🔄 Re-investigar</button>}
         </div>
       </div>
@@ -11228,9 +11228,9 @@ function TabRadarIntel() {
       <div style={{ marginBottom: 20 }}>
         <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', margin: '0 0 4px', display: 'flex', alignItems: 'center', gap: 8 }}>
           🛰️ RADAR Intel
-          {stats && <span style={{ fontSize: 11, fontWeight: 400, color: '#64748b', fontFamily: 'monospace' }}>{stats.signals_total} signals · {stats.model}</span>}
+          {stats && <span style={{ fontSize: 11, fontWeight: 400, color: '#9ca3af', fontFamily: 'monospace' }}>{stats.signals_total} signals · {stats.model}</span>}
         </h2>
-        <p style={{ fontSize: 13, color: '#64748b', margin: 0 }}>Competitive intelligence grounded con Gemini 2.5 Pro + Google Search.</p>
+        <p style={{ fontSize: 13, color: '#9ca3af', margin: 0 }}>Competitive intelligence grounded con Gemini 2.5 Pro + Google Search.</p>
       </div>
 
       {/* Search */}
@@ -11250,7 +11250,7 @@ function TabRadarIntel() {
       {/* Recent queries */}
       {recentQueries.length > 0 && (
         <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap', marginBottom: 10 }}>
-          <span style={{ fontSize: 10, color: '#64748b', alignSelf: 'center' }}>Recientes:</span>
+          <span style={{ fontSize: 10, color: '#9ca3af', alignSelf: 'center' }}>Recientes:</span>
           {recentQueries.slice(0, 5).map((q, i) => (
             <button key={i} onClick={() => { setQuery(q); runScan(q); }} style={{ fontSize: 10, color: '#94a3b8', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 4, padding: '2px 8px', cursor: 'pointer', maxWidth: 180, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{q}</button>
           ))}
@@ -11259,7 +11259,7 @@ function TabRadarIntel() {
 
       {/* Preset categories */}
       <div style={{ marginBottom: 20 }}>
-        <p style={{ fontSize: 10, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 8 }}>📂 Categorías rápidas</p>
+        <p style={{ fontSize: 10, fontWeight: 700, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 8 }}>📂 Categorías rápidas</p>
         <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
           {RADAR_CATEGORIES.map(c => (
             <button key={c.id} onClick={() => { setQuery(c.query); runScan(c.query); }}
@@ -11277,7 +11277,7 @@ function TabRadarIntel() {
         <div style={{ padding: 24, background: 'rgba(99,102,241,0.06)', borderRadius: 14, border: '1px solid rgba(99,102,241,0.15)', marginBottom: 20, textAlign: 'center' }}>
           <div style={{ fontSize: 32, marginBottom: 8, animation: 'pulse 2s infinite' }}>🛰️</div>
           <p style={{ fontSize: 13, fontWeight: 600, color: '#a5b4fc', margin: '0 0 4px' }}>Investigando con Gemini 2.5 Pro grounded...</p>
-          <p style={{ fontSize: 11, color: '#64748b', margin: 0 }}>Esto puede tomar 30-60 segundos (cold-start Render + grounding Google Search)</p>
+          <p style={{ fontSize: 11, color: '#9ca3af', margin: 0 }}>Esto puede tomar 30-60 segundos (cold-start Render + grounding Google Search)</p>
         </div>
       )}
 
@@ -11296,11 +11296,11 @@ function TabRadarIntel() {
 
       {/* Filter bar */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-        <p style={{ fontSize: 11, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.06em', margin: 0 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.06em', margin: 0 }}>
           📊 Signals {showStarredOnly ? '(★ importantes)' : `(${filteredSignals.length})`}
         </p>
         <button onClick={() => setShowStarredOnly(!showStarredOnly)}
-          style={{ fontSize: 10, fontWeight: 600, color: showStarredOnly ? '#fbbf24' : '#64748b', background: showStarredOnly ? 'rgba(251,191,36,0.1)' : 'rgba(255,255,255,0.03)', border: `1px solid ${showStarredOnly ? 'rgba(251,191,36,0.3)' : 'rgba(255,255,255,0.06)'}`, borderRadius: 6, padding: '4px 10px', cursor: 'pointer' }}>
+          style={{ fontSize: 10, fontWeight: 600, color: showStarredOnly ? '#fbbf24' : '#9ca3af', background: showStarredOnly ? 'rgba(251,191,36,0.1)' : 'rgba(255,255,255,0.03)', border: `1px solid ${showStarredOnly ? 'rgba(251,191,36,0.3)' : 'rgba(255,255,255,0.06)'}`, borderRadius: 6, padding: '4px 10px', cursor: 'pointer' }}>
           {showStarredOnly ? '★ Solo importantes' : '☆ Filtrar importantes'}
         </button>
       </div>
@@ -11310,11 +11310,11 @@ function TabRadarIntel() {
         <div style={{ padding: 40, textAlign: 'center', background: 'rgba(255,255,255,0.02)', borderRadius: 14, border: '1px dashed rgba(255,255,255,0.08)' }}>
           <div style={{ fontSize: 48, marginBottom: 12 }}>🛰️</div>
           <p style={{ fontSize: 14, fontWeight: 600, color: '#94a3b8', margin: '0 0 6px' }}>{showStarredOnly ? 'No hay signals marcados como importantes' : 'Sin signals todavía'}</p>
-          <p style={{ fontSize: 12, color: '#64748b', margin: 0 }}>{showStarredOnly ? 'Marca signals con ★ para verlos aquí' : 'Click "🎯 Competitors" arriba para tu primera investigación'}</p>
+          <p style={{ fontSize: 12, color: '#9ca3af', margin: 0 }}>{showStarredOnly ? 'Marca signals con ★ para verlos aquí' : 'Click "🎯 Competitors" arriba para tu primera investigación'}</p>
         </div>
       )}
 
-      {loadingHistory && <p style={{ fontSize: 12, color: '#64748b', textAlign: 'center', padding: 20 }}>Cargando historial de signals...</p>}
+      {loadingHistory && <p style={{ fontSize: 12, color: '#9ca3af', textAlign: 'center', padding: 20 }}>Cargando historial de signals...</p>}
 
       {/* Signals list */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
@@ -11336,7 +11336,7 @@ function TabRadarIntel() {
               <span style={{ fontSize: 14 }}>{impactIcon[impact] || '🟠'}</span>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <p style={{ fontSize: 13, fontWeight: 600, color: '#e2e8f0', margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{s.title}</p>
-                <p style={{ fontSize: 10, color: '#64748b', margin: '2px 0 0' }}>
+                <p style={{ fontSize: 10, color: '#9ca3af', margin: '2px 0 0' }}>
                   {s.signal_type || 'signal'} · {s.confidence || '-'} confidence
                   {s.created_at && ` · ${new Date(s.created_at).toLocaleDateString()}`}
                 </p>
@@ -11378,7 +11378,7 @@ function TabOperaciones({ tenants, health, orders, selectedSlug, setSelectedSlug
     <>
       <div style={{ display: 'flex', gap: 4, overflowX: 'auto', marginBottom: 16, borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: 8 }}>
         {subs.map(s => (
-          <button key={s.id} onClick={() => setSection(s.id)} style={{ padding: '6px 14px', fontSize: 11, fontWeight: 600, border: 'none', background: section === s.id ? GBa(0.12) : 'none', color: section === s.id ? GB_LIGHT : '#64748b', cursor: 'pointer', borderRadius: 6, whiteSpace: 'nowrap' }}>{s.icon} {s.label}</button>
+          <button key={s.id} onClick={() => setSection(s.id)} style={{ padding: '6px 14px', fontSize: 11, fontWeight: 600, border: 'none', background: section === s.id ? GBa(0.12) : 'none', color: section === s.id ? GB_LIGHT : '#9ca3af', cursor: 'pointer', borderRadius: 6, whiteSpace: 'nowrap' }}>{s.icon} {s.label}</button>
         ))}
       </div>
       {section === 'soporte' && <TabSoporte tenants={tenants} />}
@@ -11398,8 +11398,8 @@ function TabPlaceholderV2({ icon, title, desc }) {
     <div style={{ textAlign: 'center', padding: '60px 20px' }}>
       <div style={{ fontSize: 56, marginBottom: 16 }}>{icon}</div>
       <h2 style={{ fontSize: 22, fontWeight: 800, color: '#f1f5f9', margin: '0 0 8px' }}>{title}</h2>
-      <p style={{ fontSize: 14, color: '#64748b', maxWidth: 400, margin: '0 auto' }}>{desc}</p>
-      <div style={{ marginTop: 20, padding: '8px 20px', background: 'rgba(255,255,255,0.04)', borderRadius: 8, display: 'inline-block', fontSize: 11, color: '#64748b', fontWeight: 600 }}>🚧 En desarrollo</div>
+      <p style={{ fontSize: 14, color: '#9ca3af', maxWidth: 400, margin: '0 auto' }}>{desc}</p>
+      <div style={{ marginTop: 20, padding: '8px 20px', background: 'rgba(255,255,255,0.04)', borderRadius: 8, display: 'inline-block', fontSize: 11, color: '#9ca3af', fontWeight: 600 }}>🚧 En desarrollo</div>
     </div>
   );
 }
@@ -11413,14 +11413,14 @@ function TabIdeasSandbox() {
   return (
     <div style={{ maxWidth: 700 }}>
       <h2 style={{ fontSize: 18, fontWeight: 800, color: '#f1f5f9', marginBottom: 12 }}>💡 Ideas Sandbox</h2>
-      <p style={{ fontSize: 12, color: '#64748b', marginBottom: 16 }}>Notepad estratégico. Se guarda automáticamente en tu navegador.</p>
+      <p style={{ fontSize: 12, color: '#9ca3af', marginBottom: 16 }}>Notepad estratégico. Se guarda automáticamente en tu navegador.</p>
       <textarea
         value={text}
         onChange={e => setText(e.target.value)}
         placeholder="Escribe tus ideas, estrategias, notas..."
         style={{ width: '100%', minHeight: 400, background: '#0f1623', border: '1px solid rgba(255,255,255,0.1)', color: '#e2e8f0', padding: 16, borderRadius: 12, fontSize: 14, lineHeight: 1.7, resize: 'vertical', outline: 'none', fontFamily: 'inherit' }}
       />
-      <p style={{ fontSize: 10, color: '#64748b', marginTop: 8 }}>Auto-guardado · {text.length} caracteres · localStorage</p>
+      <p style={{ fontSize: 10, color: '#9ca3af', marginTop: 8 }}>Auto-guardado · {text.length} caracteres · localStorage</p>
     </div>
   );
 }
@@ -11448,7 +11448,7 @@ function TabDoctrinaLive() {
           </div>
           {dvs.details && <pre style={{ fontSize: 11, color: '#94a3b8', background: '#0f1623', padding: 12, borderRadius: 8, overflow: 'auto', maxHeight: 300 }}>{JSON.stringify(dvs.details, null, 2)}</pre>}
         </div>
-      ) : <p style={{ color: '#64748b', fontSize: 12 }}>Cargando Doctrine Vitality Score...</p>}
+      ) : <p style={{ color: '#9ca3af', fontSize: 12 }}>Cargando Doctrine Vitality Score...</p>}
       {audits && (
         <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 14, padding: 20 }}>
           <h3 style={{ fontSize: 14, fontWeight: 700, color: '#e2e8f0', marginBottom: 12 }}>Últimos Self-Audits</h3>
@@ -11456,7 +11456,7 @@ function TabDoctrinaLive() {
             <div key={i} style={{ padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 12, color: '#94a3b8', display: 'flex', gap: 12 }}>
               <span style={{ fontWeight: 700, color: a.status === 'pass' ? '#10b981' : '#f59e0b' }}>{a.status}</span>
               <span>{a.agent_id}</span>
-              <span style={{ color: '#64748b' }}>{a.task_ref}</span>
+              <span style={{ color: '#9ca3af' }}>{a.task_ref}</span>
             </div>
           ))}
         </div>
@@ -11470,7 +11470,7 @@ function TabRoadmap() {
     { label: 'AHORA', color: '#10b981', items: ['Cockpit V2 redesign', 'Banderazo Paty 100%', 'Chat individual agentes (task #30)', 'Stripe billing portal'] },
     { label: '30 DÍAS', color: '#f59e0b', items: ['Segundo tenant onboarding', 'A7 analytics dashboard live', 'WhatsApp Business API production', 'AGUJA v1 product evolution'] },
     { label: '90 DÍAS', color: '#8b5cf6', items: ['Multi-tenant federation', 'A1 marketing automation', 'Mobile mando PWA', 'Enterprise plan launch'] },
-    { label: 'HORIZONTE', color: '#64748b', items: ['Self-service onboarding', 'API pública third-party', 'Marketplace de módulos', 'Expansión LATAM'] },
+    { label: 'HORIZONTE', color: '#9ca3af', items: ['Self-service onboarding', 'API pública third-party', 'Marketplace de módulos', 'Expansión LATAM'] },
   ];
   return (
     <div style={{ maxWidth: 800 }}>
@@ -11506,7 +11506,7 @@ function GenyXLandingPage() {
   <svg title="WhatsApp" width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#25D366"/><path fill="#fff" d="M17.5 14.38c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg>
   <svg title="Instagram" width="18" height="18" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stopColor="#f09433"/><stop offset="25%" stopColor="#e6683c"/><stop offset="50%" stopColor="#dc2743"/><stop offset="75%" stopColor="#cc2366"/><stop offset="100%" stopColor="#bc1888"/></linearGradient></defs><rect width="20" height="20" x="2" y="2" rx="5" fill="url(#ig)"/><circle cx="12" cy="12" r="4" fill="none" stroke="#fff" strokeWidth="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="#fff"/></svg>
   <svg title="Facebook" width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047v-2.66c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.93-1.956 1.886v2.265h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
-  <svg title="Web" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="1.5" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <svg title="Web" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" strokeWidth="1.5" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
   <svg title="Voz" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
 </span></>, 'Un solo agente atendiendo en WhatsApp, tu sitio web, Instagram, Facebook y por llamada telefónica. Tú en un lugar. Tu agente en todos.'],
     [<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={GB_LIGHT} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="M7 16V12m4 4V8m4 8V5"/></svg>, 'Centro de Mando', 'Pedidos, ventas, catálogo y métricas de tu negocio desde un solo panel — en tu celular o computadora. Sabes exactamente qué se vendió, cuándo y cuánto.'],
@@ -11526,14 +11526,14 @@ function GenyXLandingPage() {
     logoBox: { width: 32, height: 32, border: `2px solid ${GENYX_BRAND}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 800, color: GB_LIGHT },
     logoText: { fontWeight: 800, fontSize: 15, color: '#fff', letterSpacing: '-0.3px' },
     navLinks: { display: 'flex', gap: 32, alignItems: 'center' },
-    navLink: { color: '#64748b', fontSize: 13, textDecoration: 'none' },
+    navLink: { color: '#9ca3af', fontSize: 13, textDecoration: 'none' },
     demoCta: { background: `linear-gradient(135deg, ${GENYX_BRAND}, #8b5cf6)`, color: '#fff', padding: '8px 22px', borderRadius: 8, fontSize: 13, fontWeight: 600, textDecoration: 'none', boxShadow: `0 0 20px ${GBa(0.3)}` },
     hero: { minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', textAlign: 'center', padding: '120px 24px 80px', position: 'relative' },
     badge: { display: 'inline-flex', alignItems: 'center', gap: 8, background: GBa(0.1), border: `1px solid ${GBa(0.3)}`, borderRadius: 20, padding: '6px 18px', marginBottom: 32, fontSize: 12, color: GB_LIGHT, fontWeight: 600, letterSpacing: '.06em' },
     dot: { width: 6, height: 6, borderRadius: '50%', background: GENYX_BRAND, display: 'inline-block' },
     h1: { fontSize: 'clamp(42px, 7vw, 86px)', fontWeight: 800, lineHeight: 1.05, marginBottom: 24, letterSpacing: '-2.5px', background: 'linear-gradient(135deg, #fff 0%, #94a3b8 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
     h1accent: { background: `linear-gradient(135deg, ${GENYX_BRAND}, #8b5cf6)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
-    sub: { fontSize: 18, color: '#64748b', maxWidth: 520, lineHeight: 1.7, marginBottom: 52 },
+    sub: { fontSize: 18, color: '#9ca3af', maxWidth: 520, lineHeight: 1.7, marginBottom: 52 },
     btns: { display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center' },
     primary: { background: `linear-gradient(135deg, ${GENYX_BRAND}, #8b5cf6)`, color: '#fff', padding: '15px 34px', borderRadius: 12, fontSize: 15, fontWeight: 700, textDecoration: 'none', boxShadow: `0 0 36px ${GBa(0.35)}` },
     secondary: { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)', color: '#e2e8f0', padding: '15px 34px', borderRadius: 12, fontSize: 15, fontWeight: 600, textDecoration: 'none' },
@@ -11541,28 +11541,28 @@ function GenyXLandingPage() {
     statsGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 20, overflow: 'hidden' },
     statCell: (i) => ({ padding: '30px 24px', textAlign: 'center', borderRight: i < 3 ? '1px solid rgba(255,255,255,0.07)' : 'none' }),
     statVal: { fontSize: 34, fontWeight: 800, color: GB_LIGHT, marginBottom: 6 },
-    statLbl: { fontSize: 11, color: '#64748b', textTransform: 'uppercase', letterSpacing: '.08em' },
+    statLbl: { fontSize: 11, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.08em' },
     section: (pb=120) => ({ padding: `0 24px ${pb}px`, maxWidth: 1100, margin: '0 auto' }),
     sHead: { textAlign: 'center', marginBottom: 64 },
     sH2: { fontSize: 42, fontWeight: 800, marginBottom: 14, letterSpacing: '-1px' },
-    sP: { color: '#64748b', fontSize: 16 },
+    sP: { color: '#9ca3af', fontSize: 16 },
     grid6: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 20 },
     card: { background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 16, padding: '28px 24px', transition: 'all 0.25s' },
     cardIcon: { fontSize: 32, marginBottom: 16 },
     cardH: { fontSize: 16, fontWeight: 700, marginBottom: 10, color: '#f1f5f9' },
-    cardP: { fontSize: 13, color: '#64748b', lineHeight: 1.75 },
+    cardP: { fontSize: 13, color: '#9ca3af', lineHeight: 1.75 },
     grid3: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 },
     stepCard: { background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 16, padding: '28px 24px', position: 'relative', overflow: 'hidden', transition: 'all 0.25s' },
     stepNum: { fontSize: 56, fontWeight: 900, color: GBa(0.18), lineHeight: 1, marginBottom: 16, letterSpacing: '-3px' },
     ctaSec: { padding: '0 24px 120px', textAlign: 'center' },
     ctaBox: { maxWidth: 560, margin: '0 auto', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 24, padding: '56px 40px' },
     ctaH: { fontSize: 36, fontWeight: 800, marginBottom: 16, letterSpacing: '-1px' },
-    ctaSub: { color: '#64748b', marginBottom: 40, lineHeight: 1.7 },
+    ctaSub: { color: '#9ca3af', marginBottom: 40, lineHeight: 1.7 },
     ctaBtn: { display: `block`, background: `linear-gradient(135deg, ${GENYX_BRAND}, #8b5cf6)`, color: `#fff`, padding: '16px 32px', borderRadius: 12, fontSize: 15, fontWeight: 700, textDecoration: 'none', boxShadow: `0 0 32px ${GBa(0.3)}` },
     footer: { borderTop: '1px solid rgba(255,255,255,0.06)', padding: '32px 48px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 },
-    ftrBrand: { fontSize: 13, color: '#64748b', fontWeight: 700 },
+    ftrBrand: { fontSize: 13, color: '#9ca3af', fontWeight: 700 },
     ftrLinks: { display: 'flex', gap: 24 },
-    ftrLink: { fontSize: 12, color: '#64748b', textDecoration: 'none' },
+    ftrLink: { fontSize: 12, color: '#9ca3af', textDecoration: 'none' },
   };
   const hoverCard = (e, on) => { e.currentTarget.style.borderColor = on ? GBa(0.4) : 'rgba(255,255,255,0.07)'; e.currentTarget.style.background = on ? GBa(0.06) : 'rgba(255,255,255,0.03)'; };
 
@@ -11575,7 +11575,7 @@ function GenyXLandingPage() {
         </a>
         <div style={C.navLinks}>
           {[['Agentes', '#agentes'], ['Proceso', '#proceso'], ['Por qué ahora', '/por-que-ahora'], ['AOaaS', '/por-que-aoaas'], ['Blog', '/blog']].map(([l, h]) => (
-            <a key={l} href={h} style={{ ...C.navLink, ...(l === 'AOaaS' ? { background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', fontWeight:800 } : {}) }} onMouseOver={e => { if (l !== 'AOaaS') e.target.style.color = '#fff'; }} onMouseOut={e => { if (l !== 'AOaaS') e.target.style.color = '#64748b'; }}>{l}</a>
+            <a key={l} href={h} style={{ ...C.navLink, ...(l === 'AOaaS' ? { background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', fontWeight:800 } : {}) }} onMouseOver={e => { if (l !== 'AOaaS') e.target.style.color = '#fff'; }} onMouseOut={e => { if (l !== 'AOaaS') e.target.style.color = '#9ca3af'; }}>{l}</a>
           ))}
           <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, quiero saber más sobre GenyX")}`} style={C.demoCta}>Cuéntame de tu negocio →</a>
         </div>
@@ -11592,7 +11592,7 @@ function GenyXLandingPage() {
           &#x2713; Activo en 48h · Respuesta en segundos · Cero comisión por venta
         </div>
         <h1 style={C.h1}>Instalamos 9 agentes de IA<br /><span style={C.h1accent}>que orquestan tu operación comercial completa — autónoma, sin que tú estés.</span></h1>
-        <div style={{ display:'inline-flex', alignItems:'center', gap:8, marginTop:8, marginBottom:4 }}><span style={{ fontSize:13, fontWeight:900, background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', letterSpacing:'.05em' }}>AOaaS</span><span style={{ color:'#64748b', fontSize:12 }}>— Agent Operations as a Service</span></div>
+        <div style={{ display:'inline-flex', alignItems:'center', gap:8, marginTop:8, marginBottom:4 }}><span style={{ fontSize:13, fontWeight:900, background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', letterSpacing:'.05em' }}>AOaaS</span><span style={{ color:'#9ca3af', fontSize:12 }}>— Agent Operations as a Service</span></div>
         <p style={{ marginTop: 16, fontSize: 17, color: '#94a3b8', fontStyle: 'italic', lineHeight: 1.6 }}>9 directores ejecutivos IA. <strong style={{ color: '#f1f5f9', fontStyle: 'normal' }}>Tu operación comercial autónoma.</strong></p>
         <p style={C.sub}>Operación 24/7 + inteligencia ejecutiva + accountability medible. Todo lo que necesita tu negocio para crecer. Dos capas: la operativa (atender, vender, cobrar, entregar) y la estratégica (interpretar tus datos y planear tus finanzas y marketing). El fundador toma la decisión. La IA hace el trabajo.</p>
         <div style={C.btns}>
@@ -11634,7 +11634,7 @@ function GenyXLandingPage() {
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: GB_LIGHT, letterSpacing: '.1em', marginBottom: 12 }}>AOaaS — TU OPERACIÓN COMERCIAL AUTÓNOMA</div>
           <h2 style={{ fontSize: 36, fontWeight: 900, color: `#f1f5f9`, marginBottom: 10 }}>9 agentes de IA.<br /><span style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip: `text`, WebkitTextFillColor: 'transparent' }}>Configurados para tu negocio.</span></h2>
-          <p style={{ color: '#64748b', fontSize: 14, maxWidth: 560, margin: '0 auto' }}>Cada agente se encarga de una función clave. Trabajan juntos, comparten información y operan 24/7 — configurados con las reglas de tu negocio.</p>
+          <p style={{ color: '#9ca3af', fontSize: 14, maxWidth: 560, margin: '0 auto' }}>Cada agente se encarga de una función clave. Trabajan juntos, comparten información y operan 24/7 — configurados con las reglas de tu negocio.</p>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
           {[
@@ -11654,7 +11654,7 @@ function GenyXLandingPage() {
               onMouseOut={e => { e.currentTarget.style.borderColor = GBa(0.25); e.currentTarget.style.transform = 'translateY(0)'; }}>
               <div style={{ width:40, height:40, borderRadius:10, background:GBa(0.1), border:`1px solid ${GBa(0.2)}`, display:'flex', alignItems:'center', justifyContent:'center', marginBottom:8 }}>{icoFn()}</div>
               <div style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9', marginBottom: 4 }}>{name}</div>
-              <div style={{ fontSize: 11, color: '#64748b', lineHeight: 1.6 }}>{desc}</div>
+              <div style={{ fontSize: 11, color: '#9ca3af', lineHeight: 1.6 }}>{desc}</div>
             </div>
           ))}
         </div>
@@ -11662,7 +11662,7 @@ function GenyXLandingPage() {
         {/* ── 3 macro-bloques de capacidades (REGLA 11 agnóstico) ── */}
         <div style={{ marginTop: 40, textAlign: 'center' }}>
           <p style={{ fontSize: 14, color: GB_SOFT, fontWeight: 700, marginBottom: 6 }}>9 agentes. Todos los planes. Cualquier negocio.</p>
-          <p style={{ fontSize: 12, color: '#64748b', marginBottom: 24 }}>Tú diriges la estrategia. Los agentes operan, miden y proponen. Mantienes la dirección sin la operación diaria.</p>
+          <p style={{ fontSize: 12, color: '#9ca3af', marginBottom: 24 }}>Tú diriges la estrategia. Los agentes operan, miden y proponen. Mantienes la dirección sin la operación diaria.</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 14 }}>
             {[
               [
@@ -11696,7 +11696,7 @@ function GenyXLandingPage() {
               </div>
             ))}
           </div>
-          <p style={{ fontSize: 11, color: '#64748b', fontStyle: 'italic', marginTop: 16 }}>Módulos verticales opcionales según tu industria. <a href="/plus" style={{ color: GB_LIGHT, textDecoration: 'underline' }}>Ver detalles →</a></p>
+          <p style={{ fontSize: 11, color: '#9ca3af', fontStyle: 'italic', marginTop: 16 }}>Módulos verticales opcionales según tu industria. <a href="/plus" style={{ color: GB_LIGHT, textDecoration: 'underline' }}>Ver detalles →</a></p>
         </div>
       </section>
 
@@ -11744,13 +11744,13 @@ function GenyXLandingPage() {
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: GB_LIGHT, letterSpacing: '.1em', marginBottom: 12 }}>EL REPORTE DEL LUNES</div>
           <h2 style={{ fontSize: 36, fontWeight: 900, color: `#f1f5f9`, marginBottom: 10 }}>Cada lunes a las 5am,<br /><span style={{ background: `linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip: `text`, WebkitTextFillColor: 'transparent' }}>tu reporte</span></h2>
-          <p style={{ color: '#64748b', fontSize: 15, maxWidth: 520, margin: '0 auto' }}>Esto es exactamente lo que vas a recibir — con TUS números reales.</p>
+          <p style={{ color: '#9ca3af', fontSize: 15, maxWidth: 520, margin: '0 auto' }}>Esto es exactamente lo que vas a recibir — con TUS números reales.</p>
         </div>
         {/* Email mock-up */}
         <div style={{ background: '#fff', borderRadius: 16, boxShadow: '0 8px 40px rgba(0,0,0,0.25)', overflow: 'hidden', maxWidth: 560, margin: '0 auto' }}>
           {/* Email header */}
           <div style={{ background: '#f8fafc', padding: '18px 24px', borderBottom: '1px solid #e2e8f0' }}>
-            <div style={{ fontSize: 12, color: '#64748b', marginBottom: 4 }}><strong style={{ color: '#334155' }}>De:</strong> Tu Agente de Inteligencia Financiera GenyX</div>
+            <div style={{ fontSize: 12, color: '#9ca3af', marginBottom: 4 }}><strong style={{ color: '#334155' }}>De:</strong> Tu Agente de Inteligencia Financiera GenyX</div>
             <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 4 }}><strong style={{ color: '#334155' }}>Para:</strong> <span style={{ color: '#94a3b8' }}>[Tu negocio]</span></div>
             <div style={{ fontSize: 12, color: '#94a3b8' }}><strong style={{ color: '#334155' }}>Asunto:</strong> Tu reporte semanal — <span style={{ color: '#94a3b8' }}>[Fecha]</span></div>
           </div>
@@ -11759,18 +11759,18 @@ function GenyXLandingPage() {
             <p style={{ marginBottom: 16 }}>Hola <span style={{ color: '#94a3b8' }}>[Tu nombre]</span>,</p>
             <p style={{ marginBottom: 20 }}>Esta semana procesaste <strong style={{ color: '#94a3b8' }}>[X pedidos procesados]</strong>. <strong style={{ color: '#94a3b8' }}>[$X MXN]</strong> en ventas. Margen promedio: <strong style={{ color: '#94a3b8' }}>[X%]</strong>.</p>
             <div style={{ background: '#f8fafc', borderRadius: 12, padding: '16px 20px', marginBottom: 20, display: 'flex', flexDirection: 'column', gap: 10 }}>
-              <div><strong style={{ color:GENYX_BRAND }}>▎</strong> <strong>Tu producto o servicio estrella</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ cuánto vendió y a qué margen</span></div>
-              <div><strong style={{ color:GENYX_BRAND }}>▎</strong> <strong>Tu hora pico real</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ qué día de la semana concentra más demanda</span></div>
-              <div><strong style={{ color:GENYX_BRAND }}>▎</strong> <strong>Tu cliente más recurrente</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ cuántas veces te compró</span></div>
-              <div><strong style={{ color:GENYX_BRAND }}>▎</strong> <strong>Tus clientes inactivos</strong><br /><span style={{ color: '#64748b', fontSize: 12 }}>+ cuántos llevan 60+ días sin volver</span></div>
+              <div><strong style={{ color:GENYX_BRAND }}>▎</strong> <strong>Tu producto o servicio estrella</strong><br /><span style={{ color: '#9ca3af', fontSize: 12 }}>+ cuánto vendió y a qué margen</span></div>
+              <div><strong style={{ color:GENYX_BRAND }}>▎</strong> <strong>Tu hora pico real</strong><br /><span style={{ color: '#9ca3af', fontSize: 12 }}>+ qué día de la semana concentra más demanda</span></div>
+              <div><strong style={{ color:GENYX_BRAND }}>▎</strong> <strong>Tu cliente más recurrente</strong><br /><span style={{ color: '#9ca3af', fontSize: 12 }}>+ cuántas veces te compró</span></div>
+              <div><strong style={{ color:GENYX_BRAND }}>▎</strong> <strong>Tus clientes inactivos</strong><br /><span style={{ color: '#9ca3af', fontSize: 12 }}>+ cuántos llevan 60+ días sin volver</span></div>
             </div>
             <p style={{ fontWeight: 700, marginBottom: 10, color: '#1e293b' }}>Sugerencias basadas en tus datos:</p>
             <div style={{ paddingLeft: 8, display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 20 }}>
-              <div style={{ color: '#64748b' }}>→ Recomendaciones de producción o agenda según los patrones que detectamos</div>
-              <div style={{ color: '#64748b' }}>→ Las acciones automáticas que ya tomamos con tus clientes inactivos esta semana</div>
-              <div style={{ color: '#64748b' }}>→ Cómo evolucionaron tus métricas vs la semana pasada</div>
+              <div style={{ color: '#9ca3af' }}>→ Recomendaciones de producción o agenda según los patrones que detectamos</div>
+              <div style={{ color: '#9ca3af' }}>→ Las acciones automáticas que ya tomamos con tus clientes inactivos esta semana</div>
+              <div style={{ color: '#9ca3af' }}>→ Cómo evolucionaron tus métricas vs la semana pasada</div>
             </div>
-            <p style={{ color: '#64748b' }}>Que tengas una semana increíble.</p>
+            <p style={{ color: '#9ca3af' }}>Que tengas una semana increíble.</p>
           </div>
         </div>
         <p style={{ color: '#94a3b8', fontSize: 15, fontStyle: 'italic', textAlign: 'center', lineHeight: 1.7, maxWidth: 560, margin: '28px auto 0' }}>Cuando seas cliente, este email tendrá tus números reales — los que estás dejando sobre la mesa hoy por no tenerlos.</p>
@@ -11802,10 +11802,10 @@ function GenyXLandingPage() {
             </div>
             <div style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 6 }}>
               {['Trabaja 8h L-S', 'Rotación y ausentismo', 'Reclutamiento + onboarding: semanas', 'Cada uno decide sin datos del otro'].map(t => (
-                <div key={t} style={{ fontSize: 12, color: '#64748b', display: 'flex', alignItems: 'center', gap: 6 }}><span style={{ color: '#64748b' }}>→</span> {t}</div>
+                <div key={t} style={{ fontSize: 12, color: '#9ca3af', display: 'flex', alignItems: 'center', gap: 6 }}><span style={{ color: '#9ca3af' }}>→</span> {t}</div>
               ))}
             </div>
-            <div style={{ marginTop: 12, fontSize: 10, color: '#64748b', fontStyle: 'italic' }}>Fuente: Computrabajo, OCC, Glassdoor, Indeed, Talent.com — Mayo 2026</div>
+            <div style={{ marginTop: 12, fontSize: 10, color: '#9ca3af', fontStyle: 'italic' }}>Fuente: Computrabajo, OCC, Glassdoor, Indeed, Talent.com — Mayo 2026</div>
           </div>
           {/* GenyX */}
           <div style={{ background: 'rgba(74,222,128,0.06)', border: '2px solid rgba(74,222,128,0.3)', borderRadius: 20, padding: '32px 28px' }}>
@@ -11816,7 +11816,7 @@ function GenyXLandingPage() {
               </div>
             ))}
             {['IMSS', 'Aguinaldo', 'PTU', 'Infonavit', 'Vacaciones'].map(label => (
-              <div key={label} style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#64748b' }}>
+              <div key={label} style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#9ca3af' }}>
                 <span>{label}</span><span style={{ fontWeight: 700, color: '#4ade80' }}>$0</span>
               </div>
             ))}
@@ -11825,7 +11825,7 @@ function GenyXLandingPage() {
             </div>
             <div style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 6 }}>
               {['Trabaja 24/7, los 365 días', 'Siempre consistente', 'Activo en 48h — sin reclutamiento', 'Los 9 agentes comparten datos en tiempo real'].map(t => (
-                <div key={t} style={{ fontSize: 12, color: '#64748b', display: 'flex', alignItems: 'center', gap: 6 }}><span style={{ color: '#4ade80' }}>✓</span> {t}</div>
+                <div key={t} style={{ fontSize: 12, color: '#9ca3af', display: 'flex', alignItems: 'center', gap: 6 }}><span style={{ color: '#4ade80' }}>✓</span> {t}</div>
               ))}
             </div>
           </div>
@@ -11847,7 +11847,7 @@ function GenyXLandingPage() {
           <div>
             <div style={{ fontSize:12, fontWeight:700, color:GB_LIGHT, letterSpacing:'.1em', marginBottom:12 }}>TU OPERACIÓN COMERCIAL AUTÓNOMA</div>
             <h2 style={{ fontSize:32, fontWeight:900, color:'#f1f5f9', lineHeight:1.2, marginBottom:16 }}>Tu operación comercial autónoma<br /><span style={{ background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>configurada con el ADN de tu marca</span></h2>
-            <p style={{ color:'#64748b', lineHeight:1.8, fontSize:14 }}>Tu operación comercial autónoma genera demanda, convierte prospectos en clientes, coordina entregas con tu equipo y mide cada resultado — todo con la personalidad y calidez de tu marca.</p>
+            <p style={{ color:'#9ca3af', lineHeight:1.8, fontSize:14 }}>Tu operación comercial autónoma genera demanda, convierte prospectos en clientes, coordina entregas con tu equipo y mide cada resultado — todo con la personalidad y calidez de tu marca.</p>
           </div>
           <div style={{ display:'flex', flexDirection:'column', gap:14 }}>
             {[
@@ -11860,7 +11860,7 @@ function GenyXLandingPage() {
                 <div style={{ fontSize:22, flexShrink:0, marginTop:2 }}>{ico}</div>
                 <div>
                   <div style={{ color:'#f1f5f9', fontWeight:700, fontSize:14, marginBottom:3 }}>{t}</div>
-                  <div style={{ color:'#64748b', fontSize:12, lineHeight:1.6 }}>{d}</div>
+                  <div style={{ color:'#9ca3af', fontSize:12, lineHeight:1.6 }}>{d}</div>
                 </div>
               </div>
             ))}
@@ -11874,7 +11874,7 @@ function GenyXLandingPage() {
       <section style={{ padding:'0 24px 100px', maxWidth:1000, margin:'0 auto' }}>
         <div style={{ fontSize:11, fontWeight:700, color:GB_LIGHT, letterSpacing:'.1em', marginBottom:12, textAlign:'center' }}>POR QUÉ GenyX</div>
         <h2 style={{ fontSize:36, fontWeight:900, color:`#f1f5f9`, marginBottom:12, textAlign:`center` }}>GenyX es tu operación comercial.<br /><span style={{ background:`linear-gradient(135deg,${GENYX_BRAND},#c084fc)`, WebkitBackgroundClip:`text`, WebkitTextFillColor:`transparent` }}>Con tu catálogo. Con tus reglas.</span></h2>
-        <p style={{ color:'#64748b', marginBottom:48, textAlign:'center', fontSize:15, maxWidth:600, margin:'0 auto 48px' }}>9 agentes configurados con tu catálogo, tus precios y tu personalidad de marca. Miden resultados reales cada semana.</p>
+        <p style={{ color:'#9ca3af', marginBottom:48, textAlign:'center', fontSize:15, maxWidth:600, margin:'0 auto 48px' }}>9 agentes configurados con tu catálogo, tus precios y tu personalidad de marca. Miden resultados reales cada semana.</p>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:16 }}>
           {[
             [() => simSvg([['rect',{x:3,y:11,width:18,height:11,rx:2,ry:2}],'M7 11V7a5 5 0 0110 0v4'],'lv1'), 'Precios exactos. Siempre.', 'Tu agente respeta tu catálogo al 100%. Si cuesta $120, cobra $120. Exactitud total en cada pedido.'],
@@ -11888,7 +11888,7 @@ function GenyXLandingPage() {
               onMouseOut={e => { e.currentTarget.style.borderColor=GBa(0.15); e.currentTarget.style.background='rgba(255,255,255,0.03)'; }}>
               <div style={{ width:48, height:48, borderRadius:12, background:GBa(0.1), border:`1px solid ${GBa(0.2)}`, display:'flex', alignItems:'center', justifyContent:'center', marginBottom:12 }}>{icoFn()}</div>
               <div style={{ fontWeight:700, fontSize:15, color:'#f1f5f9', marginBottom:8 }}>{t}</div>
-              <div style={{ fontSize:13, color:'#64748b', lineHeight:1.75 }}>{d}</div>
+              <div style={{ fontSize:13, color:'#9ca3af', lineHeight:1.75 }}>{d}</div>
             </div>
           ))}
         </div>
@@ -11899,7 +11899,7 @@ function GenyXLandingPage() {
         <div style={{ background:`linear-gradient(135deg,${GBa(0.06)},rgba(139,92,246,0.06))`, border:`1px solid ${GBa(0.2)}`, borderRadius:24, padding:'48px 40px' }}>
           <div style={{ fontSize:11, fontWeight:800, color:GB_LIGHT, letterSpacing:'.12em', textTransform:'uppercase', marginBottom:12 }}>AOaaS — Modelo de Inversión</div>
           <h2 style={{ fontSize:32, fontWeight:900, color:'#f1f5f9', lineHeight:1.25, marginBottom:16 }}>3 planes. 9 agentes.<br /><span style={{ background:'linear-gradient(135deg,#818cf8,#c084fc)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Tu operación comercial autónoma — AOaaS.</span></h2>
-          <p style={{ color:'#64748b', lineHeight:1.8, marginBottom:32, fontSize:15 }}>GenyX opera bajo un modelo de <strong style={{ color:GB_SOFT }}>Fee de instalación + Suscripción mensual fija</strong>. Sin importar cuánto vendas en el mes, tu costo no cambia. Tus márgenes son tuyos.</p>
+          <p style={{ color:'#9ca3af', lineHeight:1.8, marginBottom:32, fontSize:15 }}>GenyX opera bajo un modelo de <strong style={{ color:GB_SOFT }}>Fee de instalación + Suscripción mensual fija</strong>. Sin importar cuánto vendas en el mes, tu costo no cambia. Tus márgenes son tuyos.</p>
           <div style={{ display:'flex', justifyContent:'center', gap:16, flexWrap:'wrap', marginBottom:24 }}>
             {[
               ['ESENCIAL','$9,900','MXN/mes','Setup: $6,000','9 agentes de IA','200 msgs carritos · 100 reactivación','Módulos verticales según industria','Soporte L-V 9am–7pm','Negocio independiente.'],
@@ -11910,19 +11910,19 @@ function GenyXLandingPage() {
                 {plan === 'PROFESIONAL' && <div style={{ position:`absolute`, top:-10, left:`50%`, transform:`translateX(-50%)`, background:`linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color:`#fff`, fontSize:9, fontWeight:800, padding:`3px 14px`, borderRadius:20, letterSpacing:`.05em` }}>MÁS POPULAR</div>}
                 <div style={{ fontWeight:800, fontSize:13, color:GB_LIGHT, letterSpacing:'.06em', marginBottom:10 }}>{plan}</div>
                 <div style={{ fontSize:28, fontWeight:900, color:'#f1f5f9', marginBottom:2 }}>{price}</div>
-                <div style={{ fontSize:12, color:'#64748b', marginBottom:8 }}>{period}</div>
+                <div style={{ fontSize:12, color:'#9ca3af', marginBottom:8 }}>{period}</div>
                 <div style={{ fontSize:11, color:'#94a3b8', marginBottom:12 }}>{setup}</div>
                 <div style={{ display:'flex', flexDirection:'column', gap:4, marginBottom:12 }}>
                   {[agents, outbound, tools, support].map(item => (
                     <div key={item} style={{ fontSize:11, color:'#94a3b8', display:'flex', alignItems:'center', gap:6 }}><span style={{ color:'#4ade80' }}>✓</span> {item}</div>
                   ))}
                 </div>
-                <div style={{ fontSize:11, color:'#64748b', lineHeight:1.6, fontStyle:'italic' }}>{desc}</div>
+                <div style={{ fontSize:11, color:'#9ca3af', lineHeight:1.6, fontStyle:'italic' }}>{desc}</div>
               </div>
             ))}
           </div>
           <p style={{ fontSize:13, color:'#94a3b8', marginBottom:8, lineHeight:1.7 }}>La diferencia entre planes no está en los agentes — los 8 siempre están.<br />La diferencia está en el volumen de tu operación: bolsas de mensajes proactivos, herramientas y nivel de soporte. <a href="/planes" style={{ color:GB_LIGHT, textDecoration:'underline' }}>Ver detalle completo →</a></p>
-          <p style={{ fontSize:13, color:'#64748b', marginBottom:24 }}>Cero comisión por venta. Sin permanencia mínima.</p>
+          <p style={{ fontSize:13, color:'#9ca3af', marginBottom:24 }}>Cero comisión por venta. Sin permanencia mínima.</p>
           <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, quiero saber más sobre GenyX")}`} style={{ display:`inline-block`, background:`linear-gradient(135deg,${GENYX_BRAND},#8b5cf6)`, color:`#fff`, padding:'14px 36px', borderRadius:12, fontSize:14, fontWeight:700, textDecoration:'none', boxShadow:`0 0 28px ${GBa(0.3)}` }}>Conoce qué plan es para ti →</a>
         </div>
       </section>
@@ -11955,7 +11955,7 @@ function GenyXLandingPage() {
           <h2 style={C.ctaH}>¿Listo para tomar mejores decisiones?</h2>
           <p style={C.ctaSub}>Cuéntanos de tu negocio.</p>
           <a href={`${GENYX_CONTACT.contact_url}&body=${encodeURIComponent("Hola, me interesa GenyX para mi negocio. ¿Cuándo podemos hablar?")}`} style={{ ...C.ctaBtn, display:'inline-flex', alignItems:'center', gap:10, marginBottom:14 }}>Cuéntame de tu negocio →</a>
-          <p style={{ color:'#64748b', fontSize:13 }}>o si prefieres: <a href="mailto:hola@genyxsystems.com" style={{ color:GB_LIGHT, textDecoration:'none' }}>hola@genyxsystems.com</a></p>
+          <p style={{ color:'#9ca3af', fontSize:13 }}>o si prefieres: <a href="mailto:hola@genyxsystems.com" style={{ color:GB_LIGHT, textDecoration:'none' }}>hola@genyxsystems.com</a></p>
         </div>
       </div>
 
@@ -11973,7 +11973,7 @@ function GenyXLandingPage() {
           <a href="https://mando.genyxsystems.com" style={{ ...C.ftrLink, color:GENYX_BRAND, fontWeight:700 }}>→ Accede a tu Mando</a>
         </div>
         <p style={{ fontSize: 9, color: '#334155', maxWidth: 600, lineHeight: 1.5, marginTop: 8 }}>
-          GenyX opera con IA generativa. Outputs validados por governance pipeline (REGLAs 1-13). <a href="/terminos" style={{ color: '#64748b', textDecoration: 'underline' }}>SLA</a> garantiza disponibilidad — no precisión absoluta de outputs IA. <a href="/terminos" style={{ color: '#64748b', textDecoration: 'underline' }}>Cláusula 7b</a> delimita responsabilidad.
+          GenyX opera con IA generativa. Outputs validados por governance pipeline (REGLAs 1-13). <a href="/terminos" style={{ color: '#9ca3af', textDecoration: 'underline' }}>SLA</a> garantiza disponibilidad — no precisión absoluta de outputs IA. <a href="/terminos" style={{ color: '#9ca3af', textDecoration: 'underline' }}>Cláusula 7b</a> delimita responsabilidad.
         </p>
       </footer>
     </div>
@@ -12197,7 +12197,7 @@ export default function GenyXOperatorDashboard() {
         <div style={{ textAlign:'center', padding:40, maxWidth:440 }}>
           <div style={{ fontSize:52, marginBottom:20 }}>⚠️</div>
           <h1 style={{ color:'#f1f5f9', fontSize:24, fontWeight:800, marginBottom:12 }}>Pago no completado</h1>
-          <p style={{ color:'#64748b', lineHeight:1.7, marginBottom:32 }}>No te preocupes — tu carrito sigue guardado. Regresa al chat de WhatsApp y genera un nuevo link cuando estés listo.</p>
+          <p style={{ color:'#9ca3af', lineHeight:1.7, marginBottom:32 }}>No te preocupes — tu carrito sigue guardado. Regresa al chat de WhatsApp y genera un nuevo link cuando estés listo.</p>
           <a href={`https://wa.me/${cancelPhone}`} style={{ display:'inline-block', background:'linear-gradient(135deg,#25d366,#128c7e)', color:'#fff', padding:'14px 32px', borderRadius:30, fontWeight:700, fontSize:14, textDecoration:'none' }}>← Volver al Chat de {cancelName}</a>
         </div>
       </div>
@@ -12236,8 +12236,8 @@ export default function GenyXOperatorDashboard() {
             <div style={{ width: 30, height: 30, border: `2px solid ${GENYX_BRAND}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 800, color: GB_LIGHT }}>G</div>
             <div>
               <p style={{ fontWeight: 700, fontSize: 13, color: '#fff', letterSpacing: '.03em' }}>Geny<span style={{ color: GB_LIGHT }}>X</span></p>
-              <p style={{ fontSize: 10, color: '#64748b', fontFamily: 'monospace' }}>Centro de Mando GenyX</p>
-              <p style={{ fontSize: 9, color: '#64748b', fontStyle: 'italic' }}>Tu operación comercial autónoma</p>
+              <p style={{ fontSize: 10, color: '#9ca3af', fontFamily: 'monospace' }}>Centro de Mando GenyX</p>
+              <p style={{ fontSize: 9, color: '#9ca3af', fontStyle: 'italic' }}>Tu operación comercial autónoma</p>
             </div>
           </div>
         </div>
@@ -12257,7 +12257,7 @@ export default function GenyXOperatorDashboard() {
           </button>
           {health && <span style={{ fontSize: 11, color: '#4ade80', background: '#14532d30', border: '1px solid #14532d', padding: '4px 12px', borderRadius: 20, fontFamily: 'monospace' }}>🟢 v{health.version} · {realTenantCount != null ? realTenantCount : tenants.filter(t => t.status === 'active').length} activo(s) · {tenants.length} tenant(s)</span>}
           <button onClick={() => { sessionStorage.removeItem('genyx_admin_key'); setAdminKey(''); }}
-            style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', color: '#64748b', padding: '7px 14px', borderRadius: 8, cursor: 'pointer', fontSize: 12 }}
+            style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', color: '#9ca3af', padding: '7px 14px', borderRadius: 8, cursor: 'pointer', fontSize: 12 }}
             title="Cerrar sesión">🔒 Salir</button>
         </div>
       </header>
@@ -12270,7 +12270,7 @@ export default function GenyXOperatorDashboard() {
               {gi > 0 && <span style={{ width: 1, height: 20, background: 'rgba(255,255,255,0.08)', margin: '0 6px', flexShrink: 0 }} />}
               <span style={{ fontSize: 8, fontWeight: 800, color: '#334155', letterSpacing: '.1em', textTransform: 'uppercase', padding: '0 6px', whiteSpace: 'nowrap', flexShrink: 0 }}>{g.group}</span>
               {g.tabs.map(t => (
-                <button key={t.id} onClick={() => setTab(t.id)} style={{ padding: '12px 12px', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.04em', border: 'none', background: 'none', cursor: 'pointer', color: tab === t.id ? GENYX_BRAND : '#64748b', borderBottom: `2px solid ${tab === t.id ? GENYX_BRAND : 'transparent'}`, transition: 'all 0.2s', whiteSpace: 'nowrap', position: 'relative' }}>
+                <button key={t.id} onClick={() => setTab(t.id)} style={{ padding: '12px 12px', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.04em', border: 'none', background: 'none', cursor: 'pointer', color: tab === t.id ? GENYX_BRAND : '#9ca3af', borderBottom: `2px solid ${tab === t.id ? GENYX_BRAND : 'transparent'}`, transition: 'all 0.2s', whiteSpace: 'nowrap', position: 'relative' }}>
                   {t.label}
                   {t.hasBadge && escalatedCount > 0 && <span style={{ marginLeft: 4, background: '#ef4444', color: '#fff', padding: '1px 5px', borderRadius: 10, fontSize: 8, fontWeight: 800, verticalAlign: 'super' }}>{escalatedCount}</span>}
                 </button>
@@ -12287,13 +12287,13 @@ export default function GenyXOperatorDashboard() {
         <select
           value={selectedSlug}
           onChange={e => setSelectedSlug(e.target.value)}
-          style={{ background: '#0f1623', border: `1px solid ${GBa(0.35)}`, color: selectedSlug ? GB_SOFT : '#64748b', padding: '5px 12px', borderRadius: 8, fontSize: 12, fontWeight: 600, cursor: 'pointer', outline: 'none' }}
+          style={{ background: '#0f1623', border: `1px solid ${GBa(0.35)}`, color: selectedSlug ? GB_SOFT : '#9ca3af', padding: '5px 12px', borderRadius: 8, fontSize: 12, fontWeight: 600, cursor: 'pointer', outline: 'none' }}
         >
           <option value="">-- Todos --</option>
           {tenants.map(t => <option key={t.slug} value={t.slug}>{t.name || t.slug}</option>)}
         </select>
         {selectedSlug && (
-          <button onClick={() => setSelectedSlug('')} style={{ fontSize: 11, color: '#64748b', background: 'transparent', border: 'none', cursor: 'pointer', padding: '4px 8px' }}>✕ Limpiar</button>
+          <button onClick={() => setSelectedSlug('')} style={{ fontSize: 11, color: '#9ca3af', background: 'transparent', border: 'none', cursor: 'pointer', padding: '4px 8px' }}>✕ Limpiar</button>
         )}
       </div>
 
