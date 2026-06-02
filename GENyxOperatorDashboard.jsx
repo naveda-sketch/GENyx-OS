@@ -10664,25 +10664,28 @@ function AlertsBanner({ adminKey }) {
 
   React.useEffect(() => {
     if (!adminKey || dismissed) return;
-    let pollInterval = 30000; // start 30s, backoff on failure
     let failCount = 0;
-    const fetchAlerts = () => {
+    let timerId = null;
+    let cancelled = false;
+    const poll = () => {
       fetch(`${BACKEND}/api/admin/memory/alerts`, { headers })
         .then(r => r.ok ? r.json() : { alerts: [] })
         .then(d => {
+          if (cancelled) return;
           const unack = (d.alerts || []).filter(a => !a.acknowledged);
           setAlerts(unack);
-          failCount = 0; // reset on success
-          pollInterval = 30000;
+          failCount = 0;
+          timerId = setTimeout(poll, 30000);
         })
         .catch(() => {
+          if (cancelled) return;
           failCount++;
-          pollInterval = Math.min(30000 * Math.pow(2, failCount), 300000); // backoff 30s→60s→120s→cap 5min
+          const delay = Math.min(30000 * Math.pow(2, failCount), 300000);
+          timerId = setTimeout(poll, delay);
         });
     };
-    fetchAlerts();
-    const intervalId = setInterval(() => fetchAlerts(), pollInterval);
-    return () => clearInterval(intervalId);
+    poll();
+    return () => { cancelled = true; if (timerId) clearTimeout(timerId); };
   }, [adminKey, dismissed, headers]);
 
   const handleAcknowledgeAll = () => {
@@ -11055,8 +11058,319 @@ function ChaosTab() {
   );
 }
 
+
+// ═══════════════════════════════════════════════════════════════════
+// 🎯 TAB SLO DASHBOARD — Big Tech SRE Visibility (Sprint FE 2-jun-2026)
+// ═══════════════════════════════════════════════════════════════════
+// Pattern: Google SRE Dashboard — error budgets + active alerts
+// Endpoints: GET /api/admin/slo/dashboard + /api/admin/slo/alerts-active
+// REGLA 8: FOUNDER-ONLY · REGLA 14: State of DevOps Report 2024
+// ═══════════════════════════════════════════════════════════════════
+function TabSLODashboard() {
+  const [data, setData] = React.useState(null);
+  const [alerts, setAlerts] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
+
+  React.useEffect(() => {
+    setLoading(true); setError(null);
+    Promise.all([
+      fetch(`${BACKEND}/api/admin/slo/dashboard`, { headers: getAH() }).then(r => r.ok ? r.json() : null).catch(() => null),
+      fetch(`${BACKEND}/api/admin/slo/alerts-active`, { headers: getAH() }).then(r => r.ok ? r.json() : null).catch(() => null),
+    ]).then(([d, a]) => { setData(d); setAlerts(a); setLoading(false); })
+      .catch(() => { setError('Error cargando SLO data'); setLoading(false); });
+  }, []);
+
+  const CARD = { background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16 };
+  const sloColor = (pct) => pct >= 99 ? '#10b981' : pct >= 95 ? '#f59e0b' : '#ef4444';
+
+  if (loading) return <div style={{ color: '#9ca3af', fontSize: 13, padding: 20 }}>Cargando SLO dashboard...</div>;
+
+  return (
+    <div>
+      <h3 style={{ fontSize: 16, fontWeight: 700, color: '#f1f5f9', marginBottom: 4 }}>SLO + Error Budgets</h3>
+      <p style={{ fontSize: 11, color: '#9ca3af', marginBottom: 16 }}>Service Level Objectives en tiempo real</p>
+
+      {error || !data ? (
+        <div style={{ ...CARD, background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)' }}>
+          <p style={{ fontSize: 12, color: '#f87171', margin: 0 }}>Backend SLO endpoint retorna error. Verificar con Claude: GET /api/admin/slo/dashboard</p>
+          <button onClick={() => window.location.reload()} style={{ marginTop: 8, padding: '6px 16px', fontSize: 11, fontWeight: 600, background: 'rgba(239,68,68,0.15)', color: '#f87171', border: '1px solid rgba(239,68,68,0.3)', borderRadius: 8, cursor: 'pointer' }}>Reintentar</button>
+        </div>
+      ) : (
+        <>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 12, marginBottom: 16 }}>
+            {(data.slos || []).map((slo, i) => (
+              <div key={i} style={CARD}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                  <span style={{ fontSize: 12, fontWeight: 700, color: '#e2e8f0' }}>{slo.name || `SLO-${i+1}`}</span>
+                  <span style={{ fontSize: 10, fontWeight: 700, color: sloColor(slo.current_pct || 0), background: `${sloColor(slo.current_pct || 0)}15`, padding: '2px 8px', borderRadius: 50 }}>{(slo.current_pct || 0).toFixed(2)}%</span>
+                </div>
+                <div style={{ height: 6, background: 'rgba(255,255,255,0.06)', borderRadius: 3, overflow: 'hidden', marginBottom: 6 }}>
+                  <div style={{ height: '100%', width: `${Math.min(100, slo.budget_remaining_pct || 0)}%`, background: sloColor(slo.current_pct || 0), borderRadius: 3, transition: 'width 0.5s ease' }}></div>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 10, color: '#9ca3af' }}>
+                  <span>Target: {slo.target_pct || '99.9'}%</span>
+                  <span>Budget: {(slo.budget_remaining_pct || 0).toFixed(1)}%</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+
+      {/* Active Alerts */}
+      <h4 style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9', marginTop: 20, marginBottom: 8 }}>Alertas Activas</h4>
+      {!alerts || (alerts.alerts || []).length === 0 ? (
+        <div style={{ ...CARD, textAlign: 'center' }}>
+          <span style={{ fontSize: 11, color: '#9ca3af' }}>Sin alertas activas</span>
+        </div>
+      ) : (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+          {(alerts.alerts || []).map((a, i) => (
+            <div key={i} style={{ ...CARD, display: 'flex', alignItems: 'center', gap: 10, padding: 12 }}>
+              <span style={{ fontSize: 16 }}>{a.severity === 'critical' ? '🔴' : a.severity === 'warning' ? '🟡' : '🟢'}</span>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontSize: 12, fontWeight: 600, color: '#e2e8f0' }}>{a.name || a.slo_name || 'Alert'}</div>
+                <div style={{ fontSize: 10, color: '#9ca3af' }}>{a.message || a.description || ''}</div>
+              </div>
+              <span style={{ fontSize: 9, color: '#9ca3af' }}>{a.since || ''}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// 🛡️ TAB POLICY VIOLATIONS — L3 Sidecar Compliance (Sprint FE 2-jun-2026)
+// ═══════════════════════════════════════════════════════════════════
+// Pattern: PagerDuty violations view — severity badges, agent breakdown
+// Endpoints: GET /api/admin/policy/violations + /violations/stats
+// REGLA 8: FOUNDER-ONLY · REGLA 14
+// ═══════════════════════════════════════════════════════════════════
+function TabPolicyViolations() {
+  const [violations, setViolations] = React.useState(null);
+  const [stats, setStats] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
+
+  React.useEffect(() => {
+    setLoading(true); setError(null);
+    Promise.all([
+      fetch(`${BACKEND}/api/admin/policy/violations`, { headers: getAH() }).then(r => r.ok ? r.json() : null).catch(() => null),
+      fetch(`${BACKEND}/api/admin/policy/violations/stats`, { headers: getAH() }).then(r => r.ok ? r.json() : null).catch(() => null),
+    ]).then(([v, s]) => { setViolations(v); setStats(s); setLoading(false); })
+      .catch(() => { setError('Error cargando policy data'); setLoading(false); });
+  }, []);
+
+  const CARD = { background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16 };
+  const sevColor = { critical: '#ef4444', high: '#f97316', medium: '#f59e0b', low: '#3b82f6', info: '#9ca3af' };
+
+  if (loading) return <div style={{ color: '#9ca3af', fontSize: 13, padding: 20 }}>Cargando policy violations...</div>;
+
+  return (
+    <div>
+      <h3 style={{ fontSize: 16, fontWeight: 700, color: '#f1f5f9', marginBottom: 4 }}>Policy Violations</h3>
+      <p style={{ fontSize: 11, color: '#9ca3af', marginBottom: 16 }}>L3 Sidecar compliance — violaciones detectadas</p>
+
+      {/* Stats summary */}
+      {stats && (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 16 }}>
+          {[
+            { label: 'Total', value: stats.total || 0, color: '#818cf8' },
+            { label: 'Critical', value: stats.critical || 0, color: '#ef4444' },
+            { label: 'Resolved', value: stats.resolved || 0, color: '#10b981' },
+            { label: 'Open', value: stats.open || 0, color: '#f59e0b' },
+          ].map(k => (
+            <div key={k.label} style={{ ...CARD, textAlign: 'center' }}>
+              <div style={{ fontSize: 20, fontWeight: 800, color: k.color }}>{k.value}</div>
+              <div style={{ fontSize: 9, fontWeight: 600, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.06em' }}>{k.label}</div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {error || (!violations && !stats) ? (
+        <div style={{ ...CARD, background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)' }}>
+          <p style={{ fontSize: 12, color: '#f87171', margin: 0 }}>Backend policy endpoint retorna error. Verificar con Claude: GET /api/admin/policy/violations</p>
+          <button onClick={() => window.location.reload()} style={{ marginTop: 8, padding: '6px 16px', fontSize: 11, fontWeight: 600, background: 'rgba(239,68,68,0.15)', color: '#f87171', border: '1px solid rgba(239,68,68,0.3)', borderRadius: 8, cursor: 'pointer' }}>Reintentar</button>
+        </div>
+      ) : (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+          {(violations?.violations || violations || []).slice(0, 20).map((v, i) => (
+            <div key={i} style={{ ...CARD, display: 'flex', alignItems: 'center', gap: 10, padding: 12 }}>
+              <span style={{ width: 8, height: 8, borderRadius: '50%', background: sevColor[v.severity] || '#9ca3af', flexShrink: 0 }}></span>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontSize: 12, fontWeight: 600, color: '#e2e8f0' }}>{v.policy_name || v.rule || 'Policy'}</div>
+                <div style={{ fontSize: 10, color: '#9ca3af' }}>{v.agent_id || ''} — {v.description || v.message || ''}</div>
+              </div>
+              <span style={{ fontSize: 9, fontWeight: 600, color: sevColor[v.severity] || '#9ca3af', textTransform: 'uppercase' }}>{v.severity || 'info'}</span>
+            </div>
+          ))}
+          {(!violations?.violations && !Array.isArray(violations)) && (
+            <div style={{ ...CARD, textAlign: 'center' }}><span style={{ fontSize: 11, color: '#9ca3af' }}>Sin violaciones registradas</span></div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// 🔍 TAB TRACING — OpenTelemetry Config Visibility (Sprint FE 2-jun-2026)
+// ═══════════════════════════════════════════════════════════════════
+// Pattern: Datadog tracing config — mode, PII safe, whitelist
+// Endpoint: GET /api/admin/tracing/status
+// REGLA 8: FOUNDER-ONLY
+// ═══════════════════════════════════════════════════════════════════
+function TabTracing() {
+  const [data, setData] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    fetch(`${BACKEND}/api/admin/tracing/status`, { headers: getAH() })
+      .then(r => r.ok ? r.json() : null).then(d => { setData(d); setLoading(false); })
+      .catch(() => setLoading(false));
+  }, []);
+
+  const CARD = { background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16 };
+  const statusBadge = (ok) => ({ fontSize: 10, fontWeight: 700, padding: '3px 10px', borderRadius: 50, background: ok ? 'rgba(16,185,129,0.12)' : 'rgba(239,68,68,0.12)', color: ok ? '#10b981' : '#ef4444' });
+
+  if (loading) return <div style={{ color: '#9ca3af', fontSize: 13, padding: 20 }}>Cargando tracing status...</div>;
+  if (!data) return <div style={{ ...CARD, background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)' }}><p style={{ fontSize: 12, color: '#f87171', margin: 0 }}>Tracing endpoint no disponible</p></div>;
+
+  return (
+    <div>
+      <h3 style={{ fontSize: 16, fontWeight: 700, color: '#f1f5f9', marginBottom: 4 }}>Distributed Tracing</h3>
+      <p style={{ fontSize: 11, color: '#9ca3af', marginBottom: 16 }}>OpenTelemetry configuration y PII safety</p>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12, marginBottom: 16 }}>
+        <div style={CARD}>
+          <div style={{ fontSize: 10, color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase', marginBottom: 6 }}>Exporter</div>
+          <div style={{ fontSize: 14, fontWeight: 700, color: '#e2e8f0' }}>{data.exporter_mode || 'unknown'}</div>
+          <span style={statusBadge(data.initialized)}>{data.initialized ? 'Initialized' : 'Not Init'}</span>
+        </div>
+        <div style={CARD}>
+          <div style={{ fontSize: 10, color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase', marginBottom: 6 }}>OTel Available</div>
+          <div style={{ fontSize: 14, fontWeight: 700, color: data.otel_available ? '#10b981' : '#ef4444' }}>{data.otel_available ? 'YES' : 'NO'}</div>
+          <span style={statusBadge(data.otel_available)}>{data.otel_available ? 'Active' : 'Inactive'}</span>
+        </div>
+        <div style={CARD}>
+          <div style={{ fontSize: 10, color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase', marginBottom: 6 }}>PII Safe Attrs</div>
+          <div style={{ fontSize: 14, fontWeight: 700, color: '#818cf8' }}>{data.safe_attrs_whitelist_count || 0}</div>
+          <span style={statusBadge(true)}>Whitelist Active</span>
+        </div>
+      </div>
+
+      <h4 style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9', marginBottom: 8 }}>Safe Attributes Whitelist</h4>
+      <div style={{ ...CARD, display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+        {(data.safe_attrs || []).map((attr, i) => (
+          <span key={i} style={{ fontSize: 11, fontWeight: 500, padding: '4px 10px', borderRadius: 6, background: 'rgba(129,140,248,0.1)', color: '#818cf8', border: '1px solid rgba(129,140,248,0.15)' }}>{attr}</span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// 📊 TAB DRIFT COVERAGE — Layer 5 Defense in Depth (Sprint FE 2-jun-2026)
+// ═══════════════════════════════════════════════════════════════════
+// Pattern: SonarQube coverage — layer status, drift detection, gaps
+// Endpoint: GET /api/admin/drift-coverage
+// REGLA 8: FOUNDER-ONLY · Task #78
+// ═══════════════════════════════════════════════════════════════════
+function TabDriftCoverage() {
+  const [data, setData] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    fetch(`${BACKEND}/api/admin/drift-coverage`, { headers: getAH() })
+      .then(r => r.ok ? r.json() : null).then(d => { setData(d); setLoading(false); })
+      .catch(() => setLoading(false));
+  }, []);
+
+  const CARD = { background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16 };
+  const statusColor = { green: '#10b981', yellow: '#f59e0b', red: '#ef4444' };
+
+  if (loading) return <div style={{ color: '#9ca3af', fontSize: 13, padding: 20 }}>Cargando drift coverage...</div>;
+  if (!data) return <div style={{ ...CARD, background: 'rgba(239,68,68,0.08)' }}><p style={{ fontSize: 12, color: '#f87171', margin: 0 }}>Drift coverage endpoint no disponible</p></div>;
+
+  const layers = data.layer_5_coverage || {};
+  const summary = data.layer_summary || {};
+  const drift = data.drift_detection || {};
+  const adoption = data.memory_adoption || {};
+
+  return (
+    <div>
+      <h3 style={{ fontSize: 16, fontWeight: 700, color: '#f1f5f9', marginBottom: 4 }}>Layer 5 Coverage</h3>
+      <p style={{ fontSize: 11, color: '#9ca3af', marginBottom: 16 }}>Defense-in-depth — {summary.total || 0} capas · {summary.coverage_pct || 0}% cobertura · Ventana {data.window_hours || 24}h</p>
+
+      {/* Summary KPIs */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 16 }}>
+        {[
+          { label: 'Coverage', value: `${(summary.coverage_pct || 0).toFixed(0)}%`, color: summary.coverage_pct >= 100 ? '#10b981' : '#f59e0b' },
+          { label: 'Green', value: summary.green || 0, color: '#10b981' },
+          { label: 'Drift Caught', value: drift.drift_caught || 0, color: drift.drift_caught === 0 ? '#10b981' : '#ef4444' },
+          { label: 'Events Scanned', value: drift.scanned || 0, color: '#818cf8' },
+        ].map(k => (
+          <div key={k.label} style={{ ...CARD, textAlign: 'center' }}>
+            <div style={{ fontSize: 20, fontWeight: 800, color: k.color }}>{k.value}</div>
+            <div style={{ fontSize: 9, fontWeight: 600, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.06em' }}>{k.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Layer grid */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 10 }}>
+        {Object.entries(layers).map(([key, layer]) => (
+          <div key={key} style={{ ...CARD, display: 'flex', alignItems: 'center', gap: 12, padding: 12 }}>
+            <span style={{ width: 10, height: 10, borderRadius: '50%', background: statusColor[layer.status] || '#9ca3af', flexShrink: 0, boxShadow: `0 0 8px ${statusColor[layer.status] || '#9ca3af'}40` }}></span>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontSize: 12, fontWeight: 600, color: '#e2e8f0' }}>{key.replace(/_/g, ' ')}</div>
+              <div style={{ fontSize: 10, color: '#9ca3af' }}>{layer.evidence || ''}</div>
+            </div>
+            <span style={{ fontSize: 9, fontWeight: 700, color: '#9ca3af', fontFamily: 'monospace' }}>{layer.candado || ''}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Memory adoption */}
+      {adoption.per_agent && Object.keys(adoption.per_agent).length > 0 && (
+        <div style={{ marginTop: 16 }}>
+          <h4 style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9', marginBottom: 8 }}>MEMORY Adoption (24h)</h4>
+          <div style={{ ...CARD, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+            {Object.entries(adoption.per_agent).map(([agent, count]) => (
+              <span key={agent} style={{ fontSize: 11, padding: '4px 12px', borderRadius: 6, background: 'rgba(129,140,248,0.1)', color: '#818cf8', border: '1px solid rgba(129,140,248,0.15)', fontWeight: 600 }}>{agent}: {count}</span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Gaps */}
+      {(data.gap_heatmap || []).length > 0 && (
+        <div style={{ ...CARD, background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.2)', marginTop: 12 }}>
+          <p style={{ fontSize: 11, fontWeight: 700, color: '#f59e0b', margin: '0 0 6px' }}>Gaps Detectados</p>
+          {data.gap_heatmap.map((g, i) => <p key={i} style={{ fontSize: 11, color: '#fbbf24', margin: 0 }}>{g}</p>)}
+        </div>
+      )}
+
+      <p style={{ fontSize: 9, color: '#6b7280', marginTop: 12, fontStyle: 'italic' }}>{data.doctrine_citation || ''}</p>
+    </div>
+  );
+}
+
+
 function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }) {
   const [selected, setSelected] = React.useState(null);
+  const [bsSection, setBsSection] = React.useState('overview');
+  const BS_SECTIONS = [
+    { id: 'overview',  icon: '\u{1F3D7}', label: 'Overview' },
+    { id: 'slo',       icon: '\u{1F3AF}', label: 'SLO' },
+    { id: 'policy',    icon: '\u{1F6E1}', label: 'Policy' },
+    { id: 'tracing',   icon: '\u{1F50D}', label: 'Tracing' },
+    { id: 'coverage',  icon: '\u{1F4CA}', label: 'Coverage' },
+  ];
   const backstageAgents = [
     { id: 'A0', icon: '🏛️', name: 'Arquitecto', desc: 'Diseña y audita la arquitectura del sistema GenyX. Gestiona candados técnicos, doctrina, auto-healing y bitácora operativa.', info: 'A0 es el cerebro arquitectónico. Verifica que cada componente cumpla las reglas y candados del sistema.', status: 'activo' },
     { id: 'A9', icon: '🛡️', name: 'Cumplimiento', desc: 'Vigía legal y de gobernanza. Valida contratos, DPA, SLA. Audita cada operación contra la doctrina vigente.', info: 'A9 garantiza que toda operación cumpla con las reglas legales, de privacidad (LFPDPPP) y gobernanza Tier 4.', status: 'activo' },
@@ -11077,7 +11391,20 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
       <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }}>🔒 Backstage</h2>
       <p style={{ fontSize: 12, color: '#9ca3af', marginBottom: 20 }}>Solo visible para el fundador. Agentes de infraestructura, governance y herramientas operativas.</p>
 
-      {!selected && (
+      {/* Sub-tab navigation */}
+      <div style={{ display: 'flex', gap: 4, marginBottom: 16, borderBottom: '1px solid rgba(255,255,255,0.07)', paddingBottom: 8, overflowX: 'auto' }}>
+        {BS_SECTIONS.map(s => (
+          <button key={s.id} onClick={() => { setBsSection(s.id); setSelected(null); }} aria-label={`Ver sección ${s.label}`} aria-pressed={bsSection === s.id} style={{ padding: '6px 14px', fontSize: 11, fontWeight: 600, border: 'none', background: bsSection === s.id ? 'rgba(129,140,248,0.15)' : 'transparent', color: bsSection === s.id ? '#818cf8' : '#9ca3af', cursor: 'pointer', borderRadius: 6, whiteSpace: 'nowrap', transition: 'all 0.15s', outline: 'none' }} onFocus={e => { e.target.style.boxShadow = '0 0 0 2px #818cf8'; }} onBlur={e => { e.target.style.boxShadow = 'none'; }}>{s.label}</button>
+        ))}
+      </div>
+
+      {/* Route sub-sections */}
+      {bsSection === 'slo' && <TabSLODashboard />}
+      {bsSection === 'policy' && <TabPolicyViolations />}
+      {bsSection === 'tracing' && <TabTracing />}
+      {bsSection === 'coverage' && <TabDriftCoverage />}
+
+      {bsSection === 'overview' && !selected && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 14 }}>
           {backstageAgents.map(a => (
             <button key={a.id} data-agent-id={a.id} onClick={() => setSelected(a.id)} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: 20, cursor: 'pointer', textAlign: 'left' }}>
