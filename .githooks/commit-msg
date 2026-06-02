@@ -62,6 +62,9 @@ DOCTRINAL_PATTERNS=(
     "auditoría"
     "TRAZABILIDAD"
     "trazabilidad"
+    "CDA"
+    "[Zz]ero fake"
+    "[Zz]ero hardcoded"
 )
 
 FOUND=0

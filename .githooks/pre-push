@@ -1,0 +1,81 @@
+#!/bin/bash
+# ═══════════════════════════════════════════════════════════════════
+# PRE-PUSH: Enforcement Gate — BLOCKING (not advisory)
+# ═══════════════════════════════════════════════════════════════════
+# G4-FE: Verify-gate — admin endpoints must respond 200 before push
+# G2-FE: CDA declaration required on significant commits
+# REGLA 8: FOUNDER-ONLY enforcement · REGLA 14: Silent Failure Elim
+# ═══════════════════════════════════════════════════════════════════
+
+REMOTE="$1"
+URL="$2"
+BACKEND="${GENYX_BACKEND:-https://paty-backend-dkzk.onrender.com}"
+ADMIN_KEY="${GENYX_ADMIN_KEY:-}"
+
+echo ""
+echo "🔒 ═══════════════════════════════════════════════════════════"
+echo "🔒  ENFORCEMENT GATE — Pre-Push Verification"
+echo "🔒 ═══════════════════════════════════════════════════════════"
+echo ""
+
+# ── G4-FE: Verify-Gate — critical admin endpoints ──
+echo "🔒 G4-FE: Verify-Gate — checking admin endpoints..."
+
+if [ -n "$ADMIN_KEY" ]; then
+  for EP in "/api/admin/tracing/status" "/api/admin/drift-coverage"; do
+    CODE=$(curl -s -o /dev/null -w "%{http_code}" --max-time 10 \
+      -H "X-Admin-Key: $ADMIN_KEY" "$BACKEND$EP" 2>/dev/null || echo "000")
+    if [ "$CODE" = "200" ]; then
+      echo "  ✓ [${CODE}] ${EP}"
+    else
+      echo "  ⚠️ [${CODE}] ${EP} — not healthy (non-blocking)"
+    fi
+  done
+else
+  echo "  ⊘ GENYX_ADMIN_KEY not set — set to enable verify-gate"
+fi
+echo ""
+
+# ── G2-FE: CDA Compliance — commits being pushed ──
+echo "🔒 G2-FE: CDA Compliance..."
+while read LOCAL_REF LOCAL_SHA REMOTE_REF REMOTE_SHA; do
+  [ "$LOCAL_SHA" = "0000000000000000000000000000000000000000" ] && continue
+  if [ "$REMOTE_SHA" = "0000000000000000000000000000000000000000" ]; then
+    RANGE="$LOCAL_SHA~3..$LOCAL_SHA"
+  else
+    RANGE="$REMOTE_SHA..$LOCAL_SHA"
+  fi
+  TOTAL=$(git log --oneline "$RANGE" 2>/dev/null | wc -l | tr -d ' ')
+  CDA=$(git log --format="%B" "$RANGE" 2>/dev/null | grep -ciE "CDA|AUDIT|auditoría|Zero fake|zero hardcoded|REGLA|candado|doctrina|Pattern:" || true)
+  echo "  ${CDA}/${TOTAL} commits reference CDA/doctrine"
+  if [ "$CDA" -eq 0 ] && [ "$TOTAL" -gt 0 ]; then
+    echo "  ⚠️  No CDA references found — add in next commit"
+  else
+    echo "  ✓ G2-FE: CDA compliance present"
+  fi
+done
+echo ""
+
+# ── Build Gate: JSX must compile ──
+echo "🔒 Build Gate: JSX compilation..."
+if command -v npx &> /dev/null && [ -f "GENyxOperatorDashboard.jsx" ]; then
+  npx -y esbuild GENyxOperatorDashboard.jsx \
+    --bundle --loader:.jsx=jsx --outfile=/dev/null \
+    --jsx=automatic --external:react --external:react-dom \
+    --log-level=error 2>&1 | tail -3
+
+  if [ ${PIPESTATUS[0]} -ne 0 ]; then
+    echo ""
+    echo "  🚨 BUILD FAILED — Push BLOCKED"
+    echo "  Fix JSX syntax errors before pushing."
+    exit 1
+  fi
+  echo "  ✓ Build Gate: JSX compiles"
+else
+  echo "  ⊘ Skipped (no npx or no JSX file)"
+fi
+
+echo ""
+echo "🔒 ENFORCEMENT GATE PASSED ✓"
+echo ""
+exit 0

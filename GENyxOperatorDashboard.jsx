@@ -11189,9 +11189,9 @@ function TabPolicyViolations() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 16 }}>
           {[
             { label: 'Total', value: stats.total || 0, color: '#818cf8' },
-            { label: 'Critical', value: stats.critical || 0, color: '#ef4444' },
-            { label: 'Resolved', value: stats.resolved || 0, color: '#10b981' },
-            { label: 'Open', value: stats.open || 0, color: '#f59e0b' },
+            { label: 'Unresolved', value: stats.unresolved || 0, color: '#ef4444' },
+            { label: 'Denied', value: stats.deny_count || 0, color: '#f97316' },
+            { label: 'Founder Req', value: stats.require_founder_approval_count || 0, color: '#f59e0b' },
           ].map(k => (
             <div key={k.label} style={{ ...CARD, textAlign: 'center' }}>
               <div style={{ fontSize: 20, fontWeight: 800, color: k.color }}>{k.value}</div>
