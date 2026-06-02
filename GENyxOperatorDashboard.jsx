@@ -10325,6 +10325,7 @@ function OrchestratorDrillDown() {
 // ═══════════════════════════════════════════════════════════════════
 function PostmortemsDrillDown() {
   const [incidents, setIncidents] = React.useState([]);
+  const [blamelessLog, setBlamelessLog] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
   const [filter, setFilter] = React.useState('all');
   const [generating, setGenerating] = React.useState(null);
@@ -10334,13 +10335,18 @@ function PostmortemsDrillDown() {
 
   const fetchIncidents = React.useCallback(() => {
     if (!adminKey) { setLoading(false); return; }
-    fetch(`${BACKEND}/api/admin/incidents`, { headers })
-      .then(r => r.ok ? r.json() : [])
-      .then(d => { setIncidents(Array.isArray(d) ? d : d.incidents || []); setLoading(false); })
-      .catch(() => setLoading(false));
+    Promise.all([
+      fetch(`${BACKEND}/api/admin/incidents`, { headers }).then(r => r.ok ? r.json() : []),
+      fetch(`${BACKEND}/api/admin/postmortem/log?limit=20`, { headers }).then(r => r.ok ? r.json() : { postmortems: [] }),
+    ]).then(([incData, pmData]) => {
+      setIncidents(Array.isArray(incData) ? incData : incData.incidents || []);
+      setBlamelessLog(pmData.postmortems || []);
+      setLoading(false);
+    }).catch(() => setLoading(false));
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [adminKey]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(() => { fetchIncidents(); }, [fetchIncidents]);
 
   const handleGenPostmortem = (id) => {
@@ -10764,6 +10770,107 @@ function DORACockpitTab() {
   );
 }
 
+
+// ═══════════════════════════════════════════════════════════════════
+// 🐒 ChaosTab — Chaos Engineering (Big Tech #1 · Q3-S4.5)
+// REGLA 8: FOUNDER-ONLY · REGLA 14: Chaos experiments visibility
+// Endpoints: GET /api/admin/chaos/audit-log
+// ═══════════════════════════════════════════════════════════════════
+function ChaosTab() {
+  const adminKey = typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : '';
+  const headers = React.useMemo(() => ({ 'X-Admin-Key': adminKey }), [adminKey]);
+  const [experiments, setExperiments] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
+  const [statusFilter, setStatusFilter] = React.useState('all');
+  const [selected, setSelected] = React.useState(null);
+
+  React.useEffect(() => {
+    if (!adminKey) { setLoading(false); return; }
+    fetch(`${BACKEND}/api/admin/chaos/audit-log?limit=50`, { headers })
+      .then(r => r.ok ? r.json() : { experiments: [] })
+      .then(d => { setExperiments(d.experiments || []); setLoading(false); })
+      .catch(() => setLoading(false));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [adminKey]);
+
+  if (!adminKey) return <div style={{ textAlign: 'center', padding: 40, color: '#64748b' }}><p style={{ fontSize: 13 }}>Admin key requerida.</p></div>;
+
+  const statusColor = { success: '#10b981', failed: '#ef4444', running: '#3b82f6', aborted: '#f59e0b', deviated: '#a855f7' };
+  const statusIcon = { success: '🟢', failed: '🔴', running: '🔵', aborted: '🟡', deviated: '🟣' };
+  const faultIcon = { latency: '⏱️', error: '💥', timeout: '⏰', partition: '🔌', resource_exhaust: '🧯', crash: '💀' };
+
+  const filtered = statusFilter === 'all' ? experiments : experiments.filter(e => e.run_status === statusFilter);
+  const successCount = experiments.filter(e => e.run_status === 'success').length;
+  const deviatedCount = experiments.filter(e => e.deviation_detected).length;
+
+  return (
+    <div style={{ maxWidth: 800 }}>
+      <h3 style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🐒 Chaos Engineering — Big Tech #1</h3>
+
+      {loading && <p style={{ color: '#64748b', fontSize: 12 }}>Cargando experiments...</p>}
+
+      {/* KPIs */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 10, marginBottom: 20 }}>
+        {[
+          { label: 'Total experiments', value: experiments.length, icon: '🧪' },
+          { label: 'Last run', value: experiments[0]?.run_started_at?.substring(0, 10) || '—', icon: '📅' },
+          { label: 'Success rate', value: experiments.length > 0 ? `${Math.round(successCount / experiments.length * 100)}%` : '—', icon: '✅', color: successCount === experiments.length ? '#10b981' : '#f59e0b' },
+          { label: 'Deviations', value: deviatedCount, icon: '⚡', color: deviatedCount > 0 ? '#a855f7' : '#10b981' },
+        ].map(k => (
+          <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
+            <div style={{ fontSize: 18 }}>{k.icon}</div>
+            <div style={{ fontSize: 17, fontWeight: 800, color: k.color || '#e2e8f0', marginTop: 4 }}>{k.value}</div>
+            <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>{k.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Filters */}
+      <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap', marginBottom: 14 }}>
+        {[{ id: 'all', label: `Todos (${experiments.length})` }, { id: 'success', label: '🟢 Success' }, { id: 'failed', label: '🔴 Failed' }, { id: 'running', label: '🔵 Running' }, { id: 'deviated', label: '🟣 Deviated' }].map(f => (
+          <button key={f.id} onClick={() => setStatusFilter(f.id)} style={{ fontSize: 10, fontWeight: 600, padding: '4px 10px', borderRadius: 6, border: 'none', cursor: 'pointer', background: statusFilter === f.id ? 'rgba(99,102,241,0.2)' : 'rgba(255,255,255,0.05)', color: statusFilter === f.id ? '#a5b4fc' : '#94a3b8' }}>{f.label}</button>
+        ))}
+      </div>
+
+      {/* Empty state */}
+      {!loading && experiments.length === 0 && (
+        <div style={{ padding: 40, textAlign: 'center', background: 'rgba(255,255,255,0.02)', borderRadius: 14, border: '1px dashed rgba(255,255,255,0.08)' }}>
+          <div style={{ fontSize: 48, marginBottom: 12 }}>🐒</div>
+          <p style={{ fontSize: 14, fontWeight: 600, color: '#94a3b8', margin: '0 0 6px' }}>Sin chaos experiments registrados aún</p>
+          <p style={{ fontSize: 12, color: '#64748b', margin: 0 }}>El cron chaos-weekly corre lunes 04:00 UTC. Workflow: .github/workflows/chaos-weekly.yml</p>
+        </div>
+      )}
+
+      {/* Experiments list */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+        {filtered.map((e, i) => (
+          <div key={e.experiment_id || i} onClick={() => setSelected(selected === i ? null : i)} style={{ padding: '12px 16px', background: 'rgba(255,255,255,0.02)', borderRadius: 12, border: '1px solid rgba(255,255,255,0.06)', cursor: 'pointer', transition: 'all 0.15s' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <span style={{ fontSize: 14 }}>{statusIcon[e.run_status] || '⚪'}</span>
+              <span style={{ fontSize: 14 }}>{faultIcon[e.fault_type] || '🧪'}</span>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <p style={{ fontSize: 13, fontWeight: 600, color: '#e2e8f0', margin: 0 }}>{e.experiment_name || e.experiment_id}</p>
+                <p style={{ fontSize: 10, color: '#64748b', margin: '2px 0 0' }}>{e.experiment_id} · {e.fault_type} · {e.duration_seconds || '?'}s · {e.triggered_by || '?'}</p>
+              </div>
+              <span style={{ fontSize: 10, fontWeight: 700, color: statusColor[e.run_status] || '#64748b', textTransform: 'uppercase' }}>{e.run_status}</span>
+            </div>
+            {selected === i && (
+              <div style={{ marginTop: 10, paddingTop: 10, borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+                <p style={{ fontSize: 11, color: '#94a3b8', margin: '0 0 4px' }}><b style={{ color: '#cbd5e1' }}>Hypothesis:</b> {e.hypothesis || '—'}</p>
+                {e.deviation_detected && <p style={{ fontSize: 11, color: '#a855f7', margin: '4px 0' }}>⚡ Deviation: {e.deviation_detail || 'Detected'}</p>}
+                {e.rollback_action && <p style={{ fontSize: 11, color: '#f59e0b', margin: '4px 0' }}>🔄 Rollback: {e.rollback_action}</p>}
+                <p style={{ fontSize: 10, color: '#475569', margin: '4px 0 0' }}>Started: {e.run_started_at || '?'} · Target: {e.target_endpoint || '?'}</p>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <p style={{ fontSize: 9, color: '#475569', textAlign: 'center', marginTop: 12 }}>Chaos Engineering · Big Tech #1 · Live data from /api/admin/chaos/audit-log</p>
+    </div>
+  );
+}
+
 function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }) {
   const [selected, setSelected] = React.useState(null);
   const backstageAgents = [
@@ -10778,6 +10885,7 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
     { id: 'POSTMORTEMS', icon: '🔬', name: 'Postmortems', desc: 'Blameless incident postmortems. Timeline, root cause analysis, action items. Big Tech pattern #6 (Google SRE).', status: 'live' },
     { id: 'LAYER5', icon: '🛡️', name: 'Layer 5 Coverage', desc: 'Defense-in-depth visibility. 8 layers runtime (5A-5H). MEMORY adoption, drift coverage, gap heatmap.', status: 'live' },
     { id: 'DORA', icon: '📊', name: 'DORA Metrics', desc: 'DevOps Excellence — Deployment Frequency, Lead Time, MTTR, Change Failure Rate. State of DevOps 2024 tiers.', status: 'live' },
+    { id: 'CHAOS', icon: '🐒', name: 'Chaos Engineering', desc: 'Chaos experiments — fault injection, latency, partitions. Big Tech Pattern #1. Weekly cron + manual triggers.', status: 'live' },
   ];
   return (
     <div style={{ maxWidth: 1000 }}>
@@ -10817,6 +10925,7 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
            selected === 'POSTMORTEMS' ? <PostmortemsDrillDown /> :
            selected === 'LAYER5' ? <Layer5CoverageTab /> :
            selected === 'DORA' ? <DORACockpitTab /> :
+           selected === 'CHAOS' ? <ChaosTab /> :
            selected === 'DATA' ? <TabDataFounder adminKey={typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : ''} /> :
            <TabPlaceholderV2 icon="🤖" title={selected} desc="Drill-down en desarrollo." />}
         </>
