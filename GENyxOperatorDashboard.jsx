@@ -3246,7 +3246,7 @@ function LegalPage({ tipo }) {
     <div style={{ background: '#faf9f7', minHeight: '100vh' }}>
       <div style={LS}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 28 }}>
-          <button onClick={() => window.history.back()} style={{ background: 'none', border: '1px solid #d6d3d1', borderRadius: 8, padding: '6px 14px', cursor: 'pointer', fontSize: 13, color: '#78716c' }}>← Regresar</button>
+          <button onClick={() => window.history.back()} style={{ background: 'none', border: '1px solid #d6d3d1', borderRadius: 8, padding: '6px 14px', cursor: 'pointer', fontSize: 13, color: '#a8a29e' }}>← Regresar</button>
         </div>
         <h1 style={H1}>{TITLES[tipo] || tipo}</h1>
         {meta?.updated_at && <p style={{ fontSize: 11, color: '#a8a29e', marginBottom: 20 }}>Última actualización: {new Date(meta.updated_at).toLocaleDateString('es-MX')}</p>}
@@ -3293,7 +3293,7 @@ function EditarMenuCompacto({ catalog, catLoading, slug, pin, fetchCatalog }) {
 
   return (
     <div style={{ background: '#fff', borderRadius: 14, padding: 16, boxShadow: '0 2px 14px rgba(0,0,0,0.07)', marginBottom: 14 }}>
-      <div style={{ fontSize: 12, color: '#78716c', marginBottom: 10 }}>
+      <div style={{ fontSize: 12, color: '#a8a29e', marginBottom: 10 }}>
         Selecciona un producto y actualiza su precio. El cambio se aplica al sistema inmediatamente.
       </div>
       <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center' }}>
@@ -3564,7 +3564,7 @@ function TabFotoLab({ slug, token }) {
 
   // ── Styles ─────────────────────────────────────────────────────────────────
   const SEL = { width: '100%', padding: '8px 10px', borderRadius: 8, border: '1px solid #d4c9be', fontSize: 13, background: '#faf8f5', color: '#44403c', appearance: 'none', WebkitAppearance: 'none' };
-  const LBL = { fontSize: 11, fontWeight: 600, color: '#78716c', marginBottom: 4, display: 'block' };
+  const LBL = { fontSize: 11, fontWeight: 600, color: '#a8a29e', marginBottom: 4, display: 'block' };
   const BTN_PRIMARY = { width: `100%`, padding: `14px`, borderRadius: 12, border: `none`, background: `linear-gradient(135deg, ${GENYX_BRAND}, #8b5cf6)`, color: `#fff`, fontSize: 15, fontWeight: 700, cursor: `pointer`, letterSpacing: `.02em`, transition: 'all 0.2s', opacity: loading ? 0.6 : 1 };
   const CARD_S = { background: '#fff', borderRadius: 14, padding: 16, border: '1px solid #f0ebe4', marginBottom: 12 };
 
@@ -3582,7 +3582,7 @@ function TabFotoLab({ slug, token }) {
               padding: '10px 6px', borderRadius: 10, cursor: 'pointer', fontSize: 11, fontWeight: 600, textAlign: 'center', transition: 'all .15s',
               border: preset === p.id ? `2px solid ${GENYX_BRAND}` : '1px solid #e7e0d8',
               background: preset === p.id ? '#eef2ff' : '#fff',
-              color: preset === p.id ? '#4f46e5' : '#78716c',
+              color: preset === p.id ? '#4f46e5' : '#a8a29e',
             }}>
             <div style={{ fontSize: 20, marginBottom: 2 }}>{p.icon}</div>
             {p.label}
@@ -3608,7 +3608,7 @@ function TabFotoLab({ slug, token }) {
             ) : (
               <>
                 <div style={{ fontSize: 36, marginBottom: 8 }}>📷</div>
-                <div style={{ fontSize: 13, color: '#78716c', fontWeight: 500 }}>Toca para tomar foto o seleccionar</div>
+                <div style={{ fontSize: 13, color: '#a8a29e', fontWeight: 500 }}>Toca para tomar foto o seleccionar</div>
                 <div style={{ fontSize: 11, color: '#a8a29e', marginTop: 4 }}>Arrastra una imagen aquí (desktop)</div>
               </>
             )}
@@ -3680,7 +3680,7 @@ function TabFotoLab({ slug, token }) {
           <img src={resultImg.url} alt="Resultado IA" style={{ maxWidth: '100%', maxHeight: 400, borderRadius: 12, objectFit: 'contain', boxShadow: '0 4px 20px rgba(0,0,0,.12)' }} />
           <div style={{ display: 'flex', gap: 8, marginTop: 12, justifyContent: 'center' }}>
             <button onClick={handleDownload} style={{ padding: `10px 20px`, borderRadius: 10, border: `1px solid ${GENYX_BRAND}`, background: `#fff`, color: GENYX_BRAND, fontSize: 12, fontWeight: 600, cursor: 'pointer' }}>⬇️ Descargar</button>
-            <button onClick={handleGenerate} disabled={loading} style={{ padding: '10px 20px', borderRadius: 10, border: '1px solid #d4c9be', background: '#fff', color: '#78716c', fontSize: 12, fontWeight: 600, cursor: 'pointer' }}>🔄 Regenerar</button>
+            <button onClick={handleGenerate} disabled={loading} style={{ padding: '10px 20px', borderRadius: 10, border: '1px solid #d4c9be', background: '#fff', color: '#a8a29e', fontSize: 12, fontWeight: 600, cursor: 'pointer' }}>🔄 Regenerar</button>
           </div>
         </div>
       )}
@@ -3693,7 +3693,7 @@ function TabFotoLab({ slug, token }) {
             <div key={i} style={{ padding: 12, background: '#faf8f5', borderRadius: 10, marginBottom: 8, fontSize: 13, color: '#44403c', lineHeight: 1.5, position: 'relative', whiteSpace: 'pre-wrap' }}>
               {c.trim()}
               <button onClick={() => { navigator.clipboard.writeText(c.trim()); log(`📋 Caption ${i+1} copiado`); }}
-                style={{ position: 'absolute', top: 8, right: 8, padding: '4px 8px', borderRadius: 6, border: '1px solid #d4c9be', background: '#fff', fontSize: 10, cursor: 'pointer', color: '#78716c' }}>
+                style={{ position: 'absolute', top: 8, right: 8, padding: '4px 8px', borderRadius: 6, border: '1px solid #d4c9be', background: '#fff', fontSize: 10, cursor: 'pointer', color: '#a8a29e' }}>
                 📋 Copiar
               </button>
             </div>
@@ -4991,11 +4991,11 @@ if (!token) return (
         <div style={{ textAlign: 'center', marginBottom: 28 }}>
           <LogoFallback size={80} style={{ marginBottom: 12 }} />
           <h1 style={{ fontSize: 20, fontWeight: 800, color: '#1a1208' }}>{tenantName}</h1>
-          <p style={{ color: '#78716c', fontSize: 13, marginTop: 4 }}>Centro de Mando</p>
+          <p style={{ color: '#a8a29e', fontSize: 13, marginTop: 4 }}>Centro de Mando</p>
         </div>
         <div style={CARD}>
           <form onSubmit={handleLogin}>
-            <label style={{ fontSize: 11, fontWeight: 700, color: '#78716c', letterSpacing: '.07em', textTransform: 'uppercase' }}>Contraseña de Acceso</label>
+            <label style={{ fontSize: 11, fontWeight: 700, color: '#a8a29e', letterSpacing: '.07em', textTransform: 'uppercase' }}>Contraseña de Acceso</label>
             <input type="password" value={pin} onChange={e => setPin(e.target.value)} placeholder="••••••" autoFocus
               style={{ ...INP, width: '100%', fontSize: 22, letterSpacing: 10, textAlign: 'center', marginTop: 8, marginBottom: 14, boxSizing: 'border-box' }} />
             {/* T&C checkbox */}
@@ -5007,7 +5007,7 @@ if (!token) return (
                 onChange={e => setTermsAccepted(e.target.checked)}
                 style={{ marginTop: 2, width: 16, height: 16, accentColor: brandColor, cursor: 'pointer', flexShrink: 0 }}
               />
-              <label htmlFor={`terms-${slug}`} style={{ fontSize: 11, color: '#78716c', lineHeight: 1.5, cursor: 'pointer' }}>
+              <label htmlFor={`terms-${slug}`} style={{ fontSize: 11, color: '#a8a29e', lineHeight: 1.5, cursor: 'pointer' }}>
                 He leído y acepto los{' '}
                 <a href="/terminos" target="_blank" rel="noopener noreferrer" style={{ color: brandColor, fontWeight: 700 }}>Términos y Condiciones</a>{' '}
                 y el{' '}
@@ -5232,7 +5232,7 @@ if (!token) return (
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
                   <div>
                     <div style={{ fontWeight: 700, fontSize: 14 }}>#{o.id} · {o.customer_name || 'Cliente'}</div>
-                    <div style={{ fontSize: 11, color: '#78716c', marginTop: 2 }}>
+                    <div style={{ fontSize: 11, color: '#a8a29e', marginTop: 2 }}>
                       {o.whatsapp && <span>📱 {o.whatsapp} </span>}
                       {o.address && <span>📍 {String(o.address).substring(0, 40)}{String(o.address).length > 40 ? '…' : ''}</span>}
                     </div>
@@ -5244,7 +5244,7 @@ if (!token) return (
                   {items.length === 0 && <span style={{ color: '#a8a29e' }}>Sin detalle de productos.</span>}
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
-                  <span style={{ color: '#78716c', fontSize: 11 }}>{fmt(o.created_at)}</span>
+                  <span style={{ color: '#a8a29e', fontSize: 11 }}>{fmt(o.created_at)}</span>
                   <span style={{ fontWeight: 800, color: brandColor, fontSize: 15 }}>${Number(total).toLocaleString('es-MX')} MXN</span>
                 </div>
                 {/* ── Expandable ticket completo ── */}
@@ -5253,10 +5253,10 @@ if (!token) return (
                     🎫 Ver ticket completo ▾
                   </summary>
                   <div style={{ background: '#fff9f5', border: '1px dashed #e7d5c0', borderRadius: 8, padding: '12px', marginTop: 6, fontSize: 12 }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}><span style={{ color: '#78716c' }}>🔖 N° Orden</span><b>#{o.id}</b></div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}><span style={{ color: '#78716c' }}>👤 Nombre</span><span>{o.customer_name || '—'}</span></div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}><span style={{ color: '#78716c' }}>📱 WaB</span><span>{o.whatsapp || '—'}</span></div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8, alignItems: 'flex-start' }}><span style={{ color: '#78716c' }}>📍 Dirección</span><span style={{ textAlign: 'right', maxWidth: '60%' }}>{o.address || '—'}</span></div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}><span style={{ color: '#a8a29e' }}>🔖 N° Orden</span><b>#{o.id}</b></div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}><span style={{ color: '#a8a29e' }}>👤 Nombre</span><span>{o.customer_name || '—'}</span></div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}><span style={{ color: '#a8a29e' }}>📱 WaB</span><span>{o.whatsapp || '—'}</span></div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8, alignItems: 'flex-start' }}><span style={{ color: '#a8a29e' }}>📍 Dirección</span><span style={{ textAlign: 'right', maxWidth: '60%' }}>{o.address || '—'}</span></div>
                     <div style={{ borderTop: '1px solid #e7d5c0', paddingTop: 8, marginBottom: 6, fontWeight: 700, color: '#44403c' }}>🛒 Productos ({items.length})</div>
                     {items.map((it, i) => (
                       <div key={i} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 3 }}>
@@ -5265,8 +5265,8 @@ if (!token) return (
                       </div>
                     ))}
                     <div style={{ borderTop: '1px solid #e7d5c0', marginTop: 8, paddingTop: 8 }}>
-                      {subtotal > 0 && <div style={{ display: 'flex', justifyContent: 'space-between', color: '#78716c' }}><span>Subtotal</span><span>${Number(subtotal).toLocaleString('es-MX')}</span></div>}
-                      {shipping > 0 && <div style={{ display: 'flex', justifyContent: 'space-between', color: '#78716c' }}><span>🚚 Envío</span><span>${Number(shipping).toLocaleString('es-MX')}</span></div>}
+                      {subtotal > 0 && <div style={{ display: 'flex', justifyContent: 'space-between', color: '#a8a29e' }}><span>Subtotal</span><span>${Number(subtotal).toLocaleString('es-MX')}</span></div>}
+                      {shipping > 0 && <div style={{ display: 'flex', justifyContent: 'space-between', color: '#a8a29e' }}><span>🚚 Envío</span><span>${Number(shipping).toLocaleString('es-MX')}</span></div>}
                       <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 900, color: '#15803d', fontSize: 14, marginTop: 4 }}><span>TOTAL</span><span>${Number(total).toLocaleString('es-MX')} MXN</span></div>
                     </div>
                     <div style={{ marginTop: 8, color: '#a8a29e', fontSize: 10 }}>📅 {fmt(o.created_at)}</div>
@@ -5284,7 +5284,7 @@ if (!token) return (
           {/* ━━ POR COBRAR: Pedidos PENDIENTES (link enviado, pago no confirmado) ━━ */}
           {pendingOrders.length > 0 && (
             <details style={{ marginTop: 16 }} open={pendingOrders.length > 0 && activos.length === 0}>
-              <summary style={{ fontSize: 12, color: '#78716c', cursor: 'pointer', fontWeight: 700, marginBottom: 8, padding: '8px 0' }}>
+              <summary style={{ fontSize: 12, color: '#a8a29e', cursor: 'pointer', fontWeight: 700, marginBottom: 8, padding: '8px 0' }}>
                 ⏳ Por Cobrar — {pendingOrders.length} pedido(s) con link enviado
               </summary>
               <div style={{ fontSize: 11, color: '#94a3b8', marginBottom: 10 }}>Link Stripe enviado. El pago se confirma automáticamente cuando el cliente paga. Si recibiste pago por SPEI o efectivo, marca como pagado manualmente.</div>
@@ -5299,12 +5299,12 @@ if (!token) return (
                       <div style={{ fontWeight: 700, fontSize: 13 }}>#{o.id} · {o.customer_name || 'Cliente'}</div>
                       <span style={{ background: '#f1f5f9', color: '#9ca3af', padding: '2px 8px', borderRadius: 12, fontSize: 10, fontWeight: 700 }}>PENDIENTE</span>
                     </div>
-                    <div style={{ fontSize: 11, color: '#78716c', marginBottom: 8 }}>
+                    <div style={{ fontSize: 11, color: '#a8a29e', marginBottom: 8 }}>
                       {o.whatsapp && <span>📱 {o.whatsapp} · </span>}
                       {items.length} artículo(s) · {fmt(o.created_at)}
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontWeight: 800, color: '#78716c', fontSize: 14 }}>${Number(total).toLocaleString('es-MX')} MXN</span>
+                      <span style={{ fontWeight: 800, color: '#a8a29e', fontSize: 14 }}>${Number(total).toLocaleString('es-MX')} MXN</span>
                       <button onClick={() => markPaid(o.id)} disabled={isUpd}
                         style={{ background: '#dcfce7', color: '#15803d', border: '1px solid #86efac', borderRadius: 8, padding: '5px 12px', fontSize: 11, fontWeight: 700, cursor: 'pointer', opacity: isUpd ? 0.5 : 1 }}>
                         {isUpd ? '⏳...' : '✅ Marcar Pagado'}
@@ -5319,7 +5319,7 @@ if (!token) return (
           {/* ━━ HISTORIAL: Pedidos entregados (DATA para los lunes) ━━ */}
           {historial.length > 0 && (
             <details style={{ marginTop: 16 }}>
-              <summary style={{ fontSize: 12, color: '#78716c', cursor: 'pointer', fontWeight: 600, padding: '8px 0' }}>🗂️ Historial Entregados ({historial.length}) — DATA 📊</summary>
+              <summary style={{ fontSize: 12, color: '#a8a29e', cursor: 'pointer', fontWeight: 600, padding: '8px 0' }}>🗂️ Historial Entregados ({historial.length}) — DATA 📊</summary>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginTop: 8 }}>
                 {historial.map(o => {
                   const od = typeof o.order_data === 'object' ? o.order_data : {};
@@ -5350,12 +5350,12 @@ if (!token) return (
               ) : (<>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 14 }}>
                   <div style={{ ...CARD, textAlign: 'center', margin: 0 }}>
-                    <div style={{ fontSize: 11, color: '#78716c', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 6 }}>🎫 Ticket Promedio</div>
+                    <div style={{ fontSize: 11, color: '#a8a29e', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 6 }}>🎫 Ticket Promedio</div>
                     <div style={{ fontSize: 28, fontWeight: 800, color: brandColor }}>${(analytics.ticket_promedio || 0).toLocaleString('es-MX')}</div>
                     <div style={{ fontSize: 10, color: '#a8a29e', marginTop: 4 }}>MXN por pedido</div>
                   </div>
                   <div style={{ ...CARD, textAlign: 'center', margin: 0 }}>
-                    <div style={{ fontSize: 11, color: '#78716c', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 6 }}>📦 Total Pedidos</div>
+                    <div style={{ fontSize: 11, color: '#a8a29e', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 6 }}>📦 Total Pedidos</div>
                     <div style={{ fontSize: 28, fontWeight: 800, color: brandColor }}>{analytics.total_orders || 0}</div>
                     <div style={{ fontSize: 10, color: '#a8a29e', marginTop: 4 }}>en el histórico</div>
                   </div>
@@ -5445,17 +5445,17 @@ if (!token) return (
                 {/* ROI Row */}
                 <div style={{ background: '#fff7ed', padding: '14px 20px', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12 }}>
                   <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontSize: 11, color: '#78716c', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Tu inversión</div>
+                    <div style={{ fontSize: 11, color: '#a8a29e', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Tu inversión</div>
                     <div style={{ fontSize: 20, fontWeight: 800, color: '#44403c' }}>${monthFee.toLocaleString('es-MX')}</div>
                     <div style={{ fontSize: 9, color: '#a8a29e' }}>suscripción mensual</div>
                   </div>
                   <div style={{ textAlign: 'center', borderLeft: '1px solid #e7d5c0', borderRight: '1px solid #e7d5c0', padding: '0 12px' }}>
-                    <div style={{ fontSize: 11, color: '#78716c', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>ROI</div>
+                    <div style={{ fontSize: 11, color: '#a8a29e', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>ROI</div>
                     <div style={{ fontSize: 28, fontWeight: 900, color: roiColor, lineHeight: 1 }}>{roi > 0 ? `${roi}%` : '—'}</div>
                     <div style={{ fontSize: 9, color: '#a8a29e' }}>{multiplier}x tu inversión</div>
                   </div>
                   <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontSize: 11, color: '#78716c', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Ganancia neta</div>
+                    <div style={{ fontSize: 11, color: '#a8a29e', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>Ganancia neta</div>
                     <div style={{ fontSize: 20, fontWeight: 800, color: netGain > 0 ? '#16a34a' : '#dc2626' }}>${Math.round(netGain).toLocaleString('es-MX')}</div>
                     <div style={{ fontSize: 9, color: '#a8a29e' }}>después de tu fee</div>
                   </div>
@@ -5521,7 +5521,7 @@ if (!token) return (
                   <input type="number" value={stockVal}
                     onChange={e => setEditStock(prev => ({ ...prev, [item.product_name]: e.target.value }))}
                     style={{ ...INP, width: 70, textAlign: 'center', border: `1.5px solid ${isEditing ? brandColor : '#e7e0d8'}` }} />
-                  <span style={{ color: '#78716c', fontSize: 12 }}>{item.unit}</span>
+                  <span style={{ color: '#a8a29e', fontSize: 12 }}>{item.unit}</span>
                   <span style={{ color: stockColor, fontWeight: 800, fontSize: 12 }}>{item.stock <= 0 ? '🔴 Agotado' : item.stock <= 3 ? '🟡 Bajo' : '🟢 OK'}</span>
                   {isEditing && <button onClick={() => patchInventory(item.product_name, stockVal, item.unit)} style={BTN(brandColor, '#fff')}>Guardar</button>} <button onClick={() => deleteInventory(item.product_name)} style={{ padding: '5px 10px', background: '#fef2f2', border: '1px solid #fca5a5', borderRadius: 7, cursor: 'pointer', fontSize: 12, color: '#dc2626', fontWeight: 700, marginLeft: 4 }}>🗑</button>
                 </div>
@@ -5538,7 +5538,7 @@ if (!token) return (
         {/* ═══ TAB: COSTEADOR ═══ */}
         {(tab === 'operacion' && subTab === 'costeador') && (<>
           <h2 style={{ fontSize: 14, fontWeight: 700, marginBottom: 4, color: '#44403c' }}>Costeador de Productos</h2>
-          <p style={{ fontSize: 12, color: '#78716c', marginBottom: 14 }}>Calcula el costo real y precio justo de cada producto de tu menú con la fórmula contable completa.</p>
+          <p style={{ fontSize: 12, color: '#a8a29e', marginBottom: 14 }}>Calcula el costo real y precio justo de cada producto de tu menú con la fórmula contable completa.</p>
 
           {/* ── Toggle v1 / v2 ── */}
           <div style={{ display: 'flex', gap: 8, marginBottom: 20, background: '#f5f0eb', borderRadius: 12, padding: 4 }}>
@@ -5547,7 +5547,7 @@ if (!token) return (
                 flex: 1, padding: '9px 0', borderRadius: 9, border: 'none', cursor: 'pointer',
                 fontWeight: 700, fontSize: 13, transition: 'all .2s',
                 background: costMode === k ? brandColor : 'transparent',
-                color: costMode === k ? '#fff' : '#78716c'
+                color: costMode === k ? '#fff' : '#a8a29e'
               }}>{lbl}</button>
             ))}
           </div>
@@ -5656,7 +5656,7 @@ if (!token) return (
                   <span style={{ fontSize: 14, fontWeight: 900, color: brandColor }}>📖 Recetas del Menú</span>
                   {INFO({ title: 'Recetas del Menú', text: 'Comienza seleccionando qué producto de tu menú quieres costear. Una vez seleccionado, el sistema te guía: ingredientes (MPD), mano de obra (MOD), costos indirectos (CIF) y margen de ganancia.', ex: 'Selecciona tu producto → llena la receta → obtén el precio de venta recomendado.' })}
                 </div>
-                <div style={{ fontSize: 12, color: '#78716c', marginBottom: 10 }}>¿Qué producto de tu menú vas a costear hoy?</div>
+                <div style={{ fontSize: 12, color: '#a8a29e', marginBottom: 10 }}>¿Qué producto de tu menú vas a costear hoy?</div>
                 {menuItems.length > 0 ? (
                   <select aria-label="Seleccionar receta" value={recName} onChange={e => setRecName(e.target.value)}
                     style={{ ...INP, width: '100%', fontSize: 14, fontWeight: 600, boxSizing: 'border-box', borderColor: recName ? brandColor : '#e7e0d8' }}>
@@ -5683,7 +5683,7 @@ if (!token) return (
                 <span style={{ fontSize: 22 }}>📦</span>
                 <div style={{ flex: 1 }}>
                   <div style={{ fontSize: 12, fontWeight: 800, color: brandColor }}>¿Primera vez? Carga un ejemplo real</div>
-                  <div style={{ fontSize: 11, color: '#78716c' }}>Producto Ejemplo — valores calibrados para verificar tu precio correcto</div>
+                  <div style={{ fontSize: 11, color: '#a8a29e' }}>Producto Ejemplo — valores calibrados para verificar tu precio correcto</div>
                 </div>
                 <button onClick={() => {
                   // Pre-cargar ingredientes del demo
@@ -5738,23 +5738,23 @@ if (!token) return (
                                     🧾 Calculadora de Factura → Nivel 1: precio total ÷ cantidad = costo/unidad exacto
                                   </summary>
                                   <div style={{ marginTop: 8, background: '#fef9f3', borderRadius: 10, padding: 12, border: '1px dashed #fed7aa' }}>
-                                    <div style={{ fontSize: 11, color: '#78716c', marginBottom: 8 }}>
+                                    <div style={{ fontSize: 11, color: '#a8a29e', marginBottom: 8 }}>
                                       Ej: paquete de insumo $349 / 10,000g = <b>$0.0349/g</b> — el sistema guarda el costo exacto.
                                     </div>
                                     <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', alignItems: 'flex-end' }}>
-                                      <div><div style={{ fontSize: 10, color:'#78716c', fontWeight: 600 }}>Ingrediente</div>
+                                      <div><div style={{ fontSize: 10, color:'#a8a29e', fontWeight: 600 }}>Ingrediente</div>
                                         <input placeholder="ej. Insumo principal" value={purchCalc.nombre}
                                           onChange={e => setPurchCalc(p => ({ ...p, nombre: e.target.value }))}
                                           style={{ ...INP, width: 130, marginTop: 3 }} /></div>
-                                      <div><div style={{ fontSize: 10, color:'#78716c', fontWeight: 600 }}>Precio factura $</div>
+                                      <div><div style={{ fontSize: 10, color:'#a8a29e', fontWeight: 600 }}>Precio factura $</div>
                                         <input type="number" placeholder="349" value={purchCalc.precio}
                                           onChange={e => setPurchCalc(p => ({ ...p, precio: e.target.value }))}
                                           style={{ ...INP, width: 80, marginTop: 3 }} /></div>
-                                      <div><div style={{ fontSize: 10, color:'#78716c', fontWeight: 600 }}>Cantidad total</div>
+                                      <div><div style={{ fontSize: 10, color:'#a8a29e', fontWeight: 600 }}>Cantidad total</div>
                                         <input type="number" placeholder="10000" value={purchCalc.cantidad}
                                           onChange={e => setPurchCalc(p => ({ ...p, cantidad: e.target.value }))}
                                           style={{ ...INP, width: 80, marginTop: 3 }} /></div>
-                                      <div><div style={{ fontSize: 10, color:'#78716c', fontWeight: 600 }}>Unidad</div>
+                                      <div><div style={{ fontSize: 10, color:'#a8a29e', fontWeight: 600 }}>Unidad</div>
                                         <select aria-label="Unidad de compra" value={purchCalc.unidad} onChange={e => setPurchCalc(p => ({ ...p, unidad: e.target.value }))} style={{ ...INP, marginTop: 3 }}>
                                           {['g','ml','pz','kg','lt'].map(u => <option key={u}>{u}</option>)}
                                         </select></div>
@@ -5785,19 +5785,19 @@ if (!token) return (
                 })}
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 10 }}>
                   <div>
-                    <label style={{ fontSize: 11, color: '#78716c', fontWeight: 600 }}>Tarifa ($/hora)</label>
+                    <label style={{ fontSize: 11, color: '#a8a29e', fontWeight: 600 }}>Tarifa ($/hora)</label>
                     <input type="number" value={modRate} onChange={e => setModRate(Number(e.target.value))} style={{ ...INP, width: '100%', marginTop: 4, boxSizing: 'border-box' }} />
                   </div>
                   <div>
-                    <label style={{ fontSize: 11, color: '#78716c', fontWeight: 600 }}>Horas por lote</label>
+                    <label style={{ fontSize: 11, color: '#a8a29e', fontWeight: 600 }}>Horas por lote</label>
                     <input type="number" step="0.25" value={modHours} onChange={e => setModHours(Number(e.target.value))} style={{ ...INP, width: '100%', marginTop: 4, boxSizing: 'border-box' }} />
                   </div>
                   <div>
-                    <label style={{ fontSize: 11, color: '#78716c', fontWeight: 600 }}>Unidades / lote</label>
+                    <label style={{ fontSize: 11, color: '#a8a29e', fontWeight: 600 }}>Unidades / lote</label>
                     <input type="number" min="1" value={batchUnits} onChange={e => setBatchUnits(Math.max(1, Number(e.target.value)))} style={{ ...INP, width: '100%', marginTop: 4, boxSizing: 'border-box' }} />
                   </div>
                 </div>
-                <div style={{ marginTop: 10, fontSize: 12, color: '#78716c' }}>
+                <div style={{ marginTop: 10, fontSize: 12, color: '#a8a29e' }}>
                   MOD por unidad = <b style={{ color: '#d97706' }}>${(modRate * modHours / batchUnits).toFixed(2)}</b>
                 </div>
               </div>
@@ -5810,7 +5810,7 @@ if (!token) return (
                   ex: 'Si MPD+MOD = $23.70 y tus CIF son el 15% → CIF = $3.56 por unidad.'
                 })}
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 10 }}>
-                  <label style={{ fontSize: 12, color: '#78716c', fontWeight: 600 }}>CIF = % de (MPD + MOD)</label>
+                  <label style={{ fontSize: 12, color: '#a8a29e', fontWeight: 600 }}>CIF = % de (MPD + MOD)</label>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                     <input type="range" min={0} max={40} value={cifPct} onChange={e => setCifPct(Number(e.target.value))} style={{ width: 120 }} />
                     <span style={{ fontWeight: 800, color: brandColor, fontSize: 14 }}>{cifPct}%</span>
@@ -5829,10 +5829,10 @@ if (!token) return (
                         style={{ background: cifPct === p.pct ? '#fff7ed' : '#fff', borderRadius: 8, padding: '7px 8px', cursor: 'pointer', border: `1.5px solid ${cifPct === p.pct ? '#f97316' : '#e7e0d8'}`, transition: 'all .15s' }}>
                         <div style={{ fontSize: 16 }}>{p.icon}</div>
                         <div style={{ fontSize: 10, fontWeight: 800, color: '#44403c', marginTop: 2 }}>{p.tipo}</div>
-                        <div style={{ fontSize: 9, color: '#78716c', marginTop: 3 }}>Gas: {p.gas}</div>
-                        {p.luz && <div style={{ fontSize: 9, color: '#78716c' }}>Luz: {p.luz}</div>}
-                        {p.renta && <div style={{ fontSize: 9, color: '#78716c' }}>Renta: {p.renta}</div>}
-                        <div style={{ fontSize: 9, color: '#78716c' }}>{p.prod}/mes</div>
+                        <div style={{ fontSize: 9, color: '#a8a29e', marginTop: 3 }}>Gas: {p.gas}</div>
+                        {p.luz && <div style={{ fontSize: 9, color: '#a8a29e' }}>Luz: {p.luz}</div>}
+                        {p.renta && <div style={{ fontSize: 9, color: '#a8a29e' }}>Renta: {p.renta}</div>}
+                        <div style={{ fontSize: 9, color: '#a8a29e' }}>{p.prod}/mes</div>
                         <div style={{ marginTop: 5, fontSize: 11, fontWeight: 900, color: '#c2410c', background: '#fff7ed', borderRadius: 5, padding: '2px 6px', textAlign: 'center' }}>{p.rango}</div>
                       </div>
                     ))}
@@ -5858,13 +5858,13 @@ if (!token) return (
                           { label: 'Otros/mes $', key: 'otros' },
                         ].map(({ label, key }) => (
                           <div key={key}>
-                            <label style={{ fontSize: 10, color: '#78716c', fontWeight: 600 }}>{label}</label>
+                            <label style={{ fontSize: 10, color: '#a8a29e', fontWeight: 600 }}>{label}</label>
                             <input type="number" value={giReal[key]} onChange={e => setGiReal(p => ({ ...p, [key]: Number(e.target.value) }))}
                               style={{ ...INP, width: '100%', marginTop: 3, boxSizing: 'border-box' }} />
                           </div>
                         ))}
                         <div style={{ gridColumn: '1/-1' }}>
-                          <label style={{ fontSize: 10, color: '#78716c', fontWeight: 600 }}>Horas operadas/mes</label>
+                          <label style={{ fontSize: 10, color: '#a8a29e', fontWeight: 600 }}>Horas operadas/mes</label>
                           <input type="number" value={giReal.horas} onChange={e => setGiReal(p => ({ ...p, horas: Number(e.target.value) }))}
                             style={{ ...INP, width: '100%', marginTop: 3, boxSizing: 'border-box' }} />
                         </div>
@@ -5892,7 +5892,7 @@ if (!token) return (
                   </div>
                 )}
                 <div style={{ background: '#faf7f2', borderRadius: 8, padding: 10, marginBottom: 10 }}>
-                  <div style={{ fontSize: 11, color: '#78716c', fontWeight: 700, marginBottom: 6 }}>Ingredientes de esta receta (MPD):</div>
+                  <div style={{ fontSize: 11, color: '#a8a29e', fontWeight: 700, marginBottom: 6 }}>Ingredientes de esta receta (MPD):</div>
                   {recItems.map((it, i) => (
                     <div key={i} style={{ display: 'flex', gap: 6, alignItems: 'center', marginBottom: 4, fontSize: 12 }}>
                       <span style={{ flex: 1 }}>{it.ing}</span><span>×{it.qty}</span>
@@ -5915,7 +5915,7 @@ if (!token) return (
                 {/* 4.5 Merma / Imprevistos */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <label style={{ fontSize: 12, color: '#78716c', fontWeight: 600, whiteSpace: 'nowrap' }}>4️⃣ Merma / Imprevistos</label>
+                    <label style={{ fontSize: 12, color: '#a8a29e', fontWeight: 600, whiteSpace: 'nowrap' }}>4️⃣ Merma / Imprevistos</label>
                     {INFO({ title: '4. Merma e Imprevistos', text: 'Porcentaje que cubre ingredientes que se pierden durante la preparación, quemaduras, descarte de presentación imperfecta y cualquier imprevisto. Se aplica sobre el Costo de Producción (MPD+MOD+CIF).', ex: '5% de merma sobre un costo de $20 = $1 de reserva → Costo ajustado $21 antes de margen.' })}
                   </div>
                   <input type="range" min={0} max={15} value={merma} onChange={e => setMerma(Number(e.target.value))} style={{ flex: 1 }} />
@@ -5925,7 +5925,7 @@ if (!token) return (
                 {/* Gastos Operativos — líneas individuales */}
                 <div style={{ marginBottom: 12 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8 }}>
-                    <label style={{ fontSize: 12, color: '#78716c', fontWeight: 600 }}>5️⃣ Gastos Operativos / unidad</label>
+                    <label style={{ fontSize: 12, color: '#a8a29e', fontWeight: 600 }}>5️⃣ Gastos Operativos / unidad</label>
                     {INFO({ title: '5. Gastos Operativos por Unidad', text: 'Son los gastos que NO son de producción pero se cargan por unidad vendida: empaque (caja/bolsa), comisión de plataforma de pago, etiqueta, etc.', ex: 'Caja $2.50 + bolsa $1.00 + comisión Stripe ~3% = ~$5/unidad.' })}
                   </div>
                   {/* Lista de líneas */}
@@ -5970,7 +5970,7 @@ if (!token) return (
                 {/* Margen */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <label style={{ fontSize: 12, color: '#78716c', fontWeight: 600 }}>6️⃣ Margen de ganancia</label>
+                    <label style={{ fontSize: 12, color: '#a8a29e', fontWeight: 600 }}>6️⃣ Margen de ganancia</label>
                     {INFO({ title: '6. Precio de Venta con Margen', text: 'El margen se aplica SOBRE el costo total. Fórmula: Precio = Costo Total ÷ (1 - Margen%). Un margen del 50% significa que de cada peso que cobras, 50 centavos son ganancia neta.', ex: 'Costo Total $27 con margen 50% → Precio = $27 / (1-0.50) = $54. Tu ganancia = $27.' })}
                   </div>
                   <input type="range" min={20} max={80} value={margin} onChange={e => setMargin(Number(e.target.value))} style={{ flex: 1 }} />
@@ -6037,7 +6037,7 @@ if (!token) return (
                                   { n: '⑥ CT',  label: 'Costo Total',                val: costoTotal,color: '#dc2626', bg: '#fef2f2', bold: true },
                                 ].map(row => (
                                   <div key={row.n} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 10px', borderRadius: 7, marginBottom: 4, background: row.bg }}>
-                                    <span style={{ color: row.color, fontWeight: row.bold ? 800 : 600 }}>{row.n} <span style={{ fontWeight: 400, color: '#78716c' }}>{row.label}</span></span>
+                                    <span style={{ color: row.color, fontWeight: row.bold ? 800 : 600 }}>{row.n} <span style={{ fontWeight: 400, color: '#a8a29e' }}>{row.label}</span></span>
                                     <span style={{ fontWeight: row.bold ? 800 : 700, color: row.color }}>${row.val.toFixed(2)}</span>
                                   </div>
                                 ))}
@@ -6086,13 +6086,13 @@ if (!token) return (
             {expPct < 100 && <p style={{ fontSize: 11, color: '#dc2626', marginTop: 6 }}>Completa tu expediente para evitar la suspensión del servicio (Cláusula 6.4 del contrato).</p>}
           </div>
           <div style={CARD}>
-            <div style={{ fontSize: 12, color: '#78716c', marginBottom: 12 }}>Marca cada documento como entregado a GenyX:</div>
+            <div style={{ fontSize: 12, color: '#a8a29e', marginBottom: 12 }}>Marca cada documento como entregado a GenyX:</div>
             {EXPEDIENTE_DOCS.map(doc => (
               <div key={doc.key} onClick={() => toggleDoc(doc.key)} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '11px 0', borderBottom: '1px solid #f5f0ea', cursor: 'pointer' }}>
                 <div style={{ width: 22, height: 22, borderRadius: 6, border: `2px solid ${expDocs[doc.key] ? '#16a34a' : '#d4c9be'}`, background: expDocs[doc.key] ? '#16a34a' : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, transition: 'all 0.15s' }}>
                   {expDocs[doc.key] && <span style={{ color: '#fff', fontSize: 13, fontWeight: 900 }}>✓</span>}
                 </div>
-                <span style={{ fontSize: 13, color: expDocs[doc.key] ? '#44403c' : '#78716c', textDecoration: expDocs[doc.key] ? 'none' : 'none' }}>{doc.label}</span>
+                <span style={{ fontSize: 13, color: expDocs[doc.key] ? '#44403c' : '#a8a29e', textDecoration: expDocs[doc.key] ? 'none' : 'none' }}>{doc.label}</span>
               </div>
             ))}
           </div>
@@ -8857,7 +8857,7 @@ function TabResumenTenant({ slug, token, config }) {
     <div style={{ maxWidth: 900 }}>
       <div style={{ marginBottom: 20 }}>
         <h2 style={{ fontSize: 20, fontWeight: 800, color: '#1a1208', margin: '0 0 4px' }}>🎯 Resumen del día</h2>
-        <p style={{ fontSize: 13, color: '#78716c', margin: 0 }}>Tus agentes trabajaron para ti — esto es lo que lograron.</p>
+        <p style={{ fontSize: 13, color: '#a8a29e', margin: 0 }}>Tus agentes trabajaron para ti — esto es lo que lograron.</p>
       </div>
 
       {/* ── A11 CEO Digital Briefing — REGLA 18: sin datos inventados ── */}
@@ -8882,8 +8882,8 @@ function TabResumenTenant({ slug, token, config }) {
       </div>
 
       {/* ── 9 Agent Delivery Cards — V3 mejoradas ── */}
-      <p style={{ fontSize: 11, fontWeight: 700, color: '#78716c', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 12 }}>Tus 9 directores ejecutivos</p>
-      {loading && <p style={{ fontSize: 12, color: '#78716c' }}>Cargando estado de agentes...</p>}
+      <p style={{ fontSize: 11, fontWeight: 700, color: '#a8a29e', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 12 }}>Tus 9 directores ejecutivos</p>
+      {loading && <p style={{ fontSize: 12, color: '#a8a29e' }}>Cargando estado de agentes...</p>}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 12 }}>
         {Object.values(AGENT_CONFIGS).filter(a => !['A0','A9','A10'].includes(a.id)).map(agent => {
           const st = agentStatus(agent.id);
@@ -8905,7 +8905,7 @@ function TabResumenTenant({ slug, token, config }) {
                 <div style={{ padding: '3px 10px', background: hasActivity ? '#f0fdf4' : '#fafaf9', borderRadius: 8, fontSize: 10, fontWeight: 600, color: hasActivity ? '#15803d' : '#a8a29e', border: `1px solid ${hasActivity ? '#bbf7d0' : '#f0ece4'}` }}>{hasActivity ? '● Activo' : '○ Idle'}</div>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 8, paddingTop: 8, borderTop: '1px solid #faf5ef' }}>
-                <span style={{ fontSize: 11, color: '#78716c' }}>{evtCount > 0 ? `${evtCount} acciones · 24h` : 'Sin actividad reciente'}</span>
+                <span style={{ fontSize: 11, color: '#a8a29e' }}>{evtCount > 0 ? `${evtCount} acciones · 24h` : 'Sin actividad reciente'}</span>
               </div>
             </div>
           );
@@ -8930,7 +8930,7 @@ function TabOperacionTenant({ slug, token, orders, fetchOrders, inventory, fetch
       <h2 style={{ fontSize: 18, fontWeight: 800, color: '#1a1208', marginBottom: 12 }}>🚦 Operación</h2>
       <div style={{ display: 'flex', gap: 4, borderBottom: '1px solid #e7e5e4', marginBottom: 16, paddingBottom: 8 }}>
         {subs.map(s => (
-          <button key={s.id} onClick={() => setSection(s.id)} style={{ padding: '6px 14px', fontSize: 12, fontWeight: 600, border: 'none', background: section === s.id ? '#fef3c7' : 'transparent', color: section === s.id ? '#92400e' : '#78716c', cursor: 'pointer', borderRadius: 6 }}>{s.icon} {s.label}</button>
+          <button key={s.id} onClick={() => setSection(s.id)} style={{ padding: '6px 14px', fontSize: 12, fontWeight: 600, border: 'none', background: section === s.id ? '#fef3c7' : 'transparent', color: section === s.id ? '#92400e' : '#a8a29e', cursor: 'pointer', borderRadius: 6 }}>{s.icon} {s.label}</button>
         ))}
       </div>
     </div>
@@ -8952,7 +8952,7 @@ function TabInsightsTenant({ slug, token, analytics, fetchAnalytics, setParentTa
       <h2 style={{ fontSize: 18, fontWeight: 800, color: '#1a1208', marginBottom: 12 }}>📊 Insights</h2>
       <div style={{ display: 'flex', gap: 4, borderBottom: '1px solid #e7e5e4', marginBottom: 16, paddingBottom: 8 }}>
         {subs.map(s => (
-          <button key={s.id} onClick={() => setSection(s.id)} style={{ padding: '6px 14px', fontSize: 12, fontWeight: 600, border: 'none', background: section === s.id ? '#fef3c7' : 'transparent', color: section === s.id ? '#92400e' : '#78716c', cursor: 'pointer', borderRadius: 6 }}>{s.icon} {s.label}</button>
+          <button key={s.id} onClick={() => setSection(s.id)} style={{ padding: '6px 14px', fontSize: 12, fontWeight: 600, border: 'none', background: section === s.id ? '#fef3c7' : 'transparent', color: section === s.id ? '#92400e' : '#a8a29e', cursor: 'pointer', borderRadius: 6 }}>{s.icon} {s.label}</button>
         ))}
       </div>
     </div>
@@ -9099,7 +9099,7 @@ function TabAdminTenant({ slug, token, config }) {
       <h2 style={{ fontSize: 18, fontWeight: 800, color: '#1a1208', marginBottom: 12 }}>⚙️ Administración</h2>
       <div style={{ display: 'flex', gap: 4, borderBottom: '1px solid #e7e5e4', marginBottom: 16, paddingBottom: 8 }}>
         {subs.map(s => (
-          <button key={s.id} onClick={() => setSection(s.id)} style={{ padding: '6px 14px', fontSize: 12, fontWeight: 600, border: 'none', background: section === s.id ? '#fef3c7' : 'transparent', color: section === s.id ? '#92400e' : '#78716c', cursor: 'pointer', borderRadius: 6 }}>{s.icon} {s.label}</button>
+          <button key={s.id} onClick={() => setSection(s.id)} style={{ padding: '6px 14px', fontSize: 12, fontWeight: 600, border: 'none', background: section === s.id ? '#fef3c7' : 'transparent', color: section === s.id ? '#92400e' : '#a8a29e', cursor: 'pointer', borderRadius: 6 }}>{s.icon} {s.label}</button>
         ))}
       </div>
       {section === 'miPlan' && <TabMiPlan slug={slug} token={token} />}
@@ -12061,12 +12061,12 @@ function TicketPage({ sid }) {
             <div key={i} style={S.itemR}>
               <div>
                 <div style={{ fontWeight: 700, fontSize: 14, color: '#1a1208' }}>{it.nombre}</div>
-                <div style={{ fontSize: 12, color: '#78716c' }}>Cant: {it.qty} × ${it.precio_unitario?.toFixed(2)}</div>
+                <div style={{ fontSize: 12, color: '#a8a29e' }}>Cant: {it.qty} × ${it.precio_unitario?.toFixed(2)}</div>
               </div>
               <div style={{ fontWeight: 700, fontSize: 14, color: '#15803d', whiteSpace: 'nowrap', marginLeft: 12 }}>${it.total_item?.toFixed(2)}</div>
             </div>
           )) : (
-            <p style={{ color: '#78716c', fontSize: 13, textAlign: 'center', padding: '12px 0' }}>📲 Revisa tu resumen en WhatsApp</p>
+            <p style={{ color: '#a8a29e', fontSize: 13, textAlign: 'center', padding: '12px 0' }}>📲 Revisa tu resumen en WhatsApp</p>
           )}
 
           {/* Totales */}
@@ -12283,8 +12283,9 @@ export default function GenyXOperatorDashboard() {
 
       {/* —— Selector global de cliente —— */}
       <div style={{ padding: '10px 28px', background: GBa(0.04), borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', gap: 10 }}>
-        <span style={{ fontSize: 11, color: '#4f5c74', fontWeight: 600, letterSpacing: '.04em' }}>CLIENTE:</span>
+        <span style={{ fontSize: 11, color: '#9ca3af', fontWeight: 600, letterSpacing: '.04em' }}>CLIENTE:</span>
         <select
+          aria-label="Seleccionar cliente"
           value={selectedSlug}
           onChange={e => setSelectedSlug(e.target.value)}
           style={{ background: '#0f1623', border: `1px solid ${GBa(0.35)}`, color: selectedSlug ? GB_SOFT : '#9ca3af', padding: '5px 12px', borderRadius: 8, fontSize: 12, fontWeight: 600, cursor: 'pointer', outline: 'none' }}
