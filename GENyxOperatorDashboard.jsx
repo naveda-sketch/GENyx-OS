@@ -3428,18 +3428,18 @@ function TabArchivero({ slug, token }) {
   // CDN: fotos reales verificadas 200 OK en paty-web.vercel.app (3-jun-2026)
   const P = 'https://paty-web.vercel.app/images';
   const DEFAULT_CATS = [
-    { slug: 'hogaza-natural', name: 'Hogaza Natural', icon: '🍞', count: 2, photos: [`${P}/hogaza-natural-real.png`, `${P}/hogaza-natural-real.png`] },
-    { slug: 'hogaza-semillas', name: 'Hogaza de Semillas', icon: '🌾', count: 1, photos: [`${P}/hogaza-semillas-real.png`] },
-    { slug: 'hogaza-datil-nuez', name: 'Hogaza Dátil & Nuez', icon: '🥜', count: 1, photos: [`${P}/hogaza-datil-nuez.png`] },
-    { slug: 'galleta-nuez-choco', name: 'Galletas NY Nuez & Chocolate', icon: '🍪', count: 1, photos: [`${P}/galleta-nuez-choco-real.png`] },
-    { slug: 'galleta-ny', name: 'Galleta NY Clásica', icon: '🍪', count: 2, photos: [`${P}/galleta-ny-clasica-real.png`, `${P}/galleta-ny-clasica-real.png`] },
-    { slug: 'galleta-oreo', name: 'Galleta NY Oreo', icon: '🍪', count: 1, photos: [`${P}/galleta-oreo-real.png`] },
-    { slug: 'crookie', name: 'Crookie', icon: '🥐', count: 1, photos: [`${P}/crookie-real.png`] },
-    { slug: 'trenza-nutella', name: 'Trenza de Nutella', icon: '🍫', count: 2, photos: [`${P}/trenza-nutella-real.png`, `${P}/trenza-nutella-real.png`] },
-    { slug: 'pizza', name: 'Pizza Artesanal', icon: '🍕', count: 4, photos: [`${P}/pizza-real.png`, `${P}/pizza-hawaiana.png`, `${P}/pizza-pepperoni.png`, `${P}/pizza-queso.png`] },
-    { slug: 'pay-manzana', name: 'Pay de Manzana', icon: '🥧', count: 1, photos: [`${P}/pay-manzana.png`] },
-    { slug: 'jugos', name: 'Jugos Naturales', icon: '🧃', count: 1, photos: [`${P}/jugos-naturales.png`] },
-    { slug: 'pan-caja', name: 'Pan de Caja', icon: '🍞', count: 2, photos: [`${P}/pan-caja.png`, `${P}/pan-caja-semillas.png`] },
+    { slug: 'hogaza-natural', name: 'Hogaza Natural', icon: '🍞', count: 2, photos: [`${P}/hogaza-natural-t4.png`, `${P}/hogaza-natural-t4.png`] },
+    { slug: 'hogaza-semillas', name: 'Hogaza de Semillas', icon: '🌾', count: 1, photos: [`${P}/hogaza-semillas-t4.png`] },
+    { slug: 'hogaza-datil-nuez', name: 'Hogaza Dátil & Nuez', icon: '🥜', count: 1, photos: [`${P}/hogaza-datil-nuez-t4.png`] },
+    { slug: 'galleta-nuez-choco', name: 'Galletas NY Nuez & Chocolate', icon: '🍪', count: 1, photos: [`${P}/galleta-nuez-choco-t4.png`] },
+    { slug: 'galleta-ny', name: 'Galleta NY Clásica', icon: '🍪', count: 2, photos: [`${P}/galleta-ny-clasica-t4.png`, `${P}/galleta-ny-clasica-t4.png`] },
+    { slug: 'galleta-oreo', name: 'Galleta NY Oreo', icon: '🍪', count: 1, photos: [`${P}/galleta-oreo-t4.png`] },
+    { slug: 'crookie', name: 'Crookie', icon: '🥐', count: 1, photos: [`${P}/crookie-t4.png`] },
+    { slug: 'trenza-nutella', name: 'Trenza de Nutella', icon: '🍫', count: 2, photos: [`${P}/trenza-nutella-t4.png`, `${P}/trenza-nutella-t4.png`] },
+    { slug: 'pizza', name: 'Pizza Artesanal', icon: '🍕', count: 4, photos: [`${P}/pizza-artesanal-t4.png`, `${P}/pizza-artesanal-t4.png`, `${P}/pizza-artesanal-t4.png`, `${P}/pizza-artesanal-t4.png`] },
+    { slug: 'pay-manzana', name: 'Pay de Manzana', icon: '🥧', count: 1, photos: [`${P}/pay-manzana-t4.png`] },
+    { slug: 'jugos', name: 'Jugos Naturales', icon: '🧃', count: 1, photos: [`${P}/jugos-naturales-t4.png`] },
+    { slug: 'pan-caja', name: 'Pan de Caja', icon: '🍞', count: 2, photos: [`${P}/pan-caja-t4.png`, `${P}/pan-caja-t4.png`] },
   ];
 
   React.useEffect(() => { setCategories(DEFAULT_CATS); }, []);
