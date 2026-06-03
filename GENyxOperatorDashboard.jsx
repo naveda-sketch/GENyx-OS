@@ -3425,21 +3425,21 @@ function TabArchivero({ slug, token }) {
   const fileRef = React.useRef(null);
 
   // Default categories for Paty (REGLA 11: backend should provide these per tenant)
+  // CDN: fotos reales verificadas 200 OK en paty-web.vercel.app (3-jun-2026)
+  const P = 'https://paty-web.vercel.app/images';
   const DEFAULT_CATS = [
-    { slug: 'hogaza-natural', name: 'Hogaza Natural', icon: '🍞', count: 5 },
-    { slug: 'hogaza-semillas', name: 'Hogaza de Semillas', icon: '🌾', count: 5 },
-    { slug: 'hogaza-datil-nuez', name: 'Hogaza Dátil & Nuez', icon: '🥜', count: 1 },
-    { slug: 'galleta-nuez-choco', name: 'Galletas NY Nuez & Chocolate', icon: '🍪', count: 5 },
-    { slug: 'galleta-masa-madre', name: 'Galleta NY Masa Madre', icon: '🍪', count: 5 },
-    { slug: 'galleta-oreo', name: 'Galleta NY Oreo', icon: '🍪', count: 5 },
-    { slug: 'crookie', name: 'Crookie', icon: '🥐', count: 5 },
-    { slug: 'trenza-nutella', name: 'Trenza de Nutella', icon: '🍫', count: 2 },
-    { slug: 'pizza', name: 'Pizza Artesanal', icon: '🍕', count: 1 },
-    { slug: 'pay-manzana', name: 'Pay de Manzana', icon: '🥧', count: 1 },
-    { slug: 'jugos', name: 'Jugos Naturales', icon: '🧃', count: 1 },
-    { slug: 'preparaciones', name: 'Preparaciones', icon: '👩‍🍳', count: 5 },
-    { slug: 'masa-madre-general', name: 'Masa Madre (general)', icon: '🫓', count: 5 },
-    { slug: 'pan-caja', name: 'Pan de Caja', icon: '🍞', count: 1 },
+    { slug: 'hogaza-natural', name: 'Hogaza Natural', icon: '🍞', count: 2, photos: [`${P}/hogaza-natural-new.png`, `${P}/hogaza-natural.png`] },
+    { slug: 'hogaza-semillas', name: 'Hogaza de Semillas', icon: '🌾', count: 1, photos: [`${P}/hogaza-semillas-new.png`] },
+    { slug: 'hogaza-datil-nuez', name: 'Hogaza Dátil & Nuez', icon: '🥜', count: 1, photos: [`${P}/hogaza-datil-nuez.png`] },
+    { slug: 'galleta-nuez-choco', name: 'Galletas NY Nuez & Chocolate', icon: '🍪', count: 1, photos: [`${P}/galleta-nuez-choco.png`] },
+    { slug: 'galleta-ny', name: 'Galleta NY Clásica', icon: '🍪', count: 2, photos: [`${P}/galleta-ny-clasica.png`, `${P}/galleta-ny.png`] },
+    { slug: 'galleta-oreo', name: 'Galleta NY Oreo', icon: '🍪', count: 1, photos: [`${P}/galleta-oreo.png`] },
+    { slug: 'crookie', name: 'Crookie', icon: '🥐', count: 1, photos: [`${P}/crookie.png`] },
+    { slug: 'trenza-nutella', name: 'Trenza de Nutella', icon: '🍫', count: 2, photos: [`${P}/trenza-nutella-new.png`, `${P}/trenza-nutella.png`] },
+    { slug: 'pizza', name: 'Pizza Artesanal', icon: '🍕', count: 4, photos: [`${P}/pizza-artesanal-new.png`, `${P}/pizza-hawaiana.png`, `${P}/pizza-pepperoni.png`, `${P}/pizza-queso.png`] },
+    { slug: 'pay-manzana', name: 'Pay de Manzana', icon: '🥧', count: 1, photos: [`${P}/pay-manzana.png`] },
+    { slug: 'jugos', name: 'Jugos Naturales', icon: '🧃', count: 1, photos: [`${P}/jugos-naturales.png`] },
+    { slug: 'pan-caja', name: 'Pan de Caja', icon: '🍞', count: 2, photos: [`${P}/pan-caja.png`, `${P}/pan-caja-semillas.png`] },
   ];
 
   React.useEffect(() => { setCategories(DEFAULT_CATS); }, []);
