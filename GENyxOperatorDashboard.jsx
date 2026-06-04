@@ -11900,6 +11900,32 @@ function TabPeriodico() {
   const [activeSection, setActiveSection] = React.useState('titans');
   const [expandedItems, setExpandedItems] = React.useState({});
   const [audioPlaying, setAudioPlaying] = React.useState(false);
+  const audioUtterRef = React.useRef(null);
+  const handleAudioToggle = () => {
+    if (audioPlaying) { window.speechSynthesis.cancel(); setAudioPlaying(false); return; }
+    if (!edition || !edition.sections) { alert('No hay edición cargada.'); return; }
+    const parts = [`El Periódico. Edición del ${selectedDate}.`];
+    const labels = { titans: 'Titanes', ai_leaders: 'Líderes en IA', emerging: 'Emergentes', top10: 'Top 10 noticias', mercados: 'Mercados' };
+    Object.entries(edition.sections).forEach(([key, section]) => {
+      parts.push(labels[key] || key);
+      const items = section.data;
+      if (Array.isArray(items)) items.forEach(item => {
+        const n = item.nombre || item.empresa || item.titular || '';
+        if (n) parts.push(n);
+        (item.actividad || item.novedades || []).forEach(a => { if (a.titulo) parts.push(a.titulo); if (a.detalle) parts.push(a.detalle); });
+        if (item.resumen) parts.push(item.resumen);
+      });
+    });
+    const utter = new SpeechSynthesisUtterance(parts.join('. ').substring(0, 15000));
+    utter.lang = 'es-MX'; utter.rate = 0.95;
+    const voices = window.speechSynthesis.getVoices();
+    const mx = voices.find(v => v.lang === 'es-MX') || voices.find(v => v.lang.startsWith('es'));
+    if (mx) utter.voice = mx;
+    utter.onend = () => setAudioPlaying(false);
+    utter.onerror = () => setAudioPlaying(false);
+    window.speechSynthesis.speak(utter);
+    setAudioPlaying(true);
+  };
   const [selectedDate, setSelectedDate] = React.useState(() => {
     const now = new Date();
     return now.toISOString().split('T')[0];
@@ -12020,7 +12046,7 @@ function TabPeriodico() {
                   <div style={S.actTitle}>{act.titulo || '—'}</div>
                 </div>
                 <div style={S.actDetail}>{act.detalle || ''}</div>
-                {act.fuente && <div style={S.actSource}>📎 {act.fuente} {act.url && <a href={act.url} target="_blank" rel="noopener" style={S.sourceLink}> ↗</a>}</div>}
+                {act.fuente && <div style={S.actSource}>📎 {act.url ? <a href={act.url} target="_blank" rel="noopener" style={S.sourceLink}>{act.fuente} ↗</a> : act.fuente}</div>}
                 {(act.impacto || act.aplicacion_genyx || act.por_que_importa) && (
                   <div style={S.actImpact}>💡 {act.impacto || act.aplicacion_genyx || act.por_que_importa}</div>
                 )}
@@ -12047,7 +12073,7 @@ function TabPeriodico() {
               <div style={S.actTitle}>{item.titular || '—'}</div>
               <div style={S.actDetail}>{item.resumen || ''}</div>
               {item.por_que_importa && <div style={S.actImpact}>💡 {item.por_que_importa}</div>}
-              {item.fuente && <div style={S.actSource}>📎 {item.fuente} {item.url && <a href={item.url} target="_blank" rel="noopener" style={S.sourceLink}> ↗</a>}</div>}
+              {item.fuente && <div style={S.actSource}>📎 {item.url ? <a href={item.url} target="_blank" rel="noopener" style={S.sourceLink}>{item.fuente} ↗</a> : item.fuente}</div>}
             </div>
           </div>
         </div>
@@ -12143,10 +12169,10 @@ function TabPeriodico() {
 
       {/* Audio Bar */}
       <div style={S.audioBar}>
-        <button style={S.audioBtn} onClick={() => setAudioPlaying(!audioPlaying)}>
+        <button style={S.audioBtn} onClick={handleAudioToggle}>
           {audioPlaying ? '⏸️ Pausar' : '🎧 Escuchar'}
         </button>
-        <span style={{ fontSize: 11, color: '#9ca3af' }}>Audio disponible próximamente (Google Cloud TTS · es-MX)</span>
+        <span style={{ fontSize: 11, color: '#9ca3af' }}>{audioPlaying ? '🔊 Reproduciendo...' : '🎧 Audio · es-MX'}</span>
       </div>
 
       {/* Stats Bar */}
