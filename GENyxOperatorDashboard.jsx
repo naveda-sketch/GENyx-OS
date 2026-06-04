@@ -157,6 +157,7 @@ const TAB_GROUPS = [
     { id: 'cockpit_agentes',   label: '🤖 Agentes' },
     { id: 'radar',             label: '🛰️ RADAR' },
     { id: 'backstage',         label: '🔒 Backstage' },
+    { id: 'periodico',         label: '📰 Periódico' },
   ]},
 ];
 
@@ -11884,6 +11885,325 @@ function TabRadarIntel() {
   );
 }
 
+// ═══════════════════════════════════════════════════════════════════
+// TAB: EL PERIÓDICO — Daily Intelligence Briefing
+// ═══════════════════════════════════════════════════════════════════
+// Motor: Gemini 3.1 Pro + Google Search Grounding
+// Fuentes: Tier 4 exclusivamente
+// Idioma: es-MX
+// Audio: Google Cloud TTS (Chirp 3)
+// ═══════════════════════════════════════════════════════════════════
+function TabPeriodico() {
+  const [edition, setEdition] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
+  const [activeSection, setActiveSection] = React.useState('titans');
+  const [expandedItems, setExpandedItems] = React.useState({});
+  const [audioPlaying, setAudioPlaying] = React.useState(false);
+  const [selectedDate, setSelectedDate] = React.useState(() => {
+    const now = new Date();
+    return now.toISOString().split('T')[0];
+  });
+
+  // Fetch edition JSON
+  React.useEffect(() => {
+    setLoading(true);
+    setError(null);
+    // Try loading from local editions directory (served statically)
+    const url = `/editions/${selectedDate}.json`;
+    fetch(url)
+      .then(r => {
+        if (!r.ok) throw new Error(`No hay edición para ${selectedDate}`);
+        return r.json();
+      })
+      .then(data => { setEdition(data); setLoading(false); })
+      .catch(e => {
+        // Fallback: try from periodico editions
+        fetch(`/periodico/editions/${selectedDate}.json`)
+          .then(r => r.ok ? r.json() : null)
+          .then(data => {
+            if (data) { setEdition(data); setLoading(false); }
+            else { setError(e.message); setLoading(false); }
+          })
+          .catch(() => { setError(e.message); setLoading(false); });
+      });
+  }, [selectedDate]);
+
+  const toggleExpand = (key) => setExpandedItems(p => ({ ...p, [key]: !p[key] }));
+
+  const SECTIONS = [
+    { key: 'titans', icon: '🏛️', label: 'Titans' },
+    { key: 'ai_leaders', icon: '🤖', label: 'AI Leaders' },
+    { key: 'emerging', icon: '🚀', label: 'Emerging' },
+    { key: 'top10', icon: '📰', label: 'Top 10' },
+    { key: 'mercados', icon: '💹', label: 'Mercados' },
+  ];
+
+  // Styles
+  const S = {
+    container: { maxWidth: 960 },
+    header: { marginBottom: 24 },
+    title: { fontSize: 22, fontWeight: 800, color: '#f1f5f9', margin: '0 0 4px', display: 'flex', alignItems: 'center', gap: 10 },
+    subtitle: { fontSize: 13, color: '#9ca3af', margin: 0 },
+    badge: { fontSize: 10, fontWeight: 700, padding: '2px 8px', borderRadius: 12, background: '#10b981', color: '#fff', animation: 'pulse 2s infinite' },
+    dateBadge: { fontSize: 11, fontWeight: 600, color: GB_SOFT, background: GBa(0.12), padding: '4px 12px', borderRadius: 8, border: `1px solid ${GBa(0.25)}` },
+    nav: { display: 'flex', gap: 4, marginBottom: 20, overflowX: 'auto', paddingBottom: 4 },
+    navBtn: (active) => ({
+      padding: '8px 14px', fontSize: 12, fontWeight: 600, border: 'none',
+      background: active ? GBa(0.2) : 'rgba(255,255,255,0.04)',
+      color: active ? GB_LIGHT : '#9ca3af',
+      borderRadius: 8, cursor: 'pointer', whiteSpace: 'nowrap',
+      borderBottom: active ? `2px solid ${GENYX_BRAND}` : '2px solid transparent',
+      transition: 'all .2s',
+    }),
+    dateNav: { display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 },
+    dateBtn: { background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#9ca3af', padding: '6px 12px', borderRadius: 8, cursor: 'pointer', fontSize: 12, fontWeight: 600 },
+    card: { background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 10, transition: 'all .2s' },
+    cardHover: { background: 'rgba(255,255,255,0.06)', borderColor: GBa(0.3) },
+    personName: { fontSize: 15, fontWeight: 700, color: '#f1f5f9', marginBottom: 2 },
+    empresa: { fontSize: 11, fontWeight: 600, color: GB_SOFT, marginBottom: 8 },
+    actItem: { background: 'rgba(255,255,255,0.02)', borderRadius: 8, padding: '10px 12px', marginBottom: 6, borderLeft: `3px solid ${GBa(0.4)}` },
+    actTitle: { fontSize: 13, fontWeight: 700, color: '#e2e8f0', marginBottom: 4 },
+    actDetail: { fontSize: 12, color: '#94a3b8', lineHeight: 1.5, marginBottom: 4 },
+    actSource: { fontSize: 10, color: GB_SOFT, fontWeight: 600 },
+    actImpact: { fontSize: 11, color: '#fbbf24', fontStyle: 'italic', marginTop: 4 },
+    sourceLink: { color: GB_LIGHT, textDecoration: 'none', fontSize: 10, fontWeight: 600 },
+    empty: { textAlign: 'center', padding: 40, color: '#9ca3af' },
+    audioBar: { display: 'flex', alignItems: 'center', gap: 10, background: GBa(0.08), border: `1px solid ${GBa(0.2)}`, borderRadius: 10, padding: '10px 16px', marginBottom: 16 },
+    audioBtn: { background: `linear-gradient(135deg, ${GENYX_BRAND}, ${GB_PURPLE})`, border: 'none', color: '#fff', padding: '8px 16px', borderRadius: 8, cursor: 'pointer', fontSize: 12, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 6 },
+    statsBar: { display: 'flex', gap: 12, marginBottom: 16, flexWrap: 'wrap' },
+    stat: { background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 8, padding: '8px 14px', fontSize: 11, color: '#9ca3af', fontWeight: 600 },
+    statValue: { color: '#f1f5f9', fontWeight: 800, fontSize: 14, marginRight: 4 },
+    newsRank: { display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 24, height: 24, borderRadius: '50%', background: GBa(0.2), color: GB_LIGHT, fontSize: 11, fontWeight: 800, marginRight: 8, flexShrink: 0 },
+    catBadge: (cat) => {
+      const colors = { AI: '#8b5cf6', negocios: '#10b981', tendencia: '#f59e0b', mercados: '#3b82f6' };
+      const c = colors[cat] || '#6b7280';
+      return { fontSize: 9, fontWeight: 700, padding: '2px 8px', borderRadius: 10, background: `${c}20`, color: c, textTransform: 'uppercase', letterSpacing: '.05em' };
+    },
+    marketIdx: (trend) => ({
+      display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px',
+      background: 'rgba(255,255,255,0.02)', borderRadius: 8, marginBottom: 4,
+      borderLeft: `3px solid ${trend === '↑' ? '#10b981' : trend === '↓' ? '#ef4444' : '#6b7280'}`,
+    }),
+    trendColor: (trend) => trend === '↑' ? '#10b981' : trend === '↓' ? '#ef4444' : '#9ca3af',
+  };
+
+  // Render section content
+  const renderSection = (sectionKey) => {
+    if (!edition?.sections?.[sectionKey]) return <div style={S.empty}>Sección no disponible</div>;
+    const sec = edition.sections[sectionKey];
+    if (sec.status !== 'ok') return <div style={S.empty}>⚠️ Error generando esta sección</div>;
+    const data = sec.data;
+
+    // TITANS & AI_LEADERS & EMERGING
+    if (['titans', 'ai_leaders', 'emerging'].includes(sectionKey) && Array.isArray(data)) {
+      return data.map((item, i) => {
+        const name = item.nombre || item.empresa || '?';
+        const empresa = item.empresa || item.sector || '';
+        const acts = item.actividad || item.novedades || [];
+        const itemKey = `${sectionKey}_${i}`;
+        const expanded = expandedItems[itemKey] !== false; // default expanded
+
+        return (
+          <div key={i} style={S.card} onMouseEnter={e => e.currentTarget.style.borderColor = GBa(0.3)} onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', cursor: 'pointer' }} onClick={() => toggleExpand(itemKey)}>
+              <div>
+                <div style={S.personName}>{name}</div>
+                {empresa && <div style={S.empresa}>{empresa}</div>}
+              </div>
+              <span style={{ fontSize: 11, color: '#9ca3af', transform: expanded ? 'rotate(180deg)' : 'none', transition: 'transform .2s' }}>▼</span>
+            </div>
+            {expanded && Array.isArray(acts) && acts.map((act, j) => (
+              <div key={j} style={S.actItem}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+                  <span style={{ fontSize: 9, fontWeight: 700, padding: '1px 6px', borderRadius: 6, background: GBa(0.15), color: GB_SOFT, textTransform: 'uppercase' }}>{act.tipo || '—'}</span>
+                  <div style={S.actTitle}>{act.titulo || '—'}</div>
+                </div>
+                <div style={S.actDetail}>{act.detalle || ''}</div>
+                {act.fuente && <div style={S.actSource}>📎 {act.fuente} {act.url && <a href={act.url} target="_blank" rel="noopener" style={S.sourceLink}> ↗</a>}</div>}
+                {(act.impacto || act.aplicacion_genyx || act.por_que_importa) && (
+                  <div style={S.actImpact}>💡 {act.impacto || act.aplicacion_genyx || act.por_que_importa}</div>
+                )}
+              </div>
+            ))}
+            {expanded && (!Array.isArray(acts) || acts.length === 0) && (
+              <div style={{ fontSize: 12, color: '#9ca3af', padding: '8px 0' }}>Sin actividad relevante en las últimas 48h.</div>
+            )}
+          </div>
+        );
+      });
+    }
+
+    // TOP 10 NEWS
+    if (sectionKey === 'top10' && Array.isArray(data)) {
+      return data.map((item, i) => (
+        <div key={i} style={S.card}>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+            <span style={S.newsRank}>{item.ranking || i + 1}</span>
+            <div style={{ flex: 1 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+                {item.categoria && <span style={S.catBadge(item.categoria)}>{item.categoria}</span>}
+              </div>
+              <div style={S.actTitle}>{item.titular || '—'}</div>
+              <div style={S.actDetail}>{item.resumen || ''}</div>
+              {item.por_que_importa && <div style={S.actImpact}>💡 {item.por_que_importa}</div>}
+              {item.fuente && <div style={S.actSource}>📎 {item.fuente} {item.url && <a href={item.url} target="_blank" rel="noopener" style={S.sourceLink}> ↗</a>}</div>}
+            </div>
+          </div>
+        </div>
+      ));
+    }
+
+    // MERCADOS
+    if (sectionKey === 'mercados' && typeof data === 'object') {
+      const renderMarketSection = (key, label, items) => {
+        if (!items) return null;
+        const arr = Array.isArray(items) ? items : (items.datos || []);
+        return (
+          <div key={key} style={{ marginBottom: 16 }}>
+            <div style={{ fontSize: 13, fontWeight: 700, color: GB_LIGHT, marginBottom: 8, textTransform: 'uppercase', letterSpacing: '.05em' }}>{label}</div>
+            {Array.isArray(arr) && arr.map((item, i) => (
+              <div key={i} style={S.marketIdx(item.tendencia)}>
+                <span style={{ fontSize: 13, fontWeight: 600, color: '#e2e8f0' }}>{item.nombre || item.titulo || '—'}</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  {item.valor && <span style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9' }}>{item.valor}</span>}
+                  {item.cambio_pct && <span style={{ fontSize: 12, fontWeight: 700, color: S.trendColor(item.tendencia) }}>{item.tendencia} {item.cambio_pct}</span>}
+                </div>
+              </div>
+            ))}
+            {items.analisis && <div style={{ fontSize: 11, color: '#9ca3af', marginTop: 6, fontStyle: 'italic' }}>📊 {items.analisis}</div>}
+          </div>
+        );
+      };
+
+      // Handle different possible data structures
+      if (data.pulso_mercados) {
+        const pm = data.pulso_mercados;
+        return (
+          <div>
+            {renderMarketSection('indices', '📈 Índices Principales', pm.indices)}
+            {renderMarketSection('acciones', '💎 Acciones Tech', pm.acciones)}
+            {renderMarketSection('earnings', '📅 Earnings Próximos', pm.earnings)}
+            {renderMarketSection('macro', '🌍 Tendencia Macro', pm.macro)}
+          </div>
+        );
+      }
+      // Flat structure
+      return (
+        <div>
+          {Object.entries(data).map(([key, val]) => {
+            const labels = { indices: '📈 Índices', acciones: '💎 Acciones Tech', earnings: '📅 Earnings', macro: '🌍 Macro' };
+            return renderMarketSection(key, labels[key] || key, val);
+          })}
+        </div>
+      );
+    }
+
+    return <div style={S.empty}>Formato de datos no reconocido</div>;
+  };
+
+  // Date navigation
+  const changeDate = (offset) => {
+    const d = new Date(selectedDate + 'T12:00:00');
+    d.setDate(d.getDate() + offset);
+    setSelectedDate(d.toISOString().split('T')[0]);
+  };
+  const isToday = selectedDate === new Date().toISOString().split('T')[0];
+
+  if (loading) return (
+    <div style={S.container}>
+      <div style={S.header}>
+        <h2 style={S.title}>📰 El Periódico</h2>
+      </div>
+      <div style={S.empty}>
+        <div style={{ fontSize: 32, marginBottom: 12 }}>⏳</div>
+        <div style={{ fontSize: 14, fontWeight: 600 }}>Cargando edición...</div>
+      </div>
+    </div>
+  );
+
+  return (
+    <div style={S.container}>
+      {/* Header */}
+      <div style={S.header}>
+        <h2 style={S.title}>
+          📰 El Periódico
+          {isToday && <span style={S.badge}>🔴 HOY</span>}
+        </h2>
+        <p style={S.subtitle}>Briefing diario de inteligencia — AI, negocios y tecnología · Fuentes Tier 4</p>
+      </div>
+
+      {/* Date Navigation */}
+      <div style={S.dateNav}>
+        <button style={S.dateBtn} onClick={() => changeDate(-1)}>◀ Ayer</button>
+        <span style={S.dateBadge}>📅 {selectedDate}</span>
+        <button style={S.dateBtn} onClick={() => changeDate(1)} disabled={isToday}>Mañana ▶</button>
+        {!isToday && <button style={{ ...S.dateBtn, color: GB_LIGHT }} onClick={() => setSelectedDate(new Date().toISOString().split('T')[0])}>Hoy</button>}
+      </div>
+
+      {/* Audio Bar */}
+      <div style={S.audioBar}>
+        <button style={S.audioBtn} onClick={() => setAudioPlaying(!audioPlaying)}>
+          {audioPlaying ? '⏸️ Pausar' : '🎧 Escuchar'}
+        </button>
+        <span style={{ fontSize: 11, color: '#9ca3af' }}>Audio disponible próximamente (Google Cloud TTS · es-MX)</span>
+      </div>
+
+      {/* Stats Bar */}
+      {edition && (
+        <div style={S.statsBar}>
+          <div style={S.stat}><span style={S.statValue}>{edition.summary?.sections_ok || 0}</span>/ {edition.summary?.sections_total || 5} secciones</div>
+          <div style={S.stat}><span style={S.statValue}>{Object.values(edition.sections || {}).reduce((sum, s) => sum + (s.grounding_sources?.length || 0), 0)}</span>fuentes verificadas</div>
+          <div style={S.stat}><span style={S.statValue}>{edition.tier || 'Tier 4'}</span></div>
+          <div style={S.stat}>🌐 {edition.language || 'es-MX'}</div>
+        </div>
+      )}
+
+      {/* Error state */}
+      {error && (
+        <div style={{ ...S.card, borderColor: '#f87171', background: 'rgba(248,113,113,0.05)' }}>
+          <div style={{ fontSize: 14, fontWeight: 700, color: '#f87171', marginBottom: 4 }}>⚠️ No hay edición para esta fecha</div>
+          <div style={{ fontSize: 12, color: '#9ca3af' }}>{error}</div>
+          <div style={{ fontSize: 11, color: '#9ca3af', marginTop: 8 }}>El Periódico se genera diariamente a las 5:00 AM CST.</div>
+        </div>
+      )}
+
+      {/* Section Navigation */}
+      {edition && (
+        <>
+          <div style={S.nav}>
+            {SECTIONS.map(s => (
+              <button key={s.key} style={S.navBtn(activeSection === s.key)} onClick={() => setActiveSection(s.key)}>
+                {s.icon} {s.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Section Content */}
+          <div>
+            {renderSection(activeSection)}
+          </div>
+
+          {/* Grounding Sources Footer */}
+          {edition.sections?.[activeSection]?.grounding_sources?.length > 0 && (
+            <div style={{ marginTop: 16, padding: 12, background: 'rgba(255,255,255,0.02)', borderRadius: 8, border: '1px solid rgba(255,255,255,0.05)' }}>
+              <div style={{ fontSize: 10, fontWeight: 700, color: '#9ca3af', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '.1em' }}>🔗 Fuentes de verificación ({edition.sections[activeSection].grounding_sources.length})</div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
+                {edition.sections[activeSection].grounding_sources.map((src, i) => (
+                  <a key={i} href={src.uri} target="_blank" rel="noopener" style={{ fontSize: 9, color: GB_SOFT, background: GBa(0.08), padding: '2px 8px', borderRadius: 6, textDecoration: 'none', border: `1px solid ${GBa(0.15)}` }}>
+                    {src.title?.substring(0, 40) || src.uri?.substring(0, 30)}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  );
+}
+
+
 function TabOperaciones({ tenants, health, orders, selectedSlug, setSelectedSlug }) {
   const [section, setSection] = React.useState('soporte');
   const subs = [
@@ -12828,6 +13148,7 @@ export default function GenyXOperatorDashboard() {
         {tab === 'cockpit_agentes' && <TabCockpitAgentes tenants={tenants} selectedSlug={selectedSlug} />}
         {tab === 'backstage'       && <TabBackstage tenants={tenants} health={health} orders={orders} selectedSlug={selectedSlug} setSelectedSlug={setSelectedSlug} />}
         {tab === 'radar'           && <TabRadarIntel />}
+        {tab === 'periodico'       && <TabPeriodico />}
 
         {/* ═══ LEGACY (accesible via URL directa, no en nav) ═══ */}
         {tab === 'soporte'      && <TabSoporte tenants={tenants} />}
