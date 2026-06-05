@@ -1,0 +1,1126 @@
+{
+  "version": "2.0",
+  "date": "2026-06-05",
+  "generated_at": "2026-06-05T10:30:21.608466-06:00",
+  "timezone": "CST (UTC-6)",
+  "language": "es-MX",
+  "tier": "Tier 4",
+  "sections": {
+    "titans": {
+      "key": "titans",
+      "title": "🏛️ Los Titans",
+      "data": [
+        {
+          "nombre": "Elon Musk",
+          "empresa": "Tesla, xAI, SpaceX, X",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Detalles de la Oferta Pública Inicial (IPO) de SpaceX",
+              "detalle": "SpaceX planea una IPO para recaudar hasta 75 mil millones de dólares, vendiendo 555.6 millones de acciones a 135 dólares cada una. Esta operación podría valorar la compañía en 1.77 billones de dólares, convirtiéndose en el mayor debut bursátil de la historia.",
+              "fuente": "NOTIVER, Última Hora, Descifrado, Ámbito, Bolsamania.com, Marketscreener, La Nota San Juan",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFPeQaDjWNN9w59oGMnodCaEGsAeSTdP8ORQLjPNumzyQghWJ686XNt8i0ZZE2a4TOaANOc7hZ8QvIH-iMTdynbpXuyYXbmdqZxf8nUb12Qi5O9BRgbOpNQg6Eh0pzJ002gOVjhkJ2Gi4ATJIAGhZ2b6olGoTJTGkVkw-FeCevTVXbXhfslBA468y0FLNzy",
+              "impacto": "Esta IPO masiva podría redefinir el panorama financiero y tecnológico, solidificando la posición de SpaceX como un actor dominante en la exploración espacial y las telecomunicaciones, y potencialmente convirtiendo a Musk en el primer trillonario."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Confirmación de Starlink V3",
+              "detalle": "Elon Musk confirmó los planes para desplegar 100,000 satélites Starlink V3, que ofrecerán 10 veces más ancho de banda y reducirán la latencia a menos de 5 milisegundos. Los lanzamientos se realizarán con la nave Starship en el último trimestre de 2026.",
+              "fuente": "Juan Fernández (vía elEconomista.es)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHyv6ej9n2sQxN9-6_am7oMZHLBjYaoL510LVCn73x1dgr7TcORFFhrODh--es53ogmZSoVR4pz5l_qO4xUI9kSUlPenQaz-Cekx9wOUjoTvKw5Hytsz-bTC7evd0MT0Rwa0ehn3le_4nqXZW50EKM4SUaFQLe9tNHh6o_8r42B",
+              "impacto": "La implementación de Starlink V3 promete una conectividad global de alta velocidad y baja latencia, lo que podría transformar el acceso a internet en áreas remotas y aumentar la competencia en el sector de las telecomunicaciones satelitales."
+            }
+          ]
+        },
+        {
+          "nombre": "Satya Nadella",
+          "empresa": "Microsoft",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Visión de Agentes de IA en Microsoft Build 2026",
+              "detalle": "Satya Nadella, CEO de Microsoft, presentó en Microsoft Build 2026 su visión de una era de 'computación centrada en agentes' donde los agentes de IA reemplazarán las aplicaciones tradicionales. Introdujo 'Project Solara', una nueva plataforma de chip a la nube, y destacó la importancia de un ecosistema de IA abierto.",
+              "fuente": "CNET, Stratechery, TechGig, Josh Bersin",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGkTzLCPKkL2JS_ppri3t2usf7S5HZwUt0PgAlXsS7MCi3nukayhn8yqo7zp0CzWif0JsCpUPbKcn6eHo0BfvNGUiFRmkQ-KIT4Fl9nHnnGSul4FadOM5Bgpt1p1Gxr156u7PpuK-La3ZkwdDYbkbuq_jRpb-1cIO5Vv6OfQ_BEQldLadUTayWVrz_jKRgDXfpvEojFg2Ktf6k8I_m9hh1iw1MVv5Pu",
+              "impacto": "Esta visión marca un cambio fundamental en la interacción con la tecnología, impulsando el desarrollo de IA proactiva y redefiniendo el futuro del software y los sistemas operativos."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Importancia del 'Permiso Comunitario' para Centros de Datos de IA",
+              "detalle": "Durante un podcast en vivo en Microsoft Build 2026, Nadella enfatizó la necesidad de obtener el 'permiso comunitario' para la construcción de nuevos centros de datos de IA. Subrayó que los cambios deben ser tangibles y beneficiosos para las comunidades locales.",
+              "fuente": "CNET",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHG4o83kLwU1Imyt6Ti2eS02rrGGrXwF9n56D1YN3U-_-HiTyv2u1xXT2Suvs2uOa8gI9cdYTvrHdfxfU2hZaRSaEfQYQGLHiixj9WWqLiWecDt9UEKJnGbZXq8xMOnsx7qZaZ0Wy4I7DwF0ABrYE5UZPxAiCihJk0p5rgLYo8u",
+              "impacto": "Esta declaración resalta la creciente conciencia social y regulatoria sobre el impacto de la infraestructura de IA, fomentando un enfoque más sostenible y socialmente responsable en el desarrollo tecnológico."
+            }
+          ]
+        },
+        {
+          "nombre": "Jensen Huang",
+          "empresa": "NVIDIA",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Visita a Corea del Sur y Enfoque en Robótica e IA",
+              "detalle": "Jensen Huang llegó a Seúl el 5 de junio de 2026 para una visita de cuatro días, declarando que la robótica será el próximo gran sector de Corea del Sur y que trae 'mucho negocio' al país. Se reunirá con líderes de Samsung, SK Hynix, Hyundai y Naver, y participará en eventos públicos.",
+              "fuente": "KuCoin, Invezz, TradingKey, La República, Bloomberg Línea, Grupo Milenio, Reuters, Let's Data Science, The Korea Herald, SWI swissinfo.ch, Infobae",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHuiOz7LqUgBhiiLa9g5-gIjgU9Sg14ec4hT6PVh9kIdrZlGVzI9SmNjmzMSgO5dae-AriBjUgGpBs0XYKS0CG5vSj5tCjCOtUnD2atPbFMJRZ9uXDrRJvh8RCEHKVIqhLuOz6Knxl8u2yKg-pXl7z9hEMlrXNJAuiGb85Qb_QmsvLsr05SHD272gL5o9sRFH4cuYOuOoCL8UfOjiEJa9J8V-gsAsi_vYJ11IeEjDd4_dCwqGCSnQjR",
+              "impacto": "La visita de Huang subraya la importancia estratégica de Corea del Sur en la cadena de suministro de IA y robótica, y podría acelerar las inversiones y colaboraciones en estos sectores a nivel global."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Reflexión sobre las Dificultades de NVIDIA",
+              "detalle": "En un podcast, Jensen Huang compartió que no volvería a fundar NVIDIA si hubiera conocido las inmensas dificultades, los momentos cercanos a la bancarrota y el costo emocional que implicó construir la empresa. Destacó el dolor y los sacrificios personales.",
+              "fuente": "KuCoin (vía Business Insider)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGyHazfJSbsiMLHOC1gUL7dQ2Ei5ghmASY_QQqOQhkC-O6QHceQ-JoJvEN4lI63qJJ7Aoh-38rWyW__5CSYfPpJcZ7VZskhMvkSY9WHartyh4rULKrqKrZflMWKLBNQ8ceLB5WI8V53u8IRAf30x0EkSy2DNqNEOAQd5n7PAMM-IHzsdxi1qP65dU9NUSyDKHVtQo6KP9AqCNDuvAum0LoV22KGmlIJaA==",
+              "impacto": "Esta rara visión personal de un líder tecnológico resalta la inmensa presión y los desafíos inherentes a la construcción de empresas innovadoras, humanizando el éxito empresarial."
+            },
+            {
+              "tipo": "movimiento",
+              "titulo": "Invitación a Testificar ante el Senado de EE. UU.",
+              "detalle": "La senadora Elizabeth Warren invitó a Jensen Huang a testificar el 11 de junio ante el Comité Bancario del Senado de EE. UU. La audiencia se centrará en las ventas de chips de IA de NVIDIA en China y las políticas de control de exportaciones de EE. UU.",
+              "fuente": "TradingKey",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFjv06UZU1UCB10VGnPvEo_kZDIPZ2ZtuO3ZFenhUdTYaTrpJlvwgrgG7gdNDMvl5k_d2UJoDasuMs0Vv6C2mn2XCplkNZTcT0viYbZJild6Rndf_P2z9dlrTnFd-o3cRdjPgWL84FMyr_qOOqYB7BznwJj8qijrvMsC8t7uQL4XcnnNlF93L-ew5ulCmzIy_wkRfuiQaA=",
+              "impacto": "Esta invitación subraya la creciente preocupación regulatoria en EE. UU. sobre el control de la tecnología de IA y su impacto en la seguridad nacional y la competencia global."
+            }
+          ]
+        },
+        {
+          "nombre": "Sam Altman",
+          "empresa": "OpenAI",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "El Futuro de la IA: Sistemas Proactivos y Costos de Tokens",
+              "detalle": "Sam Altman habló sobre la próxima etapa de la IA, enfocándose en sistemas 'proactivos' que operan continuamente en segundo plano. Reconoció que los costos de procesamiento de tokens de IA son un desafío crítico para la industria, con el usuario principal de OpenAI consumiendo 100 mil millones de tokens al mes.",
+              "fuente": "Zamin.uz, Noticias3D.com, The American Bazaar",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGzlTy36uObxOyBycnhd-Ye6AZsZTNnlD7SjsPBCzNDB3G3-N2x04k_lcY5YtvxyHb8sd9OKjtUIlbXtjXKvrWrtWel5QQUBmGRrCT4jIhFfUEYcze62UBRBM8txbRrmoCFV1Sa6RXVAISZ2d-DZbPXCX3ROMfHzRn8dxYB7iBJdxyoDMTiWVgZGIaK_UqKCCyVoThotbSB66ED6Xf-dID6JqtMJR8=",
+              "impacto": "Esta declaración orienta la dirección de la investigación y el desarrollo de la IA hacia una mayor autonomía y eficiencia, mientras que la preocupación por los costos podría impulsar innovaciones en la optimización de modelos y la infraestructura."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Petición de Financiamiento sobre Restricciones para la Seguridad de la IA",
+              "detalle": "Altman instó a los legisladores a invertir en investigación de seguridad de la IA en lugar de imponer nuevas restricciones a la liberación de modelos, tras una orden ejecutiva que exige acceso gubernamental a los modelos 30 días antes de su lanzamiento público. Argumenta que las restricciones podrían frenar la innovación.",
+              "fuente": "Candela Labs, La República, Pluang",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFa3p6pItnD1Pv-tlu_5VJAxPpK5EmR4R2UXwdzV3ttMELshBz7A2uGc8qteigPm7Xpv39fo7hpsNt2rbadNpCbzeX3KAVZVXFa1O7I4FvPQYuowNyUyS9wV7RVu0VwBLvdiIBeoffLhj01l67v-f4QcYEqxdq1gN2Cq7sgjL6IMQ2pVS3fiOtZmF1fDcnsYxeGJCcY132z8d2feuMgxJwD54wVdhZ-mQJvqYu8Ll7pxRRA",
+              "impacto": "Esta postura refleja la tensión entre la innovación rápida y la regulación de la IA, buscando un equilibrio que fomente el progreso tecnológico sin comprometer la seguridad."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Distanciamiento del Gasto Político en Elecciones de EE. UU.",
+              "detalle": "Sam Altman afirmó que no planea realizar contribuciones financieras a las elecciones de medio mandato de EE. UU. en 2026. Esta decisión se produce en un contexto de creciente debate político sobre la regulación de la inteligencia artificial.",
+              "fuente": "5Días, Bloomberg Línea",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGp1P5PXtn-64VZVrOs1IJUlMP87ef416WSK0Zdlhy83s4DXfT0aduiRTzJIpPORFUbPCmi8zirCICNhhScrVbwn_1zbprBEB BSTQM7BU6b04YlyywP-aA6a_iN3RSHMzyXyxPeGqDzBxJm2H-06brahf8BBozSHbEatdFAV4-Py85aqDt80HZEB4rm5X-an9H8sQvHL4cz2gDgTh4=",
+              "impacto": "La decisión de Altman podría influir en cómo la industria tecnológica aborda la política, buscando quizás una influencia más a través del diálogo y la investigación que del financiamiento directo de campañas."
+            },
+            {
+              "tipo": "publicación",
+              "titulo": "Participación en Game Show de Founders Fund",
+              "detalle": "Sam Altman participó en el episodio inaugural de un game show lanzado por Founders Fund el 4 de junio de 2026. El programa busca atraer a líderes tecnológicos a un formato más ameno.",
+              "fuente": "Cadena 3 Argentina",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE4kGHRIjHvBf2gjCOSk3eoYY18ojUKkhk1Xd6HXXLiVVyVhJY1NZbsFxZmBqCMceBxIAY1C0emYIp6_uUVzErP0Vi9GQMMgP9nBb5cY6DBYoIaHOsqyiizig4bdTCjzqD0F6CNIEBZf4sU96XIF_StA2rT5TZJ5TNjHsssMZ5RE-P0SPTxRDP63HHMn6lb_WouT-JwSxi6TTnwxeJtfx30WFJoy4cM1esKYDmA0lE=",
+              "impacto": "Esta aparición pública en un formato de entretenimiento podría ser un esfuerzo por humanizar a los líderes de la IA y hacer que la tecnología sea más accesible para el público general."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Firma de Carta contra Armas Biológicas Asistidas por IA",
+              "detalle": "Sam Altman, junto con el CEO de Anthropic, Dario Amodei, y otros líderes de IA, firmó una carta abierta pidiendo a los legisladores que exijan a los proveedores de ácidos nucleicos sintéticos escanear 'secuencias de preocupación' y verificar la legitimidad de los clientes para prevenir armas biológicas asistidas por IA.",
+              "fuente": "Gizmodo",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEO_fLZEVsf2MAiJYvNmGYvU_1TzH3OVpsSmtybpKlhwuWYEQ5439gv2TvFHv1kxG-h-vvyFyNkUD9kffJwjAQNI_RzobxrWsrXc4v6jnrKWTNRAeCti_IEkq67m7qSjsT7ZZK2yfDva9Wd9jF2sTgKX5K28RQ8KtmFupa-_wPhNvnXsNKLOSlOkIx1CNmAOhBN-H5YjREzZNw_rVUU0sBaqxOjxRVkH7Qe_mfQrmBN",
+              "impacto": "La colaboración de líderes de IA en esta iniciativa subraya la seria preocupación por los riesgos de la IA en el ámbito de la bioseguridad y busca establecer salvaguardias regulatorias cruciales."
+            },
+            {
+              "tipo": "movimiento",
+              "titulo": "Discusiones sobre Participación Accionaria del Gobierno de EE. UU. en Empresas de IA",
+              "detalle": "Altos funcionarios de EE. UU. han mantenido conversaciones preliminares con importantes empresas de IA, incluida OpenAI, sobre la posibilidad de que el gobierno federal adquiera participaciones accionarias. Sam Altman ha discutido esta idea con funcionarios de la administración Trump.",
+              "fuente": "Ecosistema Startup, NOTUS",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEIKkTWe-C9VRt1_Ky-7HuclWEY1xjoS86aBEAUtAwCcKN6pg-4p07DMCDDfiHBkI6xP3ehoO_nwnwQQLlP-vyWuyb8vsC0M-eMd0D4S9o4UIurKwAW6KM21Z2z9Y2RX63_2kbEUH7lYzkBbL3l7ueAlXoCM_z6D-KwcJDO8igrIAL92ZGQciM0aoCXQ1vNDVMFREep",
+              "impacto": "Esta propuesta, aunque inusual, podría redefinir la relación entre el gobierno y la industria tecnológica, buscando una mayor supervisión y distribución de los beneficios económicos de la IA."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Alerta sobre la Brecha de Adopción Empresarial de la IA",
+              "detalle": "El 3 de junio de 2026, Sam Altman destacó la considerable brecha entre el rápido avance de la inteligencia artificial y su adopción real por parte de las organizaciones y la sociedad. Hizo un llamado a la transparencia y la capacidad de adaptación.",
+              "fuente": "Anuncios.com",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFmHqQdL5c0FPkSvccJDpU1dmcLPtQMCl6ii4TR_be-SKfoF5zcVtmQ3Un_ztSt78BYMH8uoBg1fvLZXkk2NaV5_bNVKGzRTVMg039-NNUrxDiganPhWjOATel6AKUeDaS_0ise5-gHrdhQlu-bcvJSBEz_hKbrHafh8kCt2o3aYab6yf4YeUAa2VhlypOvrtpX7LorqBzAgmLd5Wm_WIpgpbg0lcv2eCgr2-SszEqIEVUH6ienNXDxIRsdLBxv_VPNJC8Hk8JWWsAboqNzQTzokOlW-g==",
+              "impacto": "Esta alerta subraya la necesidad de estrategias más efectivas para la integración de la IA en los negocios y la sociedad, lo que podría impulsar la educación y el desarrollo de herramientas de implementación más accesibles."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Visión del Futuro de ChatGPT como Asesor Personal",
+              "detalle": "El 3 de junio de 2026, Sam Altman proyectó que ChatGPT evolucionará para convertirse en un 'asesor permanente' que 'conozca toda tu vida'. Describió un escenario donde ChatGPT trasciende la consulta básica.",
+              "fuente": "arcoiris.fm",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFPrnPuWyxn1BHob_TZdQxYs5RqiWP0T27Mtwq5ZbDtGCyc9L50MsE-65B97jQjgvA_A53v5d1PEa3pQEpW0qS2Op3clL1jGV_AjK8kW7kEZvCHMF4b6v1tZB3MywY_CUGcGy9Sl-Tds1fM6z1-lGZ_tSQmLVsN5K8d-ByhYv07AAt3i7gM5tX3spPHFZhVYh-3xmEDcOsN-kD-wcXu8AHPjTiNogcGJBi8aDSborwjWUgvOQz3Hd44g9-AJ8OL9tjAzrCkjxT31UMj4So=",
+              "impacto": "Esta visión anticipa una integración más profunda de la IA en la vida personal, lo que podría generar debates sobre la privacidad, la personalización y la dependencia tecnológica."
+            }
+          ]
+        },
+        {
+          "nombre": "Sundar Pichai",
+          "empresa": "Google/Alphabet",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Agradecimiento a Inversores por Financiamiento de Infraestructura de IA",
+              "detalle": "El 4 de junio de 2026, Sundar Pichai agradeció públicamente a los inversores, incluyendo a Berkshire Hathaway, por una oferta de capital masiva que recaudó aproximadamente 45 mil millones de dólares (con 40 mil millones adicionales esperados). Estos fondos se destinarán a la expansión de la infraestructura de computación de IA de Alphabet.",
+              "fuente": "The Times of India",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFtlcf86KzWkq2a91R1YvNkvcHbHXL12Rk4oXnCEYNEQBiUEvP2PELteees3Kxgpg7zfI66m1z1murNh16Mw0K-ztbWW2jyPrrtxHku1KsS24iSmLfmVDCJCtYHNVjqcYMJ4k9EvLE-oAeSM567y3UAhewi2rS_jg0UMVwHc6f9Sz8GIhhTBw_Yge6fzHzzm-kyRttih5iM8mbysTQPO9Z2I2ZJRC-r_gfoIkKjgKgjaLBkjgWU5HCfr_GJkVjnFDvBr_s_SVPIVLF2PKAZKaDbK4xkBplIsTlMl1vVK06yuYEEGJ-UsRTVS4dOk3ki8UoQ4Jcng72d4dx81Dib",
+              "impacto": "Esta inyección de capital masiva refuerza la agresiva estrategia de Google en la carrera de la IA, asegurando los recursos necesarios para construir y escalar su infraestructura de computación de IA, lo que podría acelerar el desarrollo de nuevos modelos y servicios."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Cita sobre la Excelencia del Producto",
+              "detalle": "El 4 de junio de 2026, se destacó una cita de Sundar Pichai: 'Las buenas empresas hacen lo que sea necesario para asegurarse de que las aplicaciones sean excelentes y no dudan en añadir funciones'. Esta cita enfatiza la priorización de una experiencia de usuario excepcional y la excelencia del producto.",
+              "fuente": "BusinessToday",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHcnfbeCMvCne8Py7xie-XIHwZM3KVLmCMm6jRcnAOtNbW4QQNXu1F2Iy7AP8MNG5Cw7rHV1esb79QoyY7nmQItd8Ns4STZXQkDIURg4IWqIQrK08p5PhTyhKAqDR1HH-auoJwruAg4m9GU4FaOc9pLKnl_q5PYgIgCrwm8hyQu_VN2UyRsTS4g9VCT0fIdXx-sV8heqLEl-hxMnIbn-Htm82SyWr-baZTBDfPecht5egVfzb73r3-2Q-Cv7XNNQEibV4kq",
+              "impacto": "Esta filosofía de producto subraya el compromiso de Google con la innovación continua y la satisfacción del usuario, lo que es crucial para mantener su liderazgo en un mercado tecnológico altamente competitivo."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "notiver.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFPeQaDjWNN9w59oGMnodCaEGsAeSTdP8ORQLjPNumzyQghWJ686XNt8i0ZZE2a4TOaANOc7hZ8QvIH-iMTdynbpXuyYXbmdqZxf8nUb12Qi5O9BRgbOpNQg6Eh0pzJ002gOVjhkJ2Gi4ATJIAGhZ2b6olGoTJTGkVkw-FeCevTVXbXhfslBA468y0FLNzy"
+        },
+        {
+          "title": "ultimahora.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGWpbndYN74-pDgMZF__xBP6EjV7qcQCOJWjMVKKe9GNYFCaCbp_ZUUMOtswf2reOEb-w12yDTq0NBfxI__65AV6a8u9rOXSpEnwDrlpj8ZjioEVIhM0On6MchO7NydLVLqZDZG5s0SD1zAOk-BDEpMwAIak1nt67TYvMR9W2SoVTAzhTaZ1aHu5OiN88LHNK8IAfwaiwhgL7g="
+        },
+        {
+          "title": "descifrado.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGTainhulLDc9sDxsbFcdMcX5GnTj8zRj7dAszj2FkVbO-Xn4KiaQbUFBBY7sPGk2Vli5bn5GdsiIjwk27T1EZ40kwcfnDS8lPuO4Cn3ns_J1SuJtPZ1uqLdTE9gqcX9BFdiKdeIP9R7cRUTHIqqOr4SGazyxp1du2B_opcEg4qwGxbyJyhM2goFGkUPLZEEH3VUVXBF-LO73hF7EwxDrKZGKAbiNPwF3qZEtOkKCpiR-c="
+        },
+        {
+          "title": "ambito.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGzJlAKegGFi8z-Ac1eSdWDm_FfkdW-SbyDtKhqc052Q0o-WB7_e3M0V4rMqhUaEUV-ciFufoV4NYPYZ7lPTXI55vxE4vpC8DCg2GAZXk1GwMtqNophKtf-N7OZgZQAZoRJdVXBFnQWUTDVbZoFT4AqGddpq71K-_wvnd10Y8EjQgwewkEPgOGe6X1gLp5ZHouEMiatCDUVCU8Xxg4hAWDrnX6XAtY="
+        },
+        {
+          "title": "bolsamania.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGBKgLLd2lgbbZNE97vn-t668rl9Ab2u4XH0cZRlzavYrixZpBTuZHuSRq_JGMZwHUINH6WGlD2ybjeQGfiUXjs5jzlYUol0nsw-TTBe7Sz7_9o1ZMR85bfYuvNOni8yRwfr42RA8JRfcddWNf2dLZMwdXFUL_lAO5YPqOQmQmCtN4m1VSx3TbjdjH29mtlCFD-zkUGNak9hXpdzRWUyRKQ6N8b5qpea6D908z6HdY="
+        },
+        {
+          "title": "marketscreener.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGazgutoQbt_Be526HmtRgTELOaGCvK4DxUnRBmVxIa-b5PZZ6f6Y9ySQAX59j4-TEgzlSbjWMPF2bJHemsY_3ZcjjYtk-w1za1Oy0BI07AlepPrt-e2E_pDIA0lT5fxBIfO7owf1dX2S7lCLDZX6jeSJdGS-DVm59C6oF55Vs5AHFUthPDTwnsdJxwWjTokL8QPPWnZLsSL2utCnvmtSmj4xKKtySnE_U6RvoAeMM-N4WRTjQlUA28Sg6yqMpdfHWV92e-OngZgL_tCpn24VRQk2XwoopuuT8="
+        },
+        {
+          "title": "lanotasj.com.ar",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGztDEzVNdSfLhvZGxTtBwylS-qy-_zA_JqjYIgfV86m6YjoQplvSOJsTTZ4UEncoQ9-nbOMe56SrDt7y0DjRu_b_j1zF4AMk855Q27cCXo_0_tX_BL_HGP8hbBNLeJKZK1KsAU1bwftAnhJsEsQfSv"
+        },
+        {
+          "title": "que.es",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHyv6ej9n2sQxN9-6_am7oMZHLBjYaoL510LVCn73x1dgr7TcORFFhrODh--es53ogmZSoVR4pz5l_qO4xUI9kSUlPenQaz-Cekx9wOUjoTvKw5Hytsz-bTC7evd0MT0Rwa0ehn3le_4nqXZW50EKM4SUaFQLe9tNHh6o_8r42B"
+        },
+        {
+          "title": "stratechery.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGkTzLCPKkL2JS_ppri3t2usf7S5HZwUt0PgAlXsS7MCi3nukayhn8yqo7zp0CzWif0JsCpUPbKcn6eHo0BfvNGUiFRmkQ-KIT4Fl9nHnnGSul4FadOM5Bgpt1p1Gxr156u7PpuK-La3ZkwdDYbkbuq_jRpb-1cIO5Vv6OfQ_BEQldLadUTayWVrz_jKRgDXfpvEojFg2Ktf6k8I_m9hh1iw1MVv5Pu"
+        },
+        {
+          "title": "cnet.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHG4o83kLwU1Imyt6Ti2eS02rrGGrXwF9n56D1YN3U-_-HiTyv2u1xXT2Suvs2uOa8gI9cdYTvrHdfxfU2hZaRSaEfQYQGLHiixj9WWqLiWecDt9UEKJnGbZXq8xMOnsx7qZaZ0Wy4I7DwF0ABrYE5UZPxAiQihJk0p5rgLYo8u"
+        },
+        {
+          "title": "techgig.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGSIQOJeRyx7B6ZAtVU0EYws3Msxi_BCBv6qKAn4ETXgtKtdIerHfP5Mv7cdBq4ZYLrrWC7XrGzkBt6DjlK4k6tRlAxB4saSsbv5ql-iL55Ya1khLu7qFESJusz7D8r6AJB16sl3naI2ZVGHOzMtvG-46ZoLQzEWbS7ohBq3_5cIDzOiYMu3w8LDKfIlsMZmxvKPegU50BLuqU323fnQaLEe4DXg7PsR_aCZZ3dTC7oQ9cnt9PtoENcyw=="
+        },
+        {
+          "title": "joshbersin.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEZhIRga94Ck-IFa626tg1V3tUTmTjBbVVk6YxJD0WyyOWrfWLOwy0bAflcCJlILiAj6KxhGrTTL1auDLZPzCotJ-tSxL8qONwxST3f7LyzegpoOAs-uZcbE-d3BnhwC6X6WUAxN-jEr6ujqOBKoemLWtY-9UcNnMstLLbrC4BWmD9v3YXLtGbHZC-PgCV3QC7TKK3s"
+        },
+        {
+          "title": "youtube.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFAXe62ybwvCTOmkWEoA3U32r8yIdyNCKeKv_oBjQRhNBcWLg3w1Mh0nuEJJQfYZSHQJyX2gicGmNUOBpeyCH8MLb0m3BPe-BDVe3EjI1NtaLPLycZKHwQaoGueFQ0B4T_eWQJWeV4="
+        },
+        {
+          "title": "kucoin.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHuiOz7LqUgBhiiLa9g5-gIjgU9Sg14ec4hT6PVh9kIdrZlGVzI9SmNjmzMSgO5dae-AriBjUgGpBs0XYKS0CG5vSj5tCjCOtUnD2atPbFMJRZ9uXDrRJvh8RCEHKVIqhLuOz6Knxl8u2yKg-pXl7z9hEMlrXNJAuiGb85Qb_QmsvLsr05SHD272gL5o9sRFH4cuYOuOoCL8UfOjiEJa9J8V-gsAsi_vYJ11IeEjDd4_dCwqGCSnQjR"
+        },
+        {
+          "title": "tradingview.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFcLtEWmwXf8c_F20BJDaOsYLBfX3A_tb-VpnTQT62lwYHR2oLdSs8zkb2jyVn2mJ9F3ZxhcFRgLapqxp61LwHqfC0siMfzrjIPgoVMb2yTkXILwmRTG70mtIJKeL8tQmhM5IJYcIAQqGEizAbW6tN-ZR8="
+        },
+        {
+          "title": "tradingkey.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFA2SRfuehVVc7SPEDBslvf062I3bW_u3325jF0ucJQ9-XXyAl6Ro2icO1lzaCzg15XVe-tcVPmux6JUWG4GDhZCnp3ZmLf3uqemU4La56gLEKI-EL0I1UpSd-dw_IDPTL55ZmcR2OhfkhdOoyi8RrWKOE3oDMLipTgK04qxxuLNbMZ60M-TkItvjNNddpTyr49iSpI"
+        },
+        {
+          "title": "larepublica.co",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEnqKOuUTU1bzFO6tNA_LqTaoWz58w89v8E5pFpXKCDEDk6rqjde2rqWAjRLUQFrrn4mX837NKTTRqFrIpYWufMBnBJSDCoEZ9j4gb6P3lhaa2XVHRT1hZriPQqXBVTuN7dl8ro9QzTEsXYbJ3mgiX7MuYesqAEG4jFJ_4G-K9tE8vxgVojlEOPbZ-w9kuvA38cThZlsjHJS5w5HVKXwFr-cCbzmz9B7DVWQ_lGVkbhym_eLhYN97BGKxCzzPacmuQ5Iv8Q"
+        },
+        {
+          "title": "bloomberglinea.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF0ysT7uAKIYtYDlbh8IvNX1q8hVW-S9xzI8t6esaGSOf_rP6SuEzWaxgolYOYSTKSZwFH-pt1QjhwbOEdX5AtYgWiolYMq1XBJTQlz5nXfJGopzSwHFeJNyRcfzKR0r8c23h3KFuq65ojjuJjYc0hXHUv3L2ZcMBJk30_4mkdclpFK_5rHXMhElHn520bCZ6Ee95VSmmNMRh8kg9tBeLID02U_ieBKcmHsDI9stKLTwZ3T0NxWLyVsc7TUCQU="
+        },
+        {
+          "title": "milenio.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHguUvVCB540C8aV2SQJkcD_KO9y7iuvx0lOoVeEK1yzgLtkJpzxNQsrxddJ9DakafWFV9v1j3-y12JIDGGN6RwRHNXoQR1ieeoa_t3bdMqV0xK2OVhOui7BWIEeoaMo0QubKV1dSWbHcYp5-12ibO7AqVqSlSTJ3e_nOAooTS05ReofovV"
+        },
+        {
+          "title": "thestar.com.my",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEpxnYSZaishsBeI9ILLn6vFCnshWIqMJaOJT6Vcku7oZ7que22FdeWD0J7TWZrcibmpYZEr1a0Nq0sUxSc3jTtsPX1fw8FBoxB6qJBM4CwD3xXPu_UyNYAv_WiJ1GKO2_jozfXSWKjSlL7-14mQnL_avga2rCayvLlFh0YonjPJTF91qYt2dewnIjonzClF_lQARrUPIZoW4DQ5SloAqv0aZ4UIdsbZQVAp6flc2VJ1HIxrxMxNrEhRUUOU0VPH09n4ywPcWrUh0_A"
+        },
+        {
+          "title": "letsdatascience.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH1KUVnJOpEf2tUZVty4ZqY-y7578bpiSK5s-9mKqDns3eC6brM7dW4a_iHkSgy0krgWaExT1K1wZHJqh7kid_4LrL5yB8CBZRe74gST7knB5tbUENzf52UAG-KGaO252sFtnALZHIEiM4L2qUp7iVlHZpUPWKIPhv0WzaHpIkQQlB2sIcnp4g6YrF-Lba2wf8lnbao_VsyZUTieZW-xZMnNQ=="
+        },
+        {
+          "title": "koreaherald.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE-B7AjjlJpWvp_rH54v5B6yEhJYGv2CoQGHF4SHpoX4eW3zo0TCUKuCsPWEK6vEp6AA4t5XtmbSmAbtnjjNk7TpxqOfZ-lxv1R_WwMzX2-pB-zMJhrM3tIRypmNgE4dXCCwFYExjB6"
+        },
+        {
+          "title": "swissinfo.ch",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEu5ejSxRoAtukMEJvJ4Lq5OoHkmy44Yu5qNyxcpEp0rlbVjP-tedvVFw7XWLO7c9JxrnJSh_PsWFxgFy9aD4R5Zio-kG8e08Sv1GzvjFQzFtoAgJ1Y5ftrmX3-3BLSBw2CzoDmKYUzsf5NKpr8wXoaxEYp7wnQfHboQsVstqyyEqY4NAkRfXyLeeJ_a9YK9OW5sGsYAAaTdSaUapXTycXyJnqn8gFgJTAjJFIZdrPyC3uQuIUIgRVcgIpWWCMmDMcpNeKcMg=="
+        },
+        {
+          "title": "infobae.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHMbLvaic5my6kJIArEjrHXYTovei78ZcpJ7ZGT-EvR8kVLTKNourvh6VAWFIhL9PZ1L_GmSXL3Mf0Kl9ra-LFQRzRZerXBfawoDQDaNrPKnoSUpMSeyPdG9rO9TTXsCKHrtht_s9nox6fbKE9QQjvql5LM7bYCX-LZ0JZpdexFoMkJSDs53EP0enFUP57jYNRCrO9sCTXOLFsnl_Fl58I886QP9EgaFbwC3i2_DUYXSzIZ3Y6N-2g397y9eiU1afCC41QGC1pfKGk="
+        },
+        {
+          "title": "newsworthy.ai",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGyHazfJSbsiMLHOC1gUL7dQ2Ei5ghmASY_QQqOQhkC-O6QHceQ-JoJvEN4lI63qJJ7Aoh-38rWyW__5CSYfPpJcZ7VZskhMvkSY9WHartyh4rULKrqKrZflMWKLBNQ8ceLB5WI8V53u8IRAf30x0EkSy2DNqNEOAQd5n7PAMM-IHzsdxi1qP65dU9NUSyDKHVtQo6KP9AqCNDuvAum0LoV22KGmlIJaA=="
+        },
+        {
+          "title": "tradingkey.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFjv06UZU1UCB10VGnPvEo_kZDIPZ2ZtuO3ZFenhUdTYaTrpJlvwgrgG7gdNDMvl5k_d2UJoDasuMs0Vv6C2mn2XCplkNZTcT0viYbZJild6Rndf_P2z9dlrTnFd-o3cRdjPgWL84FMyr_qOOqYB7BznwJj8qijrvMsC8t7uQL4XcnnNlF93L-ew5ulCmzIy_wkRfuiQaA="
+        },
+        {
+          "title": "zamin.uz",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGzlTy36uObxOyBycnhd-Ye6AZsZTNnlD7SjsPBCzNDB3G3-N2x04k_lcY5YtvxyHb8sd9OKjtUIlbXtjXKvrWrtWel5QQUBmGRrCT4jIhFfUEYcze62UBRBM8txbRrmoCFV1Sa6RXVAISZ2d-DZbPXCX9ROMfHzRn8dxYB7iBJdxyoDMTiWVgZGIaK_UqKCCyVoThotbSB66ED6Xf-dID6JqtMJR8="
+        },
+        {
+          "title": "noticias3d.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFUQ39jQJ-bQYsLtOCWecWuhdKW4A4rkKWDeEh_WYnhZT_EpVY3vQC5DfSSXDu9TIYCm_4d1wZGpcSl1ksul584I40cQurx9L6itNj21z6Aubj7IDC9tC7BxLi69iDJPt_g24VjZGSOlFJGw3DUAm8-roPKapIZzysMrfqegCAnPF-WmNGZDZ8x_XL1sONKSPuieh38_A=="
+        },
+        {
+          "title": "americanbazaaronline.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEvr6qf9s2yWn6AK5u5LAqm9M4HRBWkzID64AbXJ9HKXf7dS4N8-ZGbtGsXOLdDLQOteoigipNhkapw3WHPkOLSCW7KJX8mP_gGRfwumzW2cBmOnToA2H6W48V1zktONCKiswqrNVCqPkfugt0sWga1kdO4pEQLPKoswFuiSRxnIz-WG2W07E-9VUPxUXCx_unFoVJHKe98eT0a1a24GOVDJ4p1o-MbJhk="
+        },
+        {
+          "title": "newsbytesapp.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFa3p6pItnD1Pv-tlu_5VJAxPpK5EmR4R2UXwdzV3ttMELshBz7A2uGc8qteigPm7Xpv39fo7hpsNt2rbadNpCbzeX3KAVZVXFa1O7I4FvPQYuowNyUyS9wV7RVu0VwBLvdiIBeoffLhj01l67v-f4QcYEqxdq1gN2Cq7sgjL6IMQ2pVS3fiOtZmF1fDcnsYxeGJCcY132z8d2feuMgxJwD54wVdhZ-mQJvqYu8Ll7pxRRA"
+        },
+        {
+          "title": "larepublica.co",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGBXc2TuKk1j7ogAGxysX7JxxoG-XiyjzHRHvuQrX5N1KGfz9DUCpnxajp0xNSwM5WrF4Lr6NocHzInPgPA4-aR6gVGt57sZ8U_WepBipDOT-9F_DeWSP49K3Lpp16QZbFYJD1FmVTrjyifmCPG5XO_dmuFvyan2_yGkcThFyYZjLzPwH0mZZ9QSvXupVi6pxzJ1-0-RvQzZhF_bGPVKZe32tkAQq3ys5wP4wnveIgr1MepKFtX"
+        },
+        {
+          "title": "pluang.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGJkq2mJry16e569TRPhDjE6NR6lo64Nna0e8b4HWgtRzreTn_zmYX_GAZQxQAp-zUKOykEK0g5aGmYpl1iY2Ynk128ejwW4WuAVSV91flHE-vE64Z4eZEOeKgoqBU1kV0FSqlmRZkZ1W6-UOMzs3yYPGk3vxFiOKEK0zW80yrnCF7NR4FbygB_prp0QQxp3zQj3pG1C8YlHYcAK6-nQiFiwcECYg=="
+        },
+        {
+          "title": "5dias.com.py",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGp1P5PXtn-64VZVrOs1IJUlMP87ef416WSK0Zdlhy83s4DXfT0aduiRTzJIpPORFUbPCmi8zirCICNhhScrVbwn_1zbprBEbBSTgM7BU6b04YlyywP-aA6a_iN3RSHMzyXyxPeGqDzBxJm2H-06brahf8BBozSHbEatdFAV4-Py85aqDt80HZEB4rm5X-an9H8sQvHL4cz2gDgTh4="
+        },
+        {
+          "title": "bloomberglinea.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHTnHrmtiMdYgjOX3oelsL4MrIYp_unI4d4PnfzaDdW3e-afAoTYgbIUuA5aPqjZNtec8t2yKS96uywAtbwoGK6ETzvKYaEAvpIaWRQQvgyLFAYxYILdZca2b6G0T8TGFbLjdIBsA75ws4DydweTyxD8zlG6ru1Vxe2WJFlICOEfgHdk_yrXCK98d9ls6VRUGjxdk2an6qV14IKItk7AD0sCX3URJYixns="
+        },
+        {
+          "title": "cadena3.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE4kGHRIjHvBf2gjCOSk3eoYY18ojUKkhk1Xd6HXXLiVVyVhJY1NZbsFxZmBqCMceBxIAY1C0emYIp6_uUVzErP0Vi9GQMMgP9nBb5cY6DBYoIaHOsqyiizig4bdTCjzqD0F6CNIEBZf4sU96XIF_StA2rT5TZJ5TNjHsssMZ5RE-P0SPTxRDP63HHMn6lb_WouT-JwSxi6TTnwxeJtfx30WFJoy4cM1esKYDmA0lE="
+        },
+        {
+          "title": "gizmodo.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEO_fLZEVsf2MAiJYvNmGYvU_1TzH3OVpsSmtybpKlhwuWYEQ5439gv2TvFHv1kxG-h-vvyFyNkUD9kffJwjAQNI_RzobxrWsrXc4v6jnrKWTNRAeCti_IEkq67m7qSjsT7ZZK2yfDva9Wd9jF2sTgKX5K28RQ8KtmFupa-_wPhNvnXsNKLOSlOkIx1CNmAOhBN-H5YjREzZNw_rVUU0sBaqxOjxRVkH7Qe_mfQrmBN"
+        },
+        {
+          "title": "ecosistemastartup.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEIKkTWe-C9VRt1_Ky-7HuclWEY1xjoS86aBEAUtAwCcKN6pg-4p07DMCDDfiHBkI6xP3ehoO_nwnwQQLlP-vyWuyb8vsC0M-eMd0D4S9o4UIurKwAW6KM21Z2z9Y2RX63_2kbEUH7lYzkBbL3l7ueAlXoCM_z6D-KwcJDO8igrIAL92ZGQciM0aoCXQ1vNDVMFREep"
+        },
+        {
+          "title": "notus.org",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQESvBpnqG8ALqSMuBmElkrHWGUHgkzyIPTM1aZqZ4lMUikoSyddQWsxnY31ZgonYRFhhO6VIf5V3NY-Rfwq-V6f_0lGb8A3AxPOOl8gFOVzGn7pngBJSOQuuGXpjynb-gjzbqsNmmtcE1QvohwSc1tMMg=="
+        },
+        {
+          "title": "anuncios.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFmHqQdL5c0FPkSvccJDpU1dmcLPtQMCl6ii4TR_be-SKfoF5zcVtmQ3Un_ztSt78BYMH8uoBg1fvLZXkk2NaV5_bNVKGzRTVMg039-NNUrxDiganPhWjOATel6AKUeDaS_0ise5-gHrdhQlu-bcvJSBEz_hKbrHafh8kCt2o3aYab6yf4YeUAa2VhlypOvrtpX7LorqBzAgmLd5Wm_WIpgpbg0lcv2eCgr2-SszEqIEVUH6ienNXDxIRsdLBxv_VPNJC8Hk8JWWsAboqNzQTzokOlW-g=="
+        },
+        {
+          "title": "arcoiris.fm",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFPrnPuWyxn1BHob_TZdQxYs5RqiWP0T27Mtwq5ZbDtGCyc9L50MsE-65B97jQjgvA_A53v5d1PEa3pQEpW0qS2Op3clL1jGV_AjK8kW7kEZvCHMF4b6v1tZB3MywY_CUGcGy9Sl-Tds1fM6z1-lGZ_tSQmLVsN5K8d-ByhYv07AAt3i7gM5tX3spPHFZhVYh-3xmEDcOsN-kD-wcXu8AHPjTiNogcGJBi8aDSborwjWUgvOQz3Hd44g9-AJ8OL9tjAzrCkjxT31UMj4So="
+        },
+        {
+          "title": "indiatimes.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFtlcf86KzWkq2a91R1YvNkvcHbHXL12Rk4oXnCEYNEQBiUEvP2PELteees3Kxgpg7zfI66m1z1murNh16Mw0K-ztbWW2jyPrrtxHku1KsS24iSmLfmVDCJCtYHNVjqcYMJ4k9EvLE-oAeSM567y3UAhewi2rS_jg0UMVwHc6f9Sz8GIhhTBw_Yge6fzHzzm-kyRttih5iM8mbysTQPO9Z2I2ZJRC-r_gfoIkKjgKgjaLBkjgWU5HCfr_GJkVjnFDvBr_s_SVPIVLF2PKAZKaDbK4xkBplIsTlMl1vVK06yuYEEGJ-UsRTVS4dOk3ki8UoQ4Jcng72d4dx81Dib"
+        },
+        {
+          "title": "businesstoday.in",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHcnfbeCMvCne8Py7xie-XIHwZM3KVLmCMm6jRcnAOtNbW4QQNXu1F2Iy7AP8MNG5Cw7rHV1esb79QoyY7nmQItd8Ns4STZXQkDIURg4IWqIQrK08p5PhTyhKAqDR1HH-auoJwruAg4m9GU4FaOc9pLKnl_q5PYgIgCrwm8hyQu_VN2UyRsTS4g9VCT0fIdXx-sV8heqLEl-hxMnIbn-Htm82SyWr-baZTBDfPecht5egVfzb73r3-2Q-Cv7XNNQEibV4kq"
+        }
+      ],
+      "generated_at": "2026-06-05T10:31:07.224503-06:00",
+      "status": "ok"
+    },
+    "ai_leaders": {
+      "key": "ai_leaders",
+      "title": "🤖 AI Leaders",
+      "data": [
+        {
+          "empresa": "OpenAI",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Actualización de memoria de ChatGPT (Dreaming V3)",
+              "detalle": "OpenAI ha comenzado a implementar un sistema de memoria más capaz para ChatGPT Plus y Pro en EE. UU., con planes de expansión a otros países y usuarios gratuitos. Esta actualización, llamada Dreaming V3, permite a ChatGPT recordar el contexto de conversaciones pasadas de manera más eficiente, personalizando la experiencia del usuario y reduciendo la necesidad de reconstruir el contexto en cada nueva interacción. La compañía afirma haber reducido en aproximadamente 5 veces la computación necesaria para ofrecer esta función a los usuarios gratuitos.",
+              "fuente": "OpenAI Blog",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGUIy5PNC1HtaatATIPKY-TAClUX9YTI8HbrCFA3ewmLz8hFzn9Z68c7P6EJ-uxP2oOAsIpd5h3wXz0j5VvyXOuD5oJHC3ouOVsm67U-epinG88gbmuQ8b4zViU59AIxHBe_CByWFQNt7-mLAU==",
+              "aplicacion_genyx": "Para GENyx, esta mejora en la persistencia de la memoria de la IA significa que los agentes de soporte o asistentes de ventas de SaaS pueden ofrecer interacciones más contextualizadas y personalizadas a lo largo del tiempo, mejorando la retención del cliente y la eficiencia operativa."
+            },
+            {
+              "tipo": "regulación",
+              "titulo": "Propuesta de OpenAI sobre la gobernanza de la IA",
+              "detalle": "OpenAI ha propuesto evaluaciones federales obligatorias para los modelos de IA más avanzados antes de su lanzamiento público. Sin embargo, la compañía argumenta que los desarrolladores de IA, y no los reguladores, deberían tener la última palabra sobre la implementación de estos sistemas. Esta postura busca influir en el marco de gobernanza federal emergente para la IA.",
+              "fuente": "CSO Online",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFludqnKPl49xSR9WoK_pLs0mv0myHmpm0Ce7bQw9Lq8Tu3iqwGMVb7AbPcaoDyds1AleZXJbYDJZbGLFxUCzvJZtgWz38sUrLvTvSUSMtSkNbfPBCsxJTY1-u_bsvlMa1p_sVjJ0n0_lJx3X_mCHVIp9nl_XI0UZoJz0Bw_SvuucKcYc80nMpOjW4l6Yecp7jAB-gVLc2NMc_A8MRXyaMxXWVtH6n3izZ0",
+              "aplicacion_genyx": "Para GENyx, esta propuesta subraya la creciente importancia de la ética y la seguridad en el desarrollo de la IA, lo que implica que las empresas de SaaS de IA deben prepararse para posibles requisitos de auditoría y transparencia en sus modelos."
+            }
+          ]
+        },
+        {
+          "empresa": "Google DeepMind",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Lanzamiento de Gemma 4 12B para agentes de IA locales",
+              "detalle": "Google DeepMind ha lanzado nuevas herramientas que permiten a los desarrolladores ejecutar flujos de trabajo de IA agenticos localmente utilizando Gemma 4 12B, un modelo de 12 mil millones de parámetros. Este modelo, combinado con el stack Google AI Edge, permite construir y probar aplicaciones en máquinas cotidianas, facilitando el procesamiento autónomo de datos y la generación de scripts. El modelo se distribuye bajo la licencia Apache 2.0, lo que ofrece flexibilidad a los desarrolladores empresariales.",
+              "fuente": "InfoWorld",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG2wPNdNJt-8PrC1moiBWNx0_wNMlEb9GOhnPCLv_lI4Dbk7m0g4DFWnDGX3FsY-Ty36YXDRgkUydzH_PQKVa7X8JF4tslUTzl68YJ9GgmkcgUFGsp6aJ1h5f7rMiZVW-DFewPOQkPxsOLSAD9P-6vC-upy-d3qcooLpEeT9H0MXDpZhZSN8DWXbqsa5nUIF-9EPpa1TOMz0B_0O_dtS9oxhKSQ",
+              "aplicacion_genyx": "Para GENyx, la disponibilidad de modelos como Gemma 4 12B para ejecución local abre oportunidades para desarrollar soluciones SaaS de IA que operen en el 'edge', ofreciendo mayor privacidad de datos, menor latencia y eficiencia de costos al reducir la dependencia de la computación en la nube para ciertas cargas de trabajo."
+            },
+            {
+              "tipo": "research",
+              "titulo": "Advertencia del CEO de DeepMind sobre la AGI",
+              "detalle": "Demis Hassabis, CEO de Google DeepMind, ha declarado que la Inteligencia Artificial General (AGI) podría estar a solo 'unos pocos años' de distancia, estimando su llegada alrededor de 2030. Hassabis describe la AGI como una 'tecnología transformadora enorme' que podría marcar una 'nueva era humana', equiparando su impacto con el de la singularidad tecnológica.",
+              "fuente": "Let's Data Science",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG20RKHiCxoDcwqHVS6oMWCNc69Raj_Jm63_u_PinQPEmNOT6XsfykBB7sgqwzhDmNJznLF73Xu_z9pu_acIA-tGNRERzV2Bvz7vlprQGDGm_MBgwdnUfv88WurRiUoHborOoBmRVyTIpILQy3di1lPq1ICCxX2J_vjA_HIbWTUALKyffN6_4SHOVe4F0o0CCz-XQE=",
+              "aplicacion_genyx": "Esta advertencia resalta la necesidad de que GENyx y otras empresas de SaaS de IA inviertan proactivamente en investigación de seguridad, ética y alineación de la IA, anticipando los desafíos y oportunidades que surgirán con sistemas de IA más avanzados."
+            },
+            {
+              "tipo": "research",
+              "titulo": "Publicación de investigación sobre superinteligencia solipsista",
+              "detalle": "Google DeepMind ha publicado un artículo de investigación el 4 de junio de 2026, titulado 'Solipsistic superintelligence is unlikely to be cooperative'. Este trabajo explora la naturaleza de las superinteligencias solipsistas y su potencial falta de cooperación, un tema crucial en la investigación de la alineación y seguridad de la IA.",
+              "fuente": "Google DeepMind Publications",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG-HOBkBfIALFAY6sqViaK3PbsbMhOKFcK5cWvTMbLT-L91dxnPqo51uYH12gsogICx-dTs82XLLhMtSFbOMWpiduFqva8JCz5lh10JZR8CW-FaxJ5U7KT7Qln97yW4bHzvDU8Q7vvpChg=",
+              "aplicacion_genyx": "Para GENyx, esta investigación subraya la importancia de integrar principios de diseño de IA que fomenten la cooperación y la alineación con los objetivos humanos, asegurando que los sistemas de IA avanzados sean beneficiosos y seguros para las aplicaciones empresariales."
+            }
+          ]
+        },
+        {
+          "empresa": "Anthropic",
+          "novedades": [
+            {
+              "tipo": "regulación",
+              "titulo": "Anthropic presenta solicitud confidencial para OPI",
+              "detalle": "Anthropic ha presentado de forma confidencial un borrador de declaración de registro S-1 ante la Comisión de Bolsa y Valores (SEC), lo que le permitiría buscar una oferta pública inicial (OPI). La compañía, creadora de Claude AI, fue valorada en 965 mil millones de dólares la semana pasada y podría alcanzar un billón de dólares en su debut en el mercado.",
+              "fuente": "WJR-AM",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEOtQ0eufmW5MxSnhA99iOTZNT3uIR8sdxNxRcFtFplDwPhCR6euuYZMU7VM1tRteDcGljLQUywFftJjSalir4Zhfuk2t2HWif_g8HZjNRq4O-EvbkMBTwkhAPFL22w6fcaLxGZy1Fj-8J-ZRIzV4fjy0yC149qZKFsg15H2JLaD6tJCLAxLD1gKKJmTlNZ2fAxIIoPYeLIVzXcvSHgy3vTfenKPYTg1hGZHZPheUPq8WI=",
+              "aplicacion_genyx": "Para GENyx, la inminente OPI de Anthropic y su alta valoración demuestran el enorme interés del mercado en empresas de IA con modelos fundacionales robustos, lo que valida el potencial de crecimiento y la inversión en el sector de SaaS de IA."
+            },
+            {
+              "tipo": "regulación",
+              "titulo": "Anthropic advierte sobre la auto-mejora recursiva de la IA y pide una pausa global",
+              "detalle": "Anthropic ha emitido una advertencia sobre la aceleración del desarrollo de la IA, lo que podría llevar a una 'auto-mejora recursiva' donde los sistemas de IA se vuelven capaces de mejorarse a sí mismos sin intervención humana significativa. La compañía sugiere una pausa global en el desarrollo de los sistemas de IA más potentes para permitir que las estructuras sociales y la investigación de alineación se pongan al día.",
+              "fuente": "ABS-CBN News",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH3WQ4S_MM2NomLAUAAHKBId-sa3GYvPkpMULlpx1ajYMcT17fM1gWo2vSusXWQJyTvfQ142wUVXjJsO2894DzPB4ca6ZLDNKS5cFT2PnA7MQN1AwGZIiGp2--tSXYJwcjsjXXhWkJwgbYvmDGDs8oY3-xnwoofrhtEFoZ82ZxFZ3CkOrwpv42g6jSimMI5pR3gaBU1xB5PnUXqwso9Pf7agQDs",
+              "aplicacion_genyx": "Esta advertencia subraya la importancia crítica de la gobernanza de la IA y la investigación en seguridad para GENyx, impulsando la necesidad de desarrollar soluciones de IA con mecanismos de control robustos y consideraciones éticas desde el diseño."
+            },
+            {
+              "tipo": "research",
+              "titulo": "Claude genera el 80% del código de producción de Anthropic",
+              "detalle": "Anthropic ha revelado que más del 80% de su nuevo código de producción es generado por su propio modelo de IA, Claude. Esta automatización ha resultado en un aumento de 8 veces en el volumen de código entregado por ingeniero por trimestre, en comparación con su línea base de 2021-2025. Este avance demuestra la capacidad de la IA para la 'auto-mejora recursiva' en el desarrollo de software.",
+              "fuente": "VentureBeat",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFsPN4Y68Ju07Gk2_qdquNmLoIQj3gk93FGjEpVSholJIq3a98faWTMCRFXBZle0s6cOKKegZsgW9x-AJcTWJpI814s1ux_onkL5Ashcqlk30Y1sB05uJmbrm-6F7OQ3nP4oJHqKsS2g-UNpwEgXtUiUZauu7P3VXsuv1VmJmVcxiQBVmtOzaxRaGX8VGXOb1cLcugLR55aLrkyQjY8pm8QK8JT0Hfz_g3E_101flTR2n54r9pMOsGtrRogdwwBYWN8updEoQ==",
+              "aplicacion_genyx": "Para GENyx, este logro de Anthropic valida el potencial transformador de los agentes de IA en el desarrollo de software, sugiriendo que la integración de IA para la generación y optimización de código puede aumentar drásticamente la productividad de los equipos de ingeniería de SaaS."
+            },
+            {
+              "tipo": "producto",
+              "titulo": "Lanzamiento de Claude Opus 4.8",
+              "detalle": "El 28 de mayo, Anthropic lanzó Claude Opus 4.8, una actualización significativa que introduce capacidades avanzadas de señalización de incertidumbre, mayor honestidad y niveles de 'esfuerzo' controlados por el usuario. Este modelo supera a sus predecesores y a GPT-5.5 en benchmarks clave de codificación y agenticos.",
+              "fuente": "YouTube (AI News This Week)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEDM3Zj6kgrVDr014vXEy_6lhg84w6UWcBt7YJO8NLLgwN_H0tPoZgMejixfcaBF5Lozw6xHb1LQCqGapIhcjNu02DFJjIj2r436Y-KxODAeWXPJagWPPLBSWRD9NJMWaIk7Psf-n0=",
+              "aplicacion_genyx": "Para GENyx, las mejoras en la honestidad y la capacidad de manejar la incertidumbre de modelos como Claude Opus 4.8 son cruciales para construir soluciones de IA más confiables y transparentes, especialmente en aplicaciones que requieren alta precisión y explicabilidad."
+            }
+          ]
+        },
+        {
+          "empresa": "Meta AI",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Expansión global de Meta Business Agent y nueva plataforma",
+              "detalle": "Meta está expandiendo su Meta Business Agent y lanzando una nueva Meta Business Agent Platform para empresas, con el objetivo de convertir miles de millones de chats de clientes en agentes de IA empresariales. Esta plataforma permitirá a las empresas construir, personalizar e implementar agentes de IA a escala para automatizar tareas como consultas de clientes, programación de citas y recomendaciones de productos, con un modelo de precios basado en el uso de tokens de IA.",
+              "fuente": "CIO",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFVznZ2AomDWQ8MK7PhmVsKzXS0QlO66SxnK8MivIkXM4tFmwFxstVl6HgtCtZOFvrtlmwuTk9F7HjZPRxLg6kuhI-p9ep8hc5Cb-NFS-S51quiS4B3zom4D1SCmF7nSUp88Fukvg4XtdFBFI3osnX-T0UP8AT3nqkGTq15irAN3hEEPWmTyCV8D7h1WnLGA8I9RhFmU0-VTqZXX8_LEG1Bh93INaq5ORyD",
+              "aplicacion_genyx": "Para GENyx, la iniciativa de Meta valida la demanda de agentes de IA empresariales y ofrece una plataforma potencial para integrar y escalar soluciones de IA conversacional para sus clientes SaaS, enfocándose en la automatización de interacciones y servicios al cliente."
+            },
+            {
+              "tipo": "research",
+              "titulo": "Código de reconocimiento facial en la app de Meta AI",
+              "detalle": "Se ha descubierto código para una función de reconocimiento facial no lanzada, denominada 'NameTag', dentro de la aplicación Meta AI, diseñada para sus gafas inteligentes. Aunque la función no está habilitada ni envía datos biométricos actualmente, su existencia sugiere que Meta está explorando activamente cómo integrar el reconocimiento facial en sus dispositivos de realidad aumentada/virtual.",
+              "fuente": "Engadget",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEH250PywaE60TtL2QDyyMDgP8SyQwhsrggfxP0XUSOMwha_sK8waidq2pOs7A1mRhTYynykHYNXp0MFgL6EJur9IJ9coIoAwYGOGCcdw9SZtpfOp-7hboZ7bFxjv_9i2yVAo3bXCefEZFQ-oBWZIs5NOIj9MLPDenrzcArTyrX7eJ5u5tbXSh4OtbTnuftdS79WbaQPhrL5DO7ROPXDeqLxZLjteUhW7d_xwI=",
+              "aplicacion_genyx": "Para GENyx, el desarrollo de capacidades de reconocimiento facial en dispositivos de RA/RV por parte de Meta indica una tendencia hacia la IA contextual y multimodal, lo que podría inspirar nuevas características en soluciones SaaS de IA que interactúen con el mundo físico, siempre con consideraciones éticas y de privacidad."
+            }
+          ]
+        },
+        {
+          "empresa": "Microsoft AI",
+          "novedades": [
+            {
+              "tipo": "pricing",
+              "titulo": "Microsoft busca reducir gastos en Anthropic con modelos propios",
+              "detalle": "Mustafa Suleyman, jefe de IA de Microsoft, ha expresado el deseo de la compañía de 'eliminar' lo que paga a Anthropic, promoviendo sus propios modelos internos como una alternativa más rentable. Microsoft afirma haber superado a GPT 5-5 de OpenAI con una eficiencia de costos 10 veces mayor después de refinar sus modelos para McKinsey, lo que indica un movimiento estratégico para proteger sus márgenes y reducir la dependencia de proveedores externos.",
+              "fuente": "TNW",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGJNvRvc5ii3lE7W387p7IaFp-9kwK_MCJYOMTlIPp7kwIbcefR1QshjOSOO5Q-oEr4w-fbTB0Invd-CD295zCiAX3aAdrfQp2wb5my3c-nD5mV7MMQWAiX0zGiYoP74yIRjVDEIr54Wh8IvSz_LQmBcRpnk_aiXjT9E9OY2TPgZNtEeT72noJ-SIqC18A6TBU7JAJm7UZdWyhiMiJ7_vyH6tyoN8A=",
+              "aplicacion_genyx": "Para GENyx, esta estrategia de Microsoft resalta la creciente importancia de la eficiencia de costos en el despliegue de la IA a escala empresarial, lo que significa que las soluciones SaaS de IA deben optimizar continuamente sus modelos para ofrecer un alto rendimiento a un costo competitivo."
+            },
+            {
+              "tipo": "producto",
+              "titulo": "Novedades de Microsoft Build 2026 en IA",
+              "detalle": "En Microsoft Build 2026, la compañía anunció un nuevo dispositivo de IA agentica llamado Project Solara, y presentó siete nuevos modelos de IA de su familia MAI, incluyendo un modelo de razonamiento y un generador de imágenes. Además, Microsoft está implementando el IQ Stack en Microsoft 365 y Azure, una plataforma de contexto de cuatro capas que integra Work IQ, Fabric IQ, Foundry IQ y Web IQ para mejorar la fiabilidad y relevancia de los agentes de IA.",
+              "fuente": "CNET",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFIGvRALCUlAxrGn-871n9Wc7DHAuz5p9SKjh-PtqWH9wUZ3a2HIsofbR8IfzuTgWll4F2Om17yDBnOmu3dlDI64Z7LoGLJrSvBgxpwf1PmUA61N2Y2hwqiv2eKkDYqQKD_h_RJ7RVZ7IJWYVc9ozn0XLOWl-F1RvNPXllQ-Rjn",
+              "aplicacion_genyx": "Para GENyx, la avalancha de nuevos productos y la expansión del IQ Stack de Microsoft demuestran la madurez del mercado de IA empresarial, lo que implica que GENyx debe enfocarse en la integración profunda con plataformas existentes y en la creación de agentes de IA especializados que aprovechen estos ecosistemas."
+            },
+            {
+              "tipo": "partnership",
+              "titulo": "Mayo Clinic se asocia con Microsoft para modelo de IA en salud",
+              "detalle": "Mayo Clinic se ha asociado con Microsoft para desarrollar un modelo avanzado de inteligencia artificial dedicado a la atención médica. Este acuerdo combinará los datos clínicos desidentificados de Mayo con las capacidades de IA, nube e ingeniería de Microsoft para construir un modelo 'frontier' para una variedad de casos de uso de razonamiento clínico y atención médica. Mayo Clinic será propietaria del modelo, pero Microsoft planea hacerlo disponible para otras organizaciones a través de su plataforma Azure Foundry AI.",
+              "fuente": "Healthcare Dive",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGXAirPtwMa2eSm8yhoHv6acyn4pEoRvr1yKpy24a3wt-oaqlQ9-JpYe3xUHLUBifzIOcNJcJ8iJKvCfL4ithADn0fDFUp1Nap8qFGfBTMV-sBo07AMiYRVF9l_4u3VLLSEgf4qAi---CtB4Ifpa5paJfTigoJvcktqD9j5s_7suHzcHHeP7BvBCnpK1L7T",
+              "aplicacion_genyx": "Para GENyx, esta asociación estratégica en el sector de la salud destaca la demanda de soluciones de IA especializadas y la importancia de las colaboraciones para acceder a datos y experiencia específicos del dominio, lo que podría inspirar a GENyx a buscar alianzas similares en verticales clave."
+            },
+            {
+              "tipo": "regulación",
+              "titulo": "Documento filtrado sobre la intención 'adictiva' de Scout AI",
+              "detalle": "Un documento interno filtrado de Microsoft, publicado por 404 Media, reveló que la intención inmediata para su nuevo asistente de IA, Scout, es 'hacer que la gente se vuelva adicta'. Satya Nadella, CEO de Microsoft, ha negado vehementemente esta afirmación, declarando que no estaba al tanto del documento y que el objetivo es 'empoderar y añadir valor real al esfuerzo humano'.",
+              "fuente": "Kotaku",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFCEZeadInOOxk6DfAA47U0Ee1t-oC3L6mkQRJRcZMdaRZcKB_lEAJFUxmytjvpPqyxCJp4E4hGlhY0taMUOIQ2AhJGtSEAey6IwEN1F6D51clUOoBhfjMX7HSqKP2Aq1HUMu8TLFcxl0ncvmKkg2smAM5eXBEk_65osa2vqJI7OdI7mog1mMsHOAgSQ-Z17uCOYr1Obg=",
+              "aplicacion_genyx": "Para GENyx, esta controversia subraya los riesgos éticos y de reputación asociados con el diseño de IA, enfatizando la necesidad de una transparencia rigurosa y un enfoque centrado en el usuario que priorice el valor y el empoderamiento sobre la manipulación o la adicción."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "startupfortune.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE6_FdH7T_5kOS-1-HjEeOinx_I_b5jy4Bt4_yaFK8-xEHx8IQKiAFFEkTFeJoi-aczVbwKNpQzVNuQQjS57JIBp_OlbxSo8vqy4C1MDnz5L5UwnjYYUaRdPC-a2v_qk9WKQnl71kHVPgDH_5HMw1aCmGkAiuVgK-JizwHQvHdO7YFN2Q=="
+        },
+        {
+          "title": "letsdatascience.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHtPCJkVj9hyyJwaMlx2Hrbi4RP5l_YlM5VtQq_MNtJV6Og8Tor_L8zibWZnkdYsK8QH7rdX6WQAJtYqOrQ04boCpyHxwEgbFivBFoNboYzRss7MmAogC8waroV5jU8Zx1kt5KUBir702Gmrc_ElRrJF6mnaXl3BxOx-b5jU4de3KgHIC6Aew10bIedzi7IlYZx2Rz2D4MIIpckKV-gUAg3uA=="
+        },
+        {
+          "title": "digitalapplied.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFWWt5NbgKwGPAGv8xv0yIsUortua2GdIJP6r1qFPLwsuigbO445DyVnU5QWMvLg5Bb5k6pCrNN9bWu8msgB5hdYLOPKucBL8RfE01nPwlFsmGBxLak1Y595nyrNfVgwfm6pVqGM5uYDevp5eop371nGxvHII-ZMuh-KXnYhapp3AFT_G4Var4lOdyu"
+        },
+        {
+          "title": "openai.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGUIy5PNC1HtaatATIPKY-TAClUX9YTI8HbrCFA3ewmLz8hFzn9Z68c7P6EJ-uxP2oOAsIpd5h3wXz0j5VvyXOuD5oJHC3ouOVsm67U-epinG88gbmuQ8b4zViU59AIxHBe_CByWFQNt7-mLAU="
+        },
+        {
+          "title": "csoonline.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFludqnKPl49xSR9WoK_pLs0mv0myHmpm0Ce7bQw9Lq8Tu3iqwGMVb7AbPcaoDyds1AleZXJbYDJZbGLFxUCzvJZtgWz38sUrLvTvSUSMtSkNbfPBCsxJTY1-u_bsvlMa1p_sVjJ0n0_lJx3X_mCHVIp9nl_XI0UZoJz0Bw_SvuucKcYc80nMpOjW4l6Yecp7jAB-gVLc2NMc_A8MRXyaMxXWVtH6n3izZ0"
+        },
+        {
+          "title": "infoworld.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG2wPNdNJt-8PrC1moiBWNx0_wNMlEb9GOhnPCLv_lI4Dbk7m0g4DFWnDGX3FsY-Ty36YXDRgkUydzH_PQKVa7X8JF4tslUTzl68YJ9GgmkcgUFGsp6aJ1h5f7rMiZVW-DFewPOQkPxsOLSAD9P-6vC-upy-d3qcooLpEeT9H0MXDpZhZSN8DWXbqsa5nUIF-9EPpa1TOMz0B_0O_dtS9oxhKSQ"
+        },
+        {
+          "title": "aibusiness.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGkvwwVamQ6u0wrrkGXmLXgmR0X5PplfbQWJ8eV3wI6uTjiLhbW0h4ht6KUHVBlIvoqkyltlQdcO5DxlZzzLJhumKQnojO2kKSXcIR9T13N1p7zwR4UUpWA0GkYq8qNphwpL-cWPnspMxg1RrZiS8bcDo5QYubhB2S-bfP1810pWJHQ0e7fsS25JUmoCsKYuec4p50="
+        },
+        {
+          "title": "letsdatascience.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG20RKHiCxoDcwqHVS6oMWCNc69Raj_Jm63_u_PinQPEmNOT6XsfykBB7sgqwzhDmNJznLF73Xu_z9pu_acIA-tGNRERzV2Bvz7vlprQGDGm_MBgwdnUfv88WurRiUoHborOoBmRVyTIpILQy3di1lPq1ICCxX2J_vjA_HIbWTUALKyffN6_4SHOVe4F0o0CCz-XQE="
+        },
+        {
+          "title": "businessinsider.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF21keSQmmEn2mHEVHjoBMaNlr_ec2bMn6QNuWN72D8Xm6-2eaJs4mbIXou7xOkuQrenX20DqgJlv0TgjNYPCFc0bw8Iydr-ZehtUUJ_DMG4frN3q0CB2IcHJ4txgp9lWv_T4nnMz6ageyKnKzgzHatIVepRqZJW3uDjC600uxIsv5EVxb8Wj4WYidm54SPlP6taAfHWbU="
+        },
+        {
+          "title": "deepmind.google",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG-HOBkBfIALFAY6sqViaK3PbsbMhOKFcK5cWvTMbLT-L91dxnPqo51uYH12gsogICx-dTs82XLLhMtSFbOMWpiduFqva8JCz5lh10JZR8CW-FaxJ5U7KT7Qln97yW4bHzvDU8Q7vvpChg="
+        },
+        {
+          "title": "wjr.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEOtQ0eufmW5MxSnhA99iOTZNT3uIR8sdxNxRcFtFplDwPhCR6euuYZMU7VM1tRteDcGljLQUywFftJjSalir4Zhfuk2t2HWif_g8HZjNRq4O-EvbkMBTwkhAPFL22w6fcaLxGZy1Fj-8J-ZRIzV4fjy0yC149qZKFsg15H2JLaD6tJCLAxLD1gKKJmTlNZ2fAxIIoPYeLIVzXcvSHgy3vTfenKPYTg1hGZHZPheUPq8WI="
+        },
+        {
+          "title": "thebusinessjournal.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGE-BKzCiJcNFBO_Xq3zJKcQUPhmz_A853djia66TJn8SEpRbO0xROJn7MvSpTb3XF32z3bebewn9izIABbgKU3WvcQGvbivgJZ-XW6d7u7xGqfAG4I86ftUONMVWmh63ckSVnqbnQuPzuAxDBrZE1LtnOQYw=="
+        },
+        {
+          "title": "youtube.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEDM3Zj6kgrVDr014vXEy_6lhg84w6UWcBt7YJO8NLLgwN_H0tPoZgMejixfcaBF5Lozw6xHb1LQCqGapIhcjNu02DFJjIj2r436Y-KxODAeWXPJagWPPLBSWRD9NJMWaIk7Psf-n0="
+        },
+        {
+          "title": "abs-cbn.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH3WQ4S_MM2NomLAUAAHKBId-sa3GYvPkpMULlpx1ajYMcT17fM1gWo2vSusXWQJyTvfQ142wUVXjJsO2894DzPB4ca6ZLDNKS5cFT2PnA7MQN1AwGZIiGp2--tSXYJwcjsjXXhWkJwgbYvmDGDs8oY3-xnwoofrhtEFoZ82ZxFZ3CkOrwpv42g6jSimMI5pR3gaBU1xB5PnUXqwso9Pf7agQDs"
+        },
+        {
+          "title": "tomshardware.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGZ5ucSahvX53KMkTLUm5nXXv8N37r7SZosE8pTzVvkHsp9M8IThdlijz52_xUD9EmDgxFyE-A9A1XI22ysXIwQP-qfpmHlrFopmTyRGahdpi-cw2bjdiOOhAvlpXDGnUJj6Z3YsJjk2XW2RxhDhYkugPN3CPqKICpdXKsYsZmdSogrelAMjhyRO4y_kQ_HnpTptIRk2dNAxnMycRyET73laU6oKijAqZMNteyO_o1YRafLusCMOlHq2_2Hm2erD9T8u96z48S7"
+        },
+        {
+          "title": "venturebeat.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFsPN4Y68Ju07Gk2_qdquNmLoIQj3gk93FGjEpVSholJIq3a98faWTMCRFXBZle0s6cOKKegZsgW9x-AJcTWJpI814s1ux-onkL5Ashcqlk30Y1sB05uJmbrm-6F7OQ3nP4oJHqKsS2g-UNpwEgXtUiUZauu7P3VXsuv1VmJmVcxiQBVmtOzaxRaGX8VGXOb1cLcugLR55aLrkyQjY8pm8QK8JT0Hfz_g3E_101flTR2n54r9pMOsGtrRogdwwBYWN8updEoQ=="
+        },
+        {
+          "title": "cio.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFVznZ2AomDWQ8MK7PhmVsKzXS0QlO66SxnK8MivIkXM4tFmwFxstVl6HgtCtZOFvrtlmwuTk9F7HjZPRxLg6kuhI-p9ep8hc5Cb-NFS-S51quiS4B3zom4D1SCmF7nSUp88Fukvg4XtdFBFI3osnX-T0UP8AT3nqkGTq15irAN3hEEPWmTyCV8D7h1WnLGA8I9RhFmU0-VTqZXX8_LEG1Bh93INaq5ORyD"
+        },
+        {
+          "title": "aibusiness.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHdiLuMOJdG-EQopeXezOYD8bddwnXVDT6ZCPp9ZVWHFGFJcMLT1mAkyKswPkmgGY8jNVDQvvomHfIeK_ZeCBX9H0BpaHZcdcpFtPULVJ0fdLLaHuNaAw7BnKSBFMyEveYP3au7QOwXbMdWkPxOTqLKUGMnW896Y7jh9fPIfcK2Mm8kLuslt5QEkw=="
+        },
+        {
+          "title": "engadget.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEH250PywaE60TtL2QDyyMDgP8SyQwhsrggfxP0XUSOMwha_sK8waidq2pOs7A1mRhTYynykHYNXp0MFgL6EJur9IJ9coIoAwYGOGCcdw9SZtpfOp-7hboZ7bFxjv_9i2yVAo3bXCefEZFQ-oBWZIs5NOIj9MLPDenrzcArTyrX7eJ5u5tbXSh4OtbTnuftdS79WbaQPhrL5DO7ROPXDeqLxZLjteUhW7d_xwI="
+        },
+        {
+          "title": "ffxnow.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFWaF2ufxA9h2Jn0uN1fk0y88tmfSJKMRSg4ZCuenm7eSKxKk4t2LIgyRJ7X7-9bZJ9pIXEVUmBkD9jjC71kAqpnqsp4p4upKFgoOfXTJvZ252CLexgqW1ejs5pwVpnjKxqD6Az0QN1WUxmfRWJbyWOsk8AxKWpRCPzkTwqZYCr4zz0HnyksUv6T0DBVS_6bJWGrhX8BE2czEzSvDPc_8bAwt7Hg-dwi9A="
+        },
+        {
+          "title": "thenextweb.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGJNvRvc5ii3lE7W387p7IaFp-9kwK_MCJYOMTlIPp7kwIbcefR1QshjOSOO5Q-oEr4w-fbTB0Invd-CD295zCiAX3aAdrfQp2wb5my3c-nD5mV7MMQWAiX0zGiYoP74yIRjVDEIr54Wh8IvSz_LQmBcRpnk_aiXjT9E9OY2TPgZNtEeT72noJ-SIqC18A6TBU7JAJm7UZdWyhiMiJ7_vyH6tyoN8A="
+        },
+        {
+          "title": "cnet.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFIGvRALCUlAxrGn-871n9Wc7DHAuz5p9SKjh-PtqWH9wUZ3a2HIsofbR8IfzuTgWll4F2Om17yDBnOmu3dlDI64Z7LoGLJrSvBgxpwf1PmUA61N2Y2hwqiv2eKkDYqQKD_h_RJ7RVZ7IJWYVc9ozn0XLOWl-F1RvNPXllQ-Rjn"
+        },
+        {
+          "title": "futurumgroup.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFedPmdHzZY8GD16nxWVdCerqYClzdb1DZ5Z1w4KxQ9Ob22uj1nPXPedEMjAAe1PsxvrROW66VHG5HeQAmBRu43dR43XGUWxgyx0jojb9Fmcgvf97rCSRnusz2iqcr93PXkoSfBYYdM7h4tghFPKg6AQLWC8TWeM9yV-1RElbh9MgC__GxcHzphuf-tVSw12V2vM4WLvybEkA3TNDG6po_5ZL5Xy6OoZw=="
+        },
+        {
+          "title": "healthcaredive.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGXAirPtwMa2eSm8yhoHv6acyn4pEoRvr1yKpy24a3wt-oaqlQ9-JpYe3xUHLUBifzIOcNJcJ8iJKvCfL4ithADn0fDFUp1Nap8qFGfBTMV-sBo07AMiYRVF9l_4u3VLLSEgf4qAi---CtB4Ifpa5paJfTigoJvcktqD9j5s_7suHzcHHeP7BvBCnpK1L7T"
+        },
+        {
+          "title": "kotaku.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFCEZeadInOOxk6DfAA47U0Ee1t-oC3L6mkQRJRcZMdaRZcKB_lEAJFUxmytjvpPqyxCJp4E4hGlhY0taMUOIQ2AhJGtSEAey6IwEN1F6D51clUOoBhfjMX7HSqKP2Aq1HUMu8TLFcxl0ncvmWkg2smAM5eXBEk_65osa2vqJI7OdI7mog1mMsHOAgSQ-Z17uCOYr1Obg=="
+        }
+      ],
+      "generated_at": "2026-06-05T10:32:06.831490-06:00",
+      "status": "ok"
+    },
+    "emerging": {
+      "key": "emerging",
+      "title": "🚀 Emerging Big Tech",
+      "data": [
+        {
+          "empresa": "Perplexity",
+          "sector": "Búsqueda con AI",
+          "novedades": [
+            {
+              "tipo": "No se encontraron novedades",
+              "titulo": "Sin novedades recientes",
+              "detalle": "No se encontraron novedades relevantes para Perplexity en las últimas 24-48 horas de las fuentes permitidas.",
+              "fuente": "N/A",
+              "url": "N/A",
+              "por_que_importa": "La ausencia de noticias significativas en un período tan corto es común para empresas que no tienen lanzamientos de productos, rondas de financiación o anuncios estratégicos constantes. Perplexity sigue siendo un actor clave en la búsqueda conversacional impulsada por IA."
+            }
+          ]
+        },
+        {
+          "empresa": "Mistral",
+          "sector": "AI europea, modelos open-weight",
+          "novedades": [
+            {
+              "tipo": "No se encontraron novedades",
+              "titulo": "Sin novedades recientes",
+              "detalle": "No se encontraron novedades relevantes para Mistral en las últimas 24-48 horas de las fuentes permitidas.",
+              "fuente": "N/A",
+              "url": "N/A",
+              "por_que_importa": "Mistral AI continúa siendo un jugador importante en el panorama de la IA europea, enfocándose en modelos de código abierto y soluciones empresariales. La falta de noticias en un lapso tan breve no disminuye su impacto estratégico a largo plazo."
+            }
+          ]
+        },
+        {
+          "empresa": "Scale AI",
+          "sector": "Infraestructura de datos para AI",
+          "novedades": [
+            {
+              "tipo": "No se encontraron novedades",
+              "titulo": "Sin novedades recientes",
+              "detalle": "No se encontraron novedades relevantes para Scale AI en las últimas 24-48 horas de las fuentes permitidas.",
+              "fuente": "N/A",
+              "url": "N/A",
+              "por_que_importa": "Scale AI es fundamental para el desarrollo de la IA al proporcionar la infraestructura de datos necesaria para entrenar modelos. Aunque no haya noticias recientes, su rol en la cadena de suministro de la IA sigue siendo crítico para la industria."
+            }
+          ]
+        },
+        {
+          "empresa": "Databricks",
+          "sector": "Data + AI unificado",
+          "novedades": [
+            {
+              "tipo": "partnership",
+              "titulo": "DIRECTV escala análisis conversacional con Databricks Genie",
+              "detalle": "DIRECTV, un proveedor líder de video y entretenimiento, está utilizando Databricks Genie para escalar sus capacidades de análisis conversacional. Esta solución permite a su equipo realizar preguntas en lenguaje natural en lugar de usar SQL, simplificando el acceso a los datos.",
+              "fuente": "Databricks Community",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEIArJTmiXDlC4MvJB0vO7bCurTwG1Akan-SZio--bPRKsjVPtZyB6_vRDPIfS27jynOfizGBQHh3B2wgZ6uRkeTSE77GaxwF6oLNZWU8FneSyT-T5QnoWcgytAFOeNl0qJR7aS-YvOBkRZdDZKhKAybSXUnFzRxg0ghOPXla7p",
+              "por_que_importa": "Esta colaboración demuestra la aplicación práctica de la IA de Databricks en grandes empresas, facilitando el acceso a datos y la toma de decisiones para usuarios no técnicos, lo que impulsa la adopción de soluciones de IA en el ámbito empresarial."
+            },
+            {
+              "tipo": "expansión",
+              "titulo": "Databricks Academy lanza curso de AI/BI para análisis de autoservicio",
+              "detalle": "Databricks Academy ha lanzado un curso gratuito, 'Databricks AI/BI for Self-Service Analytics', dirigido a usuarios de negocio y analistas. El curso les enseña a encontrar respuestas en los datos de su organización utilizando Databricks One, dashboards y Genie spaces, sin necesidad de conocimientos técnicos profundos.",
+              "fuente": "Databricks Community",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEIArJTmiXDlC4MvJB0vO7bCurTwG1Akan-SZio--bPRKsjVPtZyB6_vRDPIfS27jynOfizGBQHh3B2wgZ6uRkeTSE77GaxwF6oLNZWU8FneSyT-T5QnoWcgytAFOeNl0qJR7aS-YvOBkRZdDZKhKAybSXUnFzRxg0ghOPXla7p",
+              "por_que_importa": "La expansión de la oferta educativa de Databricks facilita la adopción de sus herramientas de IA y BI, democratizando el acceso a la analítica de datos y fortaleciendo su ecosistema de usuarios. Esto es crucial para la escalabilidad y el impacto a largo plazo de sus tecnologías."
+            }
+          ]
+        },
+        {
+          "empresa": "Anduril",
+          "sector": "AI + defensa, hardware autónomo",
+          "novedades": [
+            {
+              "tipo": "No se encontraron novedades",
+              "titulo": "Sin novedades recientes",
+              "detalle": "No se encontraron novedades relevantes para Anduril en las últimas 24-48 horas de las fuentes permitidas.",
+              "fuente": "N/A",
+              "url": "N/A",
+              "por_que_importa": "Anduril se posiciona como un líder en tecnología de defensa y hardware autónomo, transformando el sector con soluciones basadas en IA. La ausencia de noticias en este período no afecta su trayectoria de crecimiento e innovación en un mercado estratégico."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "databricks.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEIArJTmiXDlC4MvJB0vO7bCurTwG1Akan-SZio--bPRKsjVPtZyB6_vRDPIfS27jynOfizGBQHh3B2wgZ6uRkeTSE77GaxwF6oLNZWU8FneSyT-T5QnoWcgytAFOeNl0qJR7aS-YvOBkRZdDZKhKAybSXUnFzRxg0ghOPXla7p"
+        }
+      ],
+      "generated_at": "2026-06-05T10:32:46.697131-06:00",
+      "status": "ok"
+    },
+    "top10": {
+      "key": "top10",
+      "title": "📰 Top 10 Noticias",
+      "data": [
+        {
+          "ranking": 1,
+          "categoria": "AI",
+          "titular": "Legisladores de EE. UU. Proponen Ley para Prohibir Regulaciones Estatales de IA",
+          "fuente": "Reuters",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH6M0fEx9y9_ovjyaeXJg6F1pw-1eBDAydp-_ytlnLsLa_efQCO4V82aGvsWfQwCz-3g6vFxzx4_njpniOPdVc7gcBQ3nAmc4AbeSWCS902u7ePO3mh9VWYPrtZb9iVwCfb5PvO1o4acqwmPIVB1I0qOOKAzkB-mux44-Ekk8CZp29WsK9rlT2l9Ftc",
+          "resumen": "Un proyecto de ley bipartidista en la Cámara de Representantes de EE. UU. busca impedir que los estados regulen el desarrollo de modelos de IA, una medida apoyada por empresas tecnológicas pero criticada por grupos de defensa del consumidor. La legislación busca establecer un marco nacional que fomente la innovación y el liderazgo de EE. UU. en IA, sin prohibir la regulación del *uso* de la tecnología.",
+          "por_que_importa": "Como fundador tech, esto es crucial porque un marco regulatorio federal unificado podría simplificar el cumplimiento y reducir la fragmentación legal, aunque también podría limitar la capacidad de los estados para abordar preocupaciones específicas de IA."
+        },
+        {
+          "ranking": 2,
+          "categoria": "AI",
+          "titular": "OpenAI Extiende la Función de Memoria Mejorada de ChatGPT a Usuarios Gratuitos",
+          "fuente": "OpenAI Blog",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHCWWrrEJJLgOZQq4D4yqEeZc7Rp28lY1NT3_Y0zPnoMD4upMCsGfbHAJ-CXpVL6fV8MP4ZI38yLdCXMYVcpA9fuFom1-JypSyWDlYlqi3RLdY24F6fEkbU5CeBs6cIxmjMR5Jfvlk5IeaiE_8=",
+          "resumen": "OpenAI ha lanzado una arquitectura de memoria mejorada para ChatGPT, que ahora se extenderá a los usuarios gratuitos, duplicando la capacidad para los suscriptores Plus y Pro. Esta actualización permite a ChatGPT recordar preferencias y contexto a lo largo del tiempo, haciendo las interacciones más personalizadas y eficientes.",
+          "por_que_importa": "Esta mejora aumenta la utilidad y personalización de ChatGPT, lo que podría impulsar una mayor adopción y establecer un nuevo estándar para las interacciones con IA, impactando el diseño de productos y la experiencia del usuario en el ecosistema de IA."
+        },
+        {
+          "ranking": 3,
+          "categoria": "mercados",
+          "titular": "Acciones de Broadcom Caen Más de $300 Mil Millones Tras Resultados de Chips de IA Decepcionantes",
+          "fuente": "Reuters",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHIf9O5_WJpxGqVJG7-lM-m-YANxcn8SUFBiTa6PwAh71W49l-c_qZlvPXw0JfhBJT0lvsrm7HIvCjEO7kqvNvbtS_IGlsSQUxEl_aUOhbaRoIz-pXp_nRNvPgkKUO-rt_seif18i40Xc_s0K6OX-1KxBbMnVPxGAFzhX8TkO9qDvDoiClILHodkELyAQ==",
+          "resumen": "Las acciones de Broadcom cayeron más del 14%, eliminando más de $315 mil millones de su valor de mercado, después de que sus resultados no cumplieran con las altas expectativas sobre la demanda de sus chips de IA personalizados. A pesar de un aumento significativo en los ingresos por IA, la reiteración de su pronóstico de ingresos para 2027 decepcionó a los inversores.",
+          "por_que_importa": "Este evento subraya la extrema sensibilidad del mercado a las expectativas en el sector de la IA. Para los fundadores tech, es una lección sobre la volatilidad del mercado y la importancia de gestionar las expectativas de los inversores, incluso en un sector en auge."
+        },
+        {
+          "ranking": 4,
+          "categoria": "tendencia",
+          "titular": "Meta Integra Código de Reconocimiento Facial para Gafas Inteligentes en su App de IA",
+          "fuente": "Wired",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEE4c8fEoEQ5k7ir-PuvJu_1ottyBoC_RFVAKXqov63Ptiw-orWYatIjRS_XBUhyGlPTXXxkcQh95QhUR8Q9W8WJAd6ICzacdiTV7eOaU0ba_Nf3mPwdhBMi9swixaP1ZhTpWyN5OFtUfPEJjZ1Ie07",
+          "resumen": "Una investigación de Wired reveló que Meta ha incorporado código de reconocimiento facial, denominado 'NameTag', en su aplicación de IA para gafas inteligentes. Aunque la función no está activada públicamente, sugiere que Meta explora activamente la identificación de personas a través de sus dispositivos portátiles, generando preocupaciones sobre la privacidad.",
+          "por_que_importa": "La exploración de reconocimiento facial en dispositivos portátiles por parte de un gigante como Meta subraya la creciente convergencia de IA y hardware, pero también resalta los desafíos éticos y regulatorios en torno a la privacidad, algo que todo fundador tech debe considerar."
+        },
+        {
+          "ranking": 5,
+          "categoria": "AI",
+          "titular": "Funcionarios de EE. UU. Consideran Adquirir Participaciones en Empresas Líderes de IA",
+          "fuente": "Reuters / The Wall Street Journal",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHM2gHIukIVNXp6jiYPAInwpN1Ul-MBLGi5y1VWusepVaOsLXUkfdgSfxligTzQtBtG9yFIcdP2-8p5M3NgWTH7NFNEc4OQs63z30xvtt8NJQIH2e_Kwexp5gk_7X5NixFH18CQP43JV5OQJ-1gefqDhNQKo5nUz2u2MSz_9puyTtzZwoPO0haGH1qpSsQfUpYBTlDZWci_BDEf1YGY7WY=",
+          "resumen": "Altos funcionarios de EE. UU. han mantenido conversaciones preliminares con importantes empresas de IA sobre la posibilidad de que el gobierno adquiera participaciones en sus firmas. El objetivo sería distribuir los beneficios económicos de la IA a la población, posiblemente a través de pagos de dividendos a los hogares estadounidenses.",
+          "por_que_importa": "Esta iniciativa podría redefinir la relación entre el gobierno y la industria tecnológica, afectando las valoraciones, la gobernanza y la distribución de la riqueza generada por la IA, lo que es vital para la estrategia de salida y el capital de las startups de IA."
+        },
+        {
+          "ranking": 6,
+          "categoria": "negocios",
+          "titular": "Startups Fundadas por Emprendedores Afroamericanos Reciben Mayor Financiamiento de VC, Persisten Preocupaciones de Equidad",
+          "fuente": "BLACK ENTERPRISE (citando TechCrunch)",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHQWhjUX6P1bcft0MxrbNNcZzdoS8xpIwkYh6Vf8IRa7fuj9rxXElexbJQH3a-RoN58iVw3IZkYafDOFe5B7-0PszVlM-J4AMin2EmSsOoK35Yt1fbTfJV_LbpWIn77ZMmeNlSca_9IKWR0sQ-6eQerTwK1bRGJb66Ceze8JHivhU0H2Qkvt9q7BnpLZ4hjHCFqSaR-TnrWFqQvzQ==",
+          "resumen": "Las startups fundadas por emprendedores afroamericanos en EE. UU. lograron su mejor trimestre de financiación de capital de riesgo en casi cuatro años, recaudando $643 millones. Sin embargo, este aumento se debe en gran parte a un pequeño número de inversiones grandes, y persisten las preocupaciones sobre el acceso equitativo al capital para la mayoría de los fundadores.",
+          "por_que_importa": "Este informe destaca tanto el progreso como los desafíos continuos en la diversidad del ecosistema de startups. Para los fundadores tech, es un recordatorio de la importancia de la inclusión y la necesidad de abordar las barreras estructurales en el acceso a la financiación."
+        },
+        {
+          "ranking": 7,
+          "categoria": "tendencia",
+          "titular": "La IA Asume el 'Trabajo Más Maldito del Mundo': Cobranza de Deudas",
+          "fuente": "Wired (citado por The Daily Scrape)",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFvwywzzH6BFh61ilVw6GPYMPCt-mH5I5GNTKbVBy96D1UXgjzmeCHfPZ1UmKYsRMW2ngvLgSt5GUld7eJgkfERGrN1Dx_oyOsA2bkJG9YVcES3J0_3_LRoZXM2-1zwY21HWr_-MWyMDpOEG5EwI9JoMac=",
+          "resumen": "Empresas como TrueAccord están utilizando el aprendizaje automático para automatizar la cobranza de deudas, reemplazando a los cobradores humanos. Los defensores argumentan que estos sistemas son menos conflictivos y ofrecen planes de pago personalizados, mientras que los críticos advierten sobre el sesgo algorítmico y la protección del consumidor.",
+          "por_que_importa": "Esto demuestra el impacto disruptivo de la IA en sectores tradicionales y trabajos repetitivos. Los fundadores tech deben considerar cómo la automatización de IA puede crear nuevas oportunidades de negocio, pero también las implicaciones sociales y éticas de la sustitución de mano de obra."
+        },
+        {
+          "ranking": 8,
+          "categoria": "mercados",
+          "titular": "Wall Street con Resultados Mixtos Ante Expectativa de Datos de Empleo de Mayo en EE. UU.",
+          "fuente": "Associated Press (AP)",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHNpCb29H0WVVk_uGzpmy3rfen6RTzw5dAHKfdWOpXSnX0-hczbBtow6Y0_N7MjpuxMm87dwvpVLzSV6H08qz77fVdKzXYftiFE1f4owR4Rp01AFRif9F_WvgaSI3o7yNwHzc4Io7PvIqAp8X0ow5-ml-APXcvQt-Kxj4c7jZxPWijnZ32A-Qfc_KWHuLx3ESbVOirJwHmA0DP4skGmmoYLYKbyIOa5KwNE9-N-bhWQSyr6yUoVw46AaYL0Cavl5xVrX96pVUgpfL-FhEn9IqP0KKDse9ck3W0lMw==",
+          "resumen": "Los mercados de Wall Street mostraron un comportamiento mixto mientras los inversores esperaban los datos de empleo de mayo en EE. UU., buscando señales sobre el impacto de la guerra en Irán o la IA en la contratación. El informe reveló una sólida adición de 172,000 empleos, mostrando la resiliencia del mercado laboral.",
+          "por_que_importa": "Los datos macroeconómicos, como el informe de empleo, influyen directamente en las decisiones de la Reserva Federal sobre las tasas de interés y el sentimiento general del mercado, afectando el acceso a capital y las valoraciones para startups y empresas tecnológicas."
+        },
+        {
+          "ranking": 9,
+          "categoria": "AI",
+          "titular": "OpenAI Fusiona Equipos de ChatGPT y Codex en una Única Unidad de Producto",
+          "fuente": "Digital Applied (citando TechCrunch, Wired, OpenAI)",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHWqzncXiUQkhUl7ka_vis4LretxXQyJ0DtPi9YDjKQtIaEYsvXfV9teHnSZPUE2Zg-FtjQ3cTDmmcDh-u03AR0fD3kfj70sE6Uqpcez_SzCXhuB4o6bAyik5yZI1i359-t9ZrjiUQmeBRGIQ_PfghRiTOtGPWN88g9hRn48FQ_sVpR3KHMKTsZ53XXouDx--SLtK3rCCT-",
+          "resumen": "OpenAI ha consolidado sus equipos de ChatGPT y Codex en un único grupo de producto bajo la dirección de Greg Brockman, señalando una apuesta por una plataforma unificada de agentes de IA. Esta reorganización busca simplificar la estrategia de producto y fortalecer la posición de la compañía antes de una posible salida a bolsa.",
+          "por_que_importa": "Esta consolidación indica una tendencia hacia plataformas de IA más integradas y 'agentic', lo que podría influir en cómo los desarrolladores construyen y monetizan sus propias soluciones de IA, y cómo las startups compiten con gigantes como OpenAI."
+        },
+        {
+          "ranking": 10,
+          "categoria": "tendencia",
+          "titular": "Google Permite a Sitios Web Excluirse de las 'AI Overviews' en la Búsqueda",
+          "fuente": "Mashable (citando Google)",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHvnSLKSPHFD2EzDfZ6rkGhYwrB6hXwA9dtS8otsqdSZi844vpzsfzMD6PhYwO-1-tOqXkaSjjyr7Kgd65DH62gjGZzrpTBVGw6POMb7_q1c66dV-OhwXN8uFgKWdmmpxx5IR61dBY58evlIdQSAplGGycT1QTQJ0p_5nHld5cevu3gw9d0lv7aHQA=",
+          "resumen": "Google ha introducido un nuevo control en Search Console que permite a los propietarios de sitios web gestionar cómo su contenido aparece en las funciones de búsqueda generativas de IA, como las 'AI Overviews'. Esta medida responde a la presión de los editores por la disminución del tráfico impulsado por la IA.",
+          "por_que_importa": "Esta decisión de Google es un hito en la relación entre los motores de búsqueda impulsados por IA y los creadores de contenido. Los fundadores tech que dependen del tráfico web deben adaptar sus estrategias de SEO y contenido para coexistir con las 'AI Overviews' y considerar el impacto en la visibilidad y monetización."
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "duke.fm",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH6M0fEx9y9_ovjyaeXJg6F1pw-1eBDAydp-_ytlnLsLa_efQCO4V82aGvsWfQwCz-3g6vFxzx4_njpniOPdVc7gcBQ3nAmc4AbeSWCS902u7ePO3mh9VWYPrtZb9iVwCfb5PvO1o4acqwmPIVB1I0qOOKAzkB-mux44-Ekk8CZp29WsK9rlT2l9Ftc"
+        },
+        {
+          "title": "9to5mac.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQECEjAwdSRn2PO8WIhoKjhUBYMSFySGT-SFC9EyrXR-b4WpIyVVSFuhfrJ69IUQEsTDlboaDsYvAqH5ywPoR5SUN8JAzONgB5JIOClMU7l_hKu2NVaKsB81ynI0ZtA5HIj9H6XK3C0YKivheWL_XOIjFFfLex8dDcB-Y72Br5tcP1-rkt8YmZdiT9RnJ7Eqnch39n5-efsne9-snfaAfHlTt5-ceD6FbY8L3g=="
+        },
+        {
+          "title": "letsdatascience.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHMjU3vqfiFklQWNLK8elKuP7O76OfJBTfnMpk7xaCi98cwnIs1Sp_-J7ASkaqbeJZxpctTdfJRJO4oWPyMgZTATC3Br0fVKwE9KHjjhPFSJj0kHMxth1mAAjklw-Gs050JXz3O2H63fcNMI-CnwrygY0MtRBqLXdhalk8pgeQlReQM_mpOt0Jb2sDBJ3h3yKb6VpPUcKBXAaZFsL5UU8jkkg=="
+        },
+        {
+          "title": "openai.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHCWWrrEJJLgOZQq4D4yqEeZc7Rp28lY1NT3_Y0zPnoMD4upMCsGfbHAJ-CXpVL6fV8MP4ZI38yLdCXMYVcpA9fuFom1-JypSyWDlYlqi3RLdY24F6fEkbU5CeBs6cIxmjMR5Jfvlk5IeaiE_8="
+        },
+        {
+          "title": "kfgo.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHIf9O5_WJpxGqVJG7-lM-m-YANxcn8SUFBiTa6PwAh71W49l-c_qZlvPXw0JfhBJT0lvsrm7HIvCjEO7kqvNvbtS_IGlsSQUxEl_aUOhbaRoIz-pXp_nRNvPgkKUO-rt_seif18i40Xc_s0K6OX-1KxBbMnVPxGAFzhX8TkO9qDvDoiClILHodkELyAQ=="
+        },
+        {
+          "title": "bsky.app",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEE4c8fEoEQ5k7ir-PuvJu_1ottyBoC_RFVAKXqov63Ptiw-orWYatIjRS_XBUhyGlPTXXxkcQh95QhUR8Q9W8WJAd6ICzacdiTV7eOaU0ba_Nf3mPwdhBMi9swixaP1ZhTpWyN5OFtUfPEJjZ1Ie07"
+        },
+        {
+          "title": "mashable.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHW29lLNyBFSLPYsj6Mtm-Gy2S9_fdsJ0N3nXqfVI44yOXXknbZl56eeQ5YoeeEi3FetTGbv8b0a_6oFEnXHgl78XMQDXvIocv_aEaTE4smPWY-hz-AvmD88eEQiienPEaTxEpSkVQVeDhtq7DpBhItusvA301-wqghXQ=="
+        },
+        {
+          "title": "engadget.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEF2k2A7RbXNAxdeE4j5QY6Z_awAtAzuT3AE6MvqhdRhfZcJNsJVroIJ3jmlOG1HcsIVBI8PHfuewaGyQRixl1XcB_8RjQcslpUHDO2lTb6pZhyeKF6jQZtwW0QkGT_wPiR1fWoJlyThuL5MiogxYfAuPVTMSAQC85XOaHJKSJ2vuvc1Iyamo6WZ_eRY_9NSrTRU1avP6b1ySAxGnqoRxVF8cgiL5tBb42ALlw="
+        },
+        {
+          "title": "kslm.news",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHM2gHIukIVNXp6jiYPAInwpN1Ul-MBLGi5y1VWusepVaOsLXUkfdgSfxligTzQtBtG9yFIcdP2-8p5M3NgWTH7NFNEc4OQs63z30xvtt8NJQIH2e_Kwexp5gk_7X5NixFH18CQP43JV5OQJ-1gefqDhNQKo5nUz2u2MSz_9puyTtzZwoPO0haGH1qpSsQfUpYBTlDZWci_BDEf1YGY7WY="
+        },
+        {
+          "title": "blackenterprise.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHQWhjUX6P1bcft0MxrbNNcZzdoS8xpIwkYh6Vf8IRa7fuj9rxXElexbJQH3a-RoN58iVw3IZkYafDOFe5B7-0PszVlM-J4AMin2EmSsOoK35Yt1fbTfJV_LbpWIn77ZMmeNlSca_9IKWR0sQ-6eQerTwK1bRGJb66Ceze8JHivhU0H2Qkvt9q7BnpLZ4hjHCFqSaR-TnrWFqQvzQ=="
+        },
+        {
+          "title": "substack.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFvwywzzH6BFh61ilVw6GPYMPCt-mH5I5GNTKbVBy96D1UXgjzmeCHfPZ1UmKYsRMW2ngvLgSt5GUld7eJgkfERGrN1Dx_oyOsA2bkJG9YVcES3J0_3_LRoZXM2-1zwY21HWr_-MWyMDpOEG5EwI9JoMac="
+        },
+        {
+          "title": "smdailyjournal.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHNpCb29H0WVVk_uGzpmy3rfen6RTzw5dAHKfdWOpXSnX0-hczbBtow6Y0_N7MjpuxMm87dwvpVLzSV6H08qz77fVdKzXYftiFE1f4owR4Rp01AFRif9F_WvgaSI3o7yNwHzc4Io7PvIqAp8X0ow5-ml-APXcvQt-Kxj4c7jZxPWijnZ32A-Qfc_KWHuLx3ESbVOirJwHmA0DP4skGmmoYLYKbyIOa5KwNE9-N-bhWQSyr6yUoVw46AaYL0Cavl5xVrX96pVUgpfL-FhEn9IqP0KKDse9ck3W0lMw=="
+        },
+        {
+          "title": "digitalapplied.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHWqzncXiUQkhUl7ka_vis4LretxXQyJ0DtPi9YDjKQtIaEYsvXfV9teHnSZPUE2Zg-FtjQ3cTDmmcDh-u03AR0fD3kfj70sE6Uqpcez_SzCXhuB4o6bAyik5yZI1i359-t9ZrjiUQmeBRGIQ_PfghRiTOtGPWN88g9hRn48FQ_sVpR3KHMKTsZ53XXouDx--SLtK3rCCT-"
+        },
+        {
+          "title": "mashable.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHvnSLKSPHFD2EzDfZ6rkGhYwrB6hXwA9dtS8otsqdSZi844vpzsfzMD6PhYwO-1-tOqXkaSjjyr7Kgd65DH62gjGZzrpTBVGw6POMb7_q1c66dV-OhwXN8uFgKWdmmpxx5IR61dBY58evlIdQSAplGGycT1QTQJ0p_5nHld5cevu3gw9d0lv7aHQA="
+        },
+        {
+          "title": "digitalapplied.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFewrhnIbWvkulsy6HgJNuqJNWVF_AZefF4yT4YWjUtxK-L4kbvPD817JK36R-f1qIA4XBDA7HsrBxEkWjERA0vGjp0SCCLMDjwuospZ4OqjFGQzy8OFkFsTGS0NTojRgIQmELJIrZiKpemU9BdkIyctu9V13ZV9JYwPpjXlWn83OVXMAdrqXCWUCbKWErAyxdqBHiTpDSJ94IaPuHb-WhOrMVATg=="
+        }
+      ],
+      "generated_at": "2026-06-05T10:33:42.254911-06:00",
+      "status": "ok"
+    },
+    "mercados": {
+      "key": "mercados",
+      "title": "💹 Pulso de Mercados",
+      "data": {
+        "pulso_de_mercados": {
+          "indices": [
+            {
+              "nombre": "S&P 500",
+              "valor": "7,584.31 puntos",
+              "cambio_pct": "+0.41%",
+              "tendencia": "↑",
+              "fuente": "El Financiero",
+              "url": "https://www.elfinanciero.com.mx/mercados/2026/06/04/wall-street-cierra-en-positivo-dow-jones-encabeza-el-cierre-al-alza/",
+              "analisis": "El S&P 500 cerró con ganancias, extendiendo su avance semanal en una sesión apoyada por compras de oportunidad tras la presión reciente en tecnología."
+            },
+            {
+              "nombre": "NASDAQ Composite",
+              "valor": "26,830.96 puntos",
+              "cambio_pct": "-0.09%",
+              "tendencia": "↓",
+              "fuente": "El Financiero",
+              "url": "https://www.elfinanciero.com.mx/mercados/2026/06/04/wall-street-cierra-en-positivo-dow-jones-encabeza-el-cierre-al-alza/",
+              "analisis": "El Nasdaq Composite experimentó una ligera caída, afectado por la cautela en el sector de inteligencia artificial tras las perspectivas poco alentadoras de Broadcom."
+            },
+            {
+              "nombre": "Dow Jones",
+              "valor": "51,561.93 puntos",
+              "cambio_pct": "+1.73%",
+              "tendencia": "↑",
+              "fuente": "El Financiero",
+              "url": "https://www.elfinanciero.com.mx/mercados/2026/06/04/wall-street-cierra-en-positivo-dow-jones-encabeza-el-cierre-al-alza/",
+              "analisis": "El Dow Jones lideró las ganancias en Wall Street, alcanzando nuevos máximos históricos impulsado por sectores como el financiero y el de salud."
+            },
+            {
+              "nombre": "BMV (Bolsa Mexicana de Valores) / IPC",
+              "valor": "67,392.19 unidades",
+              "cambio_pct": "-1.31%",
+              "tendencia": "↓",
+              "fuente": "El Informador",
+              "url": "https://www.informador.mx/economia/IPC-de-la-Bolsa-Mexicana-sufre-caida-del-1.31-baja-a-67-mil-392.19-unidades-20260605-0005.html",
+              "analisis": "El IPC de la Bolsa Mexicana de Valores registró una caída, acumulando cinco cierres negativos en las últimas seis sesiones y cerrando en su menor nivel desde el 4 de mayo."
+            },
+            {
+              "nombre": "Tipo de cambio USD/MXN",
+              "valor": "17.4106 pesos mexicanos",
+              "cambio_pct": "+0.79%",
+              "tendencia": "↑",
+              "fuente": "PLAYERS of Mexico",
+              "url": "https://playersoflife.com/finanzas/precio-del-dolar-en-mexico-hoy-viernes-5-de-junio-de-2026-peso-mexicano-retrocede-frente-a-la-divisa-estadounidense/",
+              "analisis": "El peso mexicano retrocedió frente al dólar estadounidense en la mañana del viernes 5 de junio, mostrando una mayor fortaleza de la divisa norteamericana."
+            }
+          ],
+          "acciones": [
+            {
+              "nombre": "NVIDIA",
+              "valor": "$218.66",
+              "cambio_pct": "+1.82%",
+              "tendencia": "↑",
+              "fuente": "Trading Economics",
+              "url": "https://tradingeconomics.com/nvidia-corporation-nvda-stock-price",
+              "analisis": "NVIDIA cerró con ganancias moderadas, en un día donde el sector de semiconductores tuvo reacciones mixtas."
+            },
+            {
+              "nombre": "Apple",
+              "valor": "$311.23",
+              "cambio_pct": "+0.31%",
+              "tendencia": "↑",
+              "fuente": "FinanceCharts.com",
+              "url": "https://financecharts.com/stocks/AAPL/price-history",
+              "analisis": "Las acciones de Apple registraron un ligero avance al cierre de la jornada."
+            },
+            {
+              "nombre": "Microsoft",
+              "valor": "$428.05",
+              "cambio_pct": "+0.17%",
+              "tendencia": "↑",
+              "fuente": "StockInvest.us",
+              "url": "https://stockinvest.us/stock/MSFT",
+              "analisis": "Microsoft cerró con un pequeño incremento, en línea con la tendencia general de algunas grandes tecnológicas."
+            },
+            {
+              "nombre": "Google (Alphabet C)",
+              "valor": "$369.27",
+              "cambio_pct": "+3.82%",
+              "tendencia": "↑",
+              "fuente": "FinanceCharts.com",
+              "url": "https://financecharts.com/stocks/GOOG/price-history",
+              "analisis": "Alphabet (GOOG) experimentó un notable aumento, superando el 3% de ganancia en la sesión."
+            },
+            {
+              "nombre": "Meta Platforms",
+              "valor": "$627.57",
+              "cambio_pct": "+0.74%",
+              "tendencia": "↑",
+              "fuente": "Meta Investor Relations",
+              "url": "https://investor.fb.com/stock-info/",
+              "analisis": "Meta Platforms registró un modesto avance en sus acciones."
+            },
+            {
+              "nombre": "Amazon",
+              "valor": "$253.79",
+              "cambio_pct": "+1.51%",
+              "tendencia": "↑",
+              "fuente": "FinanceCharts.com",
+              "url": "https://financecharts.com/stocks/AMZN/price-history",
+              "analisis": "Amazon cerró con ganancias, aunque la acción ha estado bajo presión esta semana debido a las proyecciones de gasto en infraestructura de IA."
+            },
+            {
+              "nombre": "Tesla",
+              "valor": "$418.45",
+              "cambio_pct": "-1.24%",
+              "tendencia": "↓",
+              "fuente": "Investing.com",
+              "url": "https://www.investing.com/equities/tesla-motors-inc-historical-data",
+              "analisis": "Las acciones de Tesla experimentaron una ligera caída en la jornada."
+            },
+            {
+              "nombre": "OpenAI",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "Forge Global",
+              "url": "https://forgeglobal.com/company/openai",
+              "analisis": "OpenAI sigue siendo una empresa privada y no cotiza en bolsa, aunque se reporta que está preparando una posible salida a bolsa para finales de 2026."
+            },
+            {
+              "nombre": "Broadcom",
+              "valor": "$418.91",
+              "cambio_pct": "-12.59%",
+              "tendencia": "↓",
+              "fuente": "The Motley Fool",
+              "url": "https://www.fool.com/investing/2026/06/04/stock-market-today-broadcom-shares-plunge-after-ai-outlook-misses-high-investor-expectations/",
+              "analisis": "Broadcom sufrió una fuerte caída tras sus resultados del segundo trimestre fiscal y una guía de IA que, aunque mostró un fuerte crecimiento, no cumplió con las altas expectativas de los inversores."
+            }
+          ],
+          "earnings": [
+            {
+              "nombre": "Oracle",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "MarketBeat",
+              "url": "https://www.marketbeat.com/earnings-calendar/2026/",
+              "analisis": "Oracle tiene programado reportar sus ganancias el 10 de junio de 2026."
+            },
+            {
+              "nombre": "Adobe",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "MarketBeat",
+              "url": "https://www.marketbeat.com/earnings-calendar/2026/",
+              "analisis": "Adobe tiene programado reportar sus ganancias el 11 de junio de 2026."
+            }
+          ],
+          "macro": [
+            {
+              "nombre": "Inteligencia Artificial (IA)",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "El Financiero",
+              "url": "https://www.elfinanciero.com.mx/mercados/2026/06/04/wall-street-cierra-en-positivo-dow-jones-encabeza-el-cierre-al-alza/",
+              "analisis": "El optimismo en el área de la inteligencia artificial se moderó, especialmente después de las perspectivas poco alentadoras de Broadcom, lo que generó un rebalanceo en el mercado."
+            },
+            {
+              "nombre": "Política Monetaria (Fed)",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "El Financiero",
+              "url": "https://www.elfinanciero.com.mx/mercados/2026/06/04/wall-street-cierra-en-positivo-dow-jones-encabeza-el-cierre-al-alza/",
+              "analisis": "El mercado está a la espera del reporte de empleo de mayo en Estados Unidos, que se publicará el viernes 5 de junio. Las expectativas de una posible flexibilización de tasas por parte de la Reserva Federal a finales de 2025 y durante 2026 podrían influir en la fortaleza del dólar a nivel global."
+            },
+            {
+              "nombre": "Geopolítica",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "EL CEO",
+              "url": "https://elceo.com/mercados/penoles-arrastra-a-la-bmv-a-numero-rojos-wall-street-duda-ante-el-futuro-de-la-ia/",
+              "analisis": "Las noticias sobre la guerra en Oriente Medio afectaron a los índices, con una caída en los precios del petróleo ante las esperanzas de un alto al fuego entre Israel y Líbano."
+            },
+            {
+              "nombre": "Gasto de Capital en Tech",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "Money Morning",
+              "url": "https://moneymorning.com/2026/06/04/amazon-stock-fell-7-6-this-week-the-real-reason-is-more-interesting-than-it-looks/",
+              "analisis": "El anuncio de Amazon de invertir aproximadamente $200 mil millones en centros de datos e infraestructura de IA en 2026 generó preocupación en el mercado sobre la postergación de ganancias futuras, contribuyendo a la caída de sus acciones esta semana."
+            }
+          ]
+        }
+      },
+      "grounding_sources": [
+        {
+          "title": "stockanalysis.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH8XYxGmQJtCyTdd9xV9Bsueoamlak-IitXmzYA5MAQCKNR5PjJ9kKV1s_YdSJz7x-lLAwbvfeaMFywqzcMI5_r7RsaTnLlM7K4wrMprOZ7nAGH9WJzATTRrYgHdpBiL7SIbJs6bffkfhU="
+        },
+        {
+          "title": "macrotrends.net",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGQsHgL2JvmgJEv1j9gsLgMGIi3r8Z3UwwMZQFJM9cseqdnUCWjJRpmUqsGbzP4Z7TenYmoc-49uqmYut1PKltupD5NIaVlbdYC0tixvhZOo0_fXQEPjw1bcLhTV2Jlxex5349sJodtiAgx9KG87DXyt3OiWW2PZkFFbsgWHnQhioBrxXl2aFdK8vRjqg=="
+        },
+        {
+          "title": "wallstreethorizon.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEgi58TYSu0BCm0_pt8mH2Mqkk1ydYg_txfmneKczLsAWappAJRBJ2RWJPWE5Dwszpvm3URc4EUEr-v2Gzxr99VVIdcYyrA4L01AG2E9ZTe2dFLiSYmR0a4ky3BNKAMCLaNE6plK9iq4E_WJ1nt9Q=="
+        },
+        {
+          "title": "fool.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQElhUmZZC0SWAQacTv3namwPLkGAbAFoKKHf9uZtS4FEXRevMdrzGtlv1LiCOXnsq0X498HNDE3XXTDtOYgdYXBGscIpV0kJsViJaJ10w21rwGCLTm5HyHt7Rzr90_SGqr78CulP6Gt82VccUe6YxRok4Slqe3aZBnZfGg6tla-ZA7rFEspjB7zBewW-b3J1gb1F87AlNifdN25Kx8UoNQ-zJ153uTDQsea31jewB3jJ32AzTkmKuN38TO_3cuALShYKvb-1XwY-SGZtuRewtinyIdZImuNAMMIA-9O"
+        },
+        {
+          "title": "earningswhispers.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFX-d_iUxyYUYALBct62a9g5DTtHjUOIQWOVQVudSH7teBukluDV-zEji0jXVEv4m4rO_HDDY1T-aMa93R1frYOusR_QGDoaoAtS4vwoyxfOZFdIhawwiyHFh-C_TFFKPknrzEDDAoCaFYz4vBaNUjFQNtDIQ=="
+        },
+        {
+          "title": "atmeta.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGbPiL22eTqbi-vJqHGQCmZWR1K2caenYTsDc7PvpHrop4r28-ZxwpueNHWijcAhN1iOVXOZIkkJLSD7Ew3vjQL62NQoSdmCKIxe_3-4Cmv3eVfSaemWVX_G4JYHSAuuXaBhQ=="
+        },
+        {
+          "title": "financecharts.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF6TcYUG0mT4MS3vTPXkOJGnmfbg6lzvDBP5fiy9ctO2UdGxB0fYRmpfMGCXfmkpnGheqWN0vQ5DaBadGed_nkm8pDhrEEW9SL8RV0RQchbMgR-vlaFsPUrEwEqq-iWKQggLauqMdYgV779VMd69eUvl2U="
+        },
+        {
+          "title": "investing.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEFMR6w2YqIpxp8Gutupe_FrS6y0BfaIdLeGB1p60XR08h3aFcmpqfFImZ6M4STm8oCCjg5TPXLSHXI7OJmb0EAcm4W5cmC6EbgzS23AtsDrpcEnzXobykQMXy5WGyhcPtISM4qKMfaji-rl9NH0uZ0Y0uma3Db6PrMtgZUExa2TA=="
+        },
+        {
+          "title": "morningstar.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGZZg7PX_B93HfVNPD9d5nylGBG5PHVKs9sE309n-jAoA-WFULf3q8XdqOkpaMCkCiU1tgNtkFjWoISgjwgQkMwrOQMONFsOb8ch6e6xTRFSq9gmQaqKuFlGYODjlMkwCIIQlOYVYuooiwV4_Y7"
+        },
+        {
+          "title": "marketbeat.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGU6ja5-tR4QwdWzDrnN-K9hc5ue5GO3qlr6Um6joX-eQWgF_hZ0OOUt8KCcTA_gTBATutpnhowmBV24yMJ5USRvKJ-izBNa5xHeCRMwjz-mQKWa1JMj3qUlmFK75hyx4UruKaSem0="
+        },
+        {
+          "title": "zacks.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEi8twVw7TvAN9P0VqVDu5-2k4Z4MbzOjuxb6fnl7lhay-7WzNTSqDhGCv9O4YNdgT9-g6pMFaN2siKPsUx_l6B4CmDq2rE5GmV1xzZeKAcflTh0Vh_GypRFRMiOJOrCSC6oKHdcOWWd7ftGg=="
+        },
+        {
+          "title": "macrotrends.net",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFqk2FWh4bBHjR182qM9rSFJ1ht5anOLeKoa45-Zra8leZQWLrIG1_TYw1Cbe0jKFK4d5LQn2Z_65MxOfL1Etfh3cWo1AJksXhncxHZ2v0mZtALx9F_975vz-9tSrw0N8nKlvHaA3dpLzg-eSPloUy54yAQ1xrERMAicljZCcOjNa2PuqP8Yg=="
+        },
+        {
+          "title": "vantagemarkets.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHlDaqxUaTET48IF6GVcQS1UA4qCHWdSdopfqhXtgc7MQfe1HdvZYQvae2TFFMTN2SZ9hKrMNg-HtKDHthjmCrLlO7DG6CRO2BITuplcZNeb75O4X_OBM1h6BBjbONoFFB_VnGH0_aU-mHJ_24qe3rYYw_b4y29aG29e5asvB0nPcn7sq5tndAFVXfzLqkTz25qAUE1Xln73zg="
+        },
+        {
+          "title": "earningscall.biz",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFX95f1qx4g_TzEmNhLxCiUKfyzrK-6Tuw2n3lUUD1YLzaeKryt8MyrqDZtdArbsxq6qm02Qw8kEOGprD-3oynIlgdFhD2u9q039lTVkboBRSu5IHia-s1Li4MR-MBbLDJj6bb4MOV4"
+        },
+        {
+          "title": "morningstar.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEd8GFToDgKE_9bmVEM-TWL5FIRQCph6byHa9hQL1sIICZyCdMJsJlWkMPF9sbvyydehYDoS2zeCic9BfTHkHzITpi8cnpMBrbn_MsKiICmV4LtTknYS2CnG7TV8uTWglrag8OR_ELmfWugg2DWvTHPVRcYkVQOscJmJ7OSYM7N-Dcisc6FWTJErWArO6gPwDPnISqpEKdiFjw9IBkQ_gnFo6ti2dQV"
+        }
+      ],
+      "generated_at": "2026-06-05T10:34:31.150860-06:00",
+      "status": "ok"
+    }
+  },
+  "summary": {
+    "sections_ok": 5,
+    "sections_total": 5,
+    "quality": "PASS"
+  }
+}
