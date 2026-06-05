@@ -1,7 +1,7 @@
 {
   "version": "2.0",
   "date": "2026-06-05",
-  "generated_at": "2026-06-05T12:47:34.248639-06:00",
+  "generated_at": "2026-06-05T13:57:51.758187-06:00",
   "timezone": "CST (UTC-6)",
   "language": "es-MX",
   "tier": "Tier 4",
@@ -18,12 +18,38 @@
         {
           "nombre": "Satya Nadella",
           "empresa": "Microsoft",
-          "actividad": []
+          "actividad": [
+            {
+              "tipo": "podcast",
+              "titulo": "Discusión sobre el Ecosistema de IA en Microsoft Build 2026",
+              "detalle": "Satya Nadella participó en un podcast especial durante Microsoft Build 2026, donde enfatizó el enfoque de Microsoft en un ecosistema de IA. Argumentó que la clave es permitir que cualquier empresa construya 'inteligencia de frontera' utilizando modelos, herramientas, datos y un marco, en lugar de solo consumir un modelo. También detalló la estrategia de entrenamiento de MAI de Microsoft, destacando el linaje de datos limpios y las evaluaciones privadas como IP central.",
+              "fuente": "No Priors Podcast (vía YouTube)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFI3KGF4FsdTBrNbVs1W0_cgheYEcvyr-gf8hH-EBJ4OL2_WI0qAd6McWdlBCf5_CYEQmCI0M46k39GYMvyvrAq6K5u-qKnP4S05TIfCj3lKrjjALmoMh4pPHHztexrOIN_A2f7NRU=",
+              "impacto": "Esta declaración subraya la visión de Microsoft de democratizar el desarrollo de la IA, lo que podría acelerar la innovación en toda la industria al permitir que más empresas creen soluciones de IA personalizadas."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Defensa de los Centros de Datos de IA de Microsoft",
+              "detalle": "Satya Nadella defendió los planes de Microsoft para la construcción de centros de datos de IA frente a la reacción de la comunidad durante una conferencia. Abordó las preocupaciones sobre el aumento de los costos de energía, el impacto ambiental y el uso del agua, prometiendo que los centros de datos de Microsoft no aumentarán las tarifas de electricidad para los residentes y que la empresa repondrá todo el uso de agua.",
+              "fuente": "Business Insider",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEr9G7m4Vc0gHFUl3wDyqZbJUZN78E7m6391-glkvYs4PsS_ELjvNNdU-rk4McH_fTF_TKgFM_js--H1nNMcB74TEVbYmMmhJ_aNAGtNw2egJ5WD-hk9EBHjLy5uh3wQSbd52J2K_do16SE1Lx3RTlplp-ONYCSc1aXOAmiwlYSzWOy1uKB18G20o9W7JvtgAZhSEUBLZaiV_iQnUAi3zl_3HyxxAELHQ=",
+              "impacto": "La defensa de Nadella es crucial para la aceptación pública y regulatoria de la infraestructura de IA, ya que aborda preocupaciones críticas que podrían ralentizar el despliegue de la tecnología a gran escala."
+            }
+          ]
         },
         {
           "nombre": "Jensen Huang",
           "empresa": "NVIDIA",
-          "actividad": []
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Defensa de Salarios y Empleo en la Era de la IA",
+              "detalle": "En la feria tecnológica Computex en Taipéi, Jensen Huang defendió salarios más altos para los empleados en el auge de la IA, afirmando que los trabajadores 'deben ganar lo máximo posible'. También calificó de 'absurda' y 'una tontería' la narrativa de que la IA causará pérdidas masivas de empleos, argumentando que impulsará ingresos y crecimiento del PIB.",
+              "fuente": "El Colombiano / Computer Hoy",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEofCCSMmTmJbDKX0EaPC9-S5l5TffIUZFBz8D7DDvVG1J_g4bSRvdN0texXjnHKscKZJI6Tpbr8iKv78jb3DS7Lx-FcXuNV-6jY3ONhHmARx7DKI40BJ0Y6-NUe5TgyjQRZLmFUe4ao8M6cJy8zFFqIsM0hitRY4NlaAbdUyiOYOITLmSQPXZ2iNjTBeZey8S-lLUCXtnwGR-bnKqznSpCp0c=",
+              "impacto": "Las declaraciones de Huang desafían la narrativa común sobre el impacto de la IA en el empleo y los salarios, posicionando a NVIDIA como un defensor de la prosperidad de los trabajadores en la nueva economía de la IA."
+            }
+          ]
         },
         {
           "nombre": "Sam Altman",
@@ -31,44 +57,38 @@
           "actividad": [
             {
               "tipo": "declaración",
-              "titulo": "Firma carta contra armas biológicas asistidas por IA",
-              "detalle": "Sam Altman, CEO de OpenAI, junto con Dario Amodei de Anthropic y otros líderes de IA, firmaron una carta abierta el 4 de junio de 2026, instando a los legisladores a exigir la detección de 'secuencias de preocupación' en solicitudes de ADN sintético y a verificar la legitimidad de los clientes. Este acuerdo poco común entre rivales busca abordar los riesgos potenciales de las armas biológicas asistidas por IA.",
-              "fuente": "Wired",
-              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEz1UV-P3j5uipgvYQbdA2Wra94vEgwIVbm_8VCe6cLKmzpI5A7H6MSKoN-ity_7YON2gWS9FxkLgyD5_SXo3v89U2bHD81EX_Zg0uGLsVo1TP0Kh0Ze-dMOqYxQJFMWMsHP0JEHtdTdTVWqrp9njojxEwx8fROII2r1LQZqR4z7R1O-nMUQl83qkI7UFflJ-N36s8-7P1PsCHaYZ8TzPMxd_kk56Zz7tCe4ldPpTGe",
-              "impacto": "La colaboración de líderes de la industria en la seguridad de la IA subraya la creciente preocupación por los riesgos existenciales y la necesidad de una regulación proactiva en el desarrollo de la inteligencia artificial."
+              "titulo": "Crítica sobre el Gasto en IA",
+              "detalle": "Sam Altman admitió que las preocupaciones sobre los enormes costos de la inteligencia artificial son 'la crítica más justa' que existe actualmente sobre esta tecnología. Reconoció que es razonable cuestionar si las grandes inversiones en infraestructura, chips y software de IA se traducirán en rentabilidad a largo plazo.",
+              "fuente": "elEconomista.es / CNBC (vía YouTube)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHpvSFLv_z7gRpQU-aOf6ikr-zCsCrO8y_nCWwoQA6wJF_7ekQqIqMk8CWbcDZS5Nx52clAoQEQA1E0gkVtcU83IUSHxo6SmAnUWtNd26YQIt5FEluGGM5nv1ge8OFfw2a4Vapxvkevl-bMHvPRZhUcHix504KKnwrvi30nKyPifWgT6PrYsKV83BQ_zhoyAw3rzaT8Pv4ihMrDj8POtkpvp7sUlselUWKA0ijDDjD94DQWUCxm-KEM2PriDtQ473k=",
+              "impacto": "La honestidad de Altman sobre los desafíos financieros de la IA podría fomentar una mayor transparencia y un enfoque más estratégico en las inversiones del sector, buscando un equilibrio entre la innovación y la viabilidad económica."
+            },
+            {
+              "tipo": "movimiento",
+              "titulo": "Demanda del Estado de Florida",
+              "detalle": "El Estado de Florida presentó una demanda civil contra OpenAI y su director ejecutivo, Sam Altman, acusándolos de prácticas engañosas y de minimizar los riesgos asociados al uso de la inteligencia artificial. La demanda surge tras una investigación sobre un tiroteo en el que el chatbot supuestamente asesoró al tirador.",
+              "fuente": "EL PAÍS",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGKo4Dhrpbh8f2uduSmwIEroqMuBePIJ0fUnTTNRBNCPh6HHrtRNDxAbiJJEalZ0cmCLiO-Tih35UCxQ4mT0DUSB7XPpYxNsspbueHyvkDwp9f_Vz-QAsUsSwx82vk49IQyzuObxK3WkvpR6VyJWluPxhmfshrNS1GljjT6OaSXZltTgv8UkwwHEGBciNWg6ulhMXUezWC8fNZz7nDxntwmGWrIHFY2xdMiTuUKlTJ0h_SYiLOHMgffBcEGZuJPzhe-8wYeVlQHQtEfzrhEraG5EGBPVlbv0Q=",
+              "impacto": "Esta demanda marca un precedente significativo, siendo la primera acción legal de un estado contra una empresa de IA y su CEO, lo que podría impulsar una mayor regulación y escrutinio sobre la seguridad y ética de la IA."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Impacto Crítico en la Supervivencia de OpenAI",
+              "detalle": "Mira Murati, exdirectora de tecnología de OpenAI, declaró que la empresa 'probablemente se habría desmoronado' si Sam Altman no hubiera regresado como CEO tras su breve destitución en 2023. Sus comentarios, realizados en la conferencia Bloomberg Tech, ofrecen una visión detallada de la crisis de liderazgo y la importancia de Altman para la estabilidad de la organización.",
+              "fuente": "Bloomberg Línea",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHebRBfEEwtarWsUsIK5ZwT9h5CG2NbRzSTXXlZINbZrOFdj8fakjMpc0LNG9yc0atL3s6Nj2uftfLBPElaJAVQ8N2u5k9s7KatXmdATASKxxy0_jVzphRSpXWCXTeHAA39mWvZdbP1AEismFHko_nSTnbfykgW097GjOcl1Yq0LhiAhGSCSHxaQjvKpEmlNE_egO2kPpR4oiLHlkqA6Vl36wiCtkZWmqsgk_cxdP4bYShvS_rEXaHTU8wq34k5sQ=",
+              "impacto": "Esta revelación subraya el papel indispensable de Altman en la dirección y supervivencia de OpenAI, consolidando su influencia en el futuro de la inteligencia artificial y la gobernanza de las empresas líderes en el sector."
             }
           ]
         },
         {
           "nombre": "Sundar Pichai",
           "empresa": "Google/Alphabet",
-          "actividad": [
-            {
-              "tipo": "declaración",
-              "titulo": "El director de IA de Google habla sobre la 'singularidad'",
-              "detalle": "Sundar Pichai, CEO de Alphabet, concluyó su discurso principal en Google I/O el mes pasado cediendo la palabra a Demis Hassabis, director de Google DeepMind. Hassabis declaró que la humanidad se encuentra en las 'estribaciones de la singularidad', un momento profundo para la humanidad, señalando un cambio en el mensaje de Google sobre las capacidades avanzadas de la IA.",
-              "fuente": "Forbes Australia",
-              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGi5c4B9u2373iqwIiLHh0TS-gm1dylDI5L-AGpK4tA1LRTe8cc1y73Kk0tu5SsXsRwm7XMyfAchmfqEKLu-0yJpK3M01dGVHUOSShhxghdp00LegrRTeTXLcBmQoTKhx83FYArLXhKPqodFpuz4eTyqpMGQSFAwuu7ICWamfuS-6EfNilMVppfDvssNdVqWtXeCiuClq0nQvrt6MLeKYYyCpnMlVNR2U22",
-              "impacto": "Esta declaración, respaldada por la plataforma de Pichai, indica una aceleración en las expectativas de la industria sobre la llegada de la inteligencia artificial general (AGI) y sus implicaciones transformadoras para la sociedad."
-            },
-            {
-              "tipo": "movimiento",
-              "titulo": "Reunión Anual de Accionistas de Alphabet 2026",
-              "detalle": "Alphabet celebró su Reunión Anual de Accionistas de 2026 el viernes 5 de junio de 2026, a las 9:00 a.m., hora del Pacífico. La reunión se llevó a cabo en formato virtual, permitiendo la participación y votación de los accionistas.",
-              "fuente": "sec.gov",
-              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFwBwVGMDRGRrtJROKVhThabdfR6O_1YpYZqxProgQ0ceEfZnAGdF0kPUu_tI92gkBhUNHey_9QGa6x89k8CdoVtYCxC0ZxmA7SBef4vfVWPZ_uG-K5ehHUZiXitaQjuCpxliPbXrsD4AHK21uhCyyIwT21n7fLUEV6PxEcMmZ2U6fB-dNtJ8FsR7e14jyKKbf9YUu3FA==",
-              "impacto": "La reunión anual es un evento clave para la gobernanza corporativa, donde los accionistas revisan el desempeño de la empresa y toman decisiones importantes, lo que refleja la transparencia y la rendición de cuentas de Alphabet."
-            }
-          ]
+          "actividad": []
         }
       ],
-      "grounding_sources": [
-        {
-          "title": "forbes.com.au",
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGi5c4B9u2373iqwIiLHh0TS-gm1dylDI5L-AGpK4tA1LRTe8cc1y73Kk0tu5SsXsRwm7XMyfAchmfqEKLu-0yJpK3M01dGVHUOSShhxghdp00LegrRTeTXLcBmQoTKhx83FYArLXhKPqodFpuz4eTyqpMGQSFAwuu7ICWamfuS-6EfNilMVppfDvssNdVqWtXeCiuClq0nQvrt6MLeKYYyCpnMlVNR2U22"
-        }
-      ],
-      "generated_at": "2026-06-05T12:48:48.982693-06:00",
+      "grounding_sources": [],
+      "generated_at": "2026-06-05T13:58:28.719453-06:00",
       "status": "ok"
     },
     "ai_leaders": {
@@ -80,172 +100,202 @@
           "novedades": [
             {
               "tipo": "producto",
-              "titulo": "Nuevas capacidades para GPT-Rosalind en ciencias de la vida",
-              "detalle": "OpenAI ha introducido nuevas capacidades para su modelo GPT-Rosalind, diseñado específicamente para la investigación en ciencias de la vida a escala empresarial. Este modelo combina las habilidades de codificación y uso de herramientas de GPT-5.5 con una inteligencia mejorada en dominios clave como la química medicinal y la genómica. Además, GPT-Rosalind muestra mejoras significativas en la asistencia para protocolos de laboratorio húmedo en el mundo real.",
-              "fuente": "OpenAI Blog",
-              "url": "https://openai.com/blog/introducing-new-capabilities-to-gpt-rosalind",
-              "aplicacion_genyx": "GENyx podría integrar GPT-Rosalind para ofrecer a sus clientes SaaS en el sector de las ciencias de la vida herramientas de investigación y desarrollo de fármacos más potentes y eficientes."
+              "titulo": "Nuevas Capacidades para GPT-Rosalind",
+              "detalle": "OpenAI ha introducido nuevas capacidades para GPT-Rosalind, su modelo enfocado en biodefensa y resiliencia social. Estas mejoras buscan fortalecer la seguridad y la oportunidad juvenil a través de un liderazgo global en IA.",
+              "fuente": "OpenAI",
+              "url": "https://openai.com/news",
+              "aplicacion_genyx": "GENyx podría integrar estas capacidades mejoradas de GPT-Rosalind para ofrecer soluciones de análisis de riesgos y seguridad en entornos sensibles, como la detección temprana de amenazas o la evaluación de impacto social de nuevas tecnologías."
             },
             {
               "tipo": "producto",
-              "titulo": "Mejora de la memoria en ChatGPT",
-              "detalle": "ChatGPT está implementando un nuevo sistema de memoria para recordar mejor las preferencias de los usuarios, con el objetivo de mantener el contexto fresco y relevante a lo largo de las conversaciones. Este sistema está diseñado para ser más capaz y escalable, abordando los desafíos de la obsolescencia y la precisión para millones de usuarios a lo largo de horizontes de varios años.",
-              "fuente": "OpenAI Blog",
-              "url": "https://openai.com/blog/dreaming-better-memory-for-a-more-helpful-chatgpt",
-              "aplicacion_genyx": "Un negocio SaaS de IA como GENyx podría aprovechar esta mejora en la gestión de la memoria para ofrecer asistentes virtuales más personalizados y eficientes a sus usuarios, reduciendo la necesidad de repetir información."
+              "titulo": "Codex para Cada Rol y Flujo de Trabajo",
+              "detalle": "OpenAI ha lanzado actualizaciones para Codex, haciéndolo disponible para una variedad de roles, herramientas y flujos de trabajo. Esto permite una mayor integración de la generación de código asistida por IA en diferentes procesos de desarrollo.",
+              "fuente": "OpenAI",
+              "url": "https://openai.com/news",
+              "aplicacion_genyx": "GENyx podría aprovechar la expansión de Codex para potenciar sus herramientas de desarrollo interno, acelerando la creación de nuevas características y la personalización de soluciones para clientes, o incluso ofrecerlo como un servicio de copiloto de código a sus usuarios."
             },
             {
               "tipo": "partnership",
-              "titulo": "Disponibilidad general de GPT-5.4 en AWS GovCloud (US-West)",
-              "detalle": "El modelo GPT-5.4 de OpenAI ya está disponible de forma general en Amazon Bedrock dentro de AWS GovCloud (US-West). Esto permite a clientes gubernamentales y de industrias reguladas utilizar GPT-5.4 para razonamiento complejo, codificación, análisis de documentos y flujos de trabajo de varios pasos, beneficiándose de la seguridad y los controles de gobernanza de AWS.",
-              "fuente": "AWS",
-              "url": "https://aws.amazon.com/about-aws/whats-new/2026/06/openai-gpt-5-4-amazon-bedrock-aws-govcloud-us-west/",
-              "aplicacion_genyx": "GENyx podría ofrecer sus soluciones basadas en GPT-5.4 a clientes del sector público o altamente regulado, garantizando el cumplimiento de los estrictos requisitos de seguridad y gobernanza a través de AWS GovCloud."
+              "titulo": "Modelos Frontier y Codex Disponibles en AWS",
+              "detalle": "Los modelos 'frontier' de OpenAI y Codex ahora están disponibles en Amazon Web Services (AWS). Esta expansión facilita que más desarrolladores y empresas accedan y utilicen las capacidades avanzadas de IA de OpenAI a través de la infraestructura de la nube de AWS.",
+              "fuente": "OpenAI",
+              "url": "https://openai.com/news",
+              "aplicacion_genyx": "Para GENyx, la disponibilidad de los modelos de OpenAI en AWS significa una mayor flexibilidad y escalabilidad para desplegar sus propias aplicaciones de IA, aprovechando la infraestructura existente en la nube y potencialmente reduciendo la latencia para clientes que también operan en AWS."
             }
           ]
         },
         {
           "empresa": "Google DeepMind",
+          "novedades": []
+        },
+        {
+          "empresa": "Anthropic",
+          "novedades": [
+            {
+              "tipo": "regulación",
+              "titulo": "Anthropic Presenta Solicitud Confidencial para OPI",
+              "detalle": "Anthropic, la compañía detrás del chatbot Claude, ha presentado una solicitud confidencial ante la Comisión de Bolsa y Valores de EE. UU. (SEC) para una oferta pública inicial (OPI). Este movimiento posiciona a Anthropic como una de las primeras grandes empresas de IA en buscar una salida a bolsa, con una valoración reportada de $965 mil millones.",
+              "fuente": "AP Technology Writer",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGgH5zSRCSV_LXXB1S59OSj8M-qykU84uBZ-JdgLllsFgbiBnLL6ve5bQy9Lmdf2sTBSZy513sCAfWXPW9-lol9tb5Gt7x_fwAU-jt53DKLbkGha9VhTtYRaZdpOe9kTARBmgyL6Y45igFkzJ1JFQzDF4Un5FNv4bwgFePoKEDWZL2f0Bbp0oXjOmiGGWgVev5hlvlKB0IognTt3uyaotkRB9gzBhgmVA==",
+              "aplicacion_genyx": "La OPI de Anthropic valida el modelo de negocio de IA y podría abrir nuevas vías de financiación o asociaciones para GENyx, además de establecer un precedente para la valoración de empresas de IA en el mercado público."
+            },
+            {
+              "tipo": "producto",
+              "titulo": "Lanzamiento de Claude Opus 4.8",
+              "detalle": "Anthropic lanzó su modelo de IA más reciente, Claude Opus 4.8, que se jacta de ser aún mejor en codificación y otras tareas profesionales que sus modelos anteriores. Este lanzamiento subraya el rápido avance en las capacidades de los modelos de lenguaje grandes.",
+              "fuente": "AP Technology Writer",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGgH5zSRCSV_LXXB1S59OSj8M-qykU84uBZ-JdgLllsFgbiBnLL6ve5bQy9Lmdf2sTBSZy513sCAfWXPW9-lol9tb5Gt7x_fwAU-jt53DKLbkGha9VhTtYRaZdpOe9kTARBmgyL6Y45igFkzJ1JFQzDF4Un5FNv4bwgFePoKEDWZL2f0Bbp0oXjOmiGGWgVev5hlvlKB0IognTt3uyaotkRB9gzBhgmVA==",
+              "aplicacion_genyx": "GENyx podría explorar la integración de Claude Opus 4.8 para mejorar sus propias ofertas de procesamiento de lenguaje natural o para desarrollar nuevas herramientas de automatización de tareas profesionales, aprovechando sus capacidades avanzadas de codificación y razonamiento."
+            }
+          ]
+        },
+        {
+          "empresa": "Meta AI",
           "novedades": [
             {
               "tipo": "producto",
-              "titulo": "Introducción de Gemini Omni para creación de video multimodal",
-              "detalle": "Google ha presentado Gemini Omni, un nuevo modelo multimodal capaz de crear contenido a partir de cualquier tipo de entrada, comenzando con video. Permite a los usuarios combinar imágenes, audio, video y texto como entrada para generar videos de alta calidad y editarlos mediante lenguaje natural.",
-              "fuente": "Google Blog",
-              "url": "https://blog.google/technology/ai/gemini-omni-multimodal-video-creation/",
-              "aplicacion_genyx": "GENyx podría integrar Gemini Omni para ofrecer a sus clientes herramientas avanzadas de creación y edición de video impulsadas por IA, permitiendo la generación de contenido dinámico a partir de diversas fuentes."
+              "titulo": "Meta Retrasa Lanzamiento de Nuevo Modelo de IA",
+              "detalle": "Meta Platforms ha retrasado en múltiples ocasiones sus planes para lanzar su modelo de inteligencia artificial más reciente a los desarrolladores, sin una fecha de lanzamiento prevista. Este retraso se ha extendido por casi dos meses desde que el jefe de IA de Meta indicó una liberación 'pronto'.",
+              "fuente": "The Wall Street Journal",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGDDtkeEkXGfXvvslhRQ-4QBXpzCZBryGLCJip2ieMjQwxuLK7dO_buO-39BkSNCLgTOOErtKR0cmF9NcVFAin596bzY0ySYhaiDGJ78HNSZcK1-bzwdc9o2dlWqIsPPTAoR0oI1ff7Y3U_vs50bbC5wihozHhJbd-y9glXGktSg_fIipe8xtSYPklBoU0HY4Ps5WCJu9Y6V_DVLa-g4EIv9Po==",
+              "aplicacion_genyx": "El retraso de Meta podría indicar desafíos en la optimización o seguridad de modelos avanzados, lo que para GENyx subraya la importancia de una planificación robusta y pruebas exhaustivas antes del despliegue de productos de IA."
+            }
+          ]
+        },
+        {
+          "empresa": "Microsoft AI",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Microsoft Lanza MAI-Code-1-Flash",
+              "detalle": "Microsoft ha presentado MAI-Code-1-Flash, un nuevo modelo de codificación diseñado para una asistencia rápida y eficiente en los flujos de trabajo diarios de los desarrolladores. Este modelo, construido con datos limpios y con licencia adecuada, se está implementando para usuarios individuales de GitHub Copilot en Visual Studio Code.",
+              "fuente": "Microsoft AI",
+              "url": "https://www.microsoft.com/en-us/ai/blog/introducing-mai-code-1-flash",
+              "aplicacion_genyx": "GENyx podría integrar MAI-Code-1-Flash en sus propias herramientas de desarrollo o ofrecerlo como un componente de sus soluciones de automatización de código, mejorando la productividad de sus clientes y la calidad del software generado por IA."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "openai.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF3imepL3dwecc6pKls9BYJTFNpVT6Ci-zcm3sxU8ds3wm76GOWHNxl2ToU4Wdj2mNJRHVQloqtgUZtnfyujGzYn1p-5T9o6kUq5o4jFcl2edAR"
+        }
+      ],
+      "generated_at": "2026-06-05T13:59:06.840999-06:00",
+      "status": "ok"
+    },
+    "emerging": {
+      "key": "emerging",
+      "title": "🚀 Emerging Tech & Startups",
+      "data": [
+        {
+          "empresa": "SpaceX",
+          "sector": "Espacio / Inteligencia Artificial",
+          "valoracion": "$75 mil millones (estimado para la IPO)",
+          "novedades": [
+            {
+              "tipo": "ipo",
+              "titulo": "Planes de IPO masiva",
+              "detalle": "SpaceX planea recaudar hasta $75 mil millones cuando salga a bolsa este mes, lo que la convertiría en la mayor salida a bolsa de la historia. Esta IPO podría convertir a Elon Musk en el primer billonario del mundo.",
+              "fuente": "AP News",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEQ4dOk6hftZiuIFOswq1Q-n0pLx34i5LbM7Ylk9yrrt97RplwwAOXKNsy9sqOr6gl8Jx40qk52IAxrSex6JE_10c-UFo7Td_ws6H58-2k1mrt7GYFVIBZluLk2MQVjnPsawgdbrGFS1pXxikFDnK8RhV2fyV5ktP6yfvKZ6aaoTgJpNUsp-TnH0g_G6gmURkDf0ig8QWj9LYY2gkq5-ZGNjN_pot_tHNzGUvY_wg==",
+              "por_que_importa": "Una IPO de esta magnitud inyectaría una cantidad masiva de capital en el sector espacial y de IA, permitiendo a SpaceX acelerar sus ambiciosos proyectos y consolidar su liderazgo en la exploración espacial y el desarrollo de IA a través de xAI."
             },
             {
-              "tipo": "research",
-              "titulo": "Publicación sobre la superinteligencia solipsista",
-              "detalle": "Google DeepMind ha publicado una investigación que sugiere que una superinteligencia desarrollada con un enfoque 'solipsista', que trata al mundo como una fuente exógena de retroalimentación, es poco probable que sea cooperativa. La investigación aboga por un paradigma no solipsista que considere la interdependencia como un principio de diseño fundamental.",
-              "fuente": "Google DeepMind",
-              "url": "https://deepmind.google/discover/blog/solipsistic-superintelligence-is-unlikely-to-be-cooperative/",
-              "aplicacion_genyx": "Para GENyx, esta investigación subraya la importancia de diseñar sistemas de IA que no solo sean capaces, sino también alineados con valores humanos y cooperativos, lo cual es crucial para la confianza y adopción empresarial de sus soluciones."
-            },
-            {
-              "tipo": "research",
-              "titulo": "Declaración de Demis Hassabis sobre la singularidad de la IA",
-              "detalle": "Demis Hassabis, CEO de Google DeepMind, afirmó en Google I/O 2026 que la IA se encuentra en los 'primeros pasos de la singularidad', proyectando que la inteligencia artificial general (AGI) a nivel humano podría llegar tan pronto como en 2029. Destacó la transición de la IA generativa a sistemas agénticos capaces de planificación independiente y flujos de trabajo de varios pasos.",
-              "fuente": "Forbes Australia",
-              "url": "https://www.forbes.com.au/news/innovation/googles-ai-chief-says-were-in-the-foothills-of-the-singularity-heres-why-that-matters/",
-              "aplicacion_genyx": "Esta visión de AGI cercana podría impulsar a GENyx a invertir en la investigación y desarrollo de agentes de IA más autónomos y capaces de manejar tareas complejas, preparando su oferta para un futuro con IA más avanzada."
+              "tipo": "adquisición",
+              "titulo": "Adquisición de xAI",
+              "detalle": "SpaceX adquirió xAI a principios de este año, a pesar de las objeciones de algunos inversores de SpaceX. Esta adquisición integra capacidades de inteligencia artificial directamente en la estrategia de la compañía.",
+              "fuente": "AP News",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEQ4dOk6hftZiuIFOswq1Q-n0pLx34i5LbM7Ylk9yrrt97RplwwAOXKNsy9sqOr6gl8Jx40qk52IAxrSex6JE_10c-UFo7Td_ws6H58-2k1mrt7GYFVIBZluLk2MQVjnPsawgdbrGFS1pXxikFDnK8RhV2fyV5ktP6yfvKZ6aaoTgJpNUsp-TnH0g_G6gmURkDf0ig8QWj9LYY2gkq5-ZGNjN_pot_tHNzGUvY_wg==",
+              "por_que_importa": "La integración de xAI posiciona a SpaceX no solo como líder en el espacio, sino también como un actor clave en la carrera de la IA, buscando sinergias entre ambas industrias para innovaciones futuras."
             }
           ]
         },
         {
           "empresa": "Anthropic",
-          "novedades": []
-        },
-        {
-          "empresa": "Meta AI",
-          "novedades": []
-        },
-        {
-          "empresa": "Microsoft AI",
-          "novedades": []
-        }
-      ],
-      "grounding_sources": [
-        {
-          "title": "openai.com",
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGXckLcHL11rwdrtiXkR2dCrw5nKDx0yrCjw_nisRQMg__JhxhvxH7DDse_UBa9vwzCCrNcaMRFeyZs169C2sw5SNs5_gH4xsJM8zKLh7I9JHDY_a8pFlprQF76qEuzddbbn8_v0Pd_ZzH_tAtf_krKKUxR-HYuk-Vjean5I9NVL5U="
-        },
-        {
-          "title": "openai.com",
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGBYtP3vXyGCo59pqcWueeek16--1FNqu19mMMqEmHXD6uRVwTzWTum6kUXdu3A_F_zXic9oO_0iQxpwS1b9oyV6FcLdqNCxiPd-nmkYnUXK3UgnvFygrmzbF_g5iGNM-qdsG2T-CrMKu5G-Lk="
-        },
-        {
-          "title": "blog.google",
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHfwnK5E9BrxQZ40z7a4ZtjeBgop2ExUtWTzjmuowaU9WmJhdLlKEZHFN4STw8IE0PzNNOImIC2lRXB8gFy9NJf5A_JzJFRP3vbPvedkqO1RtKTWXZvV8euoDzyJEJbd8zhblgS5r4hTAll54LbW1g="
-        },
-        {
-          "title": "deepmind.google",
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFK3aXckEijBnZ15wfWcU9kKi4_8nCY2srVj3nNM9gz_AwXeXBThgETif5qLez_na1qZwJeI8Idz6h_fkEejkP1EAY8CM3bWjfXT0wfTJNyDjPMFjtX_J5OF3ZxbxsQvbHlxKQRsHVCzjLy-r5VGww_"
-        },
-        {
-          "title": "deepmind.google",
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGxhy5QOHJkviBd52GUKBc-32SAPkIQ5-0fyD73dC9CWKxsb3XxJbhz4Cv3J0FymKkzv4ITtSujOOEoYhB2bCFZkmEw17Um9DoqlQPc5g2FSome0g0EE_LP-zKHKna7Kz7C3rF6X_7uf2E="
-        },
-        {
-          "title": "forbes.com.au",
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFfKHc1zNG146gcoq39AgvEyyEAt29a1p0xRHmWoOtn6zd779oEBVZelcobO63knTdng6NMwyRhqXqk4N3dem2XSaNur-ntEZ35HitN448xU6iHKLppWZ-fgxBf0rOXLDZAdB6hGIDgudIcmH2_13_2N5zLNbmS8QzjdOEDc2GYyEqDKmD7Y7XxpHtEDQW4i3CyzeQo035nmrWwbcFI4hHSaoa89ay07IKb"
-        }
-      ],
-      "generated_at": "2026-06-05T12:49:29.456918-06:00",
-      "status": "ok"
-    },
-    "emerging": {
-      "key": "emerging",
-      "title": "🚀 Emerging Big Tech",
-      "data": [
-        {
-          "empresa": "Perplexity",
-          "sector": "Búsqueda con AI",
-          "novedades": []
-        },
-        {
-          "empresa": "Mistral",
-          "sector": "AI europea, modelos open-weight",
-          "novedades": []
-        },
-        {
-          "empresa": "Scale AI",
-          "sector": "Infraestructura de datos para AI",
-          "novedades": []
-        },
-        {
-          "empresa": "Databricks",
-          "sector": "Data + AI unificado",
+          "sector": "Inteligencia Artificial",
+          "valoracion": "$965 mil millones",
           "novedades": [
+            {
+              "tipo": "ipo",
+              "titulo": "Presentación confidencial para IPO",
+              "detalle": "Anthropic, el creador del chatbot Claude, ha presentado una solicitud confidencial ante la Comisión de Bolsa y Valores de EE. UU. (SEC) para una propuesta de oferta pública inicial (IPO). La compañía fue valorada recientemente en $965 mil millones.",
+              "fuente": "AP News",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEQ4dOk6hftZiuIFOswq1Q-n0pLx34i5LbM7Ylk9yrrt97RplwwAOXKNsy9sqOr6gl8Jx40qk52IAxrSex6JE_10c-UFo7Td_ws6H58-2k1mrt7GYFVIBZluLk2MQVjnPsawgdbrGFS1pXxikFDnK8RhV2fyV5ktP6yfvKZ6aaoTgJpNUsp-TnH0g_G6gmURkDf0ig8QWj9LYY2gkq5-ZGNjN_pot_tHNzGUvY_wg==",
+              "por_que_importa": "La inminente IPO de Anthropic, con una valoración tan elevada, subraya el inmenso interés y la confianza del mercado en el potencial de la IA conversacional y la capacidad de la compañía para competir con gigantes como OpenAI y Google."
+            },
             {
               "tipo": "regulación",
-              "titulo": "Databricks retrasa su salida a bolsa en 2026",
-              "detalle": "El CEO de Databricks, Ali Ghodsi, anunció en una entrevista con Bloomberg Television que la compañía planea posponer su Oferta Pública Inicial (OPI) en 2026. Ghodsi indicó que, aunque la empresa eventualmente saldrá a bolsa para ofrecer liquidez a sus empleados, considera que 2026 es un \"año terrible para salir a bolsa\" debido a la saturación del mercado con otras grandes ofertas tecnológicas.",
-              "fuente": "Bloomberg",
-              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHNI6tNcs3M-RhZ3iqNiI2ZCtZN9SlqXb8Rxi2-cw4P_sneDk2OeU9jmhOXgdv3bsX2QzcAvtCIj42q72PO6-2AFPToSiC15mqbU0TWt4JzX1lo2-v750f2L9MXrpKjHujSTSKc-tBoD0WFaNQILP0hLcQ6e2zM0hTEAWm7JqmN2d6DF8DQjrARAKMM2aXBHrEW7TUDoj-0vhgGb6H3rToQvok6reR1TlhmfEXG7PH3gfdCpJmD5VKjLlbfoFbC3uk=",
-              "por_que_importa": "Esta decisión es relevante para el ecosistema tecnológico, ya que Databricks es una empresa de alto perfil valorada en $134 mil millones, y su aplazamiento de la OPI en un año con otras grandes salidas a bolsa (SpaceX, Anthropic, OpenAI) refleja la cautela en el mercado y la competencia por el capital de los inversores."
-            },
-            {
-              "tipo": "expansión",
-              "titulo": "Empresas brasileñas adoptan Databricks como base para IA",
-              "detalle": "Un nuevo informe de Information Services Group (ISG) revela que las empresas en Brasil están adoptando cada vez más la plataforma de Databricks para unificar sus entornos de datos e implementar la IA a gran escala. Esta adopción busca superar las limitaciones de la infraestructura de datos heredada y mejorar la visibilidad operativa.",
-              "fuente": "FT.com (Financial Times)",
-              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE701ur1Zykp3txDtGmkkuWlmGfLql-vUHYhWoAOJ-pBBVcLR7sm-2skXSr13RKV3EPZfXXcAlmXt-_DCVn_gVp-ysDamIyuRHz3-wHXLVabcy8VDKFFfF-CqZ8HwZ0UqHAvqK3dPUNFjx-p5sT8lHVk3HqfdWeWDZZVV9oW4n44ioiSzc9NdjGEK2fLIRNQYQyOCPyjtCeqOXT_GJnvNUwIBw=",
-              "por_que_importa": "La creciente adopción de Databricks en un mercado emergente como Brasil subraya la demanda global de plataformas unificadas de datos e IA para modernizar las operaciones empresariales y aprovechar el valor de los datos, lo que es crucial para la expansión de la IA a nivel internacional."
-            },
-            {
-              "tipo": "producto",
-              "titulo": "Lanzamiento de soluciones empresariales impulsadas por Databricks Genie",
-              "detalle": "Databricks y sus socios, incluyendo Accenture y Capgemini, han lanzado un conjunto de soluciones tecnológicas y funcionales interindustriales basadas en Databricks Genie. Estas ofertas buscan operacionalizar la IA conversacional en funciones empresariales clave como ventas, finanzas y RRHH, abordando la necesidad de información contextual y gobernada.",
-              "fuente": "Databricks Blog",
-              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFMYOxUeufiPAE1EjalBs6N2EVV9GZuRi3S0K-RMi398nJCFyRQOHDh2ZyL9vnErwtH8_ZslLapcBjjkZVZweXxZxoA--1OHO8b4q_mF1C4Xf4EC_y_vfDAqxgA6RYI1q2qhrxElMB8IRv2zAz1r7OxcA_fq8mC4LCOpzdw_Bo2LMhvvFuyU9HkQTC4-QdIlooVInCculnSeb3kMA==",
-              "por_que_importa": "Este lanzamiento demuestra la estrategia de Databricks para integrar la IA conversacional directamente en los flujos de trabajo empresariales, lo que es fundamental para la adopción a gran escala de la IA en las organizaciones y para superar los desafíos de fiabilidad y gobernanza de los agentes de IA."
+              "titulo": "Llamado a la pausa en el desarrollo de IA",
+              "detalle": "Anthropic publicó una entrada de blog instando a una desaceleración unilateral en el desarrollo de nuevos modelos de IA hasta que se puedan implementar salvaguardias rigurosas. La compañía citó datos internos que sugieren que los sistemas de IA modernos se acercan al punto de 'auto-mejora recursiva'.",
+              "fuente": "Gizmodo",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGoKu60ppdh6OQhiRKqDPh2xlbreMp953lQFUgddRmYj30GtCGwnBT8seBiYvVYltrDRKm7QdlDX33TyEtgrFVwNd-b_6ztDXkbSliEs6Y1nn7A6Qfhr-KVleFIO-MsJHWdQlGOUC8FWZvfw-6oKKgEC3ASyR1U2vCXO7vp7xHctIdyLGYA46_USZBNuXMweUfmX0RaLppHDopqEDvk5ejfDu0Mz2rkNWZKbv7Lzow==",
+              "por_que_importa": "Este llamado a la cautela por parte de un líder de la industria de IA resalta las crecientes preocupaciones sobre la seguridad y el control de la IA avanzada, e influye en el debate global sobre la gobernanza y la ética de la inteligencia artificial."
             }
           ]
         },
         {
-          "empresa": "Anduril",
-          "sector": "AI + defensa, hardware autónomo",
+          "empresa": "Revolut",
+          "sector": "Fintech",
+          "valoracion": "$115 mil millones (potencial)",
           "novedades": [
             {
+              "tipo": "funding",
+              "titulo": "Considera venta secundaria de acciones",
+              "detalle": "Revolut está evaluando una venta secundaria de acciones que podría valorar a la compañía en aproximadamente $115 mil millones. Esta estrategia permite a los empleados e inversores existentes obtener liquidez sin la necesidad de una oferta pública inicial inmediata.",
+              "fuente": "Startup Fortune",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGBKfhquxLXJWXVAwtrbJlP6tFwDlpX6exDcpvQXKl6NOA5AFt3O3HM22uISqxYxcF9BG5998JJj2lAq71ZHx6qvc6kX037IHTvfiGQ6MtuV9KhyvY9hehhylblrE6AXdGfEZMhAIUbqFvDQ4Kil2JTJH-Qi5m5QZtR3pSjnauxz3LZltg8BgkQ4e47tojB",
+              "por_que_importa": "Una valoración de $115 mil millones posicionaría a Revolut entre las fintech más valiosas del mundo, demostrando la madurez del mercado privado para empresas de alto crecimiento y la capacidad de Revolut para ofrecer liquidez a sus inversores y empleados sin la presión de una IPO."
+            }
+          ]
+        },
+        {
+          "empresa": "Supabase",
+          "sector": "Infraestructura / Datos",
+          "valoracion": "$10.5 mil millones",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Ronda de financiación Serie F de $500 millones",
+              "detalle": "Supabase cerró una ronda de financiación Serie F de $500 millones, alcanzando una valoración de $10.5 mil millones. Esta inversión significativa destaca el crecimiento y la demanda de su plataforma de código abierto para desarrolladores.",
+              "fuente": "The Innovation Attorney",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHnMX5klHif7yL8Sy18KqZ-LClvJhBsc-wEx_uFKnJ5UoO0UIeDrHhMKnxBefIXYSUNnfvcpsWvAbbxL8nD82tct0_8w7HzEyL_dkmEy71smq8hVTunRxA6KPlGhsjVoljq4vmTLVICahCFzxlPj5SRaln-Kg6oJXMk",
+              "por_que_importa": "La ronda de financiación de Supabase valida el modelo de 'backend como servicio' de código abierto y su capacidad para competir con soluciones propietarias. La alta valoración refleja la importancia creciente de herramientas de desarrollo flexibles y escalables en el ecosistema tecnológico."
+            }
+          ]
+        },
+        {
+          "empresa": "AlphaSense",
+          "sector": "IA Empresarial / Análisis de Mercado",
+          "valoracion": "$7.5 mil millones",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Ronda de financiación de $350 millones",
+              "detalle": "AlphaSense cerró una ronda de financiación de $350 millones el 3 de junio de 2026, lo que elevó su valoración a $7.5 mil millones, casi el doble de su marca anterior de $4 mil millones. La ronda fue liderada por Vitruvian Partners, Accenture Ventures y J.P. Morgan Asset Management.",
+              "fuente": "The Innovation Attorney",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHnMX5klHif7yL8Sy18KqZ-LClvJhBsc-wEx_uFKnJ5UoO0UIeDrHhMKnxBefIXYSUNnfvcpsWvAbbxL8nD82tct0_8w7HzEyL_dkmEy71smq8hVTunRxA6KPlGhsjVoljq4vmTLVICahCFzxlPj5SRaln-Kg6oJXMk",
+              "por_que_importa": "Esta significativa inyección de capital y el aumento de la valoración demuestran la fuerte demanda de soluciones de IA para el análisis de información empresarial, permitiendo a AlphaSense expandir sus capacidades y alcance en un mercado competitivo."
+            },
+            {
               "tipo": "partnership",
-              "titulo": "Anduril firma MOU con MIRDC de Taiwán para drones y cadenas de suministro",
-              "detalle": "Anduril Industries y el Centro de Investigación y Desarrollo de Industrias Metalúrgicas (MIRDC) de Taiwán firmaron un Memorando de Entendimiento (MOU) el 3 de junio de 2026. El acuerdo busca profundizar la colaboración en tecnologías clave de vehículos aéreos no tripulados (drones), sistemas autónomos de IA, fabricación de drones y localización de cadenas de suministro, con un enfoque en la creación de cadenas de suministro \"no-rojas\" (libres de China).",
-              "fuente": "Metal Industries Research & Development Centre (MIRDC)",
-              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQECXhTaXlrRBKihJTd6v87LVssEmQ85afNg3A4pdOViroCKte1APmbRxakIRM-WA2CAOyCEBNbve4rmqV4JdoAUop2dgOAcbeu6YFiurB5pXDRn41XLAwEDlWjAOADaZDg_1P19lnS3CA6FJOg-dXXbI7r2HtT2Mg==",
-              "por_que_importa": "Esta asociación es estratégica para Anduril al expandir su presencia y colaboración en la región de Asia-Pacífico, fortaleciendo la resiliencia de la cadena de suministro en el sector de defensa y autonomía, y posicionando a Taiwán como un socio clave en la tecnología de drones."
+              "titulo": "Asociación estratégica con Accenture Ventures",
+              "detalle": "Accenture se convirtió simultáneamente en el primer socio de canal estratégico de AlphaSense para integrar sus capacidades en flujos de trabajo empresariales. Esta colaboración estratégica amplía el alcance de AlphaSense en el mercado corporativo.",
+              "fuente": "The Innovation Attorney",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHnMX5klHif7yL8Sy18KqZ-LClvJhBsc-wEx_uFKnJ5UoO0UIeDrHhMKnxBefIXYSUNnfvcpsWvAbbxL8nD82tct0_8w7HzEyL_dkmEy71smq8hVTunRxA6KPlGhsjVoljq4vmTLVICahCFzxlPj5SRaln-Kg6oJXMk",
+              "por_que_importa": "La asociación con Accenture, una firma de consultoría global, es un movimiento estratégico clave que valida la tecnología de AlphaSense y le proporciona un canal poderoso para la adopción empresarial, acelerando su crecimiento y penetración en el mercado."
             }
           ]
         }
       ],
       "grounding_sources": [
         {
-          "title": "ft.com",
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE701ur1Zykp3txDtGmkkuWlmGfLql-vUHYhWoAOJ-pBBVcLR7sm-2skXSr13RKV3EPZfXXcAlmXt-_DCVn_gVp-ysDamIyuRHz3-wHXLVabcy8VDKFFfF-CqZ8HwZ0UqHAvqK3dPUNFjx-p5sT8lHVk3HqfdWeWDZZVV9oW4n44ioiSzc9NdjGEK2fLIRNQYQyOCPyjtCeqOXT_GJnvNUwIBw="
+          "title": "apnews.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEQ4dOk6hftZiuIFOswq1Q-n0pLx34i5LbM7Ylk9yrrt97RplwwAOXKNsy9sqOr6gl8Jx40qk52IAxrSex6JE_10c-UFo7Td_ws6H58-2k1mrt7GYFVIBZluLk2MQVjnPsawgdbrGFS1pXxikFDnK8RhV2fyV5ktP6yfvKZ6aaoTgJpNUsp-TnH0g_G6gmURkDf0ig8QWj9LYY2gkq5-ZGNjN_pot_tHNzGUvY_wg=="
         }
       ],
-      "generated_at": "2026-06-05T12:50:53.938897-06:00",
+      "generated_at": "2026-06-05T13:59:38.504599-06:00",
       "status": "ok"
     },
     "top10": {
@@ -255,267 +305,204 @@
         {
           "ranking": 1,
           "categoria": "AI",
-          "titular": "Congreso de EE. UU. presenta el borrador de la 'Ley de IA de la Gran América' para establecer un marco regulatorio federal",
-          "fuente": "Office of Congressman Jay Obernolte",
-          "url": "https://obernolte.house.gov/media/press-releases/obernolte-trahan-release-discussion-draft-great-american-ai-act",
-          "resumen": "Los Representantes Jay Obernolte (R-CA) y Lori Trahan (D-MA) han publicado un borrador de ley bipartidista, la 'Ley de IA de la Gran América', que busca establecer un marco federal para la gobernanza de la inteligencia artificial. La propuesta incluye la codificación de un centro federal de estándares de IA, la rendición de cuentas en la adopción de IA por parte del gobierno, y la posible anulación de leyes estatales de IA durante tres años.",
-          "por_que_importa": "Esta legislación podría unificar el panorama regulatorio de la IA en EE. UU., lo que es crucial para las startups que buscan escalar sin navegar por un mosaico de leyes estatales. Sin embargo, la preeminencia federal también podría limitar la experimentación a nivel estatal."
+          "titular": "El Congreso de EE. UU. presenta un borrador de ley integral sobre Inteligencia Artificial",
+          "fuente": "Targeted News Service",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGCEP9k5JzTtmhBQyXvJhb1d7OMflA2C5sPzm1unutFXXpR2bz5gxKn8OdyViDIn3aI_YAAOwhmCBxREMav6DV6Euk9BWP7edI_eZHQRV3rqZutjQ==",
+          "resumen": "Representantes Jay Obernolte y Lori Trahan han publicado un borrador de la 'Great American Artificial Intelligence Act', una legislación bipartidista que busca establecer un marco federal para la gobernanza de la IA en Estados Unidos. La propuesta es una de las más ambiciosas hasta la fecha, buscando un equilibrio entre la innovación y la seguridad.",
+          "por_que_importa": "Para los fundadores tech, esta legislación podría definir el panorama regulatorio de la IA, impactando el desarrollo, la implementación y la comercialización de productos y servicios de IA en uno de los mercados más grandes del mundo. La preemption de leyes estatales de IA por tres años, si se aprueba, podría simplificar el cumplimiento regulatorio a nivel nacional."
         },
         {
           "ranking": 2,
-          "categoria": "AI",
-          "titular": "La Administración Trump emite una Orden Ejecutiva sobre ciberseguridad y modelos de IA de frontera",
-          "fuente": "Arnold & Porter",
-          "url": "https://www.arnoldporter.com/en/perspectives/publications/2026/06/new-executive-order-marks-a-shift-toward-hands-on-ai-oversight",
-          "resumen": "El 2 de junio de 2026, el Presidente Trump firmó una Orden Ejecutiva para 'Promover la Innovación y Seguridad Avanzada de la Inteligencia Artificial'. Esta orden establece un marco voluntario para que los desarrolladores de IA proporcionen al gobierno acceso previo al lanzamiento de modelos, endurece las redes de infraestructura crítica y prioriza la aplicación de la ley contra el ciberdelito habilitado por IA.",
-          "por_que_importa": "Las startups de IA, especialmente aquellas que desarrollan modelos de frontera, deben estar atentas a los requisitos de seguridad y la posible revisión gubernamental. Esto podría aumentar la carga de cumplimiento, pero también fomentar la confianza en la tecnología."
+          "categoria": "mercados",
+          "titular": "Wall Street cae, acciones tecnológicas bajan y rendimientos de bonos suben tras un sólido informe de empleo en EE. UU.",
+          "fuente": "AP News",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHGNHk_RxqrM66gzjsNF5lMaB4m0jNsi_m4VBwBDkNF7dNuE-7Fwua3Q41aDq03OFfA7hRhI4zCsyBUGRSy4mJnqZXyVzt7zpXHg9JKc3iNvsSvxVoe5mrUbM2rDTPGr7zNPynhsyEU12PTopNhWafZRo4hSEuE5_cs7W3pW592qXHT33BCD0sYJlDGaIl_GduLEo-zdCsogkGof05iBE87mL6Zrg==",
+          "resumen": "El mercado de valores de EE. UU. experimentó caídas, con las grandes empresas tecnológicas liderando el descenso, mientras que los rendimientos de los bonos se dispararon. Esto se produce después de un informe de empleo sorprendentemente sólido que atenuó las expectativas de recortes de tasas de interés por parte de la Reserva Federal este año.",
+          "por_que_importa": "Un mercado bajista en el sector tecnológico y el aumento de los rendimientos de los bonos pueden dificultar el acceso a capital para startups y empresas en crecimiento. Los fundadores deben prepararse para un entorno de inversión más cauteloso y una posible reevaluación de las valoraciones."
         },
         {
           "ranking": 3,
-          "categoria": "AI",
-          "titular": "Google DeepMind lanza Gemma 4 12B, un modelo multimodal de código abierto que se ejecuta en laptops",
-          "fuente": "InfoWorld",
-          "url": "https://www.infoworld.com/article/3717596/google-brings-local-ai-agents-to-laptops-with-gemma-4-12b.html",
-          "resumen": "Google DeepMind ha lanzado Gemma 4 12B, un modelo de 12 mil millones de parámetros que permite a los desarrolladores ejecutar flujos de trabajo de IA agénticos localmente en laptops con 16 GB de RAM. Este modelo multimodal procesa texto, imágenes y audio directamente, sin codificadores separados, y se distribuye bajo una licencia Apache 2.0.",
-          "por_que_importa": "La capacidad de ejecutar IA multimodal potente localmente reduce la dependencia de la nube y los costos asociados, democratizando el desarrollo de IA. Esto abre nuevas oportunidades para aplicaciones de IA en dispositivos y flujos de trabajo agénticos."
+          "categoria": "tendencia",
+          "titular": "China revela un nuevo submarino indetectable sin vela, redefiniendo la dinámica naval global",
+          "fuente": "The Economic Times",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHn56KoYT19eXkC79McDWokHm1UN28qz88tGinb7ZEW1RGtRAnzgXrnmmUSTGv1dWctZdbadEB25Qz2gPJ_nZlqewOMbvEcJwEHihsXPgiIrT7ji1Mk4HadjDAH0vU1Q7RuoYffZqZaR8FrAhVd0t3P24dvQZ2Qw2LBDvDvuNSMh1dhcRpO9FQvpX1oNa5r2n0movGHCcygI-OxkTvwhL8ewXXe6LjrjEeZ5rvzBtIDjFy8JIR3LxXlVwxaKqBXHftQv1Eus3q2wfyzYtdq-ivWxU-RJpNeQ==",
+          "resumen": "China ha presentado un misterioso submarino que carece de la vela tradicional, una estructura común en los submarinos militares modernos. Este diseño radical podría reducir significativamente la resistencia hidrodinámica, mejorando la velocidad, la maniobrabilidad y la discreción acústica, lo que representa un gran avance en la tecnología naval.",
+          "por_que_importa": "Este avance tecnológico subraya la importancia de la innovación en ingeniería y materiales. Los fundadores en robótica, materiales avanzados y sistemas autónomos pueden encontrar inspiración en cómo la eliminación de componentes tradicionales puede llevar a mejoras disruptivas en el rendimiento y la eficiencia."
         },
         {
           "ranking": 4,
-          "categoria": "tendencia",
-          "titular": "Canadá lanza su Estrategia Nacional de Inteligencia Artificial 'IA para Todos' con una inversión de C$2.3 mil millones",
-          "fuente": "Canada.ca",
-          "url": "https://www.canada.ca/en/innovation-science-economic-development/news/2026/06/minister-solomon-highlights-canadas-national-artificial-intelligence-strategy.html",
-          "resumen": "El Primer Ministro Mark Carney y el Ministro Evan Solomon anunciaron la estrategia 'IA para Todos' de Canadá, comprometiendo más de C$2.3 mil millones para acelerar la adopción e investigación de IA. El plan busca crear 250,000 nuevos empleos relacionados con la IA para 2031 y aumentar la adopción empresarial de IA del 12% al 60% para 2034.",
-          "por_que_importa": "Esta inversión gubernamental masiva en IA crea un ecosistema fértil para startups, con fondos para investigación, infraestructura de cómputo y programas de crecimiento. Los fundadores pueden encontrar nuevas oportunidades de financiamiento y talento en Canadá."
+          "categoria": "AI",
+          "titular": "Apple prepara una importante revisión de Siri para la WWDC 2026, impulsada por IA de Google Gemini",
+          "fuente": "Bloomberg (citado por múltiples medios)",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHD36RaASlSkWRDf9ynJHl9kNKM4_b1MXDQiyvyFkB8n-gvBrfh8fd4HmhPmdnjOUYuxPwdYNAbDRkSEJFSjpdJRBY2bY3YUCnf-LgL6tLSN7bUJCwhZ9au3EkhEGz_PJbo5iWTq5KARq9xSyMhMnXNSNwyMUBW9M3xKGZiLZoWzkrqF0cK4X5yEQewvyPDsrW_WZM2bxw==",
+          "resumen": "Apple se prepara para reintroducir una Siri renovada en la WWDC 2026, con informes que sugieren que estará impulsada por el modelo Gemini de Google. La revisión incluiría una interfaz de usuario rediseñada, integración más profunda con aplicaciones y posibles opciones de privacidad para las conversaciones de IA.",
+          "por_que_importa": "La integración de IA avanzada en asistentes de voz es una tendencia clave. Los fundadores de startups de IA deben observar cómo los gigantes tecnológicos abordan la personalización, la privacidad y la experiencia del usuario, especialmente con la colaboración entre grandes jugadores como Apple y Google."
         },
         {
           "ranking": 5,
-          "categoria": "tendencia",
-          "titular": "La Comisión Europea propone un paquete de soberanía tecnológica para reducir la dependencia de proveedores extranjeros en chips, nube e IA",
-          "fuente": "European Commission",
-          "url": "https://ec.europa.eu/commission/presscorner/detail/en/IP_26_3000",
-          "resumen": "La Comisión Europea ha presentado un 'Paquete de Soberanía Tecnológica' que incluye el 'Chips Act 2.0' y la 'Ley de Desarrollo de Nube e IA'. El objetivo es fortalecer la capacidad europea en semiconductores, IA y computación en la nube, reduciendo la dependencia de proveedores no europeos y estableciendo marcos para la soberanía de datos.",
-          "por_que_importa": "Las startups tecnológicas que operan en Europa o buscan expandirse allí se verán afectadas por estas regulaciones. Podría haber una mayor demanda de soluciones europeas y requisitos más estrictos para el procesamiento de datos, lo que presenta desafíos y oportunidades."
+          "categoria": "negocios",
+          "titular": "Los recortes de empleo en EE. UU. aumentaron en mayo de 2026, con la IA citada como la principal causa por tercer mes consecutivo",
+          "fuente": "Gotrade News (citando Challenger, Gray & Christmas)",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEhbSmPjySwjHynEX4Mzgw432hAgnZfyR08_JoSjyLWcd6HMNSiqujykl0TRVSZyye9XhoyELqJqaFzfbFkWYKWHXhzfL3fAfqHPvc5cnG-v4hX6E2JphKgAfJgOaq4SaltJYMwk8_Q_7IouzmlBa-CCUwcCuyiB1-IzD8op_JqlvwLHUi6YtP5e-0M7FK1UQ==",
+          "resumen": "Los empleadores estadounidenses anunciaron 97,006 recortes de empleo en mayo de 2026, un aumento del 16% respecto al mes anterior. El sector tecnológico lideró las pérdidas con 38,242 recortes, y la inteligencia artificial fue la razón principal citada por las empresas por tercer mes consecutivo.",
+          "por_que_importa": "Esta tendencia indica un cambio estructural en el mercado laboral impulsado por la automatización y la IA. Los fundadores deben considerar cómo la IA puede optimizar sus operaciones y la fuerza laboral, pero también ser conscientes del impacto social y la necesidad de estrategias de reskilling."
         },
         {
           "ranking": 6,
-          "categoria": "negocios",
-          "titular": "Cloudflare adquiere VoidZero para acelerar el desarrollo web nativo de IA",
-          "fuente": "Cloudflare News",
-          "url": "https://blog.cloudflare.com/cloudflare-acquires-voidzero-to-build-the-future-of-the-ai-native-web",
-          "resumen": "Cloudflare ha anunciado la adquisición de VoidZero, la empresa detrás del ecosistema de herramientas JavaScript de próxima generación Vite. Esta adquisición busca unificar las herramientas de alto rendimiento de VoidZero en el ecosistema de Cloudflare, creando una pila de implementación sin fricciones para el desarrollo web nativo de IA.",
-          "por_que_importa": "Esta adquisición subraya la importancia de las herramientas de desarrollo de alto rendimiento en la era de la IA. Los fundadores deben considerar cómo la integración de IA en sus flujos de trabajo de desarrollo puede optimizar la velocidad y la eficiencia, y cómo las plataformas como Cloudflare están posicionándose para ello."
-        },
-        {
-          "ranking": 7,
-          "categoria": "negocios",
-          "titular": "Gilead Sciences y Lakefront completan la adquisición de Ouro Medicines para expandir su cartera de inflamación",
-          "fuente": "Gilead Sciences",
-          "url": "https://www.gilead.com/news-and-press/press-room/press-releases/2026/6/gilead-sciences-and-lakefront-complete-acquisition-of-ouro-medicines-to-further-expand-inflammation-pipeline",
-          "resumen": "Gilead Sciences y Lakefront Biotherapeutics han completado la adquisición de Ouro Medicines, una transacción valorada en $1.675 millones más hasta $500 millones en pagos por hitos. La adquisición añade gamgertamig (OM336), una terapia de células T en etapa clínica, a la creciente cartera de inflamación de Gilead.",
-          "por_que_importa": "Esta adquisición multimillonaria en biotecnología destaca el continuo interés y la inversión en terapias avanzadas. Los fundadores de startups en el espacio de la biotecnología y la salud deben notar el valor en las innovaciones en etapa clínica y el potencial de grandes salidas."
-        },
-        {
-          "ranking": 8,
           "categoria": "mercados",
-          "titular": "El informe de nóminas no agrícolas de EE. UU. de mayo de 2026 supera las expectativas con 172,000 nuevos empleos",
-          "fuente": "Bureau of Labor Statistics",
-          "url": "https://www.bls.gov/news.release/empsit.nr0.htm",
-          "resumen": "La Oficina de Estadísticas Laborales de EE. UU. informó que el empleo total no agrícola aumentó en 172,000 en mayo de 2026, superando las previsiones. La tasa de desempleo se mantuvo sin cambios en el 4.3%. Los mayores aumentos de empleo se registraron en el ocio y la hostelería, el gobierno local y la atención médica.",
-          "por_que_importa": "Un mercado laboral fuerte puede indicar una economía robusta, lo que es positivo para el gasto del consumidor y la demanda de productos y servicios tecnológicos. Sin embargo, también podría influir en la política de la Reserva Federal, con implicaciones para las tasas de interés y el costo del capital."
-        },
-        {
-          "ranking": 9,
-          "categoria": "mercados",
-          "titular": "Blackstone limita los retiros de su fondo de crédito privado BCRED al 5% tras un aumento en las solicitudes",
-          "fuente": "Investor Daily",
-          "url": "https://www.investordaily.com.au/markets/40660-blackstone-caps-withdrawals-at-flagship-private-credit-fund",
-          "resumen": "Blackstone ha limitado los retiros de su fondo de crédito privado insignia, BCRED, al 5% para el segundo trimestre de 2026, después de que los inversores solicitaran retiros por un total del 10% de los activos del fondo. Esta medida se produce tras un aumento en las solicitudes de reembolso y alinea a Blackstone con las prácticas de la industria.",
-          "por_que_importa": "La limitación de retiros en un fondo de crédito privado tan grande puede indicar preocupaciones de liquidez en el mercado de activos privados. Los fundadores que buscan financiamiento alternativo o tienen inversiones en este espacio deben monitorear de cerca estas tendencias, ya que podrían afectar la disponibilidad y el costo del capital."
-        },
-        {
-          "ranking": 10,
-          "categoria": "mercados",
-          "titular": "Los rendimientos de los bonos del gobierno de EE. UU. aumentan, con el bono a 30 años superando el 5%",
-          "fuente": "Trading Economics",
-          "url": "https://tradingeconomics.com/united-states/30-year-bond-yield",
-          "resumen": "El rendimiento del bono del Tesoro de EE. UU. a 30 años subió al 5.01% el 5 de junio de 2026, un aumento de 0.03 puntos porcentuales respecto a la sesión anterior. El rendimiento del bono a 10 años también aumentó al 4.54%. Este incremento refleja las expectativas del mercado de una política monetaria más restrictiva.",
-          "por_que_importa": "El aumento en los rendimientos de los bonos del gobierno indica un mayor costo de endeudamiento, lo que puede impactar negativamente las valoraciones de las empresas tecnológicas y startups. Los fundadores deben prepararse para un entorno de capital más caro y ajustar sus estrategias de financiamiento y crecimiento en consecuencia."
+          "titular": "Bitcoin cae bruscamente en junio de 2026 debido a factores macroeconómicos y salidas de ETF",
+          "fuente": "Baystreet.ca",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHsSQNvq7Mv06OOhxZGOy5xssoO4ZHWws70c8OH8aOn9ag9DieWLZrot2dEbFmG7MlbGQLDhJLexgUXmWFn_d2_TgAiHBxZFiEDk1Dut4O4LePZRPmpHiMcIxyOMG9aXj_5NARlffI5txwwfYPA7hsVwH8nMgxFjPlb88Ke_wOQbGYxLgR798j8OMum8KEUUJYjfzso",
+          "resumen": "Bitcoin ha caído un 10% en la última semana, cotizando por debajo de los $67,000 USD el 3 de junio de 2026. La caída se atribuye a preocupaciones sobre la inflación, la incertidumbre en los recortes de tasas de la Reserva Federal, la fortaleza del dólar y las salidas de capital de los ETF de Bitcoin al contado.",
+          "por_que_importa": "La volatilidad en el mercado de criptomonedas, influenciada por factores macroeconómicos, es crucial para los fundadores de startups fintech y Web3. La presión vendedora y las salidas de ETF señalan una mayor aversión al riesgo que puede afectar la financiación y la adopción de proyectos basados en blockchain."
         }
       ],
       "grounding_sources": [],
-      "generated_at": "2026-06-05T12:53:33.034449-06:00",
+      "generated_at": "2026-06-05T14:01:01.596728-06:00",
       "status": "ok"
     },
     "mercados": {
       "key": "mercados",
       "title": "💹 Pulso de Mercados",
       "data": {
-        "pulso_mercados": {
-          "indices": [
-            {
-              "nombre": "S&P 500",
-              "valor": "7,507.02",
-              "cambio_pct": -1.02,
-              "tendencia": "↓",
-              "fuente": "EL CEO",
-              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF0EaWIeFsm8NZuLYFouxLR447lhhBXANP3oM3FyLrchTocI7pyqkh9fVCLuX_fQEA4mIgUG2Pg1s_-rtI8DuwmyXAXZ0KNe4Svpj-SbMKAC0VrAyb5PgDJfEqLxPtUbm-_P1f7W5u4qTQgNpdC0Sl0KXAv4M6NgxuW1uNqwuoAP7CZ-tMwozrP0vg==",
-              "analisis": "El índice S&P 500 experimentó una caída, reflejando la preocupación generalizada en el mercado por el sector tecnológico y los datos de empleo en EE. UU."
-            },
-            {
-              "nombre": "NASDAQ Composite",
-              "valor": "26,396.98",
-              "cambio_pct": -1.62,
-              "tendencia": "↓",
-              "fuente": "EL CEO",
-              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF0EaWIeFsm8NZuLYFouxLR447lhhBXANP3oM3FyLrchTocI7pyqkh9fVCLuX_fQEA4mIgUG2Pg1s_-rtI8DuwmyXAXZ0KNe4Svpj-SbMKAC0VrAyb5PgDJfEqLxPtUbm-_P1f7W5u4qTQgNpdC0Sl0KXAv4M6NgxuW1uNqwuoAP7CZ-tMwozrP0vg==",
-              "analisis": "El NASDAQ Composite lideró las pérdidas entre los principales índices estadounidenses, afectado por el mal desempeño de las compañías de semiconductores y las dudas sobre la IA."
-            },
-            {
-              "nombre": "Dow Jones",
-              "valor": "51,418.19",
-              "cambio_pct": -1.73,
-              "tendencia": "↓",
-              "fuente": "EL CEO",
-              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF0EaWIeFsm8NZuLYFouxLR447lhhBXANP3oM3FyLrchTocI7pyqkh9fVCLuX_fQEA4mIgUG2Pg1s_-rtI8DuwmyXAXZ0KNe4Svpj-SbMKAC0VrAyb5PgDJfEqLxPtUbm-_P1f7W5u4qTQgNpdC0Sl0KXAv4M6NgxuW1uNqwuoAP7CZ-tMwozrP0vg==",
-              "analisis": "El Dow Jones Industrial Average también registró un retroceso significativo, en línea con la tendencia bajista de Wall Street."
-            },
-            {
-              "nombre": "BMV / IPC",
-              "valor": "67,392.19",
-              "cambio_pct": -1.31,
-              "tendencia": "↓",
-              "fuente": "24 Horas, Grupo BMV",
-              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG9xm99K4ckvjIpqgceXsZksyweeOSsWKI4x4UDn3ugRV-VO5HExMCPAyGo2Wfp-1RPNeF5kDqfY_pUG4Yd3-t3RRirRA6neVVRkr1CtNTHhl_ICPD8XUT0yIqkT4xjOCtugF3yfF_EmJOV-pBj3BuwMTX5yQRnS0bGasTqcFqeur_4tk6H8vhgyT0g==, https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGTZQ2JTZP3VLjqSwW7wewnwItt1E0JRM-WG8ImwPeLI1B3cLnDx-bE3vF--9d_DFci0wTSjisePgfYcSL7lqhVA5XNwvW7ChXkRxOEPwsRJ8ieYu0eXWjmKZ6Qk6-MIw==",
-              "analisis": "La Bolsa Mexicana de Valores cerró con pérdidas, acumulando cinco cierres negativos en las últimas seis sesiones, influenciada por el desempeño de Wall Street y la fortaleza del dólar."
-            },
-            {
-              "nombre": "USD/MXN",
-              "valor": "17.41",
-              "cambio_pct": 0.72,
-              "tendencia": "↑",
-              "fuente": "Infobae",
-              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE7WHPiJsNEO2vAezjR1ef7qYkBt90tT2xERSvb9cVfAYh-20Ybr_cgAySPyTAf-pmh8Gy6sbbY_UsEvxamWTvu4PIQ1_U4_CITViU7Pj2ZVSZrzpf0ZmuSi2OJP-Y3FRFpHvY2qwEZSACAcU5IxqcIlsspIEES0ScMKJ7DuzEq2FoAVhkbHJTcCc2l7yxS1yO6h_naGbMKssKK_h2Ai70==",
-              "analisis": "El tipo de cambio del dólar frente al peso mexicano mostró una apreciación del dólar, impulsado por un fuerte dato de empleo en Estados Unidos."
-            }
-          ],
-          "acciones": [
-            {
-              "nombre": "NVIDIA",
-              "valor": "205.84 USD",
-              "cambio_pct": -5.86,
-              "tendencia": "↓",
-              "fuente": "MarketScreener España",
-              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHrParVYhmE4it--SZM055f61xxIwHJVduPyN3rQQphFolTqjDPnG6XVYCW8VVZ8_nKJvA3pyALGgWYglw221PFGskCFcTWUlswOeGZJFkkDTPM7KjUeAJ7Ld86hRSHyC5iif_cv4leSQHBoEMO-0BHpHfaRNkr1iguttstHR5CYmVSJY8IgBw==",
-              "analisis": "Las acciones de NVIDIA sufrieron una caída significativa, en medio de una presión generalizada sobre el sector de semiconductores y la toma de ganancias."
-            },
-            {
-              "nombre": "Apple",
-              "valor": "310.09 USD",
-              "cambio_pct": -0.37,
-              "tendencia": "↓",
-              "fuente": "Investing.com",
-              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH4YZucLtpKRlEpg7BspPZGbBaMn5GlDKUiH0wL6PHWr4ooazv_JsyGw4ak5IG4ZeI41Kd_5E8o9kXwF61bJ7ko1KrRLEbHFIjCV6qvGQKsJg_t-8Q650thh9rHLF4Ko992jcslAyIT0tT35X9HmUM8plSPVVhL7_MkOVC8f9RJ0RPKL5WIwl1rbloJ1AeujjFCGyhtSRQUrq-BWgnTmXvqEJcSGboFWpuJ-Ol1OQI4==",
-              "analisis": "Las acciones de Apple registraron un ligero descenso en la jornada."
-            },
-            {
-              "nombre": "Microsoft",
-              "valor": "421.45 USD",
-              "cambio_pct": -1.54,
-              "tendencia": "↓",
-              "fuente": "Investing.com",
-              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGTPOpQ5GdfB1YKfMSdHoC4wJ08AJFHcW6ZvsRyj-IFaD1JNy9Bx2TTv-Bpqu_GbyWkQnikhT9lCfhIk-Jcpqx8IZes5D0O8Qla5fDmJ_MQqeHWOLqXA09_iPXZ-zd4mUnvmYN0ZRRMPmd9Tk6vTQNJ-EbxkI9XvXGH5aE==",
-              "analisis": "Microsoft cerró la jornada con una ligera baja, a pesar de los recientes anuncios sobre sus avances en inteligencia artificial."
-            },
-            {
-              "nombre": "Google (Alphabet)",
-              "valor": "N/A",
-              "cambio_pct": -3.0,
-              "tendencia": "↓",
-              "fuente": "Forbes España",
-              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGRf0adqbNQSHSJVv-NC5zTCL-UoGHwCPOxjojltEP3_3gY5aSBSYB89qXYU7rAo_CBnAWDUjfEA-Sj_lo5F1we8uH7imTPTWFQq153YVI5Nu-W0mJZ3Xw_PtZXb0rw5hKgjpcig6ZCoxYOGKr_nEYntyK3_2lt3QgI4kQNW7aUehLSs3o==",
-              "analisis": "Las acciones de Google cayeron tras el anuncio de una macroampliación de capital para financiar inversiones en infraestructura de IA, lo que generó preocupaciones sobre la dilución."
-            },
-            {
-              "nombre": "Meta",
-              "valor": "586.42 USD",
-              "cambio_pct": -6.56,
-              "tendencia": "↓",
-              "fuente": "MarketScreener España",
-              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFKk4e0-ZGzJOSbw8LPcDl1JSMIEv3UQVHJgUuJIZnQxl3bplNyhaZc4YqiapF5qkpI52n8judfTC_1GTlh-1ffI1rqoJl64vOAP8gdNxXxJlwwFCn4YAA2AZ-l-hucsaphknTHy9QInUbVgLWsaF1Jf-nEXT3yj3vUjWvmkQrrAPwsPS_XOWI==",
-              "analisis": "Las acciones de Meta Platforms registraron una fuerte caída, en parte debido a la consideración de una importante ampliación de capital para financiar su infraestructura de IA."
-            },
-            {
-              "nombre": "Amazon",
-              "valor": "253.66 USD",
-              "cambio_pct": -0.05,
-              "tendencia": "↓",
-              "fuente": "Investing.com",
-              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH0O1u_587DFfRffNra17Q2QCjXtcjYNPQe0vCnx3iJj3xDboiPxfW9W119iUAmh1QVjL60tS8BG9FSldtEQ_4zYRIQXzDauHGX1WWOOVKIL1D89yL3OZfvXPBM-XpUnGPnmJttLit8ZyVfSifDiJO5uDdz4p_RVVbSCOs==",
-              "analisis": "Amazon cerró la jornada con un descenso marginal."
-            },
-            {
-              "nombre": "Tesla",
-              "valor": "N/A",
-              "cambio_pct": "N/A",
-              "tendencia": "→",
-              "fuente": "JPMorgan, Marketscreener",
-              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEIY1a30XFqV-jmiapojxj0IbkDWJU9-fzXXNaala7iPm-CBUwZIRiBexkmzHFnqHSYj3EoDMh7TNkgMjOT_5jMnp07Q5ltuZrC1NfHBLL6K9KSu0Ud3GkhGOVpyrigfz46vdMARNNXnFMOby-Gg3O9F5-v9uCJvWXMPPT-B8lrSMzfeOfaQV4nCd_yNtCmzGugF7Alzdj9s8ZEzi3zAmJRaqNtCtB4F_f5QIbTp7Jb1ueRFJecmgGfPDY5Dt2AhPWPplm6vAl7IMPW-NcvUQ5OK_0mSUx6==, https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG6rIDn9rexxbT9e-Q7kJU2jjFRT_ZFSxdMVbXTuTcGysqHLsQ2q2oKQ_RLjiQaDTfnrx-WtFdRJsX5uXjUxXU0LORIzITHciZixNL22WpaudukL5ysWAPfibdBCc1t-HBt_yjbEYUxUfA2pPN-W3YCT4Pg6-34xxZDHKyayaOjeXTEFMjgsLlFk9HqBZEYS1L6==",
-              "analisis": "JPMorgan elevó su calificación sobre Tesla a 'neutral' con un precio objetivo de $475, destacando su integración en automóviles, robótica e inteligencia artificial, a pesar de un ligero descenso intradía."
-            },
-            {
-              "nombre": "OpenAI",
-              "valor": "N/A",
-              "cambio_pct": "N/A",
-              "tendencia": "N/A",
-              "fuente": "N/A",
-              "url": "N/A",
-              "analisis": "OpenAI es una empresa privada y no cotiza en bolsa, por lo que no hay datos de movimientos de acciones disponibles públicamente."
-            }
-          ],
-          "earnings": [],
-          "macro": [
-            {
-              "nombre": "Datos de Empleo en EE. UU.",
-              "valor": "Nóminas no agrícolas: 172,000",
-              "cambio_pct": "N/A",
-              "tendencia": "↑",
-              "fuente": "IOL invertironline, Investing.com",
-              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFjRUt4zCD6ji4UeXf8_Pd_yYU-9MC38JFjUqLV7nB-7uD-a18XIvqgnQGJ3d5lG3Nu1saX6oSaMZxw7KE4VcdUc0Z9dLhzLNmGWWhlxp7dXYBzqvzsVrcBCyFKbtVaxX-xE2cAu44oa-EjS9LwjSZOR_Rg_dxFliMjq3NB7ptBAkBM2sp__ykkqA==, https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEkq4CeOdiVN93hT6XNpf9aNzmAvFSev6DG73P8_eECL1XTbbGMtSe_74GC0S2MBweMGFSWP3X3aCaTo_U7ATvOiMUL5iXC8yC4ytH7iSqzHYEX1nAl68IUShPgLLFdYgtwN4gKZ9GU9V6Hqa8ESpxpBvZkshlEqZnjEzLweNtUdSmNwj88yyjm5j6pNknAbZdOzPLX2GlU5Erx5-HpdEc3x26SZ7bkDL0NWzV9v693EsdVw7BOW8d589ZnRcur_XYmhg==",
-              "analisis": "El fuerte dato de nóminas no agrícolas de mayo en Estados Unidos, que superó ampliamente las expectativas, impulsó al dólar y reconfiguró las expectativas sobre la política monetaria de la Reserva Federal hacia posibles alzas de tasas."
-            },
-            {
-              "nombre": "Sector de IA y Semiconductores",
-              "valor": "N/A",
-              "cambio_pct": "N/A",
-              "tendencia": "↓",
-              "fuente": "TradingView, EL CEO",
-              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEt4kHm2e55Z-L2WqwjcoJ84q5Es4hUUmPyIjVNLvzSyXmb5Vb6UPfVLNE_iKxGqoE12JVXWdpEeS0bmRFl6O5AEh7r5BAm1rxK55c5E4UTuvBrio6YBUUNBWF0f2Sh6yzE30Ine17l11owiYmx8N0gqTM==, https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF0EaWIeFsm8NZuLYFouxLR447lhhBXANP3oM3FyLrchTocI7pyqkh9fVCLuX_fQEA4mIgUG2Pg1s_-rtI8DuwmyXAXZ0KNe4Svpj-SbMKAC0VrAyb5PgDJfEqLxPtUbm-_P1f7W5u4qTQgNpdC0Sl0KXAv4M6NgxuW1uNqwuoAP7CZ-tMwozrP0vg==",
-              "analisis": "El sector de semiconductores experimentó una toma de ganancias y caídas, impulsado por dudas sobre la inteligencia artificial y el negativo recibimiento de los resultados de Broadcom."
-            },
-            {
-              "nombre": "Inversión en IA de Big Tech",
-              "valor": "N/A",
-              "cambio_pct": "N/A",
-              "tendencia": "↑",
-              "fuente": "Forbes España, TradingView",
-              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEZCCnDPBlrpT31kcZujLkko6v8uLFPRIUMMG6S5LAlDbt66R5JNFJtt_UvgRjehRIl8_HhPZj8vP9HqgAUr0nSTjM-FO_uwyNyyY7KdvAOCzPbD0r9_S4wrPO-iU-5wpyojETtTqX6DaZnvCVvxX1E_bAnPXkdL9nQ4j7As3y8yK6eMJ_JDDY1Ja-FDg06iA4UQOLEdQyqTQGO85yWVKwGzU-tEPLw98OptEkDBXjweFApX_iuuVWJyJAUQxmXkw-Qsmo==, https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE74Wn3kW55w985GmyiBCmO3syC_ALp0y09LsM_NXMDOAKAjbfe561SqrZi0p1vLtLA6kTjt_gzt-2KzLSf0JCBi7TBxOSx75hu24CCUOpF97ALGPhMuaLqkxfQ1j5PQksdi0dvYfNwKcOaoRIZpql9YVmZC89RhUVqOvgRXMbt==",
-              "analisis": "Grandes tecnológicas como Alphabet y Meta anunciaron importantes ampliaciones de capital para financiar sus ambiciosas inversiones en infraestructura de inteligencia artificial, señalando un compromiso continuo con el desarrollo de esta tecnología."
-            },
-            {
-              "nombre": "Geopolítica",
-              "valor": "N/A",
-              "cambio_pct": "N/A",
-              "tendencia": "→",
-              "fuente": "LiteFinance, IOL invertironline",
-              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH9Y_4cZ14YS11txl-MsnZ93IXOXp2RrDauJVTYr9mqp9izULA5Sukx7L21DU8mv0RNqyKMRs1mmKCCgmqxbPxP3l30O2TJlPap5C-8l8jWCknnEd1dWwH4-irKy4w57W44CJWx7ZOhYRPUkZxrsN1UoVQRJQD_f69ppYbs25xC9Rd0o2o2qEHOA2bTP41Fkbzu6t848LVpzspgUGEq0sozQMjUmcRvFDI1xPzSWxHWCzyOzE2zrWF1b643UA==, https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFjRUt4zCD6ji4UeXf8_Pd_yYU-9MC38JFjUqLV7nB-7uD-a18XIvqgnQGJ3d5lG3Nu1saX6oSaMZxw7KE4VcdUc0Z9dLhzLNmGWWhlxp7dXYBzqvzsVrcBCyFKbtVaxX-xE2cAu44oa-EjS9LwjSZOR_Rg_dxFliMjq3NB7ptBAkBM2sp__ykkqA==",
-              "analisis": "Las tensiones geopolíticas, particularmente en Medio Oriente, persistieron, aunque con momentos de distensión, manteniendo la cautela y la búsqueda de activos refugio en los mercados."
-            }
-          ]
-        }
+        "seccion": "indices",
+        "datos": [
+          {
+            "nombre": "S&P 500",
+            "valor": "N/A",
+            "cambio_pct": -0.7,
+            "tendencia": "↓",
+            "fuente": "AP News / The Times of India",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHVNUHbcIEX1elIDw5AQC1tIwI3YBX0BoBml-qu3R1MXZ2HNXeJPHdbmCC0xNBc97-Gbcn34Tz38qX9DqaOH-XBvcSb2LN5Bq8_cfk-We6zDpGmZBdiH6IJv0v_BjbG_3OZYxBFu9QX1Fc0nUTn4oD4pnpoUkAq9Lya3WJPzOnc9g5RwWGOHP-14LJiX4DaUl1aO3egBqHxZBfTF8RknoZ103_b5YWQrjnfaJ1413IqgGE4MDStmW4SUTs_gdmBZzC1f9QsQvVNBWY1ITu4b85AUwjV0zpvfcxug9jMQf2uIGR-_KU3KExrLS_alqlWCr_qbumGCC7wsKqKkPVbBaSzGB8OshuWJaV7",
+            "analisis": "El S&P 500 cerró a la baja el viernes, reflejando la debilidad general del mercado impulsada por las acciones tecnológicas y las expectativas de tasas de interés más altas."
+          },
+          {
+            "nombre": "NASDAQ Composite",
+            "valor": "N/A",
+            "cambio_pct": -1.4,
+            "tendencia": "↓",
+            "fuente": "AP News / The Times of India",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHVNUHbcIEX1elIDw5AQC1tIwI3YBX0BoBml-qu3R1MXZ2HNXeJPHdbmCC0xNBc97-Gbcn34Tz38qX9DqaOH-XBvcSb2LN5Bq8_cfk-We6zDpGmZBdiH6IJv0v_BjbG_3OZYxBFu9QX1Fc0nUTn4oD4pnpoUkAq9Lya3WJPzOnc9g5RwWGOHP-14LJiX4DaUl1aO3egBqHxZBfTF8RknoZ103_b5YWQrjnfaJ1413IqgGE4MDStmW4SUTs_gdmBZzC1f9QsQvVNBWY1ITu4b85AUwjV0zpvfcxug9jMQf2uIGR-_KU3KExrLS_alqlWCr_qbumGCC7wsKqKkPVbBaSzGB8OshuWJaV7",
+            "analisis": "El índice Nasdaq Composite experimentó una caída significativa, liderada por las pérdidas en las principales empresas tecnológicas."
+          },
+          {
+            "nombre": "Dow Jones Industrial Average",
+            "valor": "N/A",
+            "cambio_pct": -0.2,
+            "tendencia": "↓",
+            "fuente": "AP News / The Times of India",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHVNUHbcIEX1elIDw5AQC1tIwI3YBX0BoBml-qu3R1MXZ2HNXeJPHdbmCC0xNBc97-Gbcn34Tz38qX9DqaOH-XBvcSb2LN5Bq8_cfk-We6zDpGmZBdiH6IJv0v_BjbG_3OZYxBFu9QX1Fc0nUTn4oD4pnpoUkAq9Lya3WJPzOnc9g5RwWGOHP-14LJiX4DaUl1aO3egBqHxZBfTF8RknoZ103_b5YWQrjnfaJ1413IqgGE4MDStmW4SUTs_gdmBZzC1f9QsQvVNBWY1ITu4b85AUwjV0zpvfcxug9jMQf2uIGR-_KU3KExrLS_alqlWCr_qbumGCC7wsKqKkPVbBaSzGB8OshuWJaV7",
+            "analisis": "El Dow Jones Industrial Average también cerró a la baja, aunque con una caída porcentual menor en comparación con los índices de tecnología."
+          },
+          {
+            "nombre": "BMV / IPC",
+            "valor": "66,228 puntos",
+            "cambio_pct": -1.73,
+            "tendencia": "↓",
+            "fuente": "Trading Economics",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHz9hI9y76pTyNgU-4MtFU4sJ_SbTjDokzg8_KPnEMzaAKGnoHmLaQHnZ08o6cuv5OOfMSGSzizO7XdZkJsBbO4BzfOMGkp0IG4mInTdoP3v1J8ai7n8WN3cz9HmRoQXU60zKuuS-MfNIHbHQ==",
+            "analisis": "El principal índice bursátil de México, el IPC, cayó el 5 de junio de 2026, perdiendo un 1.73% respecto a la sesión anterior."
+          },
+          {
+            "nombre": "USD/MXN",
+            "valor": "17.4730",
+            "cambio_pct": 1.07,
+            "tendencia": "↑",
+            "fuente": "Trading Economics",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH3gD4VWL0m9e8NpaD7ztFyNMEZxwHcCKx8k3zzsLSZGglxv2jWWIO9NKuYDDtm0-mhPbj6TkaEGiAEa4r06rx-jSAOMrXJYXvoJOpxO6Cn5T5E515ueWsgQjEk-PObYe22u-8Un2nu",
+            "analisis": "El tipo de cambio USD/MXN subió a 17.4730 el 5 de junio de 2026, un aumento del 1.07% desde la sesión anterior."
+          }
+        ],
+        "acciones": [
+          {
+            "nombre": "NVIDIA",
+            "valor": "N/A",
+            "cambio_pct": -3.03,
+            "tendencia": "↓",
+            "fuente": "Investing.com",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHb45pM_3EK0i_IE2yJ6ob_mWZmj6LStSIGPQLHDytt1B0mbe6T4rsQI_Hy5a0idvg5ryTjVj3EDl9v7Jmk0niXjEbAwE3SZeCqJaOk4SD5BRziqaRe_lY5cbx-KiBgcTiEwavoOH6BWN4Bh587GLmklEj8e7BQ-tQK",
+            "analisis": "Las acciones de NVIDIA cayeron un 3.03% el 5 de junio de 2026, contribuyendo a la debilidad general del sector tecnológico."
+          },
+          {
+            "nombre": "Microsoft",
+            "valor": "422.43",
+            "cambio_pct": -1.31,
+            "tendencia": "↓",
+            "fuente": "Stock Analysis",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHq-vRebrsWKLyR4V7p4J5Jqa-NYJQLgoValItpcnnWV9GYbFGtYpdVkEFiff2TPdmBgIxzdI-xYB5gHhNDcDkDJ_FKqhdLNc1OLIyrMxG6WXLO0VgsupVqcNMDlZQ4PYRGHpysYb6SRI= ",
+            "analisis": "Las acciones de Microsoft cerraron con una baja del 1.31% el 5 de junio de 2026."
+          },
+          {
+            "nombre": "Meta",
+            "valor": "N/A",
+            "cambio_pct": -6.0,
+            "tendencia": "↓",
+            "fuente": "BNN Bloomberg",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFV_XfflRLk2xUoLtX0d2IfEvWRn6sVsm9_eaoOiXzbpBzebhreaHXbmI2T3OEKKVWDpD12wtuqAEHG9YnVnfS6d3_nHkY4W6PNLZH5XJsTPfYs1tNHlepUo98mx0HaI3EVepXKlVLX_OFQJieG_11EGPKPhLKbfmgO3OCLEgSmT7eo6gon21I7I50uQ-sjATXeyBhB",
+            "analisis": "Las acciones de Meta cayeron un 6% en la tarde del 5 de junio de 2026, en medio de informes sobre una posible recaudación de fondos para su impulso en IA."
+          },
+          {
+            "nombre": "Google (Alphabet C)",
+            "valor": "N/A",
+            "cambio_pct": -1.5,
+            "tendencia": "↓",
+            "fuente": "Markets Insider",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQECMqsm7eWZkOsNOGhrUB__xqPstt_kui0Xi-DJu_EzmTO-RDdVFqi1Qccirnttn_oWlHlu72eRarc06HQZXTpwv7Bw9gfVvY3k0XmHIqDeVlTemu6hdx_Rbw8Di6vI6-O-BWEqBwyxqjy6JAIm0RLp",
+            "analisis": "Las acciones de Alphabet C (GOOG) abrieron a la baja el 5 de junio de 2026, con una caída del 1.50% respecto al cierre del día anterior."
+          },
+          {
+            "nombre": "Apple",
+            "valor": "N/A",
+            "cambio_pct": "N/A",
+            "tendencia": "N/A",
+            "fuente": "N/A",
+            "url": "N/A",
+            "analisis": "No se encontraron datos de cierre específicos para las acciones de Apple el 5 de junio de 2026 en las fuentes autorizadas. El 4 de junio de 2026, las acciones de Apple subieron un 0.31%."
+          },
+          {
+            "nombre": "Amazon",
+            "valor": "N/A",
+            "cambio_pct": "N/A",
+            "tendencia": "N/A",
+            "fuente": "N/A",
+            "url": "N/A",
+            "analisis": "No se encontraron datos de cierre específicos para las acciones de Amazon el 5 de junio de 2026 en las fuentes autorizadas. El 4 de junio de 2026, las acciones de Amazon subieron un 1.51%."
+          },
+          {
+            "nombre": "Tesla",
+            "valor": "N/A",
+            "cambio_pct": "N/A",
+            "tendencia": "N/A",
+            "fuente": "N/A",
+            "url": "N/A",
+            "analisis": "No se encontraron datos de cierre específicos para las acciones de Tesla el 5 de junio de 2026 en las fuentes autorizadas. El 4 de junio de 2026, las acciones de Tesla cayeron un 1.24%."
+          }
+        ],
+        "earnings": [
+          {
+            "nombre": "Oracle (ORCL)",
+            "valor": "N/A",
+            "cambio_pct": "N/A",
+            "tendencia": "N/A",
+            "fuente": "Investing.com",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHsUuSx_y6kkZ_5xHWZ7jz5GSWma5Uh9mNgwsPxNU8XwgUBD_E18dSpiWYof9iDW9EtRbJA42wJw7iKwglSnHUORWz2zOQLZP0Y2L255ki-1w4v5hnueemyDRk2sAyihlCQEXBP__8=",
+            "analisis": "Oracle (ORCL) tiene previsto reportar sus ganancias el miércoles 10 de junio de 2026."
+          }
+        ],
+        "macro": [
+          {
+            "nombre": "Mercados Globales",
+            "valor": "N/A",
+            "cambio_pct": "N/A",
+            "tendencia": "N/A",
+            "fuente": "BNN Bloomberg, AP News, The Times of India",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFV_XfflRLk2xUoLtX0d2IfEvWRn6sVsm9_eaoOiXzbpBzebhreaHXbmI2T3OEKKVWDpD12wtuqAEHG9YnVnfS6d3_nHkY4W6PNLZH5XJsTPfYs1tNHlepUo98mx0HaI3EVepXKlVLX_OFQJieG_11EGPKPhLKbfmgO3OCLEgSmT7eo6gon21I7I50uQ-sjATXeyBhB, https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHVNUHbcIEX1elIDw5AQC1tIwI3YBX0BoBml-qu3R1MXZ2HNXeJPHdbmCC0xNBc97-Gbcn34Tz38qX9DqaOH-XBvcSb2LN5Bq8_cfk-We6zDpGmZBdiH6IJv0v_BjbG_3OZYxBFu9QX1Fc0nUTn4oD4pnpoUkAq9Lya3WJPzOnc9g5RwWGOHP-14LJiX4DaUl1aO3egBqHxZBfTF8RknoZ103_b5YWQrjnfaJ1413IqgGE4MDStmW4SUTs_gdmBZzC1f9QsQvVNBWY1ITu4b85AUwjV0zpvfcxug9jMQf2uIGR-_KU3KExrLS_alqlWCr_qbumGCC7wsKqKkPVbBaSzGB8OshuWJaV7, https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFnKF2l4AJrohveivYSlsBY6Rps0Gbdqpg8WlxrRWTuefs3TKcP3GFVFVpdCLcWdI1crszXacd__dLotNQRpsEMv1HjEKLEIbLFhPra6uzKAjWPFBG3wfh4pOaBjwFUKEF9BDNIpqg3pFYNqOWsOARngfr0WHtu0hqneIIpd0XXFs8c-vTVifVehIQ6U-U",
+            "analisis": "Los mercados globales estuvieron influenciados por un sólido informe de empleo de mayo en EE. UU., que aumentó las expectativas de que la Reserva Federal se verá obligada a subir las tasas de interés. Las acciones tecnológicas arrastraron al mercado a la baja debido a las preocupaciones sobre las altas valoraciones y la sostenibilidad de las inversiones en IA. Los rendimientos de los bonos subieron, y las tensiones geopolíticas (conflicto de Irán) y los altos costos de la energía también contribuyeron a la incertidumbre."
+          }
+        ]
       },
       "grounding_sources": [],
-      "generated_at": "2026-06-05T12:54:48.709672-06:00",
+      "generated_at": "2026-06-05T14:01:50.362777-06:00",
       "status": "ok"
     }
   },
