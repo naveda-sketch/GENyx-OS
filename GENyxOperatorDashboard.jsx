@@ -2889,7 +2889,7 @@ const AGENT_CONFIGS = {
     mission: 'Diseña y audita la arquitectura del sistema GenyX. Gestiona candados técnicos, auto-healing y bitácora operativa.',
     skills: ['Diseño arquitectónico', 'Candados BE/FE', 'Auto-healing', 'Bitácora operativa'],
     rules: ['REGLA 9', 'REGLA 14', 'REGLA 17'],
-    candados: ['BE-#1..#11', 'FE-#1..#11'],
+    candados: ['BE-#3', 'BE-#7', 'BE-#10', 'FE-#3', 'FE-#7', 'FE-#11'],  // A0 enforces agnostic+hooks+doctrina coverage
     cadence: 'Continuo + audit semanal',
     metrics: ['Candados enforced', 'Auto-heal events', 'Architecture drift alerts', 'Agent heartbeats OK'],
     scope: 'backstage', source_doc: 'DOCTRINA_AGENTE_A0.md',

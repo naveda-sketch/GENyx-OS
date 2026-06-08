@@ -41,11 +41,16 @@ if [ $LINT_EXIT -ne 0 ]; then
 fi
 
 echo "✓ CANDADO FE-#11: 0 violaciones de React hooks en staged files"
-exit 0
 
 # ── Candado FE-#anti-phone: REGLA 15 — Cajones Privados Tenant ──
 if [ -x "$SCRIPT_DIR/check-anti-phone" ]; then
     if ! "$SCRIPT_DIR/check-anti-phone"; then
         exit 1
     fi
+fi
+
+# ── Candado FE-#DRIFT: Anti-drift AGENT_CONFIGS vs DOCTRINA ──
+if [ -x "$SCRIPT_DIR/check-agent-drift" ]; then
+    "$SCRIPT_DIR/check-agent-drift"
+    # v1: warning only, no block
 fi
