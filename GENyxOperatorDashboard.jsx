@@ -12033,32 +12033,67 @@ function TabPeriodico() {
     window.speechSynthesis.speak(utter);
     setAudioPlaying(true);
   };
+  // FIX P1: fecha default en CST (America/Mexico_City), NO UTC
+  // Bug: después de 6pm CST, toISOString() devuelve el día SIGUIENTE (UTC)
+  // → pide edición que no existe → "No hay edición" + parse error
   const [selectedDate, setSelectedDate] = React.useState(() => {
-    const now = new Date();
-    return now.toISOString().split('T')[0];
+    try {
+      return new Intl.DateTimeFormat('en-CA', {
+        timeZone: 'America/Mexico_City',
+        year: 'numeric', month: '2-digit', day: '2-digit'
+      }).format(new Date()); // → "2026-06-08" en CST
+    } catch {
+      return new Date().toISOString().split('T')[0]; // fallback UTC si Intl falla
+    }
   });
 
-  // Fetch edition JSON
+  // Fetch edition JSON — FIX P1: fallback a última edición + graceful error
   React.useEffect(() => {
     setLoading(true);
     setError(null);
-    // Try loading from local editions directory (served statically)
-    const url = `/editions/${selectedDate}.json`;
-    fetch(url)
-      .then(r => {
-        if (!r.ok) throw new Error(`No hay edición para ${selectedDate}`);
-        return r.json();
-      })
+
+    const tryLoad = (date) => {
+      const urls = [`/editions/${date}.json`, `/periodico/editions/${date}.json`];
+      return urls.reduce((chain, url) =>
+        chain.catch(() => fetch(url).then(r => {
+          if (!r.ok) throw new Error(`${r.status}`);
+          return r.json();
+        })),
+        Promise.reject()
+      );
+    };
+
+    // Try requested date first
+    tryLoad(selectedDate)
       .then(data => { setEdition(data); setLoading(false); })
-      .catch(e => {
-        // Fallback: try from periodico editions
-        fetch(`/periodico/editions/${selectedDate}.json`)
-          .then(r => r.ok ? r.json() : null)
-          .then(data => {
-            if (data) { setEdition(data); setLoading(false); }
-            else { setError(e.message); setLoading(false); }
+      .catch(() => {
+        // Fallback: try yesterday, then day before (CST)
+        const fallbackDates = [];
+        for (let i = 1; i <= 3; i++) {
+          try {
+            const d = new Date(Date.now() - i * 86400000);
+            fallbackDates.push(new Intl.DateTimeFormat('en-CA', {
+              timeZone: 'America/Mexico_City',
+              year: 'numeric', month: '2-digit', day: '2-digit'
+            }).format(d));
+          } catch { /* skip */ }
+        }
+
+        const tryFallbacks = fallbackDates.reduce((chain, date) =>
+          chain.catch(() => tryLoad(date).then(data => ({ data, date }))),
+          Promise.reject()
+        );
+
+        tryFallbacks
+          .then(({ data, date }) => {
+            setEdition(data);
+            setError(`Mostrando edición más reciente (${date})`);
+            setLoading(false);
           })
-          .catch(() => { setError(e.message); setLoading(false); });
+          .catch(() => {
+            setError('No se encontró ninguna edición reciente. Verifica que el cron de generación esté activo.');
+            setLoading(false);
+          });
       });
   }, [selectedDate]);
 
@@ -12292,11 +12327,13 @@ function TabPeriodico() {
         </div>
       )}
 
-      {/* Error state */}
+      {/* Error/Fallback state — FIX P1: graceful messaging */}
       {error && (
-        <div style={{ ...S.card, borderColor: '#f87171', background: 'rgba(248,113,113,0.05)' }}>
-          <div style={{ fontSize: 14, fontWeight: 700, color: '#f87171', marginBottom: 4 }}>⚠️ No hay edición para esta fecha</div>
-          <div style={{ fontSize: 12, color: '#9ca3af' }}>{error}</div>
+        <div style={{ ...S.card, borderColor: edition ? '#f59e0b' : '#f87171', background: edition ? 'rgba(245,158,11,0.05)' : 'rgba(248,113,113,0.05)' }}>
+          <div style={{ fontSize: 14, fontWeight: 700, color: edition ? '#f59e0b' : '#f87171', marginBottom: 4 }}>
+            {edition ? 'ℹ️ ' + error : '⚠️ No hay edición disponible'}
+          </div>
+          {!edition && <div style={{ fontSize: 12, color: '#9ca3af' }}>{error}</div>}
           <div style={{ fontSize: 11, color: '#9ca3af', marginTop: 8 }}>El Periódico se genera diariamente a las 5:00 AM CST.</div>
         </div>
       )}
