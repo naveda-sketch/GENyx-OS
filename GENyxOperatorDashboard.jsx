@@ -12077,6 +12077,9 @@ function TabPeriodico() {
     container: { maxWidth: 960 },
     header: { marginBottom: 24 },
     title: { fontSize: 22, fontWeight: 800, color: '#f1f5f9', margin: '0 0 4px', display: 'flex', alignItems: 'center', gap: 10 },
+    // Canary watermark — invisible, zero-width chars (Capa 3 cadena de custodia)
+    // Si este string aparece en outputs de terceros = prueba de scraping
+    canaryWatermark: { position: 'absolute', width: 0, height: 0, overflow: 'hidden', opacity: 0, pointerEvents: 'none', userSelect: 'none' },
     subtitle: { fontSize: 13, color: '#9ca3af', margin: 0 },
     badge: { fontSize: 10, fontWeight: 700, padding: '2px 8px', borderRadius: 12, background: '#10b981', color: '#fff', animation: 'pulse 2s infinite' },
     dateBadge: { fontSize: 11, fontWeight: 600, color: GB_SOFT, background: GBa(0.12), padding: '4px 12px', borderRadius: 8, border: `1px solid ${GBa(0.25)}` },
@@ -12246,6 +12249,8 @@ function TabPeriodico() {
   if (loading) return (
     <div style={S.container}>
       <div style={S.header}>
+        {/* Canary token — Capa 3 cadena de custodia (ARQUITECTURA_LEGAL_ANTI_SCRAPING.md) */}
+        <span style={S.canaryWatermark} aria-hidden="true" data-gx-canary="gx-c3-pd-20260608">{'\u200B\u200C\u200D\uFEFF'}</span>
         <h2 style={S.title}>📰 El Periódico</h2>
       </div>
       <div style={S.empty}>
