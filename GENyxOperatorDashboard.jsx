@@ -2880,6 +2880,86 @@ const AGENT_CONFIGS = {
     cadence: 'Diario 06:00 CST + briefing semanal lunes',
     metrics: ['Decisiones presentadas', 'Aprobaciones owner', 'Cross-agent coordination'],
   },
+  // ═══ BACKSTAGE AGENTS (REGLA 8: scope=backstage, solo founder) ═══════════
+  // source_doc: DOCTRINA_AGENTE_*.md (cuadernos canónicos — anti-drift §17.7)
+  // status verificado contra código real (REGLA 18)
+  A0: {
+    id: 'A0', name: 'Arquitecto', icon: '🏛️', color: '#60a5fa',
+    subtitle: 'Diseñador y auditor del sistema GenyX',
+    mission: 'Diseña y audita la arquitectura del sistema GenyX. Gestiona candados técnicos, auto-healing y bitácora operativa.',
+    skills: ['Diseño arquitectónico', 'Candados BE/FE', 'Auto-healing', 'Bitácora operativa'],
+    rules: ['REGLA 9', 'REGLA 14', 'REGLA 17'],
+    candados: ['BE-#3', 'BE-#7', 'BE-#10', 'FE-#3', 'FE-#7', 'FE-#11'],  // A0 enforces agnostic+hooks+doctrina coverage
+    cadence: 'Continuo + audit semanal',
+    metrics: ['Candados enforced', 'Auto-heal events', 'Architecture drift alerts', 'Agent heartbeats OK'],
+    scope: 'backstage', source_doc: 'DOCTRINA_AGENTE_A0.md',
+  },
+  A9: {
+    id: 'A9', name: 'Cumplimiento', icon: '🛡️', color: '#f59e0b',
+    subtitle: 'Vigía legal y governance. Contratos, DPA, SLA.',
+    mission: 'Vigía legal y de gobernanza. Valida contratos, DPA, SLA, acceso PII contra doctrina vigente.',
+    skills: ['Legal compliance', 'DPA validation', 'SLA enforcement', 'LFPDPPP'],
+    rules: ['REGLA 9', 'REGLA 10', 'REGLA 12'],
+    candados: ['BE-#5', 'BE-#7', 'BE-#9'],
+    cadence: 'Continuo + reporte mensual',
+    metrics: ['Compliance score', 'DPA coverage', 'SLA violations', 'Marketing blocked'],
+    scope: 'backstage', source_doc: 'DOCTRINA_AGENTE_A9.md',
+  },
+  A10: {
+    id: 'A10', name: 'Onboarding', icon: '🚀', color: '#10b981',
+    subtitle: 'Alta automática de tenants + activación de agentes',
+    mission: 'Guía a nuevos tenants en configuración inicial. Alta automática, módulos y activación de agentes.',
+    skills: ['Tenant setup', 'Module activation', 'Agent provisioning', 'Welcome flow'],
+    rules: ['REGLA 11', 'REGLA 14'],
+    candados: ['BE-#3', 'BE-#7'],
+    cadence: 'On-demand (por tenant nuevo)',
+    metrics: ['Tenants onboarded', 'Time to first order', 'Activation rate'],
+    scope: 'backstage', source_doc: 'DOCTRINA_AGENTE_A10.md',
+  },
+  AGUJA: {
+    id: 'AGUJA', name: 'AGUJA', icon: '🧭', color: '#8b5cf6',
+    subtitle: 'El agente que nos empuja a mejorar según la aguja del mercado',
+    mission: 'Evolución de producto. Cada 10 días genera briefs con signals de mercado + proposals de cambio.',
+    skills: ['Market signals', 'Briefs periódicos', 'Proposals de cambio', 'Cadence enforcement'],
+    rules: ['REGLA 16', 'REGLA 14', 'Sub-regla 17.7'],
+    candados: ['BE-#3', 'BE-#7'],
+    cadence: 'Cada 10 días (regular_10d) + ad-hoc',
+    metrics: ['Signals captured', 'Briefs generated', 'Proposals pending', 'Cadence overdue'],
+    scope: 'backstage', source_doc: 'DOCTRINA_AGENTE_AGUJA.md',
+  },
+  MEMORY: {
+    id: 'MEMORY', name: 'MEMORY', icon: '🧠', color: '#06b6d4',
+    subtitle: 'Guardián de coherencia doctrinal — ojo clínico del fundador',
+    mission: '3 verticales del ojo clínico: coherencia doctrinal, técnica y operativa. Alerta cuando una decisión contradice la doctrina.',
+    skills: ['Recall semántico', 'Detección de incoherencias', 'Alertas doctrinales', 'Self-audit CDA-3'],
+    rules: ['REGLA 6', 'REGLA 9', 'Sub-regla 17.8'],
+    candados: ['BE-#3', 'BE-#7'],
+    cadence: 'Continuo + loop semanal coherencia',
+    metrics: ['Events recorded', 'Alerts raised', 'Coherence checks', 'Docs ingested'],
+    scope: 'backstage', source_doc: 'DOCTRINA_AGENTE_MEMORY.md',
+  },
+  A12: {
+    id: 'A12', name: 'Ciberseguridad', icon: '🛡️', color: '#ef4444',
+    subtitle: 'CISO Digital + DPO operacional. LFPDPPP + SOC 2 + OWASP',
+    mission: 'Audita cumplimiento seguridad y protección de datos. Stack Fase 1: LFPDPPP + SOC 2 + ISO 27001 + PCI SAQ-A + NIST CSF + OWASP Top 10.',
+    skills: ['Compliance audit', 'Incident response', 'Data breach mgmt', 'Vendor risk', 'PII access log'],
+    rules: ['REGLA 9', 'REGLA 12', 'REGLA 14'],
+    candados: ['BE-#5', 'BE-#7', 'BE-#9'],
+    cadence: 'Diario 03:00 CST (v0.2) + por incidente',
+    metrics: ['Compliance score', 'Incidents open', 'Breaches INAI 72h', 'Vendor risk coverage'],
+    scope: 'backstage', source_doc: 'DOCTRINA_AGENTE_A12.md',
+  },
+  ORCHESTRATOR: {
+    id: 'ORCHESTRATOR', name: 'Orquestador', icon: '🎯', color: '#f97316',
+    subtitle: 'Auditoría conversacional multi-agente — sub-regla 18.2',
+    mission: 'Clasifica cada turno conversacional en 3 categorías sub-regla 18.2 y dispara invocación de agentes pertinentes.',
+    skills: ['Clasificación heurística keyword', 'Routing multi-agente', 'Audit trail INSERT-only'],
+    rules: ['REGLA 9', 'REGLA 14', 'Sub-regla 18.2'],
+    candados: ['BE-#3', 'BE-#7'],
+    cadence: 'Por turno (real-time)',
+    metrics: ['Total turns', 'Alerts pending', 'Avg latency ms', 'Cat 1/2/3 breakdown'],
+    scope: 'backstage', source_doc: 'DOCTRINA_AGENTE_ORCHESTRATOR.md',
+  },
 };
 
 // ═══ V2 Base Components ═══════════════════════════════════════════
@@ -9079,7 +9159,7 @@ function TabResumenTenant({ slug, token, config }) {
       <p style={{ fontSize: 11, fontWeight: 700, color: '#a8a29e', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 12 }}>Tus 9 directores ejecutivos</p>
       {loading && <p style={{ fontSize: 12, color: '#a8a29e' }}>Cargando estado de agentes...</p>}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 12 }}>
-        {Object.values(AGENT_CONFIGS).filter(a => !['A0','A9','A10'].includes(a.id)).map(agent => {
+        {Object.values(AGENT_CONFIGS).filter(a => !a.scope || a.scope !== 'backstage').map(agent => {
           const st = agentStatus(agent.id);
           const hasActivity = st && st.status !== 'inactive';
           const evtCount = agentEventCount(agent.id);
@@ -9344,7 +9424,7 @@ function TabCockpitResumen({ tenants, orders, selectedSlug, health }) {
           { id: 'A9', icon: '🛡️', name: 'Cumplimiento', status: 'OK', desc: 'Legal y gobernanza al día' },
           { id: 'A10', icon: '🚀', name: 'Onboarding', status: 'OK', desc: 'Guía configuración nuevos clientes' },
           { id: 'AGUJA', icon: '🧭', name: 'AGUJA', status: 'OK', desc: 'Evolución de producto — activo' },
-          { id: 'MEMORY', icon: '🧠', name: 'MEMORY', status: 'MVP', desc: '214 docs · Endpoints activos' },
+          { id: 'MEMORY', icon: '🧠', name: 'MEMORY', status: 'PROP', desc: 'Guardián coherencia — propuesta' },
           { id: 'A12', icon: '🛡️', name: 'A12 Ciberseg', status: 'PROP', desc: 'CISO Digital — propuesta' },
         ].map(b => (
           <div key={b.id} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14 }}>
@@ -9363,7 +9443,7 @@ function TabCockpitResumen({ tenants, orders, selectedSlug, health }) {
 
 function TabCockpitAgentes({ tenants, selectedSlug }) {
   const [selected, setSelected] = React.useState(null);
-  const agents = Object.values(AGENT_CONFIGS).filter(a => !['A0','A9','A10'].includes(a.id));
+  const agents = Object.values(AGENT_CONFIGS).filter(a => !a.scope || a.scope !== 'backstage');
   return (
     <div style={{ maxWidth: 1000 }}>
       <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🤖 Agentes · Vista Founder</h2>
@@ -11382,20 +11462,41 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
     { id: 'tracing',   icon: '\u{1F50D}', label: 'Tracing' },
     { id: 'coverage',  icon: '\u{1F4CA}', label: 'Coverage' },
   ];
-  const backstageAgents = [
-    { id: 'A0', icon: '🏛️', name: 'Arquitecto', desc: 'Diseña y audita la arquitectura del sistema GenyX. Gestiona candados técnicos, doctrina, auto-healing y bitácora operativa.', info: 'A0 es el cerebro arquitectónico. Verifica que cada componente cumpla las reglas y candados del sistema.', status: 'activo' },
-    { id: 'A9', icon: '🛡️', name: 'Cumplimiento', desc: 'Vigía legal y de gobernanza. Valida contratos, DPA, SLA. Audita cada operación contra la doctrina vigente.', info: 'A9 garantiza que toda operación cumpla con las reglas legales, de privacidad (LFPDPPP) y gobernanza Tier 4.', status: 'activo' },
-    { id: 'A10', icon: '🚀', name: 'Onboarding', desc: 'Guía a nuevos clientes en su configuración inicial. Alta automática, módulos y activación de agentes.', info: 'A10 es el primer contacto del tenant. Configura módulos, activa agentes y valida que todo esté listo para operar.', status: 'activo' },
-    { id: 'AGUJA', icon: '🧭', name: 'AGUJA', desc: 'Estratega de evolución de producto. Cada 10 días genera briefs de inteligencia de mercado, tendencias y propuestas de cambio.', info: 'AGUJA analiza el mercado, competencia y tendencias Big Tech para proponer mejoras estratégicas al producto.', status: 'activo' },
-    { id: 'MEMORY', icon: '🧠', name: 'MEMORY', desc: 'Ojo clínico del fundador. 3 verticales: coherencia doctrinal, técnica y operativa.', info: 'MEMORY registra cada evento del sistema, detecta alertas de coherencia y permite recall de cualquier decisión pasada.', status: 'activo_mvp' },
-    { id: 'A12', icon: '🛡️', name: 'A12 Ciberseguridad', desc: 'CISO Digital + DPO operacional. Escaneo de secretos, CVE, auditoría OWASP, acceso PII. LFPDPPP + OWASP Top 10.', info: 'A12 es el guardia de ciberseguridad. Detecta vulnerabilidades, audita accesos y asegura cumplimiento de seguridad.', status: 'propuesta' },
+  // ═══ BACKSTAGE AGENTS — derivados de AGENT_CONFIGS (anti-drift) + herramientas operativas ═══
+  // REGLA 8: Solo founder. REGLA 18: status honesto verificado contra código.
+  // Agentes con cuaderno DOCTRINA → AGENT_CONFIGS (source of truth).
+  // Herramientas operativas (DATA, POSTMORTEMS, etc.) → inline (no tienen cuaderno).
+  const BACKSTAGE_STATUS_OVERRIDES = {
+    // REGLA 18: status honesto verificado contra código real
+    MEMORY: 'propuesta',  // Endpoints live pero no implementado real — §5 DOCTRINA_AGENTE_MEMORY.md
+    A12: 'propuesta',     // Fase design — §1 DOCTRINA_AGENTE_A12.md
+  };
+
+  const backstageAgentIds = ['A0', 'A9', 'A10', 'AGUJA', 'MEMORY', 'A12', 'ORCHESTRATOR'];
+  const backstageFromConfigs = backstageAgentIds
+    .filter(id => AGENT_CONFIGS[id])
+    .map(id => {
+      const cfg = AGENT_CONFIGS[id];
+      return {
+        id: cfg.id, icon: cfg.icon, name: cfg.name,
+        desc: cfg.mission,
+        info: `Skills: ${cfg.skills.join(' · ')} | Reglas: ${cfg.rules.join(' · ')} | Candados: ${cfg.candados.join(' · ')} | Cadencia: ${cfg.cadence}`,
+        status: BACKSTAGE_STATUS_OVERRIDES[cfg.id] || 'activo',
+        hasTooltip: true, // Flag: renderizar InfoTooltip con datos completos AGENT_CONFIGS
+        source_doc: cfg.source_doc,
+      };
+    });
+
+  // Herramientas operativas (sin cuaderno DOCTRINA — inline es correcto aquí)
+  const backstageTools = [
     { id: 'DATA', icon: '📊', name: 'DATA Fundador', desc: 'Métricas globales GenyX: plataforma, MEMORY, AGUJA, A12, doctrina y smoke tests. Datos del fundador.', info: 'DATA consolida todas las métricas de la plataforma en un solo panel para visibilidad total del fundador.', status: 'activo' },
-    { id: 'ORCHESTRATOR', icon: '🎯', name: 'Orquestador', desc: 'Auditoría conversacional multi-agente. Clasifica cada turno, invoca agentes especializados y genera alertas.', info: 'El Orquestador decide qué agente debe actuar en cada momento de una conversación con el cliente.', status: 'activo' },
     { id: 'POSTMORTEMS', icon: '🔬', name: 'Postmortems', desc: 'Análisis de incidentes sin culpa. Línea de tiempo, causa raíz y acciones correctivas. Patrón Big Tech #6.', info: 'Postmortems documenta cada incidente de manera blameless, identifica causa raíz y define acciones para evitar recurrencia.', status: 'activo' },
     { id: 'LAYER5', icon: '🛡️', name: 'Cobertura Capa 5', desc: 'Visibilidad defensa en profundidad. 8 capas runtime (5A-5H). Adopción MEMORY, cobertura de drift.', info: 'Capa 5 muestra el estado de las 8 capas de defensa runtime, detectando brechas y desviaciones de la doctrina.', status: 'activo' },
     { id: 'DORA', icon: '📊', name: 'Métricas DORA', desc: 'Excelencia DevOps — Frecuencia de despliegue, Tiempo de entrega, MTTR, Tasa de fallos. Tiers State of DevOps 2024.', info: 'DORA mide la madurez de tu proceso de desarrollo con 4 métricas clave del informe State of DevOps.', status: 'activo' },
     { id: 'CHAOS', icon: '🐒', name: 'Ingeniería del Caos', desc: 'Experimentos de caos — inyección de fallos, latencia, particiones. Patrón Big Tech #1. Cron semanal + manual.', info: 'Chaos prueba la resiliencia del sistema inyectando fallos controlados para descubrir vulnerabilidades antes que los usuarios.', status: 'activo' },
   ];
+
+  const backstageAgents = [...backstageFromConfigs, ...backstageTools];
   return (
     <div style={{ maxWidth: 1000 }}>
       <AlertsBanner adminKey={typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : ''} />
@@ -11421,15 +11522,21 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
             <button key={a.id} data-agent-id={a.id} onClick={() => setSelected(a.id)} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: 20, cursor: 'pointer', textAlign: 'left' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <span style={{ fontSize: 32 }}>{a.icon}</span>
-                <span style={{ fontSize: 9, fontWeight: 700, padding: '2px 8px', borderRadius: 6, textTransform: 'uppercase',
-                  background: a.status === 'activo' ? 'rgba(16,185,129,0.15)' : a.status === 'activo_mvp' ? 'rgba(59,130,246,0.15)' : a.status === 'propuesta' ? 'rgba(245,158,11,0.15)' : 'rgba(100,116,139,0.15)',
-                  color: a.status === 'activo' ? '#10b981' : a.status === 'activo_mvp' ? '#3b82f6' : a.status === 'propuesta' ? '#f59e0b' : '#9ca3af',
-                }}>{a.status === 'activo' ? '● ACTIVO' : a.status === 'activo_mvp' ? '● MVP' : a.status === 'propuesta' ? '◐ PROPUESTA' : '○ PENDIENTE'}</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                  {/* #86: InfoTooltip para agentes con AGENT_CONFIGS — misma cara que A1-A8/A11 */}
+                  {a.hasTooltip && AGENT_CONFIGS[a.id] && (
+                    <InfoTooltip content={<AgentMissionTooltip agent={AGENT_CONFIGS[a.id]} />} />
+                  )}
+                  <span style={{ fontSize: 9, fontWeight: 700, padding: '2px 8px', borderRadius: 6, textTransform: 'uppercase',
+                    background: a.status === 'activo' ? 'rgba(16,185,129,0.15)' : a.status === 'propuesta' ? 'rgba(245,158,11,0.15)' : 'rgba(100,116,139,0.15)',
+                    color: a.status === 'activo' ? '#10b981' : a.status === 'propuesta' ? '#f59e0b' : '#9ca3af',
+                  }}>{a.status === 'activo' ? '● ACTIVO' : a.status === 'propuesta' ? '◐ PROPUESTA' : '○ PENDIENTE'}</span>
+                </div>
               </div>
               <div style={{ fontSize: 14, fontWeight: 700, color: '#f1f5f9', marginTop: 8 }}>{a.name}</div>
-              <div style={{ fontSize: 10, color: '#9ca3af', marginBottom: 8 }}>{a.id}</div>
+              <div style={{ fontSize: 10, color: '#9ca3af', marginBottom: 4 }}>{a.id}{a.source_doc ? ` · ${a.source_doc}` : ''}</div>
               <p style={{ fontSize: 12, color: '#94a3b8', margin: 0, lineHeight: 1.5 }}>{a.desc}</p>
-              {a.info && <p style={{ fontSize: 10, color: '#818cf8', margin: '6px 0 0', lineHeight: 1.4, display: 'flex', alignItems: 'flex-start', gap: 4 }}><span style={{ flexShrink: 0 }}>ℹ️</span> {a.info}</p>}
+              {!a.hasTooltip && a.info && <p style={{ fontSize: 10, color: '#818cf8', margin: '6px 0 0', lineHeight: 1.4, display: 'flex', alignItems: 'flex-start', gap: 4 }}><span style={{ flexShrink: 0 }}>ℹ️</span> {a.info}</p>}
             </button>
           ))}
         </div>

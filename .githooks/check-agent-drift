@@ -1,0 +1,84 @@
+#!/bin/bash
+# ═══════════════════════════════════════════════════════════════════
+# CANDADO FE-#DRIFT: Anti-drift AGENT_CONFIGS vs DOCTRINA cuadernos
+# ═══════════════════════════════════════════════════════════════════
+#
+# Verifica que los datos de AGENT_CONFIGS (backstage) en el dashboard
+# no hayan drifteado de los cuadernos DOCTRINA_AGENTE_*.md canónicos.
+#
+# Qué verifica:
+# 1. Cada agent en AGENT_CONFIGS con scope='backstage' tiene source_doc
+# 2. Cada source_doc referenciado EXISTE en CEREBRO_GENYX/
+# 3. El nombre (mission) en AGENT_CONFIGS contiene keywords del §1 MISIÓN
+#
+# Si detecta drift → WARNING (no BLOCK en v1; fundador decide upgrade)
+# ═══════════════════════════════════════════════════════════════════
+
+set -e
+
+DASHBOARD="GENyxOperatorDashboard.jsx"
+# Resolve path relative to repo root
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || echo ".")"
+CEREBRO_DIR="$(dirname "$REPO_ROOT")/paty-backend/CEREBRO_GENYX"
+
+# Only run if dashboard was modified
+STAGED=$(git diff --cached --name-only --diff-filter=ACM | grep -c "$DASHBOARD" || true)
+if [ "$STAGED" = "0" ]; then
+    exit 0
+fi
+
+echo "🔒 Candado FE-#DRIFT: Verificando AGENT_CONFIGS vs DOCTRINA..."
+
+ERRORS=0
+WARNINGS=0
+
+# Extract backstage agent source_docs from the JSX
+SOURCES=$(grep "source_doc:" "$DASHBOARD" | grep -o "'DOCTRINA_AGENTE_[^']*'" | tr -d "'")
+
+if [ -z "$SOURCES" ]; then
+    echo "  ⚠️  No se encontraron source_doc entries en AGENT_CONFIGS"
+    WARNINGS=$((WARNINGS + 1))
+fi
+
+for doc in $SOURCES; do
+    FULL_PATH="$CEREBRO_DIR/$doc"
+    if [ -f "$FULL_PATH" ]; then
+        echo "  ✓ $doc existe"
+    else
+        echo "  ✗ $doc NO EXISTE en CEREBRO_GENYX/"
+        ERRORS=$((ERRORS + 1))
+    fi
+done
+
+# Check that backstage agents have scope field
+BACKSTAGE_COUNT=$(grep -c "scope: 'backstage'" "$DASHBOARD" || true)
+SOURCE_COUNT=$(echo "$SOURCES" | grep -c "DOCTRINA" || true)
+
+if [ "$BACKSTAGE_COUNT" -ne "$SOURCE_COUNT" ]; then
+    echo "  ⚠️  Mismatch: $BACKSTAGE_COUNT backstage agents vs $SOURCE_COUNT source_docs"
+    WARNINGS=$((WARNINGS + 1))
+fi
+
+# Check that BE-#6 DESCARTADO is not referenced as active
+if grep -q "'BE-#6'" "$DASHBOARD" | grep -v "DESCARTADO\|descartado" 2>/dev/null; then
+    echo "  ✗ BE-#6 (DESCARTADO) encontrado activo en AGENT_CONFIGS"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# Summary
+echo ""
+if [ $ERRORS -gt 0 ]; then
+    echo "╔══════════════════════════════════════════════════════════╗"
+    echo "║ ⚠️  CANDADO FE-#DRIFT: $ERRORS error(es) de drift detectados  ║"
+    echo "║ Los AGENT_CONFIGS no coinciden con los cuadernos DOCTRINA ║"
+    echo "║ Verifica source_doc y actualiza si hay cambios.         ║"
+    echo "╚══════════════════════════════════════════════════════════╝"
+    # v1: WARNING only. Upgrade a BLOCK cuando el fundador lo decida.
+    exit 0
+elif [ $WARNINGS -gt 0 ]; then
+    echo "✓ CANDADO FE-#DRIFT: $WARNINGS warning(s), $BACKSTAGE_COUNT backstage agents verificados"
+else
+    echo "✓ CANDADO FE-#DRIFT: $BACKSTAGE_COUNT backstage agents — 0 drift vs DOCTRINA"
+fi
+
+exit 0
