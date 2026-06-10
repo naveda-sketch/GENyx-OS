@@ -12049,7 +12049,7 @@ function TabAlertCenter() {
         safe(fetch(`${BACKEND}/api/admin/memory/alerts`, { headers: h })),
       ]);
 
-      setOrchestratorAlerts(orch?.alerts || (Array.isArray(orch?.turns) ? orch.turns : []));
+      setOrchestratorAlerts(orch?.turns_with_alerts || orch?.alerts || (Array.isArray(orch?.turns) ? orch.turns : []));
       setPolicyViolations(pol?.violations || (Array.isArray(pol) ? pol : []));
       setPolicyStats(polS);
       setSloAlerts(slo?.alerts || (Array.isArray(slo) ? slo : []));
