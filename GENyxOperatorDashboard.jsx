@@ -157,6 +157,7 @@ const TAB_GROUPS = [
     { id: 'cockpit_agentes',   label: '🤖 Agentes' },
     { id: 'radar',             label: '🛰️ RADAR' },
     { id: 'backstage',         label: '🔒 Backstage' },
+    { id: 'alertas',           label: '🚨 Alertas' },
     { id: 'periodico',         label: '📰 Periódico' },
   ]},
 ];
@@ -12000,6 +12001,269 @@ function TabRadarIntel() {
 // Idioma: es-MX
 // Audio: Google Cloud TTS (Chirp 3)
 // ═══════════════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════════════════════
+// 🚨 TAB ALERT CENTER — Centro de Alertas Unificado (Live)
+// ═══════════════════════════════════════════════════════════════════
+// REGLA 23: nace conectado, cero mock
+// Sub-regla 18.1: shapes verificados contra código backend
+// Endpoints verificados:
+//   GET /api/admin/orchestrator/recent-alerts   → {count, alerts:[...]}
+//   GET /api/admin/policy/violations            → {violations:[...]}
+//   GET /api/admin/policy/violations/stats      → {total,unresolved,...}
+//   GET /api/admin/slo/alerts-active            → {alerts:[...]}
+//   GET /api/admin/cybersec/incidents            → {incidents:[...]}
+//   GET /api/admin/cybersec/breaches             → {breaches:[...]}
+//   GET /api/admin/incidents                     → [...]
+//   GET /api/admin/memory/alerts                 → {alerts:[...]}
+// ═══════════════════════════════════════════════════════════════════
+function TabAlertCenter() {
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
+  const [lastFetch, setLastFetch] = React.useState(null);
+
+  const [orchestratorAlerts, setOrchestratorAlerts] = React.useState([]);
+  const [policyViolations, setPolicyViolations] = React.useState([]);
+  const [policyStats, setPolicyStats] = React.useState(null);
+  const [sloAlerts, setSloAlerts] = React.useState([]);
+  const [cybersecIncidents, setCybersecIncidents] = React.useState([]);
+  const [cybersecBreaches, setCybersecBreaches] = React.useState([]);
+  const [incidents, setIncidents] = React.useState([]);
+  const [memoryAlerts, setMemoryAlerts] = React.useState([]);
+
+  const [filterSource, setFilterSource] = React.useState('all');
+  const [filterSeverity, setFilterSeverity] = React.useState('all');
+
+  const fetchAll = React.useCallback(async () => {
+    setLoading(true); setError(null);
+    const h = getAH();
+    const safe = (p) => p.then(r => r.ok ? r.json() : null).catch(() => null);
+    try {
+      const [orch, pol, polS, slo, cyInc, cyBr, inc, mem] = await Promise.all([
+        safe(fetch(`${BACKEND}/api/admin/orchestrator/recent-alerts?days=30&limit=50`, { headers: h })),
+        safe(fetch(`${BACKEND}/api/admin/policy/violations`, { headers: h })),
+        safe(fetch(`${BACKEND}/api/admin/policy/violations/stats`, { headers: h })),
+        safe(fetch(`${BACKEND}/api/admin/slo/alerts-active`, { headers: h })),
+        safe(fetch(`${BACKEND}/api/admin/cybersec/incidents?days=30&limit=20`, { headers: h })),
+        safe(fetch(`${BACKEND}/api/admin/cybersec/breaches?days=365&limit=10`, { headers: h })),
+        safe(fetch(`${BACKEND}/api/admin/incidents`, { headers: h })),
+        safe(fetch(`${BACKEND}/api/admin/memory/alerts`, { headers: h })),
+      ]);
+
+      setOrchestratorAlerts(orch?.alerts || (Array.isArray(orch?.turns) ? orch.turns : []));
+      setPolicyViolations(pol?.violations || (Array.isArray(pol) ? pol : []));
+      setPolicyStats(polS);
+      setSloAlerts(slo?.alerts || (Array.isArray(slo) ? slo : []));
+      setCybersecIncidents(cyInc?.incidents || (Array.isArray(cyInc) ? cyInc : []));
+      setCybersecBreaches(cyBr?.breaches || (Array.isArray(cyBr) ? cyBr : []));
+      setIncidents(Array.isArray(inc) ? inc : (inc?.incidents || []));
+      setMemoryAlerts(mem?.alerts || (Array.isArray(mem) ? mem : []));
+      setLastFetch(new Date());
+    } catch (e) { setError(e.message); }
+    setLoading(false);
+  }, []);
+
+  React.useEffect(() => { fetchAll(); }, [fetchAll]);
+
+  // Normalize all alerts into unified shape
+  const unifiedAlerts = React.useMemo(() => {
+    const all = [];
+
+    orchestratorAlerts.forEach(a => {
+      let alertsRaised = [];
+      try { alertsRaised = typeof a.alerts_raised === 'string' ? JSON.parse(a.alerts_raised || '[]') : (a.alerts_raised || []); } catch {}
+      all.push({
+        source: 'orchestrator', icon: '\u{1F3AF}', sourceLabel: 'Orchestrator',
+        severity: a.categoria_18_2 === 1 ? 'critical' : a.categoria_18_2 === 2 ? 'high' : 'medium',
+        title: alertsRaised.length > 0 ? alertsRaised.join(', ') : (a.content_summary || 'Alert'),
+        detail: `Actor: ${a.actor || '\u2014'} \u00b7 Cat ${a.categoria_18_2 || '\u2014'}`,
+        timestamp: a.created_at, id: `orch-${a.id || a.turn_id}`,
+      });
+    });
+
+    policyViolations.forEach(v => all.push({
+      source: 'policy', icon: '\u{1F6E1}\uFE0F', sourceLabel: 'Policy',
+      severity: v.severity || 'medium',
+      title: v.policy_name || v.rule || 'Violation',
+      detail: `${v.agent_id || ''} \u2014 ${v.description || v.message || ''}`.trim(),
+      timestamp: v.created_at, id: `pol-${v.id || Math.random()}`,
+    }));
+
+    sloAlerts.forEach(s => all.push({
+      source: 'slo', icon: '\u{1F4CA}', sourceLabel: 'SLO',
+      severity: (s.burn_rate || 0) > 5 ? 'critical' : (s.burn_rate || 0) > 2 ? 'high' : 'warning',
+      title: s.slo_name || 'SLO Alert',
+      detail: `Burn rate: ${(s.burn_rate || 0).toFixed(2)}x \u00b7 Budget: ${((s.remaining_budget_pct || 0) * 100).toFixed(1)}%`,
+      timestamp: s.measured_at, id: `slo-${s.slo_name}`,
+    }));
+
+    cybersecIncidents.forEach(c => all.push({
+      source: 'cybersec', icon: '\u{1F510}', sourceLabel: 'CyberSec',
+      severity: c.severity || 'medium',
+      title: c.incident_type || (c.description || '').substring(0, 60) || 'Incident',
+      detail: c.description || '', timestamp: c.created_at, id: `cy-${c.id}`,
+    }));
+
+    cybersecBreaches.forEach(b => all.push({
+      source: 'cybersec', icon: '\u{1F6A8}', sourceLabel: 'Breach',
+      severity: 'critical',
+      title: (b.description || '').substring(0, 60) || 'Breach',
+      detail: `Status: ${b.status || '\u2014'}`, timestamp: b.created_at, id: `br-${b.id}`,
+    }));
+
+    incidents.forEach(inc => all.push({
+      source: 'incidents', icon: '\u{1F525}', sourceLabel: 'Incidente',
+      severity: inc.severity || 'medium',
+      title: (inc.description || '').substring(0, 80) || 'Incident',
+      detail: `${inc.slug || ''} \u00b7 ${inc.status || ''} \u00b7 by ${inc.created_by || '\u2014'}`,
+      timestamp: inc.created_at, id: `inc-${inc.id}`,
+    }));
+
+    memoryAlerts.forEach(m => all.push({
+      source: 'memory', icon: '\u{1F9E0}', sourceLabel: 'Memory',
+      severity: m.severity || 'info',
+      title: (m.message || '').substring(0, 80) || m.alert_type || 'Memory Alert',
+      detail: m.suggested_action || '', timestamp: m.created_at, id: `mem-${m.id}`,
+      acknowledged: m.acknowledged,
+    }));
+
+    all.sort((a, b) => (b.timestamp || '').localeCompare(a.timestamp || ''));
+    return all;
+  }, [orchestratorAlerts, policyViolations, sloAlerts, cybersecIncidents, cybersecBreaches, incidents, memoryAlerts]);
+
+  const filteredAlerts = unifiedAlerts.filter(a => {
+    if (filterSource !== 'all' && a.source !== filterSource) return false;
+    if (filterSeverity !== 'all' && a.severity !== filterSeverity) return false;
+    return true;
+  });
+
+  const counts = {
+    orchestrator: orchestratorAlerts.length, policy: policyViolations.length,
+    slo: sloAlerts.length, cybersec: cybersecIncidents.length + cybersecBreaches.length,
+    incidents: incidents.length, memory: memoryAlerts.length,
+  };
+  const totalAlerts = unifiedAlerts.length;
+  const criticals = unifiedAlerts.filter(a => a.severity === 'critical').length;
+  const highs = unifiedAlerts.filter(a => a.severity === 'high').length;
+
+  const CARD = { background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 14 };
+  const SEV = {
+    critical: { bg: 'rgba(239,68,68,0.12)', color: '#ef4444', dot: '#ef4444', label: 'CRITICAL' },
+    high:     { bg: 'rgba(249,115,22,0.12)', color: '#f97316', dot: '#f97316', label: 'HIGH' },
+    medium:   { bg: 'rgba(245,158,11,0.12)', color: '#f59e0b', dot: '#f59e0b', label: 'MEDIUM' },
+    warning:  { bg: 'rgba(245,158,11,0.12)', color: '#f59e0b', dot: '#f59e0b', label: 'WARNING' },
+    low:      { bg: 'rgba(59,130,246,0.12)', color: '#3b82f6', dot: '#3b82f6', label: 'LOW' },
+    info:     { bg: 'rgba(148,163,184,0.08)', color: '#94a3b8', dot: '#94a3b8', label: 'INFO' },
+  };
+  const getSev = (s) => SEV[s] || SEV.info;
+
+  const SOURCES = [
+    { key: 'all', label: 'Todos', icon: '\u{1F4CB}' },
+    { key: 'orchestrator', label: 'Orchestrator', icon: '\u{1F3AF}' },
+    { key: 'policy', label: 'Policy', icon: '\u{1F6E1}\uFE0F' },
+    { key: 'slo', label: 'SLO', icon: '\u{1F4CA}' },
+    { key: 'cybersec', label: 'CyberSec', icon: '\u{1F510}' },
+    { key: 'incidents', label: 'Incidentes', icon: '\u{1F525}' },
+    { key: 'memory', label: 'Memory', icon: '\u{1F9E0}' },
+  ];
+
+  if (!isAuthed()) return (
+    <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}>
+      <p style={{ fontSize: 13 }}>{'\u{1F511}'} Clave de administrador requerida.</p>
+    </div>
+  );
+
+  return (
+    <div style={{ maxWidth: 960 }}>
+      {/* Header */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
+        <div>
+          <h3 style={{ fontSize: 18, fontWeight: 800, color: '#f1f5f9', margin: '0 0 4px' }}>{'\u{1F6A8}'} Centro de Alertas</h3>
+          <p style={{ fontSize: 11, color: '#94a3b8', margin: 0 }}>
+            7 fuentes {'\u00b7'} Datos en vivo {'\u00b7'} {lastFetch ? `\u00daltimo fetch: ${fmt(lastFetch)}` : 'Cargando...'}
+          </p>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          {criticals > 0 && <span style={{ fontSize: 11, fontWeight: 700, padding: '3px 10px', borderRadius: 50, background: 'rgba(239,68,68,0.15)', color: '#ef4444', animation: 'pulse 2s infinite' }}>{criticals} CRITICAL</span>}
+          {highs > 0 && <span style={{ fontSize: 11, fontWeight: 700, padding: '3px 10px', borderRadius: 50, background: 'rgba(249,115,22,0.12)', color: '#f97316' }}>{highs} HIGH</span>}
+          <button onClick={fetchAll} style={{ background: 'rgba(99,102,241,0.15)', color: '#818cf8', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 8, padding: '6px 14px', cursor: 'pointer', fontSize: 11, fontWeight: 600 }}>{'\u{1F504}'} Refresh</button>
+        </div>
+      </div>
+
+      {loading && <div style={{ textAlign: 'center', padding: 40, color: '#9ca3af' }}>{'\u23F3'} Fetching alertas de 7 endpoints...</div>}
+      {error && <div style={{ ...CARD, background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', marginBottom: 16 }}><p style={{ fontSize: 12, color: '#f87171', margin: 0 }}>{'\u274C'} {error}</p></div>}
+
+      {!loading && (
+        <>
+          {/* Source cards */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 8, marginBottom: 16 }}>
+            {SOURCES.filter(s => s.key !== 'all').map(s => (
+              <div key={s.key} onClick={() => setFilterSource(filterSource === s.key ? 'all' : s.key)} style={{ ...CARD, textAlign: 'center', cursor: 'pointer', opacity: filterSource !== 'all' && filterSource !== s.key ? 0.4 : 1, transition: 'opacity .2s', borderColor: filterSource === s.key ? GENYX_BRAND : 'rgba(255,255,255,0.07)' }}>
+                <div style={{ fontSize: 18 }}>{s.icon}</div>
+                <div style={{ fontSize: 18, fontWeight: 800, color: counts[s.key] > 0 ? '#e2e8f0' : '#4b5563', marginTop: 2 }}>{counts[s.key]}</div>
+                <div style={{ fontSize: 8, color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.05em' }}>{s.label}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Severity filter */}
+          <div style={{ display: 'flex', gap: 6, marginBottom: 16, flexWrap: 'wrap' }}>
+            {['all', 'critical', 'high', 'medium', 'warning', 'low', 'info'].map(s => {
+              const sev = SEV[s] || { color: '#818cf8', bg: 'rgba(99,102,241,0.12)' };
+              const isActive = filterSeverity === s;
+              const count = s === 'all' ? totalAlerts : unifiedAlerts.filter(a => a.severity === s).length;
+              return (
+                <button key={s} onClick={() => setFilterSeverity(filterSeverity === s ? 'all' : s)} style={{ padding: '4px 12px', fontSize: 10, fontWeight: 600, border: 'none', borderRadius: 20, background: isActive ? (s === 'all' ? 'rgba(99,102,241,0.2)' : sev.bg) : 'rgba(255,255,255,0.04)', color: isActive ? (s === 'all' ? '#818cf8' : sev.color) : '#9ca3af', cursor: 'pointer', transition: 'all .2s' }}>
+                  {s === 'all' ? 'Todos' : s.toUpperCase()} ({count})
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Policy stats */}
+          {policyStats && (
+            <div style={{ ...CARD, display: 'flex', gap: 20, justifyContent: 'space-between', marginBottom: 16, padding: '10px 20px' }}>
+              <span style={{ fontSize: 10, color: '#94a3b8' }}>{'\u{1F4CA}'} Policy: <strong style={{ color: '#818cf8' }}>{policyStats.total || 0}</strong> total {'\u00b7'} <strong style={{ color: '#ef4444' }}>{policyStats.unresolved || 0}</strong> unresolved {'\u00b7'} <strong style={{ color: '#f97316' }}>{policyStats.deny_count || 0}</strong> denied {'\u00b7'} <strong style={{ color: '#f59e0b' }}>{policyStats.require_founder_approval_count || 0}</strong> founder req.</span>
+            </div>
+          )}
+
+          {/* Alert list */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            {filteredAlerts.length === 0 ? (
+              <div style={{ ...CARD, textAlign: 'center', padding: 40 }}>
+                <div style={{ fontSize: 28, marginBottom: 8 }}>{'\u2705'}</div>
+                <p style={{ fontSize: 13, fontWeight: 600, color: '#e2e8f0', margin: '0 0 4px' }}>Sin alertas{filterSource !== 'all' ? ` de ${filterSource}` : ''}</p>
+                <p style={{ fontSize: 11, color: '#9ca3af', margin: 0 }}>Sistema operando normalmente. {totalAlerts} alertas totales.</p>
+              </div>
+            ) : filteredAlerts.slice(0, 50).map(a => {
+              const sev = getSev(a.severity);
+              return (
+                <div key={a.id} style={{ ...CARD, display: 'flex', alignItems: 'flex-start', gap: 10, padding: '10px 14px', borderLeft: `3px solid ${sev.dot}`, opacity: a.acknowledged ? 0.5 : 1 }}>
+                  <span style={{ fontSize: 14, flexShrink: 0, marginTop: 1 }}>{a.icon}</span>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 2 }}>
+                      <span style={{ fontSize: 8, fontWeight: 700, padding: '2px 8px', borderRadius: 20, background: sev.bg, color: sev.color, textTransform: 'uppercase', letterSpacing: '.06em', flexShrink: 0 }}>{sev.label}</span>
+                      <span style={{ fontSize: 8, fontWeight: 600, color: '#64748b', textTransform: 'uppercase', flexShrink: 0 }}>{a.sourceLabel}</span>
+                      {a.acknowledged && <span style={{ fontSize: 8, fontWeight: 600, color: '#10b981' }}>{'\u2713'} ACK</span>}
+                    </div>
+                    <div style={{ fontSize: 12, fontWeight: 600, color: '#e2e8f0', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{a.title}</div>
+                    {a.detail && <div style={{ fontSize: 10, color: '#94a3b8', marginTop: 2, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{a.detail}</div>}
+                  </div>
+                  <span style={{ fontSize: 9, color: '#64748b', flexShrink: 0, whiteSpace: 'nowrap' }}>{a.timestamp ? fmt(a.timestamp) : '\u2014'}</span>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Footer */}
+          <div style={{ marginTop: 16, textAlign: 'center', fontSize: 10, color: '#4b5563' }}>
+            Mostrando {Math.min(filteredAlerts.length, 50)} de {filteredAlerts.length} alertas {'\u00b7'} Fuentes: {Object.entries(counts).filter(([,v]) => v > 0).map(([k,v]) => `${k}(${v})`).join(' \u00b7 ') || 'ninguna'} {'\u00b7'} REGLA 23: datos reales
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
 function TabPeriodico() {
   const [edition, setEdition] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
@@ -13323,6 +13587,7 @@ export default function GenyXOperatorDashboard() {
         {tab === 'cockpit_agentes' && <TabCockpitAgentes tenants={tenants} selectedSlug={selectedSlug} />}
         {tab === 'backstage'       && <TabBackstage tenants={tenants} health={health} orders={orders} selectedSlug={selectedSlug} setSelectedSlug={setSelectedSlug} />}
         {tab === 'radar'           && <TabRadarIntel />}
+        {tab === 'alertas'         && <TabAlertCenter />}
         {tab === 'periodico'       && <TabPeriodico />}
 
         {/* ═══ LEGACY (accesible via URL directa, no en nav) ═══ */}
