@@ -9849,6 +9849,7 @@ function A9DrillDown() {
   const reviews = data?.reviews || data?.recent_reviews || [];
   const pipeline = data?.pipeline || data?.filters || {};
   const FILTERS = ['LEGAL', 'PLATAFORMA', 'METODOLOGÍA', 'VERACIDAD', 'AGREGADO'];
+  const FILTER_KEY_MAP = { 'LEGAL': 'legal', 'PLATAFORMA': 'plataforma', 'METODOLOGÍA': 'metodologia', 'VERACIDAD': 'veracidad', 'AGREGADO': '__agregado__' };
 
   return (
     <div style={{ maxWidth: 800 }}>
@@ -9878,7 +9879,8 @@ function A9DrillDown() {
         <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 12 }}>🔗 Pipeline 5-filter</p>
         <div style={{ display: 'flex', gap: 6, justifyContent: 'center', flexWrap: 'wrap' }}>
           {FILTERS.map((f, i) => {
-            const fd = pipeline[f] || pipeline[f.toLowerCase()] || {};
+            const bk = FILTER_KEY_MAP[f] || f.toLowerCase();
+                const fd = bk === '__agregado__' ? (data?.agregado || {}) : (pipeline[bk] || pipeline[f.toLowerCase()] || {});
             return (
               <React.Fragment key={f}>
                 <div style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8, padding: '10px 12px', textAlign: 'center', minWidth: 100 }}>
