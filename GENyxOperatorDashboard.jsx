@@ -11166,9 +11166,13 @@ function TabSLODashboard() {
 
   React.useEffect(() => {
     setLoading(true); setError(null);
+    const h = getAH();
     Promise.all([
-      fetch(`${BACKEND}/api/admin/slo/dashboard`, { headers: getAH() }).then(r => r.ok ? r.json() : null).catch(() => null),
-      fetch(`${BACKEND}/api/admin/slo/alerts-active`, { headers: getAH() }).then(r => r.ok ? r.json() : null).catch(() => null),
+      fetch(`${BACKEND}/api/admin/slo/dashboard`, { headers: h }).then(r => {
+        if (r.status === 401 || r.status === 403) { setError('Admin key inválida o ausente — verifica tu sesión'); return null; }
+        return r.ok ? r.json() : null;
+      }).catch(() => null),
+      fetch(`${BACKEND}/api/admin/slo/alerts-active`, { headers: h }).then(r => r.ok ? r.json() : null).catch(() => null),
     ]).then(([d, a]) => { setData(d); setAlerts(a); setLoading(false); })
       .catch(() => { setError('Error cargando SLO data'); setLoading(false); });
   }, []);
@@ -11249,9 +11253,13 @@ function TabPolicyViolations() {
 
   React.useEffect(() => {
     setLoading(true); setError(null);
+    const h = getAH();
     Promise.all([
-      fetch(`${BACKEND}/api/admin/policy/violations`, { headers: getAH() }).then(r => r.ok ? r.json() : null).catch(() => null),
-      fetch(`${BACKEND}/api/admin/policy/violations/stats`, { headers: getAH() }).then(r => r.ok ? r.json() : null).catch(() => null),
+      fetch(`${BACKEND}/api/admin/policy/violations`, { headers: h }).then(r => {
+        if (r.status === 401 || r.status === 403) { setError('Admin key inválida o ausente — verifica tu sesión'); return null; }
+        return r.ok ? r.json() : null;
+      }).catch(() => null),
+      fetch(`${BACKEND}/api/admin/policy/violations/stats`, { headers: h }).then(r => r.ok ? r.json() : null).catch(() => null),
     ]).then(([v, s]) => { setViolations(v); setStats(s); setLoading(false); })
       .catch(() => { setError('Error cargando policy data'); setLoading(false); });
   }, []);
