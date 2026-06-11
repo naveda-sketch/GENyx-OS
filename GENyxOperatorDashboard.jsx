@@ -9833,7 +9833,7 @@ function A9DrillDown() {
 
   React.useEffect(() => {
     if (!adminKey) { setLoading(false); return; }
-    fetch(`${BACKEND}/api/admin/vigia-report`, { headers })
+    fetch(`${BACKEND}/api/admin/vigia/stats?days=30`, { headers })
       .then(r => r.ok ? r.json() : null)
       .then(d => { setData(d); setLoading(false); })
       .catch(() => setLoading(false));
@@ -9859,10 +9859,10 @@ function A9DrillDown() {
       {data && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 20 }}>
           {[
-            { label: 'Reviews PASS', value: data.reviews_pass || data.pass_count || 0, icon: '✅' },
-            { label: 'Reviews WARN', value: data.reviews_warn || data.warn_count || 0, icon: '⚠️' },
-            { label: 'Reviews BLOCK', value: data.reviews_block || data.block_count || 0, icon: '🚫' },
-            { label: 'Alertas críticas', value: data.critical_alerts || data.alertas_criticas || 0, icon: '🚨' },
+            { label: 'Reviews PASS', value: data.agregado?.pass || data.reviews_pass || 0, icon: '✅' },
+            { label: 'Reviews WARN', value: data.agregado?.warn || data.reviews_warn || 0, icon: '⚠️' },
+            { label: 'Reviews BLOCK', value: data.agregado?.block || data.reviews_block || 0, icon: '🚫' },
+            { label: 'Window (días)', value: data.window_days || 30, icon: '📊' },
           ].map(k => (
             <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
               <div style={{ fontSize: 20 }}>{k.icon}</div>
