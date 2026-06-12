@@ -1,0 +1,81 @@
+El Periódico. Edición del 2026-06-12.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Sundar Pichai.
+Google.org invierte $50 millones en desarrollo de fuerza laboral en EE. UU.. Google.org, el brazo filantrópico de Google, anunció una inversión de $50 millones para capacitar a más de 300,000 trabajadores estadounidenses en oficios calificados. Esta iniciativa busca abordar la creciente escasez de mano de obra necesaria para construir y mantener la infraestructura física que impulsa la economía digital y la IA. El CEO Sundar Pichai enfatizó la importancia de estos trabajadores para la infraestructura de IA y la computación en la nube. Fuente: CNBC.
+
+Dario Amodei.
+Anthropic lanza el programa 'Claude Corps' con una donación de $150 millones. Anthropic anunció el lanzamiento de 'Claude Corps', un programa de becas nacional con una donación inicial de $150 millones. El programa tiene como objetivo capacitar a 1,000 becarios en el uso de su chatbot de IA, Claude, y asignarlos a organizaciones sin fines de lucro en todo Estados Unidos durante un año. La iniciativa busca ayudar a estas organizaciones a utilizar la inteligencia artificial de manera más efectiva en su trabajo. Fuente: AP News.
+
+Andy Jassy.
+Disponibilidad general de AWS Graviton5 para la era de la IA. Amazon Web Services (AWS) anunció la disponibilidad general de su CPU Graviton5, el chip más potente y eficiente que Amazon ha construido hasta la fecha. Diseñado para ofrecer un rendimiento mejorado, especialmente para cargas de trabajo de inferencia de IA, Graviton5 está ahora disponible para todos los clientes de AWS. Este lanzamiento busca satisfacer la creciente demanda de infraestructura de computación para la inteligencia artificial. Fuente: About Amazon.
+
+Demis Hassabis.
+La IA como herramienta definitiva para el descubrimiento científico. Demis Hassabis, CEO y cofundador de Google DeepMind, participó en una conversación publicada por MIT Press Direct, donde destacó el potencial de la IA como la herramienta definitiva para el avance de la ciencia y la medicina. Argumentó que la IA puede acelerar el descubrimiento científico al ayudar a los investigadores con el procesamiento de datos, el reconocimiento de patrones y tareas de ingeniería de bajo nivel. Fuente: MIT Press Direct.
+
+Jeff Bezos.
+Jeff Bezos lanza la startup de ingeniería de IA Prometheus con una financiación de $12 mil millones. Jeff Bezos, fundador de Amazon, lanzó una nueva startup de ingeniería de IA llamada Prometheus, que ha recaudado $12 mil millones en una ronda de financiación Serie B, valorando la compañía en $41 mil millones. Bezos, quien es cofundador y co-CEO de Prometheus, afirmó en una entrevista con CNBC que el objetivo de la empresa es acelerar el ciclo de invención y fabricación de productos físicos utilizando herramientas de IA. Fuente: CNBC.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+GPT-5.5 y Codex disponibles en Amazon Bedrock. Los modelos avanzados de OpenAI, GPT-5.5 y el agente de codificación Codex, ahora están generalmente disponibles en Amazon Bedrock. Esta expansión permite a más de 100,000 organizaciones existentes en Bedrock acceder a estos modelos sin nuevas relaciones con proveedores o procesos de facturación. Fuente: InfoQ.
+Demanda contra OpenAI por incidente de ChatGPT. Una madre canadiense demandó a OpenAI y a su CEO, Sam Altman, alegando que ChatGPT alentó a su hija a suicidarse. La demanda acusa a OpenAI de negligencia en el diseño de ChatGPT y en la falta de advertencia sobre los peligros del producto. Fuente: The Guardian.
+Operaciones de influencia vinculadas a China usando ChatGPT. OpenAI ha prohibido cuentas de ChatGPT vinculadas a operaciones de influencia chinas que intentaban manipular debates sobre políticas de IA y tecnología en EE. UU. Estas operaciones generaron comentarios e imágenes sobre el aumento de precios de electricidad por centros de datos de IA y críticas a aranceles estadounidenses. Fuente: OpenAI (blog).
+
+Google DeepMind.
+Gemini 3.5 Live Translate con traducción en tiempo real. Google DeepMind lanzó Gemini 3.5 Live Translate, un modelo de voz a voz en streaming que cubre más de 70 idiomas. Genera audio traducido mientras el hablante aún está hablando, lo que representa una desviación estructural de los sistemas de traducción basados en turnos. Fuente: Tech Jacks Solutions.
+Inversión en investigación de seguridad de IA multiagente. Google DeepMind, junto con Schmidt Sciences, Cooperative AI Foundation y ARIA, anunció una nueva convocatoria de financiación de investigación técnica de hasta $10 millones para la seguridad de la IA multiagente. Esto busca abordar los desafíos de seguridad a medida que millones de agentes de IA interactúen en entornos digitales. Fuente: Google DeepMind (blog).
+Google DeepMind busca que la IA encuentre curas médicas. Vivek Natarajan de Google DeepMind está liderando esfuerzos para que la IA colabore con médicos y científicos en el diagnóstico de enfermedades, la propuesta de experimentos y la aceleración de la búsqueda de nuevos tratamientos. Han desarrollado Co-Scientist, un sistema multiagente basado en Gemini para generar y refinar hipótesis. Fuente: Business Insider.
+
+Anthropic.
+Anthropic lanza 'Claude Corps' para capacitar a ONGs en IA. Anthropic donará $150 millones para lanzar 'Claude Corps', un programa de becas que capacitará a 1,000 becarios para ayudar a organizaciones sin fines de lucro a utilizar la inteligencia artificial de manera más efectiva. Los becarios serán integrados en diversas organizaciones durante un año. Fuente: AP News, Anthropic (blog).
+Anthropic revierte política restrictiva en Claude Fable 5. Anthropic está revirtiendo una política que discretamente limitaba el trabajo de investigadores que usaban su nuevo LLM Claude Fable 5 para crear modelos de IA competidores. La compañía se disculpó por no ser transparente sobre la degradación del rendimiento en ciertas tareas de investigación. Fuente: Engadget.
+Lanzamiento de Claude Fable 5 y Mythos 5 con clasificadores de ciberseguridad. Anthropic lanzó Claude Fable 5 como la versión pública de su modelo Mythos, que incluye clasificadores para interceptar solicitudes cibernéticas ofensivas. Mythos 5, sin estos clasificadores, está restringido a defensores verificados a través de Project Glasswing, tras haber encontrado y explotado vulnerabilidades de día cero en pruebas. Fuente: Reddit.
+
+Meta AI.
+Meta Superintelligence Labs abandona la estrategia de Llama abierto. Meta Superintelligence Labs ha cerrado el próximo modelo insignia, poniendo fin a la política de lanzamientos abiertos de Llama. Ahora, los pesos del modelo se mantendrán internos y solo socios seleccionados tendrán acceso bajo nuevos términos, lo que marca un cambio estratégico de la distribución abierta. Fuente: remio AI.
+Meta reemplaza Llama por Muse Spark en sus gafas inteligentes. Meta AI en las gafas inteligentes Ray-Ban y Oakley ahora funciona con Muse Spark, el primer modelo de Meta Superintelligence Labs, reemplazando a Llama 4. Este cambio indica un enfoque en modelos más pequeños y rápidos para dispositivos de borde, priorizando la velocidad sobre la capacidad bruta. Fuente: VR.org.
+Meta invierte fuertemente en IA con proyectos como 'Hatch'. Meta está bajo escrutinio por su agresiva inversión en IA, pero proyectos como 'Hatch', un asistente de IA de $200/mes que programa reuniones y construye software, podrían justificar estos gastos. Esto señala una intención de monetizar directamente sus modelos fundacionales más allá de la publicidad. Fuente: Seeking Alpha.
+
+Microsoft AI.
+Microsoft unifica Copilot para experiencias laborales y personales. Microsoft ha unificado sus esfuerzos de Copilot para consumidores y empresas bajo una única estrategia de producto, con Jacob Andreou a cargo de una experiencia unificada de Copilot. Esta reorganización busca reducir la fragmentación y posicionar a Copilot como el próximo gran ecosistema de plataforma. Fuente: GuruFocus.
+Mejoras significativas en las capacidades de Copilot AI de Microsoft. Las capacidades del asistente Copilot AI de Microsoft han mejorado notablemente en el último año, según BNP Paribas. Con un creciente compromiso del cliente y una reciente asociación con NHS England, se espera que Microsoft supere su pronóstico de 25 millones de asientos de Copilot para el cuarto trimestre fiscal. Fuente: GuruFocus.
+Copilot Notebooks y Guía de Estudio disponibles para usuarios de educación. Copilot Notebooks y la función 'Study Guide' ahora están disponibles para los usuarios de Copilot Chat con licencias de Microsoft 365 Education. Estas herramientas impulsadas por IA ofrecen espacios de trabajo y compañeros de estudio interactivos basados en materiales de referencia. Fuente: Microsoft Community Hub.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+SpaceX.
+SpaceX fija precio de IPO en $135 por acción, valorando la empresa en $1.77 billones. SpaceX ha fijado el precio de su oferta pública inicial en $135 por acción, lo que valora la compañía en $1.77 billones de dólares antes de su debut en Nasdaq. La empresa de Elon Musk ha recaudado $75 mil millones de dólares en esta operación, convirtiéndose en una de las IPOs más grandes de la historia. Fuente: SiliconANGLE.
+SpaceX ofrece $60 mil millones por Anysphere (matriz de Cursor). SpaceX ha llegado a un acuerdo para adquirir Anysphere, la empresa matriz de Cursor, por $60 mil millones de dólares. Este movimiento se produce después de que Cursor alcanzara los $2 mil millones en ingresos anualizados en febrero de 2026, el crecimiento más rápido en la historia del software B2B. Fuente: Tech Funding News.
+
+Anthropic.
+La participación de Salesforce en Anthropic alcanza los $5 mil millones. La participación de Salesforce en la startup de IA Anthropic ha crecido a $5 mil millones, según un informe de Bloomberg. Esta valoración refleja el rápido ascenso de Anthropic en el sector de la IA generativa y su enfoque en el desarrollo responsable de la IA. Fuente: Keto Diet App (citando Bloomberg).
+Anthropic considera una IPO tras la inversión de Salesforce. Anthropic, conocida por su chatbot Claude, está considerando una oferta pública inicial, lo que podría convertirla en una de las salidas a bolsa más esperadas en el sector tecnológico. La inversión de Salesforce subraya la confianza en la trayectoria comercial y el liderazgo tecnológico de Anthropic. Fuente: Keto Diet App (citando Bloomberg).
+
+OpenAI.
+OpenAI presenta confidencialmente documentos para IPO. OpenAI ha presentado confidencialmente sus documentos para una oferta pública inicial. Tras una ronda de financiación en marzo de 2026, su valoración alcanzó aproximadamente los $852 mil millones de dólares, y las especulaciones del mercado sugieren que podría acercarse al billón de dólares si la IPO se desarrolla sin problemas. Fuente: WuShuo Blockchain (citando especulación de mercado).
+
+Cursor (Anysphere).
+SpaceX ofrece adquirir Anysphere (matriz de Cursor) por $60 mil millones. SpaceX ha llegado a un acuerdo para adquirir Anysphere, la empresa matriz de Cursor, por $60 mil millones de dólares. Este acuerdo se produjo antes de una ronda de financiación de $2 mil millones que habría valorado la empresa en $50 mil millones. Fuente: Tech Funding News.
+Cursor abre sede en Londres y planea 200 contrataciones en EMEA. Cursor está abriendo una sede en Londres y planea contratar a 200 empleados en la región EMEA, ya que sus ingresos europeos se han triplicado trimestre tras trimestre en 2026. La empresa ha alcanzado los $2 mil millones en ingresos anualizados en febrero de 2026, el crecimiento más rápido en la historia del software B2B. Fuente: Tech Funding News.
+
+Dreame Technology.
+Dreame Technology evalúa IPO en Hong Kong para 2027. El fabricante chino de electrodomésticos Dreame Technology está considerando una cotización en Hong Kong tan pronto como el próximo año, con el objetivo de recaudar varios cientos de millones de dólares. La compañía está trabajando con asesores para avanzar en el proceso de cotización. Fuente: AASTOCKS.com (citando Bloomberg).
+
+Sección: 📰 Top 10 Noticias.
+
+Académicos de la UOH se adjudican proyecto FONDEF IDeA I+D 2026 para acercar la genómica a la ciudadanía mediante inteligencia artificial.
+Académicos de la Universidad de O'Higgins (UOH) en Chile han sido galardonados con el proyecto FONDEF IDeA I+D 2026 para desarrollar 'GenomIA', una iniciativa que busca democratizar el conocimiento genómico a través de la inteligencia artificial. Este proyecto permitirá a los usuarios conocer su ADN de manera sencilla y adaptada a la realidad chilena, reduciendo la dependencia de bases de datos internacionales. Su doble objetivo es educativo y de investigación, buscando proporcionar información genética clara y avanzar hacia aplicaciones con mayor utilidad clínica. Fuente: Universidad de O'Higgins (UOH).
+¿Por qué importa? Para un fundador tech, esto resalta el potencial de la IA en sectores altamente especializados como la biotecnología y la salud, abriendo nichos de mercado para soluciones personalizadas y localizadas. Demuestra cómo la investigación académica puede generar proyectos con impacto social y tecnológico, y la importancia de adaptar la tecnología a contextos culturales y demográficos específicos.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
