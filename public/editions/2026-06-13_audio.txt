@@ -1,0 +1,114 @@
+El Periódico. Edición del 2026-06-13.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Elon Musk.
+Salida a bolsa de SpaceX y Musk se convierte en el primer trillonario. SpaceX realizó su oferta pública inicial (IPO), valorando la compañía en aproximadamente 1.77 billones de dólares. Este evento impulsó la fortuna de Elon Musk a cerca de 1.1 billones de dólares, convirtiéndolo en la primera persona en alcanzar el estatus de trillonario en papel. Fuente: CBS News.
+Veredicto en la demanda de Musk contra OpenAI. Un jurado federal emitió un veredicto en la demanda de Elon Musk contra OpenAI, en la que Musk acusó a la empresa de violar su misión fundacional como organización sin fines de lucro. Los detalles específicos del veredicto no se han revelado completamente. Fuente: Fox Business.
+
+Satya Nadella.
+Llamado a un uso más inteligente de la IA y a la confianza pública. Satya Nadella instó a los empleados de Microsoft a ser más inteligentes en el uso de la inteligencia artificial, enfocándose en los resultados en lugar de solo aumentar las métricas de uso. También abordó el escepticismo público sobre la IA, afirmando que el rechazo es superable y que la IA puede aumentar los salarios y la prosperidad si se gestiona bien. Fuente: The Times of India.
+
+Sam Altman.
+Aplazamiento de visita a Corea del Sur. Sam Altman pospuso su visita programada de dos días a Corea del Sur, que debía comenzar el 14 de junio, debido a un 'compromiso importante en Estados Unidos' o 'razones personales'. Tenía previsto reunirse con ejecutivos de Samsung Electronics, Kakao y Naver. Fuente: Seoul Economic Daily.
+Involucramiento en la demanda de Elon Musk. Como CEO de OpenAI, Sam Altman está implícitamente involucrado en el veredicto del jurado federal sobre la demanda de Elon Musk, quien acusó a OpenAI de violar su misión fundacional sin fines de lucro. Fuente: Fox Business.
+
+Mark Zuckerberg.
+Reconocimiento de errores en la transformación de la fuerza laboral con IA. Mark Zuckerberg comunicó a los empleados de Meta, a través de un memorándum interno, que la compañía ha cometido 'errores' en la transformación de su fuerza laboral impulsada por la inteligencia artificial. Meta está invirtiendo cientos de miles de millones de dólares en IA para reestructurar sus operaciones. Fuente: Reuters (vía CTV News).
+
+Jeff Bezos.
+Prometheus recauda 12 mil millones de dólares y visión sobre el empleo en la IA. Prometheus, la startup de IA industrial de Jeff Bezos, cerró una ronda de financiación Serie B de 12 mil millones de dólares, valorando la empresa en 41 mil millones de dólares. Bezos también afirmó que la IA creará escasez de mano de obra al expandir las oportunidades, en lugar de generar desempleo masivo. Fuente: 24/7 Wall St..
+Actualización sobre el cohete New Glenn de Blue Origin. Jeff Bezos proporcionó una actualización sobre el cohete New Glenn de Blue Origin, indicando que volverá a volar antes de finales de 2026. Esto ocurre a pesar de una reciente explosión durante una prueba de fuego estático en Cabo Cañaveral, Florida. Fuente: The Times of India.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+OpenAI considera recortes de precios. OpenAI está evaluando recortes significativos en los precios de sus herramientas de IA, específicamente en los 'tokens' utilizados para la facturación, para competir con Anthropic. El CEO Sam Altman reconoció que los altos costos de los tokens se han convertido en un 'gran problema' para los clientes empresariales, lo que ha llevado a la compañía a buscar eficiencias. Fuente: Forbes.
+OpenAI adquiere Ona. OpenAI anunció la adquisición de Ona, una empresa que proporciona entornos de nube seguros y persistentes para agentes de IA. Esta adquisición busca expandir las capacidades de Codex, permitiendo a las organizaciones implementar agentes de manera segura en flujos de trabajo de producción y ofreciendo a los humanos más control sobre su trabajo. Fuente: OpenAI.
+
+Google DeepMind.
+Inversión en investigación de seguridad de IA multiagente. Google DeepMind, junto con Schmidt Sciences y otros socios, ha lanzado una convocatoria de financiación de hasta $10 millones para la investigación técnica en seguridad de IA multiagente. El objetivo es abordar los desafíos de seguridad a medida que millones de agentes de IA interactúen en entornos digitales. Fuente: Google DeepMind.
+Google DeepMind lanza DiffusionGemma. Google DeepMind lanzó DiffusionGemma, un modelo de código abierto de 26 mil millones de parámetros que genera texto cuatro veces más rápido que los modelos autorregresivos tradicionales, utilizando una técnica de difusión. El modelo puede producir más de 1,000 tokens por segundo en una GPU Nvidia H100 y soporta entradas multimodales. Fuente: Google DeepMind.
+Hoja de ruta de AGI a ASI. Google DeepMind publicó un documento de 60 páginas titulado 'De AGI a ASI' en arXiv, delineando cuatro posibles caminos para la evolución de la inteligencia artificial general a la superinteligencia artificial. El documento cubre el escalado de modelos actuales, nuevos algoritmos, la auto-mejora recursiva y los colectivos multiagente. Fuente: arXiv.
+
+Anthropic.
+EE. UU. ordena a Anthropic suspender acceso a Fable 5 y Mythos 5. El gobierno de EE. UU. ha ordenado a Anthropic suspender el acceso a sus modelos de IA más avanzados, Fable 5 y Mythos 5, para todos los ciudadanos extranjeros, citando preocupaciones de seguridad nacional. Anthropic ha deshabilitado los modelos para garantizar el cumplimiento, aunque cree que hay un 'malentendido' sobre la gravedad de la supuesta 'jailbreak' encontrada. Fuente: Anthropic.
+
+Meta AI.
+Zuckerberg admite errores en la reestructuración de IA de Meta. Mark Zuckerberg, CEO de Meta, admitió en un memorándum interno que la compañía cometió errores en la reorganización del personal en torno a la IA, que incluyó despidos y reasignaciones de roles. Meta reasignó a 7,000 empleados a trabajos relacionados con la IA y no espera más despidos a nivel de toda la empresa este año. Fuente: Reuters.
+Meta implementa sistema de seguimiento de costos de IA. Meta está implementando un nuevo sistema interno llamado 'AI Gateway' para rastrear el uso y los gastos de IA en todos sus equipos, en respuesta al aumento de los costos de IA. La plataforma incluirá controles de gasto, presupuestos y límites de uso para mejorar la eficiencia y la visibilidad del consumo de recursos de IA. Fuente: The Information.
+Meta desvincula a Manus AI tras disputa con gobierno chino. Meta ha completado la separación de sus operaciones de Manus, la startup china de IA que adquirió por aproximadamente $2 mil millones, después de una disputa con el gobierno chino. Los empleados de Manus han perdido el acceso a los sistemas internos de Meta, y la plataforma está siendo 'desactivada', con proyectos existentes migrados a los sistemas propios de Meta. Fuente: Bloomberg.
+
+Microsoft AI.
+Microsoft extiende funciones de IA a más PCs con Windows 11. Microsoft está expandiendo las funciones de IA a una gama más amplia de PCs con Windows 11, permitiendo que dispositivos con GPUs adecuadas ejecuten capacidades de IA localmente, sin depender exclusivamente de NPUs en PCs Copilot+. Esto incluye el modelo de lenguaje pequeño Phi Silica para tareas como reescritura y resumen de texto. Fuente: Microsoft.
+Nuevos modelos de Microsoft AI como 'bloques de construcción' para la superinteligencia. Mustafa Suleyman, CEO de Microsoft AI, afirmó que los últimos modelos de la compañía, incluyendo MAI-Thinking-1 (un modelo de razonamiento de 35 mil millones de parámetros), son 'bloques de construcción' fundamentales para futuras superinteligencias. Microsoft AI está desarrollando sus propios modelos de frontera para lograr autosuficiencia en IA. Fuente: Microsoft AI.
+Microsoft inicia construcción de centro de datos en San José para IA. Microsoft ha iniciado la construcción de un campus de centro de datos de 48 megavatios en San José, California, su primera instalación propia y operada en la ciudad. Este centro está diseñado para satisfacer la creciente demanda de computación en la nube y capacidades de inteligencia artificial, y se espera que esté operativo en aproximadamente 18 meses. Fuente: Microsoft.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+SpaceX.
+SpaceX realiza la "IPO más grande de todos los tiempos". Las acciones de SpaceX cerraron con un aumento del 19% después de su Oferta Pública Inicial (IPO), marcando la IPO más grande registrada. Este evento capitaliza un viaje notable para la compañía que ha recaudado casi $12 mil millones en inversión privada desde su fundación en 2002. Fuente: Crunchbase News.
+
+NinjaOne.
+NinjaOne lidera con una ronda de financiación de $400M. La empresa de software empresarial NinjaOne ha asegurado una ronda de financiación de $400 millones, siendo una de las mayores transacciones de la semana. Este capital significativo subraya la confianza de los inversores en su crecimiento y su posición en el mercado. Fuente: Crunchbase News.
+
+Modal Labs.
+Modal Labs recauda $355M en ronda Serie C. La startup de Nueva York, Modal Labs, ha cerrado una ronda Serie C de $355 millones, liderada por General Catalyst y Redpoint, alcanzando una valoración de $4.65 mil millones. La compañía proporciona herramientas de computación en la nube sin servidor y acceso a GPU para ejecutar modelos de IA. Fuente: Crunchbase News.
+
+Mercury.
+Mercury recauda $200M en ronda Serie D. Mercury ha levantado $200 millones en una ronda Serie D liderada por TCV, alcanzando una valoración de $5.2 mil millones. Inversores previos como Andreessen Horowitz y Sequoia Capital también participaron, reafirmando su confianza en la plataforma fintech. Fuente: Crunchbase News.
+
+Poetic.
+Poetic asegura $50M en ronda Serie A con inversión de OpenAI. Poetic, una plataforma de automatización de IA empresarial, ha completado una ronda Serie A de $50 millones. Entre los inversores se encuentran Kleiner Perkins, Founders Fund, First Harmonic y OpenAI, lo que subraya el interés de grandes actores tecnológicos en sus soluciones de IA. Fuente: Buttondown (Angel Registry Update).
+
+Sección: 📰 Top 10 Noticias.
+
+SpaceX debuta en bolsa con un sólido rendimiento, convirtiéndose en la empresa más valiosa de Musk..
+SpaceX, la compañía aeroespacial de Elon Musk, realizó su oferta pública inicial (IPO) el 12 de junio, con sus acciones subiendo un 19% en su debut. Este evento batió récords y la convirtió en la empresa más valiosa de Musk, superando a Tesla. La IPO generó un optimismo significativo en Wall Street. Fuente: Bloomberg Línea.
+¿Por qué importa? Este debut exitoso valida el potencial de las empresas de 'nueva economía espacial' y demuestra la confianza de los inversores en tecnologías disruptivas a gran escala. Para los fundadores tech, subraya la importancia de la visión a largo plazo y la capacidad de ejecutar proyectos ambiciosos para atraer capital masivo y lograr una valoración récord.
+
+Anthropic busca US$10.000 millones en financiamiento para escalar su competencia en IA..
+Anthropic, uno de los principales desarrolladores de inteligencia artificial, está buscando recaudar US$10.000 millones en una nueva ronda de financiamiento. Este capital le permitiría competir de manera más agresiva con gigantes como OpenAI y xAI, consolidando su posición en la carrera por la IA. Fuente: Bloomberg Línea.
+¿Por qué importa? Esta noticia resalta la intensa carrera por el dominio en la IA y la enorme cantidad de capital necesaria para mantenerse competitivo. Para los fundadores tech, indica que el acceso a financiamiento sustancial es crucial para el desarrollo de modelos de IA de vanguardia y la infraestructura asociada.
+
+Klar, la fintech mexicana, asegura US$190 millones en ronda de inversión Serie C..
+La fintech mexicana Klar cerró una ronda de inversión Serie C de US$190 millones, con la participación de Santander, Televisa y Grupo Fórmula. La ronda, liderada por General Atlantic, incluyó US$170 millones en capital y US$20 millones en deuda de riesgo, fortaleciendo su expansión en México. Fuente: Bloomberg Línea.
+¿Por qué importa? Demuestra el continuo interés de grandes inversores y corporaciones en el sector fintech latinoamericano. Para los fundadores, es una señal de que el mercado sigue siendo atractivo para soluciones financieras innovadoras, especialmente aquellas que logran alianzas estratégicas con actores establecidos.
+
+Merama, la plataforma de e-commerce, recauda US$215 millones con el respaldo de Marcel Telles..
+Merama, una empresa que ayuda a crecer a las marcas de comercio electrónico en América Latina, ha levantado US$215 millones en una ronda de inversión. La ronda atrajo al fundador de 3G, Marcel Telles, y la compañía ha adquirido más de 20 marcas de e-commerce en la región. Fuente: Bloomberg Línea.
+¿Por qué importa? Subraya la vitalidad del ecosistema de e-commerce en LatAm y el modelo de 'roll-up' de marcas. Los fundadores pueden ver esto como una validación de estrategias de crecimiento inorgánico y la importancia de atraer inversores estratégicos con experiencia en la construcción de imperios empresariales.
+
+Base10 Partners cierra dos fondos por US$850 millones para invertir en automatización de la economía real..
+Base10 Partners ha cerrado dos nuevos fondos que suman un total de US$850 millones, destinados a invertir en empresas que automatizan la 'economía real'. Este movimiento estratégico busca capitalizar la creciente demanda de soluciones tecnológicas que optimicen sectores tradicionales. Fuente: Crunchbase News.
+¿Por qué importa? Indica una tendencia de inversión significativa hacia la automatización y la digitalización de industrias no tecnológicas. Los fundadores tech deben considerar cómo sus innovaciones pueden aplicarse a sectores tradicionales para resolver problemas de eficiencia y productividad, atrayendo así capital de fondos especializados.
+
+Wall Street cierra con optimismo ante señales de posible fin de conflicto en Irán..
+Los mercados de Wall Street cerraron en verde, impulsados por el optimismo ante las señales de un posible fin del conflicto en Irán. Este factor geopolítico contribuyó a un ambiente positivo en los mercados, sumándose al sólido debut de SpaceX. Fuente: Bloomberg Línea.
+¿Por qué importa? Los fundadores tech deben estar al tanto de los factores macroeconómicos y geopolíticos que influyen en la confianza del inversor y la estabilidad del mercado. Un entorno de menor incertidumbre puede facilitar la inversión y el crecimiento, mientras que la inestabilidad puede impactar negativamente las valoraciones y el acceso a capital.
+
+Moody's Ratings confirma calificaciones de emisor a largo plazo en medio de la volatilidad del mercado..
+Moody's Ratings confirmó el viernes las calificaciones de emisor a largo plazo en moneda local y extranjera de varias entidades. Esta confirmación se produce en un contexto de fluctuaciones en los mercados, ofreciendo una señal de estabilidad para los inversores. Fuente: Investing.com.
+¿Por qué importa? Las calificaciones crediticias son cruciales para la percepción de riesgo en los mercados financieros. Para los fundadores, entender estas evaluaciones es vital, ya que afectan el costo del capital y la disposición de los inversores a financiar nuevas empresas, especialmente en sectores sensibles a la economía.
+
+Startup argentina de IA Melian levanta US$2 millones en ronda liderada por fondo mexicano..
+Melian, una startup argentina de inteligencia artificial fundada por cuatro jóvenes, ha recaudado US$2 millones en una ronda de inversión liderada por un fondo mexicano. La empresa busca transformar el comercio electrónico mediante soluciones de IA. Fuente: Bloomberg Línea.
+¿Por qué importa? Destaca el crecimiento del ecosistema de startups de IA en América Latina y la atracción de capital transfronterizo. Para los fundadores, muestra que incluso rondas de menor tamaño pueden ser significativas para el desarrollo de soluciones innovadoras en mercados emergentes.
+
+Startup estadounidense con apoyo de Itaú y Nubank recauda US$10 millones y apunta a Latam..
+Una startup estadounidense ha levantado US$10 millones con el respaldo de bancos líderes como Itaú y Nubank. La compañía tiene planes de expansión en América Latina, con Brasil, El Salvador, Honduras y Argentina entre sus prioridades. Fuente: Bloomberg Línea.
+¿Por qué importa? Ilustra la tendencia de startups internacionales que buscan oportunidades de crecimiento en mercados latinoamericanos, a menudo con el apoyo de actores financieros locales. Para los fundadores tech en Latam, esto puede significar mayor competencia pero también más oportunidades de colaboración o adquisición.
+
+El volumen de negociación de opciones de Lincoln National experimenta un salto significativo..
+La actividad de negociación en opciones de Lincoln National Corp. ha mostrado un aumento notable, alcanzando los 2.601 contratos en las últimas horas. Este incremento en el volumen de opciones sugiere un mayor interés o especulación en torno a la compañía. Fuente: Investing.com.
+¿Por qué importa? Un aumento inusual en el volumen de opciones puede ser un indicador de movimientos futuros en el precio de las acciones o de la percepción del mercado sobre una empresa. Los fundadores tech deben monitorear estos indicadores para entender la dinámica del mercado y cómo eventos específicos pueden influir en la valoración de las empresas.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
