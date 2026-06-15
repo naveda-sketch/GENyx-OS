@@ -9442,33 +9442,209 @@ function TabCockpitResumen({ tenants, orders, selectedSlug, health }) {
   );
 }
 
+// ═══════════════════════════════════════════════════════════════════
+// 🎛️ COCKPIT V4 — Timeline + Pulso + Doble-Red (reemplaza chat por-agente)
+// ═══════════════════════════════════════════════════════════════════
+// METODOLOGÍA (REGLA 14): Founder Cockpit Information Architecture v4.
+// REGLA 15: useGenyxConfig() — sin URLs hardcodeadas.
+// REGLA 23: "nace conectado" — cada vista wired a endpoint real.
+// Degradación honesta: "periodo de adaptación" cuando datos = 0
+// Contrato endpoints (Claude FASE 3 task #7):
+//   GET /api/admin/cockpit/timeline?slug={slug}&limit=50
+//   GET /api/admin/cockpit/pulse?slug={slug}&days=7
+//   GET /api/admin/cockpit/dual-mesh
+// ═══════════════════════════════════════════════════════════════════
+
+function CockpitPendingCard({ endpoint }) {
+  return (
+    <div style={{ background: 'rgba(99,102,241,0.04)', border: '1px solid rgba(99,102,241,0.15)', borderRadius: 14, padding: 28, textAlign: 'center' }}>
+      <div style={{ fontSize: 28, marginBottom: 8 }}>⏳</div>
+      <p style={{ fontSize: 14, fontWeight: 700, color: '#c7d2fe', margin: '0 0 6px' }}>Requiere backend</p>
+      <p style={{ fontSize: 11, color: '#94a3b8', margin: 0 }}>Endpoint <code style={{ background: 'rgba(255,255,255,0.06)', padding: '2px 6px', borderRadius: 4, fontSize: 10 }}>{endpoint}</code> pendiente (Fase 3 Claude)</p>
+    </div>
+  );
+}
+function CockpitAdaptacionCard({ label }) {
+  return (
+    <div style={{ background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.15)', borderRadius: 12, padding: 16, textAlign: 'center' }}>
+      <div style={{ fontSize: 20, marginBottom: 4 }}>🌱</div>
+      <p style={{ fontSize: 12, fontWeight: 600, color: '#fbbf24', margin: '0 0 4px' }}>Periodo de adaptación</p>
+      <p style={{ fontSize: 10, color: '#94a3b8', margin: 0 }}>{label || 'Sin datos aún — se poblarán con la operación real'}</p>
+    </div>
+  );
+}
+
+function CockpitTimeline({ selectedSlug }) {
+  const [events, setEvents] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
+  React.useEffect(() => {
+    setLoading(true); setError(null);
+    const qs = selectedSlug && selectedSlug !== '---' ? `?slug=${selectedSlug}&limit=50` : '?limit=50';
+    fetch(`${BACKEND}/api/admin/cockpit/timeline${qs}`, { headers: getAH() })
+      .then(r => { if (r.status === 401 || r.status === 403) { setError('auth'); return null; } if (r.status === 404) { setError('pending'); return null; } return r.ok ? r.json() : null; })
+      .then(d => { if (d) setEvents(d.events || []); setLoading(false); })
+      .catch(() => { setError('pending'); setLoading(false); });
+  }, [selectedSlug]);
+  const CARD = { background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 14 };
+  const SC = { pass: '#10b981', warn: '#f59e0b', block: '#ef4444', shadow: '#6b7280' };
+  const SL = { pass: '✅ Pass', warn: '⚠️ Warn', block: '🚫 Block', shadow: '👁️ Shadow' };
+  if (loading) return <div style={{ color: '#9ca3af', fontSize: 13, padding: 20, textAlign: 'center' }}>⏳ Cargando timeline…</div>;
+  if (error === 'auth') return <div style={{ ...CARD, background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)' }}><p style={{ fontSize: 12, color: '#f87171', margin: 0 }}>Admin key inválida o ausente — verifica tu sesión</p></div>;
+  if (error === 'pending') return <CockpitPendingCard endpoint="/api/admin/cockpit/timeline" />;
+  if (!events || events.length === 0) return <CockpitAdaptacionCard label="Sin eventos de cadena aún — se poblarán con pedidos y leads reales" />;
+  const timeAgo = (ts) => { const d = (Date.now() - new Date(ts).getTime()) / 1000; if (d < 60) return `${Math.floor(d)}s`; if (d < 3600) return `${Math.floor(d/60)}m`; if (d < 86400) return `${Math.floor(d/3600)}h`; return `${Math.floor(d/86400)}d`; };
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 0, position: 'relative', paddingLeft: 24 }}>
+      <div style={{ position: 'absolute', left: 9, top: 8, bottom: 8, width: 2, background: 'rgba(255,255,255,0.06)', borderRadius: 1 }} />
+      {events.slice(0, 50).map((ev, i) => (
+        <div key={ev.id || i} style={{ position: 'relative', paddingBottom: 12 }}>
+          <div style={{ position: 'absolute', left: -20, top: 6, width: 12, height: 12, borderRadius: '50%', background: SC[ev.status] || '#6b7280', border: '2px solid rgba(15,23,42,0.9)', boxShadow: `0 0 6px ${SC[ev.status] || '#6b7280'}44` }} />
+          <div style={{ ...CARD, marginLeft: 4 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                <span style={{ fontSize: 11, fontWeight: 700, color: '#c7d2fe', background: 'rgba(99,102,241,0.12)', padding: '2px 8px', borderRadius: 6 }}>{ev.event_type}</span>
+                {(ev.agents || []).map(a => (<span key={a} style={{ fontSize: 9, fontWeight: 700, color: '#94a3b8', background: 'rgba(255,255,255,0.05)', padding: '2px 6px', borderRadius: 4 }}>{a}</span>))}
+              </div>
+              <span style={{ fontSize: 10, color: '#64748b' }}>{timeAgo(ev.timestamp)}</span>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <p style={{ fontSize: 11, color: '#94a3b8', margin: 0 }}>{ev.summary || ev.correlation_id || '—'}</p>
+              <span style={{ fontSize: 9, fontWeight: 700, color: SC[ev.status] || '#6b7280' }}>{SL[ev.status] || ev.status}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function CockpitPulso({ selectedSlug }) {
+  const [data, setData] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
+  React.useEffect(() => {
+    setLoading(true); setError(null);
+    const qs = selectedSlug && selectedSlug !== '---' ? `?slug=${selectedSlug}&days=7` : '?days=7';
+    fetch(`${BACKEND}/api/admin/cockpit/pulse${qs}`, { headers: getAH() })
+      .then(r => { if (r.status === 401 || r.status === 403) { setError('auth'); return null; } if (r.status === 404) { setError('pending'); return null; } return r.ok ? r.json() : null; })
+      .then(d => { if (d) setData(d); setLoading(false); })
+      .catch(() => { setError('pending'); setLoading(false); });
+  }, [selectedSlug]);
+  React.useEffect(() => {
+    if (error) return;
+    const iv = setInterval(() => {
+      const qs = selectedSlug && selectedSlug !== '---' ? `?slug=${selectedSlug}&days=7` : '?days=7';
+      fetch(`${BACKEND}/api/admin/cockpit/pulse${qs}`, { headers: getAH() }).then(r => r.ok ? r.json() : null).then(d => { if (d) setData(d); }).catch(() => {});
+    }, 60000);
+    return () => clearInterval(iv);
+  }, [selectedSlug, error]);
+  const CARD = { background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, textAlign: 'center' };
+  if (loading) return <div style={{ color: '#9ca3af', fontSize: 13, padding: 20, textAlign: 'center' }}>⏳ Cargando pulso…</div>;
+  if (error === 'auth') return <div style={{ ...CARD, background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)' }}><p style={{ fontSize: 12, color: '#f87171', margin: 0 }}>Admin key inválida o ausente — verifica tu sesión</p></div>;
+  if (error === 'pending') return <CockpitPendingCard endpoint="/api/admin/cockpit/pulse" />;
+  const k = data?.kpis || {};
+  const isEmpty = !k.revenue_today_mxn && !k.orders_today && !k.sessions_active && !k.orders_week;
+  const Sparkline = ({ points, color, w, h }) => {
+    if (!points || points.length < 2) return null;
+    const max = Math.max(...points, 1), min = Math.min(...points, 0), range = max - min || 1;
+    const coords = points.map((v, i) => `${(i / (points.length - 1)) * w},${h - ((v - min) / range) * h}`).join(' ');
+    return (<svg width={w} height={h} style={{ display: 'block', margin: '8px auto 0' }}><polyline points={coords} fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" /><polyline points={`0,${h} ${coords} ${w},${h}`} fill={`${color}15`} stroke="none" /></svg>);
+  };
+  const kpis = [
+    { label: 'Revenue hoy', value: isEmpty ? null : `$${(k.revenue_today_mxn || 0).toLocaleString()}`, icon: '💰', color: '#10b981', spark: data?.sparkline_7d },
+    { label: 'Revenue semana', value: isEmpty ? null : `$${(k.revenue_week_mxn || 0).toLocaleString()}`, icon: '📈', color: '#6366f1' },
+    { label: 'Pedidos hoy', value: isEmpty ? null : k.orders_today, icon: '📦', color: '#f59e0b' },
+    { label: 'Pedidos semana', value: isEmpty ? null : k.orders_week, icon: '📊', color: '#818cf8' },
+    { label: 'Sesiones activas', value: isEmpty ? null : k.sessions_active, icon: '👥', color: '#06b6d4' },
+    { label: 'Ticket promedio', value: isEmpty ? null : `$${(k.avg_ticket_mxn || 0).toLocaleString()}`, icon: '🎫', color: '#a78bfa' },
+    { label: 'Tasa recompra', value: isEmpty ? null : `${(k.repeat_rate_pct || 0).toFixed(1)}%`, icon: '🔄', color: '#f472b6' },
+  ];
+  return (
+    <div>
+      {isEmpty && <CockpitAdaptacionCard label="Sin transacciones aún — los KPIs se poblarán con pedidos reales" />}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: 12, marginTop: isEmpty ? 16 : 0 }}>
+        {kpis.map(kp => (
+          <div key={kp.label} style={CARD}>
+            <div style={{ fontSize: 22, marginBottom: 2 }}>{kp.icon}</div>
+            <div style={{ fontSize: 20, fontWeight: 800, color: kp.value != null ? kp.color : '#475569', marginTop: 2 }}>{kp.value != null ? kp.value : '—'}</div>
+            <div style={{ fontSize: 9, fontWeight: 600, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.06em', marginTop: 4 }}>{kp.label}</div>
+            {kp.spark && <Sparkline points={kp.spark} color={kp.color} w={100} h={24} />}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function CockpitDobleRed() {
+  const [mesh, setMesh] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
+  const [drillAgent, setDrillAgent] = React.useState(null);
+  React.useEffect(() => {
+    setLoading(true); setError(null);
+    fetch(`${BACKEND}/api/admin/cockpit/dual-mesh`, { headers: getAH() })
+      .then(r => { if (r.status === 401 || r.status === 403) { setError('auth'); return null; } if (r.status === 404) { setError('pending'); return null; } return r.ok ? r.json() : null; })
+      .then(d => { if (d) setMesh(d); setLoading(false); })
+      .catch(() => { setError('pending'); setLoading(false); });
+  }, []);
+  const CARD = { background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16 };
+  const SC = { ok: '#10b981', warn: '#f59e0b', error: '#ef4444', unknown: '#6b7280' };
+  if (loading) return <div style={{ color: '#9ca3af', fontSize: 13, padding: 20, textAlign: 'center' }}>⏳ Cargando doble-red…</div>;
+  if (error === 'auth') return <div style={{ ...CARD, background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)' }}><p style={{ fontSize: 12, color: '#f87171', margin: 0 }}>Admin key inválida o ausente — verifica tu sesión</p></div>;
+  if (error === 'pending') return <CockpitPendingCard endpoint="/api/admin/cockpit/dual-mesh" />;
+  if (drillAgent) return (<div><button onClick={() => setDrillAgent(null)} style={{ background: 'none', border: 'none', color: '#818cf8', fontSize: 12, cursor: 'pointer', marginBottom: 12, padding: 0 }}>← Volver al grafo</button><AgentTab agentId={drillAgent} scope="founder" /></div>);
+  const nodes = mesh?.nodes || [], edges = mesh?.edges || [];
+  const W = 700, H = 420, CX = W / 2, CY = H / 2;
+  const posMap = {};
+  if (nodes.find(n => n.id === 'A0')) posMap['A0'] = { x: 140, y: CY };
+  if (nodes.find(n => n.id === 'A9')) posMap['A9'] = { x: W - 140, y: CY };
+  const operatives = nodes.filter(n => n.id !== 'A0' && n.id !== 'A9');
+  operatives.forEach((n, i) => { const angle = ((i / Math.max(operatives.length - 1, 1)) * Math.PI) - Math.PI / 2; posMap[n.id] = { x: CX + 200 * Math.cos(angle), y: CY + 150 * Math.sin(angle) }; });
+  const ICONS = {}; Object.values(AGENT_CONFIGS || {}).forEach(a => { ICONS[a.id] = a.icon; });
+  return (
+    <div>
+      <div style={{ ...CARD, padding: 0, overflow: 'hidden' }}>
+        <svg viewBox={`0 0 ${W} ${H}`} style={{ width: '100%', maxWidth: W, display: 'block', margin: '0 auto' }}>
+          <defs>
+            <filter id="gl-g"><feDropShadow dx="0" dy="0" stdDeviation="3" floodColor="#10b981" floodOpacity="0.4"/></filter>
+            <filter id="gl-a"><feDropShadow dx="0" dy="0" stdDeviation="3" floodColor="#f59e0b" floodOpacity="0.4"/></filter>
+            <filter id="gl-r"><feDropShadow dx="0" dy="0" stdDeviation="3" floodColor="#ef4444" floodOpacity="0.4"/></filter>
+          </defs>
+          {edges.map((e, i) => { const f = posMap[e.from], t = posMap[e.to]; if (!f || !t) return null; const c = SC[e.status] || '#6b7280'; return <line key={i} x1={f.x} y1={f.y} x2={t.x} y2={t.y} stroke={c} strokeWidth={e.status === 'warn' ? 2 : 1.2} strokeDasharray={e.status === 'warn' ? '4,3' : 'none'} opacity={0.5} />; })}
+          {nodes.map(n => { const p = posMap[n.id]; if (!p) return null; const isA = n.id === 'A0' || n.id === 'A9'; const r = isA ? 32 : 22; const sc = SC[n.status] || '#6b7280'; const gl = n.status === 'ok' ? 'gl-g' : n.status === 'warn' ? 'gl-a' : n.status === 'error' ? 'gl-r' : ''; return (
+            <g key={n.id} onClick={() => setDrillAgent(n.id)} style={{ cursor: 'pointer' }}>
+              {(n.findings || 0) > 0 && <circle cx={p.x} cy={p.y} r={r + 6} fill="none" stroke={sc} strokeWidth="1" opacity="0.3"><animate attributeName="r" from={r + 4} to={r + 14} dur="2s" repeatCount="indefinite" /><animate attributeName="opacity" from="0.4" to="0" dur="2s" repeatCount="indefinite" /></circle>}
+              <circle cx={p.x} cy={p.y} r={r} fill={`${sc}18`} stroke={sc} strokeWidth={isA ? 2.5 : 1.5} filter={gl ? `url(#${gl})` : undefined} />
+              <text x={p.x} y={p.y - (isA ? 4 : 2)} textAnchor="middle" fontSize={isA ? 18 : 14} dominantBaseline="central">{ICONS[n.id] || '⚙️'}</text>
+              <text x={p.x} y={p.y + (isA ? 16 : 12)} textAnchor="middle" fontSize={isA ? 10 : 8} fill="#cbd5e1" fontWeight="700">{n.id}</text>
+              {isA && <text x={p.x} y={p.y + 28} textAnchor="middle" fontSize={8} fill="#94a3b8">{n.label || ''}</text>}
+            </g>); })}
+        </svg>
+      </div>
+      <div style={{ display: 'flex', gap: 16, justifyContent: 'center', marginTop: 12, flexWrap: 'wrap' }}>
+        {[['ok', '✅ Saludable'], ['warn', '⚠️ Alerta'], ['error', '🚫 Error'], ['unknown', '⏳ Sin dato']].map(([s, l]) => (<div key={s} style={{ display: 'flex', alignItems: 'center', gap: 6 }}><div style={{ width: 8, height: 8, borderRadius: '50%', background: SC[s] }} /><span style={{ fontSize: 10, color: '#94a3b8' }}>{l}</span></div>))}
+      </div>
+      <p style={{ fontSize: 10, color: '#64748b', textAlign: 'center', marginTop: 8 }}>Click en un nodo para ver detalle del agente</p>
+    </div>
+  );
+}
+
 function TabCockpitAgentes({ tenants, selectedSlug }) {
-  const [selected, setSelected] = React.useState(null);
-  const agents = Object.values(AGENT_CONFIGS).filter(a => !a.scope || a.scope !== 'backstage');
+  const [subTab, setSubTab] = React.useState('timeline');
+  const SUBS = [{ id: 'timeline', icon: '⏱️', label: 'Timeline' }, { id: 'pulso', icon: '📈', label: 'Pulso' }, { id: 'doble_red', icon: '🕸️', label: 'Doble-Red' }];
+  const TB = (a) => ({ background: a ? 'rgba(99,102,241,0.12)' : 'transparent', border: a ? '1px solid rgba(99,102,241,0.3)' : '1px solid transparent', borderRadius: 8, padding: '8px 16px', cursor: 'pointer', fontSize: 12, fontWeight: a ? 700 : 500, color: a ? '#c7d2fe' : '#94a3b8', transition: 'all 0.2s ease' });
   return (
     <div style={{ maxWidth: 1000 }}>
-      <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', marginBottom: 16 }}>🤖 Agentes · Vista Founder</h2>
-      {!selected ? (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 12 }}>
-          {agents.map(a => (
-            <button key={a.id} onClick={() => setSelected(a.id)} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, cursor: 'pointer', textAlign: 'left' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-                <span style={{ fontSize: 24 }}>{a.icon}</span>
-                <div>
-                  <div style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9' }}>{a.name}</div>
-                  <div style={{ fontSize: 10, color: '#9ca3af' }}>{a.id}</div>
-                </div>
-              </div>
-              <p style={{ fontSize: 11, color: '#94a3b8', margin: 0 }}>{a.mission}</p>
-            </button>
-          ))}
-        </div>
-      ) : (
-        <>
-          <button onClick={() => setSelected(null)} style={{ background: 'none', border: 'none', color: '#818cf8', fontSize: 12, cursor: 'pointer', marginBottom: 12, padding: 0 }}>← Volver a agentes</button>
-          <AgentTab agentId={selected} scope="founder" />
-        </>
-      )}
+      <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }}>🎛️ Cockpit Founder</h2>
+      <p style={{ fontSize: 11, color: '#64748b', marginBottom: 16 }}>Visibilidad operativa: cadena de agentes, KPIs, y salud de la doble red</p>
+      <div style={{ display: 'flex', gap: 6, marginBottom: 20, borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: 12 }}>
+        {SUBS.map(t => (<button key={t.id} onClick={() => setSubTab(t.id)} style={TB(subTab === t.id)}>{t.icon} {t.label}</button>))}
+      </div>
+      {subTab === 'timeline' && <CockpitTimeline selectedSlug={selectedSlug} />}
+      {subTab === 'pulso' && <CockpitPulso selectedSlug={selectedSlug} />}
+      {subTab === 'doble_red' && <CockpitDobleRed />}
     </div>
   );
 }
