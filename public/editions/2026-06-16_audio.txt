@@ -1,0 +1,115 @@
+El Periódico. Edición del 2026-06-16.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Elon Musk.
+Desestimación de demanda de xAI contra OpenAI. Un tribunal de distrito de EE. UU. desestimó la demanda de xAI contra OpenAI, que alegaba que OpenAI indujo a un ex ingeniero senior de xAI a divulgar secretos comerciales relacionados con el chatbot Grok. El juez dictaminó que xAI no presentó pruebas de que OpenAI indujera la filtración o que sus ingenieros supieran que el ex empleado podría haber revelado información confidencial. Fuente: Reuters (vía CHOSUNBIZ), Al Jazeera.
+Salida a bolsa de SpaceX y Musk se convierte en trillonario. SpaceX completó su Oferta Pública Inicial (IPO) el 12 de junio de 2026, recaudando 75 mil millones de dólares y valorando la empresa en aproximadamente 2.1 billones de dólares. Esta IPO convirtió a Elon Musk en la primera persona en el mundo en alcanzar el estatus de trillonario, con un patrimonio neto estimado de 1.1 billones de dólares. Fuente: Britannica Money, Wealth Professional, The Probe.
+Fondo de pensiones excluye a SpaceX por calificación ESG. El Fondo de Pensiones Achmea anunció el 15 de junio de 2026 que no invertirá en SpaceX debido a una baja calificación ESG (Environmental, Social, and Governance). Esta decisión se basó en una nueva evaluación de su proveedor de datos ESG, que planteó preocupaciones sobre la estructura de gobernanza y el desempeño de sostenibilidad de SpaceX. Fuente: IPE.
+
+Satya Nadella.
+Advierte contra el monopolio de la IA y pide un 'ecosistema fronterizo'. Satya Nadella publicó un artículo en X el 14 de junio de 2026, titulado 'Una frontera sin un ecosistema no es estable', advirtiendo que la concentración de valor en unos pocos modelos de IA podría 'vaciar industrias enteras'. Argumentó que las empresas deben conservar la propiedad de su conocimiento institucional y construir 'bucles de aprendizaje' en torno a la IA. Fuente: Hindustan Times, VentureBeat, TechRadar, TheStreet, Business Insider.
+
+Jensen Huang.
+NVIDIA como plataforma y escasez de suministro de IA. Jensen Huang ha reiterado que la verdadera 'ventaja competitiva' de NVIDIA es su plataforma (software CUDA, redes, coreografía de fabricación) más allá de sus chips. También afirmó que el desequilibrio entre la oferta y la demanda de hardware de IA 'persistirá durante varios años'. Fuente: TheStreet, TechRadar.
+Telecomunicaciones como la próxima frontera de la IA. Huang destacó las telecomunicaciones como la próxima frontera para la IA, con NVIDIA invirtiendo en plataformas nativas de IA para 6G. Argumenta que las líneas entre software y hardware se difuminarán, y cada red de acceso de radio se comportará como una computadora de IA. Fuente: TechRadar.
+Filosofía de 'bajas expectativas' como ventaja. En un comentario reciente, Jensen Huang fue citado sobre su filosofía de que tener 'muy bajas expectativas' ha sido una de sus grandes ventajas. Sugiere que este enfoque ayuda a navegar desafíos y contratiempos, fomentando la resiliencia al no esperar un camino fácil hacia metas ambiciosas. Fuente: The Times of India.
+
+Sam Altman.
+OpenAI enfrenta múltiples investigaciones legales. OpenAI reveló a finales de la semana pasada (alrededor del 14 de junio de 2026) que está siendo investigada por varios fiscales generales estatales, quienes han solicitado documentos relacionados con las prácticas de la empresa, incluyendo publicidad, participación de usuarios, manejo de datos y actividades relacionadas con menores. Esto sigue a una demanda presentada por Florida a principios de este mes. Fuente: Inc. Magazine.
+Advierte sobre riesgos financieros en la industria de la IA. Sam Altman ha expresado cautela sobre la estructura financiera de la industria de la IA, advirtiendo que 'alguien podría perder una cantidad fenomenal de dinero' dadas las masivas tasas de consumo y las necesidades de financiación. También enfatizó la importancia de que los fundadores actúen rápido y tomen decisiones sin esperar permiso. Fuente: YouTube (The Probe), The Times of India.
+
+Sundar Pichai.
+Discurso de graduación en Stanford, evitando en gran medida la IA. Sundar Pichai pronunció el discurso de graduación en la Universidad de Stanford el 14 de junio de 2026, evitando en gran medida el tema de la inteligencia artificial a pesar del papel central de Google en el campo. En cambio, se centró en temas de optimismo, abordar problemas difíciles y perseguir lo que entusiasma a los graduados. Fuente: SFGATE, Forbes, The Jerusalem Post, YouTube, Hindustan Times.
+Protestas durante el discurso de graduación en Stanford. Durante el discurso de Sundar Pichai en Stanford, varios estudiantes se levantaron, abuchearon y se retiraron en protesta por los contratos de Google con el gobierno israelí, específicamente el Proyecto Nimbus. Pichai, un exalumno de Stanford, pareció imperturbable ante la manifestación. Fuente: SFGATE, Forbes, The Jerusalem Post, Hindustan Times.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+Lanzamiento de la Red de Socios de OpenAI. OpenAI ha lanzado una nueva red de socios para ayudar a las empresas a integrar sus modelos y herramientas de IA de manera más efectiva. Esta iniciativa busca expandir el alcance y la aplicación de las tecnologías de OpenAI en diversas industrias. Fuente: OpenAI Newsroom.
+42 estados citan a OpenAI tras su presentación de IPO. Una coalición de 42 fiscales generales estatales, liderada por Nueva York, ha emitido una citación a OpenAI solicitando registros sobre su publicidad, el compromiso del usuario y el manejo de datos de consumidores y salud. La investigación también examina cómo ChatGPT trata a menores y personas mayores, y su 'adulación'. Esto ocurre poco después de que OpenAI presentara confidencialmente su solicitud de IPO. Fuente: eWeek.
+
+xAI.
+Jueza desestima demanda de xAI contra OpenAI por secretos comerciales. Una jueza federal desestimó la demanda de xAI de Elon Musk contra OpenAI por robo de secretos comerciales. La jueza Rita Lin en San Francisco dictaminó que xAI no pudo demostrar que OpenAI indujo a un ex ingeniero de xAI a divulgar información confidencial relacionada con su chatbot Grok. Fuente: Reuters.
+Ingeniero de xAI despedido tras advertir sobre sesgos de Grok. Un ex ingeniero de xAI, Devin Kim, afirma haber sido despedido tres días después de informar a Elon Musk sobre un proyecto que examinaba los sesgos raciales y políticos de Grok. Kim está demandando a xAI y SpaceX por represalias de denunciantes y despido injustificado, alegando que también advirtió que Grok podría proporcionar orientación para fabricar bombas o armas biológicas. Fuente: The Information.
+
+Anthropic.
+Anthropic suspende acceso a modelos Mythos y Fable por orden de EE. UU.. Anthropic recibió una orden del gobierno de EE. UU. para suspender el acceso de ciudadanos extranjeros a sus modelos avanzados Fable 5 y Mythos 5 debido a una vulnerabilidad de seguridad ('jailbreak'). Esta directiva del Departamento de Comercio representa una intervención significativa en las operaciones de una empresa de IA. Fuente: Los Angeles Times.
+Declaración de Anthropic sobre la directiva del gobierno de EE. UU.. Anthropic emitió una declaración sobre la directiva del gobierno de EE. UU. para suspender el acceso a sus modelos Fable 5 y Mythos 5. La compañía no está de acuerdo en que una 'vulnerabilidad estrecha de jailbreak' deba ser motivo para retirar un modelo comercial desplegado a cientos de millones de personas, argumentando que podría detener nuevos despliegues de modelos en toda la industria. Fuente: Anthropic Newsroom.
+
+Meta AI.
+Facebook lanza motor de búsqueda con IA que extrae respuestas de Grupos y Reels. Meta lanzó 'AI Mode' en Facebook, una nueva experiencia de búsqueda impulsada por Meta AI que genera respuestas conversacionales a partir de contenido público en Grupos, Reels y listados de Marketplace. Esta función tiene como objetivo convertir años de contenido generado por el usuario en una base de conocimiento consultable. Fuente: The Next Web.
+Zuckerberg admite errores en la reestructuración de Meta impulsada por IA. Mark Zuckerberg, CEO de Meta, admitió en un memorándum interno que la compañía ha cometido errores en su reestructuración impulsada por la IA, especialmente en la reorganización de la fuerza laboral. Meta está invirtiendo cientos de miles de millones de dólares en IA y ha realizado cambios significativos en su estructura de equipos. Fuente: Reuters.
+
+Microsoft AI.
+CEO de Microsoft advierte contra la dependencia de un solo modelo de IA. Satya Nadella, CEO de Microsoft, aconseja a las empresas adoptar múltiples modelos de IA en lugar de depender de uno solo. Argumenta que esto permite a las organizaciones construir sistemas de aprendizaje adaptables que retienen el conocimiento institucional y mejoran continuamente, creando una ventaja competitiva. Fuente: TweakTown.
+Microsoft enfrenta demanda por IA mientras Xbox se reinicia. Microsoft enfrenta una demanda relacionada con la IA, lo que se suma a los desafíos en un momento de altas expectativas para la IA y la nube. Aunque los detalles específicos de la demanda de IA no se detallan, se menciona que el stock ha bajado y que la comunicación de Microsoft sobre AI, Copilot y Azure será clave. Fuente: Simply Wall St.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+SpaceX.
+OPI histórica en Nasdaq. SpaceX, la compañía aeroespacial y de inteligencia artificial de Elon Musk, salió a bolsa el 12 de junio de 2026, con una valoración inicial de 1.77 billones de dólares y alcanzando una capitalización de mercado de aproximadamente 2.1 billones de dólares en su primer día de cotización. La oferta pública inicial (OPI) recaudó 75 mil millones de dólares para las ambiciones a largo plazo de la compañía, incluyendo la construcción de infraestructura de IA orbital para las necesidades computacionales de su subsidiaria xAI. Fuente: Wikipedia, Nasdaq Private Market, BitMEX, CBS News, Fidelity Investments, Space Exploration Technologies Corp..
+
+Tenstorrent.
+Qualcomm busca adquirir Tenstorrent. Qualcomm está en conversaciones para adquirir Tenstorrent, una startup de chips de inteligencia artificial, con una valoración rumoreada entre 8 mil millones y 10 mil millones de dólares. Tenstorrent, fundada por el veterano de chips Jim Keller, desarrolla procesadores enfocados en IA para ejecutar cargas de trabajo de manera más eficiente que los sistemas basados en GPU tradicionales. Esta adquisición fortalecería la incursión de Qualcomm en el mercado de chips de IA y centros de datos. Fuente: TradingView (citando The Information).
+
+Fin.
+Salesforce adquiere Fin por $3.6 mil millones. Salesforce adquirió Fin en un acuerdo valorado en 3.6 mil millones de dólares. Esta adquisición impulsa aún más al gigante tecnológico en el compromiso con el cliente, integrando las capacidades de Fin para mejorar las interacciones y el servicio al cliente. Fuente: Seeking Alpha (citando RBC).
+
+Entro Security.
+SailPoint adquiere Entro Security. SailPoint Technologies Inc. adquirió Entro Security Ltd., una startup que ayuda a las empresas a proteger sus agentes de inteligencia artificial. Aunque los términos financieros no fueron revelados oficialmente, se informó que la transacción está valorada en aproximadamente 200 millones de dólares. Entro Security ofrece una plataforma de software que inventaría agentes de IA, identifica credenciales inseguras y detecta comportamientos inusuales. Fuente: SiliconANGLE (citando CTech).
+
+Hydra Host.
+Ronda de financiamiento de $100 millones. Hydra Host, una startup de gestión de infraestructura de GPU, recaudó 100 millones de dólares en una ronda de financiamiento. Esta financiación significativa subraya la alta demanda de infraestructura de computación para cargas de trabajo de IA y el interés de los inversores en empresas que facilitan el acceso y la gestión de recursos de GPU. Fuente: SiliconANGLE.
+
+Sección: 📰 Top 10 Noticias.
+
+Google DeepMind lanza la familia de modelos Gemma 4 en Amazon Bedrock con capacidades multimodales.
+Google DeepMind ha anunciado la disponibilidad de la familia de modelos Gemma 4 en Amazon Bedrock, ofreciendo modelos de código abierto con un enfoque en la inteligencia por parámetro. Estos modelos incluyen variantes con arquitecturas densas y de mezcla de expertos, con razonamiento incorporado, llamadas a funciones nativas y entrada multimodal de texto e imagen. Fuente: aws.amazon.com.
+¿Por qué importa? Este lanzamiento es crucial para fundadores tech, ya que proporciona acceso a modelos de IA avanzados y de código abierto a través de una plataforma gestionada. Permite el desarrollo de aplicaciones multimodales, agentes ligeros y flujos de trabajo de ingeniería de software con mayor control y seguridad.
+
+Anthropic Fable 5 Shutdown plantea preguntas sobre la supervisión de la IA en EE. UU..
+El cierre de Anthropic Fable 5 ha generado interrogantes sobre la supervisión de la IA en Estados Unidos, planteando la cuestión de qué debería requerirse para restringir el acceso a un modelo de frontera después de su lanzamiento. Fuente: ainews.com.
+¿Por qué importa? Para los fundadores, este evento subraya la creciente importancia de la gobernanza y la regulación en el espacio de la IA. Es vital considerar las implicaciones éticas y de seguridad desde el diseño para evitar interrupciones y cumplir con futuras normativas.
+
+NIH lanza el programa Bridge2AI para impulsar la investigación biomédica con IA.
+El programa Bridge to Artificial Intelligence (Bridge2AI) de los NIH busca impulsar la investigación biomédica mediante la adopción generalizada de la IA para abordar desafíos complejos. La segunda etapa del programa utilizará datos, herramientas y mejores prácticas generadas en la primera fase para ofrecer soluciones confiables. Fuente: nih.gov.
+¿Por qué importa? Esta iniciativa representa una gran oportunidad para fundadores en el sector de la salud y la biotecnología. Demuestra el compromiso gubernamental con la IA en la investigación médica, abriendo puertas a financiación, colaboraciones y el desarrollo de nuevas herramientas y dispositivos basados en IA.
+
+monday.com lanza un brazo de capital de riesgo de $200 millones enfocado en startups de IA.
+monday.com ha anunciado el lanzamiento de monday Ventures, un nuevo brazo de capital de riesgo con planes de invertir hasta $200 millones en startups de inteligencia artificial. Esta expansión marca una evolución estratégica de la compañía hacia una plataforma centrada en IA. Fuente: globes.co.il.
+¿Por qué importa? Esta noticia es relevante para fundadores de startups de IA, ya que monday.com se convierte en una nueva fuente de financiación y un socio potencial. Indica una tendencia de las empresas de software establecidas a invertir directamente en la innovación de IA, buscando integrar nuevas capacidades.
+
+Launch Africa Ventures devuelve $2.5M a inversores, señalando madurez en el VC africano.
+Launch Africa Ventures ha anunciado su primera distribución de efectivo a inversores, devolviendo aproximadamente $2.5 millones de su Seed Fund I. Este hito indica una creciente madurez en el ecosistema de inversión en startups de África y demuestra la capacidad del sector tecnológico africano para generar retornos tangibles. Fuente: businessday.ng.
+¿Por qué importa? Para los fundadores que buscan expandirse globalmente o aquellos interesados en mercados emergentes, esta noticia valida el potencial de inversión en África. Sugiere que el capital de riesgo en el continente está madurando, ofreciendo vías de liquidez y atrayendo a nuevos inversores institucionales.
+
+El capital de riesgo se reorienta hacia tecnologías de seguridad y resiliencia en la 'Era de las Guerras'.
+La emergencia de una 'Era de las Guerras' está reconfigurando el capital de riesgo, con inversiones que se dirigen cada vez más a tecnologías de seguridad, resiliencia y autonomía estratégica. Esto reemplaza la innovación orientada al consumidor como destino principal de la inversión, entrelazando el VC con la seguridad nacional y la política estatal. Fuente: besacenter.org.
+¿Por qué importa? Los fundadores deben reconocer este cambio en las prioridades de inversión. Aquellos en sectores como ciberseguridad, IA para defensa, sistemas autónomos o energía segura encontrarán un entorno de financiación más favorable, mientras que otros podrían necesitar adaptar sus propuestas para destacar la resiliencia y la autonomía.
+
+JPMorgan Chase destaca la importancia del contexto y la gobernanza en los agentes de IA para 2026.
+Durante su 11ª Semana de la Innovación, JPMorgan Chase enfatizó que, si bien 2025 se centró en la eficacia de los agentes de IA, 2026 se trata de proporcionar el contexto adecuado para ellos. La autonomía y los controles deben crecer en conjunto para contrarrestar los riesgos de los agentes de IA. Fuente: jpmorganchase.com.
+¿Por qué importa? Esta tendencia es crucial para los fundadores que desarrollan o implementan soluciones de IA. Subraya la necesidad de ir más allá de la funcionalidad básica, enfocándose en la interpretabilidad, el control y la gobernanza para construir sistemas de IA robustos y confiables en entornos empresariales.
+
+MIT Sloan propone 'gobernanza mínima viable' para equilibrar innovación y riesgo en IA generativa.
+Un estudio de MIT Sloan sugiere la 'gobernanza mínima viable' como un enfoque para escalar la IA generativa, calibrando la supervisión al riesgo para permitir una innovación responsable. Los modelos de gobernanza tradicionales son demasiado rígidos o laxos para el rápido ritmo de la IA generativa. Fuente: sloanreview.mit.edu.
+¿Por qué importa? Los fundadores deben adoptar marcos de gobernanza ágiles que permitan la experimentación rápida sin comprometer la seguridad o la ética. Este enfoque es vital para escalar soluciones de IA generativa de manera responsable y evitar cuellos de botella regulatorios o de confianza.
+
+Mercados financieros globales reaccionan positivamente a un acuerdo tentativo entre EE. UU. e Irán.
+Los mercados bursátiles mundiales subieron y los precios del petróleo cayeron después de que Estados Unidos e Irán alcanzaran un acuerdo tentativo para reabrir el Estrecho de Ormuz. Este acuerdo, aunque con detalles aún por definir, generó alivio y optimismo en los mercados financieros. Fuente: reuters.com.
+¿Por qué importa? La estabilidad geopolítica y la fluidez del comercio global impactan directamente en los costos operativos y la confianza de los inversores. Un alivio en las tensiones y la caída de los precios del petróleo pueden reducir la inflación y mejorar el entorno para la financiación y el crecimiento de las startups tecnológicas.
+
+La politización del dinero y el dominio fiscal marcan la política monetaria de EE. UU..
+Un análisis de Econlib argumenta que la política monetaria de EE. UU. está cada vez más subordinada a las necesidades fiscales del gobierno, con déficits que superan el cinco por ciento del PIB anualmente. Esto lleva a una movilización masiva de recursos financieros para financiar el consumo gubernamental en lugar de la inversión productiva. Fuente: econlib.org.
+¿Por qué importa? Los fundadores deben entender que las políticas fiscales y monetarias tienen un impacto directo en el costo del capital y la disponibilidad de financiación. Un entorno de dominio fiscal podría significar tasas de interés más altas o una menor disponibilidad de capital para inversiones productivas, afectando las valoraciones y la capacidad de crecimiento de las startups.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
