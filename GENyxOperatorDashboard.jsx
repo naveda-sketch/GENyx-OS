@@ -9631,9 +9631,153 @@ function CockpitDobleRed() {
   );
 }
 
+
+// ── 4/4 COCKPIT CANDADOS — Salud de candados + catch-rate ─────────
+// REGLA 26: degradación honesta. Cada dato con provenance (audit_id + as_of).
+// Endpoint: GET /api/admin/cockpit/candados-health (Claude FASE 3 task #7)
+function CockpitCandados() {
+  const [data, setData] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
+  React.useEffect(() => {
+    setLoading(true); setError(null);
+    fetch(`${BACKEND}/api/admin/cockpit/candados-health`, { headers: getAH() })
+      .then(r => { if (r.status === 401 || r.status === 403) { setError('auth'); return null; } if (r.status === 404) { setError('pending'); return null; } return r.ok ? r.json() : null; })
+      .then(d => { if (d) setData(d); setLoading(false); })
+      .catch(() => { setError('pending'); setLoading(false); });
+  }, []);
+  const CARD = { background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16 };
+  if (loading) return <div style={{ color: '#9ca3af', fontSize: 13, padding: 20, textAlign: 'center' }}>⏳ Cargando salud de candados…</div>;
+  if (error === 'auth') return <div style={{ ...CARD, background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)' }}><p style={{ fontSize: 12, color: '#f87171', margin: 0 }}>Admin key inválida o ausente — verifica tu sesión</p></div>;
+  if (error === 'pending') return <CockpitPendingCard endpoint="/api/admin/cockpit/candados-health" />;
+
+  const cr = data?.catch_rate || {};
+  const st = data?.skill_trust || {};
+  const eb = data?.errores_batch || {};
+  const huecos = data?.huecos_abiertos || [];
+  const prov = data?._provenance || {};
+  const isEmpty = !cr.pct && !st.verified && !st.prueba && !st.humo;
+
+  if (isEmpty) return <CockpitAdaptacionCard label="Sin auditorías de candados aún — se poblarán con ejecuciones reales de agentes" />;
+
+  // Stacked bar for skill-trust
+  const total = (st.verified || 0) + (st.prueba || 0) + (st.humo || 0);
+  const pctV = total ? ((st.verified || 0) / total) * 100 : 0;
+  const pctP = total ? ((st.prueba || 0) / total) * 100 : 0;
+  const pctH = total ? ((st.humo || 0) / total) * 100 : 0;
+
+  // Sparkline for catch-rate history
+  const Sparkline = ({ points, color, w, h }) => {
+    if (!points || points.length < 2) return null;
+    const max = Math.max(...points, 1), min = Math.min(...points, 0), range = max - min || 1;
+    const coords = points.map((v, i) => `${(i / (points.length - 1)) * w},${h - ((v - min) / range) * h}`).join(' ');
+    return (<svg width={w} height={h} style={{ display: 'block', margin: '6px auto 0' }}><polyline points={coords} fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" /><polyline points={`0,${h} ${coords} ${w},${h}`} fill={`${color}15`} stroke="none" /></svg>);
+  };
+
+  const Provenance = ({ p }) => p?.audit_id ? (<div style={{ fontSize: 8, color: '#475569', marginTop: 6, fontFamily: 'monospace' }} title={`audit: ${p.audit_id} · as_of: ${p.as_of || '?'}`}>🔗 {p.audit_id?.substring(0, 12)}… · {p.as_of ? new Date(p.as_of).toLocaleTimeString() : '—'}</div>) : null;
+
+  return (
+    <div>
+      {/* Row 1: Catch-Rate + Skill Trust */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, marginBottom: 14 }}>
+        {/* Catch Rate */}
+        <div style={CARD}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
+            <span style={{ fontSize: 22 }}>🎯</span>
+            <div>
+              <div style={{ fontSize: 9, fontWeight: 600, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.06em' }}>Founder Catch-Rate</div>
+              <div style={{ fontSize: 10, color: '#64748b' }}>% cazas cerradas con candado</div>
+            </div>
+          </div>
+          <div style={{ fontSize: 32, fontWeight: 800, color: (cr.pct || 0) >= 90 ? '#10b981' : (cr.pct || 0) >= 70 ? '#f59e0b' : '#ef4444', textAlign: 'center' }}>
+            {cr.pct != null ? `${cr.pct.toFixed(1)}%` : '—'}
+          </div>
+          <div style={{ fontSize: 10, color: '#94a3b8', textAlign: 'center', marginTop: 2 }}>
+            {cr.cerradas != null ? `${cr.cerradas}/${cr.total || '?'} cerradas` : ''}
+          </div>
+          <Sparkline points={cr.sparkline_7d} color="#10b981" w={120} h={28} />
+          <Provenance p={prov.catch_rate} />
+        </div>
+
+        {/* Skill Trust — stacked bar */}
+        <div style={CARD}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
+            <span style={{ fontSize: 22 }}>🛡️</span>
+            <div>
+              <div style={{ fontSize: 9, fontWeight: 600, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.06em' }}>Skill Trust</div>
+              <div style={{ fontSize: 10, color: '#64748b' }}>Clasificación de habilidades</div>
+            </div>
+          </div>
+          {/* Stacked bar */}
+          <div style={{ display: 'flex', height: 24, borderRadius: 6, overflow: 'hidden', marginBottom: 8 }}>
+            {pctV > 0 && <div style={{ width: `${pctV}%`, background: '#10b981', transition: 'width 0.5s' }} title={`VERIFIED-T4: ${st.verified}`} />}
+            {pctP > 0 && <div style={{ width: `${pctP}%`, background: '#f59e0b', transition: 'width 0.5s' }} title={`A-PRUEBA: ${st.prueba}`} />}
+            {pctH > 0 && <div style={{ width: `${pctH}%`, background: '#ef4444', transition: 'width 0.5s' }} title={`HUMO: ${st.humo}`} />}
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 10 }}>
+            <span style={{ color: '#10b981', fontWeight: 700 }}>✅ {st.verified || 0} T4</span>
+            <span style={{ color: '#f59e0b', fontWeight: 700 }}>🧪 {st.prueba || 0} Prueba</span>
+            <span style={{ color: '#ef4444', fontWeight: 700 }}>💨 {st.humo || 0} Humo</span>
+          </div>
+          <Provenance p={prov.skill_trust} />
+        </div>
+      </div>
+
+      {/* Row 2: Errores por batch */}
+      <div style={{ ...CARD, marginBottom: 14 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+          <span style={{ fontSize: 18 }}>📉</span>
+          <div>
+            <div style={{ fontSize: 9, fontWeight: 600, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.06em' }}>Errores por Batch</div>
+            <div style={{ fontSize: 10, color: '#64748b' }}>¿Baja? = el sistema aprende</div>
+          </div>
+          {eb.trend && <span style={{ marginLeft: 'auto', fontSize: 11, fontWeight: 700, color: eb.trend === 'down' ? '#10b981' : eb.trend === 'up' ? '#ef4444' : '#9ca3af' }}>{eb.trend === 'down' ? '📉 Bajando' : eb.trend === 'up' ? '📈 Subiendo' : '➡️ Estable'}</span>}
+        </div>
+        <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+          {(eb.batches || []).slice(-7).map((b, i) => (
+            <div key={i} style={{ textAlign: 'center', minWidth: 50 }}>
+              <div style={{ fontSize: 16, fontWeight: 800, color: b.errors === 0 ? '#10b981' : b.errors <= 2 ? '#f59e0b' : '#ef4444' }}>{b.errors}</div>
+              <div style={{ fontSize: 8, color: '#64748b' }}>{b.label || `B${i+1}`}</div>
+            </div>
+          ))}
+        </div>
+        {(!eb.batches || eb.batches.length === 0) && <p style={{ fontSize: 11, color: '#64748b', fontStyle: 'italic', margin: '4px 0 0' }}>Sin batches registrados aún</p>}
+        <Provenance p={prov.errores_batch} />
+      </div>
+
+      {/* Row 3: Huecos abiertos */}
+      <div style={CARD}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
+          <span style={{ fontSize: 18 }}>🕳️</span>
+          <div>
+            <div style={{ fontSize: 9, fontWeight: 600, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.06em' }}>Huecos Abiertos</div>
+            <div style={{ fontSize: 10, color: '#64748b' }}>Cazas sin candado — requieren cierre</div>
+          </div>
+          <span style={{ marginLeft: 'auto', fontSize: 12, fontWeight: 800, color: huecos.length === 0 ? '#10b981' : '#f59e0b' }}>{huecos.length}</span>
+        </div>
+        {huecos.length === 0 ? (
+          <p style={{ fontSize: 11, color: '#10b981', margin: 0, fontWeight: 600 }}>✅ Todas las cazas tienen candado — 0 huecos</p>
+        ) : (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            {huecos.slice(0, 20).map((h, i) => (
+              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.12)', borderRadius: 8, padding: '8px 12px' }}>
+                <span style={{ fontSize: 9, fontWeight: 700, color: '#fbbf24', background: 'rgba(245,158,11,0.15)', padding: '2px 6px', borderRadius: 4 }}>{h.agent_id || '?'}</span>
+                <span style={{ fontSize: 11, color: '#e2e8f0', flex: 1 }}>{h.caza || h.description || 'Sin descripción'}</span>
+                <span style={{ fontSize: 8, color: '#64748b' }}>{h.since ? new Date(h.since).toLocaleDateString() : ''}</span>
+              </div>
+            ))}
+            {huecos.length > 20 && <p style={{ fontSize: 10, color: '#64748b', margin: '4px 0 0' }}>… y {huecos.length - 20} más</p>}
+          </div>
+        )}
+        <Provenance p={prov.huecos} />
+      </div>
+    </div>
+  );
+}
+
 function TabCockpitAgentes({ tenants, selectedSlug }) {
   const [subTab, setSubTab] = React.useState('timeline');
-  const SUBS = [{ id: 'timeline', icon: '⏱️', label: 'Timeline' }, { id: 'pulso', icon: '📈', label: 'Pulso' }, { id: 'doble_red', icon: '🕸️', label: 'Doble-Red' }];
+  const SUBS = [{ id: 'timeline', icon: '⏱️', label: 'Timeline' }, { id: 'pulso', icon: '📈', label: 'Pulso' }, { id: 'doble_red', icon: '🕸️', label: 'Doble-Red' }, { id: 'candados', icon: '🔒', label: 'Candados' }];
   const TB = (a) => ({ background: a ? 'rgba(99,102,241,0.12)' : 'transparent', border: a ? '1px solid rgba(99,102,241,0.3)' : '1px solid transparent', borderRadius: 8, padding: '8px 16px', cursor: 'pointer', fontSize: 12, fontWeight: a ? 700 : 500, color: a ? '#c7d2fe' : '#94a3b8', transition: 'all 0.2s ease' });
   return (
     <div style={{ maxWidth: 1000 }}>
@@ -9645,6 +9789,7 @@ function TabCockpitAgentes({ tenants, selectedSlug }) {
       {subTab === 'timeline' && <CockpitTimeline selectedSlug={selectedSlug} />}
       {subTab === 'pulso' && <CockpitPulso selectedSlug={selectedSlug} />}
       {subTab === 'doble_red' && <CockpitDobleRed />}
+      {subTab === 'candados' && <CockpitCandados />}
     </div>
   );
 }
