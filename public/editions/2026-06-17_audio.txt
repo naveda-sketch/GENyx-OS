@@ -1,0 +1,111 @@
+El Periódico. Edición del 2026-06-17.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Jensen Huang.
+Necesidad de 'nuevas normas sociales' en la era de la IA. En una entrevista con Associated Press, el CEO de NVIDIA, Jensen Huang, enfatizó que la sociedad no tiene más remedio que adaptarse a la llegada de la inteligencia artificial. Abogó por la regulación gubernamental y los estándares de seguridad para la IA, destacando que la seguridad nacional también debe ser una prioridad. Huang comparó la transición social con la llegada de los automóviles, señalando cómo la sociedad se adaptó entonces y lo hará ahora con la IA. Fuente: Associated Press.
+
+Satya Nadella.
+Advertencia contra el monopolio de la IA. Satya Nadella, CEO de Microsoft, advirtió contra un futuro de la IA en el que unos pocos modelos capturen la mayor parte del valor económico, lo que podría 'vaciar industrias enteras'. En un artículo publicado en X, argumentó que las empresas deben retener la propiedad del conocimiento y el juicio que las hacen únicas, incluso a medida que la IA se vuelve más capaz de absorber la experiencia humana y organizacional. Fuente: Business Insider.
+
+Elon Musk.
+Apoyo del Departamento de Justicia en demanda contra xAI. El Departamento de Justicia de EE. UU. ha intervenido para respaldar a Elon Musk en una demanda por contaminación del aire contra el centro de datos de xAI en Mississippi. El DOJ instó a un juez a desestimar la demanda presentada por la NAACP, argumentando que Grok de xAI es necesario para la 'seguridad nacional'. Fuente: The Guardian.
+SpaceX adquiere startup de codificación de IA Cursor. SpaceX ha superado a Amazon como la quinta empresa más valiosa del mundo, con un valor que en un momento alcanzó los 2.97 billones de dólares, días después de su salida a bolsa. Este aumento de valor se produjo tras la adquisición de la startup de codificación de IA, Cursor. Fuente: The Guardian.
+
+Sundar Pichai.
+Abandono de estudiantes en discurso de Stanford. El CEO de Google, Sundar Pichai, fue desairado en la Universidad de Stanford cuando los graduados realizaron una protesta y abandono durante su discurso el domingo 14 de junio de 2026. Los manifestantes protestaban contra el contrato de Google con Israel a través del 'Proyecto Nimbus', un proyecto conjunto con Amazon para suministrar servicios de IA y nube a Israel. Fuente: The Hindu.
+
+Tim Cook.
+Apple se asocia con OpenAI para llevar ChatGPT a iOS 18. Tim Cook, CEO de Apple, anunció en la WWDC 2026 que Apple se asociará con OpenAI para integrar ChatGPT en iOS 18. Esta colaboración permitirá a los usuarios acceder a las capacidades de ChatGPT directamente a través de Siri y otras aplicaciones del sistema operativo. Fuente: TechCrunch.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+OpenAI enfrenta investigaciones legales y pérdidas financieras crecientes. OpenAI está siendo investigada por múltiples fiscales generales estatales de EE. UU. por sus prácticas, incluyendo publicidad, manejo de datos de consumidores y actividades relacionadas con menores. Además, la empresa reportó pérdidas significativas, alcanzando los $38.5 mil millones en 2025, a pesar de un aumento en los ingresos. Fuente: Inc. Magazine, Gizmodo, Hashtag Trending (YouTube).
+OpenAI automatiza la creación de anuncios con herramientas de IA. OpenAI está expandiendo sus herramientas publicitarias para permitir a los anunciantes generar, modificar y optimizar creativos publicitarios de forma masiva utilizando IA. Esta iniciativa busca hacer que la publicidad sea más competitiva y eficiente, aunque la responsabilidad final del contenido recae en el anunciante. Fuente: Digiday.
+
+Google DeepMind.
+Gemini Guided Learning mejora el rendimiento en matemáticas en Sierra Leona. Un ensayo controlado aleatorio de Google DeepMind y Fab AI en Sierra Leona demostró que el uso de Gemini Guided Learning en lecciones de matemáticas dirigidas por maestros mejoró las puntuaciones de los estudiantes. El estudio involucró a 1,763 estudiantes y mostró que un mayor uso se asoció con mayores ganancias, aunque los estudiantes más fuertes obtuvieron los mayores beneficios. Fuente: ETIH (Education Technology Insights Hub).
+Google DeepMind desarrolla herramienta de IA para acelerar la planificación urbana en el Reino Unido. Google DeepMind está trabajando con el gobierno del Reino Unido, Google Cloud y autoridades de planificación locales para desarrollar un prototipo de IA que actúe como asistente para los funcionarios de planificación. El objetivo es reducir los tiempos de decisión de las solicitudes en un 50% mediante la extracción de datos, el análisis de casos y la redacción de evaluaciones. Fuente: Google DeepMind Blog.
+HSBC se asocia con Google Cloud y DeepMind para integrar IA en sus servicios. HSBC colaborará con Google Cloud y Google DeepMind en una asociación plurianual para integrar herramientas y programas impulsados por IA, incluyendo modelos Gemini, en sus productos y servicios globales. Se espera que esto genere más de 200 nuevos casos de uso de IA en los próximos dos años, con un enfoque inicial en gestión de patrimonio y gestión de riesgos financieros. Fuente: Morningstar.
+
+Anthropic.
+Anthropic retira modelos de IA tras objeciones del gobierno de EE. UU. por 'jailbreak'. Anthropic retiró el acceso a sus modelos de IA recién lanzados, Fable 5 y Mythos 5, después de que el gobierno de EE. UU. impusiera restricciones de exportación debido a preocupaciones sobre una posible 'jailbreak' que podría eludir las limitaciones de seguridad. La empresa expresó su desacuerdo con la medida, argumentando que podría paralizar el despliegue de nuevos modelos de IA. Fuente: CNET, Cybersecurity Dive, Forbes, Business Insider, The Washington Post.
+
+Meta AI.
+Meta lanza 'AI Mode' en la búsqueda de Facebook para respuestas basadas en contenido público. Meta ha lanzado 'AI Mode' en la búsqueda de Facebook, permitiendo a los usuarios obtener respuestas a sus consultas utilizando Meta AI, las cuales se basan en contenido público de Grupos y Reels. Esta función busca transformar Facebook en un motor de búsqueda y herramienta de generación de contenido, compitiendo directamente con Google. Fuente: Forbes, Social Media Today, Editor and Publisher, Search Engine Land.
+Mark Zuckerberg admite errores en la IA de Meta y anuncia inversión en equipos. Mark Zuckerberg reconoció que Meta ha cometido 'errores' en su revisión de IA y planea aumentar la inversión en iniciativas de formación de equipos, incluyendo hackatones y mayores presupuestos para eventos corporativos. Esto sigue a una reestructuración que afectó a una parte significativa de la fuerza laboral, con empleados reasignados para entrenar modelos de IA. Fuente: Business Chief.
+
+Microsoft AI.
+Microsoft enfrenta demanda de accionistas por presunto encubrimiento de gastos en IA. Accionistas de Microsoft han demandado a la compañía, alegando que los defraudó al ocultar un crecimiento más lento en su negocio de la nube Azure y la necesidad de invertir miles de millones en infraestructura de IA. La demanda surgió después de una caída del 10% en las acciones de Microsoft tras un informe de ganancias que mostró una desaceleración en el crecimiento de Azure y un aumento en el gasto de capital. Fuente: PYMNTS.com.
+Satya Nadella advierte sobre los peligros de la dominancia de la IA y la necesidad de un ecosistema. El CEO de Microsoft, Satya Nadella, advirtió que la concentración de poder y valor en unas pocas empresas de IA podría generar problemas económicos y que la 'economía política simplemente no lo tolerará'. Abogó por la construcción de un 'ecosistema de frontera' donde el valor fluya ampliamente, permitiendo a las organizaciones mantener el control sobre sus sistemas de aprendizaje y experiencia. Fuente: TheStreet, TechRadar.
+Microsoft busca ayuda de Amazon para la capacidad de GitHub debido a la demanda de IA. Microsoft está recurriendo a Amazon Web Services (AWS) para abordar los problemas de capacidad en su plataforma GitHub, que han surgido debido al aumento de la demanda de herramientas de codificación de IA. El volumen de cambios de código en GitHub ha crecido exponencialmente, lo que ha llevado a Microsoft a acelerar su migración a Azure y explorar una estrategia multi-nube. Fuente: Business Insider.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+SpaceX.
+Debut histórico en Nasdaq con una valoración de más de $2 billones. SpaceX, la compañía de tecnología espacial de Elon Musk, completó la oferta pública inicial (IPO) más grande de la historia el 12 de junio de 2026, debutando en Nasdaq bajo el símbolo SPCX a $150 por acción. Tras su IPO, la valoración de mercado de SpaceX superó los $2 billones, convirtiéndola en una de las empresas públicas más valiosas del mundo. Fuente: Built In, Condia.
+
+Sarvam AI.
+Se convierte en el nuevo unicornio de la IA en India con una ronda Serie B de $234 millones. Sarvam AI cerró una primera fase de su ronda de financiación Serie B por $234 millones, liderada estratégicamente por HCLTech con una inversión de $150 millones, y con la participación de Bessemer Venture Partners, Khosla Ventures y Peak XV Partners. La compañía se enfoca en ser un negocio de IA de pila completa, abarcando el desarrollo de modelos y aplicaciones empresariales, incluyendo IA agentiva, modelos de codificación y ciberseguridad para India. Fuente: Scouts by Yutori, AI Money Minute (YouTube, citando TechCrunch).
+
+Ramp.
+Recibe $750 millones en financiación de crecimiento. Ramp, una plataforma de operaciones financieras con sede en Nueva York que ofrece software de gestión de gastos empresariales, anunció una financiación de crecimiento de $750 millones. Esta ronda, liderada por ICONIQ, GIC y Ontario Teachers' Pension Plan, eleva la valoración de la compañía a $44 mil millones. Fuente: Dwealth.news, Fintech Pulse.
+
+Flourish.
+Recauda $500 millones en financiación inicial para modelos de IA fundacionales. Flourish ha obtenido $500 millones en financiación inicial para desarrollar modelos de IA fundacionales inspirados en la cognición humana. Entre los inversores se encuentran Jeff Bezos, Lux Capital y Google Ventures, y la valoración reportada de la compañía es de $2.5 mil millones. Fuente: Dwealth.news.
+
+NewCore.
+Emerge del modo sigiloso con una ronda Seed de $66 millones para identidades de agentes de IA. NewCore ha salido del modo sigiloso con una financiación Seed de $66 millones, valorando la compañía en $300 millones. La ronda fue liderada por Cyberstarts, con la participación de Index Ventures y Evolution Equity Partners. La empresa se enfoca en construir infraestructura de gestión de identidades para agentes de IA que actúan como empleados empresariales. Fuente: Scouts by Yutori, AI Money Minute (YouTube, citando SiliconAngle).
+
+Sección: 📰 Top 10 Noticias.
+
+SpaceX escala posiciones en bolsa tras su debut, superando brevemente a Microsoft y Amazon.
+Las acciones de SpaceX subieron un 4.8% en su tercer día de cotización, alcanzando una valoración de aproximadamente 2.5 billones de dólares. Esta capitalización de mercado permitió a la compañía de Elon Musk superar brevemente a gigantes tecnológicos como Microsoft y Amazon, integrándose como un componente influyente del índice Nasdaq Composite. Fuente: Google Finance.
+¿Por qué importa? Como fundador tech, esto demuestra el inmenso apetito del mercado por empresas con visión disruptiva y liderazgo fuerte, incluso con valoraciones elevadas. Subraya la importancia de la narrativa y la capacidad de ejecución para generar un impacto masivo en los mercados de capitales.
+
+OpenAI reporta gastos de $3.700 millones en Q1 2026, superando ingresos de $5.700 millones.
+OpenAI, líder en inteligencia artificial, gastó 3.700 millones de dólares durante el primer trimestre de 2026, frente a unos ingresos de 5.700 millones de dólares. Esta magnitud de gasto subraya los enormes costes asociados al desarrollo de modelos de IA, la expansión de infraestructura informática y el mantenimiento de servicios como ChatGPT, a pesar del fuerte crecimiento de sus ingresos. Fuente: XTB.com.
+¿Por qué importa? Este dato es crucial para cualquier fundador de IA, ya que revela la intensa inversión de capital necesaria para la investigación, desarrollo y escalado de modelos de IA de vanguardia. Destaca la necesidad de una estrategia de monetización robusta y eficiencia operativa para alcanzar la rentabilidad en el sector.
+
+La IA transforma la ciberseguridad: acelera ataques y exige gestión continua de la exposición.
+La inteligencia artificial está redefiniendo la ciberseguridad, permitiendo una detección de amenazas más rápida y una respuesta automatizada, pero también potenciando la velocidad y sofisticación de los ataques. Los ataques habilitados por IA crecieron un 89% entre 2025 y 2026, con tiempos de ruptura de hasta 27 segundos, lo que obliga a las organizaciones a pasar de una seguridad reactiva a una gestión continua de la exposición. Fuente: Marsh.
+¿Por qué importa? Para un fundador tech, esto significa que la ciberseguridad debe ser una prioridad desde el diseño ('security by design'). La integración de IA en las soluciones de seguridad es vital, pero también lo es anticipar cómo los adversarios usarán la IA, exigiendo una adaptación constante de las defensas y una cultura de resiliencia.
+
+Los mercados financieros en vilo ante el debut de Kevin Warsh al frente de la Reserva Federal.
+Los inversores mantienen la cautela antes del anuncio de política monetaria de la Reserva Federal, que marcará la primera reunión presidida por Kevin Warsh. Aunque se espera que las tasas de interés se mantengan en el rango de 3.50%-3.75%, el mercado buscará señales en el gráfico de puntos sobre la trayectoria futura del costo del dinero. Fuente: Google Finance.
+¿Por qué importa? Las decisiones de la Fed impactan directamente el costo del capital y la liquidez en el mercado, factores críticos para la financiación de startups y la valoración de empresas tecnológicas. Un fundador debe monitorear de cerca estas señales para planificar estrategias de crecimiento, inversión y levantamiento de capital.
+
+Siemens abre su software industrial a startups europeas para impulsar la innovación.
+Siemens ha anunciado en VivaTech 2026 que las startups europeas pueden acceder a su software industrial líder a través del programa 'Siemens for Startups'. Este programa ofrece colecciones de software adaptadas a los presupuestos y la velocidad de las startups, facilitando la transición de los resultados de laboratorio a aplicaciones industriales y brindando acceso a mercados y colaboraciones. Fuente: Siemens Press.
+¿Por qué importa? Esta iniciativa es una oportunidad de oro para startups de hardware, IoT e industria 4.0. Acceder a herramientas de software industrial de primer nivel sin la barrera de costos iniciales puede acelerar significativamente el desarrollo de productos, la validación y la entrada al mercado, permitiendo competir con actores más grandes.
+
+El futuro de la IA: de la abundancia al apocalipsis, con la automatización de la ingeniería de software en el horizonte.
+Expertos de Stanford anticipan que la capacidad de la IA para realizar todas las tareas de un ingeniero de software podría estar 'aquí ahora o dentro de cinco años, fácilmente'. Esta automatización podría llevar a una 'nación de genios en un centro de datos', con miles de millones de agentes de IA operando 100 veces más rápido que los humanos, lo que podría generar un crecimiento económico explosivo. Fuente: Stanford Graduate School of Business.
+¿Por qué importa? Este análisis subraya la inminente disrupción en el desarrollo de software. Los fundadores deben considerar cómo integrar la IA en sus procesos de ingeniería, no solo para optimizar, sino para redefinir la creación de productos y la escalabilidad, preparándose para un futuro donde la IA sea un 'trabajador' clave.
+
+La planificación financiera es clave: el 80% de las startups fracasan por problemas de dinero.
+La mayoría de las startups fracasan por razones financieras, como quedarse sin efectivo, precios incorrectos o modelos de ingresos ineficaces. Un 38% de los fracasos se atribuyen a la falta de previsión de liquidez, mientras que el 18% se debe a problemas de precios o costos. La disciplina financiera, incluyendo la previsión de flujo de caja y el entendimiento de la economía unitaria, es esencial para la supervivencia. Fuente: Consero Global.
+¿Por qué importa? Este es un recordatorio crítico para todo fundador: el producto y la visión son importantes, pero la gestión financiera es la base de la supervivencia. Conocer la pista de aterrizaje ('runway'), los costos unitarios y tener un plan de capital defendible es más importante que nunca para evitar ser parte de las estadísticas de fracaso.
+
+La entropía cuántica emerge como un activo estratégico para la ciberseguridad financiera.
+La mecánica cuántica, con su aleatoriedad intrínseca, puede generar entropía pura, abriendo el camino a sistemas criptográficos mucho más robustos y difíciles de romper por ciberdelincuentes. BBVA está investigando el uso de la entropía cuántica para garantizar sistemas seguros y mejorar procesos de negocio, como las simulaciones de riesgo con Montecarlo. Fuente: BBVA.
+¿Por qué importa? Los fundadores de fintech y empresas con alta sensibilidad a la seguridad de datos deben prestar atención a la computación cuántica. Si bien es una tecnología emergente, entender cómo la entropía cuántica puede reforzar la criptografía es vital para preparar futuras soluciones de seguridad y proteger activos críticos contra amenazas cuánticas.
+
+El gobierno de Victoria, Australia, invierte $3.5 millones en startups de IA y Deeptech.
+Nueve programas pre-aceleradores en Victoria, Australia, compartirán 3.5 millones de dólares para apoyar a emprendedores en la construcción de startups de IA y deeptech. Estos programas ayudarán a los fundadores en etapas tempranas a probar conceptos, desarrollar capacidades, conectar con clientes y avanzar hacia la comercialización. Fuente: jobs.vic.gov.au.
+¿Por qué importa? Esta inversión gubernamental en IA y deeptech es una señal clara del apoyo institucional a la innovación. Para los fundadores, especialmente aquellos en mercados emergentes o con tecnologías de capital intensivo, buscar programas de financiación y apoyo gubernamental puede ser crucial para validar ideas y obtener el capital inicial necesario para escalar.
+
+Precios del petróleo caen por optimismo ante un posible acuerdo entre EE. UU. e Irán.
+El crudo West Texas Intermediate descendió significativamente, cotizando por debajo de los 80 dólares por barril, tras noticias sobre un posible acuerdo de paz interino entre EE. UU. e Irán. Esta desescalada geopolítica ha aliviado las preocupaciones sobre el suministro energético y ha fomentado un trasvase de capital desde el sector de energía hacia activos de mayor riesgo. Fuente: Google Finance.
+¿Por qué importa? Los cambios en los precios de la energía y la estabilidad geopolítica tienen un impacto directo en los costos operativos de las empresas y en el sentimiento general del mercado. Una caída en los precios del petróleo puede reducir los costos de logística y energía, mientras que el optimismo geopolítico puede impulsar la inversión en activos de riesgo, incluyendo startups tecnológicas.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
