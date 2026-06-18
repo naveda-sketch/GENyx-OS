@@ -1,0 +1,136 @@
+El Periódico. Edición del 2026-06-18.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Elon Musk.
+SpaceX Adquiere la Startup de Codificación de IA Cursor por $60 Mil Millones. SpaceX, a través de su división de IA xAI, formalizó la adquisición de la startup de codificación de IA Cursor (Anysphere) por $60 mil millones en un acuerdo de acciones. Esta adquisición busca fortalecer las capacidades de IA de SpaceX y competir con rivales como Anthropic y OpenAI. El acuerdo se espera que se cierre en el tercer trimestre de 2026. Fuente: TechCrunch.
+Elon Musk Ejerce Opciones de Acciones de Tesla por $116 Mil Millones. Elon Musk ejerció 303,960,630 opciones de acciones de Tesla de su paquete de compensación de 2018 el 16 de junio de 2026, según un Formulario 4 presentado ante la SEC el 17 de junio de 2026. Esta transacción generó aproximadamente $115.9 mil millones en ganancias en papel y aumentó su participación en Tesla a cerca del 20%. Las acciones recién adquiridas están restringidas y no podrán venderse hasta 2033. Fuente: Electrek.
+SpaceX Dragon Ameriza Tras Misión de Reabastecimiento a la ISS. La nave espacial no tripulada SpaceX Dragon amerizó con éxito frente a la costa de California el 17 de junio de 2026, completando la 34ª misión de servicios de reabastecimiento comercial a la Estación Espacial Internacional para la NASA. La nave se desacopló el 16 de junio, transportando miles de libras de carga, incluyendo valiosas muestras de investigación. [cite: 4 (from previous search output)] Fuente: NASA.
+
+Satya Nadella.
+Nadella Advierte Contra la Concentración de Poder en la IA. Satya Nadella publicó un ensayo en X el 14 de junio de 2026, advirtiendo contra un futuro de la IA donde 'unos pocos modelos devoran todo lo que ven', absorbiendo la experiencia de industrias enteras. Argumenta que la economía política no tolerará una IA que vacíe industrias y que las empresas deben construir 'bucles de aprendizaje' para proteger su conocimiento institucional. [cite: 2, 6, 7 (from previous search output)] Fuente: X (Satya Nadella).
+Microsoft Lanza Copilot Cowork y Microsoft Scout. Microsoft anunció la disponibilidad general de Copilot Cowork y la introducción de Microsoft Scout el 16 de junio de 2026, nuevas experiencias de agente en Microsoft 365 Copilot. Copilot Cowork es un sistema de agente diseñado para tareas complejas y de larga duración, mientras que Scout es una nueva experiencia de agente. [cite: 1 (from previous search output)] Fuente: Microsoft Learn.
+Microsoft Vende Modelos de OpenAI a Empresas Chinas. Microsoft se ha convertido en el principal proveedor de modelos de OpenAI en China, vendiendo la tecnología a las mayores empresas de internet del país, a pesar de que OpenAI y Anthropic mantienen sus propios modelos fuera de este mercado. ByteDance, por ejemplo, es un cliente importante, gastando más de mil millones de dólares al año en servicios de IA y nube de Microsoft. [cite: 2, 3, 4, 5, 6, 7, 8 (from previous search output)] Fuente: The Business Times (citando a Bloomberg).
+
+Jensen Huang.
+Jensen Huang: La Sociedad Necesita 'Nuevas Normas Sociales' para la IA. En una entrevista con Associated Press el 16 de junio de 2026, Jensen Huang enfatizó que la sociedad debe cambiar con la llegada de la IA, abogando por una adopción plena de la tecnología para mejorar la vida de las personas. También destacó la necesidad de regulación gubernamental y estándares de seguridad, priorizando la seguridad nacional. [cite: 1, 2, 3, 4, 5 (from previous search output)] Fuente: Associated Press.
+NVIDIA Invierte en la Expansión de la Planta de Coherent para Infraestructura de IA. Jensen Huang participó en la ceremonia de inauguración de una expansión de la planta de fabricación de Coherent en Sherman, Texas, el 16 de junio de 2026. Esta expansión es parte de una asociación de $2 mil millones de NVIDIA para mejorar su infraestructura de IA, produciendo material para un láser que transmitirá datos entre chips. [cite: 1, 4, 5, 13 (from previous search output)] Fuente: Associated Press.
+Huang Advierte Sobre la Deficiencia Energética de EE. UU. para la IA. Jensen Huang advirtió que Estados Unidos está 'lamentablemente atrasado en la producción de energía', lo que representa una vulnerabilidad para el desarrollo de la IA, ya que los centros de datos de IA demandan grandes cantidades de electricidad. Esta escasez podría dificultar que EE. UU. aproveche sus fortalezas en infraestructura y desarrollo de chips de IA. [cite: 1, 4 (from previous search output)] Fuente: Associated Press.
+
+Sam Altman.
+Sam Altman Insta al G7 a No Ceder la Responsabilidad de la IA a las Empresas. Sam Altman, CEO de OpenAI, instó a los líderes mundiales en la cumbre del G7 el 17 de junio de 2026 a no ceder el control sobre la inteligencia artificial a las empresas que la construyen. Hizo un llamado a los gobiernos para establecer estándares globales para el despliegue de esta tecnología. [cite: 9, 12, 14 (from previous search output)] Fuente: Semafor.
+OpenAI Lanza Tareas Programadas en ChatGPT. OpenAI actualizó ChatGPT con una nueva función de tareas programadas, que permite a los usuarios pedir a ChatGPT que envíe recordatorios, gestione trabajos recurrentes o supervise cosas. Esta función se está implementando para usuarios Plus, Pro, Business y Enterprise a partir del 17 de junio de 2026. [cite: 7, 9 (from previous search output)] Fuente: OpenAI Help Center.
+OpenAI Reporta una Quema de Efectivo de $3.7 Mil Millones en el Primer Trimestre de 2026. OpenAI quemó $3.7 mil millones durante los primeros tres meses de 2026, lo que representa más de la mitad de sus $5.7 mil millones en ingresos para el mismo período. Esta cifra, reportada el 16 de junio de 2026, destaca los desafíos financieros de generar ganancias a pesar de la fuerte demanda de IA. [cite: 2, 3, 4 (from previous search output)] Fuente: Investing.com (citando a The Information).
+
+Sundar Pichai.
+Sundar Pichai Pronuncia Discurso de Graduación en Stanford. Sundar Pichai, CEO de Google, pronunció el discurso de graduación en la 135ª ceremonia de la Universidad de Stanford el 16 de junio de 2026. Aconsejó a los graduados elegir el optimismo, abordar cosas difíciles y perseguir sus pasiones. Durante el discurso, entre 100 y 200 estudiantes se retiraron en protesta por la relación de Google con el gobierno israelí y la ICE. [cite: 4, 6, 9, 10, 12, 13 (from previous search output)] Fuente: The Stanford Daily.
+Representante del Congreso Vende Acciones de Alphabet. Matthew Van Epps, un representante republicano de Tennessee, vendió acciones de Alphabet Inc. (GOOGL) por un valor entre $1,001 y $15,000 el 16 de junio de 2026. La transacción fue divulgada el 17 de junio de 2026 en una presentación, cumpliendo con la Ley STOCK. [cite: 3, 4, 6, 9, 10 (from previous search output)] Fuente: Investing.com.
+Philipp Schindler de Alphabet Recibe Unidades de Acciones y Dividendos. Philipp Schindler, Chief Business Officer de Alphabet, recibió pequeñas concesiones de unidades de acciones Clase C de Google y unidades equivalentes a dividendos el 15 de junio de 2026. Estas son adjudicaciones relacionadas con la compensación y no compras o ventas en el mercado abierto, según un Formulario 4 presentado ante la SEC. [cite: 16 (from previous search output)] Fuente: SEC.gov.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+Sam Altman de OpenAI insta al G7 a no ceder responsabilidades a gigantes de la IA. El CEO de OpenAI, Sam Altman, ha instado a los líderes del G7 a no delegar la responsabilidad de la regulación de la inteligencia artificial únicamente en las grandes empresas de IA. Este llamado subraya la necesidad de una supervisión gubernamental activa y una colaboración global para garantizar un desarrollo seguro y ético de la IA. Fuente: The Star.
+Químico de IA casi autónomo mejora reacciones medicinales. OpenAI ha presentado una investigación sobre un químico de IA casi autónomo que ha demostrado la capacidad de mejorar reacciones desafiantes en la química medicinal. Este avance podría acelerar significativamente el descubrimiento y desarrollo de nuevos fármacos. Fuente: OpenAI.
+Simulación de despliegue para predecir el comportamiento de modelos de IA. OpenAI ha publicado una investigación sobre un método de seguridad de simulación de despliegue que reproduce 1.3 millones de conversaciones reales para predecir el comportamiento de los modelos antes de su lanzamiento. Esto busca mejorar la seguridad y la alineación de los sistemas de IA. Fuente: OpenAI / AI Weekly.
+
+Google DeepMind.
+Google DeepMind analiza cuatro formas en que la IA podría superar a los humanos. Un nuevo análisis de Google DeepMind sugiere que la IA podría superar las capacidades humanas a través de cuatro rutas principales, advirtiendo que esta transición podría ocurrir como una serie acumulativa de interrupciones en lugar de un salto dramático. Esto implica preparaciones graduales para gobiernos y empresas. Fuente: The Cool Down.
+Drones de IA de Google DeepMind superan a campeones humanos en carreras. Investigadores de la Universidad de Zúrich y Google DeepMind publicaron un estudio que muestra que los drones entrenados con IA pueden superar a pilotos humanos de élite en carreras de drones. El entrenamiento con aprendizaje por refuerzo multiagente no solo mejoró la velocidad, sino que también redujo las tasas de colisión en un 50%. Fuente: YouTube (Google DeepMind channel).
+
+Anthropic.
+Gobierno de EE. UU. ordena la desactivación de modelos de IA de Anthropic. El gobierno de EE. UU. ha emitido una directiva de control de exportaciones que obliga a Anthropic a desactivar el acceso a sus modelos de IA más potentes, Fable 5 y Mythos 5, para no ciudadanos estadounidenses. La medida se tomó tras la identificación de un 'jailbreak' que permitía eludir las salvaguardias de ciberseguridad. Fuente: Bloomberg Businessweek / Medium / CNA.
+
+Meta AI.
+Facebook integra nuevas funciones de IA para búsqueda y edición de fotos. Meta ha anunciado la incorporación de nuevas funciones de IA en Facebook, incluyendo un 'Modo IA' para búsquedas que proporciona respuestas basadas en contenido público y preajustes de fotos impulsados por IA para alterar digitalmente la ropa, peinados y accesorios en imágenes. Fuente: kagstv.com.
+
+Microsoft AI.
+Microsoft lanza Copilot Cowork con modelo de precios de pago por uso. Microsoft está cambiando su modelo de precios por primera vez en dos décadas para su software, introduciendo un esquema de pago por uso para su nuevo agente de IA, Copilot Cowork. Este agente puede realizar tareas de oficina de forma autónoma, y su uso se facturará según la potencia computacional consumida. Fuente: The Star.
+Accionistas demandan a Microsoft por ocultar costos de IA y desaceleración de Azure. Microsoft enfrenta una demanda colectiva propuesta por accionistas que alegan que la compañía ocultó la desaceleración del crecimiento de su negocio en la nube Azure y subestimó la escala de los gastos de capital necesarios para la infraestructura de IA. La demanda nombra al CEO Satya Nadella y a la CFO Amy Hood como demandados. Fuente: Reuters (vía Shareholders sue Microsoft).
+
+Sección: 🚀 Emerging Tech & Startups.
+
+SpaceX.
+Lanzamiento de IPO récord. SpaceX lanzó su Oferta Pública Inicial (IPO) el 12 de junio de 2026 en el Nasdaq bajo el símbolo SPCX, con un precio de $150 por acción. Tras su debut, la compañía alcanzó una valoración de mercado de más de $2 billones, convirtiéndose en la IPO más grande de la historia y una de las empresas públicas más valiosas del mundo. Fuente: Forbes.
+
+OpenAI.
+Presentación confidencial para IPO. OpenAI, la empresa detrás de ChatGPT, presentó confidencialmente la documentación para su Oferta Pública Inicial (IPO) ante la Comisión de Bolsa y Valores (SEC) en junio de 2026. La compañía fue valorada en $852 mil millones en una ronda de financiación en marzo y busca una valoración pública de $1 billón o más. Fuente: Forbes.
+
+Genspark.ai.
+Extensión de Serie B de $100M. Genspark.ai, una startup de IA con sede en Palo Alto, California, cerró una extensión de su ronda de financiación Serie B por $100 millones, elevando su valoración post-money a $2.6 mil millones. Esta extensión incrementa su financiación total de Serie B a $485 millones y fue respaldada por inversores existentes. Fuente: Business Wire.
+Nombramiento de Jamison Powell como CRO. Genspark.ai también anunció el nombramiento de Jamison Powell como Director de Ingresos (CRO). Powell aporta más de dos décadas de experiencia en la dirección de organizaciones de comercialización de alto rendimiento y en el escalado de startups hacia adquisiciones exitosas y salidas a bolsa. Fuente: Business Wire.
+Lanzamiento de AgentBase. Genspark.ai también presentó AgentBase, un constructor de bases de datos y paneles de control personalizados nativo de IA, diseñado para reemplazar el SaaS heredado. Este lanzamiento se suma a Genspark Claw, una capa de ejecución que permite a los usuarios realizar tareas de principio a fin en flujos de trabajo reales. Fuente: Business Wire.
+
+RUM Group Inc. (Quake AI).
+Adquisición de Northern Data AG y realineación estratégica. Rumble anunció una realineación en dos unidades de negocio principales, Rumble (su plataforma de video) y Quake AI (su negocio de infraestructura de nube e IA), tras el cierre de la adquisición de Northern Data AG. Esta reestructuración, efectiva desde el 18 de junio de 2026, posiciona a RUM Group Inc. para capitalizar la creciente demanda de computación de IA. Fuente: Investing News Network (vía PR Newswire).
+
+Revinate.
+Lanzamiento de Ivy, IA de inteligencia de decisiones. Revinate presentó 'Ivy', una capa de inteligencia de decisiones impulsada por IA integrada en toda su plataforma de hospitalidad, en HITEC 2026. Ivy está diseñada para automatizar hasta el 80% de las consultas rutinarias de los huéspedes, liberando al personal del hotel para interacciones de mayor valor. Fuente: HITEC®.
+
+Sección: 📰 Top 10 Noticias.
+
+SpaceX obtiene opción de compra de Cursor por $60 mil millones, redefiniendo el valor de startups de IA..
+SpaceX anunció en abril de 2026 una opción para adquirir Cursor, una startup de edición de código asistida por IA, por $60 mil millones. Esta operación, una de las más grandes en la historia de las startups tecnológicas, subraya cómo las empresas de IA se están convirtiendo en activos estratégicos para gigantes. Cursor, valorada en $2.5 mil millones en enero de 2025, ha visto su valuación dispararse a $50 mil millones, un aumento de 20x en 18 meses. Fuente: Ecosistema Startup.
+¿Por qué importa? Para los founders tech, esta noticia demuestra que el valor de adquisición puede exceder el revenue actual por un margen significativo si se construye en un nicho estratégico para un gigante. También resalta la importancia de la integración tecnológica y el acceso a infraestructura como supercomputadoras para escalar modelos de IA.
+
+Crisis interna en la unidad de IA Aplicada de Meta revela desafíos en la gestión de equipos de IA..
+Un reporte de WIRED, analizado por Ecosistema Startup, expone una crisis de moral en la unidad de Applied AI de Meta, a pesar de sus vastos recursos. El CEO Mark Zuckerberg ha enviado mensajes directos sobre el estado de la unidad, indicando que la falta de una visión estratégica clara puede llevar al colapso del equipo. Fuente: Ecosistema Startup.
+¿Por qué importa? Esta es una advertencia crucial para founders sobre los límites del crecimiento acelerado y el costo humano de las reestructuraciones constantes, enfatizando que la moral del equipo es vital incluso en empresas con recursos ilimitados.
+
+Orbio, startup madrileña, cierra ronda Serie A de 18 millones de euros para su IA en procesos de selección..
+La startup española Orbio ha levantado 18 millones de euros en una ronda de financiación Serie A, liderada por Dawn Capital. Su plataforma utiliza agentes de IA para realizar entrevistas de trabajo, evaluar habilidades y resolver dudas en tiempo real, especialmente útil en industrias con alta rotación. Fuente: Xataka.
+¿Por qué importa? Para los founders, esta noticia destaca el potencial de la IA para resolver problemas de 'infraestructura humana' en la gestión de personal y la eficiencia en los procesos de contratación, mostrando un caso de éxito en la aplicación de IA en un nicho específico.
+
+Drones ucranianos emplean tácticas no convencionales para interceptar drones Shahed rusos, priorizando la maniobrabilidad sobre la velocidad..
+Un artículo de Xataka reporta que los drones ucranianos están utilizando una estrategia 'contra toda lógica' para cazar drones Shahed rusos, priorizando la maniobrabilidad y tácticas inesperadas sobre la velocidad pura. Esta innovación táctica ha demostrado ser efectiva en el campo de batalla. Fuente: Xataka.
+¿Por qué importa? Esta noticia subraya la importancia de la innovación y la adaptabilidad en el desarrollo tecnológico, mostrando que soluciones no convencionales pueden superar a la tecnología superior en ciertos contextos. Los founders pueden aprender sobre la importancia de la agilidad y el pensamiento lateral.
+
+La Rama Judicial de Colombia impulsa la adopción de IA generativa en proyectos y labores institucionales..
+La Unidad de Transformación Digital e Informática (UTDI) de la Rama Judicial de Colombia ha instruido a los servidores judiciales a comunicar y compartir proyectos que involucren IA, incluida la IA generativa, para apoyar sus labores. Esto busca garantizar el seguimiento y acompañamiento de estas iniciativas. Fuente: Rama Judicial (UTDI).
+¿Por qué importa? Esta es una señal clara de la creciente adopción de la IA en sectores tradicionalmente conservadores como el público. Para los founders, representa una oportunidad para desarrollar soluciones de IA específicas para el sector gubernamental y legal, así como la necesidad de entender las regulaciones y marcos de implementación.
+
+Las acciones de C3.ai (AI) bajan un 5.86% en las últimas 24 horas..
+C3.ai, un proveedor de software de inteligencia artificial empresarial, ha visto sus acciones (NYSE:AI) caer un 5.86% en las últimas 24 horas. A pesar de su papel fundamental en soluciones avanzadas de IA para grandes organizaciones, el mercado de la IA se ha centrado más en los innovadores de hardware. Fuente: TradingView.
+¿Por qué importa? Esta fluctuación resalta la volatilidad del mercado de valores para las empresas de software de IA y la preferencia actual de los inversores por el hardware de IA. Los founders deben estar atentos a las tendencias del mercado y cómo estas valoran diferentes segmentos de la cadena de valor de la IA.
+
+El Ibex 35 inicia la jornada en rojo, cayendo un 0.41% y regresando a los 18,200 puntos..
+El principal índice bursátil español, el Ibex 35, ha comenzado la sesión con una caída del 0.41%, situándose nuevamente en el nivel de los 18,200 puntos. Esta apertura a la baja refleja la cautela de los inversores en los mercados europeos. Fuente: Negocios.com.
+¿Por qué importa? Las fluctuaciones en los mercados bursátiles europeos pueden influir en el sentimiento de los inversores globales y en la disponibilidad de capital para startups. Los founders deben monitorear estos indicadores para entender el clima económico general.
+
+Wall Street muestra movimientos significativos en acciones, con algunas alzas y bajas notables en las últimas 24 horas..
+La plataforma IG Internacional reporta las acciones con mayores subidas y bajadas en Wall Street durante las últimas 24 horas, basándose en la variación porcentual desde el último cierre. Esta información se actualiza en tiempo real, reflejando la dinámica del mercado. Fuente: IG Internacional.
+¿Por qué importa? Los founders deben estar al tanto de los movimientos del mercado de valores, ya que las tendencias en Wall Street a menudo impactan la valoración de las empresas tecnológicas y el apetito por el riesgo de los inversores en startups.
+
+La IA y las redes inteligentes se perfilan como claves en la transformación energética global para 2030..
+Un análisis de Xataka Colombia proyecta que la inteligencia artificial será fundamental para gestionar redes eléctricas inteligentes, optimizando el consumo y acelerando el desarrollo de energías renovables. Esto forma parte de las tendencias tecnológicas que transformarán el mundo para 2030. Fuente: Xataka Colombia.
+¿Por qué importa? Esta tendencia a largo plazo es crucial para founders en el sector energético o de sostenibilidad, indicando áreas de alta oportunidad para la innovación en IA y hardware inteligente.
+
+Plataformas de seguridad Web3 y Ethereum cierran rondas de financiamiento significativas..
+La plataforma de seguridad de Ethereum, Drosera, ha completado una ronda de financiamiento de $3.25 millones, mientras que el estudio de desarrollo Web3 Mirai Labs ha cerrado una ronda semilla de $4 millones. Estas inversiones reflejan el continuo interés en el ecosistema Web3. Fuente: Resumen de Información de Financiamiento.
+¿Por qué importa? Para los founders en el espacio Web3 y blockchain, estas rondas de financiamiento indican que el capital de riesgo sigue fluyendo hacia proyectos de infraestructura y desarrollo en este sector, validando el potencial de mercado y la demanda de soluciones innovadoras.
+
+Sección: 💹 Pulso de Mercados.
+
+S&P 500: 7,511.35, cambio de -1.21%.
+NASDAQ 100: N/A, cambio de -0.99%.
+Dow Jones Industrial Average: 51,492.55, cambio de -0.98%.
+BMV (Bolsa Mexicana de Valores) / IPC: N/A, cambio de N/A.
+Tipo de cambio USD/MXN: 17.3136, cambio de +0.07%.
+NVIDIA: 204.65 USD, cambio de N/A.
+Apple: 295.95 USD, cambio de -1.10%.
+Microsoft: 378.91 USD, cambio de -3.79%.
+Google (Alphabet Inc. Class C): 362.10 USD, cambio de N/A.
+Meta: 578.06 USD, cambio de >-5%.
+Amazon: 237.50 USD, cambio de -3.46%.
+Tesla: 396.38 USD, cambio de -2.05%.
+N/A: N/A, cambio de N/A.
+Decisión de la Reserva Federal: Tasas sin cambios, perspectiva hawkish, cambio de N/A.
+Inflación y Precios de la Energía: Elevada, cambio de N/A.
+Tensiones Geopolíticas: Incertidumbre elevada, cambio de N/A.
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
