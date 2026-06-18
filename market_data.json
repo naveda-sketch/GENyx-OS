@@ -1,0 +1,70 @@
+{
+  "_meta": {
+    "description": "Datos de mercado AOaaS/AaaS — Manifiesto GenyX",
+    "regla": "REGLA 25 (sub-regla 25.1 vigencia)",
+    "mantenimiento": "RADAR (post-banderazo) o manual",
+    "tiers": {
+      "T4": "Fuente primaria verificada (Deloitte, Gartner, CIO Magazine)",
+      "T2": "Blog de vendor / fuente secundaria — corroborar con primaria"
+    }
+  },
+  "mercado_aaas": {
+    "valor_actual_usd_b": 68.9,
+    "valor_proyectado_usd_b": 221.9,
+    "cagr_pct": 26.3,
+    "periodo": "2025-2030",
+    "fuente": "Deloitte TMT Predictions 2026",
+    "url": "https://www.deloitte.com/us/en/insights/industry/technology/technology-media-and-telecom-predictions/2026/saas-ai-agents.html",
+    "tier": "T4",
+    "as_of": "2026-01-15"
+  },
+  "fallo_produccion": {
+    "pct": 88,
+    "descripcion": "De los proyectos de IA no llegan a producción",
+    "fuente": "Gartner Strategic Tech Trends 2024-2025",
+    "url": "https://www.gartner.com/en/newsroom/press-releases/2024-10-28-gartner-reveals-the-top-10-strategic-technology-trends-for-2025",
+    "tier": "T4",
+    "as_of": "2024-10-28"
+  },
+  "comparativa_aaas_aoaas": {
+    "fuentes": [
+      {
+        "nombre": "Deloitte",
+        "url": "https://www.deloitte.com/us/en/insights/industry/technology/technology-media-and-telecom-predictions/2026/saas-ai-agents.html",
+        "tier": "T4",
+        "as_of": "2026-01-15"
+      },
+      {
+        "nombre": "CIO Magazine",
+        "url": "https://www.cio.com/article/4064998/taming-ai-agents-the-autonomous-workforce-of-2026.html",
+        "tier": "T4",
+        "as_of": "2026-02-10"
+      }
+    ],
+    "filas": [
+      ["1 agente especializado (chatbot, sales, support)", "9 agentes orquestados como organización ejecutiva digital"],
+      ["Función única", "Operación completa: marketing → venta → cierre → entrega → seguimiento → analítica → finanzas"],
+      ["Sin governance interna", "Governance interna + 13 REGLAs doctrinales + cláusula 7b contractual"],
+      ["Configuración global", "Tenant-first per-configuration"],
+      ["Posicionado como herramienta", "Posicionado como sistema operativo"]
+    ]
+  },
+  "mexico_whatsapp": {
+    "adopcion_whatsapp_business_pct": 71,
+    "crecimiento_yoy_pct": 38,
+    "revenue_ai_agents_latam_usd_b": 18,
+    "fuente": "EasySell 2026",
+    "url": "https://easysellapp.com/blogs/wiki/whatsapp-ai-agents-ecommerce-latin-america-cod-2026",
+    "tier": "T2",
+    "tier_nota": "Blog de vendor — corroborar con fuente primaria (Meta Business, AMVO, Statista)",
+    "as_of": "2026-03-01"
+  },
+  "category_creation": [
+    { "empresa": "Stripe (2010)", "creo": "payments infrastructure", "antes": "payment gateway" },
+    { "empresa": "Snowflake (2012)", "creo": "Data Cloud", "antes": "data warehouse" },
+    { "empresa": "Notion (2016)", "creo": "all-in-one workspace", "antes": "note-taking" },
+    { "empresa": "Anthropic (2021)", "creo": "Constitutional AI", "antes": "RLHF" },
+    { "empresa": "Vercel (2015)", "creo": "Frontend Cloud", "antes": "static hosting" },
+    { "empresa": "GenyX (2026)", "creo": "AOaaS", "antes": "AaaS" }
+  ]
+}

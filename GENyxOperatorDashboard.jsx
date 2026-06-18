@@ -6,6 +6,12 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react';
  */
 
 const BACKEND = import.meta.env.VITE_BACKEND_URL || 'https://paty-backend-dkzk.onrender.com';
+import MARKET_DATA from './market_data.json';
+
+// ── REGLA 25 (sub-regla 25.1): datos de mercado con vigencia + tier ──
+// Fuentes T4 = primaria verificada (Deloitte, Gartner, CIO).
+// Fuentes T2 = blog vendor (EasySell) — corroborar con primaria.
+// as_of por dato → obsolescencia visible en el UI.
 
 
 // ── GenyX Contact Config (placeholder hasta endpoint /api/public/genyx-config) ──
@@ -59,6 +65,21 @@ function useGenyxConfig() {
 }
 
 // Compat: GENYX_CONTACT sigue funcionando como fallback síncrono para
+
+// ── SourceBadge: muestra tier + vigencia de dato de mercado (REGLA 25) ──
+function SourceBadge({ fuente, url, tier, as_of }) {
+  const isT4 = tier === 'T4';
+  const age = as_of ? Math.floor((Date.now() - new Date(as_of).getTime()) / (1000*60*60*24)) : null;
+  const stale = age != null && age > 365;
+  return (
+    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+      <a href={url} target="_blank" rel="noopener noreferrer" style={{ color: '#818cf8', textDecoration: 'none', fontSize: 'inherit' }}>{fuente}</a>
+      <span style={{ fontSize: 8, fontWeight: 700, padding: '1px 5px', borderRadius: 4, background: isT4 ? 'rgba(16,185,129,0.12)' : 'rgba(245,158,11,0.12)', color: isT4 ? '#10b981' : '#f59e0b', border: `1px solid ${isT4 ? 'rgba(16,185,129,0.25)' : 'rgba(245,158,11,0.25)'}` }}>{tier || '?'}</span>
+      {as_of && <span style={{ fontSize: 8, color: stale ? '#f87171' : '#64748b' }}>{stale ? '⚠️' : '📅'} {as_of}</span>}
+    </span>
+  );
+}
+
 // componentes que no son hooks (const styles, TABS, etc.)
 const GENYX_CONTACT = GENYX_CONTACT_FALLBACK;
 
@@ -7020,7 +7041,7 @@ function BlogPost1() {
       <h2 style={B.h2}>1. ¿Qué es AaaS?</h2>
       <p style={B.p}>AaaS — Agent as a Service — es la categoría emergente donde una empresa despliega <span style={B.strong}>un agente de IA especializado</span> para resolver una función específica: un chatbot de soporte, un agente de ventas, un asistente de scheduling.</p>
       <p style={B.p}>La categoría tiene tracción real en 2026. Según Deloitte, el <span style={B.strong}>75% de las empresas planean desplegar AI agents</span> para finales de año. Salesforce Agentforce, Microsoft Copilot Agents y otros operan en esta categoría.</p>
-      <p style={B.src}>Fuente: <a href="https://www.deloitte.com/us/en/insights/industry/technology/technology-media-and-telecom-predictions/2026/saas-ai-agents.html" target="_blank" rel="noopener noreferrer" style={B.srcLink}>Deloitte TMT Predictions 2026</a></p>
+      <p style={B.src}>Fuente: <SourceBadge fuente="Deloitte TMT Predictions 2026" url={MARKET_DATA.mercado_aaas.url} tier="T4" as_of={MARKET_DATA.mercado_aaas.as_of} /></p>
 
       <h2 style={B.h2}>2. ¿Qué es AOaaS?</h2>
       <p style={B.p}>AOaaS — Agent Operations as a Service — es la categoría que <a href="/por-que-aoaas" style={B.srcLink}>GenyX crea en 2026</a> por diferenciación técnica real. En vez de 1 agente para 1 función, AOaaS orquesta <span style={B.strong}>9 agentes como un sistema operativo completo</span>: marketing, captación, venta, cierre, entrega, seguimiento, analítica, finanzas y dirección ejecutiva.</p>
@@ -7085,7 +7106,7 @@ function BlogPost2() {
 
       <h2 style={B.h2}>2. Qué resuelve AOaaS que AaaS no puede</h2>
       <p style={B.p}>El <span style={B.strong}>88% de los proyectos de IA no llegan a producción</span> según Gartner. ¿Por qué? Tres causas raíz que AaaS estándar no aborda:</p>
-      <p style={B.src}>Fuente: <a href="https://www.gartner.com/en/newsroom/press-releases/2024-10-28-gartner-reveals-the-top-10-strategic-technology-trends-for-2025" target="_blank" rel="noopener noreferrer" style={B.srcLink}>Gartner Strategic Tech Trends 2024-2025</a></p>
+      <p style={B.src}>Fuente: <SourceBadge fuente="Gartner Strategic Tech Trends 2024-2025" url={MARKET_DATA.fallo_produccion.url} tier="T4" as_of={MARKET_DATA.fallo_produccion.as_of} /></p>
       <div style={{ display: 'grid', gap: 12, margin: '20px 0 24px' }}>
         {[
           ['Sin doctrina técnica', 'Sin reglas claras, cada prompt inventa respuestas distintas. AOaaS opera con 13 REGLAs verificables.'],
@@ -7134,12 +7155,12 @@ function BlogPost3() {
 
       <h2 style={B.h2}>1. El canal ya está definido: WhatsApp</h2>
       <p style={B.p}>En México, WhatsApp Business tiene una adopción del <span style={B.strong}>71%</span> — la más alta de LATAM. Las transacciones en WhatsApp crecen <span style={B.strong}>+38% año contra año</span>. El revenue anual de AI agents en WhatsApp LATAM alcanza <span style={B.strong}>$18B USD</span>.</p>
-      <p style={B.src}>Fuente: <a href="https://easysellapp.com/blogs/wiki/whatsapp-ai-agents-ecommerce-latin-america-cod-2026" target="_blank" rel="noopener noreferrer" style={B.srcLink}>EasySell 2026 — WhatsApp AI Agents LATAM</a></p>
+      <p style={B.src}>Fuente: <SourceBadge fuente="EasySell 2026" url={MARKET_DATA.mexico_whatsapp.url} tier="T2" as_of={MARKET_DATA.mexico_whatsapp.as_of} /></p>
       <p style={B.p}>El cliente de tu negocio ya está en WhatsApp. No necesita descargar una app, crear una cuenta ni aprender una interfaz nueva. La pregunta no es "¿dónde operar?" — la pregunta es "¿cómo operar donde ya están?"</p>
 
       <h2 style={B.h2}>2. El problema del 88%</h2>
       <p style={B.p}>Según Gartner, el <span style={B.strong}>88% de los proyectos de IA no llegan a producción</span>. En LATAM, este porcentaje es probablemente mayor por tres factores adicionales: marcos legales distintos, idioma español como primer canal, y comportamiento del consumidor diferente al mercado anglosajón.</p>
-      <p style={B.src}>Fuente: <a href="https://www.gartner.com/en/newsroom/press-releases/2024-10-28-gartner-reveals-the-top-10-strategic-technology-trends-for-2025" target="_blank" rel="noopener noreferrer" style={B.srcLink}>Gartner Strategic Tech Trends 2024-2025</a></p>
+      <p style={B.src}>Fuente: <SourceBadge fuente="Gartner Strategic Tech Trends 2024-2025" url={MARKET_DATA.fallo_produccion.url} tier="T4" as_of={MARKET_DATA.fallo_produccion.as_of} /></p>
       <p style={B.p}>La mayoría de soluciones AI disponibles están diseñadas para el mercado estadounidense: en inglés, con compliance de USA/EU, y optimizadas para canales como email y web. Eso no funciona cuando tu cliente te escribe por WhatsApp a las 10pm diciendo "qué tienen de taquitos?".</p>
 
       <h2 style={B.h2}>3. Por qué AOaaS encaja en LATAM</h2>
@@ -7777,7 +7798,7 @@ function PorQueAhoraPage() {
             <div style={C.statVal}>75%</div>
             <div>
               <p style={C.statDesc}><span style={C.highlight}>De las empresas planean desplegar AI agents</span> para finales de 2026.</p>
-              <p style={C.source}>Fuente: <a href="https://www.deloitte.com/us/en/insights/industry/technology/technology-media-and-telecom-predictions/2026/saas-ai-agents.html" target="_blank" rel="noopener noreferrer" style={C.sourceLink}>Deloitte TMT Predictions 2026</a></p>
+              <p style={C.source}>Fuente: <SourceBadge fuente="Deloitte TMT Predictions 2026" url={MARKET_DATA.mercado_aaas.url} tier="T4" as_of={MARKET_DATA.mercado_aaas.as_of} /></p>
             </div>
           </div>
         </div>
@@ -7848,7 +7869,7 @@ function PorQueAhoraPage() {
             <div style={C.statVal}>88%</div>
             <div>
               <p style={C.statDesc}><span style={C.highlight}>De los proyectos de IA no llegan a producción</span> según Gartner.</p>
-              <p style={C.source}>Fuente: <a href="https://www.gartner.com/en/newsroom/press-releases/2024-10-28-gartner-reveals-the-top-10-strategic-technology-trends-for-2025" target="_blank" rel="noopener noreferrer" style={C.sourceLink}>Gartner Strategic Tech Trends 2024-2025</a></p>
+              <p style={C.source}>Fuente: <SourceBadge fuente="Gartner Strategic Tech Trends 2024-2025" url={MARKET_DATA.fallo_produccion.url} tier="T4" as_of={MARKET_DATA.fallo_produccion.as_of} /></p>
             </div>
           </div>
         </div>
@@ -7877,21 +7898,21 @@ function PorQueAhoraPage() {
             <div style={C.statVal}>71%</div>
             <div>
               <p style={C.statDesc}><span style={C.highlight}>Adopción de WhatsApp Business en México</span> — la más alta de LATAM.</p>
-              <p style={C.source}>Fuente: <a href="https://easysellapp.com/blogs/wiki/whatsapp-ai-agents-ecommerce-latin-america-cod-2026" target="_blank" rel="noopener noreferrer" style={C.sourceLink}>EasySell 2026</a></p>
+              <p style={C.source}>Fuente: <SourceBadge fuente="EasySell 2026" url={MARKET_DATA.mexico_whatsapp.url} tier="T2" as_of={MARKET_DATA.mexico_whatsapp.as_of} /></p>
             </div>
           </div>
           <div style={C.stat}>
             <div style={C.statVal}>+38%</div>
             <div>
               <p style={C.statDesc}><span style={C.highlight}>Crecimiento YoY de transacciones en WhatsApp</span> en México.</p>
-              <p style={C.source}>Fuente: <a href="https://easysellapp.com/blogs/wiki/whatsapp-ai-agents-ecommerce-latin-america-cod-2026" target="_blank" rel="noopener noreferrer" style={C.sourceLink}>EasySell 2026</a></p>
+              <p style={C.source}>Fuente: <SourceBadge fuente="EasySell 2026" url={MARKET_DATA.mexico_whatsapp.url} tier="T2" as_of={MARKET_DATA.mexico_whatsapp.as_of} /></p>
             </div>
           </div>
           <div style={C.stat}>
             <div style={C.statVal}>$18B</div>
             <div>
               <p style={C.statDesc}><span style={C.highlight}>Revenue anual de AI agents en WhatsApp LATAM.</span></p>
-              <p style={C.source}>Fuente: <a href="https://easysellapp.com/blogs/wiki/whatsapp-ai-agents-ecommerce-latin-america-cod-2026" target="_blank" rel="noopener noreferrer" style={C.sourceLink}>EasySell 2026</a></p>
+              <p style={C.source}>Fuente: <SourceBadge fuente="EasySell 2026" url={MARKET_DATA.mexico_whatsapp.url} tier="T2" as_of={MARKET_DATA.mexico_whatsapp.as_of} /></p>
             </div>
           </div>
         </div>
