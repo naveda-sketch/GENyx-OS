@@ -11825,7 +11825,7 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
     A12: 'propuesta',     // Fase design — §1 DOCTRINA_AGENTE_A12.md
   };
 
-  const backstageAgentIds = ['A0', 'A9', 'A10', 'AGUJA', 'MEMORY', 'A12', 'ORCHESTRATOR'];
+  const backstageAgentIds = ['A0', 'A9', 'A10', 'AGUJA', 'MEMORY', 'A12'];  // ORCHESTRATOR removido — solo se puebla en DEV/dogfooding, ruido en prod
   const backstageFromConfigs = backstageAgentIds
     .filter(id => AGENT_CONFIGS[id])
     .map(id => {
@@ -11904,7 +11904,6 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
            selected === 'A12' ? <A12DrillDown /> :
            selected === 'A0' ? <A0DrillDown /> :
            selected === 'A9' ? <A9DrillDown /> :
-           selected === 'ORCHESTRATOR' ? <OrchestratorDrillDown /> :
            selected === 'POSTMORTEMS' ? <PostmortemsDrillDown /> :
            selected === 'LAYER5' ? <Layer5CoverageTab /> :
            selected === 'DORA' ? <DORACockpitTab /> :
