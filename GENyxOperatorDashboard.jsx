@@ -11455,6 +11455,17 @@ function ChaosTab() {
         ))}
       </div>
 
+      {/* Toast */}
+      {toast && (
+        <div style={{ padding: '8px 14px', borderRadius: 10, marginBottom: 12, fontSize: 12, fontWeight: 600,
+          background: toast.type === 'ok' ? 'rgba(34,197,94,0.08)' : toast.type === 'warn' ? 'rgba(245,158,11,0.08)' : 'rgba(239,68,68,0.08)',
+          border: `1px solid ${toast.type === 'ok' ? 'rgba(34,197,94,0.2)' : toast.type === 'warn' ? 'rgba(245,158,11,0.2)' : 'rgba(239,68,68,0.2)'}`,
+          color: toast.type === 'ok' ? '#4ade80' : toast.type === 'warn' ? '#fbbf24' : '#f87171',
+          transition: 'all 0.3s ease' }}>
+          {toast.msg}
+        </div>
+      )}
+
       {/* Empty state */}
       {!loading && experiments.length === 0 && (
         <div style={{ padding: 40, textAlign: 'center', background: 'rgba(255,255,255,0.02)', borderRadius: 14, border: '1px dashed rgba(255,255,255,0.08)' }}>
@@ -12144,6 +12155,8 @@ function TabRadarIntel() {
     try { return JSON.parse(sessionStorage.getItem('radar_starred') || '{}'); } catch { return {}; }
   });
   const [showStarredOnly, setShowStarredOnly] = React.useState(false);
+  const [refreshing, setRefreshing] = React.useState(false);
+  const [toast, setToast] = React.useState(null);
   const [recentQueries, setRecentQueries] = React.useState(() => {
     try { return JSON.parse(sessionStorage.getItem('radar_recent') || '[]'); } catch { return []; }
   });
@@ -12195,6 +12208,52 @@ function TabRadarIntel() {
     }
     setLoading(false);
   }, [headers, recentQueries]);
+
+  // ── Refresh on-demand (no auto-scan) — consume Gemini ──
+  const refreshSignals = React.useCallback(async () => {
+    setRefreshing(true);
+    setToast(null);
+    try {
+      const r = await fetch(`${BACKEND}/api/admin/radar/scan-trends`, {
+        method: 'POST', headers,
+        body: JSON.stringify({
+          query: 'tendencias en operación comercial autónoma, agentes de IA para ventas/marketing/cobranza y cómo un negocio vende y opera solo',
+          industry: 'operación comercial autónoma / agentic AI',
+          region: 'global', max_signals: 5, language: 'es', persist: true
+        }),
+      });
+      if (r.status === 429) {
+        setToast({ type: 'warn', msg: '⚠️ Gemini sin presupuesto — revisa AI Studio' });
+        setRefreshing(false);
+        return;
+      }
+      if (!r.ok) {
+        setToast({ type: 'error', msg: `❌ Error ${r.status}: ${r.statusText}` });
+        setRefreshing(false);
+        return;
+      }
+      const data = await r.json();
+      // Re-fetch signals list
+      const sr = await fetch(`${BACKEND}/api/admin/radar/signals`, { headers: { 'X-Admin-Key': adminKey } });
+      if (sr.ok) {
+        const sd = await sr.json();
+        if (sd?.signals) setSignals(sd.signals);
+        else if (sd?.rows) setSignals(sd.rows);
+      }
+      const newCount = data?.signals?.length || data?.signals_persisted || 0;
+      setToast({ type: 'ok', msg: `✅ ${newCount} señales nuevas` });
+    } catch (e) {
+      setToast({ type: 'error', msg: `❌ ${e.message}` });
+    }
+    setRefreshing(false);
+  }, [headers, adminKey]);
+
+  // Auto-clear toast after 5s
+  React.useEffect(() => {
+    if (!toast) return;
+    const t = setTimeout(() => setToast(null), 5000);
+    return () => clearTimeout(t);
+  }, [toast]);
 
   const toggleStar = (title) => {
     const next = { ...starred, [title]: !starred[title] };
@@ -12278,9 +12337,16 @@ function TabRadarIntel() {
 
       {/* Filter bar */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-        <p style={{ fontSize: 11, fontWeight: 700, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.06em', margin: 0 }}>
-          📊 Signals {showStarredOnly ? '(★ importantes)' : `(${filteredSignals.length})`}
-        </p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <p style={{ fontSize: 11, fontWeight: 700, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.06em', margin: 0 }}>
+            📊 Signals {showStarredOnly ? '(★ importantes)' : `(${filteredSignals.length})`}
+          </p>
+          <button onClick={refreshSignals} disabled={refreshing || loading}
+            title="Refrescar señales (consume Gemini)"
+            style={{ fontSize: 10, fontWeight: 700, color: refreshing ? '#64748b' : '#818cf8', background: refreshing ? 'rgba(255,255,255,0.02)' : 'rgba(99,102,241,0.08)', border: `1px solid ${refreshing ? 'rgba(255,255,255,0.05)' : 'rgba(99,102,241,0.2)'}`, borderRadius: 6, padding: '3px 10px', cursor: refreshing ? 'wait' : 'pointer', transition: 'all 0.2s', whiteSpace: 'nowrap' }}>
+            {refreshing ? '⏳ Investigando…' : '🔄 Refrescar señales'}
+          </button>
+        </div>
         <button onClick={() => setShowStarredOnly(!showStarredOnly)}
           style={{ fontSize: 10, fontWeight: 600, color: showStarredOnly ? '#fbbf24' : '#9ca3af', background: showStarredOnly ? 'rgba(251,191,36,0.1)' : 'rgba(255,255,255,0.03)', border: `1px solid ${showStarredOnly ? 'rgba(251,191,36,0.3)' : 'rgba(255,255,255,0.06)'}`, borderRadius: 6, padding: '4px 10px', cursor: 'pointer' }}>
           {showStarredOnly ? '★ Solo importantes' : '☆ Filtrar importantes'}
