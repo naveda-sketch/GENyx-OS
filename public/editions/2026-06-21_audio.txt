@@ -1,0 +1,103 @@
+El Periódico. Edición del 2026-06-21.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Tim Cook.
+Cobertura de la última keynote de Tim Cook en la WWDC. La agencia de noticias AFP publicó el 19 de junio de 2026 una imagen y un pie de foto relacionados con la última keynote de Tim Cook como CEO de Apple durante la Conferencia Mundial de Desarrolladores (WWDC) de Apple. Aunque la keynote se llevó a cabo del 8 al 12 de junio, la publicación de esta noticia por una fuente autorizada se realizó dentro del plazo de 24-48 horas. Fuente: AFP.
+
+Elon Musk.
+
+Satya Nadella.
+
+Jensen Huang.
+
+Sam Altman.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+Controles de Gasto y Análisis de Uso para ChatGPT Enterprise. OpenAI ha introducido controles de gasto y análisis de uso mejorados para ChatGPT Enterprise, permitiendo a las organizaciones monitorear la adopción de la IA, rastrear el consumo entre equipos y establecer presupuestos para el uso de la IA. Estas nuevas características proporcionan a los administradores paneles centralizados para entender los patrones de adopción y gestionar los costos de la IA. Fuente: CIO.
+
+Google DeepMind.
+Nuevo Marco de Ciberseguridad para Agentes de IA. Google DeepMind ha presentado un marco de seguridad que trata a los agentes de inteligencia artificial no solo como herramientas de software, sino como posibles amenazas internas. Su 'Hoja de Ruta de Control de IA' describe una estrategia proactiva para contener, monitorear y controlar activamente los sistemas de IA que podrían eludir la supervisión humana o sabotear tareas. Fuente: Google DeepMind.
+
+Anthropic.
+Trump ya no considera a Anthropic una amenaza para la seguridad nacional. El presidente Donald Trump ha declarado que ya no considera a Anthropic una amenaza para la seguridad nacional, a pesar de las preocupaciones expresadas la semana anterior que llevaron a la empresa a desactivar sus modelos de IA Fable 5 y Mythos 5. Trump indicó que Anthropic ha respondido de manera muy responsable a las inquietudes del gobierno. Fuente: Axios.
+
+Meta AI.
+Meta firma nuevos acuerdos de computación de IA con Crusoe. Meta Platforms ha asegurado nuevos acuerdos para obtener potencia de computación de IA del desarrollador de centros de datos Crusoe. Estos acuerdos, reportados por Bloomberg News, fortalecerán la infraestructura necesaria para apoyar la expansión de la IA de Meta. Fuente: Reuters (citando Bloomberg News).
+
+Microsoft AI.
+Microsoft reestructura el precio de Copilot a un modelo basado en uso. Microsoft está ajustando el precio de su plataforma Copilot Cowork a un modelo basado en el uso, incorporando modelos de IA de menor costo como DeepSeek V4. Este cambio busca alinear mejor los costos con el consumo empresarial de herramientas de IA y responde a la evolución de la demanda en mercados clave como China. Fuente: Microsoft (reportado por fuentes financieras).
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Odyssey.
+Ronda de financiación Serie B de $310 millones. Odyssey, con sede en Menlo Park, California, cerró una ronda de financiación Serie B de $310 millones, elevando su valoración a $1.45 mil millones. La ronda fue liderada por Natural Capital, con la participación de inversores como Amazon, AMD Ventures, EQT, Google Ventures, IQT y SignalRank. Fuente: Crunchbase News.
+
+NEURA Robotics.
+Financiación Serie C de hasta $1.4 mil millones. NEURA Robotics anunció una financiación Serie C de hasta $1.4 mil millones, la más grande jamás recaudada por una empresa de robótica de pila completa. Esta ronda récord impulsará su expansión global, incluyendo una fuerte incursión en el mercado estadounidense. Fuente: Business Wire / StartupCorners.
+Colaboraciones estratégicas con AWS y Qualcomm. La financiación de NEURA Robotics también apoyará su expansión global, anclada por una colaboración estratégica formal con AWS y una asociación de codesarrollo con Qualcomm. Fuente: Business Wire.
+Exhibición de plataforma de robótica completa en Automate 2026. NEURA Robotics exhibirá su cartera completa de robots cognitivos, la plataforma Neuraverse y los entornos NEURA Gyms en Automate 2026, la feria comercial de automatización y robótica más grande de América del Norte. Fuente: Business Wire.
+
+Baseten.
+Ronda de financiación reportada de $1.5 mil millones. Baseten, una startup de infraestructura de IA, ha reportado una ronda de financiación de $1.5 mil millones. La compañía se enfoca en una plataforma de inferencia de IA que optimiza la velocidad y el control de costos para el enrutamiento de solicitudes a modelos de IA. Fuente: Scouts by Yutori.
+
+Kardigan.
+Oferta Pública Inicial (IPO) de $400 millones. Kardigan, una startup de fármacos cardiovasculares, fijó el precio de su oferta pública inicial en $400 millones. Esto la convierte en la cuarta startup farmacéutica en 2026 en recaudar al menos $400 millones en ingresos de IPO, lo que indica un resurgimiento en el mercado de IPO de biotecnología. Fuente: BioPharma Dive.
+
+Flutterwave.
+Ronda de financiación Serie E y valoración de $3.2 mil millones. Flutterwave, una empresa de tecnología de pagos centrada en mercados emergentes, completó una ronda de financiación Serie E, alcanzando una valoración de $3.2 mil millones. La compañía ha recaudado más de $500 millones en financiación hasta la fecha. Fuente: FinTech Futures.
+Inversión estratégica de Ripple para la estrategia de stablecoin. La ronda Serie E de Flutterwave incluye una notable inversión estratégica de Ripple, lo que respalda los esfuerzos de Flutterwave para avanzar en su estrategia de stablecoin. Fuente: FinTech Futures.
+
+Sección: 📰 Top 10 Noticias.
+
+Reguladores Federales de EE. UU. Ordenan Acelerar Conexión Eléctrica para Centros de Datos de IA.
+Los reguladores federales de Estados Unidos han ordenado a los operadores de redes regionales que agilicen la conexión de grandes consumidores de energía, como los centros de datos de inteligencia artificial, a la red de transmisión eléctrica. Esta medida busca satisfacer la creciente demanda de energía del sector de la IA y mejorar la competitividad del país frente a China. Fuente: Associated Press.
+¿Por qué importa? Para los fundadores de tecnología, esta noticia subraya la creciente importancia de la infraestructura energética para el desarrollo de la IA. La disponibilidad y el costo de la energía serán factores críticos para la escalabilidad de las operaciones de IA, impactando la planificación y la ubicación de futuros centros de datos.
+
+La Reserva Federal Adopta un Enfoque Más Cauteloso, lo que Podría Generar Volatilidad en los Mercados.
+El presidente de la Reserva Federal, Kevin Warsh, ha adoptado un enfoque más discreto en la comunicación de las futuras acciones del banco central, lo que podría resultar en una mayor volatilidad en los mercados financieros y tasas de interés más altas. Esta estrategia contrasta con la guía anticipada de presidentes anteriores, dejando a los inversores más a la expectativa. Fuente: Associated Press.
+¿Por qué importa? La incertidumbre en la política monetaria puede afectar directamente el costo del capital y el apetito por el riesgo de los inversores. Los fundadores de startups deben prepararse para posibles fluctuaciones en los mercados y un entorno de financiación más volátil, lo que requiere una gestión financiera más prudente y planes de contingencia.
+
+Noam Shazeer, Co-creador de Transformer y Gemini, Deja Google para Unirse a OpenAI.
+Noam Shazeer, una figura clave detrás de la arquitectura Transformer y co-líder de los modelos Gemini de Google, ha anunciado su salida de Google para unirse a OpenAI. Este movimiento se produce menos de dos años después de que Google pagara 2.7 mil millones de dólares para traerlo de vuelta de Character.AI, intensificando la guerra por el talento en la industria de la IA. Fuente: CNBC.
+¿Por qué importa? Este cambio de talento subraya la intensa competencia por los ingenieros y científicos de IA de primer nivel, lo que podría influir en la dirección y el ritmo de desarrollo de los modelos de IA líderes en el mercado. Para los fundadores de tecnología, destaca la importancia crítica de la retención de talento y la cultura que fomenta la innovación.
+
+Gobierno de EE. UU. Ordena a Anthropic Retirar Modelos de IA Fable 5 y Mythos 5 por Seguridad Nacional.
+El gobierno de EE. UU. ha ordenado a Anthropic que retire sus modelos de IA avanzados, Fable 5 y Mythos 5, citando preocupaciones de seguridad nacional y control de exportaciones. La medida se produjo después de informes de una posible 'fuga' que podría eludir las salvaguardias de seguridad, lo que llevó a la suspensión global del acceso a los modelos para todos los ciudadanos extranjeros. Fuente: Al Jazeera.
+¿Por qué importa? Esta acción sienta un precedente significativo para la intervención gubernamental en la IA comercial, destacando los crecientes riesgos geopolíticos y regulatorios asociados con el desarrollo de IA de vanguardia. Los fundadores de tecnología deben considerar las implicaciones de las políticas de control de exportaciones en la disponibilidad y el despliegue global de sus productos de IA.
+
+SpaceX Adquiere la Startup de Codificación de IA Cursor por $60 Mil Millones.
+SpaceX ha llegado a un acuerdo para adquirir la startup de codificación de IA Cursor en un trato de 60 mil millones de dólares en acciones. Esta adquisición busca fortalecer las capacidades de IA de SpaceX y proporcionar una ventaja competitiva en el desarrollo de herramientas para desarrolladores. Fuente: SEC.gov (reportado por Tech My Money).
+¿Por qué importa? Esta adquisición masiva resalta la creciente valoración de las herramientas de desarrollo de IA como infraestructura crítica. Para los fundadores, indica que las soluciones que mejoran la productividad de los ingenieros y se integran profundamente en los flujos de trabajo son altamente valoradas y pueden ser objetivos de adquisición estratégicos para grandes empresas tecnológicas.
+
+Tesco Demanda a Broadcom por Aumento de Precios de VMware y Migra 40,000 Servidores.
+La cadena de supermercados Tesco está demandando a Broadcom por más de 100 millones de libras esterlinas, alegando 'conducta abusiva' tras la adquisición de VMware por parte de Broadcom, que resultó en aumentos de precios del 175% y la eliminación del soporte para licencias perpetuas. Como resultado, Tesco está migrando 40,000 servidores de la infraestructura de VMware. Fuente: Computer Weekly.
+¿Por qué importa? Este caso legal sienta un precedente crítico para las empresas que dependen del software empresarial y enfrentan cambios drásticos en los términos de licencia después de las adquisiciones. Los fundadores de tecnología deben estar atentos a las implicaciones de las consolidaciones del mercado y las estrategias de precios de los proveedores de software.
+
+Apple Presenta 'Siri AI' con Capacidades Mejoradas y Mayor Integración en sus Plataformas.
+Apple ha presentado 'Siri AI', una versión completamente rediseñada de su asistente, impulsada por Apple Intelligence. Ofrece conversaciones más profundas, comprensión del contexto personal y una integración más amplia en iOS, iPadOS, macOS y visionOS, con nuevas funciones de inteligencia visual y herramientas de escritura. Fuente: Apple Newsroom.
+¿Por qué importa? La incursión de Apple en la IA generativa a gran escala con Siri AI establece un nuevo estándar para la integración de la IA en los dispositivos de consumo, lo que podría influir en las expectativas de los usuarios y la competencia en el mercado de asistentes inteligentes. Los fundadores de tecnología deben observar cómo la IA se convierte en una característica central de las plataformas de hardware.
+
+Nvidia Recauda $25 Mil Millones en su Primera Venta de Bonos Corporativos en Cinco Años.
+Nvidia, el líder en chips de IA, planea recaudar 25 mil millones de dólares a través de una emisión de bonos en EE. UU., superando su objetivo inicial. Esta es la primera vez que la compañía accede al mercado de bonos de grado de inversión en cinco años, lo que indica una fuerte demanda de liquidez para sus operaciones y crecimiento en IA. Fuente: Reuters.
+¿Por qué importa? La capacidad de Nvidia para asegurar una financiación tan sustancial a través de bonos subraya la confianza del mercado en el crecimiento continuo impulsado por la IA, pero también muestra la necesidad de capital para escalar la infraestructura de IA. Los fundadores deben observar cómo las grandes empresas financian su expansión en el espacio de la IA.
+
+China Planea Inversión de $295 Mil Millones en Infraestructura de IA con Chips Domésticos.
+China está elaborando un plan para invertir aproximadamente 295 mil millones de dólares durante cinco años en una red nacional de centros de datos de IA. El plan exige que al menos el 80% de los chips de IA y la infraestructura relacionada provengan de proveedores nacionales, buscando reducir la dependencia de la tecnología estadounidense y potenciar su sector de IA. Fuente: Bloomberg.
+¿Por qué importa? Esta inversión masiva y el enfoque en la autosuficiencia tecnológica de China crearán un ecosistema de IA bifurcado, presentando desafíos y oportunidades para las empresas tecnológicas globales. Los fundadores deben monitorear estas políticas para comprender el acceso al mercado y las cadenas de suministro.
+
+Sarvam AI de India Alcanza el Estatus de Unicornio con Ronda de Financiamiento de $234 Millones.
+Sarvam AI, una empresa india de IA soberana, ha recaudado 234 millones de dólares en el primer cierre de su ronda Serie B de 300 millones de dólares, alcanzando una valoración de 1.5 mil millones de dólares. HCLTech lideró la inversión estratégica, con el objetivo de construir un ecosistema de IA completo y confiable para la India. Fuente: Forbes India.
+¿Por qué importa? Este financiamiento masivo para una startup de IA soberana en India demuestra la creciente importancia estratégica de la IA a nivel nacional y el potencial de mercado fuera de los centros tecnológicos tradicionales. Los fundadores deben observar cómo los gobiernos y las grandes corporaciones invierten en IA para la infraestructura nacional.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
