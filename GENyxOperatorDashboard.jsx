@@ -9549,11 +9549,21 @@ function PulsoAgentesPanel() {
 }
 
 function StrategyApproval2FA({ slug }) {
+  const [pend, setPend] = useState(null);
   const [otpCode, setOtpCode] = useState('');
   const [emailCode, setEmailCode] = useState('');
   const [emailStep, setEmailStep] = useState('idle');
   const [statusMsg, setStatusMsg] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    fetch(`${BACKEND}/api/client/${slug}/marketing/strategy`, { headers: getAH() })
+      .then(r => r.json())
+      .then(d => setPend(d?.exists === true && d?.status === 'pending' ? d : null))
+      .catch(() => setPend(null));
+  }, [slug]);
+
+  if (!pend) return null;
 
   const handleRequestEmailCode = async () => {
     setEmailStep('sending'); setStatusMsg('⏳ Enviando código a tu correo...');
