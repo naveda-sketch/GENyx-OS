@@ -158,6 +158,86 @@ const StatusBadge = ({ s }) => {
   return <span style={{ background: bg, color: c, border: `1px solid ${c}25`, padding: '2px 10px', borderRadius: 12, fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em' }}>{s}</span>;
 };
 
+function WaDeliveryBadge({ recipient }) {
+  const [data, setData] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  React.useEffect(() => {
+    if (!isAuthed() || !recipient) { setLoading(false); return; }
+    setLoading(true);
+    fetch(`${BACKEND}/api/admin/wa-delivery?recipient=${encodeURIComponent(recipient)}`, { headers: getAH() })
+      .then(r => r.ok ? r.json() : null)
+      .then(d => { setData(d); setLoading(false); })
+      .catch(() => setLoading(false));
+  }, [recipient]);
+  if (!isAuthed() || !recipient) return null;
+  if (loading) return <span style={{ fontSize: 10, color: '#9ca3af', padding: '1px 4px', background: 'rgba(255,255,255,0.05)', borderRadius: 4, marginLeft: 6 }}>⏳</span>;
+  if (!data || data.data_blind) return <span style={{ fontSize: 10, color: '#9ca3af', padding: '1px 4px', background: 'rgba(255,255,255,0.05)', borderRadius: 4, marginLeft: 6 }}>⚪ Sin datos</span>;
+  const { by_status, failures } = data;
+  const total = by_status ? ((by_status.sent||0) + (by_status.delivered||0) + (by_status.read||0) + (by_status.failed||0)) : 0;
+  if (total === 0) return <span style={{ fontSize: 10, color: '#9ca3af', padding: '1px 4px', background: 'rgba(255,255,255,0.05)', borderRadius: 4, marginLeft: 6 }}>⚪ 0 msgs</span>;
+  const hasFailed = failures && failures.length > 0;
+  return (
+    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, marginLeft: 6 }}>
+      <span style={{ fontSize: 9, color: hasFailed ? '#ef4444' : '#10b981', background: hasFailed ? 'rgba(239,68,68,0.1)' : 'rgba(16,185,129,0.1)', padding: '2px 6px', borderRadius: 4, fontWeight: 700, textTransform: 'uppercase' }}>
+        {hasFailed ? `❌ Failed` : `✅ ${(by_status?.delivered||0) + (by_status?.read||0)} Dlvd`}
+      </span>
+      {hasFailed && <span style={{ fontSize: 9, color: '#f87171' }} title={failures[0]?.error_title}>{failures[0]?.error_code || 'Error'}</span>}
+    </span>
+  );
+}
+
+function AutonomyRateCard({ slug }) {
+  const [data, setData] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  React.useEffect(() => {
+    if (!slug) return;
+    fetch(`${BACKEND}/api/client/${slug}/autonomy-rate`)
+      .then(r => r.ok ? r.json() : Promise.reject('Error'))
+      .then(d => { setData(d); setLoading(false); })
+      .catch(() => setLoading(false));
+  }, [slug]);
+
+  if (loading) return <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><span style={{ color: '#9ca3af', fontSize: 13 }}>⏳ Cargando autonomía…</span></div>;
+  if (!data) return <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, height: '100%' }}><p style={{ color: '#f87171', fontSize: 12, margin: 0 }}>❌ Error cargando autonomía</p></div>;
+
+  if (data.level === 'DATA-BLIND') {
+    return (
+      <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, height: '100%' }}>
+        <p style={{ fontSize: 10, fontWeight: 700, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.06em', margin: '0 0 12px' }}>Autonomía Comercial</p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: '#9ca3af' }}>
+          <span style={{ fontSize: 24 }}>🌱</span>
+          <div>
+            <p style={{ fontSize: 14, fontWeight: 700, color: '#cbd5e1', margin: 0 }}>Capturando datos…</p>
+            <p style={{ fontSize: 11, margin: '2px 0 0' }}>Periodo de adaptación en curso</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const rate = data.rate_pct || 0;
+  const color = rate >= 90 ? '#10b981' : rate >= 70 ? '#fbbf24' : '#ef4444';
+  const bg = rate >= 90 ? 'rgba(16,185,129,0.08)' : rate >= 70 ? 'rgba(251,191,36,0.08)' : 'rgba(239,68,68,0.08)';
+  const border = rate >= 90 ? 'rgba(16,185,129,0.2)' : rate >= 70 ? 'rgba(251,191,36,0.2)' : 'rgba(239,68,68,0.2)';
+
+  return (
+    <div style={{ background: bg, border: `1px solid ${border}`, borderRadius: 12, padding: 16, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+      <div>
+        <p style={{ fontSize: 10, fontWeight: 700, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.06em', margin: '0 0 12px' }}>Autonomía Comercial</p>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
+          <span style={{ fontSize: 32, fontWeight: 900, color }}>{rate.toFixed(1)}%</span>
+          <span style={{ fontSize: 11, color: '#94a3b8' }}>objetivo {data.target_pct || 90}%</span>
+        </div>
+      </div>
+      <div style={{ marginTop: 12, fontSize: 11, color: '#cbd5e1', display: 'flex', justifyContent: 'space-between' }}>
+        <span>Autónomas: <strong style={{ color: '#10b981' }}>{data.autonomous || 0}</strong></span>
+        <span>Handoffs: <strong style={{ color: '#ef4444' }}>{(data.total || 0) - (data.autonomous || 0)}</strong></span>
+        <span>Total: <strong>{data.total || 0}</strong></span>
+      </div>
+    </div>
+  );
+}
+
 // ── Tabs ─────────────────────────────────────────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════
 // COCKPIT V2 — Tabs reagrupados (3 grupos: CONTROL / AGENTES / PERSONAL)
@@ -503,7 +583,7 @@ const TabSoporte = ({ tenants }) => {
 
           {t.agent_response && (
             <div style={{ marginTop: 8, padding: 12, background: GBa(0.04), borderRadius: 8, borderLeft: `3px solid ${GENYX_BRAND}`, fontSize: 13 }}>
-              <strong style={{ color: GB_LIGHT, fontSize: 11 }}>Agente respondió{t.agent_confidence ? ` (${(t.agent_confidence * 100).toFixed(0)}%)` : ''}:</strong>
+              <strong style={{ color: GB_LIGHT, fontSize: 11 }}>Agente respondió{t.agent_confidence ? ` (${(t.agent_confidence * 100).toFixed(0)}%)` : ''}:<WaDeliveryBadge recipient={t.whatsapp || t.phone || t.contact_phone} /></strong>
               <p style={{ marginTop: 4, lineHeight: 1.6, color: '#e2e8f0' }}>{t.agent_response}</p>
               {t.agent_reasoning && <small style={{ color: '#9ca3af' }}>Razón: {t.agent_reasoning}</small>}
             </div>
@@ -511,7 +591,7 @@ const TabSoporte = ({ tenants }) => {
 
           {t.founder_response && (
             <div style={{ marginTop: 8, padding: 12, background: 'rgba(16,185,129,0.05)', borderRadius: 8, borderLeft: '3px solid #10b981', fontSize: 13 }}>
-              <strong style={{ color: '#10b981', fontSize: 11 }}>Tu respuesta ({fmtD(t.founder_responded_at)}):</strong>
+              <strong style={{ color: '#10b981', fontSize: 11 }}>Tu respuesta ({fmtD(t.founder_responded_at)}):<WaDeliveryBadge recipient={t.whatsapp || t.phone || t.contact_phone} /></strong>
               <p style={{ marginTop: 4, lineHeight: 1.6, color: '#e2e8f0' }}>{t.founder_response}</p>
             </div>
           )}
@@ -703,7 +783,10 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
                 <div>
                   <p style={{ ...MONO, color: '#9ca3af', marginBottom: 4 }}>T{String(({ 'panaderia-paty': 1, 'kovay-resort': 2, 'carnivor': 3 })[t.slug] || (i + 1)).padStart(2, '0')}</p>
-                  <h3 style={{ fontWeight: 700, fontSize: 16, color: '#f1f5f9' }}>{t.name || t.slug}</h3>
+                  <h3 style={{ fontWeight: 700, fontSize: 16, color: '#f1f5f9', display: 'flex', alignItems: 'center', gap: 8 }}>
+                    {t.name || t.slug}
+                    <WaDeliveryBadge recipient={orgSettings[t.slug]?.notify_phone || orgSettings[t.slug]?.whatsapp} />
+                  </h3>
                   <div style={{ display: 'flex', gap: 6, alignItems: 'center', marginTop: 4, flexWrap: 'wrap' }}>
                     <span style={{ fontSize: 12, color: '#9ca3af' }}>{t.industry || 'Sin clasificar'}</span>
                     <BillingBadge status={billingByTenant[t.slug]} />
@@ -731,6 +814,10 @@ const TabClientes = ({ tenants, orders, loading, onToggleStatus, statusLoading, 
                 <KpiMini label="Ingresos/mes" value={$$(t.revenueMonth)} />
                 <KpiMini label="Plan contratado" value={t.plan_name || `$${(parseFloat(t.plan_monthly_fee) || 9900).toLocaleString('es-MX')}/mes`} />
                 <KpiMini label="Próximo cobro" value={t.next_billing_date ? fmt(t.next_billing_date) : '—'} />
+              </div>
+
+              <div style={{ marginBottom: 16 }}>
+                <AutonomyRateCard slug={t.slug} />
               </div>
 
               {/* Actions */}
@@ -9411,6 +9498,56 @@ function TabAdminTenant({ slug, token, config }) {
 // V3: COCKPIT FOUNDER — 3 new tabs (Resumen/Agentes/Backstage)
 // ═══════════════════════════════════════════════════════════════════
 
+function PulsoAgentesPanel() {
+  const [data, setData] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
+  
+  React.useEffect(() => {
+    if (!isAuthed()) return;
+    fetch(`${BACKEND}/api/admin/liveness`, { headers: getAH() })
+      .then(r => r.ok ? r.json() : Promise.reject('Error'))
+      .then(d => { setData(d); setLoading(false); })
+      .catch(e => { setError(e); setLoading(false); });
+  }, []);
+
+  if (!isAuthed()) return null;
+  if (loading) return <div style={{ color: '#9ca3af', fontSize: 13, padding: 10 }}>⏳ Cargando Pulso de Agentes…</div>;
+  if (error || !data) return <div style={{ color: '#f87171', fontSize: 13, padding: 10 }}>❌ Error cargando Pulso</div>;
+
+  const summary = data.summary || { alive: 0, silent: 0, no_data: 0, total: 0 };
+  const agents = data.agents || [];
+
+  return (
+    <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 20 }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.06em', margin: 0 }}>🔌 Pulso de Agentes</p>
+        <div style={{ fontSize: 11, color: '#94a3b8', background: 'rgba(0,0,0,0.2)', padding: '2px 8px', borderRadius: 10 }}>
+          Alive: <span style={{ color: '#10b981', fontWeight: 700 }}>{summary.alive}</span> | Silent: <span style={{ color: '#ef4444', fontWeight: 700 }}>{summary.silent}</span> | No Data: <span style={{ color: '#9ca3af', fontWeight: 700 }}>{summary.no_data}</span> | Total: {summary.total}
+        </div>
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 10 }}>
+        {agents.map((a, i) => {
+          const isAlive = a.state === 'alive';
+          const isSilent = a.state === 'silent';
+          const bg = isAlive ? 'rgba(16,185,129,0.08)' : isSilent ? 'rgba(239,68,68,0.08)' : 'rgba(255,255,255,0.04)';
+          const br = isAlive ? 'rgba(16,185,129,0.2)' : isSilent ? 'rgba(239,68,68,0.2)' : 'rgba(255,255,255,0.08)';
+          const icon = isAlive ? '🟢' : isSilent ? '🔴' : '⚪';
+          const since = a.hours_since != null ? `${a.hours_since.toFixed(1)}h` : '—';
+          return (
+            <div key={i} style={{ background: bg, border: `1px solid ${br}`, borderRadius: 8, padding: '10px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <p style={{ fontSize: 12, fontWeight: 600, color: '#f1f5f9', margin: '0 0 2px' }}>{icon} {a.agent}</p>
+                <p style={{ fontSize: 10, color: '#9ca3af', margin: 0 }}>Hace {since}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 function TabCockpitResumen({ tenants, orders, selectedSlug, health }) {
   return (
     <div style={{ maxWidth: 1000 }}>
@@ -9431,6 +9568,8 @@ function TabCockpitResumen({ tenants, orders, selectedSlug, health }) {
           </div>
         ))}
       </div>
+
+      <PulsoAgentesPanel />
 
       {/* Decisiones soberanas pendientes (sub-regla 17.7) */}
       <div style={{ background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.2)', borderRadius: 12, padding: 16, marginBottom: 20 }}>
@@ -11816,6 +11955,40 @@ function TabDriftCoverage() {
 }
 
 
+function SelfObsolescencePanel() {
+  const [data, setData] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  React.useEffect(() => {
+    if (!isAuthed()) return;
+    fetch(`${BACKEND}/api/admin/self/obsolescence`, { headers: getAH() })
+      .then(r => r.ok ? r.json() : Promise.reject('Error'))
+      .then(d => { setData(d); setLoading(false); })
+      .catch(() => setLoading(false));
+  }, []);
+  if (!isAuthed()) return null;
+  if (loading) return <div style={{ color: '#9ca3af', fontSize: 13, padding: 10 }}>⏳ Cargando Self-Obsolescencia…</div>;
+  if (!data || data.data_blind) return null;
+  const proposals = data.proposals || [];
+  if (proposals.length === 0) return null;
+  return (
+    <div style={{ background: 'rgba(239,68,68,0.05)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: 12, padding: 16, marginBottom: 20 }}>
+      <p style={{ fontSize: 11, fontWeight: 700, color: '#f87171', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 12 }}>⚠️ Propuestas de Auto-Obsolescencia (Regla 30)</p>
+      <div style={{ display: 'grid', gap: 8 }}>
+        {proposals.map((p, i) => (
+          <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 8, padding: '10px 14px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 4 }}>
+              <span style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9' }}>{p.artifact}</span>
+              <span style={{ fontSize: 10, background: 'rgba(0,0,0,0.2)', padding: '2px 6px', borderRadius: 4, color: '#cbd5e1' }}>{p.kind}</span>
+            </div>
+            <p style={{ fontSize: 11, color: '#9ca3af', margin: '0 0 4px' }}>Señal: {p.signal}</p>
+            <p style={{ fontSize: 12, color: '#fca5a5', margin: 0 }}>🎯 Acción sugerida: {p.recommended}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }) {
   const [selected, setSelected] = React.useState(null);
   const [bsSection, setBsSection] = React.useState('overview');
@@ -11866,6 +12039,9 @@ function TabBackstage({ tenants, health, orders, selectedSlug, setSelectedSlug }
       <AlertsBanner adminKey={typeof window !== 'undefined' ? (sessionStorage.getItem('genyx_admin_key') || '') : ''} />
       <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', marginBottom: 4 }}>🔒 Backstage</h2>
       <p style={{ fontSize: 12, color: '#9ca3af', marginBottom: 20 }}>Solo visible para el fundador. Agentes de infraestructura, governance y herramientas operativas.</p>
+
+      {/* Self-Obsolescence proposals */}
+      <SelfObsolescencePanel />
 
       {/* Sub-tab navigation */}
       <div style={{ display: 'flex', gap: 4, marginBottom: 16, borderBottom: '1px solid rgba(255,255,255,0.07)', paddingBottom: 8, overflowX: 'auto' }}>
@@ -12367,25 +12543,28 @@ function TabRadarIntel() {
       {/* Signals list */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
         {filteredSignals.map((s, i) => {
-          const impact = (s.impact_estimate || 'medium').toLowerCase();
+          const category = s.signal_kind || s.signal_type || 'signal';
+          const title = s.summary || s.title || 'Sin título';
+          const impact = (s.impact || s.impact_estimate || 'medium').toLowerCase();
+          const conf = s.confidence === null || s.confidence === 'data_blind' ? '—' : s.confidence;
           const impactIcon = { high: '🔴', medium: '🟠', low: '🟡' };
           const impactColor = { high: '#fca5a5', medium: '#fbbf24', low: '#86efac' };
           return (
-            <div key={s.title + i} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '12px 16px', background: 'rgba(255,255,255,0.02)', borderRadius: 12, border: '1px solid rgba(255,255,255,0.06)', cursor: 'pointer', transition: 'all 0.15s' }}
+            <div key={title + i} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '12px 16px', background: 'rgba(255,255,255,0.02)', borderRadius: 12, border: '1px solid rgba(255,255,255,0.06)', cursor: 'pointer', transition: 'all 0.15s' }}
               onClick={() => setSelectedSignal(s)}
               onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'; }}
               onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'; }}
             >
-              <button onClick={e => { e.stopPropagation(); toggleStar(s.title); }}
-                aria-label={starred[s.title] ? 'Quitar de importantes' : 'Marcar como importante'}
-                style={{ background: 'none', border: 'none', fontSize: 16, cursor: 'pointer', padding: 0, color: starred[s.title] ? '#fbbf24' : '#334155' }}>
-                {starred[s.title] ? '★' : '☆'}
+              <button onClick={e => { e.stopPropagation(); toggleStar(title); }}
+                aria-label={starred[title] ? 'Quitar de importantes' : 'Marcar como importante'}
+                style={{ background: 'none', border: 'none', fontSize: 16, cursor: 'pointer', padding: 0, color: starred[title] ? '#fbbf24' : '#334155' }}>
+                {starred[title] ? '★' : '☆'}
               </button>
               <span style={{ fontSize: 14 }}>{impactIcon[impact] || '🟠'}</span>
               <div style={{ flex: 1, minWidth: 0 }}>
-                <p style={{ fontSize: 13, fontWeight: 600, color: '#e2e8f0', margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{s.title}</p>
+                <p style={{ fontSize: 13, fontWeight: 600, color: '#e2e8f0', margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{title}</p>
                 <p style={{ fontSize: 10, color: '#9ca3af', margin: '2px 0 0' }}>
-                  {s.signal_type || 'signal'} · {s.confidence || '-'} confidence
+                  {category} · {conf} confidence
                   {s.created_at && ` · ${new Date(s.created_at).toLocaleDateString()}`}
                 </p>
               </div>
