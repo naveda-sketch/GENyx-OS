@@ -9480,6 +9480,7 @@ function TabAdminTenant({ slug, token, config }) {
   ];
   return (
     <div>
+      <StrategyApproval2FA slug={slug} />
       <h2 style={{ fontSize: 18, fontWeight: 800, color: '#1a1208', marginBottom: 12 }}>⚙️ Administración</h2>
       <div style={{ display: 'flex', gap: 4, borderBottom: '1px solid #e7e5e4', marginBottom: 16, paddingBottom: 8 }}>
         {subs.map(s => (
