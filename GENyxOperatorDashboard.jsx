@@ -9548,6 +9548,79 @@ function PulsoAgentesPanel() {
   );
 }
 
+function StrategyApproval2FA({ slug }) {
+  const [otpCode, setOtpCode] = useState('');
+  const [emailCode, setEmailCode] = useState('');
+  const [emailStep, setEmailStep] = useState('idle');
+  const [statusMsg, setStatusMsg] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleRequestEmailCode = async () => {
+    setEmailStep('sending'); setStatusMsg('⏳ Enviando código a tu correo...');
+    try {
+      const r = await fetch(`${BACKEND}/api/client/${slug}/marketing/approve-step2`, {
+        method: 'POST', headers: { ...getAH(), 'Content-Type': 'application/json' },
+      });
+      const d = await r.json().catch(()=>({}));
+      if (r.ok) {
+        setEmailStep('sent'); setStatusMsg('✅ Código enviado a tu correo registrado.');
+      } else {
+        setEmailStep('error'); setStatusMsg(`❌ ${d.detail || 'Error al enviar código'}`);
+      }
+    } catch (e) {
+      setEmailStep('error'); setStatusMsg('❌ Error de conexión al solicitar el código.');
+    }
+  };
+
+  const handleApprove = async () => {
+    if (otpCode.length !== 6 || emailCode.length !== 6) return;
+    setIsSubmitting(true); setStatusMsg('⏳ Verificando credenciales A2F...');
+    try {
+      const r = await fetch(`${BACKEND}/api/client/${slug}/marketing/approve`, {
+        method: 'POST', headers: { ...getAH(), 'Content-Type': 'application/json' },
+        body: JSON.stringify({ otp_code: otpCode, email_code: emailCode }),
+      });
+      const d = await r.json().catch(()=>({}));
+      if (r.ok) {
+        setStatusMsg(`✅ Estrategia aprobada exitosamente.`);
+        setOtpCode(''); setEmailCode(''); setEmailStep('idle');
+      } else {
+        setStatusMsg(`❌ ${d.detail || 'Código inválido o expirado. Intenta de nuevo.'}`);
+      }
+    } catch (e) {
+      setStatusMsg('❌ Error de conexión al verificar el código.');
+    }
+    setIsSubmitting(false);
+  };
+
+  return (
+    <div style={{ background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.2)', borderRadius: 12, padding: 16, marginBottom: 20 }}>
+      <p style={{ fontSize: 11, fontWeight: 700, color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 12 }}>⚡ Decisiones soberanas pendientes</p>
+      <div style={{ background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: 8, padding: 16 }}>
+        <p style={{ fontSize: 13, color: '#e2e8f0', fontWeight: 600, marginBottom: 4 }}>Aprobar Estrategia de Marketing</p>
+        <p style={{ fontSize: 11, color: '#94a3b8', marginBottom: 16 }}>Ingresa los códigos de doble factor (A2F) para autorizar la estrategia propuesta por tu agente.</p>
+        
+        <div style={{ marginBottom: 12 }}>
+          <label style={{ display: 'block', fontSize: 11, color: '#a3e635', fontWeight: 600, marginBottom: 4 }}>1️⃣ Código WhatsApp</label>
+          <input type="text" value={otpCode} onChange={e => setOtpCode(e.target.value.replace(/\D/g, '').slice(0, 6))} placeholder="000000" disabled={isSubmitting} style={{ width: '100%', boxSizing: 'border-box', background: '#1e293b', border: `1px solid ${otpCode.length === 6 ? 'rgba(34,197,94,0.5)' : 'rgba(255,255,255,0.1)'}`, color: otpCode.length === 6 ? '#4ade80' : '#f8fafc', padding: '10px 14px', borderRadius: 6, fontSize: 16, fontWeight: 700, fontFamily: 'monospace', letterSpacing: 4, textAlign: 'center', outline: 'none' }} />
+        </div>
+
+        <div style={{ marginBottom: 16 }}>
+          <label style={{ display: 'block', fontSize: 11, color: '#60a5fa', fontWeight: 600, marginBottom: 4 }}>2️⃣ Código Correo Electrónico</label>
+          {(emailStep === 'idle' || emailStep === 'error') ? (
+            <button onClick={handleRequestEmailCode} disabled={otpCode.length !== 6 || isSubmitting} style={{ width: '100%', padding: '10px', background: otpCode.length === 6 ? 'rgba(59,130,246,0.1)' : 'rgba(255,255,255,0.04)', border: `1px solid ${otpCode.length === 6 ? 'rgba(59,130,246,0.3)' : 'rgba(255,255,255,0.1)'}`, color: otpCode.length === 6 ? '#60a5fa' : '#9ca3af', borderRadius: 6, fontSize: 12, fontWeight: 600, cursor: otpCode.length === 6 ? 'pointer' : 'not-allowed' }}>📧 Enviar código a mi correo</button>
+          ) : (
+            <input type="text" value={emailCode} onChange={e => setEmailCode(e.target.value.replace(/\D/g, '').slice(0, 6))} placeholder="000000" disabled={isSubmitting} style={{ width: '100%', boxSizing: 'border-box', background: '#1e293b', border: `1px solid ${emailCode.length === 6 ? 'rgba(59,130,246,0.5)' : 'rgba(255,255,255,0.1)'}`, color: emailCode.length === 6 ? '#60a5fa' : '#f8fafc', padding: '10px 14px', borderRadius: 6, fontSize: 16, fontWeight: 700, fontFamily: 'monospace', letterSpacing: 4, textAlign: 'center', outline: 'none' }} />
+          )}
+        </div>
+
+        <button onClick={handleApprove} disabled={otpCode.length !== 6 || emailCode.length !== 6 || isSubmitting} style={{ width: '100%', padding: '12px', background: (otpCode.length === 6 && emailCode.length === 6) ? '#10b981' : 'rgba(255,255,255,0.05)', color: (otpCode.length === 6 && emailCode.length === 6) ? '#fff' : '#9ca3af', border: 'none', borderRadius: 6, fontSize: 13, fontWeight: 700, cursor: (otpCode.length === 6 && emailCode.length === 6) ? 'pointer' : 'not-allowed', opacity: isSubmitting ? 0.7 : 1 }}>{isSubmitting ? 'Verificando...' : '✅ Confirmar Estrategia'}</button>
+        {statusMsg && <p style={{ marginTop: 12, fontSize: 12, color: statusMsg.startsWith('✅') ? '#4ade80' : '#f87171', textAlign: 'center', background: statusMsg.startsWith('✅') ? 'rgba(74,222,128,0.1)' : 'rgba(248,113,113,0.1)', padding: 8, borderRadius: 6 }}>{statusMsg}</p>}
+      </div>
+    </div>
+  );
+}
+
 function TabCockpitResumen({ tenants, orders, selectedSlug, health }) {
   return (
     <div style={{ maxWidth: 1000 }}>
@@ -9572,10 +9645,7 @@ function TabCockpitResumen({ tenants, orders, selectedSlug, health }) {
       <PulsoAgentesPanel />
 
       {/* Decisiones soberanas pendientes (sub-regla 17.7) */}
-      <div style={{ background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.2)', borderRadius: 12, padding: 16, marginBottom: 20 }}>
-        <p style={{ fontSize: 11, fontWeight: 700, color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 8 }}>⚡ Decisiones soberanas pendientes</p>
-        <p style={{ fontSize: 13, color: '#94a3b8', fontStyle: 'italic' }}>Ninguna decisión pendiente. Todos los agentes operando dentro de parámetros.</p>
-      </div>
+      <StrategyApproval2FA slug={selectedSlug} />
 
       {/* 5 backstage cards */}
       <p style={{ fontSize: 11, fontWeight: 700, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 12 }}>Backstage · Solo founder</p>
