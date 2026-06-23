@@ -1,0 +1,120 @@
+El Periódico. Edición del 2026-06-23.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Elon Musk.
+SpaceX emite bonos y firma acuerdo de IA. SpaceX anunció la venta de bonos con grado de inversión por primera vez, como parte de una estrategia de endeudamiento masivo para financiar sus ambiciones en inteligencia artificial. Las acciones de la compañía cayeron un 16% el lunes, cerrando en $154.60, su nivel más bajo desde su primer día de cotización. Además, SpaceX firmó un acuerdo multimillonario para proporcionar recursos informáticos a Reflection AI, una startup de IA. Fuente: The Japan Times.
+Imposibilidad de cohetes eléctricos. Elon Musk afirmó en X que los cohetes eléctricos son 'imposibles', en respuesta a informes de que MSCI había asignado a SpaceX su calificación ESG más baja posible (CCC). Sus comentarios se produjeron tras la evaluación de MSCI que destacó los riesgos ambientales, sociales y de gobernanza de SpaceX. Fuente: Teslarati.
+
+Satya Nadella.
+Llamado a un 'reinicio' de la IA. Satya Nadella, CEO de Microsoft, pidió un enfoque diferente para la inteligencia artificial, argumentando que la industria debe ir más allá de una carrera dominada por unas pocas empresas que construyen modelos cada vez más grandes. En una entrevista con The Wall Street Journal, Nadella abogó por un mayor acceso, menores costos y la confianza pública, cuestionando si el público aceptaría un futuro donde pocas organizaciones controlan el desarrollo de la tecnología. Fuente: Benzinga.
+
+Jensen Huang.
+Elogio a China en la cadena de suministro. Jensen Huang, CEO de NVIDIA, pronunció un discurso en video durante la ceremonia de apertura de la cuarta Exposición Internacional de la Cadena de Suministro de China (CISCE) en Beijing el lunes. Huang calificó a China como 'uno de los grandes centros de tecnología e industria del mundo', destacando la excelencia de sus ingenieros y la rápida evolución de sus desarrolladores. Fuente: Global Times.
+
+Sam Altman.
+Cancelación de película biográfica por Amazon. Amazon MGM Studios canceló abruptamente su próxima película sobre Sam Altman, CEO de OpenAI, titulada 'Artificial'. La película se centraría en su controvertido despido y recontratación de la junta directiva de OpenAI en 2023. Fuente: Business Insider.
+
+Tim Cook.
+Aumento 'inevitable' de precios de productos Apple. Tim Cook, CEO de Apple, advirtió que los aumentos de precios en los productos de Apple son 'inevitables' debido al aumento de los costos de los chips de memoria. Esta declaración se hizo durante una entrevista exclusiva con The Wall Street Journal y fue reportada el 22 de junio de 2026. Fuente: Barchart.com.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+OpenAI mejora GPT-5.5-Cyber y Codex Security para ciberseguridad. OpenAI ha lanzado una versión mejorada de su modelo GPT-5.5-Cyber, diseñado para identificar y parchear vulnerabilidades de software. También ha actualizado el plugin Codex Security para acelerar el descubrimiento y la corrección de fallos en sistemas existentes y prevenir nuevas vulnerabilidades. Fuente: OpenAI, Axios.
+Samsung Electronics implementa ChatGPT y Codex para sus empleados. Samsung Electronics ha llegado a un acuerdo con OpenAI para desplegar ChatGPT Enterprise y Codex a todos sus empleados en Corea y a la división Device eXperience (DX) a nivel mundial. Este es uno de los mayores despliegues empresariales de OpenAI hasta la fecha, buscando mejorar la productividad en desarrollo de software, marketing y otras funciones. Fuente: OpenAI.
+Desestimada demanda de xAI de Elon Musk contra OpenAI por secretos comerciales. Un juez federal desestimó una demanda presentada por xAI de Elon Musk que acusaba a OpenAI de robar secretos comerciales relacionados con su chatbot Grok. La jueza Rita Lin dictaminó que xAI no logró demostrar que OpenAI indujera a un ex ingeniero a divulgar información confidencial. Fuente: Reuters.
+
+Google DeepMind.
+Google DeepMind desarrolla un plan de control para agentes de IA. Google DeepMind ha publicado una 'Hoja de Ruta de Control de IA' que aborda el riesgo de que agentes de IA avanzados puedan evadir la supervisión o actuar en contra de las medidas de seguridad. La compañía está desarrollando un sistema de monitoreo para su agente Gemini Spark para detectar acciones no intencionadas. Fuente: TheStreet.
+Google DeepMind se asocia con A24 para desarrollar herramientas de IA para cineastas. Google DeepMind y el estudio de cine A24 han anunciado una colaboración de investigación para desarrollar nuevas herramientas y flujos de trabajo de IA para artistas y cineastas. Google también ha realizado una inversión en A24, con el objetivo de expandir las posibilidades narrativas y asegurar que las herramientas futuras sean moldeadas por los creadores. Fuente: Google DeepMind Blog, CNET.
+John Jumper, Nobel de Química por AlphaFold, deja Google DeepMind por Anthropic. John Jumper, galardonado con el Premio Nobel de Química en 2024 por su trabajo en AlphaFold, ha anunciado su salida de Google DeepMind para unirse a Anthropic. Esta es otra pérdida de talento de alto perfil para Google DeepMind en un corto período. Fuente: Axios, Seeking Alpha.
+
+Anthropic.
+Claude de Anthropic maneja el 95% de las consultas de análisis internas. Anthropic ha informado que su modelo Claude ahora procesa aproximadamente el 95% de sus solicitudes internas de análisis, permitiendo a los empleados consultar datos empresariales de forma independiente. Este logro se atribuye a la gobernanza de datos, las definiciones semánticas y la disciplina operativa, más que a los avances del modelo en sí. Fuente: InfoQ.
+Modelo Mythos de Anthropic vulneró sistemas clasificados de la NSA en pruebas. Durante una prueba de 'red-team' autorizada, el modelo Mythos de Anthropic logró vulnerar casi todos los sistemas clasificados de la NSA en pocas horas. Este incidente ha arrojado luz sobre la directiva del gobierno de EE. UU. que prohíbe el acceso a los modelos Fable 5 y Mythos 5 de Anthropic a ciudadanos extranjeros, citando preocupaciones de seguridad nacional. Fuente: Tom's Hardware.
+Micron y Anthropic anuncian acuerdo estratégico para infraestructura de IA. Micron Technology y Anthropic han firmado un acuerdo estratégico que abarca el diseño de arquitectura de memoria y almacenamiento de IA, un acuerdo de suministro, la adopción empresarial de Claude en Micron y una inversión estratégica en la ronda de financiación Serie H de Anthropic. Micron ya está utilizando los modelos Claude de Anthropic para acelerar la codificación y habilitar casos de uso más avanzados. Fuente: Micron Technology.
+
+Meta AI.
+Yann LeCun de Meta defiende los 'modelos del mundo' para la IA a nivel humano. Yann LeCun, ex científico jefe de IA en Meta, argumenta que su startup AMI Labs se enfoca en 'modelos del mundo' en lugar de solo grandes modelos de lenguaje para alcanzar la IA a nivel humano. También señaló que la postura de código abierto de Meta se ha vuelto más compleja, con posibles restricciones futuras en la liberación de modelos de 'superinteligencia'. Fuente: Observer.
+Meta lanzó su modelo Llama 2, un LLM de código abierto. Meta lanzó su modelo Llama 2, considerado uno de los LLM de código abierto más potentes hasta la fecha. Este lanzamiento refuerza la postura de Meta en el desarrollo de IA de código abierto, aunque la compañía ha señalado que podría no liberar todos sus futuros modelos de 'superinteligencia' de la misma manera. Fuente: PodScripts (The AI Daily Brief).
+Meta suspende programa de entrenamiento de IA tras fuga interna de datos de empleados. Meta ha pausado un programa interno de entrenamiento de IA, llamado Model Capability Initiative (MCI), después de que datos sensibles de empleados, incluyendo conversaciones privadas y datos de rendimiento, fueran accesibles en toda la compañía. El programa, que utilizaba las pulsaciones de teclas y movimientos del ratón de los empleados como datos de entrenamiento, generó preocupación por la privacidad. Fuente: Business Insider.
+
+Microsoft AI.
+Microsoft lanza Copilot Cowork para Microsoft 365 con disponibilidad general. Microsoft ha lanzado Copilot Cowork, su agente de IA autónomo, a disponibilidad general para los suscriptores de Microsoft 365 Copilot en todo el mundo. Esta versión introduce facturación basada en el uso, soporte para múltiples modelos de IA y controles empresariales, permitiendo la automatización de tareas complejas de principio a fin. Fuente: Reworked, ICON plc, Business Wire.
+ICON selecciona a Microsoft como socio de IA para ensayos clínicos con Orbis AI. ICON plc ha elegido a Microsoft como socio tecnológico preferente para un programa de tres años que expandirá Microsoft 365 Copilot, Azure, Fabric y servicios de IA en su negocio global de ensayos clínicos. El objetivo es escalar Orbis, la plataforma de IA de ICON para ensayos clínicos, utilizando la infraestructura de nube y datos de Microsoft. Fuente: Reworked, ICON plc, Business Wire.
+UpGuard analiza el ecosistema de Microsoft Copilot y sus modelos de amenaza. UpGuard ha publicado un análisis que distingue entre las diferentes ofertas de Microsoft Copilot (Microsoft Copilot, Microsoft 365 Copilot, GitHub Copilot) y sus arquitecturas de software, límites de custodia de datos y modelos de amenaza. El informe destaca los desafíos de seguridad que la integración generalizada de la IA introduce en la superficie de ataque empresarial. Fuente: UpGuard.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Odyssey.
+Ronda de Financiamiento Serie B de $310 Millones. Odyssey, un laboratorio de investigación de IA con sede en EE. UU., ha cerrado una ronda Serie B de $310 millones, alcanzando una valoración post-money de $1.45 mil millones. La ronda fue liderada por Natural Capital, con la participación de Amazon, GV (Google Ventures), AMD Ventures, EQT e In-Q-Tel. Fuente: InvestGame.
+Asociación Estratégica con Amazon Web Services (AWS). Concurrentemente con su ronda de financiamiento, Amazon Web Services acordó convertirse en el proveedor de nube preferido de Odyssey. La compañía también se asociará con Annapurna Labs de Amazon para co-optimizar modelos de mundo en los chips AWS Trainium. Fuente: InvestGame.
+
+ElevationSpace.
+Cierre de Ronda Serie B de $40 Millones. ElevationSpace, la startup japonesa de reentrada satelital, ha recaudado $40 millones en una ronda Serie B, elevando el monto total recaudado por la compañía a $63.5 millones. La empresa se enfoca en plataformas de investigación y retorno en órbita, con una demostración prevista en la ISS para 2029. Fuente: Payload Space.
+Expansión a Mercados Europeos y Estadounidenses. Con el reciente financiamiento, ElevationSpace busca expandirse aún más en los mercados europeos y estadounidenses. La compañía ha anunciado múltiples asociaciones internacionales, incluyendo acuerdos con Isar Aerospace para el lanzamiento de su satélite AOBA y con Axiom Space para explorar servicios de reentrada y recuperación. Fuente: Payload Space.
+
+fomo.
+Recauda $75 Millones en Ronda Serie B. fomo, una plataforma de trading de consumo on-chain que simplifica las barreras técnicas de los mercados descentralizados, ha asegurado $75 millones en una ronda de financiamiento Serie B. La ronda fue liderada por Index Ventures, con la participación de Union Square Ventures y el inversor existente Benchmark. Fuente: FinTech Global.
+Expansión a Nuevas Clases de Activos. El capital recaudado se destinará a expandir la plataforma a nuevas clases de activos, incluyendo acciones, perpetuos y mercados de predicción. También apoyará el desarrollo continuo de su ecosistema de trading y social. Fuente: FinTech Global.
+
+Nura Bio.
+Completa Financiamiento Serie B de $73.8 Millones. Nura Bio Inc., una compañía biofarmacéutica en etapa clínica que desarrolla terapias de moléculas pequeñas neuroprotectoras, anunció la finalización de un financiamiento Serie B de $73.8 millones. La financiación fue liderada por The Column Group, con la participación de Euclidean Capital, Samsara BioCapital y Sanofi Ventures. Fuente: Nura Bio.
+Avance en el Pipeline de Inhibidores de SARM1. Nura Bio ha avanzado sus dos programas de inhibidores de SARM1 en etapa clínica. Esto incluye el inicio de la dosificación en un estudio de fase 1b/2a de NB-4746 en pacientes con ELA y el inicio de la dosificación en un estudio de primera en humanos de NB-9402, un inhibidor alostérico covalente de SARM1 de próxima generación. Fuente: Nura Bio.
+
+Mitigata.
+Recauda $15 Millones en Ronda Serie B. Mitigata, una startup de riesgo cibernético y seguros con sede en Bengaluru, ha recaudado $15 millones en una ronda de financiamiento Serie B. La ronda fue liderada por Bessemer Venture Partners, con la participación de inversores existentes como Nexus Venture Partners, Titan Capital y WEH Ventures. Fuente: The SaaS News.
+Planes de Expansión Internacional y Actualización Tecnológica. La compañía planea utilizar el nuevo capital para acelerar su expansión internacional y actualizar sus tecnologías nativas de IA. Mitigata ofrece una plataforma completa de resiliencia cibernética que integra operaciones de seguridad impulsadas por IA, inteligencia de riesgo cibernético y soluciones de seguros. Fuente: The SaaS News.
+
+Sección: 📰 Top 10 Noticias.
+
+Google invierte $75 millones en A24 para alianza de investigación en IA.
+Google ha anunciado una inversión de aproximadamente $75 millones en A24, el reconocido estudio de cine independiente. Esta operación no solo marca la primera participación accionaria de Google en un estudio cinematográfico, sino que también se enmarca en una alianza estratégica de investigación en inteligencia artificial entre A24 y Google DeepMind. La colaboración busca integrar herramientas de IA generativa en el flujo de trabajo creativo del estudio, prometiendo reducir tiempos y costos de preproducción. Fuente: Ecosistema Startup.
+¿Por qué importa? Para los fundadores de tecnología, esta noticia subraya la creciente convergencia entre la IA y las industrias creativas. Indica que las grandes tecnológicas buscan aplicar la IA no solo en sus productos principales, sino también en sectores adyacentes, abriendo nuevas vías para startups que desarrollen soluciones de IA aplicada a la creatividad y producción de contenido.
+
+Wall Street cae por presión de tecnológicas; SpaceX desploma 16% tras emisión de bonos para proyectos de IA.
+Las acciones estadounidenses cerraron con pérdidas, con el Nasdaq Composite cayendo más de 1.32%, debido a la toma de ganancias en grandes nombres tecnológicos. SpaceX (SPCX) fue uno de los principales focos, desplomándose un 16.43% tras el anuncio de su primera emisión de bonos con grado de inversión, buscando captar US$20.000 millones para financiar proyectos de inteligencia artificial. La caída de las megacapitalizaciones tecnológicas reavivó dudas sobre su capacidad de crecimiento sostenido. Fuente: Bloomberg Línea.
+¿Por qué importa? Esta noticia resalta la volatilidad del mercado tecnológico, incluso para gigantes como SpaceX, y la presión sobre las valoraciones impulsadas por la IA. Los fundadores deben estar atentos a cómo las grandes inversiones en IA se traducen en retornos tangibles, ya que el mercado está volviéndose más escéptico sobre el 'hype' y exigiendo resultados concretos.
+
+Agentes de IA avanzan más rápido que la seguridad, creando nuevos riesgos operativos para empresas.
+Los agentes de inteligencia artificial, capaces de operar 24/7 y encadenar tareas entre múltiples sistemas a gran velocidad, están superando las capacidades de supervisión manual y creando nuevos riesgos operativos. Un informe de Fortinet, citado por The Wall Street Journal, indica que casi el 80% de las organizaciones ha sufrido pérdidas de datos por amenazas internas, y los agentes autónomos se están convirtiendo en nuevos objetivos de ciberataques. Fuente: IT NOW.
+¿Por qué importa? Los fundadores de startups de IA deben priorizar la seguridad desde el diseño ('security by design') en el desarrollo de agentes autónomos. Es crucial invertir en mecanismos de monitoreo y control robustos para mitigar los riesgos de seguridad y cumplimiento, ya que la adopción empresarial dependerá en gran medida de la confianza en la seguridad de estas soluciones.
+
+Bitcoin cae a $63,000 por temores a tipos de interés y salidas de ETF.
+Bitcoin experimentó una caída significativa, situándose en torno a los $63,000, impulsado por la preocupación de los inversores sobre las futuras decisiones de tipos de interés y las continuas salidas de los fondos cotizados en bolsa (ETF) de Bitcoin. Esta tendencia bajista refleja la sensibilidad del mercado de criptomonedas a los factores macroeconómicos y al sentimiento de los inversores institucionales. Fuente: Investing.com.
+¿Por qué importa? Para los fundadores de startups en el espacio Web3 o fintech, la volatilidad de Bitcoin y el impacto de las políticas monetarias son recordatorios clave de la necesidad de una gestión de tesorería prudente y de diversificar las fuentes de capital. La correlación con los mercados tradicionales sigue siendo un factor importante a considerar en las estrategias de crecimiento y financiación.
+
+Banco de Inglaterra publica normas sobre stablecoins para emisores en el Reino Unido.
+El Banco de Inglaterra ha publicado su declaración de política monetaria y un borrador del Código de Prácticas para los emisores de stablecoins en el Reino Unido. Estas nuevas regulaciones buscan establecer un marco claro para la operación de las monedas estables, aumentando la confianza y la estabilidad en el ecosistema de las criptomonedas dentro de la jurisdicción británica. Fuente: Investing.com.
+¿Por qué importa? Esta es una señal clara de la maduración del espacio cripto y la creciente atención regulatoria. Los fundadores de startups fintech y Web3 que operan con stablecoins o planean hacerlo deben monitorear de cerca estos desarrollos regulatorios, ya que impactarán directamente la forma en que pueden operar, innovar y escalar sus productos en mercados clave.
+
+Qualcomm negocia la compra de la startup de IA, Modular, por unos USD $4.000 millones.
+Qualcomm, el gigante de los chips, está en negociaciones para adquirir Modular, una startup de inteligencia artificial, en un acuerdo que podría rondar los USD $4.000 millones. Esta posible adquisición subraya la intensa carrera por el talento y la tecnología en el sector de la IA, donde las grandes corporaciones buscan fortalecer sus capacidades en hardware y software de IA. Fuente: DiarioBitcoin.
+¿Por qué importa? Para los fundadores de startups de IA, esta noticia es un indicador de que el mercado de fusiones y adquisiciones sigue siendo muy activo para empresas con tecnología y talento diferenciados. Es una validación de que construir soluciones de IA innovadoras puede llevar a salidas significativas, pero también intensifica la competencia por recursos y capital humano.
+
+Oracle ha eliminado unos 21.000 empleos durante el último año mientras aumenta la apuesta por la IA.
+Oracle ha reducido su plantilla en aproximadamente 21.000 empleados en el último año, una medida que coincide con su creciente enfoque e inversión en el sector de la inteligencia artificial. Esta reestructuración sugiere una estrategia de la compañía para optimizar costos y redirigir recursos hacia áreas de alto crecimiento y desarrollo tecnológico, particularmente en IA. Fuente: DiarioBitcoin.
+¿Por qué importa? Esta tendencia de 're-skilling' y reasignación de recursos hacia la IA es crucial para los fundadores. Demuestra que las empresas establecidas están priorizando la IA, lo que puede significar tanto oportunidades de asociación como una mayor competencia por talento especializado. Las startups deben enfocarse en la eficiencia y en cómo la IA puede transformar sus propias operaciones para mantenerse competitivas.
+
+Antenas 6G integrarán IA preventiva y seguridad postcuántica para ciberseguridad.
+El proyecto PAISES-6G busca integrar una capa de seguridad nativa combinada con inteligencia artificial para la ciberseguridad y técnicas de criptografía postcuántica en las futuras redes 6G. Esto aborda la preocupación de que las antenas 6G puedan 'ver' personas y la amenaza de los ordenadores cuánticos a los sistemas de cifrado actuales. El objetivo es asegurar un uso más ético y seguro de las telecomunicaciones. Fuente: 24horas.
+¿Por qué importa? Esta es una tendencia tecnológica fundamental para el futuro de la conectividad y la seguridad. Los fundadores en ciberseguridad, telecomunicaciones y desarrollo de IA deben estar al tanto de la evolución del 6G y la seguridad postcuántica, ya que representará un nuevo paradigma de infraestructura y una demanda creciente de soluciones de seguridad avanzadas y conscientes de la privacidad.
+
+Humanity Protocol (H) se derrumba un 34% en 24 horas por cuestionamientos a su viabilidad.
+El token Humanity Protocol (H) sufrió un desplome del 34% en las últimas 24 horas, borrando ganancias recientes y llevando su capitalización por debajo de los USD $400,000. La caída se atribuye a una combinación de capitulación de inversores tempranos, una posible falla en el mecanismo de verificación de identidad del protocolo y el arrastre bajista del mercado de altcoins. El mercado cuestiona la tracción en cadena y la monetización de su propuesta de valor. Fuente: DiarioBitcoin.
+¿Por qué importa? Esta noticia es una advertencia para los fundadores de proyectos Web3 y cripto sobre la importancia de la viabilidad del producto, la tracción real y la gestión de la comunidad. El 'hype' inicial no es suficiente; la falta de un modelo de negocio sólido y la incapacidad de demostrar valor real pueden llevar a caídas drásticas, incluso en un mercado volátil.
+
+OpenAI y Visa se asocian para que agentes de IA realicen compras en línea.
+Visa integrará sus servicios de pago en la plataforma de OpenAI, permitiendo que los minoristas en línea acepten transacciones dirigidas por agentes de inteligencia artificial. Esta colaboración busca facilitar y automatizar el proceso de compra en línea a través de la IA, abriendo nuevas posibilidades para el comercio electrónico y la interacción con el cliente. Fuente: Bloomberg Línea.
+¿Por qué importa? Para los fundadores de startups de comercio electrónico, fintech y IA, esta alianza es un hito importante. Señala el futuro de las compras automatizadas y la necesidad de integrar capacidades de IA en las plataformas transaccionales. Las startups deben explorar cómo sus productos pueden interactuar con estos agentes de IA para ofrecer experiencias de usuario fluidas y eficientes, o desarrollar soluciones que permitan a los minoristas aprovechar esta tendencia.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
