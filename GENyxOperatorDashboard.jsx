@@ -2452,7 +2452,7 @@ const TabMarketing = ({ selectedSlug }) => {
     while (retries <= maxRetries) {
       try {
         const r = await fetch(`${BACKEND}/api/client/${slug}/marketing/approve-step2`, {
-          method: 'POST', headers: { ...getAH(), 'Content-Type': 'application/json' },
+          method: 'POST', headers: { ...authH, 'Content-Type': 'application/json' },
         });
         const d = await r.json();
         if (r.ok) {
@@ -2479,7 +2479,7 @@ const TabMarketing = ({ selectedSlug }) => {
     setOtpStatus('Verificando doble factor...');
     try {
       const r = await fetch(`${BACKEND}/api/client/${slug}/marketing/approve`, {
-        method: 'POST', headers: { ...getAH(), 'Content-Type': 'application/json' },
+        method: 'POST', headers: { ...authH, 'Content-Type': 'application/json' },
         body: JSON.stringify({ otp_code: otpCode, email_code: emailCode, approved_content_hash: approvedHash }),
       });
       const d = await r.json();
@@ -9238,6 +9238,9 @@ function TabResumenTenant({ slug, token, config }) {
 
   return (
     <div style={{ maxWidth: 900 }}>
+      {/* Decisión soberana pendiente del tenant (fix 23-jun §6): surfaceada en la HOME donde Paty
+          aterriza, no solo enterrada en el sub-tab admin. Gated: return null si no hay pending. */}
+      <StrategyApproval2FA slug={slug} token={token} />
       <div style={{ marginBottom: 20 }}>
         <h2 style={{ fontSize: 20, fontWeight: 800, color: '#1a1208', margin: '0 0 4px' }}>🎯 Resumen del día</h2>
         <p style={{ fontSize: 13, color: '#a8a29e', margin: 0 }}>Tus agentes trabajaron para ti — esto es lo que lograron.</p>
@@ -9480,7 +9483,7 @@ function TabAdminTenant({ slug, token, config }) {
   ];
   return (
     <div>
-      <StrategyApproval2FA slug={slug} />
+      <StrategyApproval2FA slug={slug} token={token} />
       <h2 style={{ fontSize: 18, fontWeight: 800, color: '#1a1208', marginBottom: 12 }}>⚙️ Administración</h2>
       <div style={{ display: 'flex', gap: 4, borderBottom: '1px solid #e7e5e4', marginBottom: 16, paddingBottom: 8 }}>
         {subs.map(s => (
@@ -9549,7 +9552,7 @@ function PulsoAgentesPanel() {
   );
 }
 
-function StrategyApproval2FA({ slug }) {
+function StrategyApproval2FA({ slug, token }) {
   const [pend, setPend] = useState(null);
   const [otpCode, setOtpCode] = useState('');
   const [emailCode, setEmailCode] = useState('');
@@ -9557,12 +9560,20 @@ function StrategyApproval2FA({ slug }) {
   const [statusMsg, setStatusMsg] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Auth POR CONTEXTO (fix 23-jun §6): el TENANT (Paty) autentica con su X-Dashboard-Token —
+  // mismo patrón que TODO el resto del Mando del tenant. El founder cockpit (sin token) cae a
+  // getAH() = X-Admin-Key. ANTES usaba getAH() SIEMPRE → en el browser del tenant NO existe el
+  // admin-key → 401 → pend=null → el form era INVISIBLE aunque estuviera montado en TabAdminTenant
+  // (y el email nunca salía: approve-step2 también 401eaba). Ésta era la raíz real, no el mount.
+  const authH = token ? { 'X-Dashboard-Token': token } : getAH();
+
   useEffect(() => {
-    fetch(`${BACKEND}/api/client/${slug}/marketing/strategy`, { headers: getAH() })
+    const h = token ? { 'X-Dashboard-Token': token } : getAH();
+    fetch(`${BACKEND}/api/client/${slug}/marketing/strategy`, { headers: h })
       .then(r => r.json())
       .then(d => setPend(d?.exists === true && d?.status === 'pending' ? d : null))
       .catch(() => setPend(null));
-  }, [slug]);
+  }, [slug, token]);
 
   if (!pend) return null;
 
@@ -9570,7 +9581,7 @@ function StrategyApproval2FA({ slug }) {
     setEmailStep('sending'); setStatusMsg('⏳ Enviando código a tu correo...');
     try {
       const r = await fetch(`${BACKEND}/api/client/${slug}/marketing/approve-step2`, {
-        method: 'POST', headers: { ...getAH(), 'Content-Type': 'application/json' },
+        method: 'POST', headers: { ...authH, 'Content-Type': 'application/json' },
       });
       const d = await r.json().catch(()=>({}));
       if (r.ok) {
@@ -9588,7 +9599,7 @@ function StrategyApproval2FA({ slug }) {
     setIsSubmitting(true); setStatusMsg('⏳ Verificando credenciales A2F...');
     try {
       const r = await fetch(`${BACKEND}/api/client/${slug}/marketing/approve`, {
-        method: 'POST', headers: { ...getAH(), 'Content-Type': 'application/json' },
+        method: 'POST', headers: { ...authH, 'Content-Type': 'application/json' },
         body: JSON.stringify({ otp_code: otpCode, email_code: emailCode }),
       });
       const d = await r.json().catch(()=>({}));
