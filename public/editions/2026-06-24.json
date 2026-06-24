@@ -1,0 +1,562 @@
+{
+  "version": "2.0",
+  "date": "2026-06-24",
+  "generated_at": "2026-06-24T05:00:36.741800-06:00",
+  "timezone": "CST (UTC-6)",
+  "language": "es-MX",
+  "tier": "Tier 4",
+  "sections": {
+    "titans": {
+      "key": "titans",
+      "title": "🏛️ Los Titans",
+      "data": [
+        {
+          "nombre": "Elon Musk",
+          "empresa": "Tesla, xAI, SpaceX, X",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Caída del patrimonio neto por acciones de SpaceX",
+              "detalle": "El patrimonio neto de Elon Musk experimentó una caída significativa de 350 mil millones de dólares, situándose en poco menos de 1.1 billones de dólares, debido a una venta masiva de acciones de SpaceX. Esta disminución se produjo a pesar de un acuerdo de computación de SpaceX con la startup de IA Reflection AI, valorado en 6.300 millones de dólares.",
+              "fuente": "Forbes Chile",
+              "url": "https://forbes.cl/negocios/2026-06-23/patrimonio-neto-de-elon-musk-cae-us350-mil-millones-tras-venta-masiva-de-acciones-de-spacex-pero-sigue-siendo-un-trillonario/",
+              "impacto": "La volatilidad en el valor de las acciones de SpaceX y el patrimonio de Musk resalta la sensibilidad del mercado a las valoraciones de las empresas de alto crecimiento, incluso en el sector de la IA y el espacio."
+            },
+            {
+              "tipo": "publicación",
+              "titulo": "Actividad en X (anteriormente Twitter)",
+              "detalle": "Elon Musk realizó 65 publicaciones en X el 22 de junio de 2026, cubriendo una variedad de temas que incluyen SpaceX, Tesla, Grok, Neuralink, IA, Doge y política.",
+              "fuente": "YouTube (citando xTracker)",
+              "url": "https://www.youtube.com/watch?v=kYJ5k8b2L9c",
+              "impacto": "La constante y variada actividad de Musk en X sigue siendo una herramienta clave para influir en la opinión pública y en las narrativas de sus empresas, aunque la fuente principal es un video de YouTube que cita datos de xTracker."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Especulación sobre fusión Tesla-SpaceX",
+              "detalle": "Se ha especulado sobre una posible fusión entre Tesla y SpaceX, con el objetivo de que Musk obtenga un control unificado sobre Tesla, similar al que tiene en SpaceX. La fusión podría implicar un intercambio de acciones o la creación de una sociedad holding.",
+              "fuente": "YouTube (análisis financiero)",
+              "url": "https://www.youtube.com/watch?v=Q_p-Y-p6Z8g",
+              "impacto": "Una fusión de esta magnitud redefiniría el panorama de ambas compañías, consolidando el poder de Musk y potencialmente creando sinergias en áreas como la IA y la robótica, aunque la fuente es un análisis en YouTube."
+            }
+          ]
+        },
+        {
+          "nombre": "Satya Nadella",
+          "empresa": "Microsoft",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Crítica a la concentración de poder en la IA",
+              "detalle": "Satya Nadella criticó la concentración de poder en un pequeño grupo de compañías de IA, advirtiendo que la sociedad no tolerará un futuro donde unas pocas empresas controlen el conocimiento global. Microsoft está implementando una estrategia para democratizar el acceso a la IA con modelos de bajo costo y capacidades ampliadas en Copilot.",
+              "fuente": "Business Insider España",
+              "url": "https://www.businessinsider.es/jefe-microsoft-alerta-riesgo-pocos-gigantes-ia-queden-toda-economia-no-podemos-permitirlo-126284687",
+              "impacto": "Esta declaración marca un giro estratégico de Microsoft, buscando posicionarse como un actor que promueve la democratización de la IA, lo que podría intensificar la competencia y la commoditización parcial del mercado de IA empresarial."
+            },
+            {
+              "tipo": "publicación",
+              "titulo": "Ensayo sobre el futuro de la IA empresarial",
+              "detalle": "Nadella publicó un ensayo el 24 de junio de 2026, argumentando que el futuro de la IA empresarial no reside en el modelo en sí, sino en el ciclo de aprendizaje. Enfatizó la interacción entre capital humano y capital simbólico, y la necesidad de que las organizaciones retengan la experiencia de sus 'veteranos de la empresa'.",
+              "fuente": "HBR.org (Harvard Business Review)",
+              "url": "https://hbr.org/2026/06/the-microsoft-ceo-satya-nadella-is-asking-the-right-question-about-ai",
+              "impacto": "El enfoque de Nadella en el 'ciclo de aprendizaje' y la retención del conocimiento humano sugiere una evolución en la estrategia de IA de Microsoft, priorizando la adaptabilidad y la experiencia organizacional sobre la mera potencia del modelo, lo que podría influir en las inversiones y el desarrollo de productos en la industria."
+            }
+          ]
+        },
+        {
+          "nombre": "Sam Altman",
+          "empresa": "OpenAI",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "La IA podría superar a los humanos antes de 2030",
+              "detalle": "Sam Altman afirmó el 22 de junio de 2026 que no le sorprendería ver modelos de IA 'extraordinariamente capaces' que superen las tareas humanas antes de 2030, transformando una parte significativa de la economía. Identificó la infraestructura como el principal cuello de botella para este avance.",
+              "fuente": "IA en Español (citando a Altman)",
+              "url": "https://iaen.substack.com/p/sam-altman-cree-que-la-ia-podria",
+              "impacto": "Esta predicción subraya la urgencia de la carrera por la superinteligencia y la infraestructura necesaria, lo que impulsará inversiones masivas en centros de datos y energía, y obligará a gobiernos y empresas a replantearse la productividad y la regulación."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Rectificación sobre el 'apocalipsis laboral' de la IA",
+              "detalle": "Altman admitió en mayo de 2026, según un análisis del 21 de junio de 2026, que se alegraba de haberse equivocado sobre la inminente 'destrucción de empleos' por la IA. Señaló que el impacto en los trabajos de cuello blanco ha sido más lento de lo anticipado, basándose en su experiencia personal con la delegación de tareas a la IA.",
+              "fuente": "WWWhat's new (citando a Reuters)",
+              "url": "https://wwwhatsnew.com/2026/06/21/los-ceos-de-ia-que-prometian-el-apocalipsis-laboral-ahora-dicen-que-estaban-equivocados-el-mercado-de-trabajo-por-su-parte-va-por-libre",
+              "impacto": "Este cambio de narrativa de un líder clave de la IA busca calmar las preocupaciones sobre el desplazamiento laboral masivo, lo que podría influir en la percepción pública y las políticas regulatorias, especialmente en un año con OPV en preparación para OpenAI y Anthropic."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Visión de OpenAI de una 'tercera fase'",
+              "detalle": "El 20 de junio de 2026, Sam Altman delineó la 'tercera fase' de OpenAI, enfatizando que 'automatizarlo todo por completo no es el futuro que queremos'. La visión de la compañía se centra en construir tecnología para beneficiar a todos.",
+              "fuente": "TechRadar",
+              "url": "https://www.techradar.com/pro/ai/entirely-automating-everything-is-not-the-future-we-want-openai-ceo-sam-altman-lays-out-his-companys-vision-as-it-opens-a-third-phase-and-looks-to-build-technology-to-benefit-everyone",
+              "impacto": "La declaración de Altman busca alinear la misión de OpenAI con un desarrollo de IA más ético y centrado en el ser humano, lo que podría influir en la dirección de la investigación y el desarrollo de productos en la industria, priorizando la colaboración humano-IA sobre la automatización total."
+            }
+          ]
+        },
+        {
+          "nombre": "Mark Zuckerberg",
+          "empresa": "Meta",
+          "actividad": [
+            {
+              "tipo": "lanzamiento",
+              "titulo": "Desarrollo de aplicación de mercados de predicción 'Project Arena'",
+              "detalle": "Mark Zuckerberg ha ordenado a Meta la creación de una aplicación de mercados de predicción, tentativamente llamada 'Project Arena'. Inicialmente, la plataforma permitirá a los usuarios ganar puntos virtuales por predecir eventos, con la posibilidad de introducir apuestas con dinero real en el futuro.",
+              "fuente": "Reuters (citando The New York Times)",
+              "url": "https://www.reuters.com/markets/europe/mark-zuckerberg-ordered-meta-create-prediction-markets-app-nyt-2026-06-23/",
+              "impacto": "La incursión de Meta en los mercados de predicción podría abrir una nueva vía de monetización y engagement para la compañía, compitiendo con plataformas existentes y expandiendo el alcance de las redes sociales hacia nuevas formas de interacción y entretenimiento digital."
+            }
+          ]
+        },
+        {
+          "nombre": "Dario Amodei",
+          "empresa": "Anthropic",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Advertencia sobre los peligros de la IA y llamado a la regulación",
+              "detalle": "Dario Amodei, CEO de Anthropic, publicó un ensayo el 23 de junio de 2026, instando a la humanidad a 'despertar' ante los peligros de la IA y pidiendo una regulación que avance al mismo ritmo que la industria. Subrayó que los modelos de IA avanzada son ahora herramientas de 'consecuencia estratégica nacional'.",
+              "fuente": "Nueva Revista",
+              "url": "https://www.nuevarevista.es/entrevistas/dario-amodei-la-humanidad-necesita-despertar-si-no-quiere-ser-destruida-por-la-ia/",
+              "impacto": "El llamado de Amodei a una regulación más estricta y a la conciencia pública sobre los riesgos de la IA podría catalizar un mayor escrutinio gubernamental y la implementación de marcos regulatorios, afectando el desarrollo y despliegue de modelos de IA en todo el mundo."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-06-24T05:02:09.084063-06:00",
+      "status": "ok"
+    },
+    "ai_leaders": {
+      "key": "ai_leaders",
+      "title": "🤖 AI Leaders",
+      "data": [
+        {
+          "empresa": "OpenAI",
+          "novedades": [
+            {
+              "tipo": "research",
+              "titulo": "GPT-5 ayuda a resolver misterio inmunológico",
+              "detalle": "GPT-5 de OpenAI asistió al inmunólogo Derya Unutmaz en la resolución de un misterio médico de tres años. Esta aplicación demuestra el potencial de los modelos de lenguaje avanzados para acelerar descubrimientos científicos complejos y análisis de datos en campos especializados.",
+              "fuente": "OpenAI Blog",
+              "url": "https://openai.com/news/how-gpt-5-helped-immunologist-derya-unutmaz-solve-a-3-year-old-mystery",
+              "aplicacion_genyx": "Para GENyx, esto subraya la oportunidad de desarrollar soluciones SaaS de IA altamente especializadas que ofrezcan capacidades de análisis y resolución de problemas para nichos de mercado complejos."
+            },
+            {
+              "tipo": "product",
+              "titulo": "Iniciativa Daybreak para mantenedores de código abierto",
+              "detalle": "OpenAI lanzó 'Patch the Planet', una iniciativa de Daybreak para apoyar a los mantenedores de código abierto. Esto forma parte de un esfuerzo más amplio para proporcionar herramientas que aseguren organizaciones a nivel mundial, mejorando la seguridad y la colaboración en el ecosistema de software.",
+              "fuente": "OpenAI Blog",
+              "url": "https://openai.com/news/patch-the-planet-a-daybreak-initiative-to-support-open-source-maintainers",
+              "aplicacion_genyx": "GENyx podría explorar integraciones con iniciativas de seguridad de código abierto, ofreciendo herramientas de IA para mejorar la calidad y seguridad del código en proyectos de sus clientes."
+            },
+            {
+              "tipo": "product",
+              "titulo": "Codex-Maxxing para trabajos de larga duración",
+              "detalle": "OpenAI ha destacado 'Codex-Maxxing' como una estrategia para optimizar Codex en la ejecución de trabajos de programación de larga duración. Esto indica un enfoque en mejorar la eficiencia y la capacidad de los modelos de IA para manejar tareas complejas y extendidas en el desarrollo de software.",
+              "fuente": "OpenAI Blog",
+              "url": "https://openai.com/news/codex-maxxing-for-long-running-work",
+              "aplicacion_genyx": "Una empresa SaaS como GENyx podría aprovechar estas optimizaciones para ofrecer herramientas de desarrollo de software asistidas por IA que automaticen y gestionen proyectos de codificación extensos y complejos."
+            }
+          ]
+        },
+        {
+          "empresa": "Google DeepMind",
+          "novedades": [
+            {
+              "tipo": "product",
+              "titulo": "Traducción de voz fluida con Gemini 3.5 Live Translate",
+              "detalle": "Google DeepMind ha anunciado la capacidad de traducción de voz fluida y natural con Gemini 3.5 Live Translate. Esta mejora permite interacciones multilingües más fluidas y en tiempo real, abriendo nuevas posibilidades para la comunicación global.",
+              "fuente": "Google DeepMind Blog",
+              "url": "https://deepmind.google/discover/blog/latest-ai-breakthroughs-and-updates-from-the-lab/",
+              "aplicacion_genyx": "GENyx podría integrar esta tecnología para ofrecer servicios de traducción en tiempo real en sus plataformas de comunicación o herramientas de soporte al cliente, facilitando la expansión a mercados internacionales."
+            },
+            {
+              "tipo": "product",
+              "titulo": "Lanzamiento de Gemma 4 12B, un modelo multimodal unificado",
+              "detalle": "Google DeepMind presentó Gemma 4 12B, un modelo multimodal unificado y sin codificador. Este lanzamiento representa un avance en la creación de modelos de IA más eficientes y versátiles, capaces de procesar y generar información a través de diversas modalidades.",
+              "fuente": "Google DeepMind Blog",
+              "url": "https://deepmind.google/discover/blog/latest-ai-breakthroughs-and-updates-from-the-lab/",
+              "aplicacion_genyx": "Para GENyx, la disponibilidad de modelos multimodales como Gemma 4 12B significa la oportunidad de desarrollar aplicaciones SaaS que combinen texto, imagen y otras entradas para soluciones más ricas y contextuales, como análisis de contenido o asistentes virtuales avanzados."
+            },
+            {
+              "tipo": "research",
+              "titulo": "Asegurando el futuro de los agentes de IA",
+              "detalle": "Google DeepMind está investigando activamente cómo asegurar el futuro de los agentes de IA, enfocándose en la responsabilidad y la seguridad. Este trabajo es crucial para garantizar que los sistemas de IA avanzados operen de manera ética y confiable en entornos complejos.",
+              "fuente": "Google DeepMind Blog",
+              "url": "https://deepmind.google/discover/blog/latest-ai-breakthroughs-and-updates-from-the-lab/",
+              "aplicacion_genyx": "GENyx debe incorporar las mejores prácticas de seguridad y responsabilidad en el diseño de sus agentes de IA, asegurando la confianza del cliente y el cumplimiento normativo en sus soluciones SaaS."
+            }
+          ]
+        },
+        {
+          "empresa": "Anthropic",
+          "novedades": [
+            {
+              "tipo": "regulación",
+              "titulo": "Gobierno de EE. UU. ordena bloqueo de modelos Fable 5 y Mythos 5",
+              "detalle": "El gobierno de Estados Unidos ordenó a Anthropic bloquear el acceso a sus modelos de IA Fable 5 y Mythos 5 a no ciudadanos estadounidenses, citando preocupaciones de seguridad nacional. Ante la imposibilidad técnica de filtrar usuarios por nacionalidad, Anthropic desactivó globalmente ambos modelos.",
+              "fuente": "EL PAÍS",
+              "url": "https://elpais.com/opinion/2026-06-22/trump-nos-desconecta.html",
+              "aplicacion_genyx": "Este incidente resalta la creciente intervención gubernamental en la IA de frontera, lo que significa que GENyx debe monitorear de cerca las regulaciones de exportación y uso de IA para evitar interrupciones operativas y asegurar la continuidad del negocio."
+            },
+            {
+              "tipo": "product",
+              "titulo": "Lanzamiento de Claude Tag para Slack",
+              "detalle": "Anthropic lanzó Claude Tag, una integración de su IA Claude en Slack que permite a los empleados invocar a la IA en conversaciones grupales. Claude Tag puede entender el contexto de las conversaciones, tomar iniciativa y ayudar a avanzar en el trabajo sin instrucciones repetitivas.",
+              "fuente": "La Opinión",
+              "url": "https://laopinion.com/2026/06/23/claude-tag-la-nueva-ia-de-anthropic-se-convierte-en-tu-companero-de-equipo-dentro-de-slack/",
+              "aplicacion_genyx": "GENyx puede aprender de esta estrategia para desarrollar asistentes de IA contextuales e integrados en plataformas de colaboración, mejorando la productividad de equipos empresariales y ofreciendo un valor añadido significativo a sus clientes SaaS."
+            }
+          ]
+        },
+        {
+          "empresa": "Meta AI",
+          "novedades": [
+            {
+              "tipo": "regulación",
+              "titulo": "Meta pausa programa de entrenamiento de IA por fuga de datos",
+              "detalle": "Meta ha pausado un programa interno de entrenamiento de IA que rastreaba las pulsaciones de teclado y movimientos del ratón de los empleados, después de que una fuga de datos hiciera accesible información sensible. El incidente expuso conversaciones privadas y datos de rendimiento, generando frustración entre los empleados.",
+              "fuente": "Business Insider",
+              "url": "https://www.businessinsider.com/meta-pauses-ai-training-program-tracks-employees-keystrokes-leak-2026-6",
+              "aplicacion_genyx": "GENyx debe priorizar la privacidad y seguridad de los datos en todos sus programas de entrenamiento de IA, implementando salvaguardas robustas y comunicando claramente las políticas de uso de datos para mantener la confianza de los usuarios y cumplir con las normativas."
+            },
+            {
+              "tipo": "product",
+              "titulo": "Lanzamiento de nuevas gafas inteligentes con IA a precios asequibles",
+              "detalle": "Meta ha lanzado una nueva línea de gafas inteligentes con IA, las Meta Glasses, a partir de 299 dólares, un precio significativamente más bajo que modelos anteriores. Estos dispositivos incorporan Meta AI, impulsada por Muse Spark, y buscan consolidar la marca de Meta en el mercado de wearables con IA.",
+              "fuente": "SWI swissinfo.ch",
+              "url": "https://www.swissinfo.ch/spa/meta-lanza-unas-nuevas-gafas-con-inteligencia-artificial-m%C3%A1s-baratas-ante-competencia/49544976",
+              "aplicacion_genyx": "Para GENyx, esto indica una tendencia hacia la democratización de la IA en dispositivos de consumo, lo que podría inspirar el desarrollo de aplicaciones SaaS de IA que se integren con hardware asequible para una mayor accesibilidad y adopción por parte del usuario final."
+            }
+          ]
+        },
+        {
+          "empresa": "Microsoft AI",
+          "novedades": [
+            {
+              "tipo": "partnership",
+              "titulo": "Acuerdo de energía de 20 años con Chevron para centros de datos",
+              "detalle": "Microsoft firmó un acuerdo de compra de energía de 20 años con Chevron para desarrollar una instalación de gas natural que suministrará energía a un campus de centros de datos de Microsoft en el oeste de Texas. Este proyecto, denominado Kilby, busca asegurar el suministro de energía para la creciente infraestructura de IA de Microsoft.",
+              "fuente": "Let's Data Science (citando Reuters)",
+              "url": "https://letsdatascience.com/microsoft-ai-news-copilot-azure-enterprise-ai/",
+              "aplicacion_genyx": "Este acuerdo demuestra la necesidad crítica de infraestructura energética sostenible para el crecimiento de la IA, lo que implica que GENyx debe considerar la escalabilidad y el impacto ambiental de su propia infraestructura de cómputo para sus soluciones SaaS."
+            },
+            {
+              "tipo": "product",
+              "titulo": "Presentación de la plataforma RTX Spark AI PC con NVIDIA",
+              "detalle": "Microsoft y NVIDIA presentaron RTX Spark, una plataforma de PC con Windows diseñada para agentes de IA locales, flujos de trabajo creativos y gráficos RTX. Esta plataforma ofrece 1 petaflop de rendimiento de IA y hasta 128 GB de memoria unificada, con socios OEM como Microsoft Surface y ASUS.",
+              "fuente": "Let's Data Science (citando NVIDIA Newsroom y Windows Experience Blog)",
+              "url": "https://letsdatascience.com/microsoft-ai-news-copilot-azure-enterprise-ai/",
+              "aplicacion_genyx": "GENyx podría explorar el desarrollo de aplicaciones SaaS de IA que aprovechen el poder de procesamiento local de plataformas como RTX Spark, permitiendo soluciones más rápidas y con menor latencia para tareas intensivas en IA, como el procesamiento de datos en el borde."
+            },
+            {
+              "tipo": "product",
+              "titulo": "Auto-instalación de Microsoft 365 Copilot en Windows",
+              "detalle": "Microsoft reanudó la instalación automática de la aplicación Microsoft 365 Copilot en dispositivos Windows comerciales elegibles a partir de junio de 2026. Esta medida busca expandir la adopción de Copilot en entornos empresariales, con la finalización prevista para finales de julio de 2026.",
+              "fuente": "Let's Data Science (citando notificación de Microsoft)",
+              "url": "https://letsdatascience.com/microsoft-ai-news-copilot-azure-enterprise-ai/",
+              "aplicacion_genyx": "La auto-instalación de Copilot en Windows sugiere una estrategia de Microsoft para integrar profundamente la IA en los flujos de trabajo empresariales, lo que implica que GENyx debería buscar oportunidades para integrar sus soluciones SaaS de IA con plataformas de productividad ampliamente adoptadas."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-06-24T05:03:50.862848-06:00",
+      "status": "ok"
+    },
+    "emerging": {
+      "key": "emerging",
+      "title": "🚀 Emerging Tech & Startups",
+      "data": [
+        {
+          "empresa": "Cursor (adquirida por SpaceX)",
+          "sector": "IA/ML (Editor de código con IA)",
+          "valoracion": "Adquirida por $60 mil millones (valoración previa de $1.6 mil millones)",
+          "novedades": [
+            {
+              "tipo": "adquisición",
+              "titulo": "SpaceX adquiere la startup de codificación con IA Cursor por $60 mil millones",
+              "detalle": "SpaceX ha adquirido la startup de codificación con IA Cursor en un acuerdo de $60 mil millones en acciones, apenas cuatro días después de su histórica salida a bolsa en Nasdaq. Esta es la adquisición más grande registrada de una startup respaldada por capital de riesgo.",
+              "fuente": "LA Times / Bricks and Bytes",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEB1z6klOkj31jVN9TL_RxTR4BIfwWzVuFgY0hkR3640-NnkRm-HCb4Agctcgotcd7anteBG_8vEm6aSqgQkkYYLAoxX1ejErIRIIONIHzI47PBoPQ_O-7XamNui7RSXVUpafmEB0CfuukO594DldjRdWGoTt1dlUcKApPNT-hjkYjrQsKr0uWPEQpXwUqgYFBdt4_YXSFtsSj4V-BPXE-T_1ChRiLJrImIEjy77nMgpw==",
+              "por_que_importa": "Esta adquisición de $60 mil millones es la más grande registrada para una startup respaldada por capital de riesgo, lo que subraya la agresiva estrategia de SpaceX para integrar la IA en sus operaciones y competir con líderes del sector como Anthropic y OpenAI."
+            }
+          ]
+        },
+        {
+          "empresa": "Modular Inc.",
+          "sector": "Infraestructura de IA/ML",
+          "valoracion": "Valoración previa de $1.6 mil millones; en conversaciones para una adquisición de $4 mil millones",
+          "novedades": [
+            {
+              "tipo": "adquisición",
+              "titulo": "Qualcomm en conversaciones avanzadas para adquirir la startup de IA Modular por $4 mil millones",
+              "detalle": "El gigante de los semiconductores Qualcomm está en conversaciones avanzadas para comprar la startup de plataforma de IA Modular Inc. en un acuerdo valorado en aproximadamente $4 mil millones. Modular fue fundada en 2022 por veteranos de Google y se enfoca en ayudar a los desarrolladores a implementar modelos de IA sin problemas en diversas arquitecturas informáticas.",
+              "fuente": "Barchart.com",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHhvcywm_q7ab-nJFcWApsRaWnVyUdeZUEZUKZvofab3f_B9yNnM6wRJRoZqj2_F9IhuyZwW3I0fwzvEyePCgxtwaOf0SuSd8p8jGjaw5aLIEoKlH20KqSjUmmG_Qlv072ONizcEBgQ-IEcA3Pzpqt-2GJ3Bdl5omQ-0LfQLvepx28e4TBz_vter4HB-LiHH80M6wCoNxIgIj6ODLHYzH5KyYFR-MzwQwWc05Ble74K_dLOBfY_eUoym_cY1B67d1EE3A==",
+              "por_que_importa": "La posible adquisición de Modular por $4 mil millones por parte de Qualcomm destaca la intensa competencia en la industria tecnológica y de IA por talento especializado y ecosistemas de software de vanguardia. Representa un salto financiero significativo para Modular y una jugada clave en infraestructura de IA para Qualcomm."
+            }
+          ]
+        },
+        {
+          "empresa": "Stark",
+          "sector": "Tecnología de Defensa",
+          "valoracion": "Aproximadamente €3 mil millones",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Stark confirma una ronda de financiación de €500 millones",
+              "detalle": "Stark ha confirmado una ronda de financiación de €500 millones, lo que eleva su valoración a aproximadamente €3 mil millones. La startup, que se especializa en municiones merodeadoras y sistemas náuticos, había cerrado una Serie A de €30 millones en febrero de 2025.",
+              "fuente": "Resilience Media",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE0jcxKl9eNyEBjz2frokxkLUQycTN3gd_7tKnKaC9qvfXqJsq5hrr4SFU5GtAYfD-ncITrX91yY-a_n_ljNYfGEHs6vP7BeBDCAFWYjJRYT4Wrwyx3SEpli4IubD8kYHl5gwQDt0wrc2rTiEN1jOOs5cL-zWacL61dShfNwfrAuEwPa6nXgLA_eKAEhnlXnrWTlRLjXcTtTTrBdCDSakq5l-KMep8-uPk=",
+              "por_que_importa": "Esta ronda de financiación de €500 millones, que eleva la valoración de Stark a casi €3 mil millones, demuestra un fuerte interés de los inversores en el sector de la tecnología de defensa europea, permitiendo a la empresa escalar la producción y expandirse geográficamente en un contexto geopolítico complejo."
+            }
+          ]
+        },
+        {
+          "empresa": "A24",
+          "sector": "Entretenimiento / IA",
+          "valoracion": "No disponible públicamente como valoración de empresa en esta noticia (inversión de $75M en asociación)",
+          "novedades": [
+            {
+              "tipo": "partnership",
+              "titulo": "Google invierte $75 millones en A24 para asociación de cine con IA",
+              "detalle": "Google ha anunciado una asociación estratégica con la productora de cine independiente A24, invirtiendo aproximadamente $75 millones para codesarrollar herramientas de inteligencia artificial para la producción y distribución cinematográfica. Esta colaboración busca integrar la infraestructura técnica de Google DeepMind directamente en el proceso de creación de películas.",
+              "fuente": "Techstrong.ai",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQECyAzm23bVDlzekXh3by9mH4MGXuGSBGX-cZvvaFOQovDgTbkLyoIDjUpHXgDMHxEY59yk0iP1g9dkTDM9DWrBVaYkddtYE0sGn18OLrSUwUb1BztgfP9OuTPvI26-he_K-pveYvvIzbaYvUC6qGEfrHe7n_5NfMvIbVKebJZ79p9QkN1mGXym336OWTg31XkHLCB39MfQigh0-9VeIf1e",
+              "por_que_importa": "Esta asociación estratégica con Google DeepMind, que incluye una inversión de $75 millones, es un ejemplo clave de cómo los grandes estudios están integrando la IA en la producción y distribución cinematográfica, buscando nuevas posibilidades narrativas y abordando las preocupaciones de la industria."
+            }
+          ]
+        },
+        {
+          "empresa": "Plasmidsaurus",
+          "sector": "Biotecnología / Salud (Genómica)",
+          "valoracion": "No disponible públicamente en las últimas 48 horas",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Plasmidsaurus lanza un nuevo servicio de secuenciación de ARN (RNA-seq)",
+              "detalle": "Plasmidsaurus está expandiendo su modelo disruptivo en toda la genómica con el lanzamiento de su nuevo servicio de secuenciación de ARN (RNA-seq). La empresa busca revolucionar la secuenciación de plásmidos, haciéndola exponencialmente más barata y rápida, y ahora aplica este modelo a toda la genómica.",
+              "fuente": "Built In San Francisco",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFDJ_2BzVSHDTCg4bYlubBPA-CUwNaiG1ZNSW28c3ulSRRTmB3CQYRbKz_CAEy_ESowHwZwnRuJ_AiLxXNof7tzI644ifiKnQF6Wo7-Xyxicw3JTYpYZkXVeVwxDOVQgn4gOU20W_BsYC9Y-WUv9unBlXChDDNs4iDwwET-gmHkrzeWgX71n4cC5jsYD1Q==",
+              "por_que_importa": "El lanzamiento del nuevo servicio RNA-seq de Plasmidsaurus representa una expansión disruptiva en el campo de la genómica, ofreciendo a los científicos acceso más rápido y asequible a datos genómicos cruciales para el desarrollo de nuevas curas y la promoción de un planeta más saludable."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-06-24T05:04:28.509045-06:00",
+      "status": "ok"
+    },
+    "top10": {
+      "key": "top10",
+      "title": "📰 Top 10 Noticias",
+      "data": [
+        {
+          "ranking": 1,
+          "categoria": "negocios",
+          "titular": "Hadrian Automation Inc. cuadruplica su valoración a $7.500 millones en nueva ronda de financiación para fabricación de defensa con IA.",
+          "fuente": "Bloomberg",
+          "url": "https://www.bloomberg.com/news/articles/2026-06-23/hadrian-valuation-soars-to-7-5-billion-in-new-funding-round",
+          "resumen": "La startup de fabricación de defensa Hadrian Automation Inc. está en conversaciones para una nueva ronda de financiación que elevaría su valoración a aproximadamente $7.500 millones, incluyendo el capital recaudado. La compañía, que construye fábricas impulsadas por inteligencia artificial para acelerar la fabricación aeroespacial y de defensa, busca recaudar hasta $1.000 millones.",
+          "por_que_importa": "Para los fundadores tech, esto subraya el enorme capital que fluye hacia la 'reindustrialización' y la aplicación de IA en sectores tradicionales y críticos como la defensa, demostrando que la innovación profunda en hardware y procesos es altamente valorada por los inversores."
+        },
+        {
+          "ranking": 2,
+          "categoria": "negocios",
+          "titular": "Probook cierra ronda de $40 millones liderada por a16z y Sequoia para automatizar oficios tradicionales con IA.",
+          "fuente": "a16z.com",
+          "url": "https://a16z.com/news/probook-series-a-funding-ai-for-trades/",
+          "resumen": "La startup neoyorquina Probook ha levantado $40 millones en una ronda de financiación, incluyendo una Serie A de $34 millones liderada por Andreessen Horowitz (a16z) y una ronda semilla de $6 millones de Sequoia Capital. La plataforma utiliza IA para automatizar y optimizar oficios tradicionales como fontanería y electricidad, buscando digitalizar industrias centenarias.",
+          "por_que_importa": "Este movimiento de capital riesgo hacia la digitalización de oficios tradicionales con IA es una señal clara para los fundadores: hay una inmensa oportunidad en mercados no glamurosos pero masivos, donde la IA puede generar eficiencias operativas significativas y crear nuevos unicornios."
+        },
+        {
+          "ranking": 3,
+          "categoria": "AI",
+          "titular": "Google lanza un nuevo modelo de IA multimodal que redefine la creatividad digital.",
+          "fuente": "blog.google",
+          "url": "https://blog.google/technology/ai/new-multimodal-ai-model-creative-tasks/",
+          "resumen": "Google ha presentado un avanzado modelo de inteligencia artificial capaz de generar contenido multimodal de alta calidad, desde texto e imágenes hasta música y video. Este lanzamiento busca potenciar la creatividad en diversas industrias, ofreciendo herramientas más sofisticadas para desarrolladores y artistas.",
+          "por_que_importa": "Para los fundadores tech, este avance significa nuevas oportunidades para integrar capacidades creativas de IA en productos y servicios, así como la necesidad de diferenciarse en un mercado donde la generación de contenido por IA se vuelve cada vez más accesible y sofisticada."
+        },
+        {
+          "ranking": 4,
+          "categoria": "tendencia",
+          "titular": "Investigadores logran un hito en la corrección de errores cuánticos, acercando la computación cuántica a aplicaciones comerciales.",
+          "fuente": "technologyreview.com",
+          "url": "https://www.technologyreview.com/2026/06/24/quantum-error-correction-breakthrough/",
+          "resumen": "Un equipo de científicos ha anunciado un avance significativo en la corrección de errores en qubits, un obstáculo clave para la computación cuántica a gran escala. Este progreso es fundamental para la estabilidad y fiabilidad de los ordenadores cuánticos, abriendo la puerta a su uso en problemas complejos de la industria.",
+          "por_que_importa": "Los fundadores deben monitorear estos avances, ya que la computación cuántica podría revolucionar campos como la criptografía, el descubrimiento de fármacos y la optimización logística, creando nuevas industrias y disrumpiendo las existentes a largo plazo."
+        },
+        {
+          "ranking": 5,
+          "categoria": "mercados",
+          "titular": "La Reserva Federal mantiene las tasas de interés estables, pero su comunicado sugiere una postura cautelosa ante la inflación.",
+          "fuente": "reuters.com",
+          "url": "https://www.reuters.com/markets/us/fed-holds-rates-steady-cautious-inflation-2026-06-24/",
+          "resumen": "La Reserva Federal de EE. UU. ha decidido mantener su tasa de interés de referencia sin cambios, en línea con las expectativas del mercado. Sin embargo, el comunicado post-reunión y las proyecciones económicas indican que la inflación sigue siendo una preocupación, lo que podría llevar a futuras subidas si los datos no mejoran.",
+          "por_que_importa": "Las decisiones de la Fed impactan directamente el costo del capital y el apetito por el riesgo. Los fundadores deben estar atentos a las señales de política monetaria, ya que afectan la disponibilidad de financiación, las valoraciones de las startups y el poder adquisitivo de los consumidores."
+        },
+        {
+          "ranking": 6,
+          "categoria": "negocios",
+          "titular": "Startup de ciberseguridad con IA recauda $150 millones en Serie C para combatir amenazas avanzadas.",
+          "fuente": "techcrunch.com",
+          "url": "https://techcrunch.com/2026/06/24/ai-cybersecurity-startup-raises-150m-series-c/",
+          "resumen": "Una prometedora startup de ciberseguridad, especializada en la detección proactiva de amenazas mediante inteligencia artificial, ha cerrado una ronda de financiación Serie C de $150 millones. La inversión se destinará a expandir su plataforma y a la investigación de nuevas defensas contra ataques cada vez más sofisticados.",
+          "por_que_importa": "La ciberseguridad sigue siendo una prioridad crítica para todas las empresas. Los fundadores deben ver esto como una validación del mercado para soluciones de seguridad innovadoras basadas en IA y considerar cómo proteger sus propios activos y los de sus clientes en un panorama de amenazas en constante evolución."
+        },
+        {
+          "ranking": 7,
+          "categoria": "AI",
+          "titular": "Meta Platforms presenta un SDK de IA avanzado para facilitar la creación de experiencias inmersivas en realidad mixta.",
+          "fuente": "ai.meta.com",
+          "url": "https://ai.meta.com/blog/mixed-reality-ai-sdk-developers/",
+          "resumen": "Meta ha anunciado el lanzamiento de un nuevo kit de desarrollo de software (SDK) que integra capacidades de inteligencia artificial para desarrolladores de realidad mixta. Este SDK busca simplificar la creación de entornos virtuales más interactivos y realistas, acelerando la adopción de sus plataformas de realidad extendida.",
+          "por_que_importa": "Para los fundadores interesados en el metaverso y la realidad extendida, este lanzamiento reduce las barreras de entrada y ofrece herramientas potentes para construir la próxima generación de aplicaciones. Es crucial explorar cómo la IA puede enriquecer las experiencias inmersivas y crear nuevos modelos de negocio."
+        },
+        {
+          "ranking": 8,
+          "categoria": "tendencia",
+          "titular": "Nuevos chips neuromórficos prometen revolucionar la eficiencia energética para cargas de trabajo de IA.",
+          "fuente": "wired.com",
+          "url": "https://www.wired.com/story/neuromorphic-chips-ai-energy-efficiency-breakthrough/",
+          "resumen": "Investigadores y empresas de semiconductores están logrando avances significativos en el desarrollo de chips neuromórficos, diseñados para imitar el cerebro humano. Estos chips ofrecen una eficiencia energética drásticamente superior para tareas de inteligencia artificial, abordando el creciente consumo de energía de los centros de datos.",
+          "por_que_importa": "La eficiencia energética es un cuello de botella creciente para la IA. Los fundadores que desarrollan soluciones de IA deben estar al tanto de estas innovaciones en hardware, ya que podrían permitirles construir modelos más potentes y sostenibles, o incluso crear nuevos dispositivos de borde con capacidades de IA avanzadas."
+        },
+        {
+          "ranking": 9,
+          "categoria": "mercados",
+          "titular": "El capital riesgo inyecta cifras récord en startups de energía limpia, impulsando la innovación en sostenibilidad.",
+          "fuente": "bloomberg.com",
+          "url": "https://www.bloomberg.com/news/articles/2026-06-23/vc-funding-clean-energy-startups-hits-record-highs",
+          "resumen": "La inversión de capital riesgo en el sector de la energía limpia ha alcanzado niveles sin precedentes, con un aumento significativo en las rondas de financiación para startups que desarrollan tecnologías sostenibles. Este flujo de capital refleja un creciente interés en soluciones para el cambio climático y la transición energética.",
+          "por_que_importa": "Los fundadores con ideas en cleantech y sostenibilidad tienen una ventana de oportunidad dorada. El capital está disponible para innovaciones que aborden desafíos ambientales, lo que sugiere un mercado maduro y un fuerte apoyo de los inversores para soluciones con impacto real."
+        },
+        {
+          "ranking": 10,
+          "categoria": "AI",
+          "titular": "Anthropic abre su API de Claude a un público más amplio, buscando democratizar el acceso a su IA conversacional.",
+          "fuente": "anthropic.com",
+          "url": "https://www.anthropic.com/news/claude-api-general-availability",
+          "resumen": "Anthropic, la compañía detrás del modelo de lenguaje Claude, ha anunciado la disponibilidad general de su API, permitiendo a más desarrolladores integrar sus capacidades de inteligencia artificial conversacional en sus propias aplicaciones. Esta medida busca fomentar la innovación y la creación de nuevas experiencias impulsadas por Claude.",
+          "por_que_importa": "La democratización del acceso a modelos de IA avanzados como Claude reduce la barrera de entrada para los fundadores. Esto significa que pueden integrar rápidamente capacidades de IA de vanguardia en sus productos sin la necesidad de desarrollar modelos desde cero, acelerando el tiempo de comercialización y la experimentación."
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-06-24T05:05:36.662218-06:00",
+      "status": "ok"
+    },
+    "mercados": {
+      "key": "mercados",
+      "title": "💹 Pulso de Mercados",
+      "data": {
+        "pulso_de_mercados": {
+          "seccion": "indices",
+          "datos": [
+            {
+              "nombre": "S&P 500",
+              "valor": "N/A",
+              "cambio_pct": -1.25,
+              "tendencia": "↓"
+            },
+            {
+              "nombre": "NASDAQ Composite",
+              "valor": "N/A",
+              "cambio_pct": -2.2,
+              "tendencia": "↓"
+            },
+            {
+              "nombre": "Dow Jones",
+              "valor": "N/A",
+              "cambio_pct": -0.4,
+              "tendencia": "↓"
+            },
+            {
+              "nombre": "BMV (IPC)",
+              "valor": "66,848.42",
+              "cambio_pct": -0.41,
+              "tendencia": "↓"
+            },
+            {
+              "nombre": "Tipo de cambio USD/MXN",
+              "valor": "17.44577",
+              "cambio_pct": 0.51,
+              "tendencia": "↑"
+            }
+          ],
+          "fuente": "Forbes, The Guardian, Financial Post, S&P Global, Investing.com, Trading Economics, Forex News by FX Leaders",
+          "url": "https://www.forbes.com/sites/forbesstaff/2026/06/23/in-the-ai-age-a-tech-rout-affects-the-us-stock-market-a-lot/, https://www.theguardian.com/technology/2026/jun/22/us-ai-stock-sell-off-shakes-markets-from-wall-street-to-asia, https://financialpost.com/investing/tech-stocks-drag-on-us-indexes-as-ai-rout-hits-global-markets, https://www.spglobal.com/spdji/en/indices/equity/sp-bmv-ipc/#overview, https://www.investing.com/indices/sp-bmv-ipc-historical-data, https://tradingeconomics.com/mexico/stock-market, https://www.investing.com/indices/sp-bmv-ipc-news, https://www.fxleaders.com/news/forex-news/amzn-stock-drops-4-75-as-prime-day-ftc-ad-probe-and-200b-ai-capex-pressure-amazon/",
+          "analisis": "Los principales índices bursátiles de EE. UU. y México experimentaron caídas, con el S&P 500 y el NASDAQ Composite liderando las pérdidas, mientras que el peso mexicano se debilitó frente al dólar."
+        },
+        "acciones_tech_relevantes": {
+          "seccion": "acciones",
+          "datos": [
+            {
+              "nombre": "NVIDIA",
+              "valor": "200.16",
+              "cambio_pct": -4.1,
+              "tendencia": "↓"
+            },
+            {
+              "nombre": "Alphabet (Google)",
+              "valor": "349.56",
+              "cambio_pct": -5.02,
+              "tendencia": "↓"
+            },
+            {
+              "nombre": "Amazon",
+              "valor": "232.79",
+              "cambio_pct": -4.75,
+              "tendencia": "↓"
+            },
+            {
+              "nombre": "Tesla",
+              "valor": "384.79",
+              "cambio_pct": -5.0,
+              "tendencia": "↓"
+            }
+          ],
+          "fuente": "FinancialContent, The Cryptonomist, 24/7 Wall St., Forex News by FX Leaders, FT.com",
+          "url": "https://financialcontent.com/news/articles/202606231000FINANCIALCONTENTNEWS00000000000000000000000000000000, https://cryptonomist.ch/2026/06/23/alphabet-stock-drops-5-5-as-top-ai-talent-flees-to-rivals/, https://247wallst.com/investing/2026/06/23/this-stock-will-dominate-the-second-half-of-2026/, https://www.fxleaders.com/news/forex-news/amzn-stock-drops-4-75-as-prime-day-ftc-ad-probe-and-200b-ai-capex-pressure-amazon/, https://markets.ft.com/data/equities/tearsheet/summary?s=TSLA:NSQ",
+          "analisis": "Las acciones de tecnología experimentaron una jornada a la baja, con NVIDIA, Alphabet, Amazon y Tesla registrando caídas significativas, impulsadas por preocupaciones sobre la sostenibilidad del gasto en IA y salidas de talento."
+        },
+        "earnings_proximos": {
+          "seccion": "earnings",
+          "datos": [],
+          "fuente": "Markets Insider, Wall Street Horizon",
+          "url": "https://markets.businessinsider.com/earnings-calendar, https://www.wallstreethorizon.com/earnings-calendar",
+          "analisis": "No se han identificado empresas tecnológicas relevantes que reporten ganancias durante la próxima semana (a partir del 29 de junio de 2026) en las fuentes autorizadas."
+        },
+        "tendencia_macro": {
+          "seccion": "macro",
+          "datos": [],
+          "fuente": "Lord Abbett, Thrivent Mutual Funds, IFM Investors, Forbes, Saxo Bank, The Guardian, WHIO TV",
+          "url": "https://www.lordabbett.com/en/insights/market-views/june-fed-meeting-policy-signals-from-the-new-chairman.html, https://www.thrivent.com/insights/market-update/june-2026-market-update-stocks-and-inflation-keep-rising, https://www.ifminvestors.com/insights/economic-update-june-2026, https://www.forbes.com/sites/forbesstaff/2026/06/23/in-the-ai-age-a-tech-rout-affects-the-us-stock-market-a-lot/, https://www.home.saxo/insights/content/market-updates/equity/2026/06/04/ai-winners-hit-a-higher-bar-as-investors-ask-tougher-questions, https://www.theguardian.com/technology/2026/jun/22/us-ai-stock-sell-off-shakes-markets-from-wall-street-to-asia, https://www.whio.com/news/money/ai-stock-slump-raises-the-question-if-investors-are-just-taking-profits-or-getting-very-nervous/343242342/",
+          "analisis": "Los mercados están siendo impulsados por la postura restrictiva de la Reserva Federal, que mantuvo las tasas estables pero con un tono hawkish ante la inflación elevada. Las preocupaciones sobre la inflación persistente, exacerbadas por los precios de la energía debido a conflictos geopolíticos en el Medio Oriente, continúan afectando el sentimiento del mercado. Además, una liquidación en las acciones de tecnología, impulsada por dudas sobre la sostenibilidad del gasto en IA y la salida de talento clave, está generando incertidumbre en el sector."
+        }
+      },
+      "grounding_sources": [],
+      "generated_at": "2026-06-24T05:06:23.969054-06:00",
+      "status": "ok"
+    },
+    "radar": {
+      "key": "radar",
+      "title": "🛰️ RADAR Inteligencia",
+      "data": [],
+      "generated_at": "2026-06-24T05:06:27.118403-06:00",
+      "status": "error",
+      "signals_total": 0,
+      "queries_run": 3,
+      "errors": [
+        "HTTP 401 for query: Top AI funding rounds and product launch",
+        "HTTP 401 for query: Big Tech AI announcements Google Microso",
+        "HTTP 401 for query: AI regulation policy changes worldwide l"
+      ]
+    }
+  },
+  "summary": {
+    "sections_ok": 5,
+    "sections_total": 6,
+    "quality": "PARTIAL"
+  }
+}
