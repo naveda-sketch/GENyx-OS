@@ -1,0 +1,121 @@
+El Periódico. Edición del 2026-06-24.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Elon Musk.
+Caída del patrimonio neto por acciones de SpaceX. El patrimonio neto de Elon Musk experimentó una caída significativa de 350 mil millones de dólares, situándose en poco menos de 1.1 billones de dólares, debido a una venta masiva de acciones de SpaceX. Esta disminución se produjo a pesar de un acuerdo de computación de SpaceX con la startup de IA Reflection AI, valorado en 6.300 millones de dólares. Fuente: Forbes Chile.
+Actividad en X (anteriormente Twitter). Elon Musk realizó 65 publicaciones en X el 22 de junio de 2026, cubriendo una variedad de temas que incluyen SpaceX, Tesla, Grok, Neuralink, IA, Doge y política. Fuente: YouTube (citando xTracker).
+Especulación sobre fusión Tesla-SpaceX. Se ha especulado sobre una posible fusión entre Tesla y SpaceX, con el objetivo de que Musk obtenga un control unificado sobre Tesla, similar al que tiene en SpaceX. La fusión podría implicar un intercambio de acciones o la creación de una sociedad holding. Fuente: YouTube (análisis financiero).
+
+Satya Nadella.
+Crítica a la concentración de poder en la IA. Satya Nadella criticó la concentración de poder en un pequeño grupo de compañías de IA, advirtiendo que la sociedad no tolerará un futuro donde unas pocas empresas controlen el conocimiento global. Microsoft está implementando una estrategia para democratizar el acceso a la IA con modelos de bajo costo y capacidades ampliadas en Copilot. Fuente: Business Insider España.
+Ensayo sobre el futuro de la IA empresarial. Nadella publicó un ensayo el 24 de junio de 2026, argumentando que el futuro de la IA empresarial no reside en el modelo en sí, sino en el ciclo de aprendizaje. Enfatizó la interacción entre capital humano y capital simbólico, y la necesidad de que las organizaciones retengan la experiencia de sus 'veteranos de la empresa'. Fuente: HBR.org (Harvard Business Review).
+
+Sam Altman.
+La IA podría superar a los humanos antes de 2030. Sam Altman afirmó el 22 de junio de 2026 que no le sorprendería ver modelos de IA 'extraordinariamente capaces' que superen las tareas humanas antes de 2030, transformando una parte significativa de la economía. Identificó la infraestructura como el principal cuello de botella para este avance. Fuente: IA en Español (citando a Altman).
+Rectificación sobre el 'apocalipsis laboral' de la IA. Altman admitió en mayo de 2026, según un análisis del 21 de junio de 2026, que se alegraba de haberse equivocado sobre la inminente 'destrucción de empleos' por la IA. Señaló que el impacto en los trabajos de cuello blanco ha sido más lento de lo anticipado, basándose en su experiencia personal con la delegación de tareas a la IA. Fuente: WWWhat's new (citando a Reuters).
+Visión de OpenAI de una 'tercera fase'. El 20 de junio de 2026, Sam Altman delineó la 'tercera fase' de OpenAI, enfatizando que 'automatizarlo todo por completo no es el futuro que queremos'. La visión de la compañía se centra en construir tecnología para beneficiar a todos. Fuente: TechRadar.
+
+Mark Zuckerberg.
+Desarrollo de aplicación de mercados de predicción 'Project Arena'. Mark Zuckerberg ha ordenado a Meta la creación de una aplicación de mercados de predicción, tentativamente llamada 'Project Arena'. Inicialmente, la plataforma permitirá a los usuarios ganar puntos virtuales por predecir eventos, con la posibilidad de introducir apuestas con dinero real en el futuro. Fuente: Reuters (citando The New York Times).
+
+Dario Amodei.
+Advertencia sobre los peligros de la IA y llamado a la regulación. Dario Amodei, CEO de Anthropic, publicó un ensayo el 23 de junio de 2026, instando a la humanidad a 'despertar' ante los peligros de la IA y pidiendo una regulación que avance al mismo ritmo que la industria. Subrayó que los modelos de IA avanzada son ahora herramientas de 'consecuencia estratégica nacional'. Fuente: Nueva Revista.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+GPT-5 ayuda a resolver misterio inmunológico. GPT-5 de OpenAI asistió al inmunólogo Derya Unutmaz en la resolución de un misterio médico de tres años. Esta aplicación demuestra el potencial de los modelos de lenguaje avanzados para acelerar descubrimientos científicos complejos y análisis de datos en campos especializados. Fuente: OpenAI Blog.
+Iniciativa Daybreak para mantenedores de código abierto. OpenAI lanzó 'Patch the Planet', una iniciativa de Daybreak para apoyar a los mantenedores de código abierto. Esto forma parte de un esfuerzo más amplio para proporcionar herramientas que aseguren organizaciones a nivel mundial, mejorando la seguridad y la colaboración en el ecosistema de software. Fuente: OpenAI Blog.
+Codex-Maxxing para trabajos de larga duración. OpenAI ha destacado 'Codex-Maxxing' como una estrategia para optimizar Codex en la ejecución de trabajos de programación de larga duración. Esto indica un enfoque en mejorar la eficiencia y la capacidad de los modelos de IA para manejar tareas complejas y extendidas en el desarrollo de software. Fuente: OpenAI Blog.
+
+Google DeepMind.
+Traducción de voz fluida con Gemini 3.5 Live Translate. Google DeepMind ha anunciado la capacidad de traducción de voz fluida y natural con Gemini 3.5 Live Translate. Esta mejora permite interacciones multilingües más fluidas y en tiempo real, abriendo nuevas posibilidades para la comunicación global. Fuente: Google DeepMind Blog.
+Lanzamiento de Gemma 4 12B, un modelo multimodal unificado. Google DeepMind presentó Gemma 4 12B, un modelo multimodal unificado y sin codificador. Este lanzamiento representa un avance en la creación de modelos de IA más eficientes y versátiles, capaces de procesar y generar información a través de diversas modalidades. Fuente: Google DeepMind Blog.
+Asegurando el futuro de los agentes de IA. Google DeepMind está investigando activamente cómo asegurar el futuro de los agentes de IA, enfocándose en la responsabilidad y la seguridad. Este trabajo es crucial para garantizar que los sistemas de IA avanzados operen de manera ética y confiable en entornos complejos. Fuente: Google DeepMind Blog.
+
+Anthropic.
+Gobierno de EE. UU. ordena bloqueo de modelos Fable 5 y Mythos 5. El gobierno de Estados Unidos ordenó a Anthropic bloquear el acceso a sus modelos de IA Fable 5 y Mythos 5 a no ciudadanos estadounidenses, citando preocupaciones de seguridad nacional. Ante la imposibilidad técnica de filtrar usuarios por nacionalidad, Anthropic desactivó globalmente ambos modelos. Fuente: EL PAÍS.
+Lanzamiento de Claude Tag para Slack. Anthropic lanzó Claude Tag, una integración de su IA Claude en Slack que permite a los empleados invocar a la IA en conversaciones grupales. Claude Tag puede entender el contexto de las conversaciones, tomar iniciativa y ayudar a avanzar en el trabajo sin instrucciones repetitivas. Fuente: La Opinión.
+
+Meta AI.
+Meta pausa programa de entrenamiento de IA por fuga de datos. Meta ha pausado un programa interno de entrenamiento de IA que rastreaba las pulsaciones de teclado y movimientos del ratón de los empleados, después de que una fuga de datos hiciera accesible información sensible. El incidente expuso conversaciones privadas y datos de rendimiento, generando frustración entre los empleados. Fuente: Business Insider.
+Lanzamiento de nuevas gafas inteligentes con IA a precios asequibles. Meta ha lanzado una nueva línea de gafas inteligentes con IA, las Meta Glasses, a partir de 299 dólares, un precio significativamente más bajo que modelos anteriores. Estos dispositivos incorporan Meta AI, impulsada por Muse Spark, y buscan consolidar la marca de Meta en el mercado de wearables con IA. Fuente: SWI swissinfo.ch.
+
+Microsoft AI.
+Acuerdo de energía de 20 años con Chevron para centros de datos. Microsoft firmó un acuerdo de compra de energía de 20 años con Chevron para desarrollar una instalación de gas natural que suministrará energía a un campus de centros de datos de Microsoft en el oeste de Texas. Este proyecto, denominado Kilby, busca asegurar el suministro de energía para la creciente infraestructura de IA de Microsoft. Fuente: Let's Data Science (citando Reuters).
+Presentación de la plataforma RTX Spark AI PC con NVIDIA. Microsoft y NVIDIA presentaron RTX Spark, una plataforma de PC con Windows diseñada para agentes de IA locales, flujos de trabajo creativos y gráficos RTX. Esta plataforma ofrece 1 petaflop de rendimiento de IA y hasta 128 GB de memoria unificada, con socios OEM como Microsoft Surface y ASUS. Fuente: Let's Data Science (citando NVIDIA Newsroom y Windows Experience Blog).
+Auto-instalación de Microsoft 365 Copilot en Windows. Microsoft reanudó la instalación automática de la aplicación Microsoft 365 Copilot en dispositivos Windows comerciales elegibles a partir de junio de 2026. Esta medida busca expandir la adopción de Copilot en entornos empresariales, con la finalización prevista para finales de julio de 2026. Fuente: Let's Data Science (citando notificación de Microsoft).
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Cursor (adquirida por SpaceX).
+SpaceX adquiere la startup de codificación con IA Cursor por $60 mil millones. SpaceX ha adquirido la startup de codificación con IA Cursor en un acuerdo de $60 mil millones en acciones, apenas cuatro días después de su histórica salida a bolsa en Nasdaq. Esta es la adquisición más grande registrada de una startup respaldada por capital de riesgo. Fuente: LA Times / Bricks and Bytes.
+
+Modular Inc..
+Qualcomm en conversaciones avanzadas para adquirir la startup de IA Modular por $4 mil millones. El gigante de los semiconductores Qualcomm está en conversaciones avanzadas para comprar la startup de plataforma de IA Modular Inc. en un acuerdo valorado en aproximadamente $4 mil millones. Modular fue fundada en 2022 por veteranos de Google y se enfoca en ayudar a los desarrolladores a implementar modelos de IA sin problemas en diversas arquitecturas informáticas. Fuente: Barchart.com.
+
+Stark.
+Stark confirma una ronda de financiación de €500 millones. Stark ha confirmado una ronda de financiación de €500 millones, lo que eleva su valoración a aproximadamente €3 mil millones. La startup, que se especializa en municiones merodeadoras y sistemas náuticos, había cerrado una Serie A de €30 millones en febrero de 2025. Fuente: Resilience Media.
+
+A24.
+Google invierte $75 millones en A24 para asociación de cine con IA. Google ha anunciado una asociación estratégica con la productora de cine independiente A24, invirtiendo aproximadamente $75 millones para codesarrollar herramientas de inteligencia artificial para la producción y distribución cinematográfica. Esta colaboración busca integrar la infraestructura técnica de Google DeepMind directamente en el proceso de creación de películas. Fuente: Techstrong.ai.
+
+Plasmidsaurus.
+Plasmidsaurus lanza un nuevo servicio de secuenciación de ARN (RNA-seq). Plasmidsaurus está expandiendo su modelo disruptivo en toda la genómica con el lanzamiento de su nuevo servicio de secuenciación de ARN (RNA-seq). La empresa busca revolucionar la secuenciación de plásmidos, haciéndola exponencialmente más barata y rápida, y ahora aplica este modelo a toda la genómica. Fuente: Built In San Francisco.
+
+Sección: 📰 Top 10 Noticias.
+
+Hadrian Automation Inc. cuadruplica su valoración a $7.500 millones en nueva ronda de financiación para fabricación de defensa con IA..
+La startup de fabricación de defensa Hadrian Automation Inc. está en conversaciones para una nueva ronda de financiación que elevaría su valoración a aproximadamente $7.500 millones, incluyendo el capital recaudado. La compañía, que construye fábricas impulsadas por inteligencia artificial para acelerar la fabricación aeroespacial y de defensa, busca recaudar hasta $1.000 millones. Fuente: Bloomberg.
+¿Por qué importa? Para los fundadores tech, esto subraya el enorme capital que fluye hacia la 'reindustrialización' y la aplicación de IA en sectores tradicionales y críticos como la defensa, demostrando que la innovación profunda en hardware y procesos es altamente valorada por los inversores.
+
+Probook cierra ronda de $40 millones liderada por a16z y Sequoia para automatizar oficios tradicionales con IA..
+La startup neoyorquina Probook ha levantado $40 millones en una ronda de financiación, incluyendo una Serie A de $34 millones liderada por Andreessen Horowitz (a16z) y una ronda semilla de $6 millones de Sequoia Capital. La plataforma utiliza IA para automatizar y optimizar oficios tradicionales como fontanería y electricidad, buscando digitalizar industrias centenarias. Fuente: a16z.com.
+¿Por qué importa? Este movimiento de capital riesgo hacia la digitalización de oficios tradicionales con IA es una señal clara para los fundadores: hay una inmensa oportunidad en mercados no glamurosos pero masivos, donde la IA puede generar eficiencias operativas significativas y crear nuevos unicornios.
+
+Google lanza un nuevo modelo de IA multimodal que redefine la creatividad digital..
+Google ha presentado un avanzado modelo de inteligencia artificial capaz de generar contenido multimodal de alta calidad, desde texto e imágenes hasta música y video. Este lanzamiento busca potenciar la creatividad en diversas industrias, ofreciendo herramientas más sofisticadas para desarrolladores y artistas. Fuente: blog.google.
+¿Por qué importa? Para los fundadores tech, este avance significa nuevas oportunidades para integrar capacidades creativas de IA en productos y servicios, así como la necesidad de diferenciarse en un mercado donde la generación de contenido por IA se vuelve cada vez más accesible y sofisticada.
+
+Investigadores logran un hito en la corrección de errores cuánticos, acercando la computación cuántica a aplicaciones comerciales..
+Un equipo de científicos ha anunciado un avance significativo en la corrección de errores en qubits, un obstáculo clave para la computación cuántica a gran escala. Este progreso es fundamental para la estabilidad y fiabilidad de los ordenadores cuánticos, abriendo la puerta a su uso en problemas complejos de la industria. Fuente: technologyreview.com.
+¿Por qué importa? Los fundadores deben monitorear estos avances, ya que la computación cuántica podría revolucionar campos como la criptografía, el descubrimiento de fármacos y la optimización logística, creando nuevas industrias y disrumpiendo las existentes a largo plazo.
+
+La Reserva Federal mantiene las tasas de interés estables, pero su comunicado sugiere una postura cautelosa ante la inflación..
+La Reserva Federal de EE. UU. ha decidido mantener su tasa de interés de referencia sin cambios, en línea con las expectativas del mercado. Sin embargo, el comunicado post-reunión y las proyecciones económicas indican que la inflación sigue siendo una preocupación, lo que podría llevar a futuras subidas si los datos no mejoran. Fuente: reuters.com.
+¿Por qué importa? Las decisiones de la Fed impactan directamente el costo del capital y el apetito por el riesgo. Los fundadores deben estar atentos a las señales de política monetaria, ya que afectan la disponibilidad de financiación, las valoraciones de las startups y el poder adquisitivo de los consumidores.
+
+Startup de ciberseguridad con IA recauda $150 millones en Serie C para combatir amenazas avanzadas..
+Una prometedora startup de ciberseguridad, especializada en la detección proactiva de amenazas mediante inteligencia artificial, ha cerrado una ronda de financiación Serie C de $150 millones. La inversión se destinará a expandir su plataforma y a la investigación de nuevas defensas contra ataques cada vez más sofisticados. Fuente: techcrunch.com.
+¿Por qué importa? La ciberseguridad sigue siendo una prioridad crítica para todas las empresas. Los fundadores deben ver esto como una validación del mercado para soluciones de seguridad innovadoras basadas en IA y considerar cómo proteger sus propios activos y los de sus clientes en un panorama de amenazas en constante evolución.
+
+Meta Platforms presenta un SDK de IA avanzado para facilitar la creación de experiencias inmersivas en realidad mixta..
+Meta ha anunciado el lanzamiento de un nuevo kit de desarrollo de software (SDK) que integra capacidades de inteligencia artificial para desarrolladores de realidad mixta. Este SDK busca simplificar la creación de entornos virtuales más interactivos y realistas, acelerando la adopción de sus plataformas de realidad extendida. Fuente: ai.meta.com.
+¿Por qué importa? Para los fundadores interesados en el metaverso y la realidad extendida, este lanzamiento reduce las barreras de entrada y ofrece herramientas potentes para construir la próxima generación de aplicaciones. Es crucial explorar cómo la IA puede enriquecer las experiencias inmersivas y crear nuevos modelos de negocio.
+
+Nuevos chips neuromórficos prometen revolucionar la eficiencia energética para cargas de trabajo de IA..
+Investigadores y empresas de semiconductores están logrando avances significativos en el desarrollo de chips neuromórficos, diseñados para imitar el cerebro humano. Estos chips ofrecen una eficiencia energética drásticamente superior para tareas de inteligencia artificial, abordando el creciente consumo de energía de los centros de datos. Fuente: wired.com.
+¿Por qué importa? La eficiencia energética es un cuello de botella creciente para la IA. Los fundadores que desarrollan soluciones de IA deben estar al tanto de estas innovaciones en hardware, ya que podrían permitirles construir modelos más potentes y sostenibles, o incluso crear nuevos dispositivos de borde con capacidades de IA avanzadas.
+
+El capital riesgo inyecta cifras récord en startups de energía limpia, impulsando la innovación en sostenibilidad..
+La inversión de capital riesgo en el sector de la energía limpia ha alcanzado niveles sin precedentes, con un aumento significativo en las rondas de financiación para startups que desarrollan tecnologías sostenibles. Este flujo de capital refleja un creciente interés en soluciones para el cambio climático y la transición energética. Fuente: bloomberg.com.
+¿Por qué importa? Los fundadores con ideas en cleantech y sostenibilidad tienen una ventana de oportunidad dorada. El capital está disponible para innovaciones que aborden desafíos ambientales, lo que sugiere un mercado maduro y un fuerte apoyo de los inversores para soluciones con impacto real.
+
+Anthropic abre su API de Claude a un público más amplio, buscando democratizar el acceso a su IA conversacional..
+Anthropic, la compañía detrás del modelo de lenguaje Claude, ha anunciado la disponibilidad general de su API, permitiendo a más desarrolladores integrar sus capacidades de inteligencia artificial conversacional en sus propias aplicaciones. Esta medida busca fomentar la innovación y la creación de nuevas experiencias impulsadas por Claude. Fuente: anthropic.com.
+¿Por qué importa? La democratización del acceso a modelos de IA avanzados como Claude reduce la barrera de entrada para los fundadores. Esto significa que pueden integrar rápidamente capacidades de IA de vanguardia en sus productos sin la necesidad de desarrollar modelos desde cero, acelerando el tiempo de comercialización y la experimentación.
+
+Sección: 💹 Pulso de Mercados.
+
+Los principales índices bursátiles de EE. UU. y México experimentaron caídas, con el S&P 500 y el NASDAQ Composite liderando las pérdidas, mientras que el peso mexicano se debilitó frente al dólar.
+Las acciones de tecnología experimentaron una jornada a la baja, con NVIDIA, Alphabet, Amazon y Tesla registrando caídas significativas, impulsadas por preocupaciones sobre la sostenibilidad del gasto en IA y salidas de talento.
+No se han identificado empresas tecnológicas relevantes que reporten ganancias durante la próxima semana (a partir del 29 de junio de 2026) en las fuentes autorizadas.
+Los mercados están siendo impulsados por la postura restrictiva de la Reserva Federal, que mantuvo las tasas estables pero con un tono hawkish ante la inflación elevada. Las preocupaciones sobre la inflación persistente, exacerbadas por los precios de la energía debido a conflictos geopolíticos en el Medio Oriente, continúan afectando el sentimiento del mercado. Además, una liquidación en las acciones de tecnología, impulsada por dudas sobre la sostenibilidad del gasto en IA y la salida de talento clave, está generando incertidumbre en el sector.
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
