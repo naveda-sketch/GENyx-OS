@@ -76,24 +76,12 @@ if (!fs.existsSync(contractPath)) {
 }
 
 const contract = JSON.parse(fs.readFileSync(contractPath, 'utf8'));
-// ── Known-pending: endpoints verificados contra backend (curl 200/401/403/405)
-// pero pendientes de ser agregados al contrato por Claude (§6).
-// Cada entrada tiene fecha de verificación. Borrar cuando Claude los agregue.
-// Si un endpoint lleva >7 días aquí, es una brecha de coordinación.
+// ── Known-pending: huérfanos confirmados pendientes de decisión del fundador.
+// agent-chat: backend 404 — Claude NO lo sirve. Esperando decisión:
+//   opción A) Claude construye el endpoint
+//   opción B) Antigravity quita el fetch L3146
 const knownPending = new Set([
-    '*/api/admin/wa-delivery',                  // verified 25-jun [401]
-    '*/api/admin/organizations/*/modules',      // verified 25-jun [405]
-    '*/api/admin/organizations',                // verified 25-jun [403]
-    '*/api/admin/organizations/*/settings',     // verified 25-jun [405]
-    '*/api/admin/connect-onboard',              // verified 25-jun [405]
-    '*/api/admin/billing/portal/*',             // verified 25-jun [401]
-    '*/api/admin/bitacora',                     // verified 25-jun [401]
-    '*/api/admin/bitacora/*',                   // verified 25-jun [401]
-    '*/api/admin/weekly-report-preview/*',      // verified 25-jun [401]
-    '*/api/admin/expediente/*',                 // verified 25-jun [403]
-    '*/api/admin/create-tenant',               // verified 25-jun [405]
-    '*/api/admin/agent-chat/*',                // verified 25-jun [404] — POSSIBLE ORPHAN
-    '*/api/admin/audit-log/aguja_market_signals', // verified 25-jun [401]
+    '*/api/admin/agent-chat/*',  // ORPHAN confirmed 25-jun [404] — fundador decide
 ]);
 
 const contractNormalized = new Set();
@@ -109,12 +97,23 @@ for (const [normFront, rawExamples] of frontNormalized) {
     // Buscar match exacto normalizado
     if (contractNormalized.has(normFront)) continue;
     
-    // Buscar match por prefijo (para paths con sub-resources)
+    // Buscar match por prefijo o wildcard terminal
+    // Si el contrato dice /audit-log/* y el front llama /audit-log/aguja_market_signals,
+    // el wildcard cubre el valor literal (el param es dinámico en el backend).
     let found = false;
     for (const normContract of contractNormalized) {
+        // Exact prefix match
         if (normFront.startsWith(normContract) || normContract.startsWith(normFront)) {
             found = true;
             break;
+        }
+        // Wildcard terminal: contrato termina en /* → cubre cualquier valor en ese segmento
+        if (normContract.endsWith('/*')) {
+            const base = normContract.slice(0, -2); // quitar /*
+            if (normFront.startsWith(base + '/')) {
+                found = true;
+                break;
+            }
         }
     }
     
