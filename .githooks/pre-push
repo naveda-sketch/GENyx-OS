@@ -88,3 +88,11 @@ if [ -x "$SCRIPT_DIR/check-contract-drift" ]; then
         exit 1
     fi
 fi
+
+# ── Candado FE-Standing: Mando Contract (Frontend ⊆ Contrato) ──
+if [ -x "$SCRIPT_DIR/check-mando-contract.js" ]; then
+    if ! "$SCRIPT_DIR/check-mando-contract.js"; then
+        echo "  🚨 PUSH BLOCKED — Mando calls endpoints not in contract"
+        exit 1
+    fi
+fi
