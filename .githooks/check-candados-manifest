@@ -1,0 +1,56 @@
+#!/bin/bash
+# ═══════════════════════════════════════════════════════════════════
+# Candado FE-#25: Manifest de Candados — fail-closed (REGLA 14/29)
+# ═══════════════════════════════════════════════════════════════════
+# Verifica que TODOS los candados registrados en el manifest EXISTEN
+# y son ejecutables. Si alguno desaparece → push BLOQUEADO.
+# Equivalente del BE-#25 del backend (anti-borrado-silencioso).
+# ═══════════════════════════════════════════════════════════════════
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+echo "🔒 Candado FE-#25: Verificando manifest de candados..."
+
+# ── Manifest: lista completa de candados FE requeridos ──
+# Cada entrada: [archivo] [descripción]
+CANDADOS=(
+    "pre-commit|Pre-commit gate (FE-#3 + FE-#11 + FE-anti-phone + FE-DRIFT)"
+    "pre-push|Pre-push enforcement gate (Build + G4 + G2 + FE-#44 + FE-Standing)"
+    "check-agnostic|FE-#3: Verificación agnóstica (REGLA 11)"
+    "check-anti-phone|FE-anti-phone: Cajones privados tenant (REGLA 15)"
+    "check-agent-drift|FE-DRIFT: Anti-drift AGENT_CONFIGS vs DOCTRINA"
+    "check-contract-drift|FE-#44: Consumer-Driven Contract Anti-Drift (REGLA 44)"
+    "check-mando-contract.cjs|FE-Standing: Front-fetches ⊆ Contrato (REGLA 44)"
+    "commit-msg|FE-#7: Commit message cita doctrina (CDA)"
+    "check-candados-manifest|FE-#25: Este mismo manifest (V-de-V recursivo)"
+)
+
+MISSING=0
+for entry in "${CANDADOS[@]}"; do
+    IFS='|' read -r FILE DESC <<< "$entry"
+    FILEPATH="$SCRIPT_DIR/$FILE"
+    if [ ! -f "$FILEPATH" ]; then
+        echo "  🚨 FALTA: $FILE — $DESC"
+        MISSING=$((MISSING + 1))
+    elif [ ! -x "$FILEPATH" ]; then
+        echo "  🚨 NO EJECUTABLE: $FILE — $DESC"
+        MISSING=$((MISSING + 1))
+    else
+        echo "  ✓ $FILE"
+    fi
+done
+
+if [ "$MISSING" -gt 0 ]; then
+    echo ""
+    echo "╔══════════════════════════════════════════════════════════════╗"
+    echo "║ ✕ CANDADO FE-#25 BLOQUEÓ EL PUSH                            ║"
+    echo "║                                                              ║"
+    echo "║ $MISSING candado(s) FALTAN o no son ejecutables.             ║"
+    echo "║ Restaura los archivos antes de pushear.                      ║"
+    echo "║ REGLA 14: Un candado eliminado en silencio = brecha abierta. ║"
+    echo "╚══════════════════════════════════════════════════════════════╝"
+    exit 1
+fi
+
+echo "✓ CANDADO FE-#25: ${#CANDADOS[@]} candados presentes y ejecutables."
+exit 0

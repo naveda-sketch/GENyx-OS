@@ -79,6 +79,17 @@ else
 fi
 echo ""
 
+# ── Candado FE-#25: Manifest de Candados — fail-closed (REGLA 14/29) ──
+if [ -x "$SCRIPT_DIR/check-candados-manifest" ]; then
+    if ! "$SCRIPT_DIR/check-candados-manifest"; then
+        echo "  🚨 PUSH BLOCKED — Candado(s) missing from manifest (FE-#25)"
+        exit 1
+    fi
+else
+    echo "🚨 check-candados-manifest MISSING — meta-candado eliminado = push BLOCKED"
+    exit 1
+fi
+
 # ── Candado FE-#44: Contract Anti-Drift (REGLA 44) ──
 if [ -x "$SCRIPT_DIR/check-contract-drift" ]; then
     if ! "$SCRIPT_DIR/check-contract-drift"; then
