@@ -9571,7 +9571,7 @@ function StrategyApproval2FA({ slug, token }) {
     const h = token ? { 'X-Dashboard-Token': token } : getAH();
     fetch(`${BACKEND}/api/client/${slug}/marketing/strategy`, { headers: h })
       .then(r => r.json())
-      .then(d => setPend((d?.exists === true || d?.status) && (d?.status === 'pending' || d?.status === 'PENDING' || d?.status === 'proposed' || d?.status === 'PROPOSED') ? d : null))
+      .then(d => setPend(d?.exists === true && d?.status === 'pending' ? d : null))
       .catch(() => setPend(null));
   }, [slug, token]);
 
