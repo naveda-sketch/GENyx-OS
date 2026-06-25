@@ -9594,6 +9594,35 @@ function StrategyApproval2FA({ slug, token }) {
     }
   };
 
+  const handleConfirmPublished = async () => {
+    setIsSubmitting(true); setStatusMsg('⏳ Confirmando publicación...');
+    try {
+      const r = await fetch(`${BACKEND}/api/client/${slug}/marketing/published-confirm`, {
+        method: 'POST', headers: { 'X-Dashboard-Token': token, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ strategy_id: 0, published_content_hash: 'confirmado_por_usuario' }),
+      });
+      const d = await r.json().catch(()=>({}));
+      if (r.ok) { setStatusMsg('✅ Estrategia confirmada como publicada.'); }
+      else { setStatusMsg(`❌ ${d.detail || 'Error al confirmar'}`); }
+    } catch (e) { setStatusMsg('❌ Error de conexión.'); }
+    setIsSubmitting(false);
+  };
+  const handleReject = async () => {
+    const reason = window.prompt('Motivo de rechazo (opcional):', 'Rechazada por el dueño');
+    if (reason === null) return;
+    setIsSubmitting(true); setStatusMsg('⏳ Rechazando estrategia...');
+    try {
+      const r = await fetch(`${BACKEND}/api/client/${slug}/marketing/reject`, {
+        method: 'POST', headers: { 'X-Dashboard-Token': token, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ reason }),
+      });
+      const d = await r.json().catch(()=>({}));
+      if (r.ok) { setStatusMsg('✅ Estrategia rechazada exitosamente.'); }
+      else { setStatusMsg(`❌ ${d.detail || 'Error al rechazar'}`); }
+    } catch (e) { setStatusMsg('❌ Error de conexión.'); }
+    setIsSubmitting(false);
+  };
+
   const handleApprove = async () => {
     if (otpCode.length !== 6 || emailCode.length !== 6) return;
     setIsSubmitting(true); setStatusMsg('⏳ Verificando credenciales A2F...');
@@ -9637,6 +9666,11 @@ function StrategyApproval2FA({ slug, token }) {
         </div>
 
         <button onClick={handleApprove} disabled={otpCode.length !== 6 || emailCode.length !== 6 || isSubmitting} style={{ width: '100%', padding: '12px', background: (otpCode.length === 6 && emailCode.length === 6) ? '#10b981' : 'rgba(255,255,255,0.05)', color: (otpCode.length === 6 && emailCode.length === 6) ? '#fff' : '#9ca3af', border: 'none', borderRadius: 6, fontSize: 13, fontWeight: 700, cursor: (otpCode.length === 6 && emailCode.length === 6) ? 'pointer' : 'not-allowed', opacity: isSubmitting ? 0.7 : 1 }}>{isSubmitting ? 'Verificando...' : '✅ Confirmar Estrategia'}</button>
+        <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
+          <button onClick={handleConfirmPublished} disabled={isSubmitting} style={{ flex: 1, padding: '10px', background: '#3b82f6', color: '#fff', border: 'none', borderRadius: 6, fontSize: 13, fontWeight: 700, cursor: isSubmitting ? 'not-allowed' : 'pointer', opacity: isSubmitting ? 0.7 : 1 }}>📢 Confirmar Publicada</button>
+          <button onClick={handleReject} disabled={isSubmitting} style={{ flex: 1, padding: '10px', background: '#ef4444', color: '#fff', border: 'none', borderRadius: 6, fontSize: 13, fontWeight: 700, cursor: isSubmitting ? 'not-allowed' : 'pointer', opacity: isSubmitting ? 0.7 : 1 }}>❌ Rechazar</button>
+        </div>
+
         {statusMsg && <p style={{ marginTop: 12, fontSize: 12, color: statusMsg.startsWith('✅') ? '#4ade80' : '#f87171', textAlign: 'center', background: statusMsg.startsWith('✅') ? 'rgba(74,222,128,0.1)' : 'rgba(248,113,113,0.1)', padding: 8, borderRadius: 6 }}>{statusMsg}</p>}
       </div>
     </div>
