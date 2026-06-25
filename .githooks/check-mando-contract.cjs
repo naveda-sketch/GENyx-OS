@@ -76,13 +76,9 @@ if (!fs.existsSync(contractPath)) {
 }
 
 const contract = JSON.parse(fs.readFileSync(contractPath, 'utf8'));
-// ── Known-pending: huérfanos confirmados pendientes de decisión del fundador.
-// agent-chat: backend 404 — Claude NO lo sirve. Esperando decisión:
-//   opción A) Claude construye el endpoint
-//   opción B) Antigravity quita el fetch L3146
-const knownPending = new Set([
-    '*/api/admin/agent-chat/*',  // ORPHAN confirmed 25-jun [404] — fundador decide
-]);
+// ── Known-pending: vacío. Todos los endpoints del front están en el contrato.
+// agent-chat retirado del JSX 25-jun (huérfano 404, decisión fundador: opción B).
+const knownPending = new Set([]);
 
 const contractNormalized = new Set();
 for (const p of contract.paths) {

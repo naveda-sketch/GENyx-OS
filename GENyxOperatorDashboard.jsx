@@ -3128,64 +3128,15 @@ const AgentMetricsPanel = ({ agent }) => (
   </div>
 );
 
-const AgentChat = ({ agentId, agentName, agentIcon }) => {
-  const [messages, setMessages] = React.useState([]);
-  const [input, setInput] = React.useState('');
-  const [loading, setLoading] = React.useState(false);
-  const messagesEndRef = React.useRef(null);
-
-  React.useEffect(() => { messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [messages]);
-
-  const send = async () => {
-    if (!input.trim()) return;
-    const userMsg = { role: 'user', text: input, ts: new Date().toISOString() };
-    setMessages(m => [...m, userMsg]);
-    setInput('');
-    setLoading(true);
-    try {
-      const r = await fetch(`${BACKEND}/api/admin/agent-chat/${agentId}`, {
-        method: 'POST',
-        headers: { ...getAH(), 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: input }),
-      });
-      if (!r.ok) throw new Error('Endpoint no disponible aún (task #30)');
-      const data = await r.json();
-      setMessages(m => [...m, { role: 'agent', text: data.response, ts: new Date().toISOString() }]);
-    } catch (e) {
-      setMessages(m => [...m, { role: 'agent', text: `⏳ Chat con ${agentId} próximamente. El endpoint está en desarrollo.`, ts: new Date().toISOString() }]);
-    } finally { setLoading(false); }
-  };
-
-  return (
-    <div style={{ background: 'rgba(19,25,40,0.9)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden' }}>
-      <div style={{ padding: '14px 18px', borderBottom: '1px solid rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', gap: 8 }}>
-        <span>{agentIcon}</span>
-        <strong style={{ fontSize: 13, color: '#f1f5f9' }}>Chat con {agentId} — {agentName}</strong>
-      </div>
-      <div style={{ flex: 1, overflowY: 'auto', padding: 16, display: 'flex', flexDirection: 'column', gap: 10, minHeight: 200, maxHeight: 420 }}>
-        {messages.length === 0 && <p style={{ color: '#9ca3af', fontStyle: 'italic', fontSize: 12, textAlign: 'center', margin: 'auto 0' }}>Empieza la conversación con {agentId}...</p>}
-        {messages.map((m, i) => (
-          <div key={i} style={{ alignSelf: m.role === 'user' ? 'flex-end' : 'flex-start', maxWidth: '80%', padding: '10px 14px', borderRadius: m.role === 'user' ? '14px 14px 4px 14px' : '14px 14px 14px 4px', background: m.role === 'user' ? GBa(0.2) : 'rgba(255,255,255,0.04)', color: '#e2e8f0', fontSize: 13, lineHeight: 1.5 }}>
-            {m.text}
-          </div>
-        ))}
-        {loading && <div style={{ alignSelf: 'flex-start', padding: '10px 14px', borderRadius: '14px 14px 14px 4px', background: 'rgba(255,255,255,0.04)', color: '#9ca3af', fontSize: 12, fontStyle: 'italic' }}>{agentId} pensando...</div>}
-        <div ref={messagesEndRef} />
-      </div>
-      <div style={{ padding: 12, borderTop: '1px solid rgba(255,255,255,0.06)', display: 'flex', gap: 8 }}>
-        <textarea
-          value={input}
-          onChange={e => setInput(e.target.value)}
-          onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } }}
-          placeholder={`Pregunta a ${agentId}...`}
-          rows={1}
-          style={{ flex: 1, background: '#1e293b', border: '1px solid rgba(255,255,255,0.1)', color: '#e2e8f0', padding: '8px 12px', borderRadius: 8, fontSize: 13, resize: 'none', outline: 'none', fontFamily: 'inherit' }}
-        />
-        <button onClick={send} disabled={loading || !input.trim()} style={{ ...BTN_SM_BLUE, opacity: loading || !input.trim() ? 0.4 : 1 }}>Enviar</button>
-      </div>
-    </div>
-  );
-};
+// AgentChat: RETIRADO 25-jun-2026 — endpoint /api/admin/agent-chat/{agent_id}
+// no existe en el backend (404 confirmado). Huérfano cerrado por decisión del fundador.
+// Cuando Claude construya el endpoint, restaurar el componente.
+const AgentChat = ({ agentId, agentName, agentIcon }) => (
+  <div style={{ background: "rgba(19,25,40,0.9)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: 24, textAlign: "center" }}>
+    <span style={{ fontSize: 28 }}>{agentIcon}</span>
+    <p style={{ color: "#9ca3af", fontSize: 13, margin: "12px 0 0" }}>Chat con {agentName} — próximamente</p>
+  </div>
+);
 
 // scope: 'tenant' (mando) | 'founder' (cockpit cross-tenant)
 const AgentTab = ({ agentId, scope = 'founder' }) => {
