@@ -1,0 +1,43 @@
+#!/bin/bash
+# ═══════════════════════════════════════════════════════════════════
+# Candado FE-#44: Consumer-Driven Contract Anti-Drift (REGLA 44)
+# ═══════════════════════════════════════════════════════════════════
+# Verifica estáticamente que los magic strings que asume el frontend
+# del payload del backend no hayan mutado accidentalmente, forzando
+# al desarrollador a ser explícito si el contrato cambia.
+# ═══════════════════════════════════════════════════════════════════
+
+echo "🔒 Candado FE-#44: Verificando contratos Frontend vs Backend..."
+
+FILE="GENyxOperatorDashboard.jsx"
+
+if [ ! -f "$FILE" ]; then
+    echo "✓ CANDADO FE-#44: $FILE no encontrado — skip"
+    exit 0
+fi
+
+# 1. Contrato: Strategy Approval (BE-#70)
+# El frontend espera ESTRICTAMENTE que la estrategia devuelva status === 'pending'
+# No se permiten otros valores mutados ni inventados como 'proposed' o 'PENDING'
+MATCH=$(grep -E "d\?\.status === 'pending'" "$FILE")
+
+if [ -z "$MATCH" ]; then
+    echo ""
+    echo "╔══════════════════════════════════════════════════════════════╗"
+    echo "║ ✕ CANDADO FE-#44 BLOQUEÓ EL COMMIT                           ║"
+    echo "║                                                              ║"
+    echo "║ DRIFT DE CONTRATO DETECTADO: Strategy Approval 2FA           ║"
+    echo "║                                                              ║"
+    echo "║ El frontend espera que el backend retorne status='pending'   ║"
+    echo "║ pero la comprobación estricta \`d?.status === 'pending'\` no ║"
+    echo "║ fue encontrada en el código.                                 ║"
+    echo "║                                                              ║"
+    echo "║ REGLA 44: No modifiques el magic string sin coordinar con el ║"
+    echo "║ backend. Si el contrato backend cambió, actualiza este check.║"
+    echo "╚══════════════════════════════════════════════════════════════╝"
+    exit 1
+fi
+
+echo "  ✓ Contrato Strategy Approval ('pending') OK"
+echo "✓ CANDADO FE-#44: 0 drifts de contrato detectados"
+exit 0
