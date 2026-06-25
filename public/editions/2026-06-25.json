@@ -1,0 +1,571 @@
+{
+  "version": "2.0",
+  "date": "2026-06-25",
+  "generated_at": "2026-06-25T05:00:49.041377-06:00",
+  "timezone": "CST (UTC-6)",
+  "language": "es-MX",
+  "tier": "Tier 4",
+  "sections": {
+    "titans": {
+      "key": "titans",
+      "title": "🏛️ Los Titans",
+      "data": [
+        {
+          "nombre": "Elon Musk",
+          "empresa": "Tesla, xAI, SpaceX, X",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Pérdida de estatus de trillonario",
+              "detalle": "Después de alcanzar brevemente el estatus de la primera persona trillonaria del mundo el 12 de junio de 2026 tras la salida a bolsa de SpaceX, el patrimonio neto de Elon Musk cayó por debajo de 1 billón de dólares el 24 de junio de 2026. Esta disminución se atribuyó a una venta masiva generalizada en el mercado tecnológico, con caídas significativas en las acciones de Tesla y SpaceX.",
+              "fuente": "The Guardian, The Times of India, Fox Business, National Enquirer",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGhL8oABke5j5jNi8wBzij30nitTyQMrV6PvX4vNwYhti15Ufsg3Yd8jrnZxOXlsuK7mt5l_ofSXGr6Yz_Qz8hoKI9tRRR2gFR_puavghgWT9N2Fdo5LMUk_JNKCo1aaMCUXJy45-bfJADhoGRR3NLgR4Jgx_ZG5-UoPhHlKauBillcARppZY5SnOQ=",
+              "impacto": "Este evento subraya la volatilidad del mercado tecnológico, especialmente para las empresas con grandes inversiones en IA y espacio, y demuestra la rapidez con la que las fortunas pueden cambiar incluso para los individuos más ricos."
+            }
+          ]
+        },
+        {
+          "nombre": "Satya Nadella",
+          "empresa": "Microsoft",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Advertencia sobre la concentración de poder en la IA",
+              "detalle": "En entrevistas con The Wall Street Journal y un ensayo en X, Satya Nadella advirtió contra la concentración de poder en la industria de la inteligencia artificial. Hizo un llamado a modelos de IA de menor costo, mayor control del usuario y un acceso más amplio a la tecnología, criticando el enfoque donde pocas empresas capturan la mayor parte del valor económico de la IA.",
+              "fuente": "The Wall Street Journal (citado por The Times of India, TheStreet, Windows Central), X (citado por TheStreet)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFrQF4ypcEmfGjP9U3TJbcyGrvEwBv-vywqCoOK4mWQlVl-PiT_k3IJU_qDZybQw1QQ-i7gZoz4EqnTB6RXj_o-bsDLddyxSxtN3ro_iNV0k5vhw9Cuy0vkB1_Z86kz8fFW0WoPBAjd0ZXPj3dD1_oQqTX3P98PGTOaUyT0_3OqOxXk9TNx-xQ0KIHN-zRgbteBFr-opeidMg==",
+              "impacto": "Las declaraciones de Nadella resaltan una creciente preocupación dentro de la industria tecnológica sobre las implicaciones éticas y económicas de la IA, lo que podría influir en futuras discusiones regulatorias y estrategias corporativas hacia un desarrollo de IA más democratizado."
+            }
+          ]
+        },
+        {
+          "nombre": "Jensen Huang",
+          "empresa": "NVIDIA",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Advertencia sobre chips de IA de contrabando",
+              "detalle": "Después de la reunión anual de accionistas de NVIDIA el 24 de junio de 2026, Jensen Huang advirtió contra el contrabando de chips de IA y enfatizó la seguridad nacional sobre las oportunidades comerciales. Afirmó que las empresas que intenten introducir chips de NVIDIA de contrabando en países restringidos probablemente tendrían dificultades para utilizarlos correctamente debido a la falta de soporte y experiencia en sistemas.",
+              "fuente": "Nvidia (citado por TheStreet)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGKOo0n80cFG48NzNkS5HuHXyKwxCL-p2ru2K7KUAu8MXJ2KYZtCr5_ZwiErf_MH8v9t6-fHoD83MiF2aGp8itE_q6eoC-yVliouIrNLNKHAYS3JelBN9Hc2H222URnqcIUkri3oWSUI-dCn4R6f2GrnU8514zkyzNxLRtzmPI-UIfKOdpJMYNlUqzpWzgrWOUKBsqbBAcUsgKW6ia2",
+              "impacto": "Esta declaración subraya la creciente sensibilidad geopolítica del hardware avanzado de IA y el compromiso de los principales fabricantes de chips de cumplir con las regulaciones de seguridad nacional, lo que podría afectar las cadenas de suministro globales de IA y el acceso al mercado."
+            }
+          ]
+        },
+        {
+          "nombre": "Sam Altman",
+          "empresa": "OpenAI",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Contratación de experto en IA de Google Gemini",
+              "detalle": "El 18 de junio de 2026, el CEO de OpenAI, Sam Altman, anunció la contratación de Noam Shazeer, una figura clave detrás de Gemini AI de Google. Altman expresó su deseo de trabajar con Shazeer desde hace mucho tiempo, destacando la importancia de esta adquisición para los esfuerzos de desarrollo de IA de OpenAI.",
+              "fuente": "CRN (citando la publicación de Altman en X)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG1anVS1gHgMcK5QWlMxrBVfRsCdVBb1wSW71zZRyLpbeMSERH5Dhqt6SxvJ-cpprYZMqeBb1cP-1QkWxdqd5d-yB4gNjEN843I7bjUXgO4krV6JnUS9AGQ2tDRWgp6JRx0LiLQIU0KGlPs4OfnRHYxUbziCyBBFUAqgBe4gXtevE_CBJx65kWbyVys-bY0xLuguqHo7GXEW",
+              "impacto": "Esta contratación de alto perfil significa la estrategia agresiva de OpenAI para atraer a los mejores talentos en IA y acelerar su investigación y desarrollo, intensificando la competencia en el espacio de la IA generativa."
+            }
+          ]
+        },
+        {
+          "nombre": "Sundar Pichai",
+          "empresa": "Google/Alphabet",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Discurso de graduación en Stanford enfocado en el optimismo",
+              "detalle": "El 23 de junio de 2026, Sundar Pichai pronunció un discurso en la ceremonia de graduación de la Universidad de Stanford para la clase de 2026. A pesar de las preocupaciones generalizadas entre los graduados sobre el impacto de la IA en el mercado laboral, Pichai optó por enfatizar el optimismo y la adaptabilidad frente al cambio, evitando en gran medida las discusiones directas sobre el potencial disruptivo de la IA.",
+              "fuente": "The Times of India",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGjVaRQudJVj567tgTYGVT_UhgvDwHl4sSD1zi8mQys-XVpQ9KtuC1P-gTliS-0taY1e_ctxfgMOpYy55cEDp3QX594O8OZdxjnAPaq5IEbJRYP3CZZfHU_t7vgZvGHZV0OfdAVs134T7FcWGR1VkYv7vldaxDCvKlQ5YjtsQF1leLtnlOMIMukbRt0zAkHc0sn8iUvCG9ptdTq4pUELn61_2GwHhdyaHjs81rMaze-doeeTdWfAEWlH89UUhqCvqD2PMlt5ObWcAPlfR6bXZes3l3VodbrgSIJHTffTLWlgVPKT6LjdlkkcxMpf5ILTK-mMKgk",
+              "impacto": "El discurso de Pichai refleja una decisión estratégica de Google para enmarcar la narrativa en torno al impacto social de la IA, centrándose en la adaptación positiva en lugar de las posibles interrupciones, lo que podría influir en la percepción pública y las discusiones políticas sobre la IA y el futuro del trabajo."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-06-25T05:02:27.120422-06:00",
+      "status": "ok"
+    },
+    "ai_leaders": {
+      "key": "ai_leaders",
+      "title": "🤖 AI Leaders",
+      "data": [
+        {
+          "empresa": "OpenAI",
+          "novedades": [
+            {
+              "tipo": "partnership",
+              "titulo": "OpenAI y Broadcom presentan chip de inferencia optimizado para LLM",
+              "detalle": "OpenAI y Broadcom han colaborado para desarrollar un nuevo chip de inferencia optimizado para modelos de lenguaje grandes (LLM). Este chip busca mejorar la eficiencia y el rendimiento de las operaciones de IA.",
+              "fuente": "OpenAI",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFLyyIokJO4jd9UcUfs3z-Cy-HX1a6ZgY5L5Etauz8otC28BxEF6GjIX_ALI5MbE3pI4GjTOxAP1nwNZ_6GgpfbmL4JppUgWyt3Pj9L54=",
+              "aplicacion_genyx": "Un negocio SaaS de IA como GENyx podría explorar la integración con este nuevo hardware para optimizar los costos y la velocidad de sus modelos de IA, ofreciendo un rendimiento superior a sus clientes."
+            }
+          ]
+        },
+        {
+          "empresa": "Google DeepMind",
+          "novedades": [
+            {
+              "tipo": "research",
+              "titulo": "Medición del impacto del aprendizaje con IA en Sierra Leona",
+              "detalle": "Google DeepMind ha publicado un informe sobre la medición del impacto del aprendizaje con IA en Sierra Leona, destacando los avances y desafíos en la implementación de la inteligencia artificial en entornos educativos, con un enfoque en la responsabilidad y seguridad de la IA.",
+              "fuente": "Google DeepMind",
+              "url": "https://deepmind.google/news/",
+              "aplicacion_genyx": "GENyx podría utilizar estos hallazgos para desarrollar soluciones de IA educativa más éticas y seguras, adaptándose a las necesidades de mercados emergentes y demostrando un compromiso con la IA responsable."
+            }
+          ]
+        },
+        {
+          "empresa": "xAI",
+          "novedades": [
+            {
+              "tipo": "product",
+              "titulo": "xAI lanza la función '/goal' en Grok para exploración de mercados con Interactive Brokers",
+              "detalle": "xAI ha introducido una nueva función llamada '/goal' en su modelo Grok, que permite a los usuarios explorar los mercados financieros en colaboración con Interactive Brokers, buscando proporcionar análisis de mercado y asistencia en la toma de decisiones a través de la IA.",
+              "fuente": "xAI",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGBVsE4Vp5PBef7e2AMEyMc2RUryJdFFqKQtFfhuLpeFNpoapU0gAukIztKaVzoeXbCj2WvdHqrlWXD3uCcOTGFHGNjW5firoGzbrL8",
+              "aplicacion_genyx": "GENyx podría integrar capacidades similares de análisis de mercado impulsado por IA en sus propias plataformas, ofreciendo a sus clientes empresariales herramientas avanzadas para la inteligencia de negocios y la toma de decisiones estratégicas."
+            }
+          ]
+        },
+        {
+          "empresa": "Hugging Face",
+          "novedades": [
+            {
+              "tipo": "product",
+              "titulo": "Hugging Face duplica sus suscriptores de pago a repositorios de modelos de IA de código abierto",
+              "detalle": "Hugging Face ha experimentado un aumento significativo, duplicando el número de suscriptores de pago a su repositorio de modelos de IA de código abierto entre enero y junio. Este crecimiento refleja una creciente demanda de soluciones de IA de código abierto por parte de las empresas.",
+              "fuente": "The Information",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEpLxSpPf26J4Tx3WohM3t-BpbWA0UDCfpTVvikxBmcrT2yCMJ50KwUpRQKkgA6AuLRvmxbvE1RnY1nzkYPvHdmpXdUusjMa3G4eWzHwY30BYOXHmoYd70Svwg9q0apYEnZwF-z9nYZXBdW4C93waRczFYcW5xgzfn9WKiREG-bWPzxfj2GJX_OCAHirtM_DYKpR8kwCooM-ZzKNyhHSRjvoerg",
+              "aplicacion_genyx": "GENyx podría aprovechar la creciente popularidad de los modelos de código abierto para integrar y ofrecer soluciones personalizadas a sus clientes, reduciendo costos y fomentando la innovación colaborativa."
+            }
+          ]
+        },
+        {
+          "empresa": "AWS AI",
+          "novedades": [
+            {
+              "tipo": "product",
+              "titulo": "AWS lanza bases de conocimiento gestionadas en Amazon Bedrock para aplicaciones de IA empresarial",
+              "detalle": "AWS ha introducido bases de conocimiento totalmente gestionadas en Amazon Bedrock, simplificando la construcción de pipelines RAG empresariales con conectores de datos nativos, análisis inteligente y un recuperador agéntico para consultas complejas.",
+              "fuente": "AWS News Blog",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFGtvhmoRgz6BxlFm7UKc2FapcKEliIsSEk6MXbpfOG2z8nfHf4Fk2XhwdKgMy8rVYMXrMaqhG2lQXhk5VhUjTRLU87DJA7E6h-u1SXlMhHJK3-OveR-1ghDMiK6YotT-97cUtoPiFEixthG1Iv6T00DrXv1hVvItDm8bIFfg==",
+              "aplicacion_genyx": "GENyx podría utilizar estas bases de conocimiento gestionadas para acelerar el desarrollo de sus propias aplicaciones de IA empresarial, garantizando una mayor precisión y eficiencia en la recuperación de información para sus clientes."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-06-25T05:04:14.026772-06:00",
+      "status": "ok"
+    },
+    "emerging": {
+      "key": "emerging",
+      "title": "🚀 Emerging Tech & Startups",
+      "data": [
+        {
+          "empresa": "Runpod",
+          "sector": "Infraestructura de Nube / IA",
+          "valoracion": "$1 mil millones",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Recauda $100 millones en nueva financiación",
+              "detalle": "La startup de infraestructura de nube Runpod ha recaudado $100 millones en una nueva ronda de financiación, alcanzando una valoración de $1 mil millones. La ronda fue liderada por Summit Partners. La empresa ha duplicado sus ingresos anualizados a aproximadamente $240 millones en los últimos cinco meses.",
+              "fuente": "The Information",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEyQV3dSldyYdCzzeHBSyOgt2M4woFxbQYo_1tbN8Og584XVRueTfAc4RBOSw8lnsWP4YErNPSsd0BMBdd5DuRnvJV0VSQ5f3zV6lyEk9odPv8GG8pd2jSHXxppRZaizms81GmqjF3jOTxV6WA0oEpm9WY_B8C85k1nLc2105nstUqVF_lqI3rCBvVcQqY7yWtv0wiFHZsBADYyCdxEpJpzpYEDVusXzLd2DH1Vd-IDwPI=",
+              "por_que_importa": "Esta financiación significativa y la valoración de unicornio destacan la creciente demanda de infraestructura de computación para IA, especialmente para desarrolladores que buscan ejecutar modelos de código abierto y diferenciar sus servicios más allá de los chips de Nvidia."
+            }
+          ]
+        },
+        {
+          "empresa": "Syndio",
+          "sector": "Tecnología de RRHH / Equidad Salarial (IA)",
+          "valoracion": "No especificada (última financiación conocida: Serie C de $50M en 2021)",
+          "novedades": [
+            {
+              "tipo": "adquisición",
+              "titulo": "Adquiere Embrace.ai para potenciar su plataforma de compensación con IA",
+              "detalle": "Syndio, una startup de equidad salarial con sede en Seattle, ha realizado su primera adquisición en nueve años al comprar Embrace.ai, una startup de IA agéntica. Esta adquisición busca integrar la automatización impulsada por IA en su plataforma de compensación, con un enfoque en la gobernanza y la explicabilidad en entornos empresariales.",
+              "fuente": "GeekWire",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGylU4RTQ9TeuT5w7034ppX8ylefediACm8qUxwzb6kbY-80iIfMLHiFvL8FK05R2fCh53THBo-KZye7TmM6CMHUM8FzCpJCyHp4x7nmQQxiYHUjKXZEEr3n55BPp98xj4cwXS_Vy0ffzojNJFStqW3XlN33wj2kbSPRS_4Kpmq01muZ8FcfI7JFXE7h7x1iP6eJYuA_vKWVv8GDPDwoU53mJUD_v6t1MTWQq03QsWTbU=",
+              "por_que_importa": "Esta adquisición estratégica permite a Syndio acelerar el desarrollo de su próxima generación de inteligencia salarial, integrando IA agéntica para mejorar la toma de decisiones en tiempo real sobre compensaciones, desde ofertas de trabajo hasta ciclos de mérito."
+            }
+          ]
+        },
+        {
+          "empresa": "Engram",
+          "sector": "Inteligencia Artificial (Capa de Memoria Aprendida para IA)",
+          "valoracion": "No especificada (ha recaudado $98 millones en financiación)",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Emerge del modo sigiloso con $98 millones en financiación para su capa de memoria aprendida para IA",
+              "detalle": "Engram ha salido del modo sigiloso y ha anunciado una financiación de $98 millones. La empresa se dedica a construir la capa de memoria aprendida para la inteligencia artificial, un componente crucial para el avance de sistemas de IA más sofisticados y capaces.",
+              "fuente": "VC News Daily",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF-8Nyl5iLkf7IcWceishr_YRtH7z6JsJuXCNkcdANdgSNYJ0nz62KciQgm1DtoOwjUu_zOANgCUumZTuEaQoqHO5eZ15LMVyNP2tSb1XKw7OHXdw==",
+              "por_que_importa": "La aparición de Engram con una financiación tan sustancial subraya la importancia creciente de las soluciones de memoria y contexto para los modelos de IA, lo que podría desbloquear nuevas capacidades y aplicaciones en el ecosistema tecnológico."
+            }
+          ]
+        },
+        {
+          "empresa": "Attention",
+          "sector": "Plataforma de IA para Equipos de Ingresos",
+          "valoracion": "No especificada (ha cerrado una ronda Serie B)",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Recauda $30 millones en financiación Serie B",
+              "detalle": "Attention, la plataforma de IA diseñada para gestionar equipos de ingresos, ha anunciado una ronda de financiación Serie B de $30 millones. La ronda fue liderada por RTP Global, con la participación de inversores recurrentes como Aglaé.",
+              "fuente": "PR Newswire",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFagqq3Mq85UFfpVpm49ueulan2pXtrOHuucNEuMGiHJK34VvH1EMtpsrXMZc06nvjU6VTbF_vlbOu5z22RUgFKEGR5Y4lNFrRo7oQhs5nrRazLtD6bbUIuKCsMbwcY9knfEDS-evMsFcxWymp_ThSs8Z9T42lmSE_YG4yQcYk3ryDvgF04qIGXOtkYDqbKNi4ZADacu5BjTg==",
+              "por_que_importa": "Esta inversión en una plataforma de IA para equipos de ingresos refleja la tendencia hacia la automatización y optimización de las operaciones de ventas y marketing, permitiendo a las empresas mejorar la eficiencia y el rendimiento de sus equipos."
+            }
+          ]
+        },
+        {
+          "empresa": "Runlayer",
+          "sector": "Plataformas para Empresas Nativas de IA",
+          "valoracion": "No especificada (ha cerrado una ronda Serie A)",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Recauda $30 millones en financiación Serie A",
+              "detalle": "Runlayer, una plataforma que ayuda a las empresas a adoptar un enfoque 'AI-native', ha anunciado una ronda de financiación Serie A de $30 millones. La ronda fue liderada por Felicis, con la participación de Khosla.",
+              "fuente": "PR Newswire",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFagqq3Mq85UFfpVpm49ueulan2pXtrOHuucNEuMGiHJK34VvH1EMtpsrXMZc06nvjU6VTbF_vlbOu5z22RUgFKEGR5Y4lNFrRo7oQhs5nrRazLtD6bbUIuKCsMbwcY9knfEDS-evMsFcxWymp_ThSs8Z9T42lmSE_YG4yQcYk3ryDvgF04qIGXOtkYDqbKNi4ZADacu5BjTg==",
+              "por_que_importa": "La financiación de Runlayer destaca la creciente necesidad de herramientas y plataformas que faciliten la integración y el desarrollo de capacidades de IA a nivel empresarial, impulsando la transformación digital y la innovación en diversas industrias."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "theinformation.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEyQV3dSldyYdCzzeHBSyOgt2M4woFxbQYo_1tbN8Og584XVRueTfAc4RBOSw8lnsWP4YErNPSsd0BMBdd5DuRnvJV0VSQ5f3zV6lyEk9odPv8GG8pd2jSHXxppRZaizms81GmqjF3jOTxV6WA0oEpm9WY_B8C85k1nLc2105nstUqVF_lqI3rCBvVcQqY7yWtv0wiFHZsBADYyCdxEpJpzpYEDVusXzLd2DH1Vd-IDwPI="
+        }
+      ],
+      "generated_at": "2026-06-25T05:04:57.306025-06:00",
+      "status": "ok"
+    },
+    "top10": {
+      "key": "top10",
+      "title": "📰 Top 10 Noticias",
+      "data": [
+        {
+          "ranking": 1,
+          "categoria": "AI",
+          "titular": "Microsoft revela el Informe de IA en Educación 2026 y nuevas herramientas de enseñanza impulsadas por IA",
+          "fuente": "Microsoft",
+          "url": "https://news.microsoft.com/2026/06/24/microsofts-new-ai-in-education-report-highlights-widespread-adoption-and-increasing-demand-for-support/",
+          "resumen": "Microsoft presentó la tercera edición de su Informe anual de IA en Educación, destacando la creciente adopción de la IA en el sector educativo y la necesidad de un soporte robusto para su implementación responsable. La compañía también anunció una nueva ola de herramientas de enseñanza y aprendizaje impulsadas por IA, disponibles sin costo adicional, diseñadas para mejorar los resultados del aprendizaje y fomentar el pensamiento crítico.",
+          "por_que_importa": "Para un fundador tech, esto subraya la maduración del mercado de IA en sectores verticales como la educación. Indica oportunidades para soluciones de IA especializadas que aborden la brecha de habilidades y la integración responsable, así como la importancia de asociarse con grandes actores tecnológicos."
+        },
+        {
+          "ranking": 2,
+          "categoria": "mercados",
+          "titular": "Mercados bursátiles asiáticos repuntan impulsados por ganancias de Micron y Qualcomm y el entusiasmo por la IA",
+          "fuente": "Reuters",
+          "url": "https://www.reuters.com/markets/asia-stocks-rally-micron-qualcomm-earnings-ai-enthusiasm-2026-06-25/",
+          "resumen": "Los mercados de valores asiáticos experimentaron un repunte el jueves, impulsados por los sólidos resultados de ganancias de los fabricantes de chips estadounidenses Micron y Qualcomm. Este desempeño reavivó el entusiasmo de los inversores por la inteligencia artificial, llevando a un aumento significativo en las acciones tecnológicas en toda la región.",
+          "por_que_importa": "Este repunte demuestra el impacto continuo y la confianza del mercado en el sector de semiconductores y la IA. Para los fundadores tech, resalta la importancia de la innovación en hardware y software de IA como motores clave del valor de mercado y la inversión."
+        },
+        {
+          "ranking": 3,
+          "categoria": "mercados",
+          "titular": "Nasdaq y S&P 500 caen antes de las ganancias de Micron; precios del petróleo bajan por negociaciones en Medio Oriente",
+          "fuente": "CNBC",
+          "url": "https://www.cnbc.com/2026/06/24/stock-market-today-nasdaq-sp-500-fall-before-microns-after-hours-earnings.html",
+          "resumen": "El Nasdaq y el S&P 500 cerraron a la baja el martes, arrastrados por una venta masiva de acciones tecnológicas y la debilidad en los valores de semiconductores, antes del informe de ganancias de Micron. Simultáneamente, los precios del petróleo continuaron cayendo mientras los inversores monitoreaban las negociaciones entre Estados Unidos e Irán, aliviando las preocupaciones sobre posibles interrupciones en el suministro en Medio Oriente.",
+          "por_que_importa": "Esta noticia muestra la volatilidad del mercado tecnológico, incluso con el optimismo general por la IA. Los fundadores deben estar atentos a las tendencias macroeconómicas y geopolíticas, ya que pueden influir directamente en la valoración de las empresas y el sentimiento de los inversores, afectando las rondas de financiación y las estrategias de salida."
+        },
+        {
+          "ranking": 4,
+          "categoria": "AI",
+          "titular": "Anthropic desactiva nuevo modelo de IA tras directiva de seguridad de la Casa Blanca",
+          "fuente": "The Wall Street Journal",
+          "url": "https://www.wsj.com/articles/anthropic-disables-new-ai-model-after-white-house-security-directive-2026-06-24",
+          "resumen": "Anthropic, una de las principales empresas de inteligencia artificial, se vio obligada a desactivar su nuevo y potente modelo de IA el 16 de junio, citando preocupaciones de seguridad tras una directiva de la administración Trump. Este movimiento sin precedentes subraya los desafíos del gobierno para establecer límites en una industria de rápido avance tecnológico.",
+          "por_que_importa": "Esta es una señal clara de la creciente intervención regulatoria en la IA, especialmente en modelos potentes. Los fundadores de startups de IA deben priorizar la seguridad y la ética desde el diseño, anticipando un escrutinio gubernamental más estricto y la necesidad de cumplir con normativas que aún están en desarrollo."
+        },
+        {
+          "ranking": 5,
+          "categoria": "AI",
+          "titular": "Google Gemini 2.5 Pro con 'Deep Think' redefine el liderazgo en benchmarks de ciencia y razonamiento",
+          "fuente": "TechCrunch",
+          "url": "https://techcrunch.com/2026/06/25/google-gemini-2-5-pro-deep-think-resets-science-reasoning-leaderboard/",
+          "resumen": "Google lanzó Gemini 2.5 Pro con el modo de razonamiento 'Deep Think', estableciendo nuevos récords en los benchmarks de ciencia y razonamiento. Este avance posiciona a Gemini 2.5 Pro como líder en tareas complejas de ciencia y matemáticas, aunque otros modelos como Fable 5 mantienen la ventaja en ingeniería de software.",
+          "por_que_importa": "La competencia en el rendimiento de los modelos de IA es feroz. Los fundadores deben estar al tanto de estos avances para elegir las herramientas adecuadas, optimizar sus productos y entender dónde se están creando nuevas oportunidades de mercado para aplicaciones de IA especializadas."
+        },
+        {
+          "ranking": 6,
+          "categoria": "AI",
+          "titular": "OpenAI lanza GPT-5.5-Cyber, un modelo especializado en ciberseguridad",
+          "fuente": "The Information",
+          "url": "https://www.theinformation.com/articles/openai-launches-gpt-5-5-cyber-for-cybersecurity-2026-06-24",
+          "resumen": "OpenAI ha dado un paso significativo en la aplicación de la inteligencia artificial con el lanzamiento de GPT-5.5-Cyber, un instrumento de precisión diseñado para el ámbito de la ciberseguridad. Este modelo está optimizado para escanear, parchear y corregir vulnerabilidades con una alta tasa de precisión en benchmarks especializados.",
+          "por_que_importa": "La especialización de los modelos de IA es la próxima frontera. Los fundadores deben buscar nichos de mercado donde la IA pueda ofrecer soluciones de alta precisión, en lugar de solo capacidades generales. Esto abre la puerta a nuevas startups que construyan sobre estos modelos especializados para resolver problemas críticos de la industria."
+        },
+        {
+          "ranking": 7,
+          "categoria": "negocios",
+          "titular": "Startup de seguridad de IA Runlayer recauda $30M en Serie A para plataforma de gobernanza de agentes de IA",
+          "fuente": "TechCrunch",
+          "url": "https://techcrunch.com/2026/06/24/runlayer-raises-30m-series-a-for-ai-agent-governance-platform/",
+          "resumen": "Runlayer, una startup que ofrece una plataforma de seguridad y gobernanza de IA para empresas, ha cerrado una ronda de financiación Serie A de $30 millones. La plataforma busca proporcionar una capa de control centralizada para desplegar y gestionar agentes de IA en organizaciones, abordando las crecientes preocupaciones sobre la seguridad y el cumplimiento.",
+          "por_que_importa": "La inversión en infraestructura de gobernanza y seguridad de IA es crucial a medida que las empresas adoptan la IA a gran escala. Esto indica una oportunidad de mercado significativa para startups que desarrollen herramientas y plataformas que permitan a las empresas implementar la IA de manera segura y conforme a las normativas."
+        },
+        {
+          "ranking": 8,
+          "categoria": "negocios",
+          "titular": "Probook, un sistema operativo de IA para servicios a domicilio, asegura $34M en financiación Serie A",
+          "fuente": "The Information",
+          "url": "https://www.theinformation.com/articles/probook-ai-os-for-home-services-raises-34m-series-a-2026-06-24",
+          "resumen": "Probook, una empresa que desarrolla un sistema operativo de inteligencia artificial para negocios de servicios a domicilio, ha recaudado $34 millones en una ronda de financiación Serie A. Su plataforma automatiza la programación, la comunicación con el cliente y los flujos de trabajo de despacho, optimizando las operaciones para las pequeñas y medianas empresas.",
+          "por_que_importa": "Esta financiación demuestra el valor de la IA para optimizar operaciones en industrias tradicionales. Los fundadores tech deben buscar oportunidades para aplicar la IA a sectores menos digitalizados, donde la automatización y la eficiencia pueden generar un impacto significativo y atraer inversiones sustanciales."
+        },
+        {
+          "ranking": 9,
+          "categoria": "tendencia",
+          "titular": "La convergencia de Cursor y SpaceX para el modelo Composer 3 de IA busca potenciar herramientas de desarrollo",
+          "fuente": "Ars Technica",
+          "url": "https://arstechnica.com/information-technology/2026/06/24/cursor-and-spacex-converge-to-build-composer-3-ai-model-for-developer-tools/",
+          "resumen": "Cursor anunció una colaboración con SpaceX para desarrollar su próximo modelo Composer 3, con el objetivo de aprovechar el clúster de supercomputadoras Colossus de SpaceX. Esta iniciativa busca entrenar la próxima generación de herramientas de desarrollo impulsadas por IA, marcando una fusión entre la IA y la infraestructura espacial.",
+          "por_que_importa": "La colaboración entre gigantes tecnológicos y la utilización de recursos de supercomputación para el desarrollo de IA es una tendencia clave. Los fundadores deben observar cómo las capacidades de cómputo avanzadas están acelerando la innovación en IA y considerar cómo pueden integrar o aprovechar estas infraestructuras para sus propias soluciones."
+        },
+        {
+          "ranking": 10,
+          "categoria": "mercados",
+          "titular": "SK Hynix planea cotización secundaria en Nasdaq para capitalizar la demanda de inversiones en IA",
+          "fuente": "Bloomberg",
+          "url": "https://www.bloomberg.com/news/articles/2026-06-25/sk-hynix-plans-nasdaq-listing-to-tap-ai-investment-demand",
+          "resumen": "El fabricante surcoreano de chips SK Hynix ha revelado planes para recaudar hasta $29.5 mil millones a través de una cotización secundaria en el Nasdaq. La medida busca capitalizar la continua y fuerte demanda de inversiones relacionadas con la inteligencia artificial, destacando el optimismo del mercado en el sector de semiconductores impulsado por la IA.",
+          "por_que_importa": "Esta noticia subraya la enorme capitalización y el apetito de los inversores por empresas en la cadena de suministro de IA. Para los fundadores, esto indica un entorno de financiación favorable para startups que contribuyan a la infraestructura de IA, desde chips hasta software y servicios, y la posibilidad de grandes salidas a bolsa."
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "microsoft.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFZ6iwRKVvaXPEnYyx4bI6Xm2XPBWDaabQotQsp7BPIs2Ye3ypteaknqBDCQ2okflQPe3qczRASxhjsfHj7miR_cDOZZZV-20iUAPfUN9SG4zDewxIfSFTdEhBb00lfiWPKVblT2_fuNgr48u7nbpZ5O8yI-9SCMwTD_SIB0NkoFxSysSm9xCi5F_CaM6yAGJCgXXznlpTQvRWG_0xPbviw5saR4-fO4Owk51SUAXFy7r7L6ZhiUIz-oxkfTcRbda5-fJ0F40qOYBx1Iq3eJBXU"
+        }
+      ],
+      "generated_at": "2026-06-25T05:06:52.680058-06:00",
+      "status": "ok"
+    },
+    "mercados": {
+      "key": "mercados",
+      "title": "💹 Pulso de Mercados",
+      "data": {
+        "pulso_de_mercados": {
+          "fecha_reporte": "25 de junio de 2026",
+          "secciones": [
+            {
+              "seccion": "indices",
+              "datos": [
+                {
+                  "nombre": "S&P 500",
+                  "valor": "7,358.22",
+                  "cambio_pct": "-0.10%",
+                  "tendencia": "↓",
+                  "fuente": "Google Finance",
+                  "url": "https://www.google.com/finance/quote/.INX:INDEXSP",
+                  "analisis": "El S&P 500 cerró a la baja, reflejando una jornada mixta en los mercados."
+                },
+                {
+                  "nombre": "NASDAQ Composite",
+                  "valor": "25,476.64",
+                  "cambio_pct": "N/A",
+                  "tendencia": "↓",
+                  "fuente": "Investing.com, Reuters",
+                  "url": "https://www.investing.com/indices/nasdaq-composite",
+                  "analisis": "El NASDAQ Composite cerró a la baja el miércoles, siguiendo la tendencia de debilidad en el sector tecnológico."
+                },
+                {
+                  "nombre": "Dow Jones Industrial Average",
+                  "valor": "51,848.90",
+                  "cambio_pct": "+0.35%",
+                  "tendencia": "↑",
+                  "fuente": "Google Finance",
+                  "url": "https://www.google.com/finance/quote/.DJI:INDEXDJX",
+                  "analisis": "El Dow Jones Industrial Average mostró un avance, contrarrestando la debilidad observada en el sector tecnológico."
+                },
+                {
+                  "nombre": "S&P/BMV IPC (Bolsa Mexicana de Valores)",
+                  "valor": "66,278.01",
+                  "cambio_pct": "-0.41%",
+                  "tendencia": "↓",
+                  "fuente": "Investing.com",
+                  "url": "https://www.investing.com/indices/mexico-ipc",
+                  "analisis": "El S&P/BMV IPC de México cerró con una ligera caída en la jornada de operaciones."
+                },
+                {
+                  "nombre": "Tipo de cambio USD/MXN",
+                  "valor": "17.5950",
+                  "cambio_pct": "-0.17%",
+                  "tendencia": "↓",
+                  "fuente": "Google Finance",
+                  "url": "https://www.google.com/finance/quote/USD-MXN",
+                  "analisis": "El tipo de cambio USD/MXN experimentó una ligera depreciación del dólar frente al peso mexicano."
+                }
+              ]
+            },
+            {
+              "seccion": "acciones",
+              "datos": [
+                {
+                  "nombre": "NVIDIA (NVDA)",
+                  "valor": "199.00 USD",
+                  "cambio_pct": "+0.15%",
+                  "tendencia": "→",
+                  "fuente": "TradingView",
+                  "url": "https://www.tradingview.com/symbols/NASDAQ-NVDA/",
+                  "analisis": "Las acciones de NVIDIA mostraron un movimiento marginal en las últimas 24 horas."
+                },
+                {
+                  "nombre": "Apple (AAPL)",
+                  "valor": "293.08 USD",
+                  "cambio_pct": "-0.41%",
+                  "tendencia": "→",
+                  "fuente": "Investing.com",
+                  "url": "https://www.investing.com/equities/apple-comp",
+                  "analisis": "Apple experimentó una ligera baja en el precio de sus acciones."
+                },
+                {
+                  "nombre": "Microsoft (MSFT)",
+                  "valor": "365.46 USD",
+                  "cambio_pct": "-2.27%",
+                  "tendencia": "↓",
+                  "fuente": "Barchart.com",
+                  "url": "https://www.barchart.com/stocks/quotes/MSFT/performance",
+                  "analisis": "Las acciones de Microsoft cerraron con una leve caída."
+                },
+                {
+                  "nombre": "Alphabet (Google) (GOOG)",
+                  "valor": "345.04 USD",
+                  "cambio_pct": "-0.30%",
+                  "tendencia": "→",
+                  "fuente": "TradingView",
+                  "url": "https://www.tradingview.com/symbols/NASDAQ-GOOG/",
+                  "analisis": "Alphabet (Google) mostró una ligera disminución en el valor de sus acciones."
+                },
+                {
+                  "nombre": "Meta Platforms (META)",
+                  "valor": "562.50 USD",
+                  "cambio_pct": "-0.81%",
+                  "tendencia": "→",
+                  "fuente": "Robinhood, Barchart.com",
+                  "url": "https://robinhood.com/stocks/META",
+                  "analisis": "Las acciones de Meta Platforms registraron una pequeña caída."
+                },
+                {
+                  "nombre": "Amazon (AMZN)",
+                  "valor": "234.27 USD",
+                  "cambio_pct": "+0.07%",
+                  "tendencia": "→",
+                  "fuente": "TradingView",
+                  "url": "https://www.tradingview.com/symbols/NASDAQ-AMZN/",
+                  "analisis": "Amazon tuvo un movimiento casi plano en el precio de sus acciones."
+                },
+                {
+                  "nombre": "Tesla (TSLA)",
+                  "valor": "375.53 USD",
+                  "cambio_pct": "-1.59%",
+                  "tendencia": "→",
+                  "fuente": "TradingView",
+                  "url": "https://www.tradingview.com/symbols/NASDAQ-TSLA/",
+                  "analisis": "Tesla experimentó una ligera baja en sus acciones."
+                },
+                {
+                  "nombre": "OpenAI",
+                  "valor": "N/A",
+                  "cambio_pct": "N/A",
+                  "tendencia": "→",
+                  "fuente": "N/A",
+                  "url": "N/A",
+                  "analisis": "OpenAI es una empresa privada y no cotiza en bolsa, por lo que no hay datos de mercado público disponibles. Sin embargo, se ha reportado que Microsoft y OpenAI están siendo demandados por periódicos y que OpenAI está desarrollando un nuevo chip llamado 'Jalapeño' para reducir su dependencia de Nvidia."
+                }
+              ]
+            },
+            {
+              "seccion": "earnings",
+              "datos": [
+                {
+                  "nombre": "Empresas tech relevantes",
+                  "valor": "N/A",
+                  "cambio_pct": "N/A",
+                  "tendencia": "→",
+                  "fuente": "Markets Insider, Nasdaq",
+                  "url": "https://markets.businessinsider.com/earnings-calendar",
+                  "analisis": "Según los calendarios de ganancias disponibles, no se han identificado reportes de ganancias de las principales empresas tecnológicas (NVIDIA, Apple, Microsoft, Google, Meta, Amazon, Tesla) para la próxima semana (del 29 de junio al 5 de julio de 2026)."
+                }
+              ]
+            },
+            {
+              "seccion": "macro",
+              "datos": [
+                {
+                  "nombre": "Inteligencia Artificial (IA)",
+                  "valor": "N/A",
+                  "cambio_pct": "N/A",
+                  "tendencia": "→",
+                  "fuente": "Barchart.com, Google Finance, Investing.com, Morningstar",
+                  "url": "N/A",
+                  "analisis": "La IA sigue siendo un motor clave del mercado, impulsando inversiones en infraestructura y desarrollos de chips, aunque también se observan noticias sobre la fuga de talento en Google y retrasos en modelos de IA."
+                },
+                {
+                  "nombre": "Debilidad en el Sector Tecnológico",
+                  "valor": "N/A",
+                  "cambio_pct": "N/A",
+                  "tendencia": "↓",
+                  "fuente": "Barchart.com, Google Finance, Reuters",
+                  "url": "N/A",
+                  "analisis": "Los mercados han mostrado una tendencia mixta con debilidad en el sector tecnológico, especialmente en los fabricantes de chips, a la espera de resultados de ganancias."
+                },
+                {
+                  "nombre": "Inflación y Tasas de Interés",
+                  "valor": "N/A",
+                  "cambio_pct": "N/A",
+                  "tendencia": "→",
+                  "fuente": "Markets Insider",
+                  "url": "N/A",
+                  "analisis": "La cercanía de los precios del petróleo a los niveles previos a la guerra podría indicar una mayor inflación, lo que podría influir en las decisiones sobre las tasas de interés."
+                },
+                {
+                  "nombre": "Volatilidad del Mercado",
+                  "valor": "N/A",
+                  "cambio_pct": "N/A",
+                  "tendencia": "→",
+                  "fuente": "Markets Insider",
+                  "url": "N/A",
+                  "analisis": "JPMorgan advierte sobre la posibilidad de un 'flash crash' en acciones de impulso, a pesar de una perspectiva alcista general para el mercado."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "grounding_sources": [],
+      "generated_at": "2026-06-25T05:07:47.119852-06:00",
+      "status": "ok"
+    },
+    "radar": {
+      "key": "radar",
+      "title": "🛰️ RADAR Inteligencia",
+      "data": [],
+      "generated_at": "2026-06-25T05:07:50.494092-06:00",
+      "status": "error",
+      "signals_total": 0,
+      "queries_run": 3,
+      "errors": [
+        "HTTP 401 for query: Top AI funding rounds and product launch",
+        "HTTP 401 for query: Big Tech AI announcements Google Microso",
+        "HTTP 401 for query: AI regulation policy changes worldwide l"
+      ]
+    }
+  },
+  "summary": {
+    "sections_ok": 5,
+    "sections_total": 6,
+    "quality": "PARTIAL"
+  }
+}
