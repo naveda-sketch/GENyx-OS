@@ -4,6 +4,8 @@
 # ═══════════════════════════════════════════════════════════════════
 # G4-FE: Verify-gate — admin endpoints must respond 200 before push
 # G2-FE: CDA declaration required on significant commits
+# FE-#44: Contract Anti-Drift (REGLA 44)
+# FE-Standing: Mando Contract (Frontend ⊆ Contrato)
 # REGLA 8: FOUNDER-ONLY enforcement · REGLA 14: Silent Failure Elim
 # ═══════════════════════════════════════════════════════════════════
 
@@ -11,6 +13,7 @@ REMOTE="$1"
 URL="$2"
 BACKEND="${GENYX_BACKEND:-https://paty-backend-dkzk.onrender.com}"
 ADMIN_KEY="${GENYX_ADMIN_KEY:-}"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 echo ""
 echo "🔒 ═══════════════════════════════════════════════════════════"
@@ -74,25 +77,29 @@ if command -v npx &> /dev/null && [ -f "GENyxOperatorDashboard.jsx" ]; then
 else
   echo "  ⊘ Skipped (no npx or no JSX file)"
 fi
+echo ""
+
+# ── Candado FE-#44: Contract Anti-Drift (REGLA 44) ──
+if [ -x "$SCRIPT_DIR/check-contract-drift" ]; then
+    if ! "$SCRIPT_DIR/check-contract-drift"; then
+        echo "  🚨 PUSH BLOCKED — Contract drift detected (FE-#44)"
+        exit 1
+    fi
+else
+    echo "⚠️ check-contract-drift not found or not executable — REGLA 14 violation"
+fi
+
+# ── Candado FE-Standing: Mando Contract (Frontend ⊆ Contrato) ──
+if [ -x "$SCRIPT_DIR/check-mando-contract.cjs" ]; then
+    if ! node "$SCRIPT_DIR/check-mando-contract.cjs"; then
+        echo "  🚨 PUSH BLOCKED — Mando calls endpoints not in contract (FE-Standing)"
+        exit 1
+    fi
+else
+    echo "⚠️ check-mando-contract.cjs not found or not executable — REGLA 14 violation"
+fi
 
 echo ""
 echo "🔒 ENFORCEMENT GATE PASSED ✓"
 echo ""
 exit 0
-
-# ── Candado FE-#44: Contract Anti-Drift (REGLA 44) ──
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-if [ -x "$SCRIPT_DIR/check-contract-drift" ]; then
-    if ! "$SCRIPT_DIR/check-contract-drift"; then
-        echo "  🚨 PUSH BLOCKED — Contract drift detected"
-        exit 1
-    fi
-fi
-
-# ── Candado FE-Standing: Mando Contract (Frontend ⊆ Contrato) ──
-if [ -x "$SCRIPT_DIR/check-mando-contract.js" ]; then
-    if ! "$SCRIPT_DIR/check-mando-contract.js"; then
-        echo "  🚨 PUSH BLOCKED — Mando calls endpoints not in contract"
-        exit 1
-    fi
-fi
