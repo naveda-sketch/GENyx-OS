@@ -86,7 +86,8 @@ if [ -x "$SCRIPT_DIR/check-contract-drift" ]; then
         exit 1
     fi
 else
-    echo "⚠️ check-contract-drift not found or not executable — REGLA 14 violation"
+    echo "🚨 check-contract-drift MISSING — REGLA 14: candado eliminado = push BLOCKED"
+    exit 1
 fi
 
 # ── Candado FE-Standing: Mando Contract (Frontend ⊆ Contrato) ──
@@ -96,7 +97,8 @@ if [ -x "$SCRIPT_DIR/check-mando-contract.cjs" ]; then
         exit 1
     fi
 else
-    echo "⚠️ check-mando-contract.cjs not found or not executable — REGLA 14 violation"
+    echo "🚨 check-mando-contract.cjs MISSING — REGLA 14: candado eliminado = push BLOCKED"
+    exit 1
 fi
 
 echo ""
