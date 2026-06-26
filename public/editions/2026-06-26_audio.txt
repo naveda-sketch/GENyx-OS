@@ -1,0 +1,95 @@
+El Periódico. Edición del 2026-06-26.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Elon Musk.
+Pérdida de estatus de trillonario. Elon Musk ha vuelto a caer por debajo de la marca del billón de dólares en patrimonio neto después de las caídas en los precios de las acciones de SpaceX y Tesla. Su riqueza se estimó en 970.2 mil millones de dólares al 24 de junio de 2026, semanas después de la oferta pública inicial (IPO) récord de SpaceX que lo había impulsado brevemente a ser el primer trillonario del mundo. Fuente: Forbes (citado por London Daily News).
+Actividad en X sobre Starlink y Grok. Elon Musk ha estado activo en X, confirmando que Starlink llegará a American Airlines el próximo año y promocionando Grok como un motor de búsqueda superior a Google. También reposteó sobre una actualización de Grok con mejoras en el tablero y correcciones de errores. Fuente: X (citado por YouTube).
+
+Satya Nadella.
+Advertencia sobre la concentración del poder de la IA. Satya Nadella advirtió que la industria de la IA debe demostrar un valor real o corre el riesgo de perder el apoyo público, enfatizando que los beneficios no deben concentrarse en unas pocas empresas. Subrayó que si la IA solo conduce a la eliminación de empleos y la concentración de valor, la economía política no lo tolerará. Fuente: The Wall Street Journal (citado por TheStreet).
+
+Jensen Huang.
+Prioridad de la seguridad nacional de EE. UU. y chips contrabandeados. Jensen Huang afirmó que NVIDIA priorizará los intereses de seguridad nacional de EE. UU. sin dudarlo, incluso si entran en conflicto con oportunidades comerciales. Advirtió que las empresas que intenten construir centros de datos de IA con hardware de NVIDIA contrabandeado no funcionarán, ya que la compañía no proporcionará soporte ni reparaciones. Fuente: CNBC (citado por TheStreet).
+Caída de ingresos en China y plan de recuperación con Vera CPU. Jensen Huang admitió que la cuota de mercado de chips de NVIDIA en China ha caído a cero debido a las restricciones de exportación. Sin embargo, presentó un plan de recuperación centrado en la nueva CPU Vera, que se espera genere casi 20 mil millones de dólares en ingresos este año, compensando la pérdida en China. Fuente: The Motley Fool.
+
+Sam Altman.
+Retraso del lanzamiento de GPT 5.6. OpenAI ha retrasado el lanzamiento de su próximo modelo de IA, GPT 5.6, después de que la administración Trump solicitara un despliegue escalonado por motivos de seguridad. Sam Altman informó al personal que el gobierno aprobará el acceso 'cliente por cliente' durante el período de vista previa. Fuente: Bloomberg (citado por Mint).
+Presentación del chip Jalapeño con Broadcom. OpenAI y Broadcom presentaron 'Jalapeño', el primer procesador de inteligencia de OpenAI, diseñado para la inferencia de modelos de lenguaje grandes (LLM). Este chip es el primer acelerador de IA en una plataforma informática multigeneracional que las empresas están construyendo juntas. Fuente: Investing News Network (citando OpenAI y Broadcom).
+
+Mark Zuckerberg.
+Pausa de rastreador de empleados para IA. Meta ha pausado un programa que rastreaba la actividad informática de los empleados para entrenar sus modelos de IA, debido a preocupaciones de privacidad y la reacción del personal. Más de 1,600 trabajadores de Meta firmaron una petición contra la herramienta, que rastreaba pulsaciones de teclas, clics del ratón y contenido de la pantalla. Fuente: The Guardian.
+App de mercado de predicción 'Arena'. Meta planea lanzar su propia aplicación de mercado de predicción impulsada por IA, llamada 'Arena', donde los usuarios podrán apostar sobre resultados de eventos del mundo real utilizando 'dinero de juego' virtual. La aplicación utilizará la IA Llama de Meta para rastrear temas de tendencia y resolver resultados automáticamente. Fuente: NPR (citando The New York Times).
+
+Sección: 🤖 AI Leaders.
+
+No se encontró información para esta sección.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Databricks.
+Adquisición de Panther Labs por $1.4B para 'security lakehouse'. Databricks ha anunciado su intención de adquirir Panther Labs, una plataforma de AI SOC, por un valor reportado de $1.4 mil millones. Esta adquisición estratégica busca fortalecer la oferta de Databricks en ciberseguridad, enfocándose en la creación de un 'security lakehouse' que prioriza la capa de datos y contexto para la detección y comprensión de amenazas. Fuente: Sola Security.
+
+Mistral AI.
+Lanzamientos clave: Mistral Small 4, OCR 4 y mejoras en conectores. Mistral AI ha presentado Mistral Small 4, su plataforma empresarial más potente para agentes de IA y IA multimodal, optimizada para flujos de trabajo de automatización. También lanzó Mistral OCR 4, un modelo de OCR de código abierto que se ejecuta localmente con precisión mejorada y soporte para más de 100 idiomas. Además, se introdujeron nuevas capacidades en sus conectores para una integración más segura y controlada con plataformas empresariales externas, incluyendo controles de administración enriquecidos y claves API con alcances de conector. Fuente: Mistral AI (Comunicado oficial), Eden AI, Nexus AI, Bounding Boxes Arrive in Mistral OCR 4 for Agentic Retrieval.
+
+Nearfield Instruments.
+Cierra ronda de financiación Serie D de $380M con valoración de $1.6B. La startup holandesa de deep-tech Nearfield Instruments ha cerrado una ronda de financiación Serie D de $380 millones, alcanzando una valoración de $1.6 mil millones. La ronda fue liderada por Fidelity Management & Research Company, con la participación de nuevos inversores como Qatar Investment Authority y M&G Investments. Los fondos se destinarán a fortalecer la posición de Europa en la cadena de suministro global de chips, enfocándose en equipos de control de calidad para fabricantes de chips. Fuente: TechCrunch.
+
+Figure AI.
+Despliegue de robots humanoides Figure 03 en fábricas de BMW. BMW Group está intensificando el uso de la IA física en la producción, integrando sistemas inteligentes como los robots humanoides Figure 03 en sus procesos de fabricación. El despliegue se realiza en la planta de BMW Group en Spartanburg, donde el robot Figure 02 ya apoyó la producción de más de 30,000 vehículos BMW X3 durante diez meses. Fuente: BMW Group (Comunicado oficial).
+
+Stripe.
+Asociación con AWS para monetización de tráfico de IA. Stripe ha anunciado una asociación con Amazon Web Services (AWS) para proporcionar la infraestructura financiera para una nueva capacidad de AWS Web Application Firewall (WAF). Esta iniciativa permitirá a las empresas monetizar el tráfico de agentes de IA que acceden a contenido protegido, devolviendo una respuesta HTTP 402 Payment Required con detalles de precios y métodos de pago. Fuente: Small Business Trends (referenciando comunicado de prensa de Stripe).
+
+Sección: 📰 Top 10 Noticias.
+
+Samsung y SK Hynix anuncian una inversión masiva de $648 mil millones en semiconductores e infraestructura de IA en Corea del Sur.
+Samsung Group y SK Hynix planean una inversión combinada de 1,000 billones de wones (aproximadamente $648 mil millones de dólares) en Corea del Sur durante la próxima década. Este plan masivo busca impulsar la producción de semiconductores y la infraestructura de inteligencia artificial, respondiendo a la creciente demanda impulsada por la IA. La inversión incluye un complejo de semiconductores en el suroeste del país y centros de datos de IA. Fuente: Reuters.
+¿Por qué importa? Esta inversión récord subraya la carrera global por el dominio de la IA y los semiconductores. Para los fundadores tech, esto significa una infraestructura de cómputo más robusta y potencialmente más accesible a largo plazo, pero también una intensificación de la competencia en el hardware de IA.
+
+OpenAI lanza 'Jalapeño', su primer chip de IA personalizado, en colaboración con Broadcom.
+OpenAI ha presentado 'Jalapeño', su primer chip de inteligencia artificial diseñado a medida en asociación con Broadcom. Este movimiento estratégico busca reducir la dependencia de OpenAI en los GPUs de terceros, como los de Nvidia, y optimizar el rendimiento de sus grandes modelos de lenguaje (LLMs) para cargas de trabajo de inferencia. Fuente: EFE Noticias.
+¿Por qué importa? La creación de chips propios por parte de OpenAI señala una maduración en la industria de la IA, donde las grandes empresas buscan controlar toda la pila tecnológica. Para los fundadores, esto podría traducirse en costos de inferencia más bajos y una mayor eficiencia en el futuro, pero también en una barrera de entrada más alta para el desarrollo de hardware de IA.
+
+Google DeepMind sufre una fuga de talento clave hacia OpenAI y Anthropic.
+Varios investigadores de alto nivel de Google DeepMind, incluyendo a Noam Shazeer (co-líder de Gemini) y John Jumper (co-creador de AlphaFold), han dejado la compañía para unirse a OpenAI y Anthropic. Esta 'guerra de talentos' en el sector de la IA destaca la intensa competencia por los expertos en modelos grandes y sistemas de IA. Fuente: Bloomberg.
+¿Por qué importa? La migración de talento de élite de Google a sus rivales directos, OpenAI y Anthropic, indica una feroz competencia por la innovación en IA. Los fundadores deben estar atentos a cómo esta dinámica afecta la velocidad de desarrollo y las capacidades de las plataformas de IA líderes, así como a las oportunidades para atraer talento en un mercado tan disputado.
+
+Seis startups aceleran la movilidad circular en el Innovation Hub de The Future is NEUTRAL de Renault.
+Seis startups han completado un programa de seis meses en el Innovation Hub de The Future is NEUTRAL, la entidad de economía circular de Renault Group. Estas empresas están desarrollando soluciones prácticas para acelerar la movilidad circular, aprovechando el apoyo industrial y estratégico del grupo. Fuente: Renault Group global media website.
+¿Por qué importa? La inversión de grandes corporaciones como Renault en startups de movilidad circular demuestra un creciente interés en la sostenibilidad y la economía circular. Los fundadores tech pueden encontrar oportunidades significativas al desarrollar soluciones que aborden estos desafíos, especialmente aquellas que puedan integrarse en cadenas de valor existentes.
+
+Firmas de Venture Capital 'Giga' dominan el financiamiento de startups, redefiniendo el panorama de inversión.
+Un grupo de seis firmas de capital de riesgo, apodadas las 'G-Flats' (General Catalyst, Founders Fund, Lightspeed, Andreessen Horowitz, Thrive Capital y Sequoia Capital), han recaudado más capital que todas las demás firmas de VC combinadas en los últimos dos años. Este fenómeno está reescribiendo las reglas del financiamiento de startups, con estas firmas ejerciendo una influencia cultural y financiera sin precedentes. Fuente: Inc. Magazine.
+¿Por qué importa? La concentración de capital en unas pocas firmas de VC gigantes significa que los fundadores deben adaptar sus estrategias de recaudación de fondos. Entender las prioridades y el alcance de estas 'G-Flats' es crucial, ya que una inversión de ellas no solo proporciona capital, sino también una validación y una red de contactos invaluables.
+
+Las tendencias de talento tecnológico para 2026: la IA eleva las habilidades humanas.
+Un informe de Info-Tech Research Group destaca que, si bien la IA automatizará tareas técnicas, las habilidades humanas como el pensamiento crítico, la adaptabilidad y la inteligencia emocional se volverán cruciales en 2026. El éxito de la IA dependerá de la capacidad de las organizaciones para construir equipos híbridos humano-IA y fomentar una cultura de aprendizaje continuo. Fuente: TechTarget.
+¿Por qué importa? Para los fundadores tech, esta tendencia subraya la importancia de invertir en el desarrollo de habilidades blandas y la adaptabilidad de sus equipos. La IA no reemplazará a los humanos, sino que transformará los roles, haciendo que la capacidad de colaborar con la IA y resolver problemas complejos sea un diferenciador clave para el talento.
+
+El financiamiento de startups de IA en 2026 se centra en costos de cómputo y diferenciación de modelos.
+El panorama de financiamiento para startups de IA en 2026 ha cambiado, con los inversores enfocándose en cómo las empresas gestionan los altos costos de cómputo y logran una diferenciación sostenible de sus modelos. Las rondas de inversión tempranas son más grandes y se vinculan a hitos técnicos específicos, priorizando la prueba de valor sobre las demostraciones llamativas. Fuente: Sky9 Capital.
+¿Por qué importa? Los fundadores de startups de IA deben presentar una tesis clara, costos honestos y pruebas de clientes reales para asegurar financiamiento. La clave es demostrar cómo la empresa se vuelve más valiosa a medida que crece, con un enfoque en la eficiencia del cómputo y una propuesta de valor única en un mercado de IA cada vez más competitivo.
+
+Apple incrementa los precios de sus dispositivos ante la escasez de chips impulsada por la IA.
+Apple ha implementado un aumento de precios en varios de sus dispositivos, incluyendo Macs, iPads y Vision Pro, debido a una escasez sin precedentes de chips de memoria y almacenamiento. Esta escasez es atribuida en gran parte a la creciente demanda de componentes para la inteligencia artificial. Fuente: EFE Noticias.
+¿Por qué importa? La escasez de chips y el aumento de precios impactan directamente en los costos de hardware y la cadena de suministro para cualquier fundador tech que dependa de componentes electrónicos. Esto resalta la necesidad de estrategias de resiliencia en la cadena de suministro y la exploración de alternativas o diseños de hardware más eficientes.
+
+Cómo 3 startups de salud construyeron comunidades devotas y presencia minorista nacional.
+Tres startups enfocadas en la salud (Seed Health, BelliWelli y Cocolab) han logrado un crecimiento significativo y una presencia minorista nacional al priorizar la construcción de comunidades de consumidores. Su estrategia se basó en la confianza, la educación y la creación de una cultura de marca sólida, lo que les permitió validar la demanda del producto y amplificar la expansión minorista. Fuente: CO- by US Chamber of Commerce.
+¿Por qué importa? Este caso de estudio demuestra que, incluso en mercados saturados, una estrategia centrada en la comunidad puede ser un motor de crecimiento poderoso. Los fundadores tech pueden aplicar estos principios para construir lealtad de marca, obtener retroalimentación valiosa y escalar sus productos o servicios a través de un compromiso auténtico con sus usuarios.
+
+El índice S&P/BMV IPC de México cierra con una variación positiva del 1.72%.
+El S&P/BMV IPC, el principal índice bursátil de México, cerró la jornada del 25 de junio de 2026 con una ganancia del 1.72%, alcanzando los 67,416.22 puntos. Este movimiento refleja la dinámica del mercado financiero local. Fuente: Grupo BMV.
+¿Por qué importa? El desempeño del mercado bursátil mexicano es un indicador de la salud económica regional y puede influir en el sentimiento de los inversores. Para los fundadores tech, un mercado en alza puede señalar un entorno más favorable para la inversión y el crecimiento, aunque es crucial monitorear las tendencias sectoriales específicas.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
