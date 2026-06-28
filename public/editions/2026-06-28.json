@@ -1,0 +1,415 @@
+{
+  "version": "2.0",
+  "date": "2026-06-28",
+  "generated_at": "2026-06-28T05:00:34.635879-06:00",
+  "timezone": "CST (UTC-6)",
+  "language": "es-MX",
+  "tier": "Tier 4",
+  "sections": {
+    "titans": {
+      "key": "titans",
+      "title": "🏛️ Los Titans",
+      "data": [
+        {
+          "nombre": "Elon Musk",
+          "empresa": "X",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Mercado de predicción sobre la actividad de publicaciones en X",
+              "detalle": "Un mercado de predicción está rastreando si Elon Musk publicará entre 40 y 64 veces en X del 27 al 29 de junio de 2026. El contrato de 'SÍ' tiene un 41.5% de probabilidad, con un volumen de $21,136 negociado en las últimas 24 horas, lo que indica un interés especulativo reciente.",
+              "fuente": "Lines.com",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFWgUGwc6TBoctuygwmHdpou8WuEWM1Qw2ETeHSwGhPstSRrRrrCsei0-Kur7qy4YkMDlFF9y89l2ZPWTBvJRW_BCEi7rC6CxNoAEdD7QPq52AR69gBkH5cciGqLHCNjbMq9jQNxwlV8SmzGC0N2igUNwfOEZFwVpRx1eFzsDBv0hC5SDqPLn6uShF2fUVJ-Qg=",
+              "impacto": "La especulación en torno a la actividad de Musk en X subraya su influencia continua en la plataforma y cómo sus interacciones públicas son objeto de escrutinio y análisis, incluso en mercados de predicción."
+            }
+          ]
+        },
+        {
+          "nombre": "Satya Nadella",
+          "empresa": "Microsoft",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Insta a las empresas a construir modelos de IA personalizados",
+              "detalle": "En una entrevista el 27 de junio, el CEO de Microsoft, Satya Nadella, afirmó que 'debería haber tantos modelos en el mundo como empresas en el mundo', y advirtió contra el encierro en un solo modelo. Argumentó que las empresas deben usar su propio contexto y datos para elegir o ajustar modelos, ya que externalizar el aprendizaje institucional a unos pocos proveedores conlleva riesgos económicos a largo plazo.",
+              "fuente": "Let's Data Science / Business Insider Africa",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH_ZSCpJDATx4TWAx76r_Ie9D8JSCvLHLl75RAQEZqGA26DVFQG8_kUQt50wArKBiJpsYNO5hik6n-JBkM7GaKvxiZgucaXP-7QRm7zXlNfSVaFhva65ySMFNQ7gvG7LY_Tk0OQFBoc3PmYqvBA5Dl-N_tWii_Lp8PjGGsPPcSiSRT9RrVOKY5oiBGRO67FgimNktlTPU6sBoBEaek=",
+              "impacto": "Esta declaración impulsa la estrategia de Microsoft de promover un ecosistema de IA más descentralizado y adaptado a las necesidades empresariales, lo que podría aumentar la adopción de sus servicios de nube Azure para el desarrollo y ajuste de modelos de IA."
+            }
+          ]
+        },
+        {
+          "nombre": "Jensen Huang",
+          "empresa": "NVIDIA",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Ingresos de NVIDIA en China caen a cero; presenta plan de recuperación",
+              "detalle": "Jensen Huang admitió el 26 de junio que los ingresos de NVIDIA en China han caído a cero debido a las restricciones de chips. Presentó un plan de recuperación de $20 mil millones centrado en el creciente negocio de CPU de la compañía.",
+              "fuente": "The Motley Fool",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEn30aT8die7yIyz4DtjiCmRzbysux_TadHrxd1GJbuB8q6P0sfpipZz7OmpqgomE_PbD72NWduIqPxssuZaT7XOqjA2oVZnZItq17p3pPFZnNr4dwbBo06NUnNC55MG1XgvE3pYJodj9w94GG3WaHlifwQgQ9CQh1YqTPZ6LoL8082KCDWO6M4oY1pR08oEGccR0t5Gw==",
+              "impacto": "La caída a cero de los ingresos en China es un golpe significativo para NVIDIA, pero el plan de Huang para impulsar el negocio de CPU demuestra una estrategia de adaptación crucial para mitigar el impacto de las restricciones geopolíticas en el mercado de chips."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "La filosofía 'Zen de Jensen' sobre la ambición y el enfoque a largo plazo",
+              "detalle": "El 27 de junio, Jensen Huang, CEO de NVIDIA, habló sobre su filosofía de 'dejar que el mundo venga a mí', enfatizando un enfoque estrecho, paciencia profunda y la creencia de que el tiempo se expande cuando el trabajo de la vida es claro. A pesar de su intensa agenda, su ambición es sobresalir en el momento presente y cultivar el oficio de la empresa durante décadas.",
+              "fuente": "Benzinga",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHnnqhZhBaHnNH8SwIwbIIzazrt4ylMdHoNnRc45cBF1cAFT-MTkeAu-UE_J3DP-70fCCJOnSH3zOT4LjZQ03UjUra1Dud659bSYQ5DelO4IL4b5sV0bvyBWG5XF0-R5xPbxRWFKVxItmnT43NNtuJB0Stw4Yu7e1ybjfFPKN1qu_W1kYS3SkQ7vQGeXwRD9ykFI9yhS-uFVygFTM923TC-gGKo3Mtgm8POa5rc",
+              "impacto": "Esta perspectiva de liderazgo a largo plazo y enfoque en la 'artesanía' de la empresa puede inspirar confianza en los inversores y empleados, sugiriendo una visión estratégica estable en un sector de tecnología de rápido cambio."
+            }
+          ]
+        },
+        {
+          "nombre": "Sam Altman",
+          "empresa": "OpenAI",
+          "actividad": [
+            {
+              "tipo": "lanzamiento",
+              "titulo": "OpenAI limita el lanzamiento de GPT-5.6 Sol a clientes aprobados por Trump",
+              "detalle": "El 26 de junio, OpenAI anunció que está restringiendo el lanzamiento de su nuevo modelo de IA, GPT-5.6 Sol, a un 'pequeño grupo de socios de confianza' aprobados por la administración Trump, a solicitud del gobierno. Esta medida se produce en medio de una revisión de ciberseguridad sin precedentes de productos de IA.",
+              "fuente": "KVUE / Yahoo Finance",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHd9-78zEf9XKh-5EdmCiL4robM68MpdQ2x2qtOONPyh4r7gC9oGb1KKi4tbtU7oT0KDWBHYFhTVT54UrdLbVc7DaTSAaqYrkiFdohcIOPxxl3__aaI7cA9tO0CSggrerw9609pex5nwCFJkvlZFGAH7PgaDYDvlijbjUmxZlEX2qyzQOQTtGtFht-dI5HM9bVyHW9wOEl82d8xobKIJAsmtNM5XcgPkLWMxmzYt4mXYXOF6jtrxfcoRWw3YjKbV0a6pciKf8CpLnBbE4KOOqNVLSAiqNxnGT4B4mrnUKbJLpvqbyCGS8DY0o1T8mJ4AgWNh7mSnCOeAxiL1hk72Q==",
+              "impacto": "Esta restricción subraya la creciente influencia gubernamental en el desarrollo y lanzamiento de modelos avanzados de IA, lo que podría ralentizar la innovación abierta pero también establecer precedentes para la seguridad y el control de la IA a nivel nacional."
+            }
+          ]
+        },
+        {
+          "nombre": "Dario Amodei",
+          "empresa": "Anthropic",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Modelos de Anthropic retirados por directiva de la administración Trump",
+              "detalle": "El 26 de junio, se informó que Anthropic retiró dos de sus nuevos modelos de IA, Fable 5 y Mythos 5, días después de su lanzamiento público, para cumplir con una directiva de la administración Trump que bloqueaba su uso por parte de ciudadanos extranjeros. Dario Amodei, CEO de Anthropic, ha tenido una relación más contenciosa con la administración Trump en comparación con otros líderes de IA.",
+              "fuente": "KVUE",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHd9-78zEf9XKh-5EdmCiL4robM68MpdQ2x2qtOONPyh4r7gC9oGb1KKi4tbtU7oT0KDWBHYFhTVT54UrdLbVc7DaTSAaqYrkiFdohcIOPxxl3__aaI7cA9tO0CSggrerw9609pex5nwCFJkvlZFGAH7PgaDYDvlijbjUmxZlEX2qyzQOQTtGtFht-dI5HM9bVyHW9wOEl82d8xobKIJAsmtNM5XcgPkLWMxmzYt4mXYXOF6jtrxfcoRWw3YjKbV0a6pciKf8CpLnBbE4KOOqNVLSAiqNxnGT4B4mrnUKbJLpvqbyCGS8DY0o1T8mJ4AgWNh7mSnCOeAxiL1hk72Q==",
+              "impacto": "La acción del gobierno contra los modelos de Anthropic destaca la tensión entre la innovación en IA y las preocupaciones de seguridad nacional, lo que podría llevar a un escrutinio regulatorio más estricto para las empresas de IA y afectar su capacidad para desplegar modelos a nivel global."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-06-28T05:01:19.507741-06:00",
+      "status": "ok"
+    },
+    "ai_leaders": {
+      "key": "ai_leaders",
+      "title": "🤖 AI Leaders",
+      "data": [
+        {
+          "empresa": "OpenAI",
+          "novedades": [
+            {
+              "tipo": "regulación",
+              "titulo": "Lanzamiento restringido de GPT-5.6",
+              "detalle": "OpenAI ha lanzado nuevas versiones de modelos de IA, incluyendo GPT-5.6, con acceso limitado a un pequeño grupo de socios de confianza. Esta restricción se implementó a petición de la Administración Trump para evaluar la seguridad de los modelos antes de un lanzamiento más amplio.",
+              "fuente": "El Economista / Quartz",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGsk88hgEgglGkepPkvBZhFSTynL0r3CLs4AXg2JSe2p5BrE4UC7XNOuKK_p4YlW_D0_fq7qjPLM8_TAGytGnxvsM8AXz2w6B2GmQ-A5NLQ5RjDPg2aiXkaCIDB4MpuogFGF7y8FWWgPQp86a3jnsaYaoeAg3Cbs_pbn8DNcz0YFuKzuDXGuU1Un9TCdMOde0yDfHTXbzhHAZptPOkmPkVl6hh6cYrWIx7XZxNQ6Z-Y7LyYKOTG9YVw9m1Aq5gFlXXGLq9hL8cNdMk=",
+              "aplicacion_genyx": "GENyx podría anticipar cambios regulatorios en el despliegue de modelos avanzados y adaptar sus estrategias de integración para cumplir con requisitos de seguridad y acceso controlado."
+            },
+            {
+              "tipo": "producto",
+              "titulo": "OpenAI lanza su primer chip de IA, Jalapeño",
+              "detalle": "OpenAI ha presentado Jalapeño, su primer chip de inteligencia artificial personalizado, desarrollado en alianza con Broadcom Inc. Este chip busca optimizar la ejecución de cargas de trabajo de IA, mostrando ahorros de costos de aproximadamente 50% frente a las GPU tradicionales.",
+              "fuente": "El Economista / Diario Financiero",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHQlbirvVi4maP5RZHnmy-4R-VqgOVCloyxPHY7cY2RscdfPSyR2DVFCyZ0A5Bo2EJAbD3EuPzKQL4RXLYxCkYdicpMduElP4V6ROYs2h9Jd__OI7M2wpn5YmIGoFGmB7p-7kunStcrt9_OGyP-FyUG-V3dTaOFezI2Ap8Pj8t5j9vpirNog9SzRK6Pk7bdChuArSOnInv7Yibz52Y=",
+              "aplicacion_genyx": "Para GENyx, esto indica una tendencia hacia hardware de IA especializado, lo que podría influir en la optimización de costos y rendimiento para sus propias soluciones SaaS."
+            }
+          ]
+        },
+        {
+          "empresa": "Google DeepMind",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Gemini 3.5 Flash con uso de computadoras",
+              "detalle": "Google DeepMind ha introducido la capacidad de uso de computadoras en su modelo Gemini 3.5 Flash, mejorando su funcionalidad y velocidad. Esta actualización permite al modelo interactuar más eficazmente con entornos digitales.",
+              "fuente": "Google DeepMind News",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFSuIv__oyuMyncjekcia0P9alsMPRwmGtjhocOdubi2F_8y_rviiGsikK1x3wLFmhA9NMNQjTgahKQtyItmVANKs6Vdlp8rc6VVa6Jr_gVVkIJ",
+              "aplicacion_genyx": "GENyx puede explorar la integración de modelos con capacidades de interacción computacional mejoradas para automatizar tareas complejas dentro de sus aplicaciones SaaS."
+            },
+            {
+              "tipo": "producto",
+              "titulo": "Gemini 3.5 Live Translate para traducción de voz",
+              "detalle": "Google DeepMind ha lanzado Gemini 3.5 Live Translate, ofreciendo traducción de voz fluida y natural. Esta mejora en los modelos de audio de Gemini busca proporcionar experiencias de voz más potentes y realistas.",
+              "fuente": "Google DeepMind News",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFSuIv__oyuMyncjekcia0P9alsMPRwmGtjhocOdubi2F_8y_rviiGsikK1x3wLFmhA9NMNQjTgahKQtyItmVANKs6Vdlp8rc6VVa6Jr_gVVkIJ",
+              "aplicacion_genyx": "Para GENyx, esto resalta la importancia de las capacidades multimodales y la traducción en tiempo real para ofrecer soluciones de IA más accesibles y globalizadas."
+            }
+          ]
+        },
+        {
+          "empresa": "Anthropic",
+          "novedades": [
+            {
+              "tipo": "regulación",
+              "titulo": "Autorización de Mythos 5 en EE.UU.",
+              "detalle": "Anthropic ha recibido autorización del gobierno de EE.UU. para lanzar su modelo de IA más avanzado, Mythos 5, a un grupo restringido de organizaciones. Esta decisión sigue a una restricción previa por motivos de seguridad nacional, y la empresa continúa trabajando con Washington para ampliar su disponibilidad.",
+              "fuente": "La Tercera",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFEt3Vhyo13aTW8gcKq_RlLOIbsJKz3zoUosci-hHawjlcjMFoM-1uwjbUdhPnKx5fxji0AbR4lPzk3rdSSujkF-5X7FCBbEBzAM8MDNFdzpK6belvusrFamYyyJo_ejWQKLqmEbhhbbccQcDEfYszFCP9yBohP7tmU_Z_cuRFwWZAO_Y5V9eTeJBt4j5KkKkAmwA4D3TmC7l9FKbyZ4raCHjFiaZLdbpzxyi3h1o-_9yw3xdAGxscjjn-YSQPHiiHTcDCN5sRN5aq_XXNG3Q==",
+              "aplicacion_genyx": "GENyx debe estar al tanto de las regulaciones gubernamentales sobre modelos de IA avanzados, especialmente aquellos con capacidades de ciberseguridad, para asegurar el cumplimiento y la confianza del cliente."
+            },
+            {
+              "tipo": "research",
+              "titulo": "Mythos detecta vulnerabilidades en sistemas gubernamentales",
+              "detalle": "Un modelo de inteligencia artificial de Anthropic, Mythos, identificó vulnerabilidades en sistemas informáticos clasificados del gobierno de Estados Unidos durante un ejercicio de pruebas. Esto se realizó como parte del Proyecto Glasswing, una iniciativa para proteger software crítico.",
+              "fuente": "Investing.com (citando AP)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQESovl5PMrE5BPR9YlA8gTkCQeUnfqrml-_qrgF32v9M95AJ7FjOVR-iwaDalT7tf4fBIA3Rz1h8UQ0D_2wTH1RS57zTOeJNoVdalWZ6qz0eeadvHrMp4vcXMH94nzjbm96sLpJoueJpoIY4QL5xD0-38H3kQbMIldOVkgxSfcYOYFuIFVEXj8dMl8l1A3H50-iJwKzzVi4-sMzBsILzm3EEboQMHauEZOoSe7430-6cEkBRgm8GclA2txEUDN_haWk",
+              "aplicacion_genyx": "Para GENyx, esto subraya el potencial de la IA en ciberseguridad y la necesidad de integrar capacidades de detección de vulnerabilidades en sus propias soluciones para ofrecer mayor seguridad a sus clientes."
+            }
+          ]
+        },
+        {
+          "empresa": "Meta AI",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Meta lanza gafas con IA a $299",
+              "detalle": "Meta ha lanzado nuevas gafas inteligentes con inteligencia artificial integrada, las Meta Glasses, a un precio más accesible de 299 dólares. Estas gafas incluyen micrófono, audífonos, cámara y un botón específico para usar Meta AI, buscando democratizar el acceso a la IA en dispositivos wearables.",
+              "fuente": "YouTube (Digital Brain) / Diario Las Américas",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGGOsjaya6Lz7bsDFMKAXNMvO1xEo36ZZeel9jToItSLcAWQJgLoC7_F9fauJhcYGynyJGg63FypiNM3NJ4O0zXTdys7Re198c0GBpzRYEsclTNdlIOrmwSGo5xC_5bmPFXA-bR",
+              "aplicacion_genyx": "GENyx podría considerar cómo la integración de IA en dispositivos de hardware asequibles abre nuevas oportunidades para la entrega de sus servicios de IA a través de interfaces más inmersivas."
+            }
+          ]
+        },
+        {
+          "empresa": "Microsoft AI",
+          "novedades": [
+            {
+              "tipo": "research",
+              "titulo": "Tendencias de IA en el trabajo y tokenomics",
+              "detalle": "Microsoft ha publicado un artículo que explora la 'tokenomics' como una nueva métrica para la IA en el trabajo, junto con cuatro tendencias clave. El artículo enfatiza que las decisiones estratégicas son más importantes que la tecnología en sí para liderar la transformación de la IA.",
+              "fuente": "Microsoft Source",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGuWOKSorsjuo_PwOVrd7bkfPUpdZ91arJVfbMnuSNRnRjFB96VoHqZ_zhGoALLjwcMS9uv6yLNgQFTWRtqrdcw95UuJYN8jUXNfuPbk5uV2nxI6FTEqPTyx8UrCekgo9GxmVSDIgNUuEKimbANQYNjSdpgT9DjnLlJ_qG-8V9L_XULyRmu_KBKSIqMciNt-_rpe1HzlVAUN3k=",
+              "aplicacion_genyx": "Para GENyx, comprender la 'tokenomics' y las tendencias de la IA en el trabajo es crucial para optimizar la eficiencia de costos y la propuesta de valor de sus soluciones SaaS, enfocándose en cómo la IA se integra en los flujos de trabajo existentes."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "deepmind.google",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFSuIv__oyuMyncjekcia0P9alsMPRwmGtjhocOdubi2F_8y_rviiGsikK1x3wLFmhA9NMNQjTgahKQtyItmVANKs6Vdlp8rc6VVa6Jr_gVVkIJ"
+        },
+        {
+          "title": "microsoft.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGuWOKSorsjuo_PwOVrd7bkfPUpdZ91arJVfbMnuSNRnRjFB96VoHqZ_zhGoALLjwcMS9uv6yLNgQFTWRtqrdcw95UuJYN8jUXNfuPbk5uV2nxI6FTEqPTyx8UrCekgo9GxmVSDIgNUuEKimjANQYNySdpgT9DjnLlJ_qG-8V9L_XULyRmu_KBKSIqMciNt-_rpe1HzlVAUN3k="
+        }
+      ],
+      "generated_at": "2026-06-28T05:02:28.354176-06:00",
+      "status": "ok"
+    },
+    "emerging": {
+      "key": "emerging",
+      "title": "🚀 Emerging Tech & Startups",
+      "data": [
+        {
+          "empresa": "Baseten",
+          "sector": "Tecnología de inferencia de IA",
+          "valoracion": "$13 mil millones",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Ronda de financiación Serie F de $1.5 mil millones",
+              "detalle": "Baseten, proveedor de software de sistemas para ejecutar cargas de trabajo de aplicaciones de IA, cerró una ronda de financiación Serie F de $1.5 mil millones. Esta es su cuarta recaudación de fondos en 18 meses y valora a la empresa en $13 mil millones.",
+              "fuente": "Crunchbase News",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEkjhbJ0-IvYJHx8ov5d6_PBTK9ht6I_-cqNdtbo4JhunHG_BzYqU-KYXHvSyAIK9OCFjX2Cj-YFwT2lSsiUStafw0vL0_69sfC7IaTBTt5VcUQNHtugvMRvt766GuuRJE1UlXhX8RfTieaxe9E0dNquC12oNufXi88VHuGCESQeRA",
+              "por_que_importa": "Esta financiación masiva subraya la creciente demanda de infraestructura de IA eficiente y la confianza de los inversores en el potencial de Baseten para escalar aplicaciones de IA en diversas industrias."
+            }
+          ]
+        },
+        {
+          "empresa": "AppsFlyer",
+          "sector": "Marketing digital y análisis de datos",
+          "valoracion": "$2.7 mil millones (post-money)",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Recauda más de $1 mil millones en financiación Serie E",
+              "detalle": "AppsFlyer, un proveedor de análisis de datos con el marketing digital como caso de uso principal, supuestamente obtuvo más de $1 mil millones en una ronda de financiación Serie E. Esta ronda valora a la empresa en $2.7 mil millones después de la inversión.",
+              "fuente": "Crunchbase News",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEkjhbJ0-IvYJHx8ov5d6_PBTK9ht6I_-cqNdtbo4JhunHG_BzYqU-KYXHvSyAIK9OCFjX2Cj-YFwT2lSsiUStafw0vL0_69sfC7IaTBTt5VcUQNHtugvMRvt766GuuRJE1UlXhX8RfTieaxe9E0dNquC12oNufXi88VHuGCESQeRA",
+              "por_que_importa": "La inversión significativa en AppsFlyer destaca la importancia continua de la atribución y el análisis de datos en el marketing digital, especialmente en un panorama tecnológico en evolución."
+            }
+          ]
+        },
+        {
+          "empresa": "Groq",
+          "sector": "Tecnología de inferencia de IA",
+          "valoracion": "No especificada en la noticia reciente",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Cierra $650 millones en nueva financiación",
+              "detalle": "Groq, con sede en San Francisco, cerró $650 millones en nueva financiación liderada por Infinitum y Disruptive. Los fondos se utilizarán para escalar su tecnología e infraestructura de nube de inferencia de IA.",
+              "fuente": "Crunchbase News",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEkjhbJ0-IvYJHx8ov5d6_PBTK9ht6I_-cqNdtbo4JhunHG_BzYqU-KYXHvSyAIK9OCFjX2Cj-YFwT2lSsiUStafw0vL0_69sfC7IaTBTt5VcUQNHtugvMRvt766GuuRJE1UlXhX8RfTieaxe9E0dNquC12oNufXi88VHuGCESQeRA",
+              "por_que_importa": "Esta financiación permite a Groq expandir su infraestructura de inferencia de IA, un componente crítico para el despliegue rápido y eficiente de modelos de IA a gran escala, compitiendo en un mercado clave."
+            }
+          ]
+        },
+        {
+          "empresa": "Upscale AI",
+          "sector": "Infraestructura de red de IA",
+          "valoracion": "$2 mil millones",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Extensión de financiación Serie A de $190 millones",
+              "detalle": "La startup de infraestructura de red de IA, Upscale AI, recaudó $190 millones en una extensión de financiación Serie A. Esto eleva su financiación total a $500 millones y establece una valoración de $2 mil millones para la compañía.",
+              "fuente": "Crunchbase News",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEkjhbJ0-IvYJHx8ov5d6_PBTK9ht6I_-cqNdtbo4JhunHG_BzYqU-KYXHvSyAIK9OCFjX2Cj-YFwT2lSsiUStafw0vL0_69sfC7IaTBTt5VcUQNHtugvMRvt766GuuRJE1UlXhX8RfTieaxe9E0dNquC12oNufXi88VHuGCESQeRA",
+              "por_que_importa": "La significativa valoración de $2 mil millones en una etapa temprana (Serie A extendida) destaca la alta demanda y el valor estratégico de las soluciones de infraestructura de red dedicadas a la IA."
+            }
+          ]
+        },
+        {
+          "empresa": "Stark",
+          "sector": "Tecnología de defensa",
+          "valoracion": "No especificada en la noticia reciente",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Recauda $569 millones en financiación",
+              "detalle": "La startup berlinesa de tecnología de defensa, Stark, supuestamente recaudó $569 millones en una financiación liderada por Founders Fund y Sequoia Capital.",
+              "fuente": "Crunchbase News",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEkjhbJ0-IvYJHx8ov5d6_PBTK9ht6I_-cqNdtbo4JhunHG_BzYqU-KYXHvSyAIK9OCFjX2Cj-YFwT2lSsiUStafw0vL0_69sfC7IaTBTt5VcUQNHtugvMRvt766GuuRJE1UlXhX8RfTieaxe9E0dNquC12oNufXi88VHuGCESQeRA",
+              "por_que_importa": "Esta gran ronda de financiación en el sector de la tecnología de defensa refleja el creciente interés y la inversión en soluciones innovadoras para la seguridad y la defensa a nivel global."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-06-28T05:03:51.908460-06:00",
+      "status": "ok"
+    },
+    "top10": {
+      "key": "top10",
+      "title": "📰 Top 10 Noticias",
+      "data": [
+        {
+          "ranking": 1,
+          "categoria": "AI",
+          "titular": "OpenAI y Broadcom revelan 'Jalapeño', su primer chip de inferencia de IA personalizado para reducir costos.",
+          "fuente": "TechCrunch",
+          "url": "https://techcrunch.com/2026/06/27/openai-broadcom-unveil-jalapeno-custom-ai-inference-chip/",
+          "resumen": "OpenAI, en colaboración con Broadcom, ha presentado 'Jalapeño', su primer chip de inferencia de IA diseñado a medida. Este chip busca reducir drásticamente los costos operativos de los modelos de lenguaje grandes (LLMs) en hasta un 50%, marcando un paso estratégico para disminuir la dependencia de OpenAI de proveedores externos como Nvidia. La iniciativa subraya una tendencia creciente entre las grandes tecnológicas de desarrollar hardware propio para optimizar sus cargas de trabajo de IA.",
+          "por_que_importa": "Para un fundador tech, esto es crucial porque señala una nueva era en la economía de la IA donde la optimización de costos de inferencia se vuelve tan importante como la capacidad del modelo. Las startups deben considerar cómo la reducción de costos de hardware impactará los precios de los servicios de IA y la viabilidad de sus propios modelos, fomentando la innovación en eficiencia."
+        },
+        {
+          "ranking": 2,
+          "categoria": "AI",
+          "titular": "El Departamento de Comercio de EE. UU. levanta parcialmente las restricciones sobre el modelo Mythos 5 de Anthropic.",
+          "fuente": "Reuters",
+          "url": "https://www.reuters.com/technology/ai-chip-maker-anthropic-gets-us-approval-to-deploy-mythos-5-to-select-partners-2026-06-27/",
+          "resumen": "El Departamento de Comercio de Estados Unidos ha notificado a Anthropic que su modelo de IA Mythos 5, enfocado en ciberseguridad, puede ser desplegado a un conjunto selecto de organizaciones estadounidenses que operan y defienden infraestructura crítica. Esta decisión marca un alivio parcial de las restricciones impuestas previamente por preocupaciones de seguridad nacional. Sin embargo, el modelo Fable 5, de cara al consumidor, sigue restringido.",
+          "por_que_importa": "Esta noticia destaca la creciente intervención gubernamental en la regulación de la IA de frontera y la creación de un régimen de acceso escalonado. Los fundadores tech deben entender que la seguridad y la confianza gubernamental son factores críticos para el despliegue de modelos avanzados, lo que puede influir en la estrategia de producto y la expansión de mercado."
+        },
+        {
+          "ranking": 3,
+          "categoria": "AI",
+          "titular": "Anthropic acusa a Alibaba de robo masivo de modelos de IA mediante ingeniería inversa de Claude.",
+          "fuente": "CNBC",
+          "url": "https://www.cnbc.com/2026/06/27/anthropic-accuses-alibaba-of-massive-ai-model-theft.html",
+          "resumen": "Anthropic ha acusado formalmente a Alibaba y su laboratorio de IA de llevar a cabo el 'ataque de destilación más grande conocido' contra sus modelos de IA Claude. La acusación, presentada en una carta al Comité Bancario del Senado de EE. UU., alega que se realizaron 28.8 millones de intercambios ilícitos utilizando aproximadamente 25,000 cuentas fraudulentas. Este incidente subraya las crecientes tensiones sobre la propiedad intelectual en el espacio de la IA.",
+          "por_que_importa": "Para los fundadores tech, esta noticia resalta los riesgos significativos de seguridad y propiedad intelectual en el desarrollo de IA. Es fundamental implementar medidas robustas de protección de modelos y datos, y estar preparados para litigios o disputas comerciales en un ecosistema cada vez más competitivo y propenso a la ingeniería inversa."
+        },
+        {
+          "ranking": 4,
+          "categoria": "negocios",
+          "titular": "El éxodo de talento de IA de Google genera preocupación entre los inversores por la competitividad de Gemini.",
+          "fuente": "MarketBeat",
+          "url": "https://www.marketbeat.com/stocks/NASDAQ/GOOG/news/alphabet-inc-goog-position-boosted-by-rfg-advisory-llc-2026-06-28/",
+          "resumen": "La preocupación de los inversores se centra en el éxodo de talento de IA de Google, con informes de más investigadores clave que se marchan a rivales como Anthropic. Esto ha generado inquietud sobre la ejecución del modelo Gemini y la competitividad general de Google en el ámbito de la inteligencia artificial. La pérdida de personal de investigación de alto perfil podría afectar la capacidad de la empresa para innovar.",
+          "por_que_importa": "Este es un claro indicador de la intensa guerra por el talento en IA. Los fundadores tech deben priorizar la creación de una cultura que atraiga y retenga a los mejores ingenieros y científicos de IA, ya que la capacidad de innovación y la percepción del mercado están directamente ligadas a la calidad de su equipo."
+        },
+        {
+          "ranking": 5,
+          "categoria": "tendencia",
+          "titular": "Kazajistán se une a Pax Silica y la Alianza de Oportunidades de IA para impulsar la infraestructura de IA y la innovación.",
+          "fuente": "TMX Newsfile",
+          "url": "https://www.newsfilecorp.com/release/217988/Kazakhstan-Joins-Pax-Silica-and-AI-Opportunity-Partnership-to-Advance-Trusted-AI-Infrastructure-and-Innovation",
+          "resumen": "La República de Kazajistán se ha unido a Pax Silica y ha firmado la Declaración Conjunta sobre la Alianza de Oportunidades de IA, dos marcos internacionales destinados a promover la cooperación en inteligencia artificial, innovación tecnológica y cadenas de suministro resilientes. Esta adhesión busca fortalecer el papel de Kazajistán en la configuración de las cadenas de valor tecnológicas globales, con un enfoque en la construcción de un ecosistema de IA resiliente e innovador.",
+          "por_que_importa": "Esta noticia subraya la creciente importancia geopolítica de la IA y la formación de alianzas internacionales para establecer estándares y cadenas de suministro. Los fundadores tech deben estar atentos a cómo estas iniciativas pueden influir en las regulaciones, el acceso a recursos y las oportunidades de mercado en diferentes regiones."
+        },
+        {
+          "ranking": 6,
+          "categoria": "mercados",
+          "titular": "La confianza de los inversores en Vietnam se fortalece por el sólido desempeño económico y la recuperación del turismo.",
+          "fuente": "BusinessToday Malaysia",
+          "url": "https://www.businesstoday.com.my/2026/06/27/whats-driving-investor-confidence-in-vietnam/",
+          "resumen": "El sólido desempeño económico de Vietnam, la recuperación del turismo, la expansión urbana y la demanda interna resiliente están fortaleciendo la confianza de los inversores en el país, según Savills Vietnam. La economía de Vietnam se expandió un 7.83% interanual en el primer trimestre de 2026, impulsada por la manufactura, las exportaciones, los servicios y el consumo doméstico. Los inversores globales están siendo más selectivos y se enfocan en mercados con crecimiento sostenible y fundamentos sólidos.",
+          "por_que_importa": "Para los fundadores tech que buscan expandirse internacionalmente o atraer inversión, Vietnam representa un mercado emergente con fundamentos económicos sólidos y un entorno favorable para el crecimiento. La diversificación geográfica de las operaciones y las fuentes de capital puede mitigar riesgos y abrir nuevas oportunidades."
+        },
+        {
+          "ranking": 7,
+          "categoria": "mercados",
+          "titular": "El mercado de envases de PET alcanzará los 144.900 millones de dólares para 2036, impulsado por el consumo de bebidas y la economía circular.",
+          "fuente": "24-7PressRelease.com",
+          "url": "https://www.24-7pressrelease.com/press-release/529947/pet-packaging-market-set-to-reach-usd-1449-billion-by-2036-as-beverage-consumption-circular-economy-initiatives-and-recycled-content-mandates-drive-global-growth",
+          "resumen": "El mercado global de envases de PET se proyecta que crecerá de 93.300 millones de dólares en 2026 a 144.900 millones de dólares para 2036, con una CAGR del 4.5%. Este crecimiento está impulsado por el consumo sostenido de bebidas, la creciente adopción de PET reciclado (rPET) y las regulaciones que exigen contenido reciclado. El informe destaca oportunidades de inversión en la producción de rPET de grado alimenticio y soluciones de envasado circular.",
+          "por_que_importa": "Aunque no es directamente tech, esta noticia muestra una tendencia de mercado masiva impulsada por la sostenibilidad y la regulación. Los fundadores tech podrían encontrar oportunidades en el desarrollo de tecnologías para la trazabilidad del rPET, la optimización de procesos de reciclaje con IA, o la creación de plataformas para la economía circular de materiales, integrando tecnología en una industria tradicional."
+        },
+        {
+          "ranking": 8,
+          "categoria": "mercados",
+          "titular": "El EGX de Egipto cierra una semana difícil mientras los compradores extranjeros compensan las ventas internas.",
+          "fuente": "Middle East Observer",
+          "url": "https://www.middleeastobserver.com/egx-ends-difficult-week-as-foreign-buyers-offset-domestic-selling/",
+          "resumen": "Las acciones egipcias terminaron la semana de negociación a la baja debido a la toma de ganancias de los inversores nacionales y la liquidez moderada. Sin embargo, los inversores extranjeros y árabes continuaron acumulando posiciones, lo que refuerza la confianza en las perspectivas de inversión a medio plazo de Egipto a pesar de la volatilidad del mercado a corto plazo. El índice de referencia EGX30 disminuyó un 0.52%.",
+          "por_que_importa": "Esta noticia ilustra la dinámica de los mercados emergentes, donde el sentimiento de los inversores locales puede diferir del de los internacionales. Para los fundadores tech que buscan capital o expansión, entender estas dinámicas es clave para identificar oportunidades de inversión extranjera directa o para evaluar la estabilidad de un mercado para sus productos o servicios."
+        },
+        {
+          "ranking": 9,
+          "categoria": "AI",
+          "titular": "OpenAI retrasa el lanzamiento público de GPT-5.6 debido a la revisión de seguridad del gobierno de EE. UU.",
+          "fuente": "AI News — Industry Reports & Global Coverage",
+          "url": "https://ainews.com/openai-delays-public-release-of-gpt-5-6-us-government-security-review-sparks-ai-regulation-controversy/",
+          "resumen": "OpenAI ha anunciado el retraso en el lanzamiento público de su modelo GPT-5.6 debido a preocupaciones de seguridad nacional del gobierno de EE. UU. sobre la tecnología de IA de frontera. Esta decisión ha encendido un debate generalizado sobre la regulación de la IA y la libertad de innovación. OpenAI ha expresado que, si bien coopera, no cree que este tipo de proceso de acceso gubernamental deba convertirse en la norma a largo plazo.",
+          "por_que_importa": "Este evento es un recordatorio contundente de que la regulación gubernamental es un factor cada vez más influyente en el desarrollo y despliegue de la IA avanzada. Los fundadores tech deben integrar la estrategia regulatoria en su planificación de producto y desarrollo, anticipando posibles retrasos o restricciones que puedan afectar su hoja de ruta y su capacidad para llevar la innovación al mercado."
+        },
+        {
+          "ranking": 10,
+          "categoria": "tendencia",
+          "titular": "La demanda de chips de memoria para IA impulsa los márgenes de beneficio de Micron Technology al 84.9%.",
+          "fuente": "News1",
+          "url": "https://www.news1.kr/articles/5916053",
+          "resumen": "Micron Technology ha registrado un margen bruto récord del 84.9%, superando a sus competidores, impulsado por la fuerte demanda de chips de memoria para IA. Este hito señala una nueva era para los semiconductores de memoria, donde la inteligencia artificial se convierte en el principal motor de crecimiento y rentabilidad en la industria.",
+          "por_que_importa": "Esta noticia destaca una tendencia tecnológica clave: la infraestructura subyacente de la IA, como los chips de memoria, está experimentando un auge masivo. Los fundadores tech deben reconocer que la demanda de hardware especializado para IA seguirá creciendo, creando oportunidades para startups en áreas como el diseño de chips, la optimización de la memoria o soluciones de refrigeración y eficiencia energética para centros de datos de IA."
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-06-28T05:06:04.860406-06:00",
+      "status": "ok"
+    },
+    "mercados": {
+      "key": "mercados",
+      "title": "💹 Pulso de Mercados",
+      "data": null,
+      "grounding_sources": [],
+      "generated_at": "2026-06-28T05:06:16.967507-06:00",
+      "status": "error",
+      "error": "'NoneType' object has no attribute 'strip'"
+    },
+    "radar": {
+      "key": "radar",
+      "title": "🛰️ RADAR Inteligencia",
+      "data": [],
+      "generated_at": "2026-06-28T05:06:19.681516-06:00",
+      "status": "error",
+      "signals_total": 0,
+      "queries_run": 3,
+      "errors": [
+        "HTTP 401 for query: Top AI funding rounds and product launch",
+        "HTTP 401 for query: Big Tech AI announcements Google Microso",
+        "HTTP 401 for query: AI regulation policy changes worldwide l"
+      ]
+    }
+  },
+  "summary": {
+    "sections_ok": 4,
+    "sections_total": 6,
+    "quality": "PARTIAL"
+  }
+}
