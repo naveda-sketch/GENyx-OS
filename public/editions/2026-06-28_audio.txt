@@ -1,0 +1,109 @@
+El Periódico. Edición del 2026-06-28.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Elon Musk.
+Mercado de predicción sobre la actividad de publicaciones en X. Un mercado de predicción está rastreando si Elon Musk publicará entre 40 y 64 veces en X del 27 al 29 de junio de 2026. El contrato de 'SÍ' tiene un 41.5% de probabilidad, con un volumen de $21,136 negociado en las últimas 24 horas, lo que indica un interés especulativo reciente. Fuente: Lines.com.
+
+Satya Nadella.
+Insta a las empresas a construir modelos de IA personalizados. En una entrevista el 27 de junio, el CEO de Microsoft, Satya Nadella, afirmó que 'debería haber tantos modelos en el mundo como empresas en el mundo', y advirtió contra el encierro en un solo modelo. Argumentó que las empresas deben usar su propio contexto y datos para elegir o ajustar modelos, ya que externalizar el aprendizaje institucional a unos pocos proveedores conlleva riesgos económicos a largo plazo. Fuente: Let's Data Science / Business Insider Africa.
+
+Jensen Huang.
+Ingresos de NVIDIA en China caen a cero; presenta plan de recuperación. Jensen Huang admitió el 26 de junio que los ingresos de NVIDIA en China han caído a cero debido a las restricciones de chips. Presentó un plan de recuperación de $20 mil millones centrado en el creciente negocio de CPU de la compañía. Fuente: The Motley Fool.
+La filosofía 'Zen de Jensen' sobre la ambición y el enfoque a largo plazo. El 27 de junio, Jensen Huang, CEO de NVIDIA, habló sobre su filosofía de 'dejar que el mundo venga a mí', enfatizando un enfoque estrecho, paciencia profunda y la creencia de que el tiempo se expande cuando el trabajo de la vida es claro. A pesar de su intensa agenda, su ambición es sobresalir en el momento presente y cultivar el oficio de la empresa durante décadas. Fuente: Benzinga.
+
+Sam Altman.
+OpenAI limita el lanzamiento de GPT-5.6 Sol a clientes aprobados por Trump. El 26 de junio, OpenAI anunció que está restringiendo el lanzamiento de su nuevo modelo de IA, GPT-5.6 Sol, a un 'pequeño grupo de socios de confianza' aprobados por la administración Trump, a solicitud del gobierno. Esta medida se produce en medio de una revisión de ciberseguridad sin precedentes de productos de IA. Fuente: KVUE / Yahoo Finance.
+
+Dario Amodei.
+Modelos de Anthropic retirados por directiva de la administración Trump. El 26 de junio, se informó que Anthropic retiró dos de sus nuevos modelos de IA, Fable 5 y Mythos 5, días después de su lanzamiento público, para cumplir con una directiva de la administración Trump que bloqueaba su uso por parte de ciudadanos extranjeros. Dario Amodei, CEO de Anthropic, ha tenido una relación más contenciosa con la administración Trump en comparación con otros líderes de IA. Fuente: KVUE.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+Lanzamiento restringido de GPT-5.6. OpenAI ha lanzado nuevas versiones de modelos de IA, incluyendo GPT-5.6, con acceso limitado a un pequeño grupo de socios de confianza. Esta restricción se implementó a petición de la Administración Trump para evaluar la seguridad de los modelos antes de un lanzamiento más amplio. Fuente: El Economista / Quartz.
+OpenAI lanza su primer chip de IA, Jalapeño. OpenAI ha presentado Jalapeño, su primer chip de inteligencia artificial personalizado, desarrollado en alianza con Broadcom Inc. Este chip busca optimizar la ejecución de cargas de trabajo de IA, mostrando ahorros de costos de aproximadamente 50% frente a las GPU tradicionales. Fuente: El Economista / Diario Financiero.
+
+Google DeepMind.
+Gemini 3.5 Flash con uso de computadoras. Google DeepMind ha introducido la capacidad de uso de computadoras en su modelo Gemini 3.5 Flash, mejorando su funcionalidad y velocidad. Esta actualización permite al modelo interactuar más eficazmente con entornos digitales. Fuente: Google DeepMind News.
+Gemini 3.5 Live Translate para traducción de voz. Google DeepMind ha lanzado Gemini 3.5 Live Translate, ofreciendo traducción de voz fluida y natural. Esta mejora en los modelos de audio de Gemini busca proporcionar experiencias de voz más potentes y realistas. Fuente: Google DeepMind News.
+
+Anthropic.
+Autorización de Mythos 5 en EE.UU.. Anthropic ha recibido autorización del gobierno de EE.UU. para lanzar su modelo de IA más avanzado, Mythos 5, a un grupo restringido de organizaciones. Esta decisión sigue a una restricción previa por motivos de seguridad nacional, y la empresa continúa trabajando con Washington para ampliar su disponibilidad. Fuente: La Tercera.
+Mythos detecta vulnerabilidades en sistemas gubernamentales. Un modelo de inteligencia artificial de Anthropic, Mythos, identificó vulnerabilidades en sistemas informáticos clasificados del gobierno de Estados Unidos durante un ejercicio de pruebas. Esto se realizó como parte del Proyecto Glasswing, una iniciativa para proteger software crítico. Fuente: Investing.com (citando AP).
+
+Meta AI.
+Meta lanza gafas con IA a $299. Meta ha lanzado nuevas gafas inteligentes con inteligencia artificial integrada, las Meta Glasses, a un precio más accesible de 299 dólares. Estas gafas incluyen micrófono, audífonos, cámara y un botón específico para usar Meta AI, buscando democratizar el acceso a la IA en dispositivos wearables. Fuente: YouTube (Digital Brain) / Diario Las Américas.
+
+Microsoft AI.
+Tendencias de IA en el trabajo y tokenomics. Microsoft ha publicado un artículo que explora la 'tokenomics' como una nueva métrica para la IA en el trabajo, junto con cuatro tendencias clave. El artículo enfatiza que las decisiones estratégicas son más importantes que la tecnología en sí para liderar la transformación de la IA. Fuente: Microsoft Source.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Baseten.
+Ronda de financiación Serie F de $1.5 mil millones. Baseten, proveedor de software de sistemas para ejecutar cargas de trabajo de aplicaciones de IA, cerró una ronda de financiación Serie F de $1.5 mil millones. Esta es su cuarta recaudación de fondos en 18 meses y valora a la empresa en $13 mil millones. Fuente: Crunchbase News.
+
+AppsFlyer.
+Recauda más de $1 mil millones en financiación Serie E. AppsFlyer, un proveedor de análisis de datos con el marketing digital como caso de uso principal, supuestamente obtuvo más de $1 mil millones en una ronda de financiación Serie E. Esta ronda valora a la empresa en $2.7 mil millones después de la inversión. Fuente: Crunchbase News.
+
+Groq.
+Cierra $650 millones en nueva financiación. Groq, con sede en San Francisco, cerró $650 millones en nueva financiación liderada por Infinitum y Disruptive. Los fondos se utilizarán para escalar su tecnología e infraestructura de nube de inferencia de IA. Fuente: Crunchbase News.
+
+Upscale AI.
+Extensión de financiación Serie A de $190 millones. La startup de infraestructura de red de IA, Upscale AI, recaudó $190 millones en una extensión de financiación Serie A. Esto eleva su financiación total a $500 millones y establece una valoración de $2 mil millones para la compañía. Fuente: Crunchbase News.
+
+Stark.
+Recauda $569 millones en financiación. La startup berlinesa de tecnología de defensa, Stark, supuestamente recaudó $569 millones en una financiación liderada por Founders Fund y Sequoia Capital. Fuente: Crunchbase News.
+
+Sección: 📰 Top 10 Noticias.
+
+OpenAI y Broadcom revelan 'Jalapeño', su primer chip de inferencia de IA personalizado para reducir costos..
+OpenAI, en colaboración con Broadcom, ha presentado 'Jalapeño', su primer chip de inferencia de IA diseñado a medida. Este chip busca reducir drásticamente los costos operativos de los modelos de lenguaje grandes (LLMs) en hasta un 50%, marcando un paso estratégico para disminuir la dependencia de OpenAI de proveedores externos como Nvidia. La iniciativa subraya una tendencia creciente entre las grandes tecnológicas de desarrollar hardware propio para optimizar sus cargas de trabajo de IA. Fuente: TechCrunch.
+¿Por qué importa? Para un fundador tech, esto es crucial porque señala una nueva era en la economía de la IA donde la optimización de costos de inferencia se vuelve tan importante como la capacidad del modelo. Las startups deben considerar cómo la reducción de costos de hardware impactará los precios de los servicios de IA y la viabilidad de sus propios modelos, fomentando la innovación en eficiencia.
+
+El Departamento de Comercio de EE. UU. levanta parcialmente las restricciones sobre el modelo Mythos 5 de Anthropic..
+El Departamento de Comercio de Estados Unidos ha notificado a Anthropic que su modelo de IA Mythos 5, enfocado en ciberseguridad, puede ser desplegado a un conjunto selecto de organizaciones estadounidenses que operan y defienden infraestructura crítica. Esta decisión marca un alivio parcial de las restricciones impuestas previamente por preocupaciones de seguridad nacional. Sin embargo, el modelo Fable 5, de cara al consumidor, sigue restringido. Fuente: Reuters.
+¿Por qué importa? Esta noticia destaca la creciente intervención gubernamental en la regulación de la IA de frontera y la creación de un régimen de acceso escalonado. Los fundadores tech deben entender que la seguridad y la confianza gubernamental son factores críticos para el despliegue de modelos avanzados, lo que puede influir en la estrategia de producto y la expansión de mercado.
+
+Anthropic acusa a Alibaba de robo masivo de modelos de IA mediante ingeniería inversa de Claude..
+Anthropic ha acusado formalmente a Alibaba y su laboratorio de IA de llevar a cabo el 'ataque de destilación más grande conocido' contra sus modelos de IA Claude. La acusación, presentada en una carta al Comité Bancario del Senado de EE. UU., alega que se realizaron 28.8 millones de intercambios ilícitos utilizando aproximadamente 25,000 cuentas fraudulentas. Este incidente subraya las crecientes tensiones sobre la propiedad intelectual en el espacio de la IA. Fuente: CNBC.
+¿Por qué importa? Para los fundadores tech, esta noticia resalta los riesgos significativos de seguridad y propiedad intelectual en el desarrollo de IA. Es fundamental implementar medidas robustas de protección de modelos y datos, y estar preparados para litigios o disputas comerciales en un ecosistema cada vez más competitivo y propenso a la ingeniería inversa.
+
+El éxodo de talento de IA de Google genera preocupación entre los inversores por la competitividad de Gemini..
+La preocupación de los inversores se centra en el éxodo de talento de IA de Google, con informes de más investigadores clave que se marchan a rivales como Anthropic. Esto ha generado inquietud sobre la ejecución del modelo Gemini y la competitividad general de Google en el ámbito de la inteligencia artificial. La pérdida de personal de investigación de alto perfil podría afectar la capacidad de la empresa para innovar. Fuente: MarketBeat.
+¿Por qué importa? Este es un claro indicador de la intensa guerra por el talento en IA. Los fundadores tech deben priorizar la creación de una cultura que atraiga y retenga a los mejores ingenieros y científicos de IA, ya que la capacidad de innovación y la percepción del mercado están directamente ligadas a la calidad de su equipo.
+
+Kazajistán se une a Pax Silica y la Alianza de Oportunidades de IA para impulsar la infraestructura de IA y la innovación..
+La República de Kazajistán se ha unido a Pax Silica y ha firmado la Declaración Conjunta sobre la Alianza de Oportunidades de IA, dos marcos internacionales destinados a promover la cooperación en inteligencia artificial, innovación tecnológica y cadenas de suministro resilientes. Esta adhesión busca fortalecer el papel de Kazajistán en la configuración de las cadenas de valor tecnológicas globales, con un enfoque en la construcción de un ecosistema de IA resiliente e innovador. Fuente: TMX Newsfile.
+¿Por qué importa? Esta noticia subraya la creciente importancia geopolítica de la IA y la formación de alianzas internacionales para establecer estándares y cadenas de suministro. Los fundadores tech deben estar atentos a cómo estas iniciativas pueden influir en las regulaciones, el acceso a recursos y las oportunidades de mercado en diferentes regiones.
+
+La confianza de los inversores en Vietnam se fortalece por el sólido desempeño económico y la recuperación del turismo..
+El sólido desempeño económico de Vietnam, la recuperación del turismo, la expansión urbana y la demanda interna resiliente están fortaleciendo la confianza de los inversores en el país, según Savills Vietnam. La economía de Vietnam se expandió un 7.83% interanual en el primer trimestre de 2026, impulsada por la manufactura, las exportaciones, los servicios y el consumo doméstico. Los inversores globales están siendo más selectivos y se enfocan en mercados con crecimiento sostenible y fundamentos sólidos. Fuente: BusinessToday Malaysia.
+¿Por qué importa? Para los fundadores tech que buscan expandirse internacionalmente o atraer inversión, Vietnam representa un mercado emergente con fundamentos económicos sólidos y un entorno favorable para el crecimiento. La diversificación geográfica de las operaciones y las fuentes de capital puede mitigar riesgos y abrir nuevas oportunidades.
+
+El mercado de envases de PET alcanzará los 144.900 millones de dólares para 2036, impulsado por el consumo de bebidas y la economía circular..
+El mercado global de envases de PET se proyecta que crecerá de 93.300 millones de dólares en 2026 a 144.900 millones de dólares para 2036, con una CAGR del 4.5%. Este crecimiento está impulsado por el consumo sostenido de bebidas, la creciente adopción de PET reciclado (rPET) y las regulaciones que exigen contenido reciclado. El informe destaca oportunidades de inversión en la producción de rPET de grado alimenticio y soluciones de envasado circular. Fuente: 24-7PressRelease.com.
+¿Por qué importa? Aunque no es directamente tech, esta noticia muestra una tendencia de mercado masiva impulsada por la sostenibilidad y la regulación. Los fundadores tech podrían encontrar oportunidades en el desarrollo de tecnologías para la trazabilidad del rPET, la optimización de procesos de reciclaje con IA, o la creación de plataformas para la economía circular de materiales, integrando tecnología en una industria tradicional.
+
+El EGX de Egipto cierra una semana difícil mientras los compradores extranjeros compensan las ventas internas..
+Las acciones egipcias terminaron la semana de negociación a la baja debido a la toma de ganancias de los inversores nacionales y la liquidez moderada. Sin embargo, los inversores extranjeros y árabes continuaron acumulando posiciones, lo que refuerza la confianza en las perspectivas de inversión a medio plazo de Egipto a pesar de la volatilidad del mercado a corto plazo. El índice de referencia EGX30 disminuyó un 0.52%. Fuente: Middle East Observer.
+¿Por qué importa? Esta noticia ilustra la dinámica de los mercados emergentes, donde el sentimiento de los inversores locales puede diferir del de los internacionales. Para los fundadores tech que buscan capital o expansión, entender estas dinámicas es clave para identificar oportunidades de inversión extranjera directa o para evaluar la estabilidad de un mercado para sus productos o servicios.
+
+OpenAI retrasa el lanzamiento público de GPT-5.6 debido a la revisión de seguridad del gobierno de EE. UU..
+OpenAI ha anunciado el retraso en el lanzamiento público de su modelo GPT-5.6 debido a preocupaciones de seguridad nacional del gobierno de EE. UU. sobre la tecnología de IA de frontera. Esta decisión ha encendido un debate generalizado sobre la regulación de la IA y la libertad de innovación. OpenAI ha expresado que, si bien coopera, no cree que este tipo de proceso de acceso gubernamental deba convertirse en la norma a largo plazo. Fuente: AI News — Industry Reports & Global Coverage.
+¿Por qué importa? Este evento es un recordatorio contundente de que la regulación gubernamental es un factor cada vez más influyente en el desarrollo y despliegue de la IA avanzada. Los fundadores tech deben integrar la estrategia regulatoria en su planificación de producto y desarrollo, anticipando posibles retrasos o restricciones que puedan afectar su hoja de ruta y su capacidad para llevar la innovación al mercado.
+
+La demanda de chips de memoria para IA impulsa los márgenes de beneficio de Micron Technology al 84.9%..
+Micron Technology ha registrado un margen bruto récord del 84.9%, superando a sus competidores, impulsado por la fuerte demanda de chips de memoria para IA. Este hito señala una nueva era para los semiconductores de memoria, donde la inteligencia artificial se convierte en el principal motor de crecimiento y rentabilidad en la industria. Fuente: News1.
+¿Por qué importa? Esta noticia destaca una tendencia tecnológica clave: la infraestructura subyacente de la IA, como los chips de memoria, está experimentando un auge masivo. Los fundadores tech deben reconocer que la demanda de hardware especializado para IA seguirá creciendo, creando oportunidades para startups en áreas como el diseño de chips, la optimización de la memoria o soluciones de refrigeración y eficiencia energética para centros de datos de IA.
+
+Sección: 💹 Pulso de Mercados.
+
+No se encontró información para esta sección.
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
