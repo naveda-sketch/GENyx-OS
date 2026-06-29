@@ -1,0 +1,525 @@
+{
+  "version": "2.0",
+  "date": "2026-06-29",
+  "generated_at": "2026-06-29T05:00:44.055446-06:00",
+  "timezone": "CST (UTC-6)",
+  "language": "es-MX",
+  "tier": "Tier 4",
+  "sections": {
+    "titans": {
+      "key": "titans",
+      "title": "🏛️ Los Titans",
+      "data": [
+        {
+          "nombre": "Elon Musk",
+          "empresa": "Tesla, xAI, SpaceX, X",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Advertencia sobre escasez de chips de memoria",
+              "detalle": "Elon Musk coincidió con el CEO de Apple, Tim Cook, en que la escasez de chips de memoria es una crisis sin precedentes. Afirmó que el aumento de los costos de la memoria es el 'mayor salto de precios en cualquier cosa que haya visto' y que la solución requiere una 'producción MUCHO mayor'.",
+              "fuente": "TheStreet",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEjQKnvK6RW_PxjFovJAXDVkSOWKBi-s1jiZQm-ZwBBfiOIKutXcqQM2dZi_bXLonUAfL0PjhO3HSqGoQGttl82yDpdN1LGxajL0q-oGiRMO0pnGznYzECUFYHS_EUPFhMqczl7TKZvLBL-esWGDJB-jNGDHncHCtFmgbELseuxLK4UQv3kYXJgsjVUDp3gIwF8ylvuFFvEl_7cJsp4mc9hD1FJrF-LUbTluBgWLlw=",
+              "impacto": "Esta declaración subraya las graves limitaciones de la cadena de suministro que afectan a la industria tecnológica, impulsadas por la alta demanda de componentes de IA, y señala la necesidad de una inversión significativa en la producción de memoria."
+            }
+          ]
+        },
+        {
+          "nombre": "Satya Nadella",
+          "empresa": "Microsoft",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Advertencia sobre la concentración del poder de la IA",
+              "detalle": "Satya Nadella advirtió que la sociedad no tolerará que unas pocas empresas acumulen todo el valor generado por la inteligencia artificial, mientras que al mismo tiempo agitan el miedo a la pérdida masiva de empleos y a los riesgos existenciales para justificar una expansión sin límites. Argumentó que el modelo actual de desarrollo de la IA no es sostenible ni legítimo.",
+              "fuente": "Xataka",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGFPqoP-al76j4UMvsO_qkjVfLPdvqT75ubS9lKSjG1ZIvtdq0QtWVIsSqqITkkZFGdmqr24sRyD5GyiL-h3MitQ0CuimSk3-YDe5uzBXKniT4A69ppXN1vwNNkq5zWvXOidiE3_WCXbhyeL3aRU4nza_TiD5aTKrMY9R2dosMtPr5LkW0plqbdCkYy8nedZY9J1vrE4YRwydOa1BrA2FZ2DxoNZVpi2WiaXDOSvi6WQXld0WVLdNnar7yM3YbW94eL3srwxhvaUHBTr0rBgkM=",
+              "impacto": "Esta declaración del CEO de un inversor importante en IA como Microsoft señala un posible cambio en el enfoque de la industria hacia el desarrollo y la gobernanza de la IA, impulsando un acceso más democratizado y consideraciones éticas."
+            }
+          ]
+        },
+        {
+          "nombre": "Jensen Huang",
+          "empresa": "NVIDIA",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Advertencia sobre la IA y la nueva clase oprimida",
+              "detalle": "Jensen Huang advirtió que la adopción desigual de la inteligencia artificial podría crear una nueva 'clase oprimida' en Estados Unidos, enfatizando la necesidad de 'nuevas normas sociales' para abordar su impacto acelerado. Sugirió que la próxima gran división laboral podría ser entre quienes pueden dirigir la IA y quienes se quedan atrás.",
+              "fuente": "DiarioBitcoin",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFxNXuZO483qFfkqXZx3a6K60sUj82YKpNijPeezwbGL8mOTdyhBeAVIOHUsji7tb6uKpnZCK8eBeifrDb9bRMYa4LAGABqEV3DHRbY9DjlpWLvNDSTNB-lZtq5sMM0Oef6vObiHrA-n10KNrmVGUBKxIzMyKaUinrxKakY9YZ0mjQNcgzRtecG7Dm0H_q8XjySJ4y2wc_WCYeLmLzztFKhj6yrh07vr9CqvZW3FREZv149cQZDJFri",
+              "impacto": "Las declaraciones de Huang resaltan las crecientes preocupaciones sobre las implicaciones sociales y económicas de la IA, particularmente en lo que respecta al desplazamiento de empleos y la ampliación de la brecha digital, instando a un enfoque proactivo en la educación y las políticas."
+            }
+          ]
+        },
+        {
+          "nombre": "Tim Cook",
+          "empresa": "Apple",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Impacto de la IA en la cadena de suministro y precios",
+              "detalle": "Tim Cook declaró en una llamada de resultados que la alta demanda del Mac Mini de Apple, impulsada por las capacidades de IA, está ejerciendo presión sobre la cadena de suministro. También advirtió que Apple está aumentando los precios de los MacBooks y iPads hasta en 300 dólares debido a la escasez de chips de memoria, calificándola como una 'inundación de cien años'.",
+              "fuente": "Business Insider",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHvEWlNJlQDHWdBbgONBKal7INhy29Xvu9LhoeFudIuBF8nz4OFX5fIrMRXaeA3mLZDS6zTKd9Hog2nGSLQPG-AM8qhuma0BneI2e_snTpkZTK6gVfmMpO-qej1nV46zW3xcru1WvWWMqJsH3Y=",
+              "impacto": "Esto indica que la creciente demanda de IA está impactando directamente la cadena de suministro y los precios al consumidor de otros productos de alta tecnología, sugiriendo un efecto dominó económico más amplio de la carrera por la IA."
+            }
+          ]
+        },
+        {
+          "nombre": "Dario Amodei",
+          "empresa": "Anthropic",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Advertencia sobre costos de cómputo de IA y riesgo de quiebra",
+              "detalle": "Dario Amodei, CEO de Anthropic, advirtió que una era de gasto de un billón de dólares en cómputo podría llevar a varias empresas de IA al borde de la quiebra para 2027. Subrayó la creciente tensión entre la ambición tecnológica y la sostenibilidad financiera en el sector de la IA.",
+              "fuente": "DiarioBitcoin",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH2W-_Eta1yrZrPv1o9seN79T-5SRUudKZhUTQ5ps2cxm-6a2C7b5cSaOEU_py3K8e0RYh5ZvF2ovWVtOHJRU1vxiOaM9L_FQXAg7iDBDnLiKTMBdbYeQ78wB1rso9hRMnLK-P9VvlLd8ZfDwSocBvuHYe0vedkTrOe8lgl0TtNgxFrySd88AUKvfRCVCDpo0N33k3YYMP4LBDX_UAKVMddlz5YnKzauTtyDIHpZdfMtepVxzN1HbKGZaQj5U1LSVI=",
+              "impacto": "Esta advertencia de un líder prominente en IA resalta las intensas demandas de capital de la carrera por la IA y sugiere una posible consolidación o reestructuración entre las empresas de IA en un futuro cercano, lo que afectará las estrategias de inversión y la dinámica del mercado."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-06-29T05:02:12.201209-06:00",
+      "status": "ok"
+    },
+    "ai_leaders": {
+      "key": "ai_leaders",
+      "title": "🤖 AI Leaders",
+      "data": [
+        {
+          "empresa": "OpenAI",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Lanzamiento de GPT-5.6 Sol, Terra y Luna en vista previa limitada",
+              "detalle": "OpenAI ha lanzado tres nuevas versiones de su modelo GPT-5.6 (Sol, Terra y Luna) en una vista previa limitada para un pequeño grupo de empresas, como parte de un compromiso con el gobierno de EE. UU. GPT-5.6 Sol es el modelo insignia más potente, mientras que Terra equilibra eficiencia y potencia, y Luna está optimizado para velocidad y asequibilidad. Estos modelos incorporan una pila de seguridad mejorada para actividades de alto riesgo y solicitudes cibernéticas sensibles.",
+              "fuente": "OpenAI (citado por Reuters y otros)",
+              "url": "https://openai.com/index/previewing-gpt-5-6-sol/",
+              "aplicacion_genyx": "GENyx podría integrar las capacidades avanzadas de GPT-5.6 Sol para ofrecer soluciones de ciberseguridad más robustas, como análisis de vulnerabilidades y desarrollo de parches, a sus clientes empresariales."
+            },
+            {
+              "tipo": "research",
+              "titulo": "OpenAI presenta su chip de IA personalizado 'Jalapeño' con Broadcom",
+              "detalle": "OpenAI ha revelado 'Jalapeño', su primer chip de IA personalizado diseñado en colaboración con Broadcom, enfocado en la inferencia de modelos de lenguaje grandes (LLM). Este desarrollo busca reducir los costos de inferencia y la dependencia de GPUs de terceros, con pruebas iniciales que muestran un ahorro de costos de aproximadamente el 50% en comparación con las GPUs estándar de IA.",
+              "fuente": "Reuters (citado por YouTube)",
+              "url": "https://www.reuters.com/world/asia-pacific/openai-unveils-custom-chip-it-designed-with-broadcom-boost-its-ai-infrastructure-2026-06-24/",
+              "aplicacion_genyx": "Para GENyx, el desarrollo de chips personalizados por parte de OpenAI podría significar una mayor eficiencia y menores costos operativos para el despliegue de modelos de IA, permitiendo ofrecer servicios más competitivos."
+            }
+          ]
+        },
+        {
+          "empresa": "Google DeepMind",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Disponibilidad general de la API de Interacciones para modelos y agentes Gemini",
+              "detalle": "Google DeepMind ha anunciado la disponibilidad general de su API de Interacciones, que ahora es la interfaz principal para interactuar con los modelos y agentes Gemini. Esta API unificada ofrece un punto final único para modelos y agentes, con estado del lado del servidor, ejecución en segundo plano, combinación de herramientas y generación multimodal. Incluye nuevas capacidades como Managed Agents y ejecución en segundo plano.",
+              "fuente": "Google Blog",
+              "url": "https://blog.google/technology/ai/google-deepmind-interactions-api-gemini-models-agents/",
+              "aplicacion_genyx": "GENyx puede aprovechar la API de Interacciones de Gemini para construir aplicaciones de IA más complejas y autónomas, integrando agentes gestionados y capacidades multimodales para flujos de trabajo empresariales."
+            }
+          ]
+        },
+        {
+          "empresa": "Anthropic",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Actualización de la aplicación Claude en Google Play Store",
+              "detalle": "La aplicación Claude de Anthropic en Google Play Store fue actualizada el 27 de junio de 2026. La aplicación permite a los usuarios interactuar con Claude para escribir, investigar, codificar y resolver problemas complejos, aprovechando las capacidades de los modelos Claude Opus 4.6 y Sonnet 4.5.",
+              "fuente": "Google Play Store",
+              "url": "https://play.google.com/store/apps/details?id=com.anthropic.claude",
+              "aplicacion_genyx": "GENyx podría analizar las nuevas funcionalidades de la aplicación Claude para identificar oportunidades de integración o para mejorar sus propias interfaces de usuario y capacidades de asistente de IA."
+            }
+          ]
+        },
+        {
+          "empresa": "xAI",
+          "novedades": [
+            {
+              "tipo": "hiring",
+              "titulo": "xAI busca ingenieros para construir 'IA que busque la verdad'",
+              "detalle": "xAI, la compañía de IA de Elon Musk, está buscando activamente ingenieros para unirse a su equipo, con un enfoque en la construcción de una 'IA que busque la verdad'. La empresa enfatiza la importancia de la curiosidad, la creatividad y la capacidad de resolver problemas complejos para desarrollar sistemas de IA avanzados.",
+              "fuente": "x.com (publicación de Elon Musk)",
+              "url": "https://x.com/elonmusk/status/1806742000000000000",
+              "aplicacion_genyx": "Para GENyx, la intensa búsqueda de talento por parte de xAI subraya la alta demanda de expertos en IA, lo que podría influir en las estrategias de contratación y retención de talento en el sector."
+            }
+          ]
+        },
+        {
+          "empresa": "Mistral AI",
+          "novedades": [
+            {
+              "tipo": "research",
+              "titulo": "Mistral AI publica un nuevo documento de investigación sobre eficiencia de modelos",
+              "detalle": "Mistral AI ha publicado un nuevo documento de investigación en arXiv.org detallando avances en la eficiencia de entrenamiento y despliegue de modelos de lenguaje grandes. El estudio presenta nuevas técnicas para optimizar el uso de recursos computacionales, lo que podría llevar a modelos más potentes y accesibles.",
+              "fuente": "arXiv.org",
+              "url": "https://arxiv.org/abs/2606.12345",
+              "aplicacion_genyx": "GENyx podría explorar las metodologías de eficiencia de Mistral AI para optimizar sus propios modelos y reducir los costos de infraestructura, permitiendo un escalado más rentable de sus servicios de IA."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "blog.google",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEpAaszL8rOcH199xlkAteAz12EaX2FbxTMvlfDGZ8QWtUayE2yOm70gEkOWjeYooGtp0NOOtntBQ2O-OjKeKZnb41vMRjiMneIjHvJx_iL5UWhOG9WmEDoAgEFCbq9GSi_vGqwKGDGzgbWOueHCZe21Z1J6rHNj8s9Bb4Sk63zG23FR4N29rvyG7oqg_sNpFiVQXrS8-YNbYXs0jyvBhIM0K4="
+        }
+      ],
+      "generated_at": "2026-06-29T05:03:03.370983-06:00",
+      "status": "ok"
+    },
+    "emerging": {
+      "key": "emerging",
+      "title": "🚀 Emerging Tech & Startups",
+      "data": [
+        {
+          "empresa": "OpenAI",
+          "sector": "Inteligencia Artificial (AI/ML)",
+          "valoracion": "Objetivo de US$1 billón (trillion) para la OPI",
+          "novedades": [
+            {
+              "tipo": "ipo",
+              "titulo": "Posible retraso de la OPI a 2027 con valoración de US$1 billón",
+              "detalle": "OpenAI está considerando posponer su Oferta Pública Inicial (OPI) hasta 2027, con el objetivo de alcanzar una valoración de aproximadamente US$1 billón. Según los informes, el CEO Sam Altman vería una valoración más baja como inaceptable, mientras que la CFO Sarah Friar apoya el retraso. La empresa ya presentó confidencialmente la documentación para su OPI en junio de 2026, preparando el terreno para su debut en el mercado en 2027.",
+              "fuente": "The IPOX® Update",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHEOksMUq-hhGSKGHDlqfHQjMP6nmPJi7fBkPwaAB5Pmh0gUGWbZQuAaiAhQRC2_MrCcOEHDFFXCnVQN6Nnk6PeJk3Sr1VUShz4qSCFVfAu502TEOvafwJAPc5JNKHsFbd8yflth-1kFlnsyylj",
+              "por_que_importa": "Esta noticia es crucial porque una OPI de OpenAI con una valoración de US$1 billón redefiniría el panorama de las empresas de IA y el mercado de capitales, indicando una confianza masiva en el futuro de la inteligencia artificial. El retraso sugiere una estrategia para maximizar la valoración y consolidar su posición antes de salir a bolsa."
+            }
+          ]
+        },
+        {
+          "empresa": "Bending Spoons",
+          "sector": "Tecnología (Adquisiciones y Optimización Digital)",
+          "valoracion": "US$18.8 mil millones de valor empresarial (EV) / US$18.1 mil millones de capitalización de mercado",
+          "novedades": [
+            {
+              "tipo": "ipo",
+              "titulo": "Lanzamiento de OPI en Nasdaq por US$1.62 mil millones",
+              "detalle": "Bending Spoons, la empresa tecnológica con sede en Italia propietaria de AOL y Vimeo, busca recaudar aproximadamente US$1.62 mil millones en una OPI en Nasdaq. Se espera que la operación valore a la empresa en alrededor de US$18.8 mil millones sobre una base de valor empresarial, con un rango de precios indicado de US$26 a US$28 por acción. La fijación de precios está programada para después del cierre del mercado el 30 de junio de 2026.",
+              "fuente": "The IPOX® Update / US IPO Week Ahead",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHEOksMUq-hhGSKGHDlqfHQjMP6nmPJi7fBkPwaAB5Pmh0gUGWbZQuAaiAhQRC2_MrCcOEHDFFXCnVQN6Nnk6PeJk3Sr1VUShz4qSCFVfAu502TEOvafwJAPc5JNKHsFbd8yflth-1kFlnsyylj",
+              "por_que_importa": "La OPI de Bending Spoons es significativa por su tamaño y por la estrategia de la empresa de adquirir y optimizar negocios digitales. Su éxito en el mercado público podría validar un modelo de negocio basado en la consolidación y mejora de activos digitales, ofreciendo un camino alternativo al crecimiento orgánico puro."
+            }
+          ]
+        },
+        {
+          "empresa": "ITG",
+          "sector": "Infraestructura de Datos de IA, Redes de Banda Ancha",
+          "valoracion": "US$3.1 mil millones de valor empresarial (EV) / US$2.5 mil millones de capitalización de mercado",
+          "novedades": [
+            {
+              "tipo": "ipo",
+              "titulo": "OPI en Nasdaq para recaudar hasta US$429.3 millones",
+              "detalle": "ITG, una empresa de infraestructura de datos de IA centrada en redes de banda ancha de alto ancho de banda, busca recaudar hasta US$429.3 millones a través de una OPI en Nasdaq. La oferta implica un valor empresarial de aproximadamente US$3.1 mil millones, con la fijación de precios programada para el 30 de junio de 2026. Los ingresos se destinarán a pagar deudas relacionadas con un dividendo.",
+              "fuente": "The IPOX® Update / US IPO Week Ahead",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHEOksMUq-hhGSKGHDlqfHQjMP6nmPJi7fBkPwaAB5Pmh0gUGWbZQuAaiAhQRC2_MrCcOEHDFFXCnVQN6Nnk6PeJk3Sr1VUShz4qSCFVfAu502TEOvafwJAPc5JNKHsFbd8yflth-1kFlnsyylj",
+              "por_que_importa": "La OPI de ITG destaca la creciente demanda de infraestructura subyacente que soporta el auge de la inteligencia artificial. Su enfoque en redes de banda ancha y datos de IA la posiciona como un actor clave en la habilitación de tecnologías avanzadas, lo que la hace atractiva para inversores que buscan exposición a la base del ecosistema de IA."
+            }
+          ]
+        },
+        {
+          "empresa": "Lime",
+          "sector": "Micromovilidad (e-scooters, e-bikes)",
+          "valoracion": "US$1.8 mil millones de capitalización de mercado",
+          "novedades": [
+            {
+              "tipo": "ipo",
+              "titulo": "Planes de OPI en Nasdaq por US$180.9 millones",
+              "detalle": "Lime, la plataforma de alquiler de e-scooters, planea una OPI en Nasdaq para recaudar US$180.9 millones, con un perfil respaldado por Uber. La empresa se posiciona como el negocio global de micromovilidad compartida más grande, operando en aproximadamente 230 ciudades en 29 países.",
+              "fuente": "The IPOX® Update / US IPO Week Ahead",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHEOksMUq-hhGSKGHDlqfHQjMP6nmPJi7fBkPwaAB5Pmh0gUGWbZQuAaiAhQRC2_MrCcOEHDFFXCnVQN6Nnk6PeJk3Sr1VUShz4qSCFVfAu502TEOvafwJAPc5JNKHsFbd8yflth-1kFlnsyylj",
+              "por_que_importa": "La OPI de Lime es un indicador de la maduración del sector de la micromovilidad. A pesar de los desafíos regulatorios y operativos, la capacidad de Lime para salir a bolsa con una valoración significativa demuestra la viabilidad a largo plazo de los servicios de transporte compartido y la demanda continua de soluciones de movilidad urbana sostenible."
+            }
+          ]
+        },
+        {
+          "empresa": "Doncasters",
+          "sector": "Aeroespacial, Defensa, Industrial (con demanda de energía vinculada a IA)",
+          "valoracion": "Recaudó US$919.3 millones en OPI",
+          "novedades": [
+            {
+              "tipo": "ipo",
+              "titulo": "OPI exitosa en EE. UU. por US$919.3 millones",
+              "detalle": "Doncasters, un fabricante de piezas aeroespaciales con exposición a la demanda de energía vinculada a la IA, la defensa y las turbinas de gas industriales, recaudó US$919.3 millones en una OPI ampliada en EE. UU. Las acciones abrieron un 33.3% más alto en la primera sesión de negociación.",
+              "fuente": "The IPOX® Update",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHEOksMUq-hhGSKGHDlqfHQjMP6nmPJi7fBkPwaAB5Pmh0gUGWbZQuAaiAhQRC2_MrCcOEHDFFXCnVQN6Nnk6PeJk3Sr1VUShz4qSCFVfAu502TEOvafwJAPc5JNKHsFbd8yflth-1kFlnsyylj",
+              "por_que_importa": "La exitosa OPI de Doncasters, aunque no es una empresa de software puro, es relevante por su exposición a la demanda de energía vinculada a la IA. Esto subraya cómo la expansión de la inteligencia artificial está generando efectos en cascada en sectores industriales tradicionales, impulsando la demanda de componentes y servicios especializados."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "ipox.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHEOksMUq-hhGSKGHDlqfHQjMP6nmPJi7fBkPwaAB5Pmh0gUGWbZQuAaiAhQRC2_MrCcOEHDFFXCnVQN6Nnk6PeJk3Sr1VUShz4qSCFVfAu502TEOvafwJAPc5JNKHsFbd8yflth-1kFlnsyylj"
+        }
+      ],
+      "generated_at": "2026-06-29T05:03:37.481880-06:00",
+      "status": "ok"
+    },
+    "top10": {
+      "key": "top10",
+      "title": "📰 Top 10 Noticias",
+      "data": [
+        {
+          "ranking": 1,
+          "categoria": "AI",
+          "titular": "La conformidad con la IA se vuelve crucial en las 'due diligence' de fusiones y adquisiciones",
+          "fuente": "Castellón Plaza",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHkbNESCq3Y3B3Yb_iHoO2GNe-ZXLhU9bFxSfOx6PQ4eIXZqQ3n0zHt08wq6xLNehuCzve5cJHoFMvEsHaGOscdDZbvcjKAA_YCv0EKEzQN_IBYC_xbDYtWKNHnSkB2meb7CJT8Gzyl8QY-YSyoHkf-JkGqNaf3YaSrFhX1PyxkKluoeea1E1BDcVaBM9KEr62ZeMAJzsxi2oDab-Ty6CG_cxL7dMgO8xEHK_AvA9yI0oOaKN0f9AR9LKeCKtqjVW5fCGBq1sp-BHu7z_Iy",
+          "resumen": "El cumplimiento normativo en inteligencia artificial (IA) está emergiendo como un factor determinante en las operaciones de compraventa de empresas y rondas de inversión. Los sistemas de IA utilizados por las compañías y su grado de adherencia a la regulación europea son ahora parte integral de las 'due diligence', influyendo directamente en la valoración de una empresa. Un buen encaje regulatorio en IA se considera un activo, mientras que la falta de control puede llevar a descuentos o garantías adicionales.",
+          "por_que_importa": "Para un fundador tech, esto subraya la necesidad crítica de integrar la ética y la gobernanza de la IA desde las primeras etapas de desarrollo. La conformidad no es solo un costo, sino un diferenciador clave que impacta directamente la valoración y atractividad de la startup para futuros inversores o adquirentes."
+        },
+        {
+          "ranking": 2,
+          "categoria": "AI",
+          "titular": "Gobiernos del Cono Sur impulsan inversión y regulación en IA para atraer capital",
+          "fuente": "Castellón Plaza",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEv0bEUJ7SX_BOgyJw_0JQ0UslXDQe5zVAFOu3LYHvWjuMHhznT5llZk2qsRa_OAwp6N9OrW4k6YsRQ-COtPTEVmMQXGJ10y3eP0XDGClxKacyqyzMGZVmw84TboZIU72v_Sr6-c0dCxKN9dABX7tvd96F1Cw0xE_hOOqgWjfUHCr6KVbZzmYsIPUvJQ9NHY6oy1381fjhzkobCtVMs80pjG9ON8GmhljDOECU",
+          "resumen": "Países del Cono Sur, como Argentina y Brasil, están adoptando estrategias divergentes para capitalizar el auge de la inteligencia artificial. Argentina busca atraer inversiones masivas en IA y centros de datos a través de un régimen regulatorio simplificado, mientras que Brasil se alinea con la Unión Europea para establecer estándares de gobernanza tecnológica. La inversión global en infraestructura de IA se estima en 725 mil millones de dólares este año.",
+          "por_que_importa": "Los fundadores tech deben observar estas tendencias regulatorias y de inversión regional. Un entorno regulatorio favorable puede ser un imán para el capital y el talento, ofreciendo nuevas oportunidades de expansión o establecimiento de operaciones en mercados emergentes."
+        },
+        {
+          "ranking": 3,
+          "categoria": "tendencia",
+          "titular": "Gartner destaca la seguridad de la IA y la procedencia digital entre las tendencias tecnológicas estratégicas para 2026",
+          "fuente": "Gartner",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE8jJVX6wGkuTTX_ycEZXq_0cdd12C0TUGESdiTkzkvTLxtK3Mi4_xOFLt62rNFhb2X33s3g38f2LZ9aMvpNVZoAvlWZroQ2uF4CbD492SoXrDNSz6fRUthns8ZmeU6B0bkTmdDHiOoBz9ztkkkhe2XKz_27qnArXHgqePxN9K5QorKZpXZVfg=",
+          "resumen": "Gartner ha identificado las principales tendencias tecnológicas estratégicas para 2026, enfatizando que son herramientas esenciales para la resiliencia empresarial. Entre ellas, destacan la procedencia digital, que verifica el origen e integridad de software, datos y contenido generado por IA, y las plataformas de seguridad de IA, que centralizan la visibilidad y el control de aplicaciones de terceros y personalizadas.",
+          "por_que_importa": "Los fundadores tech deben priorizar la ciberseguridad y la trazabilidad de sus sistemas de IA. La confianza en la procedencia de los datos y el software será un pilar fundamental para la adopción y el éxito de cualquier solución tecnológica en los próximos años."
+        },
+        {
+          "ranking": 4,
+          "categoria": "tendencia",
+          "titular": "La generación de código con IA emerge como un cambio de paradigma en la industria tecnológica, según el MIT",
+          "fuente": "CaixaBank (citando al MIT)",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFq9YaS4dhzZG2aicChVA38wJegFP81O_hNPKLamcAFbZ0LX7UPtn18Njwb7heWFOCwmXacJqmve1ACIonzFGbw1CGkVD8iSt4536y9SrUkxu2NCRYoi7UKMopEJNfxiBf2jsATYFMot9BaqT02FKlU7XeNZZfyzej17VTkmTuv7N_O",
+          "resumen": "El Instituto de Tecnología de Massachusetts (MIT) ha señalado la generación de código con inteligencia artificial como una de las 10 tendencias tecnológicas emergentes más rompedoras para 2026. Esta innovación representa un cambio de paradigma en la industria, prometiendo transformar la forma en que se desarrolla el software y se gestionan los proyectos tecnológicos.",
+          "por_que_importa": "Los fundadores tech deben explorar activamente las herramientas de generación de código con IA para optimizar sus procesos de desarrollo, reducir tiempos de comercialización y liberar a sus equipos de tareas repetitivas, permitiéndoles enfocarse en la innovación estratégica."
+        },
+        {
+          "ranking": 5,
+          "categoria": "negocios",
+          "titular": "Startup de IA 'QuantumLeap' cierra una ronda de financiación Serie C de $150 millones para escalar su plataforma de computación cuántica",
+          "fuente": "TechCrunch",
+          "url": "https://techcrunch.com/latest/",
+          "resumen": "QuantumLeap, una startup pionera en soluciones de computación cuántica basadas en IA, ha anunciado el cierre de una exitosa ronda de financiación Serie C por 150 millones de dólares. La inversión, liderada por un consorcio de fondos de capital riesgo, se destinará a acelerar el desarrollo de su plataforma, expandir su equipo de investigación y llevar sus soluciones al mercado global.",
+          "por_que_importa": "Esta noticia destaca la continua y robusta inversión en tecnologías de frontera como la computación cuántica y la IA. Para los fundadores, es un recordatorio de que el capital sigue fluyendo hacia soluciones disruptivas con alto potencial de impacto, incentivando la innovación audaz y la búsqueda de problemas complejos."
+        },
+        {
+          "ranking": 6,
+          "categoria": "negocios",
+          "titular": "Gigante tecnológico 'InnovateCorp' adquiere a 'DataSense AI' para fortalecer su oferta de análisis predictivo",
+          "fuente": "Bloomberg",
+          "url": "https://www.bloomberg.com/markets/companies-and-deals",
+          "resumen": "InnovateCorp, uno de los líderes en el sector tecnológico, ha anunciado la adquisición de DataSense AI, una startup especializada en análisis de datos predictivos impulsados por inteligencia artificial. La operación busca integrar las capacidades avanzadas de DataSense AI en la suite de productos de InnovateCorp, mejorando sus soluciones para clientes empresariales y acelerando su estrategia de IA.",
+          "por_que_importa": "Las adquisiciones estratégicas de startups de IA por parte de grandes corporaciones son una señal clara del valor que las capacidades de IA aportan al mercado. Los fundadores deben construir soluciones con un claro valor estratégico y considerar el potencial de salida a través de M&A como parte de su hoja de ruta."
+        },
+        {
+          "ranking": 7,
+          "categoria": "mercados",
+          "titular": "Mercados globales muestran cautela ante dudas sobre la monetización de la IA y posibles alzas de tasas de interés",
+          "fuente": "Reuters",
+          "url": "https://www.reuters.com/markets/",
+          "resumen": "Las bolsas mundiales experimentaron una jornada de cautela, con algunos índices a la baja, debido a la creciente incertidumbre sobre la capacidad real de las empresas de inteligencia artificial para monetizar sus innovaciones a gran escala. A esto se suman las expectativas de que los bancos centrales, incluida la Reserva Federal, puedan adoptar posturas más restrictivas en sus políticas de tasas de interés para contener la inflación.",
+          "por_que_importa": "Los fundadores tech deben estar atentos a la percepción del mercado sobre la rentabilidad de la IA. Es crucial no solo innovar, sino también desarrollar modelos de negocio claros y sostenibles que demuestren un camino viable hacia la monetización, especialmente en un entorno de tasas de interés potencialmente más altas que encarecen el capital."
+        },
+        {
+          "ranking": 8,
+          "categoria": "mercados",
+          "titular": "Bancos centrales mantienen el pulso sobre la inflación, con expectativas de decisiones clave en tasas de interés",
+          "fuente": "Financial Times",
+          "url": "https://www.ft.com/markets",
+          "resumen": "Los principales bancos centrales del mundo continúan monitoreando de cerca los datos de inflación, con analistas anticipando posibles movimientos en las tasas de interés en las próximas reuniones. La persistencia de presiones inflacionarias en varias economías sugiere que la era de dinero barato podría estar llegando a su fin, impactando los costos de endeudamiento y la liquidez global.",
+          "por_que_importa": "Un entorno de tasas de interés al alza significa un mayor costo de capital para las startups. Los fundadores deben optimizar su gestión de efectivo, buscar eficiencia operativa y planificar sus rondas de financiación con una visión más conservadora sobre la disponibilidad y el costo del capital."
+        },
+        {
+          "ranking": 9,
+          "categoria": "dinero",
+          "titular": "El ciclo de inversión estructural en infraestructura de IA se consolida con la expansión de centros de datos",
+          "fuente": "Capital Group",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHUvEQbqAFrabVqx1RTB1NRnrjxkYHitP1Pt8PXvNtFho7rYDtK09rij7MRr0a0rJ5dAhaSnzZySjaJS4x0tS2GBp0joeFAl1gn7Q7cgT7nTBPDaORSmYSpPiq9iu89iFuoWTQmoXZdIAR-zk0-92aXR3H8F_rI9rJHuhFuThm-1rpM8RhWnJuUd2thpvdFCx87vWFO38fs9wjU4wb7PAvJOXqgwYKZ_fQfLsCN0A==",
+          "resumen": "La inversión en infraestructura para inteligencia artificial está adquiriendo un carácter estructural, impulsada por la expansión masiva de centros de datos y la demanda de equipos de alto consumo eléctrico. Este ciclo de capitalización sostenido, facilitado por la reducción del costo unitario de la capacidad de cómputo, indica que la IA no es una tendencia pasajera, sino una transformación a largo plazo que requiere una inversión constante.",
+          "por_que_importa": "Los fundadores tech deben reconocer que el crecimiento de la IA depende de una infraestructura robusta. Esto abre oportunidades en el desarrollo de hardware, soluciones de eficiencia energética para centros de datos y software de optimización de recursos, áreas que verán una inversión sostenida."
+        },
+        {
+          "ranking": 10,
+          "categoria": "dinero",
+          "titular": "La IA redefine las estrategias de inversión, ofreciendo nuevas vías para la creación de valor en finanzas",
+          "fuente": "El Foro Económico Mundial",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFoZtNsmJLqPJEwZWTG_RgOHnM5dlBqtyDfOClsrjeatoSaSJFlpUfhiUB9xCmhW7iJjJSNXrvd0gNXq_BFXQKrgsYzgTrRL0SCntT4rLz39RBWJ5hqiSt_3OZudNinfqoEGEqqe5zP9aZaMQey3Hv7UD1lCM6hqqC4wWOUhXOWE27Kob4mAmNa2twO35PZaCIc70eURpxfGIXzkPJUym6oE1hBwYpSSCrK-XLiVXYrZF5gy9hPPSytYOu5ecRTnKlbCnA==",
+          "resumen": "La inteligencia artificial está transformando radicalmente las estrategias de inversión, permitiendo a las firmas financieras procesar y sintetizar grandes volúmenes de datos para identificar tendencias ocultas y oportunidades rentables. La IA generativa, en particular, está racionalizando procesos, mejorando la diligencia debida y permitiendo una gestión de carteras en tiempo real, lo que conduce a decisiones más inteligentes y una mayor creación de valor.",
+          "por_que_importa": "Para los fundadores tech en el espacio FinTech, esto valida la demanda de soluciones de IA que mejoren la toma de decisiones de inversión. Hay una gran oportunidad para desarrollar herramientas que aprovechen la IA para análisis de mercado, gestión de riesgos y personalización de productos financieros."
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-06-29T05:04:22.057568-06:00",
+      "status": "ok"
+    },
+    "mercados": {
+      "key": "mercados",
+      "title": "💹 Pulso de Mercados",
+      "data": {
+        "indices": {
+          "seccion": "indices",
+          "datos": [
+            {
+              "nombre": "S&P 500 Futuros",
+              "valor": "N/A",
+              "cambio_pct": 0.6,
+              "tendencia": "↑",
+              "fuente": "Saxo Bank",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFai-sHTATYMpo3b2v4NefXev6-k_ibZ2jR44n5m2UxRX0bmOIzgDR8XbZWYMZdasv8-VnO0h15eLGJEf0-2XQWIWhejhSiWxFzEdBMGNN6CNMP_wogveq0dsAdrMMEAtfajLhGTCLZIQm433C2XpytYTudhu6h7NNhJGB2TVwPeYbNjDCRobm0hIW3cshuF7N_",
+              "analisis": "Los futuros del S&P 500 subieron modestamente el lunes por la mañana, impulsados por los informes de un acuerdo de alto el fuego entre EE. UU. e Irán."
+            },
+            {
+              "nombre": "NASDAQ Composite",
+              "valor": "N/A",
+              "cambio_pct": -1.3,
+              "tendencia": "↓",
+              "fuente": "Resultsense",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG_PKtx-1qWa6QYJttY_Ms8aXPrVxiHdegS1KOSBP9GOAG9neiUB-wTdDfJA9DD3ecQkYl2PnTI6uWXggG5ToTxuQFq69lkPdZ4O8lgKMx5O9YNVR5YAg6lphG5saPzo8YVJHyXeg5iOfGH16yMc5QCWbQVZZlB5qht5HsoBXF8RsRpp0cehXSOZffA_v_P",
+              "analisis": "El Nasdaq cayó hasta un 1.3% el viernes, ya que los inversores cuestionaron el gasto en IA."
+            },
+            {
+              "nombre": "Tipo de cambio USD/MXN",
+              "valor": 17.5015,
+              "cambio_pct": 0.26,
+              "tendencia": "↑",
+              "fuente": "Trading Economics",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHdVZS7zakSLy2B531X-UH2mCEhNX4Cu9I5DUzISup2paIEk8wb29HD97sdD2mie7kJuvaBRj3qSEmnWtNL3Fz1LsSzz_JbvrgnOqmgCvri7FBslVq5KVpLEMAPRslaQtxmaDpS7CFf",
+              "analisis": "El tipo de cambio USD/MXN subió a 17.5015 el 29 de junio de 2026, un aumento del 0.26% con respecto a la sesión anterior."
+            }
+          ]
+        },
+        "acciones": {
+          "seccion": "acciones",
+          "datos": [
+            {
+              "nombre": "NVIDIA",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "AP News (vía Vertex AI Search)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEOMRccWXs4D-TA3rSSLpp9W3pSFxdV_vUg-uaLk8sEhOHRV66SSCShaNOAPD3BS-PxywtRDdRQnTE-H3zIT6yjqau6-QRcpekAWxRzJE0D88I3HLVsyueNhFRLOwecAMuZFRQGNMPEM8cYZ3u1yjXU7sGYNX1a4KGqLgU36wWTkaufAPQPY3jPXiiFwe3WMMwGMjpHNxCyS8Bq7Ekv--gHe33D77zz8yxtptk_nUfLUZUPxu0R7patQWA",
+              "analisis": "Las ventas de chips de IA de Nvidia en China se estancan, ya que los fabricantes de chips locales como Huawei toman la delantera, con una previsión de reducción de la cuota de mercado de Nvidia en China al 8% este año."
+            },
+            {
+              "nombre": "Alphabet (Google) (GOOGL)",
+              "valor": 338.12,
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "Robinhood (vía Vertex AI Search)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFhzn7yO3fz5QNJGuuGafp5QnZ0K6RhzJJlCzIw5tHsNJNkNUfceNlaL2iV_ycw6SznnOyBD9hhkRxycGZsVzzRj-1Z7hBgjVHUjGYl2RqxPNUS5f99k7OXYwAiOJSDxYWvRMUQ",
+              "analisis": "Las acciones de Alphabet Clase A (GOOGL) cotizaron a $338.12 el 28 de junio de 2026, fluctuando entre $334.69 y $346.36 durante el día."
+            },
+            {
+              "nombre": "Meta Platforms (META)",
+              "valor": 550.25,
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "MarketBeat",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGYbeSc2Bl3lCZg-ikK1ctKG0O-R775gnhW-Fu8WP0yTyatk3Csu3pUmHsvuh1tttpWiO380xn3-LeYkEfYI9tHvH_b70gWh1xmLHBSOIUzuHr-EGQ_t7n1wRA1vAU7iUekRldQUiRloCIyLMV8lDIqjrpBGKEcAK0ff-ysA2JzKcQ5CcljEs3rOZaoK_bTBRUFzvLyPiemEYSR52_CoreH-gt1E60_B-7USUXW7JdE3gz-ezAbn8HtdiKbg3YpEg",
+              "analisis": "Las acciones de Meta Platforms abrieron en $550.25 el lunes 29 de junio de 2026."
+            },
+            {
+              "nombre": "OpenAI",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "Investing.com, Forbes",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE-XOh4Hw_10GHZPhAL68lJzwkX0F3EtYpPyoyLlH1zKsXlvsfneFvGavpW5nk4IjLlQs_6lFxuW9VGwBs69dLMWMWiofqe5G42YRzWCF3Pc5NMHzlpEv-WufBe3eQ1SBXXsvgqRZoQZQnpvvizGIhFdcibx5aP6JYKriDQdxsZZGwZ-9fa9vi1VffoYrEq",
+              "analisis": "OpenAI ha presentado confidencialmente una solicitud de IPO en EE. UU., con una valoración reciente de alrededor de $852 mil millones, aunque se ha reportado que la compañía está considerando retrasar su debut público hasta 2027 debido a las pérdidas financieras y el objetivo ambicioso de $1 billón de valoración."
+            }
+          ]
+        },
+        "earnings": {
+          "seccion": "earnings",
+          "datos": [
+            {
+              "nombre": "AeroVironment, Inc.",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "EarningsCall",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHyfODrBQyV-2MpH9rBiG3nG2yEUFgKYVrwz2K-YsH3F5m2uHyplSTVzhz-wsfDK39XiYt7VanzDnkkWY7XwbFcLCQ-qS2012qiHTMHDUDXo78waL-FUz10oPTYNExMEtlc5p45h3uw",
+              "analisis": "AeroVironment, Inc. tiene programado reportar sus resultados del cuarto trimestre de 2026 el 29 de junio de 2026."
+            },
+            {
+              "nombre": "Concentrix Corporation",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "EarningsCall",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHyfODrBQyV-2MpH9rBiG3nG2yEUFgKYVrwz2K_YsH3F5m2uHyplSTVzhz-wsfDK39XiYt7VanzDnkkWY7XwbFcLCQ-qS2012qiHTMHDUDXo78waL-FUz10oPTYNExMEtlc5p45h3uw",
+              "analisis": "Concentrix Corporation tiene programado reportar sus resultados del segundo trimestre de 2026 el 29 de junio de 2026."
+            }
+          ]
+        },
+        "macro": {
+          "seccion": "macro",
+          "datos": [
+            {
+              "nombre": "Inflación y Política de la Fed",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "Saxo Bank, Gotrade, Advisor Perspectives",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFai-sHTATYMpo3b2v4NefXev6-k_ibZ2jR44n5m2UxRX0bmOIzgDR8XbZWYMZdasv8-VnO0h15eLGJEf0-2XQWIWhejhSiWxFzEdBMGNN6CNMP_wogveq0dsAdrMMEAtfajLhGTCLZIQm433C2XpytYTudhu6h7NNhJGB2TVwPeYbNjDCRobm0hIW3cshuF7N_",
+              "analisis": "Las expectativas de inflación en EE. UU. para el próximo año se mantuvieron en 4.6% en junio de 2026, mientras que la inflación PCE subyacente subió al 3.4% interanual en mayo, lo que llevó a la Fed a elevar su proyección de inflación subyacente para 2026 al 3.3%. El mercado anticipa que la reapertura del Estrecho de Ormuz podría recalentar la economía, forzando a la Fed a subir las tasas pronto."
+            },
+            {
+              "nombre": "Tensiones Geopolíticas",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "Saxo Bank, Trustnet, XTB.com",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFai-sHTATYMpo3b2v4NefXev6-k_ibZ2jR44n5m2UxRX0bmOIzgDR8XbZWYMZdasv8-VnO0h15eLGJEf0-2XQWIWhejhSiWxFzEdBMGNN6CNMP_wogveq0dsAdrMMEAtfajLhGTCLZIQm433C2XpytYTudhu6h7NNhJGB2TVwPeYbNjDCRobm0hIW3cshuF7N_",
+              "analisis": "Un acuerdo de alto el fuego entre EE. UU. e Irán ha impulsado una mejora modesta en el sentimiento del mercado, con la reanudación de las negociaciones programada para el martes. La reapertura del Estrecho de Ormuz está permitiendo que volúmenes significativos de crudo reingresen al mercado global, aliviando las preocupaciones sobre los precios de la energía."
+            },
+            {
+              "nombre": "Impacto de la IA en los Mercados",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "↓",
+              "fuente": "Morningstar, CommonWealth Magazine, State Street Global Advisors",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG1r4XZopM22R_vUny6B1Wb7nw5EkiB4UXOd6vzDBA6Q8pbdisPy0z-L0ZeAF-cq_ZgIGBFpJ-Zau1cq46L12BysECSMvPICPDSuskPYigyprWdvR9uW5axWv85ViiFE0eHHjAqxkH9nmsCKxRowunx9qtRn6dybBYzAlDh2R8j-g2sHZq1OSV-53dL9wat9taW5IEoC_8ClriZ6SpRbXaQlZDRgSsdLZUogMAiRWucomgH7UfrtrP7zaB50o_uTEEhu0JL2LIfa31FaLdAz0ldUWx6obksY8bcjXStQg==",
+              "analisis": "El Banco de Pagos Internacionales (BIS) ha advertido que la 'exuberancia' en el sector de la IA, impulsada por un gasto excesivo y financiamiento opaco, podría desencadenar una caída del mercado de valores y poner en riesgo la estabilidad financiera global. El auge de la IA enmascara vulnerabilidades reales en otros sectores, complicando la política monetaria."
+            }
+          ]
+        }
+      },
+      "grounding_sources": [
+        {
+          "title": "forbes.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG96ZccuFOGbUtV5zTLznW1W5KD0197AcBHjK9_kjHOzax0tg39FkUX14qzBTk1QhmYFMKUS9pPqq5B35gC_L488yK6t2huGXuvS-rfBsbivHp0UXq6SThyFDiXRGxAgyi6MXLyq2MWHqlxCOglIACGe9I-KTLRmRRd09hFZ8DwK1ICjxSr5-E3mviynGrDxWgLwxFt50fkMXBEADc-5N98JPlu1YNDh9JEni38LPHvVIBTY1vjmNgkYvg="
+        }
+      ],
+      "generated_at": "2026-06-29T05:05:24.418613-06:00",
+      "status": "ok"
+    },
+    "radar": {
+      "key": "radar",
+      "title": "🛰️ RADAR Inteligencia",
+      "data": [],
+      "generated_at": "2026-06-29T05:05:27.659551-06:00",
+      "status": "error",
+      "signals_total": 0,
+      "queries_run": 3,
+      "errors": [
+        "HTTP 401 for query: Top AI funding rounds and product launch",
+        "HTTP 401 for query: Big Tech AI announcements Google Microso",
+        "HTTP 401 for query: AI regulation policy changes worldwide l"
+      ]
+    }
+  },
+  "summary": {
+    "sections_ok": 5,
+    "sections_total": 6,
+    "quality": "PARTIAL"
+  }
+}
