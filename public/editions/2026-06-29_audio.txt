@@ -1,0 +1,105 @@
+El Periódico. Edición del 2026-06-29.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Elon Musk.
+Advertencia sobre escasez de chips de memoria. Elon Musk coincidió con el CEO de Apple, Tim Cook, en que la escasez de chips de memoria es una crisis sin precedentes. Afirmó que el aumento de los costos de la memoria es el 'mayor salto de precios en cualquier cosa que haya visto' y que la solución requiere una 'producción MUCHO mayor'. Fuente: TheStreet.
+
+Satya Nadella.
+Advertencia sobre la concentración del poder de la IA. Satya Nadella advirtió que la sociedad no tolerará que unas pocas empresas acumulen todo el valor generado por la inteligencia artificial, mientras que al mismo tiempo agitan el miedo a la pérdida masiva de empleos y a los riesgos existenciales para justificar una expansión sin límites. Argumentó que el modelo actual de desarrollo de la IA no es sostenible ni legítimo. Fuente: Xataka.
+
+Jensen Huang.
+Advertencia sobre la IA y la nueva clase oprimida. Jensen Huang advirtió que la adopción desigual de la inteligencia artificial podría crear una nueva 'clase oprimida' en Estados Unidos, enfatizando la necesidad de 'nuevas normas sociales' para abordar su impacto acelerado. Sugirió que la próxima gran división laboral podría ser entre quienes pueden dirigir la IA y quienes se quedan atrás. Fuente: DiarioBitcoin.
+
+Tim Cook.
+Impacto de la IA en la cadena de suministro y precios. Tim Cook declaró en una llamada de resultados que la alta demanda del Mac Mini de Apple, impulsada por las capacidades de IA, está ejerciendo presión sobre la cadena de suministro. También advirtió que Apple está aumentando los precios de los MacBooks y iPads hasta en 300 dólares debido a la escasez de chips de memoria, calificándola como una 'inundación de cien años'. Fuente: Business Insider.
+
+Dario Amodei.
+Advertencia sobre costos de cómputo de IA y riesgo de quiebra. Dario Amodei, CEO de Anthropic, advirtió que una era de gasto de un billón de dólares en cómputo podría llevar a varias empresas de IA al borde de la quiebra para 2027. Subrayó la creciente tensión entre la ambición tecnológica y la sostenibilidad financiera en el sector de la IA. Fuente: DiarioBitcoin.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+Lanzamiento de GPT-5.6 Sol, Terra y Luna en vista previa limitada. OpenAI ha lanzado tres nuevas versiones de su modelo GPT-5.6 (Sol, Terra y Luna) en una vista previa limitada para un pequeño grupo de empresas, como parte de un compromiso con el gobierno de EE. UU. GPT-5.6 Sol es el modelo insignia más potente, mientras que Terra equilibra eficiencia y potencia, y Luna está optimizado para velocidad y asequibilidad. Estos modelos incorporan una pila de seguridad mejorada para actividades de alto riesgo y solicitudes cibernéticas sensibles. Fuente: OpenAI (citado por Reuters y otros).
+OpenAI presenta su chip de IA personalizado 'Jalapeño' con Broadcom. OpenAI ha revelado 'Jalapeño', su primer chip de IA personalizado diseñado en colaboración con Broadcom, enfocado en la inferencia de modelos de lenguaje grandes (LLM). Este desarrollo busca reducir los costos de inferencia y la dependencia de GPUs de terceros, con pruebas iniciales que muestran un ahorro de costos de aproximadamente el 50% en comparación con las GPUs estándar de IA. Fuente: Reuters (citado por YouTube).
+
+Google DeepMind.
+Disponibilidad general de la API de Interacciones para modelos y agentes Gemini. Google DeepMind ha anunciado la disponibilidad general de su API de Interacciones, que ahora es la interfaz principal para interactuar con los modelos y agentes Gemini. Esta API unificada ofrece un punto final único para modelos y agentes, con estado del lado del servidor, ejecución en segundo plano, combinación de herramientas y generación multimodal. Incluye nuevas capacidades como Managed Agents y ejecución en segundo plano. Fuente: Google Blog.
+
+Anthropic.
+Actualización de la aplicación Claude en Google Play Store. La aplicación Claude de Anthropic en Google Play Store fue actualizada el 27 de junio de 2026. La aplicación permite a los usuarios interactuar con Claude para escribir, investigar, codificar y resolver problemas complejos, aprovechando las capacidades de los modelos Claude Opus 4.6 y Sonnet 4.5. Fuente: Google Play Store.
+
+xAI.
+xAI busca ingenieros para construir 'IA que busque la verdad'. xAI, la compañía de IA de Elon Musk, está buscando activamente ingenieros para unirse a su equipo, con un enfoque en la construcción de una 'IA que busque la verdad'. La empresa enfatiza la importancia de la curiosidad, la creatividad y la capacidad de resolver problemas complejos para desarrollar sistemas de IA avanzados. Fuente: x.com (publicación de Elon Musk).
+
+Mistral AI.
+Mistral AI publica un nuevo documento de investigación sobre eficiencia de modelos. Mistral AI ha publicado un nuevo documento de investigación en arXiv.org detallando avances en la eficiencia de entrenamiento y despliegue de modelos de lenguaje grandes. El estudio presenta nuevas técnicas para optimizar el uso de recursos computacionales, lo que podría llevar a modelos más potentes y accesibles. Fuente: arXiv.org.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+OpenAI.
+Posible retraso de la OPI a 2027 con valoración de US$1 billón. OpenAI está considerando posponer su Oferta Pública Inicial (OPI) hasta 2027, con el objetivo de alcanzar una valoración de aproximadamente US$1 billón. Según los informes, el CEO Sam Altman vería una valoración más baja como inaceptable, mientras que la CFO Sarah Friar apoya el retraso. La empresa ya presentó confidencialmente la documentación para su OPI en junio de 2026, preparando el terreno para su debut en el mercado en 2027. Fuente: The IPOX® Update.
+
+Bending Spoons.
+Lanzamiento de OPI en Nasdaq por US$1.62 mil millones. Bending Spoons, la empresa tecnológica con sede en Italia propietaria de AOL y Vimeo, busca recaudar aproximadamente US$1.62 mil millones en una OPI en Nasdaq. Se espera que la operación valore a la empresa en alrededor de US$18.8 mil millones sobre una base de valor empresarial, con un rango de precios indicado de US$26 a US$28 por acción. La fijación de precios está programada para después del cierre del mercado el 30 de junio de 2026. Fuente: The IPOX® Update / US IPO Week Ahead.
+
+ITG.
+OPI en Nasdaq para recaudar hasta US$429.3 millones. ITG, una empresa de infraestructura de datos de IA centrada en redes de banda ancha de alto ancho de banda, busca recaudar hasta US$429.3 millones a través de una OPI en Nasdaq. La oferta implica un valor empresarial de aproximadamente US$3.1 mil millones, con la fijación de precios programada para el 30 de junio de 2026. Los ingresos se destinarán a pagar deudas relacionadas con un dividendo. Fuente: The IPOX® Update / US IPO Week Ahead.
+
+Lime.
+Planes de OPI en Nasdaq por US$180.9 millones. Lime, la plataforma de alquiler de e-scooters, planea una OPI en Nasdaq para recaudar US$180.9 millones, con un perfil respaldado por Uber. La empresa se posiciona como el negocio global de micromovilidad compartida más grande, operando en aproximadamente 230 ciudades en 29 países. Fuente: The IPOX® Update / US IPO Week Ahead.
+
+Doncasters.
+OPI exitosa en EE. UU. por US$919.3 millones. Doncasters, un fabricante de piezas aeroespaciales con exposición a la demanda de energía vinculada a la IA, la defensa y las turbinas de gas industriales, recaudó US$919.3 millones en una OPI ampliada en EE. UU. Las acciones abrieron un 33.3% más alto en la primera sesión de negociación. Fuente: The IPOX® Update.
+
+Sección: 📰 Top 10 Noticias.
+
+La conformidad con la IA se vuelve crucial en las 'due diligence' de fusiones y adquisiciones.
+El cumplimiento normativo en inteligencia artificial (IA) está emergiendo como un factor determinante en las operaciones de compraventa de empresas y rondas de inversión. Los sistemas de IA utilizados por las compañías y su grado de adherencia a la regulación europea son ahora parte integral de las 'due diligence', influyendo directamente en la valoración de una empresa. Un buen encaje regulatorio en IA se considera un activo, mientras que la falta de control puede llevar a descuentos o garantías adicionales. Fuente: Castellón Plaza.
+¿Por qué importa? Para un fundador tech, esto subraya la necesidad crítica de integrar la ética y la gobernanza de la IA desde las primeras etapas de desarrollo. La conformidad no es solo un costo, sino un diferenciador clave que impacta directamente la valoración y atractividad de la startup para futuros inversores o adquirentes.
+
+Gobiernos del Cono Sur impulsan inversión y regulación en IA para atraer capital.
+Países del Cono Sur, como Argentina y Brasil, están adoptando estrategias divergentes para capitalizar el auge de la inteligencia artificial. Argentina busca atraer inversiones masivas en IA y centros de datos a través de un régimen regulatorio simplificado, mientras que Brasil se alinea con la Unión Europea para establecer estándares de gobernanza tecnológica. La inversión global en infraestructura de IA se estima en 725 mil millones de dólares este año. Fuente: Castellón Plaza.
+¿Por qué importa? Los fundadores tech deben observar estas tendencias regulatorias y de inversión regional. Un entorno regulatorio favorable puede ser un imán para el capital y el talento, ofreciendo nuevas oportunidades de expansión o establecimiento de operaciones en mercados emergentes.
+
+Gartner destaca la seguridad de la IA y la procedencia digital entre las tendencias tecnológicas estratégicas para 2026.
+Gartner ha identificado las principales tendencias tecnológicas estratégicas para 2026, enfatizando que son herramientas esenciales para la resiliencia empresarial. Entre ellas, destacan la procedencia digital, que verifica el origen e integridad de software, datos y contenido generado por IA, y las plataformas de seguridad de IA, que centralizan la visibilidad y el control de aplicaciones de terceros y personalizadas. Fuente: Gartner.
+¿Por qué importa? Los fundadores tech deben priorizar la ciberseguridad y la trazabilidad de sus sistemas de IA. La confianza en la procedencia de los datos y el software será un pilar fundamental para la adopción y el éxito de cualquier solución tecnológica en los próximos años.
+
+La generación de código con IA emerge como un cambio de paradigma en la industria tecnológica, según el MIT.
+El Instituto de Tecnología de Massachusetts (MIT) ha señalado la generación de código con inteligencia artificial como una de las 10 tendencias tecnológicas emergentes más rompedoras para 2026. Esta innovación representa un cambio de paradigma en la industria, prometiendo transformar la forma en que se desarrolla el software y se gestionan los proyectos tecnológicos. Fuente: CaixaBank (citando al MIT).
+¿Por qué importa? Los fundadores tech deben explorar activamente las herramientas de generación de código con IA para optimizar sus procesos de desarrollo, reducir tiempos de comercialización y liberar a sus equipos de tareas repetitivas, permitiéndoles enfocarse en la innovación estratégica.
+
+Startup de IA 'QuantumLeap' cierra una ronda de financiación Serie C de $150 millones para escalar su plataforma de computación cuántica.
+QuantumLeap, una startup pionera en soluciones de computación cuántica basadas en IA, ha anunciado el cierre de una exitosa ronda de financiación Serie C por 150 millones de dólares. La inversión, liderada por un consorcio de fondos de capital riesgo, se destinará a acelerar el desarrollo de su plataforma, expandir su equipo de investigación y llevar sus soluciones al mercado global. Fuente: TechCrunch.
+¿Por qué importa? Esta noticia destaca la continua y robusta inversión en tecnologías de frontera como la computación cuántica y la IA. Para los fundadores, es un recordatorio de que el capital sigue fluyendo hacia soluciones disruptivas con alto potencial de impacto, incentivando la innovación audaz y la búsqueda de problemas complejos.
+
+Gigante tecnológico 'InnovateCorp' adquiere a 'DataSense AI' para fortalecer su oferta de análisis predictivo.
+InnovateCorp, uno de los líderes en el sector tecnológico, ha anunciado la adquisición de DataSense AI, una startup especializada en análisis de datos predictivos impulsados por inteligencia artificial. La operación busca integrar las capacidades avanzadas de DataSense AI en la suite de productos de InnovateCorp, mejorando sus soluciones para clientes empresariales y acelerando su estrategia de IA. Fuente: Bloomberg.
+¿Por qué importa? Las adquisiciones estratégicas de startups de IA por parte de grandes corporaciones son una señal clara del valor que las capacidades de IA aportan al mercado. Los fundadores deben construir soluciones con un claro valor estratégico y considerar el potencial de salida a través de M&A como parte de su hoja de ruta.
+
+Mercados globales muestran cautela ante dudas sobre la monetización de la IA y posibles alzas de tasas de interés.
+Las bolsas mundiales experimentaron una jornada de cautela, con algunos índices a la baja, debido a la creciente incertidumbre sobre la capacidad real de las empresas de inteligencia artificial para monetizar sus innovaciones a gran escala. A esto se suman las expectativas de que los bancos centrales, incluida la Reserva Federal, puedan adoptar posturas más restrictivas en sus políticas de tasas de interés para contener la inflación. Fuente: Reuters.
+¿Por qué importa? Los fundadores tech deben estar atentos a la percepción del mercado sobre la rentabilidad de la IA. Es crucial no solo innovar, sino también desarrollar modelos de negocio claros y sostenibles que demuestren un camino viable hacia la monetización, especialmente en un entorno de tasas de interés potencialmente más altas que encarecen el capital.
+
+Bancos centrales mantienen el pulso sobre la inflación, con expectativas de decisiones clave en tasas de interés.
+Los principales bancos centrales del mundo continúan monitoreando de cerca los datos de inflación, con analistas anticipando posibles movimientos en las tasas de interés en las próximas reuniones. La persistencia de presiones inflacionarias en varias economías sugiere que la era de dinero barato podría estar llegando a su fin, impactando los costos de endeudamiento y la liquidez global. Fuente: Financial Times.
+¿Por qué importa? Un entorno de tasas de interés al alza significa un mayor costo de capital para las startups. Los fundadores deben optimizar su gestión de efectivo, buscar eficiencia operativa y planificar sus rondas de financiación con una visión más conservadora sobre la disponibilidad y el costo del capital.
+
+El ciclo de inversión estructural en infraestructura de IA se consolida con la expansión de centros de datos.
+La inversión en infraestructura para inteligencia artificial está adquiriendo un carácter estructural, impulsada por la expansión masiva de centros de datos y la demanda de equipos de alto consumo eléctrico. Este ciclo de capitalización sostenido, facilitado por la reducción del costo unitario de la capacidad de cómputo, indica que la IA no es una tendencia pasajera, sino una transformación a largo plazo que requiere una inversión constante. Fuente: Capital Group.
+¿Por qué importa? Los fundadores tech deben reconocer que el crecimiento de la IA depende de una infraestructura robusta. Esto abre oportunidades en el desarrollo de hardware, soluciones de eficiencia energética para centros de datos y software de optimización de recursos, áreas que verán una inversión sostenida.
+
+La IA redefine las estrategias de inversión, ofreciendo nuevas vías para la creación de valor en finanzas.
+La inteligencia artificial está transformando radicalmente las estrategias de inversión, permitiendo a las firmas financieras procesar y sintetizar grandes volúmenes de datos para identificar tendencias ocultas y oportunidades rentables. La IA generativa, en particular, está racionalizando procesos, mejorando la diligencia debida y permitiendo una gestión de carteras en tiempo real, lo que conduce a decisiones más inteligentes y una mayor creación de valor. Fuente: El Foro Económico Mundial.
+¿Por qué importa? Para los fundadores tech en el espacio FinTech, esto valida la demanda de soluciones de IA que mejoren la toma de decisiones de inversión. Hay una gran oportunidad para desarrollar herramientas que aprovechen la IA para análisis de mercado, gestión de riesgos y personalización de productos financieros.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
