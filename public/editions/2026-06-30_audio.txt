@@ -1,0 +1,111 @@
+El Periódico. Edición del 2026-06-30.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Jensen Huang.
+Prioridad de Seguridad Nacional y Advertencia sobre Contrabando de Chips. En la reunión anual de accionistas de NVIDIA, Jensen Huang enfatizó que la seguridad nacional de EE. UU. tiene prioridad sobre las oportunidades comerciales, especialmente en el contexto de la exportación de chips de IA. Advirtió que los centros de datos de IA construidos con hardware de contrabando no funcionarán, ya que NVIDIA no proporcionará soporte técnico ni reparaciones para dichos sistemas. También señaló que, aunque el gobierno de EE. UU. aprobó licencias para la exportación de chips H200 a clientes chinos, aún no se han generado ingresos debido a la incertidumbre sobre la aprobación de importaciones por parte de China. Fuente: CNBC vía TheStreet.
+La Era de los Agentes de IA y las Fábricas de IA. Huang declaró la llegada oficial de la era de los agentes de IA, describiendo este cambio como el reinicio más significativo de la industria en seis décadas. Afirmó que los clientes de NVIDIA no solo compran herramientas de computación, sino que construyen 'fábricas de IA' capaces de generar ingresos directos. La plataforma Blackwell de NVIDIA ha sido reconocida como el 'rey de la inferencia', ofreciendo un rendimiento de tokens 30 veces mayor que la siguiente mejor plataforma. Fuente: Tiger Brokers.
+
+Satya Nadella.
+Advertencia sobre la Concentración de Poder en la IA. Satya Nadella advirtió que la sociedad no tolerará que solo unas pocas empresas concentren 'todo el aprendizaje' y el poder en el desarrollo de la inteligencia artificial. En una entrevista con The Wall Street Journal y un ensayo en X, argumentó que si la concentración de poder en la IA persiste, las empresas de todas las industrias cederán su conocimiento competitivo a unos pocos modelos dominantes. Microsoft, a pesar de sus asociaciones con OpenAI y Anthropic, busca promover un ecosistema de IA más amplio y menos concentrado. Fuente: Xataka.
+
+Sam Altman.
+Restricción Gubernamental en el Lanzamiento de GPT-5.6. El gobierno de EE. UU. solicitó a OpenAI que limite el lanzamiento de su nuevo modelo de IA, GPT-5.6, poniéndolo a disposición solo de un grupo selecto de socios aprobados por Washington. Sam Altman comunicó a su personal que este despliegue controlado no era el enfoque preferido de la compañía, pero que accedieron a él. Los funcionarios federales aprobarán el acceso de los clientes uno por uno durante la ventana de vista previa, con el objetivo de una liberación más amplia semanas después. Fuente: The Information vía The Times of India.
+El Fin de la Profesión de Programador. Sam Altman, CEO de OpenAI, lanzó un mensaje impactante que sugiere el fin de la profesión de programador, agradeciendo a los desarrolladores por haber sentado las bases de la tecnología hasta este punto. Esta declaración genera incertidumbre sobre el futuro laboral en el sector de la informática, ya que la IA es cada vez más capaz de generar código. Altman ha señalado en varias ocasiones lo que la IA implica para la programación, indicando un cambio inesperado en el mercado laboral. Fuente: Computer Hoy.
+
+Tim Cook.
+Aumento de Precios por Escasez de Chips de Memoria. Tim Cook, CEO saliente de Apple, declaró en una entrevista con The Wall Street Journal que los aumentos de precios en algunos modelos de Mac y iPad son 'inevitables' debido al 'tsunami' de la escasez y el aumento de los costos de los chips de memoria y almacenamiento. Describió la situación como una 'inundación de cien años', señalando que Apple ha estado absorbiendo costos más altos, pero ha llegado a un punto de inflexión. Se espera que los costos de memoria para el iPhone 18 Pro, por ejemplo, aumenten significativamente. Fuente: Xataka México.
+
+Mark Zuckerberg.
+Desarrollo de la Aplicación de Mercados Predictivos 'Arena'. Mark Zuckerberg ha encargado a un pequeño equipo el desarrollo de una aplicación experimental de mercados predictivos llamada 'Arena', separada de las plataformas principales de Meta. Los usuarios de Arena utilizarán fichas virtuales para predecir resultados de eventos futuros reales, y el modelo de IA Llama de Meta generará y resolverá los mercados. Aunque Meta advierte que la aplicación podría no ser lanzada, este movimiento busca competir en un sector que movió más de 130 mil millones de dólares en intercambios en 2026. Fuente: CriptoNoticias.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+OpenAI Restringe Lanzamiento de GPT-5.6 por Presión Gubernamental. OpenAI ha limitado el lanzamiento de su serie de modelos GPT-5.6 (Sol, Terra, Luna) a socios seleccionados, siguiendo una solicitud del gobierno de EE. UU. La compañía ha expresado su desacuerdo con que los procesos de revisión gubernamental se conviertan en la norma, citando preocupaciones sobre el ritmo de la innovación. El modelo Sol en GPT-5.6 Preview logró la puntuación más alta en modo Ultra en TerminalBench 2.1 y superó a Anthropic Mythos 5 en tareas de codificación. Fuente: Cobo Agentic Wallet, Cybersecurity Dive, The Elec Inc..
+HP Inc. Lanza Asociación Estratégica con OpenAI para Experiencias de Cliente y Operaciones Internas. HP Inc. desplegará soluciones impulsadas por IA con OpenAI Frontier para impulsar la transformación y el crecimiento de HP. La plataforma Frontier se utilizará en todo el negocio de HP para mejorar las experiencias de cara al cliente y las operaciones internas, con éxitos tempranos en la aceleración de la revisión de código y la remediación de errores. Fuente: HP Inc. Newsroom, The Elec Inc..
+
+Google DeepMind.
+Google DeepMind Invierte $75M en A24 para Herramientas de Preproducción de IA. Google DeepMind ha invertido aproximadamente $75 millones en una asociación de capital con A24 Films, enfocada en herramientas de preproducción de IA, como un generador de guiones gráficos. El acuerdo prohíbe a Google entrenar sus modelos con el catálogo existente de A24, lo que destaca la creciente preocupación por la protección de la propiedad intelectual en la IA. Fuente: Tech Jacks Solutions, AI Weekly.
+Google DeepMind Reorganiza Equipo de Codificación para Enfocarse en 'Midtraining'. Google DeepMind está reorganizando su equipo de codificación de IA para incluir una fase dedicada de 'midtraining', la etapa entre el preentrenamiento amplio y el ajuste final de instrucciones, donde un modelo se expone a datos cuidadosamente seleccionados. Esta estrategia busca mejorar la capacidad de codificación de los modelos, un área donde Google busca cerrar la brecha con Anthropic. Fuente: Let's Data Science.
+
+Anthropic.
+Anthropic se Asocia con el Gobierno de California para Herramientas de IA. Anthropic se ha asociado con el estado de California para proporcionar a las agencias gubernamentales acceso con descuento a sus herramientas de IA, como el chatbot Claude. El acuerdo busca aumentar la eficiencia en tareas como el análisis de información y la redacción de documentos, con un descuento del 50% y capacitación gratuita para los trabajadores estatales. Fuente: Mashable, LA Times.
+Claude de Anthropic Ahora Disponible Generalmente en Microsoft Foundry. Los modelos Claude de Anthropic ahora están disponibles de forma general en Microsoft Foundry, lo que amplía el acceso empresarial a Claude en la computación acelerada por NVIDIA. Claude es adecuado para cargas de trabajo empresariales de IA de rápido crecimiento, incluyendo generación de código, refactorización, depuración y flujos de trabajo de desarrollo a gran escala. Fuente: Microsoft Azure Blog.
+
+Meta AI.
+Nueva Jefa de Investigación de IA de Meta Enfatiza Agentes de IA con Valor Económico Real. Dawn Song, la nueva vicepresidenta de investigación de IA de Meta Platforms, afirma que el próximo gran hito de la IA serán los agentes capaces de realizar trabajos útiles y 'económicamente valiosos' en el mundo real. Sus comentarios se producen mientras los investigadores prueban si los agentes pueden completar tareas complejas de manera confiable, como editar videos o manejar trabajos de ciberseguridad. Fuente: eWeek, TechRadar.
+EE. UU. Presiona a Meta para Acordar Revisiones Voluntarias de Modelos de IA. La administración Trump está presionando a Meta para que someta sus modelos de inteligencia artificial a una revisión voluntaria, lo que permitiría al gobierno evaluar las capacidades y vulnerabilidades de la IA. Meta es el único desarrollador importante de IA en EE. UU. que aún no ha llegado a un acuerdo para compartir voluntariamente sus modelos con el gobierno federal para su revisión. Fuente: The New York Times.
+
+Microsoft AI.
+Demanda Colectiva de Inversores por Declaraciones de Crecimiento de IA de Microsoft Copilot y Azure AI. Inversores de Microsoft han sido notificados sobre una demanda colectiva por valores en un tribunal federal, alegando que las declaraciones de crecimiento de IA de Microsoft para Azure y Copilot pudieron haber sido exageradas. La demanda cuestiona si la historia de la IA de Microsoft ha superado lo que su asistente de productividad insignia realmente podría ofrecer y si las demandas de capital para la construcción de IA se entendieron correctamente. Fuente: AI Weekly.
+Microsoft Optimiza la Adquisición de Dispositivos e Inyecta IA para Mejorar la Experiencia del Usuario. Microsoft está modernizando su proceso de adquisición de dispositivos para empleados, pasando de sistemas obsoletos a procesos centralizados y utilizando IA agentica. El nuevo sistema, myDevice, ha logrado una reducción del 23% en el gasto de dispositivos primarios de trabajo, ahorrando aproximadamente $20 millones anuales, y busca guiar las decisiones con IA, no solo automatizar tareas. Fuente: Cloud Wars.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Baseten.
+Cierre de ronda de financiación Serie F de $1.5 mil millones. Baseten, un proveedor de software de sistemas para ejecutar cargas de trabajo de aplicaciones de IA, ha recaudado $1.5 mil millones en financiación Serie F. Esta es su cuarta ronda de financiación en 18 meses, lo que eleva su valoración a $13 mil millones. La ronda fue coliderada por Altimeter Capital, Conviction Partners, Spark Capital, Sands Capital y Wellington Management. Fuente: Crunchbase.
+
+AppsFlyer.
+Recauda más de $1 mil millones en financiación Serie E. AppsFlyer, un proveedor de análisis de datos con el marketing digital como caso de uso principal, ha asegurado más de $1 mil millones en una ronda de financiación Serie E. La valoración post-money de la compañía se sitúa en $2.7 mil millones. Entre los patrocinadores se incluyen Unity, Meta, Moloco y Google. Fuente: Crunchbase.
+
+Groq.
+Cierre de $650 millones en nueva financiación. Groq, con sede en San Francisco, cerró $650 millones en nueva financiación liderada por Infinitum y Disruptive. La compañía planea usar los fondos para escalar su tecnología e infraestructura de nube de inferencia de IA. Esta inversión sigue a una transacción de 'acquihire' en la que Nvidia contrató a su fundador y miembros clave del equipo. Fuente: Crunchbase, Business Wire.
+
+Elroy Air.
+Anuncia planes para salir a bolsa a través de un acuerdo SPAC de $1 mil millones. Elroy Air, una startup de drones de carga pesada con sede en California, anunció planes para salir a bolsa a finales de este año a través de un acuerdo con una Compañía de Adquisición de Propósito Especial (SPAC) liderada por Inflection Point Asset Management. La fusión incluye más de $165 millones en capital PIPE comprometido y valora a Elroy en $800 millones pre-money, con una valoración esperada de $1 mil millón al cotizar en Nasdaq. Fuente: Tectonic Defense.
+
+Bending Spoons.
+Preparada para una IPO de $1.6 mil millones con una valoración de $18.1 mil millones. La empresa tecnológica italiana Bending Spoons está programada para recaudar $1.6 mil millones en su oferta pública inicial (IPO), con una capitalización de mercado de $18.1 mil millones. La compañía adquiere negocios digitales, implementa transformaciones y optimizaciones para expandir las ganancias y reinvierte en adquisiciones adicionales. La IPO está programada para el 2 de julio de 2026. Fuente: Investing.com, US IPO Week Ahead.
+
+Sección: 📰 Top 10 Noticias.
+
+OpenAI presenta GPT-5.6 con modelos Sol, Terra y Luna, y confirma ronda de financiación de $122 mil millones.
+OpenAI ha presentado su nueva familia de modelos GPT-5.6, que incluye las variantes Sol (insignia), Terra (equilibrada) y Luna (rápida y asequible). El modelo Sol Ultra ha establecido un nuevo récord en el benchmark Terminal-Bench 2.1. Adicionalmente, la compañía ha confirmado una ronda de financiación de $122 mil millones, valorando a la empresa en $852 mil millones. Fuente: Reuters.
+¿Por qué importa? El lanzamiento de GPT-5.6 redefine el estado del arte en modelos de lenguaje, ofreciendo capacidades avanzadas para desarrolladores. La masiva financiación valida la confianza del mercado en el futuro de la IA y en el liderazgo de OpenAI, impactando la dirección de la inversión en el sector.
+
+xAI de Elon Musk lanza Grok 4.5 en beta privada para SpaceX y Tesla.
+Elon Musk ha anunciado que Grok 4.5, el último modelo de IA de xAI, ha entrado en fase beta privada para pruebas internas en SpaceX y Tesla. Este modelo se basa en una fundación de 1.5 billones de parámetros, un aumento del 50% respecto a su predecesor, Grok 4.4. Fuente: X.com (Elon Musk).
+¿Por qué importa? La integración de Grok 4.5 en las operaciones de SpaceX y Tesla subraya la aplicación práctica de la IA avanzada en entornos de ingeniería y manufactura complejos. Esto demuestra el potencial de la IA para optimizar procesos en industrias de alta tecnología.
+
+SK Hynix planea una cotización en Nasdaq de $29 mil millones impulsada por la demanda de memoria para IA.
+El gigante de la memoria SK Hynix ha anunciado planes para una cotización en Nasdaq de aproximadamente $29 mil millones, con el objetivo de capitalizar la creciente demanda de memoria de alto ancho de banda (HBM) impulsada por la inteligencia artificial. La compañía se ha convertido en el principal proveedor de HBM, un componente crítico para los centros de datos de IA. Fuente: Bloomberg.
+¿Por qué importa? Esta IPO masiva destaca la importancia fundamental del hardware, especialmente la memoria HBM, en el ecosistema de la IA. Para los fundadores tech, subraya la necesidad de considerar la infraestructura subyacente y la cadena de suministro de componentes clave al escalar soluciones de IA.
+
+Broadcom presenta 'Jalapeno', el primer chip de inferencia diseñado en colaboración con OpenAI.
+Broadcom ha desvelado 'Jalapeno', un chip de inferencia personalizado co-desarrollado con OpenAI, marcando la primera incursión de OpenAI en el diseño de hardware propio. El chip está optimizado para la ejecución de modelos de IA entrenados y promete una eficiencia energética superior. Fuente: Reuters.
+¿Por qué importa? La colaboración entre un fabricante de chips establecido y un líder en IA para diseñar hardware específico para inferencia es un hito. Esto indica una tendencia hacia la optimización vertical de la pila de IA, desde el software hasta el silicio, lo que podría reducir costos y mejorar el rendimiento para futuras aplicaciones de IA.
+
+Meta recorta 8,000 empleos en una reestructuración enfocada en IA.
+Meta Platforms ha anunciado el recorte de aproximadamente 8,000 puestos de trabajo como parte de una reestructuración significativa para alinear su fuerza laboral con su estrategia de inteligencia artificial. Esta medida busca optimizar operaciones y redirigir recursos hacia iniciativas clave de IA. Fuente: The Wall Street Journal.
+¿Por qué importa? Este movimiento de Meta resalta la presión sobre las grandes tecnológicas para reestructurar sus negocios en torno a la IA. Para los fundadores tech, es un recordatorio de que la adopción de la IA no solo crea nuevas oportunidades, sino que también puede generar disrupciones en el mercado laboral y requerir una reevaluación de las habilidades y roles dentro de las empresas.
+
+Alphabet pierde $269 mil millones en valor de mercado por los crecientes costos de la carrera de IA.
+Alphabet, la empresa matriz de Google, ha visto una caída de aproximadamente $269 mil millones en su valor de mercado, ya que los inversores sopesan el impacto de los crecientes costos asociados con la intensa carrera por la inteligencia artificial. La inversión masiva en chips y centros de datos está generando ansiedad en el mercado. Fuente: Bloomberg.
+¿Por qué importa? La reacción del mercado a los costos de la IA de Alphabet demuestra que, si bien la IA es una gran oportunidad, también conlleva una inversión masiva y riesgos financieros. Los fundadores tech deben equilibrar la innovación con la sostenibilidad financiera y la comunicación clara de su estrategia de IA a los inversores.
+
+Nvidia y TSMC integran IA en la fabricación de chips para acelerar el diseño y la producción.
+Nvidia y TSMC han anunciado una colaboración para integrar herramientas de computación acelerada e inteligencia artificial directamente en las plantas de fabricación de TSMC. El objetivo es optimizar los complejos procesos de producción de semiconductores, desde el diseño del chip hasta la detección de defectos, utilizando la IA. Fuente: Technology Review.
+¿Por qué importa? Esta alianza estratégica marca una tendencia clave: la IA no solo es un producto, sino también una herramienta para optimizar la producción de tecnología. Para los fundadores tech, esto sugiere que la aplicación de la IA en procesos industriales y de manufactura puede generar eficiencias significativas y ventajas competitivas.
+
+Salesforce adquiere Contentful para potenciar su plataforma Agentforce con IA.
+Salesforce ha iniciado el proceso de adquisición de Contentful, una plataforma de gestión de contenido, con el fin de fortalecer su plataforma Agentforce. Esta adquisición busca integrar capacidades de IA más avanzadas para el procesamiento inteligente de documentos y flujos de trabajo específicos de dominio. Fuente: TechCrunch.
+¿Por qué importa? La adquisición de Contentful por parte de Salesforce ilustra la tendencia de las grandes empresas de software a comprar piezas especializadas para mejorar sus ofertas de IA. Esto indica que la IA genérica no es suficiente; las soluciones de IA específicas de dominio y con datos contextuales son cruciales para el éxito empresarial.
+
+Anthropic acusa a Alibaba de un ataque de 'destilación' a sus modelos Claude.
+Anthropic ha acusado a Alibaba de llevar a cabo el mayor ataque de 'destilación' conocido contra sus modelos de IA Claude. La destilación implica entrenar un modelo más pequeño para replicar el comportamiento de un modelo más grande y complejo, lo que plantea serias preocupaciones sobre la propiedad intelectual y la seguridad en el ámbito de la IA. Fuente: The Information.
+¿Por qué importa? Este incidente subraya los crecientes riesgos de seguridad y propiedad intelectual en la industria de la IA. Los fundadores tech deben ser conscientes de las vulnerabilidades de sus modelos y datos, e invertir en estrategias robustas de protección y cumplimiento normativo para salvaguardar sus innovaciones.
+
+Comcast planea dividirse en dos empresas públicas: NBCUniversal y una compañía de banda ancha/inalámbrica.
+Comcast ha anunciado planes para dividirse en dos empresas públicas separadas: una centrada en sus activos de medios, incluyendo NBCUniversal y Sky, y otra enfocada en sus servicios de banda ancha e inalámbricos. Esta escisión busca permitir que cada negocio persiga sus propias prioridades de crecimiento en un mercado cambiante. Fuente: The Wall Street Journal.
+¿Por qué importa? La decisión de Comcast de dividirse refleja una tendencia más amplia en la industria de los medios y las telecomunicaciones, donde las empresas buscan desbloquear valor y ganar agilidad en un panorama tecnológico en rápida evolución. Para los fundadores tech, esto puede generar nuevas oportunidades de asociación o adquisición con empresas más enfocadas y especializadas.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
