@@ -39,5 +39,36 @@ if [ -z "$MATCH" ]; then
 fi
 
 echo "  ✓ Contrato Strategy Approval ('pending') OK"
+
+VIGIA_FAIL=0
+
+# ── VIGÍA FE-V1: Toast no puede vivir fuera de TabRadarIntel ──
+# 'toast' variable only exists inside TabRadarIntel. If grep finds it
+# between 'function ChaosTab' and the next 'function ', it's a ReferenceError.
+if sed -n '/^function ChaosTab/,/^function [A-Z]/p' "$FILE" 2>/dev/null | grep -q "toast" 2>/dev/null; then
+    echo "  🚨 VIGÍA FE-V1: 'toast' referenciado en ChaosTab (scope incorrecto → ReferenceError)"
+    VIGIA_FAIL=1
+fi
+
+# ── VIGÍA FE-V2: rate_pct debe usar ?? (no ||) — REGLA 26 ──
+if grep -qF 'rate_pct || 0' "$FILE" 2>/dev/null; then
+    echo "  🚨 VIGÍA FE-V2: rate_pct usa '|| 0' — enmascara 0 legítimo (debe ser '?? 0')"
+    VIGIA_FAIL=1
+fi
+
+# ── VIGÍA FE-V3: DORA metrics null deben mostrar '—', no '0' — REGLA 26 ──
+if grep -qF 'lead_time_hours?.toFixed' "$FILE" 2>/dev/null; then
+    echo "  🚨 VIGÍA FE-V3: lead_time_hours usa ?.toFixed || '0' — fabrica datos (debe guardar null → '—')"
+    VIGIA_FAIL=1
+fi
+
+if [ "$VIGIA_FAIL" -eq 1 ]; then
+    echo ""
+    echo "╔══════════════════════════════════════════════════════════════╗"
+    echo "║ ✕ CANDADO FE-#44 BLOQUEÓ — VIGÍAs de regresión activos     ║"
+    echo "╚══════════════════════════════════════════════════════════════╝"
+    exit 1
+fi
+
 echo "✓ CANDADO FE-#44: 0 drifts de contrato detectados"
 exit 0

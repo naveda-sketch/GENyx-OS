@@ -215,7 +215,7 @@ function AutonomyRateCard({ slug }) {
     );
   }
 
-  const rate = data.rate_pct || 0;
+  const rate = data.rate_pct ?? 0; // REGLA 44: rate_pct nunca null (contrato); ?? preserva 0 legítimo
   const color = rate >= 90 ? '#10b981' : rate >= 70 ? '#fbbf24' : '#ef4444';
   const bg = rate >= 90 ? 'rgba(16,185,129,0.08)' : rate >= 70 ? 'rgba(251,191,36,0.08)' : 'rgba(239,68,68,0.08)';
   const border = rate >= 90 ? 'rgba(16,185,129,0.2)' : rate >= 70 ? 'rgba(251,191,36,0.2)' : 'rgba(239,68,68,0.2)';
@@ -9795,7 +9795,7 @@ function CockpitPulso({ selectedSlug }) {
     { label: 'Pedidos semana', value: isEmpty ? null : k.orders_week, icon: '📊', color: '#818cf8' },
     { label: 'Sesiones activas', value: isEmpty ? null : k.sessions_active, icon: '👥', color: '#06b6d4' },
     { label: 'Ticket promedio', value: isEmpty ? null : `$${(k.avg_ticket_mxn || 0).toLocaleString()}`, icon: '🎫', color: '#a78bfa' },
-    { label: 'Tasa recompra', value: isEmpty ? null : `${(k.repeat_rate_pct || 0).toFixed(1)}%`, icon: '🔄', color: '#f472b6' },
+    { label: 'Tasa recompra', value: isEmpty ? null : `${(k.repeat_rate_pct ?? 0).toFixed(1)}%`, icon: '🔄', color: '#f472b6' },
   ];
   return (
     <div>
@@ -11549,10 +11549,10 @@ function DORACockpitTab() {
           {/* 4 DORA metrics */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 10, marginBottom: 20 }}>
             {[
-              { label: 'Deploy Freq', value: m.deployment_frequency_per_day?.toFixed(2) || '0', unit: '/day', icon: '🚀', target: '≥1.0 (Elite)' },
-              { label: 'Lead Time', value: m.lead_time_hours?.toFixed(1) || '0', unit: 'hrs', icon: '⏱️', target: '≤1h (Elite)' },
-              { label: 'MTTR', value: m.mttr_hours?.toFixed(1) || '0', unit: 'hrs', icon: '🔧', target: '≤1h (Elite)' },
-              { label: 'Change Fail %', value: m.change_failure_rate_pct?.toFixed(1) || '0', unit: '%', icon: '❌', target: '≤15% (Elite)' },
+              { label: 'Deploy Freq', value: m.deployment_frequency_per_day != null ? m.deployment_frequency_per_day.toFixed(2) : '—', unit: '/day', icon: '🚀', target: '≥1.0 (Elite)' },
+              { label: 'Lead Time', value: m.lead_time_hours != null ? m.lead_time_hours.toFixed(1) : '—', unit: 'hrs', icon: '⏱️', target: '≤1h (Elite)' },
+              { label: 'MTTR', value: m.mttr_hours != null ? m.mttr_hours.toFixed(1) : '—', unit: 'hrs', icon: '🔧', target: '≤1h (Elite)' },
+              { label: 'Change Fail %', value: m.change_failure_rate_pct != null ? m.change_failure_rate_pct.toFixed(1) : '—', unit: '%', icon: '❌', target: '≤15% (Elite)' },
             ].map(k => (
               <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
                 <div style={{ fontSize: 18 }}>{k.icon}</div>
@@ -11670,17 +11670,6 @@ function ChaosTab() {
           <button key={f.id} onClick={() => setStatusFilter(f.id)} style={{ fontSize: 10, fontWeight: 600, padding: '4px 10px', borderRadius: 6, border: 'none', cursor: 'pointer', background: statusFilter === f.id ? 'rgba(99,102,241,0.2)' : 'rgba(255,255,255,0.05)', color: statusFilter === f.id ? '#a5b4fc' : '#94a3b8' }}>{f.label}</button>
         ))}
       </div>
-
-      {/* Toast */}
-      {toast && (
-        <div style={{ padding: '8px 14px', borderRadius: 10, marginBottom: 12, fontSize: 12, fontWeight: 600,
-          background: toast.type === 'ok' ? 'rgba(34,197,94,0.08)' : toast.type === 'warn' ? 'rgba(245,158,11,0.08)' : 'rgba(239,68,68,0.08)',
-          border: `1px solid ${toast.type === 'ok' ? 'rgba(34,197,94,0.2)' : toast.type === 'warn' ? 'rgba(245,158,11,0.2)' : 'rgba(239,68,68,0.2)'}`,
-          color: toast.type === 'ok' ? '#4ade80' : toast.type === 'warn' ? '#fbbf24' : '#f87171',
-          transition: 'all 0.3s ease' }}>
-          {toast.msg}
-        </div>
-      )}
 
       {/* Empty state */}
       {!loading && experiments.length === 0 && (
