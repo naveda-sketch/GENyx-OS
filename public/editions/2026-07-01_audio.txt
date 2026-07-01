@@ -1,0 +1,104 @@
+El Periódico. Edición del 2026-07-01.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Tim Cook.
+Aumento de precios de productos Apple por costos de memoria. Apple ha decidido aumentar los precios de sus productos debido al encarecimiento de los chips de memoria, lo que impactará la rentabilidad futura de la empresa. Esta medida se produce en un contexto de escasez global de chips impulsada por la alta demanda de inteligencia artificial. Fuente: Business Insider.
+
+Dario Amodei.
+Lanzamiento de Claude Science para automatización de investigación. Anthropic anunció el lanzamiento de Claude Science, un nuevo software diseñado para automatizar diversas tareas de investigación en los campos de la biología y la química. Este desarrollo busca acelerar los procesos científicos y la innovación en estas áreas. Fuente: Bloomberg Línea.
+
+Mark Zuckerberg.
+Desarrollo de una aplicación de mercados de predicción 'Arena'. Mark Zuckerberg ha dirigido el desarrollo de una aplicación experimental de mercados de predicción, conocida internamente como 'Arena'. Esta iniciativa busca competir con plataformas existentes como Kalshi y Polymarket, utilizando modelos de IA de Meta para generar preguntas y resolver mercados en tiempo real. Fuente: The Week / Casino.org.
+
+Jensen Huang.
+Declaración sobre la 'era de las fábricas de IA'. Jensen Huang, CEO de NVIDIA, afirmó que el momento actual es la 'construcción de fábricas de IA, la expansión de infraestructura más grande en la historia humana'. Esta declaración subraya la visión de NVIDIA sobre la transformación de la industria impulsada por la inteligencia artificial. Fuente: TradingKey.
+
+Lisa Su.
+Perfil definitivo de liderazgo en motores de cómputo de IA. Un perfil publicado recientemente destaca a Lisa Su como la CEO de AMD que está construyendo el 'motor de cómputo clásico de la computación cuántica' y liderando la empresa en la 'construcción del motor de cómputo de IA'. El artículo enfatiza su papel estratégico en la entrega de soluciones de IA. Fuente: Business Insider.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+Vista previa de GPT-5.6 Sol con acceso restringido y ciberseguridad mejorada. OpenAI está presentando una vista previa de GPT-5.6 Sol a un grupo selecto de socios y al gobierno de EE. UU. Este modelo es su más capaz para ciberseguridad, diseñado para tareas legítimas como revisión de código y búsqueda de vulnerabilidades, pero su acceso está restringido debido a su naturaleza de doble uso. Fuente: Security Boulevard.
+
+Anthropic.
+Lanzamiento de Claude Fable 5 y Claude Mythos 5 con enfoque en seguridad por capas. Anthropic ha lanzado Claude Fable 5 y Claude Mythos 5, dividiendo sus modelos de IA en capas de capacidad y seguridad. La compañía reconoce que la misma potencia que hace valiosos a sus modelos también los hace peligrosos, por lo que están implementando mecanismos de seguridad robustos. Fuente: Security Boulevard.
+
+Mistral AI.
+Modelos cuantificados de Mistral 7B dominan descargas en Hugging Face. Los modelos cuantificados de Mistral AI, como Mistral 7B, están liderando las listas de descargas en Hugging Face. Esto se debe a que estos modelos son eficientes y pueden ejecutarse en hardware de consumo, lo que indica una fuerte demanda por soluciones de IA que sean accesibles y de bajo costo computacional. Fuente: Security Boulevard.
+
+Perplexity AI.
+Extensión maliciosa de Chrome suplantando a Perplexity AI. Investigadores de Microsoft descubrieron una extensión maliciosa de Chrome que se hacía pasar por el motor de búsqueda de IA Perplexity, recopilando secretamente la actividad de búsqueda de los usuarios antes de redirigirlos a resultados legítimos. Google ya eliminó la extensión de su Chrome Web Store. Fuente: Security Boulevard.
+
+Apple Intelligence.
+Apple acelera parches de seguridad de iPhone por amenazas de hacking impulsadas por IA. Apple ha lanzado actualizaciones urgentes de iOS 26.5.2 y iPadOS 26.5.2, adelantando casi 30 correcciones de seguridad. Esta medida es una respuesta directa a las herramientas de IA que permiten a los hackers descubrir y explotar vulnerabilidades de software a un ritmo sin precedentes. Fuente: Security Boulevard.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Rocket Lab.
+Adquisición de Iridium Communications por $8 mil millones. Rocket Lab ha anunciado la adquisición de Iridium Communications en un acuerdo de $8 mil millones en efectivo y acciones. Esta adquisición transforma a Rocket Lab de un proveedor de lanzamientos a una empresa espacial verticalmente integrada con una constelación operativa en órbita terrestre baja. Fuente: Bloomberg Tech.
+
+Etched.
+Sale del modo sigiloso con $800 millones en financiación y $1B+ en contratos. Etched ha salido del modo sigiloso anunciando $800 millones en financiación total, incluyendo una ronda de $500 millones en diciembre que valoró la empresa en $5 mil millones. La startup, que diseña chips específicamente para la inferencia de modelos de IA (Sohu), ya ha firmado más de $1 mil millones en contratos de venta y planea comenzar a enviar sus productos este verano. Fuente: Bloomberg (vía Investing.com).
+
+X Square Robot.
+Cierra múltiples rondas de financiación (Series B+, B++, C) superando los $2.8 mil millones de valoración. X Square Robot ha completado cuatro rondas de financiación consecutivas, culminando en una Serie C, lo que eleva su valoración a más de $2.8 mil millones. La empresa china de IA embodying, respaldada por grandes tecnológicas como Meituan, Alibaba, ByteDance y Xiaomi, utilizará los fondos para investigación en inteligencia embodied y despliegues comerciales, incluyendo robots para entornos domésticos. Fuente: Tech in Asia.
+
+Talawar Therapeutics.
+Se hará pública en Nasdaq a través de una fusión SPAC con JATT II Acquisition Corp. Talawar Therapeutics ha firmado un acuerdo de combinación de negocios con JATT II Acquisition Corp, una SPAC, para cotizar en Nasdaq bajo el símbolo 'TLWR'. La fusión incluye una inversión privada en capital público (PIPE) de $225 millones, lo que proporcionará a la compañía un total de $285 millones para avanzar en su principal activo clínico, TALA-125, un anticuerpo biespecífico para la dermatitis atópica. Fuente: Fierce Biotech.
+
+Edison Scientific.
+Asociación estratégica con Population Health Partners para lanzar nuevas biotecnológicas impulsadas por IA. Edison Scientific, líder en ciencia impulsada por IA, se ha asociado con la firma de inversión Population Health Partners para crear y lanzar nuevas empresas de biotecnología. Esta colaboración busca integrar agentes de IA desde las primeras etapas del descubrimiento y desarrollo de fármacos, con el objetivo de acelerar la creación de terapias para enfermedades a gran escala. Fuente: Edison Scientific.
+
+Sección: 📰 Top 10 Noticias.
+
+Startup de chips de inferencia Etched lanza con $800 millones en financiación para desafiar a Nvidia.
+Etched Inc., una startup que desarrolla chips de inferencia de inteligencia artificial, ha salido a la luz con una financiación de $800 millones. La compañía afirma que su tecnología LVI puede ejecutar modelos de IA de un billón de parámetros con una eficiencia de FLOPs significativamente mayor que los procesadores existentes, buscando superar a Nvidia en el nicho de inferencia. Fuente: SiliconANGLE.
+¿Por qué importa? Para los fundadores de tecnología, esto señala una intensa competencia en el hardware de IA, ofreciendo alternativas de alto rendimiento a las GPU de propósito general. Es crucial observar cómo las arquitecturas especializadas pueden redefinir el panorama de la infraestructura de IA.
+
+Corea del Sur apuesta $520 mil millones en el auge de la fabricación de chips de IA.
+Corea del Sur ha anunciado una inversión masiva de $520 mil millones por parte de Samsung y SK Hynix para construir nuevas plantas de fabricación de chips. Esta iniciativa busca consolidar la posición del país como líder global en la producción de chips de memoria y semiconductores avanzados para IA. Fuente: Cinco Días.
+¿Por qué importa? Esta inversión subraya la importancia geopolítica y económica de la fabricación de chips de IA. Los fundadores deben estar atentos a las implicaciones en la cadena de suministro, los costos y la disponibilidad de componentes críticos para sus soluciones de IA.
+
+Anthropic lanza el modelo de IA Claude Sonnet 5 con mejoras en codificación y seguridad, levantando controles sobre Fable 5 y Mythos 5.
+Anthropic ha lanzado Claude Sonnet 5, un modelo de lenguaje grande de rango medio con capacidades mejoradas de codificación y seguridad. Este lanzamiento coincide con el levantamiento de los controles de exportación impuestos por el gobierno de EE. UU. sobre sus modelos más potentes, Fable 5 y Mythos 5, que ahora serán accesibles para los clientes. Fuente: SiliconANGLE.
+¿Por qué importa? La continua evolución de los modelos de IA y la resolución de obstáculos regulatorios son vitales. Los fundadores deben evaluar cómo estos nuevos modelos pueden integrarse en sus productos y servicios, y estar al tanto de los marcos de gobernanza de IA que impactan la disponibilidad de tecnología de vanguardia.
+
+La valoración de Ramp se dispara a $44 mil millones tras ronda de financiación de $750 millones.
+Ramp, la plataforma de gestión de gastos, ha cerrado una ronda de financiación de $750 millones, elevando su valoración a $44 mil millones. La compañía planea utilizar los fondos para acelerar la inversión en avances de IA y expandir sus soluciones de tarjetas corporativas y gestión de gastos a Reino Unido y Europa. Fuente: FinTech Futures.
+¿Por qué importa? Este es un ejemplo claro del impacto de la IA en el sector fintech y del apetito de los inversores por soluciones que integren la IA para mejorar la eficiencia. Los fundadores deben buscar oportunidades para aplicar la IA en procesos empresariales tradicionales para escalar rápidamente y aumentar su valoración.
+
+Mercado de valores de EE. UU. cierra el primer semestre de 2026 al alza, impulsado por acciones de chips.
+Los principales índices bursátiles de EE. UU., incluyendo el S&P 500, Dow Jones y Nasdaq, cerraron el primer semestre de 2026 con ganancias, con un fuerte desempeño de las acciones de la industria de la inteligencia artificial y los semiconductores. El S&P 500 subió un 0.8%, el Dow un 0.3% y el Nasdaq un 1.5% el martes, recuperándose de un mes de junio volátil. Fuente: Associated Press (vía WDRB).
+¿Por qué importa? La resiliencia del mercado, especialmente en el sector tecnológico y de IA, indica una confianza continua de los inversores. Los fundadores deben entender estas tendencias para posicionar sus empresas y buscar oportunidades de financiación, aunque con cautela ante la volatilidad.
+
+Google lanza Nano Banana 2 Lite y Gemini Omni Flash para desarrolladores, mejorando la generación de imágenes y video con IA.
+Google ha lanzado Nano Banana 2 Lite, su modelo de imagen Gemini más rápido y rentable, y Gemini Omni Flash, un modelo de alta calidad y eficiencia para la generación de video y edición conversacional. Estas herramientas están disponibles para desarrolladores a través de Google AI Studio y Gemini API, así como en productos de consumo. Fuente: Google Blog.
+¿Por qué importa? La disponibilidad de modelos de IA más eficientes y potentes de grandes actores como Google democratiza el acceso a capacidades avanzadas de IA generativa. Los fundadores pueden aprovechar estas herramientas para crear experiencias multimedia innovadoras y reducir costos de desarrollo.
+
+Rocket Lab adquiere Iridium Communications por $8 mil millones, expandiéndose en conectividad espacial.
+Rocket Lab ha anunciado la adquisición de Iridium Communications por $8 mil millones, una jugada estratégica para fortalecer su posición en el sector de la conectividad espacial. Esta adquisición permite a Rocket Lab integrar las capacidades de satélites y servicios de comunicación de Iridium. Fuente: Investing.com.
+¿Por qué importa? Esta mega-adquisición destaca la consolidación y el crecimiento en la economía espacial, una tendencia tecnológica clave. Los fundadores en sectores adyacentes deben observar cómo las grandes empresas están invirtiendo en infraestructura para futuras innovaciones en conectividad y datos.
+
+AlphaSense cierra ronda de financiación de $350 millones con una valoración de $7.5 mil millones.
+AlphaSense, una plataforma de inteligencia de mercado impulsada por IA, ha asegurado una ronda de financiación de $350 millones, elevando su valoración a $7.5 mil millones. La inversión fue liderada por Vitruvian Partners, Accenture Ventures y JP Morgan Asset Management, sumando más de $1 mil millones en financiación total. Fuente: FinTech Futures.
+¿Por qué importa? El éxito de AlphaSense demuestra el valor de la IA en la inteligencia empresarial y el análisis de mercado. Los fundadores pueden aprender sobre la importancia de construir plataformas de datos robustas y aprovechar la IA para ofrecer insights críticos que justifiquen altas valoraciones.
+
+Cred recibe una inversión de $900 millones de Meta, con el CEO Kunal Shah liderando WhatsApp.
+La unicornio fintech india Cred ha obtenido una inversión de $900 millones del gigante tecnológico Meta. La financiación se estructurará a través de una combinación de compras de acciones primarias y secundarias, y el CEO de Cred, Kunal Shah, ha sido nombrado para liderar WhatsApp. Fuente: FinTech Futures.
+¿Por qué importa? Esta inversión masiva de un gigante tecnológico en una fintech subraya la convergencia de las redes sociales y los servicios financieros, especialmente en mercados emergentes. Para los fundadores, destaca el potencial de las asociaciones estratégicas y la importancia de la visión de liderazgo para escalar y expandir el impacto de la empresa.
+
+Startup Queue recauda $12.6 millones para lanzar quioscos de farmacia robóticos autónomos.
+La startup Queue ha emergido de su fase sigilosa con una financiación de $12.6 millones para lanzar los primeros quioscos de farmacia robóticos totalmente autónomos. Estos sistemas prometen entregar medicamentos con costos hasta un 96% más bajos que las operaciones de farmacia tradicionales, con planes de expansión en ubicaciones minoristas y hospitales. Fuente: Fierce Healthcare.
+¿Por qué importa? La automatización robótica en el sector de la salud es una tendencia creciente con un enorme potencial para mejorar la eficiencia y reducir costos. Los fundadores deben considerar cómo la robótica y la IA pueden transformar industrias establecidas, creando nuevas oportunidades de mercado y modelos de negocio disruptivos.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
