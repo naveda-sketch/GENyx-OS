@@ -1,0 +1,456 @@
+{
+  "version": "2.0",
+  "date": "2026-07-01",
+  "generated_at": "2026-07-01T05:00:51.655857-06:00",
+  "timezone": "CST (UTC-6)",
+  "language": "es-MX",
+  "tier": "Tier 4",
+  "sections": {
+    "titans": {
+      "key": "titans",
+      "title": "🏛️ Los Titans",
+      "data": [
+        {
+          "nombre": "Tim Cook",
+          "empresa": "Apple",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Aumento de precios de productos Apple por costos de memoria",
+              "detalle": "Apple ha decidido aumentar los precios de sus productos debido al encarecimiento de los chips de memoria, lo que impactará la rentabilidad futura de la empresa. Esta medida se produce en un contexto de escasez global de chips impulsada por la alta demanda de inteligencia artificial.",
+              "fuente": "Business Insider",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEcOEMEqL2dtH4EgHF6iYZHy5aoTdb5u3TIrmX02Z_OrIbvWg_NX4hmdMkBms2vc04kIWCx76es4eyFIA6-fCygiEcx-D0obj4MBaM7c7Oo5hhBi97eAnPSuQr4yYA-3g_hpJuj2uQZUDeiBfr6plX8Gi_pnKJotjt5_dsMmNcFiCiB9ufTRjnJtTJiylxgok_FcX1B9JBzFYNJYffHpwPxt16HZIPEicugQ1yHv_oDYjnbNUcp8hEfKDtftti1jq743cnUf2jOyeYpxxxM",
+              "impacto": "Esta decisión estratégica de Apple refleja la presión inflacionaria en la cadena de suministro de semiconductores y podría sentar un precedente para otros fabricantes de tecnología, afectando el poder adquisitivo de los consumidores."
+            }
+          ]
+        },
+        {
+          "nombre": "Dario Amodei",
+          "empresa": "Anthropic",
+          "actividad": [
+            {
+              "tipo": "lanzamiento",
+              "titulo": "Lanzamiento de Claude Science para automatización de investigación",
+              "detalle": "Anthropic anunció el lanzamiento de Claude Science, un nuevo software diseñado para automatizar diversas tareas de investigación en los campos de la biología y la química. Este desarrollo busca acelerar los procesos científicos y la innovación en estas áreas.",
+              "fuente": "Bloomberg Línea",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFUOid6ZZmOw1jSy6k0vrQGzdkUpEHAbgMBIRf0tGkUkkBI5qilnCFy-Qk-QPk3Z30u5em7qMAr1rfgmQGKCWHgO56WArBTHc0jYreqbuZRS-1uDyeyfZTO5w4SUFOXKA2HdDcS",
+              "impacto": "El lanzamiento de Claude Science posiciona a Anthropic como un actor clave en la aplicación de la IA para la investigación científica, prometiendo eficiencias significativas y acelerando descubrimientos en sectores críticos."
+            }
+          ]
+        },
+        {
+          "nombre": "Mark Zuckerberg",
+          "empresa": "Meta",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Desarrollo de una aplicación de mercados de predicción 'Arena'",
+              "detalle": "Mark Zuckerberg ha dirigido el desarrollo de una aplicación experimental de mercados de predicción, conocida internamente como 'Arena'. Esta iniciativa busca competir con plataformas existentes como Kalshi y Polymarket, utilizando modelos de IA de Meta para generar preguntas y resolver mercados en tiempo real.",
+              "fuente": "The Week / Casino.org",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEsPo0HtwCRe_v7zcV64OHeLJZ5ZV6Az3I-ALt7QuIsn5_dTVwfHwTGUDPp47EySZ893SOIs6wfRzbGf5u8lMmQRCUihkpkH_logZfhjCiGmxq6EcC5NRnBDgygEaPPYbw7l22P8vaWWbjwEd9gkaj300a--Uqu36EDI3w",
+              "impacto": "La incursión de Meta en los mercados de predicción podría redefinir la industria, aprovechando su vasta base de usuarios y su infraestructura de IA para crear una nueva forma de interacción y monetización, aunque enfrenta escrutinio regulatorio."
+            }
+          ]
+        },
+        {
+          "nombre": "Jensen Huang",
+          "empresa": "NVIDIA",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Declaración sobre la 'era de las fábricas de IA'",
+              "detalle": "Jensen Huang, CEO de NVIDIA, afirmó que el momento actual es la 'construcción de fábricas de IA, la expansión de infraestructura más grande en la historia humana'. Esta declaración subraya la visión de NVIDIA sobre la transformación de la industria impulsada por la inteligencia artificial.",
+              "fuente": "TradingKey",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQElksySutWyOhcQpgFythoSW_UItXENq0u5Xz9r6Gqkax1fGK38j2SR1XkjwMUoENUS322h6OLs-za5A3ITDASyMdEaAb11N-Q7c6bgsK86YUXwQD0m280TV9j8Ndv4lQAJmUHsOZe_9y04LZyq8aSaf6WAUPpMzg-tBEwLtJklRZRY39amt8J5n5Wp51pTkCw_E8YhPsrJPXPuvJiWm3Ig6xlyKFsth2_tz69XHZ8KQ00ZD8OWsQFa3E1eL6MGoX-UjVk",
+              "impacto": "La visión de Huang destaca la magnitud de la inversión y el cambio de paradigma en la infraestructura tecnológica, consolidando el papel de NVIDIA como líder en la habilitación de la era de la IA a escala industrial."
+            }
+          ]
+        },
+        {
+          "nombre": "Lisa Su",
+          "empresa": "AMD",
+          "actividad": [
+            {
+              "tipo": "publicación",
+              "titulo": "Perfil definitivo de liderazgo en motores de cómputo de IA",
+              "detalle": "Un perfil publicado recientemente destaca a Lisa Su como la CEO de AMD que está construyendo el 'motor de cómputo clásico de la computación cuántica' y liderando la empresa en la 'construcción del motor de cómputo de IA'. El artículo enfatiza su papel estratégico en la entrega de soluciones de IA.",
+              "fuente": "Business Insider",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG2elbwJFdBsZJPpDffnxyZbQAaBQeFkqTmm6V8__BGXbjwNp7536ApPtUtPpK2OhoN19mW9K2CnxJ6_txVayB4jk6jSv31ixLGBK7HpFgSwGeEK7-CsKLCPQZW50K1JXw",
+              "impacto": "La visibilidad de Lisa Su en este perfil refuerza la posición de AMD como un actor fundamental en la infraestructura de IA y computación de alto rendimiento, destacando su liderazgo en un mercado altamente competitivo."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "forbes.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHf_7mUdG-POaDKesUuG5Ta0n-RTbGuiikJ-vKr8JBZxLXIjIr-2bF4TjlFDtwM-wXbdhF56sPIHiEoxrDgAW9j_2g5nbuPks0x3b0Xg7OEvdR9MFDCZV3XYTZ12i-_w3Lx0ZWRZ2G62wks2ZmVj4d3GGzGTe0byl6cmvltyEszfmgcYz9lIe_P3juhel-a_Whqs7W2jJvaPGd13-Vi"
+        }
+      ],
+      "generated_at": "2026-07-01T05:02:56.992872-06:00",
+      "status": "ok"
+    },
+    "ai_leaders": {
+      "key": "ai_leaders",
+      "title": "🤖 AI Leaders",
+      "data": [
+        {
+          "empresa": "OpenAI",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Vista previa de GPT-5.6 Sol con acceso restringido y ciberseguridad mejorada",
+              "detalle": "OpenAI está presentando una vista previa de GPT-5.6 Sol a un grupo selecto de socios y al gobierno de EE. UU. Este modelo es su más capaz para ciberseguridad, diseñado para tareas legítimas como revisión de código y búsqueda de vulnerabilidades, pero su acceso está restringido debido a su naturaleza de doble uso.",
+              "fuente": "Security Boulevard",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGXBeUf6nEKGTVLHoBn3tO6k0cbflNM9t5DhlAIXdHLdQnY06R4Qn3g_URngBDvxaGxxEDH5mXKzgnmIHq55kjBsZXAUVjOjN4c_YrtC4J_WxZoTqWYK_9KeJrsgfjncR9Hj4CiDpT7wBGJHNd7nWNB6_fW_QpfzqoGYsoR8EsncdkucNco2ctR4W3hgNNsmv47sG208obwdsnwLH1vJYh3sK7lzrXMI7LKXOoWq4k4Rf4",
+              "aplicacion_genyx": "GENyx podría explorar la integración de modelos de ciberseguridad avanzados como GPT-5.6 Sol para ofrecer a sus clientes SaaS capacidades de detección de vulnerabilidades y análisis de código más sofisticadas, bajo un marco de acceso controlado."
+            }
+          ]
+        },
+        {
+          "empresa": "Anthropic",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Lanzamiento de Claude Fable 5 y Claude Mythos 5 con enfoque en seguridad por capas",
+              "detalle": "Anthropic ha lanzado Claude Fable 5 y Claude Mythos 5, dividiendo sus modelos de IA en capas de capacidad y seguridad. La compañía reconoce que la misma potencia que hace valiosos a sus modelos también los hace peligrosos, por lo que están implementando mecanismos de seguridad robustos.",
+              "fuente": "Security Boulevard",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGajWg6XHcOg_KYmYICefnBH4scD-9Xjx1tFUFc7zDERfFvnRk7SfuR4wQnqVod91yjAPX9ZJygbydz2eXTPaZYMCiyrCEW0GsR4oCZNLzCkXY4HYkxj9-TsSWNgXMfeRieGW1ibhnCSapjtMmTAa5NVHzQpugcCvH-DF0L6p2WuYysahJ5lIaBHdPFjzqT",
+              "aplicacion_genyx": "GENyx puede aprender de la estrategia de Anthropic de seguridad por capas, desarrollando sus propias ofertas de IA con salvaguardas integradas y niveles de acceso diferenciados para gestionar los riesgos inherentes a modelos potentes, aumentando la confianza del cliente."
+            }
+          ]
+        },
+        {
+          "empresa": "Mistral AI",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Modelos cuantificados de Mistral 7B dominan descargas en Hugging Face",
+              "detalle": "Los modelos cuantificados de Mistral AI, como Mistral 7B, están liderando las listas de descargas en Hugging Face. Esto se debe a que estos modelos son eficientes y pueden ejecutarse en hardware de consumo, lo que indica una fuerte demanda por soluciones de IA que sean accesibles y de bajo costo computacional.",
+              "fuente": "Security Boulevard",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHdA5ITtaDH55R_X1CzB2mSMZvCjSso8fuHnst9wEcJnkvMJHxo4OoIDYpEmizBb_yHdbV0jaWdcrco7nYUWc2oDIXGXIO4wjVqplGLrpsEWUhYYQqINf_kJjduADXLGFOgkikgB6F3v4xmmUbDUO94bF67gjdCOeQQnT4BPa6oPBWz",
+              "aplicacion_genyx": "GENyx podría considerar el desarrollo o la integración de modelos de IA más ligeros y eficientes, optimizados para hardware de consumo, para ampliar su base de usuarios y reducir los costos operativos de sus clientes SaaS."
+            }
+          ]
+        },
+        {
+          "empresa": "Perplexity AI",
+          "novedades": [
+            {
+              "tipo": "regulación",
+              "titulo": "Extensión maliciosa de Chrome suplantando a Perplexity AI",
+              "detalle": "Investigadores de Microsoft descubrieron una extensión maliciosa de Chrome que se hacía pasar por el motor de búsqueda de IA Perplexity, recopilando secretamente la actividad de búsqueda de los usuarios antes de redirigirlos a resultados legítimos. Google ya eliminó la extensión de su Chrome Web Store.",
+              "fuente": "Security Boulevard",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGOxTdxCT2QUGDgup7osbDZJi6WukJoT25ADUBOU4tP0xNQ7e1mWaXjbQVMTALcncdVzkx_3mxbm4Mo7IeWqpwpMMGmjq-SqX_PrvMZLA1h6xnSA5Ky_35bOlSvHE8tiBHBFjsvsNwyNP73CsOTi2zSf57OQijOmmelGejf1gKzMZ96n3rltLQH7y4d3zHM8dFIp0BXX4-zi-L7vRbW8AyJcazCU1RJOae4ZDIgAwecok0yC19TRpcCpUo0i-TtN0A1AZnrHg==",
+              "aplicacion_genyx": "GENyx debe reforzar sus medidas de seguridad y educar a sus usuarios sobre los riesgos de suplantación de identidad de IA, asegurando que cualquier integración o extensión de terceros sea rigurosamente verificada para proteger la privacidad y los datos de sus clientes."
+            }
+          ]
+        },
+        {
+          "empresa": "Apple Intelligence",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Apple acelera parches de seguridad de iPhone por amenazas de hacking impulsadas por IA",
+              "detalle": "Apple ha lanzado actualizaciones urgentes de iOS 26.5.2 y iPadOS 26.5.2, adelantando casi 30 correcciones de seguridad. Esta medida es una respuesta directa a las herramientas de IA que permiten a los hackers descubrir y explotar vulnerabilidades de software a un ritmo sin precedentes.",
+              "fuente": "Security Boulevard",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEm_juDnBATwYyZ0PO2V3mBBCVlyH_ageSmK0j387UDgc8pZwMtB51L1YpKwTzqswyTK8DuXv-B6BmrB7hAF5dzbSPuD57na42BakiipPlvkdF-GDcQPpxsLL3Qj_D4OEErrsBUuFYtBALSCnbTERjSGYP6qZIpgckJvUuYNXQspmNRX-GjiPH68RZCaEfBsVEG1_QdysIwqJOdmtrwHDnpQpAZYRFE0VFrgVA==",
+              "aplicacion_genyx": "GENyx debe priorizar la agilidad en la implementación de parches de seguridad y actualizaciones, reconociendo que las herramientas de IA aceleran la explotación de vulnerabilidades, y así proteger proactivamente la infraestructura y los datos de sus clientes."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-07-01T05:04:37.334702-06:00",
+      "status": "ok"
+    },
+    "emerging": {
+      "key": "emerging",
+      "title": "🚀 Emerging Tech & Startups",
+      "data": [
+        {
+          "empresa": "Rocket Lab",
+          "sector": "Espacio / Sistemas de Satélites",
+          "valoracion": "Empresa pública (adquiriendo Iridium por $8 mil millones)",
+          "novedades": [
+            {
+              "tipo": "adquisición",
+              "titulo": "Adquisición de Iridium Communications por $8 mil millones",
+              "detalle": "Rocket Lab ha anunciado la adquisición de Iridium Communications en un acuerdo de $8 mil millones en efectivo y acciones. Esta adquisición transforma a Rocket Lab de un proveedor de lanzamientos a una empresa espacial verticalmente integrada con una constelación operativa en órbita terrestre baja.",
+              "fuente": "Bloomberg Tech",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEHZzjXtbKh3r1Oh-G3_152_KuyWwsr78_Utel0Cb8qO5iw-qleobuHPBrEf0SFoKByUCtTKBAteCFwOwPwCE0m2GiAZbbabd6x0zMdaZ94egWWK638hl3Fgv_iVm99-O4qem_13zPNMzCgB8T2EnoPj_5SsdD0OSr4R12TeTRpn8B0mVgPP6ztUMWCAjpk2Y7vZtQom_MpwGKpj-7CyK44b8XoFpLhQw3jijc_-7y6lI_fr35xI18WtHWUAm5U78gv",
+              "por_que_importa": "Esta mega-adquisición posiciona a Rocket Lab como un competidor directo de SpaceX en la economía de órbita terrestre baja, integrando servicios de lanzamiento, fabricación de satélites y operaciones de red. Demuestra una consolidación significativa en el sector espacial y la búsqueda de una integración vertical para capturar un mayor valor en el mercado de comunicaciones satelitales."
+            }
+          ]
+        },
+        {
+          "empresa": "Etched",
+          "sector": "Hardware de IA / Chips",
+          "valoracion": "$5 mil millones",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Sale del modo sigiloso con $800 millones en financiación y $1B+ en contratos",
+              "detalle": "Etched ha salido del modo sigiloso anunciando $800 millones en financiación total, incluyendo una ronda de $500 millones en diciembre que valoró la empresa en $5 mil millones. La startup, que diseña chips específicamente para la inferencia de modelos de IA (Sohu), ya ha firmado más de $1 mil millones en contratos de venta y planea comenzar a enviar sus productos este verano.",
+              "fuente": "Bloomberg (vía Investing.com)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGp7wPDSTdJhWrnAaOzrolBhw69yGr5rV0cX6rp5HMFPzrgenTgn6pAIFgu0_zeKDXxyjs_RV0UK7v6PZevjWYCodenvPwtbkH22n9whoxGo4AyrFA8okbUJf5MqCPfs-6eyo6WqzuLl6jLtSk0Cb_4Qr1DUUvwg-45BOZikYYYUq28oXUHNYJ8SjNHNAw47Yh4Y8uE2QygnfO3SqwlgVt_4CFJL0HV1o35mqKrvm09iK-ZYhBnPI2_JdrQbKU=",
+              "por_que_importa": "La entrada de Etched al mercado con una valoración de $5 mil millones y contratos sustanciales subraya la creciente demanda de hardware especializado para la inferencia de IA. Su enfoque en chips diseñados específicamente para modelos transformadores podría desafiar el dominio de las GPU de propósito general, optimizando costos y eficiencia en la infraestructura de IA."
+            }
+          ]
+        },
+        {
+          "empresa": "X Square Robot",
+          "sector": "Robótica / IA Embodying",
+          "valoracion": "Más de $2.8 mil millones (20 mil millones de yuanes)",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Cierra múltiples rondas de financiación (Series B+, B++, C) superando los $2.8 mil millones de valoración",
+              "detalle": "X Square Robot ha completado cuatro rondas de financiación consecutivas, culminando en una Serie C, lo que eleva su valoración a más de $2.8 mil millones. La empresa china de IA embodying, respaldada por grandes tecnológicas como Meituan, Alibaba, ByteDance y Xiaomi, utilizará los fondos para investigación en inteligencia embodied y despliegues comerciales, incluyendo robots para entornos domésticos.",
+              "fuente": "Tech in Asia",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHG8xQV44394VT1HfQlgEvid33glGJuJfd-pC5UF0WfAf64dgJXYgG5kOaI1vL2TjbgT1qtfFwlKTBuinI6-5uS_FqeZWWoSIXUqcMEgp2nGvj7EWXQdyahrZ2TYhuQ8Vr7Nbj3oseuUtO-aqGU5Iqt6ERQoWwManf2XUpHfw=",
+              "por_que_importa": "Esta significativa inyección de capital valida el creciente interés en la IA embodied y la robótica de propósito general. La capacidad de X Square Robot para atraer a los principales inversores tecnológicos chinos y su expansión a aplicaciones domésticas y de servicios, como la limpieza con robots, indica un avance hacia la comercialización de la IA física en entornos complejos."
+            }
+          ]
+        },
+        {
+          "empresa": "Talawar Therapeutics",
+          "sector": "Biotecnología / Salud",
+          "valoracion": "No especificada (recibirá $285 millones tras la fusión)",
+          "novedades": [
+            {
+              "tipo": "ipo",
+              "titulo": "Se hará pública en Nasdaq a través de una fusión SPAC con JATT II Acquisition Corp",
+              "detalle": "Talawar Therapeutics ha firmado un acuerdo de combinación de negocios con JATT II Acquisition Corp, una SPAC, para cotizar en Nasdaq bajo el símbolo 'TLWR'. La fusión incluye una inversión privada en capital público (PIPE) de $225 millones, lo que proporcionará a la compañía un total de $285 millones para avanzar en su principal activo clínico, TALA-125, un anticuerpo biespecífico para la dermatitis atópica.",
+              "fuente": "Fierce Biotech",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGmTYFZvgTy1GkdZq_AP2NW5Ptg1yJ9qL1MYsdV5IF6QpkXpdILYpQiE3voEJKSPD9tvAwoOKrKs-4GsDRntsglurX2Q8WTUgnyn5HzWd-Jz5blw2CtdtL1k02YheoX0f_f21aaXhA0Qh_HwlU8XN3EV7DFG5cQsvEeUoZt2qrCE1bSFqO8TKX9T1mKkCRpwCR2g02knjp8lzDGFTFTwBn1BzSllp0HTP4XG5sL7PU=",
+              "por_que_importa": "Esta salida a bolsa a través de una SPAC, junto con una PIPE sustancial, es notable en un mercado biotecnológico desafiante. La financiación permitirá a Talawar avanzar en un prometedor tratamiento para la dermatitis atópica, un mercado concurrido, destacando la importancia de la innovación en terapias biespecíficas para enfermedades inmunológicas e inflamatorias."
+            }
+          ]
+        },
+        {
+          "empresa": "Edison Scientific",
+          "sector": "Biotecnología / IA para el Descubrimiento de Fármacos",
+          "valoracion": "No especificada (socio de inversión de capital de riesgo)",
+          "novedades": [
+            {
+              "tipo": "partnership",
+              "titulo": "Asociación estratégica con Population Health Partners para lanzar nuevas biotecnológicas impulsadas por IA",
+              "detalle": "Edison Scientific, líder en ciencia impulsada por IA, se ha asociado con la firma de inversión Population Health Partners para crear y lanzar nuevas empresas de biotecnología. Esta colaboración busca integrar agentes de IA desde las primeras etapas del descubrimiento y desarrollo de fármacos, con el objetivo de acelerar la creación de terapias para enfermedades a gran escala.",
+              "fuente": "Edison Scientific",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH3Fb1JSbmyc19xt2vWaBQXPEFgerwC3fAijL87AS9PgpNJqXu8OXeWDeYd4axM6zftSmeOnE5llUXfnpZd3Ur4r5YRtQQy5oul73PfY80TgzSzGJTf6_t3_TmqVtCXynXX-r-slg0nB2ctB3wGgJbntHJRtYTrB8Y93xR66iqWh8JR_-Li6JEqE1OHsmbf9ep9jyfLM3BfuWSawFM78a7jUDr4SBXyrbXf-WYD9emoU8F4EpppUVlQ-ceQFOi3RxCjDqDhOG2PukeMpflhzcZSfLL9TUM=",
+              "por_que_importa": "Esta alianza estratégica es un hito en la intersección de la IA y la biotecnología, señalando una evolución hacia modelos de 'creación de empresas' donde la IA es un arquitecto central desde el inicio. Podría redefinir cómo se fundan y escalan las startups de biotecnología, acelerando el pipeline de nuevos medicamentos y abordando desafíos de salud a nivel poblacional."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-07-01T05:05:27.775788-06:00",
+      "status": "ok"
+    },
+    "top10": {
+      "key": "top10",
+      "title": "📰 Top 10 Noticias",
+      "data": [
+        {
+          "ranking": 1,
+          "categoria": "AI",
+          "titular": "Startup de chips de inferencia Etched lanza con $800 millones en financiación para desafiar a Nvidia",
+          "fuente": "SiliconANGLE",
+          "url": "https://siliconangle.com/2026/06/30/inference-chip-startup-etched-launches-800m-funding/",
+          "resumen": "Etched Inc., una startup que desarrolla chips de inferencia de inteligencia artificial, ha salido a la luz con una financiación de $800 millones. La compañía afirma que su tecnología LVI puede ejecutar modelos de IA de un billón de parámetros con una eficiencia de FLOPs significativamente mayor que los procesadores existentes, buscando superar a Nvidia en el nicho de inferencia.",
+          "por_que_importa": "Para los fundadores de tecnología, esto señala una intensa competencia en el hardware de IA, ofreciendo alternativas de alto rendimiento a las GPU de propósito general. Es crucial observar cómo las arquitecturas especializadas pueden redefinir el panorama de la infraestructura de IA."
+        },
+        {
+          "ranking": 2,
+          "categoria": "mercados",
+          "titular": "Corea del Sur apuesta $520 mil millones en el auge de la fabricación de chips de IA",
+          "fuente": "Cinco Días",
+          "url": "https://cincodias.elpais.com/companias/2026-06-30/corea-desata-su-revolucion-en-los-chips-samsung-y-sk-hynix-invertiran-520000-millones-de-dolares-en-nuevas-fabricas.html",
+          "resumen": "Corea del Sur ha anunciado una inversión masiva de $520 mil millones por parte de Samsung y SK Hynix para construir nuevas plantas de fabricación de chips. Esta iniciativa busca consolidar la posición del país como líder global en la producción de chips de memoria y semiconductores avanzados para IA.",
+          "por_que_importa": "Esta inversión subraya la importancia geopolítica y económica de la fabricación de chips de IA. Los fundadores deben estar atentos a las implicaciones en la cadena de suministro, los costos y la disponibilidad de componentes críticos para sus soluciones de IA."
+        },
+        {
+          "ranking": 3,
+          "categoria": "AI",
+          "titular": "Anthropic lanza el modelo de IA Claude Sonnet 5 con mejoras en codificación y seguridad, levantando controles sobre Fable 5 y Mythos 5",
+          "fuente": "SiliconANGLE",
+          "url": "https://siliconangle.com/2026/06/30/anthropic-launches-claude-sonnet-5-ai-model-coding-safety-upgrades-fable-mythos-controls-lifted/",
+          "resumen": "Anthropic ha lanzado Claude Sonnet 5, un modelo de lenguaje grande de rango medio con capacidades mejoradas de codificación y seguridad. Este lanzamiento coincide con el levantamiento de los controles de exportación impuestos por el gobierno de EE. UU. sobre sus modelos más potentes, Fable 5 y Mythos 5, que ahora serán accesibles para los clientes.",
+          "por_que_importa": "La continua evolución de los modelos de IA y la resolución de obstáculos regulatorios son vitales. Los fundadores deben evaluar cómo estos nuevos modelos pueden integrarse en sus productos y servicios, y estar al tanto de los marcos de gobernanza de IA que impactan la disponibilidad de tecnología de vanguardia."
+        },
+        {
+          "ranking": 4,
+          "categoria": "negocios",
+          "titular": "La valoración de Ramp se dispara a $44 mil millones tras ronda de financiación de $750 millones",
+          "fuente": "FinTech Futures",
+          "url": "https://www.fintechfutures.com/2026/06/june-2026-top-five-fintech-funding-rounds-of-the-month/",
+          "resumen": "Ramp, la plataforma de gestión de gastos, ha cerrado una ronda de financiación de $750 millones, elevando su valoración a $44 mil millones. La compañía planea utilizar los fondos para acelerar la inversión en avances de IA y expandir sus soluciones de tarjetas corporativas y gestión de gastos a Reino Unido y Europa.",
+          "por_que_importa": "Este es un ejemplo claro del impacto de la IA en el sector fintech y del apetito de los inversores por soluciones que integren la IA para mejorar la eficiencia. Los fundadores deben buscar oportunidades para aplicar la IA en procesos empresariales tradicionales para escalar rápidamente y aumentar su valoración."
+        },
+        {
+          "ranking": 5,
+          "categoria": "mercados",
+          "titular": "Mercado de valores de EE. UU. cierra el primer semestre de 2026 al alza, impulsado por acciones de chips",
+          "fuente": "Associated Press (vía WDRB)",
+          "url": "https://www.wdrb.com/national/how-major-us-stock-indexes-fared-tuesday-6-30-2026/article_976e5720-377b-5079-8803-349f48171694.html",
+          "resumen": "Los principales índices bursátiles de EE. UU., incluyendo el S&P 500, Dow Jones y Nasdaq, cerraron el primer semestre de 2026 con ganancias, con un fuerte desempeño de las acciones de la industria de la inteligencia artificial y los semiconductores. El S&P 500 subió un 0.8%, el Dow un 0.3% y el Nasdaq un 1.5% el martes, recuperándose de un mes de junio volátil.",
+          "por_que_importa": "La resiliencia del mercado, especialmente en el sector tecnológico y de IA, indica una confianza continua de los inversores. Los fundadores deben entender estas tendencias para posicionar sus empresas y buscar oportunidades de financiación, aunque con cautela ante la volatilidad."
+        },
+        {
+          "ranking": 6,
+          "categoria": "tendencia",
+          "titular": "Google lanza Nano Banana 2 Lite y Gemini Omni Flash para desarrolladores, mejorando la generación de imágenes y video con IA",
+          "fuente": "Google Blog",
+          "url": "https://blog.google/technology/ai/nano-banana-2-lite-gemini-omni-flash-developers-june-2026/",
+          "resumen": "Google ha lanzado Nano Banana 2 Lite, su modelo de imagen Gemini más rápido y rentable, y Gemini Omni Flash, un modelo de alta calidad y eficiencia para la generación de video y edición conversacional. Estas herramientas están disponibles para desarrolladores a través de Google AI Studio y Gemini API, así como en productos de consumo.",
+          "por_que_importa": "La disponibilidad de modelos de IA más eficientes y potentes de grandes actores como Google democratiza el acceso a capacidades avanzadas de IA generativa. Los fundadores pueden aprovechar estas herramientas para crear experiencias multimedia innovadoras y reducir costos de desarrollo."
+        },
+        {
+          "ranking": 7,
+          "categoria": "negocios",
+          "titular": "Rocket Lab adquiere Iridium Communications por $8 mil millones, expandiéndose en conectividad espacial",
+          "fuente": "Investing.com",
+          "url": "https://www.investing.com/news/stock-market-news/stock-market-today-june-30-rocket-lab-soars-on-acquisition-and-major-indexes-gain-432SI-3554625",
+          "resumen": "Rocket Lab ha anunciado la adquisición de Iridium Communications por $8 mil millones, una jugada estratégica para fortalecer su posición en el sector de la conectividad espacial. Esta adquisición permite a Rocket Lab integrar las capacidades de satélites y servicios de comunicación de Iridium.",
+          "por_que_importa": "Esta mega-adquisición destaca la consolidación y el crecimiento en la economía espacial, una tendencia tecnológica clave. Los fundadores en sectores adyacentes deben observar cómo las grandes empresas están invirtiendo en infraestructura para futuras innovaciones en conectividad y datos."
+        },
+        {
+          "ranking": 8,
+          "categoria": "negocios",
+          "titular": "AlphaSense cierra ronda de financiación de $350 millones con una valoración de $7.5 mil millones",
+          "fuente": "FinTech Futures",
+          "url": "https://www.fintechfutures.com/2026/06/june-2026-top-five-fintech-funding-rounds-of-the-month/",
+          "resumen": "AlphaSense, una plataforma de inteligencia de mercado impulsada por IA, ha asegurado una ronda de financiación de $350 millones, elevando su valoración a $7.5 mil millones. La inversión fue liderada por Vitruvian Partners, Accenture Ventures y JP Morgan Asset Management, sumando más de $1 mil millones en financiación total.",
+          "por_que_importa": "El éxito de AlphaSense demuestra el valor de la IA en la inteligencia empresarial y el análisis de mercado. Los fundadores pueden aprender sobre la importancia de construir plataformas de datos robustas y aprovechar la IA para ofrecer insights críticos que justifiquen altas valoraciones."
+        },
+        {
+          "ranking": 9,
+          "categoria": "negocios",
+          "titular": "Cred recibe una inversión de $900 millones de Meta, con el CEO Kunal Shah liderando WhatsApp",
+          "fuente": "FinTech Futures",
+          "url": "https://www.fintechfutures.com/2026/06/june-2026-top-five-fintech-funding-rounds-of-the-month/",
+          "resumen": "La unicornio fintech india Cred ha obtenido una inversión de $900 millones del gigante tecnológico Meta. La financiación se estructurará a través de una combinación de compras de acciones primarias y secundarias, y el CEO de Cred, Kunal Shah, ha sido nombrado para liderar WhatsApp.",
+          "por_que_importa": "Esta inversión masiva de un gigante tecnológico en una fintech subraya la convergencia de las redes sociales y los servicios financieros, especialmente en mercados emergentes. Para los fundadores, destaca el potencial de las asociaciones estratégicas y la importancia de la visión de liderazgo para escalar y expandir el impacto de la empresa."
+        },
+        {
+          "ranking": 10,
+          "categoria": "tendencia",
+          "titular": "Startup Queue recauda $12.6 millones para lanzar quioscos de farmacia robóticos autónomos",
+          "fuente": "Fierce Healthcare",
+          "url": "https://www.fiercehealthcare.com/tech/queue-lands-12-6m-build-robotic-pharmacy-kiosks",
+          "resumen": "La startup Queue ha emergido de su fase sigilosa con una financiación de $12.6 millones para lanzar los primeros quioscos de farmacia robóticos totalmente autónomos. Estos sistemas prometen entregar medicamentos con costos hasta un 96% más bajos que las operaciones de farmacia tradicionales, con planes de expansión en ubicaciones minoristas y hospitales.",
+          "por_que_importa": "La automatización robótica en el sector de la salud es una tendencia creciente con un enorme potencial para mejorar la eficiencia y reducir costos. Los fundadores deben considerar cómo la robótica y la IA pueden transformar industrias establecidas, creando nuevas oportunidades de mercado y modelos de negocio disruptivos."
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "blog.google",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFxBWVCruwGO7KPn390WRi6orBAFz_uznjdAJnI9CAbJjrrSOQfHigab_v6OtiX8oY3VPqhVwcUZSyj_fdAHdBlMSza5TgH2aGLNfJy8gr95cBP98q7FpP4HrNnVWkt2j3zozxmpGAs5cTYyZVbHNIaQ4i9F-24KBPLl88o7by14dj1f8a2Y3jwyM9Boxg-QxMQhNxKdx53vvYxml1XhiHzn02pa3RBLiw="
+        }
+      ],
+      "generated_at": "2026-07-01T05:06:43.232657-06:00",
+      "status": "ok"
+    },
+    "mercados": {
+      "key": "mercados",
+      "title": "💹 Pulso de Mercados",
+      "data": {
+        "pulso_de_mercados": {
+          "indices": [
+            {
+              "nombre": "S&P 500",
+              "valor": "7,499.36",
+              "cambio_pct": "+0.8%",
+              "tendencia": "↑",
+              "fuente": "The Associated Press",
+              "url": "https://www.wdrb.com/national/how-major-us-stock-indexes-fared-tuesday-6-30-2026/article_95332f14-3747-5264-9844-3253a8041539.html",
+              "analisis": "El S&P 500 registró ganancias, contribuyendo a reducir las pérdidas de un mes de junio volátil."
+            },
+            {
+              "nombre": "NASDAQ Composite",
+              "valor": "26,213.72",
+              "cambio_pct": "+1.5%",
+              "tendencia": "↑",
+              "fuente": "The Associated Press",
+              "url": "https://www.wdrb.com/national/how-major-us-stock-indexes-fared-tuesday-6-30-2026/article_95332f14-3747-5264-9844-3253a8041539.html",
+              "analisis": "El Nasdaq Composite escaló impulsado por el optimismo en el sector tecnológico."
+            },
+            {
+              "nombre": "Dow Jones Industrial Average",
+              "valor": "52,319.20",
+              "cambio_pct": "+0.3%",
+              "tendencia": "↑",
+              "fuente": "The Associated Press",
+              "url": "https://www.wdrb.com/national/how-major-us-stock-indexes-fared-tuesday-6-30-2026/article_95332f14-3747-5264-9844-3253a8041539.html",
+              "analisis": "El Dow Jones Industrial Average alcanzó un nuevo récord, mostrando la resiliencia del mercado."
+            },
+            {
+              "nombre": "BMV (Bolsa Mexicana de Valores) / IPC",
+              "valor": "66,966.68",
+              "cambio_pct": "-1.0%",
+              "tendencia": "↓",
+              "fuente": "EFE / Grupo BMV",
+              "url": "https://www.informador.mx/economia/IPC-de-la-Bolsa-Mexicana-cierra-el-primer-semestre-de-2026-con-avance-del-4.13--20260630-0105.html",
+              "analisis": "El IPC de la Bolsa Mexicana de Valores cerró el 30 de junio con una pérdida diaria, aunque mantuvo ganancias semestrales."
+            },
+            {
+              "nombre": "Tipo de cambio USD/MXN",
+              "valor": "17.4986",
+              "cambio_pct": "+0.15%",
+              "tendencia": "↑",
+              "fuente": "Banco de México (Banxico) / El Financiero",
+              "url": "https://www.elfinanciero.com.mx/economia/2026/06/30/peso-se-desinfla-durante-junio-cuanto-se-deprecio-en-el-mes/",
+              "analisis": "El peso mexicano se depreció ligeramente frente al dólar, influenciado por factores externos y la fortaleza del dólar."
+            }
+          ],
+          "acciones": [
+            {
+              "nombre": "OpenAI",
+              "valor": "N/A (privada)",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "The Associated Press / Bloomberg",
+              "url": "https://www.bloomberglinea.com/2026/06/26/openai-limita-el-lanzamiento-de-gpt-5-6-ante-presion-del-gobierno-de-eeuu/",
+              "analisis": "OpenAI y Anthropic han limitado el acceso a sus nuevos modelos de IA a clientes aprobados por el gobierno de EE.UU. debido a preocupaciones de ciberseguridad."
+            }
+          ],
+          "earnings": [],
+          "macro": [
+            {
+              "nombre": "Inteligencia Artificial (IA)",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "↑",
+              "fuente": "The Associated Press / EFE",
+              "url": "https://www.wdrb.com/national/how-major-us-stock-indexes-fared-tuesday-6-30-2026/article_95332f14-3747-5264-9844-3253a8041539.html",
+              "analisis": "El optimismo en torno a la inteligencia artificial y el sector tecnológico continúa impulsando los mercados, a pesar de las preocupaciones sobre una posible burbuja."
+            }
+          ]
+        }
+      },
+      "grounding_sources": [],
+      "generated_at": "2026-07-01T05:07:58.471238-06:00",
+      "status": "ok"
+    },
+    "radar": {
+      "key": "radar",
+      "title": "🛰️ RADAR Inteligencia",
+      "data": [],
+      "generated_at": "2026-07-01T05:08:01.454443-06:00",
+      "status": "error",
+      "signals_total": 0,
+      "queries_run": 3,
+      "errors": [
+        "HTTP 401 for query: Top AI funding rounds and product launch",
+        "HTTP 401 for query: Big Tech AI announcements Google Microso",
+        "HTTP 401 for query: AI regulation policy changes worldwide l"
+      ]
+    }
+  },
+  "summary": {
+    "sections_ok": 5,
+    "sections_total": 6,
+    "quality": "PARTIAL"
+  }
+}
