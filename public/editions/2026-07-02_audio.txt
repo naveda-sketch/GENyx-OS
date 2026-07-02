@@ -1,0 +1,115 @@
+El Periódico. Edición del 2026-07-02.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Elon Musk.
+Musk niega informe de WSJ sobre prototipo de dispositivo de IA de SpaceX. Elon Musk negó el 1 de julio de 2026 un informe del Wall Street Journal que afirmaba que SpaceX había mostrado a inversores un prototipo de un dispositivo centrado en IA antes de su salida a bolsa. Musk calificó el informe de 'completamente falso' en una publicación en X, sin dar más detalles. Fuente: Reuters.
+
+Sam Altman.
+OpenAI propone una participación del 5% al gobierno de EE. UU.. Sam Altman, CEO de OpenAI, ha propuesto ceder una participación del 5% de la compañía al gobierno de Estados Unidos en conversaciones iniciales con la administración Trump. Altman argumenta que esta medida es la mejor manera de compartir los beneficios de la inteligencia artificial con el público. Fuente: Financial Times, Forbes.
+
+Tim Cook.
+Tim Cook mantiene conversaciones 'constructivas' con la jefa de tecnología de la UE sobre la IA de Siri. El CEO de Apple, Tim Cook, mantuvo conversaciones 'constructivas' con la jefa de tecnología de la Comisión Europea, Henna Virkkunen, el 1 de julio de 2026. Las discusiones se centraron en el despliegue de la IA de Siri en Europa, después de que Apple culpara a las regulaciones de la UE por el retraso. Fuente: Reuters.
+
+Larry Ellison.
+Larry Ellison pierde US$100.000 millones tras caída de Oracle. El patrimonio de Larry Ellison se desplomó en US$100.000 millones el 30 de junio de 2026, en medio de una caída de casi el 41% en las acciones de Oracle desde su máximo intradiario el 1 de junio. Esta disminución lo relegó del segundo al séptimo puesto entre las personas más ricas del mundo. Fuente: Forbes Colombia, Forbes Centroamérica.
+Familia Ellison adquiere activos de TikTok en EE. UU. y expande control mediático. Larry Ellison lidera el consorcio que adquirió los activos estadounidenses de TikTok, y su familia está a punto de controlar Warner Brothers, CNN y HBO, sumándose a CBS News. Esta expansión de su influencia mediática fue destacada el 1 de julio de 2026. Fuente: El País.
+
+No se encontró actividad relevante.
+No se encontró actividad relevante para un quinto líder tecnológico. A pesar de una búsqueda exhaustiva de los líderes tecnológicos más importantes y sus reemplazos prioritarios, no se encontró actividad relevante y verificable dentro de las últimas 24-48 horas (30 de junio - 1 de julio de 2026) en las fuentes Tier 4 autorizadas, para completar la lista de cinco individuos. Fuente: N/A.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+OpenAI en conversaciones iniciales para ceder el 5% al gobierno de EE. UU.. OpenAI está en conversaciones preliminares para otorgar una participación del 5% en la empresa al gobierno de EE. UU., buscando mejorar las relaciones con la administración Trump y compartir los beneficios de la IA con el público. Esta propuesta, que también podría involucrar a otras empresas de IA, requeriría un acto del Congreso para implementarse. Fuente: The Guardian.
+OpenAI lanza un macro pad para Codex. OpenAI ha presentado Codex Micro, un macro pad desarrollado con Work Louder, diseñado para codificadores que interactúan con su herramienta de IA. Este dispositivo, que se lanzará el 15 de julio, permite asignar atajos a acciones repetitivas de agentes de codificación, como iniciar/pausar un agente o revisar cambios. Fuente: TNW.
+Fusión de ChatGPT y Codex para una aplicación unificada. OpenAI planea fusionar ChatGPT y Codex en una única aplicación, lo que permitirá a ChatGPT, potenciado con agentes de codificación, realizar tareas como revisar correos electrónicos, analizar hojas de cálculo y organizar archivos. Codex, relanzado como aplicación de escritorio en febrero, ya cuenta con 5 millones de usuarios activos semanales. Fuente: Forbes.
+
+Google DeepMind.
+Google DeepMind lanza Gemini Omni Flash y Nano Banana 2 Lite, y expande capacidades de Gemini. Google DeepMind ha lanzado Gemini Omni Flash, que permite la generación y edición conversacional de video, y Nano Banana 2 Lite, un modelo de imagen ultrarrápido y económico. Además, Google anunció Gemini 3.5 Live Translate, nuevas características en Android 17 y el nuevo Google Home Speaker, todos impulsados por Gemini. También se ha integrado el uso de computadora en Gemini 3.5 Flash para agentes personalizados. Fuente: Google Blog / Google DeepMind.
+Prototipo de IA para la administración pública con Gemini. Un nuevo prototipo de planificación impulsado por Gemini, desarrollado en colaboración con Google DeepMind, Faculty y el gobierno del Reino Unido, demuestra cómo la IA puede gestionar retrasos administrativos y análisis de casos. Este experimento busca reducir las solicitudes de planificación doméstica en un 50% mediante la automatización de la extracción de datos y la referencia cruzada de políticas. Fuente: Google Blog.
+Cuadernos de estudio impulsados por Gemini. La aplicación Gemini ahora incluye cuadernos de estudio que permiten a los usuarios establecer objetivos, cargar notas de clase y realizar cuestionarios de conocimiento para identificar áreas de mejora. Gemini puede construir lecciones personalizadas y rastrear el progreso en un panel de control personalizado. Fuente: Google Blog.
+
+Anthropic.
+Administración Trump levanta restricciones a modelos Claude de Anthropic. La administración Trump ha levantado las restricciones sobre las últimas versiones del chatbot Claude de Anthropic, poniendo fin a una prohibición de semanas relacionada con preocupaciones de ciberseguridad. Esto permite a Anthropic reactivar el acceso a sus modelos avanzados Fable y Mythos. Fuente: AP News / Cybersecurity Dive.
+Anthropic ofrece acceso con descuento a Claude para gobiernos locales de California. Anthropic y el gobernador de California, Newsom, han llegado a un acuerdo para proporcionar a los gobiernos locales acceso con descuento a los modelos de Claude. Este acuerdo convierte a Claude en la primera herramienta de inteligencia artificial disponible para todas las agencias estatales y gobiernos locales en California. Fuente: Business Insider.
+Anthropic presenta Claude Sonnet 5 y Claude Science. Anthropic ha lanzado Claude Sonnet 5, que ofrece un rendimiento de vanguardia en codificación, agentes y trabajo profesional a escala. También ha introducido Claude Science, un entorno de trabajo de IA personalizable para científicos que integra herramientas y paquetes de investigación, produciendo artefactos auditables y proporcionando acceso flexible a recursos informáticos. Fuente: Anthropic Newsroom.
+
+Meta AI.
+Meta AI mejora la lectura de pensamientos con Brain2Qwerty v2. Meta AI ha desarrollado Brain2Qwerty v2, un sistema de IA que puede traducir escaneos cerebrales en oraciones coherentes sin necesidad de cirugía invasiva. Este avance utiliza la misma tecnología de reconocimiento de patrones detrás de chatbots como ChatGPT y Llama, y el código subyacente se ha hecho público para acelerar la investigación en neurociencia. Fuente: Technology Review.
+Meta explora un negocio de nube de IA para vender capacidad de cómputo excedente. Meta Platforms está desarrollando planes para un negocio de infraestructura en la nube, denominado "Meta Compute", que vendería acceso a la potencia de cómputo de IA y modelos a clientes externos. Esto representa un cambio estratégico para Meta, que busca monetizar sus inversiones masivas en infraestructura de IA y competir con proveedores de la nube existentes. Fuente: Cloud Computing News / TradingView.
+Meta cobrará por acceso a funciones avanzadas de IA con Meta One. Meta está implementando gradualmente "Meta One", un plan de suscripción premium que desbloqueará funciones avanzadas de IA en Instagram, Facebook, WhatsApp y sus gafas de IA. Esto incluye acceso ampliado a capacidades de IA y soporte premium para dispositivos, marcando un movimiento hacia la monetización de sus inversiones en IA. Fuente: Social Media Today.
+
+Microsoft AI.
+GitHub Copilot ahora es un agente integrado en JetBrains IDEs. GitHub Copilot se ha integrado de forma nativa como un agente en los entornos de desarrollo integrados (IDE) de JetBrains, ofreciendo una experiencia más estable y disponible por defecto. Esta integración, fruto de una colaboración profunda entre JetBrains y GitHub, también incluye comandos de barra de Copilot CLI directamente en el chat de IA. Fuente: GitHub Blog.
+Reorganización de liderazgo en Microsoft Copilot. Microsoft ha realizado una reorganización de liderazgo dentro de su equipo de Copilot, con Jacob Andreou asumiendo el cargo de Vicepresidente Ejecutivo de Copilot. Peter Sellis ha sido nombrado líder de diseño, crecimiento e ingeniería de Copilot, reportando a Andreou. Fuente: GeekWire.
+Tieto logra especialización en Microsoft Copilot. Tieto ha obtenido la especialización en Microsoft Copilot, lo que profundiza su colaboración con Microsoft y fortalece su capacidad para ayudar a los clientes a acelerar la adopción de la IA y la transformación empresarial. Esta especialización reconoce la experiencia en la implementación y escalado de soluciones de Microsoft Copilot. Fuente: Tieto.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Bending Spoons.
+Debut en Nasdaq con una valoración multimillonaria. La empresa italiana Bending Spoons, conocida por adquirir y optimizar marcas de internet como AOL y Vimeo, fijó el precio de su oferta pública inicial en $29 por acción, recaudando $1.68 mil millones. Sus acciones comenzaron a cotizar en el Nasdaq el 1 de julio de 2026, con una valoración post-IPO de aproximadamente $18.4 mil millones. Fuente: Reuters (citado en WMBD).
+
+Memo Therapeutics.
+Adquirida por Ipsen para expandir su cartera de enfermedades raras. Ipsen, una compañía biofarmacéutica global, anunció la adquisición de Memo Therapeutics AG por una consideración potencial total superior a los €700 millones, incluyendo €200 millones por adelantado. La adquisición se centra en potravitug, un anticuerpo en fase clínica II dirigido al poliomavirus BK, una complicación grave en pacientes trasplantados de riñón. Fuente: Comunicado oficial de Ipsen (citado en Kurma Partners).
+
+Vytrus Biotech.
+Lanzamiento de Toleroxyl™, un nuevo activo biotecnológico para pieles sensibles. Vytrus Biotech ha lanzado Toleroxyl™, un innovador ingrediente activo dermocosmético basado en tecnología de proteínas recombinantes. Este producto, presentado en in-cosmetics Korea 2026, introduce el concepto de 'Tolerógeno' para reeducar la piel hipersensible y restaurar su tolerancia natural frente a los factores de estrés urbanos. [cite: 27 from previous search, 28 from previous search] Fuente: Vytrus Biotech (Comunicado oficial).
+
+General Intuition.
+Recauda $320 millones en ronda de financiación Serie A. La startup de investigación de IA General Intuition, con sede en Nueva York, ha recaudado $320 millones en una ronda de financiación Serie A, alcanzando una valoración de $2.3 mil millones. La ronda fue liderada por Khosla Ventures y se enfocará en el desarrollo de modelos de IA entrenados con datos de videojuegos para interpretar y navegar entornos físicos, lo que es crucial para la robótica. Fuente: Forbes (citando TechCrunch).
+
+Domyn.
+Alianza estratégica con Cognizant para soluciones de IA soberana en EMEA. Domyn, líder europeo en infraestructura de IA soberana para industrias reguladas, ha anunciado una alianza estratégica con Cognizant. Esta colaboración busca ofrecer soluciones de IA que permitan a las empresas mantener el control de sus datos en entornos controlados por el cliente, cumpliendo con las normativas europeas. Fuente: FintechNewsCH (citando Cognizant).
+
+Sección: 📰 Top 10 Noticias.
+
+Órdenes Ejecutivas de EE. UU. Impulsan la Innovación Cuántica y la Ciberseguridad Post-Cuántica con Plazo de 2029.
+El 22 de junio de 2026, la Casa Blanca emitió dos Órdenes Ejecutivas para acelerar el desarrollo de la ciencia y tecnología de la información cuántica (QIST) y proteger contra las amenazas de las computadoras cuánticas. Una orden exige la migración de los sistemas federales a la criptografía post-cuántica (PQC) para 2029, extendiendo las obligaciones a contratistas y operadores de infraestructura crítica. La otra establece iniciativas y recursos para el desarrollo y comercialización de tecnologías cuánticas. Fuente: Data Matters.
+¿Por qué importa? Como fundador tech, esto significa una inminente necesidad de invertir en ciberseguridad post-cuántica y explorar oportunidades en la computación cuántica. Hay un mercado creciente para soluciones de seguridad resistentes a la cuántica y un impulso gubernamental para la innovación en QIST.
+
+Anthropic Relanza Claude Sonnet 5 Tras Levantamiento de Restricciones del Gobierno de EE. UU..
+Anthropic ha relanzado su modelo Claude Sonnet 5, haciéndolo el modelo predeterminado para usuarios gratuitos y Pro a nivel mundial, después de que el gobierno de EE. UU. levantara las restricciones de control de exportaciones. Las restricciones iniciales se impusieron por preocupaciones de ciberseguridad, pero Anthropic implementó salvaguardas adicionales para abordarlas. Fuente: Anthropic.
+¿Por qué importa? La disponibilidad de modelos de IA avanzados como Claude Sonnet 5 a un costo más accesible es crucial para la adopción empresarial de IA. Los fundadores pueden aprovechar estas herramientas para desarrollar agentes de IA más fiables y eficientes, reduciendo costos de supervisión humana.
+
+Financiación de Capital Riesgo Global Alcanza Cifra Récord en el Primer Semestre de 2026, Impulsada por la IA.
+Las startups a nivel mundial recaudaron un récord de 510 mil millones de dólares en el primer semestre de 2026, superando el total de todo el año anterior. Este auge fue impulsado principalmente por la inteligencia artificial, con OpenAI y Anthropic representando el 43% de toda la financiación. La concentración de capital en laboratorios de IA de frontera es sin precedentes, aunque la inversión se ha extendido a infraestructura, defensa, robótica y salud impulsadas por IA. Fuente: SiliconANGLE.
+¿Por qué importa? Este flujo masivo de capital en IA subraya la oportunidad de mercado y la confianza de los inversores. Los fundadores deben buscar cómo sus soluciones pueden integrarse o beneficiarse de la infraestructura de IA y las aplicaciones de frontera para atraer inversión.
+
+Gobierno de EE. UU. en Conversaciones Avanzadas para Establecer Estándares Voluntarios de Modelos de IA.
+El gobierno de EE. UU. está en conversaciones avanzadas con empresas de IA para crear estándares voluntarios para el lanzamiento de nuevos modelos, con un posible anuncio la próxima semana. Estos estándares buscan establecer puntos de referencia para modelos avanzados y aclarar quién puede acceder a ellos, en medio de preocupaciones sobre el uso indebido de la IA por parte de la inteligencia militar. Fuente: Reuters (vía WHTC).
+¿Por qué importa? La autorregulación y los estándares voluntarios pueden moldear el futuro del desarrollo y despliegue de la IA. Los fundadores deben estar atentos a estas directrices para asegurar que sus productos sean conformes y éticos, lo que puede ser una ventaja competitiva y evitar futuras regulaciones más estrictas.
+
+La IA Física Emerge como la Próxima Gran Tendencia Tecnológica, Marcando un 'Momento ChatGPT' para la Inteligencia Encarnada.
+La IA física, que permite a los sistemas percibir, razonar y actuar en el mundo real a través de robots y máquinas autónomas, está siendo calificada como el 'momento ChatGPT' para la inteligencia encarnada en 2026. Se proyecta que el mercado global de IA física crecerá de 1.500 millones de dólares en 2026 a 15.240 millones de dólares para 2032, impulsado por hardware maduro y modelos de fundación más capaces. Fuente: Quasa.io.
+¿Por qué importa? Este cambio representa una oportunidad masiva para los fundadores que trabajan en robótica, automatización y sistemas autónomos. La integración de la IA en el mundo físico puede transformar industrias como la manufactura, la logística y la atención médica, creando nuevos mercados y modelos de negocio.
+
+Informe de la ONU Advierte que la Seguridad de la IA se Retrasa Respecto a su Progreso Acelerado.
+Un informe preliminar del Panel Científico Internacional Independiente sobre Inteligencia Artificial de la ONU concluye que las capacidades de la IA están avanzando más rápido de lo que los gobiernos pueden seguir el ritmo, y las reglas para garantizar su uso seguro están rezagadas. El informe destaca los beneficios de la IA en medicina y seguridad alimentaria, pero advierte que sin salvaguardas, la tecnología podría profundizar la desigualdad y amenazar los derechos humanos. Fuente: UN News.
+¿Por qué importa? Este informe es una señal clara de la creciente presión por una gobernanza y seguridad de la IA más robustas. Los fundadores de IA deben priorizar la ética, la transparencia y la seguridad en el diseño de sus sistemas para mitigar riesgos regulatorios y construir la confianza del usuario, lo que será un diferenciador clave en el futuro.
+
+Empresas Tecnológicas como Lime, Bending Spoons y Anker Salen a Bolsa en Julio de 2026.
+Varias empresas tecnológicas importantes están programadas para salir a bolsa a principios de julio de 2026. Lime, la compañía de micromovilidad compartida, planea cotizar en NASDAQ el 1 de julio, buscando recaudar aproximadamente 174 millones de dólares. Bending Spoons, una empresa italiana de tecnología digital, también tiene previsto cotizar en NASDAQ el 1 de julio, con una expectativa de 1.600 millones de dólares. Anker Innovations, una empresa de tecnología de consumo, se espera que cotice en la Bolsa de Valores de Hong Kong el 2 de julio. Fuente: IPO Calendar (vía IPOX®).
+¿Por qué importa? La actividad de OPI de estas empresas indica un mercado público receptivo para el sector tecnológico, a pesar de la volatilidad general. Esto puede abrir vías de salida para startups bien posicionadas y validar modelos de negocio escalables, ofreciendo un barómetro de la confianza de los inversores en el crecimiento tecnológico.
+
+EquiLibre Technologies Recauda Serie A de €438M para Escalar Agentes de IA para Trading.
+EquiLibre Technologies, un laboratorio de IA con sede en Praga fundado por ex-investigadores de DeepMind, ha recaudado una ronda de financiación Serie A de 438 millones de euros (500 millones de dólares) para escalar sus agentes de IA para trading. La financiación, que es la mayor inversión individual de Creandum, se utilizará principalmente para expandir la infraestructura de computación de la empresa y entrenar modelos de trading más sofisticados. Fuente: The Recursive.
+¿Por qué importa? Esta inversión masiva valida el potencial de la IA en los mercados financieros y el valor de los agentes autónomos. Los fundadores en fintech y IA deberían notar el interés en soluciones que pueden aprender y adaptarse a las condiciones del mercado, lo que sugiere un camino claro para la innovación y la inversión en este nicho.
+
+Regulación MiCA de la UE Entra en Plena Vigencia, Marcando un Hito para Web3 y Criptoactivos.
+El 1 de julio de 2026 marca la conclusión del período de transición para la regulación de Mercados en Criptoactivos (MiCA) de la Unión Europea, lo que significa su plena aplicación en varios estados miembros. Esta regulación establece un marco integral para los criptoactivos, buscando armonizar las políticas y aumentar la protección del consumidor y la estabilidad del mercado en el espacio Web3. Fuente: PANews.
+¿Por qué importa? La plena aplicación de MiCA en la UE crea un entorno regulatorio más claro pero también más estricto para las empresas de Web3 y cripto. Los fundadores que operan o buscan expandirse en Europa deben asegurar una estricta conformidad, lo que puede ser una ventaja competitiva para aquellos que construyen soluciones regulatoriamente sólidas.
+
+La Reserva Federal Mantiene una Postura Hawkish, Enfriando las Expectativas de Recortes de Tasas.
+Las expectativas de tasas de interés han cambiado significativamente en 2026, con el nuevo presidente de la Reserva Federal, Kevin Warsh, enfatizando el compromiso de restaurar la estabilidad de precios antes de considerar medidas de flexibilización. Los mercados están atentos a las declaraciones de Warsh, ya que los datos de un mercado laboral más fuerte de lo esperado han enfriado las expectativas de recortes de tasas a corto plazo. Fuente: Saxo Bank.
+¿Por qué importa? Las tasas de interés más altas por más tiempo impactan directamente el costo del capital y la valoración de las startups. Los fundadores deben ajustar sus proyecciones financieras, enfocarse en la rentabilidad y la eficiencia del capital, y prepararse para un entorno de financiación potencialmente más ajustado. La disciplina financiera es más crítica que nunca.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
