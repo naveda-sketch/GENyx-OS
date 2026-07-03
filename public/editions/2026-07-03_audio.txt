@@ -1,0 +1,100 @@
+El Periódico. Edición del 2026-07-03.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Elon Musk.
+Pérdida de estatus de trillonario. Elon Musk perdió su estatus de trillonario el 1 de julio de 2026, ya que la caída de las acciones de SpaceX redujo su fortuna en más de 50 mil millones de dólares. A pesar de un optimismo reciente de analistas sobre Tesla, las acciones de SpaceX cayeron un 6.2%, llevando su patrimonio neto a 994.1 mil millones de dólares. Fuente: Forbes.
+Promoción de película anti-migrante en X. Elon Musk utilizó su plataforma X para promocionar una película anti-migrante titulada 'Citizen Vigilante', que ha sido criticada por incitar a la violencia. Musk hizo que la película estuviera disponible de forma gratuita en X durante aproximadamente 48 horas la semana pasada y compartió varias publicaciones elogiándola. Fuente: TVP World.
+
+Satya Nadella.
+Lanzamiento de 'Microsoft Frontier Company'. Microsoft anunció el 2 de julio de 2026 el lanzamiento de 'The Microsoft Frontier Company', una iniciativa de 2.5 mil millones de dólares para integrar ingenieros de IA directamente en las operaciones de los clientes. Esta nueva 'compañía' busca construir y operar sistemas de IA in situ, permitiendo a los clientes utilizar diversos modelos de IA sin estar atados a uno solo. Fuente: GeekWire.
+Reorganización de operaciones de Copilot. El 2 de julio de 2026, se informó sobre la reorganización de las operaciones de Copilot de Microsoft, realizada el 17 de marzo de 2026, bajo la dirección de Satya Nadella. Esta reestructuración busca unificar el trabajo del asistente de IA para consumidores y empresas bajo Jacob Andreou, mientras Mustafa Suleyman se enfoca en modelos frontera y la investigación de superinteligencia. Fuente: The Information.
+Reconocimiento como Pionero de la IA. Satya Nadella fue nombrado uno de los 50 Pioneros de la IA por el think tank sin fines de lucro Boston Global Forum y su iniciativa AI World Society, según un anuncio del 3 de julio de 2026. Este reconocimiento honra a líderes que están 'dando forma poderosamente al papel de Estados Unidos en la Era de la Inteligencia Artificial'. Fuente: UCLA Samueli School Of Engineering.
+
+Jensen Huang.
+Chaqueta de cuero icónica a subasta. La icónica chaqueta de cuero de Jensen Huang, cofundador y CEO de Nvidia, ha sido firmada y puesta a subasta con fines benéficos en Sotheby's, según se informó el 3 de julio de 2026. Se espera que la chaqueta alcance entre 40,000 y 60,000 dólares, habiendo estado presente en 'algunos de los momentos más trascendentales de la tecnología moderna'. Fuente: Inc. Magazine.
+Elogio a Adobe en la Cumbre Adobe 2026. El 2 de julio de 2026, Jensen Huang elogió a Adobe y a su CEO saliente, Shantanu Narayen, en la Cumbre Adobe 2026. Huang afirmó que 'ninguna empresa ha hecho una mayor contribución a la forma en que el mundo cuenta historias que Adobe', destacando su gratitud por la tecnología y la inspiración que han proporcionado. Fuente: Stocktwits (citando CNBC).
+Reconocimiento como Pionero de la IA. Jensen Huang fue nombrado uno de los 50 Pioneros de la IA por el think tank sin fines de lucro Boston Global Forum y su iniciativa AI World Society, según un anuncio del 3 de julio de 2026. Este reconocimiento honra a líderes que están 'dando forma poderosamente al papel de Estados Unidos en la Era de la Inteligencia Artificial'. Fuente: UCLA Samueli School Of Engineering.
+
+Sam Altman.
+Propuesta de participación del 5% en OpenAI para el gobierno de EE. UU.. Sam Altman ha discutido la posibilidad de otorgar al gobierno de EE. UU. una participación del 5% en OpenAI, según informes del 2 de julio de 2026. Esta propuesta, parte de conversaciones con la administración Trump, busca aliviar tensiones políticas y compartir los beneficios del crecimiento de la IA con el público. Fuente: The Times of India (citando Financial Times), Gizmodo (citando Financial Times).
+Retractación sobre el impacto de la IA en el empleo. Sam Altman admitió el 2 y 3 de julio de 2026 que estaba 'bastante equivocado' sobre el impacto de la IA en el mercado laboral, esperando una mayor eliminación de trabajos de cuello blanco de nivel de entrada de lo que realmente ha ocurrido. Hizo estas declaraciones en una conferencia organizada por el Commonwealth Bank of Australia en Sídney. Fuente: The Times of India (citando Reuters), CBC.
+Llamado a un foro internacional liderado por EE. UU. para la IA. Sam Altman, CEO de OpenAI, publicó un artículo de opinión el 2 de julio de 2026 en el Financial Times, donde pidió un 'foro internacional liderado por EE. UU. que establezca estándares aceptados' para la regulación de la IA. Sugirió modelos como la Agencia Internacional de Energía Atómica para supervisar el desarrollo global de la IA. Fuente: Business Insider, Gizmodo (citando Financial Times).
+
+Sundar Pichai.
+Venta de acciones de GOOGL por $9.8 millones. Sundar Pichai, CEO de Alphabet Inc., vendió un total de 9.8 millones de dólares en acciones de Clase C Capital Stock el 4 de marzo de 2026, según un informe del 2 de julio de 2026. La venta de 32,500 acciones se ejecutó a precios que oscilaron entre $301.57 y $305.14. Fuente: Investing.com.
+Promoción de anuncio de Google Workspace con Gemini AI. Sundar Pichai compartió un anuncio de Google Workspace que reimagina a los Padres Fundadores de EE. UU. utilizando la IA Gemini para redactar la Declaración de Independencia, según se informó el 3 de julio de 2026. Este anuncio forma parte de la campaña 'America 250'. Fuente: Benzinga.
+Declaración sobre la revolución tecnológica de la India. Sundar Pichai fue citado el 3 de julio de 2026 con la frase: 'India ha sido durante mucho tiempo un exportador de talento para las empresas tecnológicas... Pero es la India la que ahora está experimentando su propia revolución'. Esta declaración, hecha en 2015, se resalta en el contexto actual. Fuente: BusinessToday.
+
+Sección: 🤖 AI Leaders.
+
+No se encontró información para esta sección.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Mistral AI.
+Mistral AI cierra ronda de financiación Serie C. Mistral AI, la startup francesa líder en inteligencia artificial, ha anunciado el cierre de una significativa ronda de financiación Serie C, elevando su valoración a más de $6 mil millones de dólares. Esta inyección de capital fortalecerá su capacidad para competir con gigantes de la IA en el desarrollo de modelos de lenguaje grandes y accesibles. Fuente: TechCrunch.
+
+Figure AI.
+Figure AI presenta su robot humanoide de próxima generación. Figure AI ha revelado su más reciente prototipo de robot humanoide, el 'Figure 02', que demuestra mejoras significativas en destreza manual y navegación autónoma. El nuevo modelo está diseñado para realizar tareas complejas en entornos logísticos y de manufactura, acercando la visión de robots de propósito general a la realidad. Fuente: The Verge.
+
+Ramp.
+Ramp se asocia con Google Cloud para optimizar la gestión de gastos empresariales. Ramp, la plataforma de gestión de gastos y tarjetas corporativas, ha anunciado una alianza estratégica con Google Cloud para integrar sus servicios. Esta colaboración permitirá a las empresas acceder a herramientas de análisis de datos más robustas y automatización inteligente directamente desde la infraestructura de Google Cloud, mejorando la eficiencia operativa. Fuente: Bloomberg.
+
+Anduril Industries.
+Anduril adquiere startup de tecnología de drones autónomos. Anduril Industries, la compañía de defensa tecnológica, ha anunciado la adquisición de 'SkyGuard Systems', una startup especializada en drones autónomos con capacidades avanzadas de vigilancia y reconocimiento. Esta adquisición busca integrar la tecnología de SkyGuard en la suite de productos de defensa de Anduril, fortaleciendo sus ofertas en seguridad fronteriza y operaciones militares. Fuente: The Wall Street Journal.
+
+Glean.
+Glean ficha a ex-CTO de Google para liderar ingeniería de IA. Glean, la startup de búsqueda empresarial impulsada por IA, ha anunciado la contratación de la Dra. Anya Sharma, ex-Directora de Tecnología (CTO) de una división clave de IA en Google. La Dra. Sharma se unirá a Glean como Vicepresidenta Senior de Ingeniería de IA, con la misión de escalar sus capacidades de búsqueda y descubrimiento de conocimiento. Fuente: The Information.
+
+Sección: 📰 Top 10 Noticias.
+
+El gobierno de EE. UU. en conversaciones avanzadas con empresas de IA para establecer estándares voluntarios de modelos..
+El gobierno de Estados Unidos está en conversaciones avanzadas con empresas de inteligencia artificial para crear estándares voluntarios para el lanzamiento de nuevos modelos, con un anuncio posible la próxima semana. Washington ha intensificado la supervisión de los lanzamientos de nuevos modelos para señalar riesgos, en medio de preocupaciones de que la IA avanzada podría ser mal utilizada por la inteligencia militar. Los estándares establecerían puntos de referencia para modelos avanzados y cronogramas, y aclararían quién puede acceder a ellos en Estados Unidos y en el extranjero. Fuente: Reuters.
+¿Por qué importa? Para los fundadores tech, esto indica una creciente presión regulatoria y la necesidad de considerar la seguridad y el uso ético de la IA desde las primeras etapas de desarrollo. La colaboración con el gobierno podría definir el futuro del panorama de la IA.
+
+Startup de centros de datos de IA Crusoe en conversaciones para recaudar 3 mil millones de dólares, lo que podría triplicar su valoración..
+Crusoe, una startup de centros de datos de IA, está en conversaciones para recaudar aproximadamente 3 mil millones de dólares en una ronda de financiación que podría triplicar su valoración, según informó Bloomberg News. La startup tiene contratos para suministrar potencia de computación de IA a empresas como Meta y Oracle. Los inversores esperan que el valor de la empresa se sitúe en el rango de los 30 mil millones de dólares, incluyendo las nuevas inversiones. Fuente: Reuters.
+¿Por qué importa? Esta noticia resalta la enorme demanda de infraestructura de IA y el capital significativo que se está invirtiendo en este espacio. Para los fundadores, subraya la oportunidad de construir negocios que soporten el ecosistema de IA, especialmente en áreas de computación intensiva.
+
+Los mercados bursátiles globales muestran cautela ante la próxima decisión de la Reserva Federal sobre tasas de interés..
+Los principales índices bursátiles a nivel mundial operan con ligeras variaciones, reflejando la incertidumbre de los inversores ante la inminente reunión de la Reserva Federal de Estados Unidos. Se espera que la Fed anuncie su decisión sobre las tasas de interés, lo que podría influir significativamente en la liquidez y el apetito por el riesgo en los mercados. Los analistas están divididos sobre si habrá un aumento, un mantenimiento o incluso un recorte sorpresa. Fuente: Bloomberg.
+¿Por qué importa? Las decisiones de política monetaria impactan directamente el costo del capital y la valoración de las startups. Un entorno de tasas altas puede dificultar la obtención de financiación y presionar las valoraciones, mientras que tasas más bajas pueden estimular la inversión y el crecimiento.
+
+IQM Quantum Computers se convierte en la primera empresa europea de computación cuántica en cotizar en una bolsa importante de EE. UU. (Nasdaq)..
+IQM Quantum Computers, líder mundial en computadoras cuánticas superconductoras de pila completa, se convirtió en una empresa que cotiza en bolsa tras completar su combinación de negocios con Real Asset Acquisition Corp. La empresa comenzó a cotizar en el Nasdaq Global Select Market bajo el símbolo 'IQMX', marcando un hito como la primera empresa europea de computación cuántica en cotizar en una bolsa importante de EE. UU. Fuente: Businesswire.
+¿Por qué importa? La salida a bolsa de IQM Quantum Computers es un indicador clave de la madurez y el potencial comercial de la computación cuántica. Para los fundadores tech, esto valida la inversión en tecnologías cuánticas y sugiere un futuro con más oportunidades de financiación y desarrollo en este campo.
+
+La ciberseguridad impulsada por IA se convierte en una prioridad clave para las empresas ante el aumento de ataques sofisticados..
+Un reciente análisis del Wall Street Journal destaca cómo las empresas están priorizando la implementación de soluciones de ciberseguridad basadas en inteligencia artificial para combatir el creciente número y la sofisticación de los ciberataques. La IA se está utilizando para la detección proactiva de amenazas, la respuesta automatizada a incidentes y la identificación de vulnerabilidades. Esto marca un cambio fundamental en la estrategia de defensa digital. Fuente: The Wall Street Journal.
+¿Por qué importa? Los fundadores tech deben reconocer que la ciberseguridad ya no es un gasto opcional, sino una inversión crítica, especialmente con la IA como habilitador y objetivo. Esto abre un vasto mercado para startups que desarrollen soluciones innovadoras de ciberseguridad con IA.
+
+La escasez de talento en IA y ciberseguridad impulsa la demanda de plataformas de capacitación y desarrollo de habilidades..
+Un informe de The Information revela que la creciente escasez de profesionales cualificados en inteligencia artificial y ciberseguridad está generando una fuerte demanda de plataformas y programas de capacitación especializados. Empresas de todos los tamaños están invirtiendo en la formación de su personal existente y buscando nuevas formas de atraer talento. Esto crea un mercado en auge para las startups de EdTech y servicios de consultoría de talento. Fuente: The Information.
+¿Por qué importa? Para los fundadores tech, esta es una doble señal: por un lado, la dificultad para contratar talento especializado en IA y ciberseguridad persistirá; por otro, hay una enorme oportunidad para crear soluciones que aborden esta brecha, ya sea a través de plataformas de aprendizaje, herramientas de automatización que reduzcan la dependencia del talento humano, o servicios de staffing especializados.
+
+El sector de semiconductores experimenta una caída impulsada por la toma de ganancias y preocupaciones sobre las tasas de interés..
+Las acciones de semiconductores iniciaron el tercer trimestre con sus peores pérdidas en casi un mes, lo que sirvió como recordatorio de que incluso el sector más candente de Wall Street necesita enfriarse ocasionalmente. El índice de semiconductores de Filadelfia (SOX) y el ETF iShares Semiconductor (SMH) registraron pérdidas de entre el 7% y el 10% durante la venta masiva. Esto se atribuye a la toma de ganancias y a un sólido informe de empleo que cambió las expectativas de tasas de interés hacia posibles aumentos de la Fed. Fuente: Reuters.
+¿Por qué importa? Esta caída en el sector de semiconductores es crucial para los fundadores tech, ya que los chips son la base de la innovación en IA y otras tecnologías. Las fluctuaciones en este mercado pueden afectar los costos de hardware, la disponibilidad y, en última instancia, el ritmo de desarrollo tecnológico.
+
+Científicos logran que el tiempo cuántico fluya hacia atrás en un avance de la física, con implicaciones para la computación cuántica..
+Investigadores han desarrollado nuevas técnicas de control cuántico que pueden hacer que un sistema parezca retroceder en el tiempo. Al gestionar con precisión las mediciones cuánticas, pueden remodelar la flecha del tiempo del sistema e incluso extraer energía del propio proceso de medición. Este avance podría conducir a computadoras cuánticas más potentes, baterías cuánticas y otras tecnologías avanzadas. Fuente: Los Alamos National Laboratory.
+¿Por qué importa? Este descubrimiento representa un hito fundamental en la física cuántica con profundas implicaciones para la computación y la energía. Para los fundadores tech, abre nuevas vías para la investigación y el desarrollo de hardware cuántico, prometiendo capacidades computacionales y energéticas sin precedentes.
+
+Meta Platforms explora la venta de su exceso de capacidad de computación de IA como un servicio en la nube..
+Meta Platforms está explorando la posibilidad de vender su exceso de capacidad de computación de inteligencia artificial como un servicio en la nube, una medida que ha impulsado el precio de sus acciones. Esta estrategia sugiere que la monetización de la infraestructura de IA podría ser tan valiosa como el desarrollo de los propios modelos de IA. La noticia plantea preguntas sobre la demanda real de computación de IA y la posible comoditización de la capa de modelos. Fuente: CNBC.
+¿Por qué importa? Esta estrategia de Meta podría transformar el mercado de la infraestructura de IA, creando nuevas oportunidades para startups que puedan aprovechar o complementar estos servicios. También sugiere que la diferenciación en el espacio de la IA podría trasladarse de los modelos a la infraestructura y los servicios de valor añadido.
+
+Las startups de EE. UU. anuncian rondas de financiación considerables, con la energía y la IA a la cabeza..
+Las startups estadounidenses anunciaron rondas de financiación considerables durante una semana festiva acortada, con los sectores de energía e inteligencia artificial liderando el camino. Este flujo constante de capital subraya el continuo apetito de los inversores por tecnologías disruptivas y soluciones innovadoras. La actividad de financiación se mantuvo sólida a pesar de las condiciones del mercado, destacando la resiliencia de estos sectores. Fuente: TechCrunch.
+¿Por qué importa? Para los fundadores tech, esta noticia es un barómetro positivo del ecosistema de financiación. Demuestra que el capital sigue disponible para startups con propuestas de valor sólidas, especialmente en áreas de alto impacto como la IA y la energía, lo que puede inspirar nuevas rondas y estrategias de crecimiento.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
