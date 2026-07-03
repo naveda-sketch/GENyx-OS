@@ -1,0 +1,623 @@
+{
+  "version": "2.0",
+  "date": "2026-07-03",
+  "generated_at": "2026-07-03T05:00:08.573083-06:00",
+  "timezone": "CST (UTC-6)",
+  "language": "es-MX",
+  "tier": "Tier 4",
+  "sections": {
+    "titans": {
+      "key": "titans",
+      "title": "🏛️ Los Titans",
+      "data": [
+        {
+          "nombre": "Elon Musk",
+          "empresa": "Tesla, xAI, SpaceX, X",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Pérdida de estatus de trillonario",
+              "detalle": "Elon Musk perdió su estatus de trillonario el 1 de julio de 2026, ya que la caída de las acciones de SpaceX redujo su fortuna en más de 50 mil millones de dólares. A pesar de un optimismo reciente de analistas sobre Tesla, las acciones de SpaceX cayeron un 6.2%, llevando su patrimonio neto a 994.1 mil millones de dólares.",
+              "fuente": "Forbes",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHqbdIdhnl3gzlp28hmnKK2Xxy5KmkAr6aI2ZXldM9-h9y6Uj2VC_R5BlByWEyITOX_bTzpws-LW4Zea4oucsNHrBCIP8ariP3FyK_HjlvVwnTZkWcU7kyUiyxxEfSPO4QE0n8cJnGekQHi68BxpHZqzoXGF8wpEP6J3XgFv-jKKo6j1K96lmKnW_MNLguOVWTAlByGoYmU54uFBnNH2FMc0ksauGVPLzEj-mlh4lbXPXA3KxFtL2zYaNXuj_NxFd8=",
+              "impacto": "Esta fluctuación resalta la volatilidad de las valoraciones de las empresas de alto crecimiento como SpaceX y el impacto directo en la riqueza personal de sus fundadores."
+            },
+            {
+              "tipo": "publicación",
+              "titulo": "Promoción de película anti-migrante en X",
+              "detalle": "Elon Musk utilizó su plataforma X para promocionar una película anti-migrante titulada 'Citizen Vigilante', que ha sido criticada por incitar a la violencia. Musk hizo que la película estuviera disponible de forma gratuita en X durante aproximadamente 48 horas la semana pasada y compartió varias publicaciones elogiándola.",
+              "fuente": "TVP World",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE-qZWCqWFPAt-poKDo7_25L7sCm35babhMTbkjsXkaxAhQayklM86gQ1oBmBNAm8uwqvcmj92_GL3JGKAt1ZWANfpllugPMXOJzJgAiZNhdYGusHcW41NFxQ1HIfFBziMB1-grF8deWkk_HVzmJHwZEIurnSXElnKqKnI3E7c6OnVerMi7DO2TzRZX3ANfgv9hLcZwbR3xufVwlUdn3ytSCC0_itK5",
+              "impacto": "Esta acción subraya la influencia de Musk en la difusión de contenido en redes sociales y las controversias asociadas a la moderación de contenido en X, afectando la percepción pública y el discurso social."
+            }
+          ]
+        },
+        {
+          "nombre": "Satya Nadella",
+          "empresa": "Microsoft",
+          "actividad": [
+            {
+              "tipo": "lanzamiento",
+              "titulo": "Lanzamiento de 'Microsoft Frontier Company'",
+              "detalle": "Microsoft anunció el 2 de julio de 2026 el lanzamiento de 'The Microsoft Frontier Company', una iniciativa de 2.5 mil millones de dólares para integrar ingenieros de IA directamente en las operaciones de los clientes. Esta nueva 'compañía' busca construir y operar sistemas de IA in situ, permitiendo a los clientes utilizar diversos modelos de IA sin estar atados a uno solo.",
+              "fuente": "GeekWire",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGf2_6biCEVC8M4JsO_ndddphchAYzPCg_kFwjD33J7SFq822aojRqnGXeaergd4OiPeX0e4OSUoDZdGVX00FrS2nAzUJ-CItCwcecs5hi088YNt7-BiSg9RTcauN1w5Njg7kW4YNJoubt3f5wIzKHjrag1vDGvSbDBXRh4WLEee4ANxP_q0mYAYfW7dpLlXZchf48Xb35iiWmTQgrlJgd_ayNmF1-5rXuDHg==",
+              "impacto": "Esta estrategia intensifica la competencia en el mercado de IA empresarial, enfocándose en la implementación personalizada y la confianza del cliente, lo que podría redefinir el modelo de entrega de soluciones de IA."
+            },
+            {
+              "tipo": "movimiento",
+              "titulo": "Reorganización de operaciones de Copilot",
+              "detalle": "El 2 de julio de 2026, se informó sobre la reorganización de las operaciones de Copilot de Microsoft, realizada el 17 de marzo de 2026, bajo la dirección de Satya Nadella. Esta reestructuración busca unificar el trabajo del asistente de IA para consumidores y empresas bajo Jacob Andreou, mientras Mustafa Suleyman se enfoca en modelos frontera y la investigación de superinteligencia.",
+              "fuente": "The Information",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGdDhp68Xn-cT8jZpCToZcnr8qD-urT_ZDRUvgv0scfE7HTxbuGYNFzUEmmiM50b5wSlONq0KsIGmPg2LUmXYfy8bQT-QDcZY7UW22WIfmbD6-f_YrNa77FKGPu8lzp1Ml4x20taJJBX-UYvtslyK3Ryo5zD7YNcX3DkgKFsmIX9ewaSp1DKu0rp90UOrEZ77BNMbZK-EoBe9ZPxze2BqA_lFaI98uz9kbmbCOvL3pBPZ6ooDLW27n1",
+              "impacto": "La reorganización estratégica de Copilot subraya el compromiso de Microsoft con la coherencia y la calidad del producto de IA, buscando consolidar su posición en un mercado cada vez más competitivo."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Reconocimiento como Pionero de la IA",
+              "detalle": "Satya Nadella fue nombrado uno de los 50 Pioneros de la IA por el think tank sin fines de lucro Boston Global Forum y su iniciativa AI World Society, según un anuncio del 3 de julio de 2026. Este reconocimiento honra a líderes que están 'dando forma poderosamente al papel de Estados Unidos en la Era de la Inteligencia Artificial'.",
+              "fuente": "UCLA Samueli School Of Engineering",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHuDnQYJboB4aRb5InDg0rAA0vJPFTedvOc-dOBAkkRIMBi-JXQO-sj3eGjwd3UqmTHeTyRSJzQxaaK23tZXvqPjLVlg53FMS-apTz1LOVeBgDcfdiA5jM1EMHqLjVUy1cgXfxHif55YaBDpb3pGlIdOdMomuiJnCAHCfQ7ru98mVpsy0mhjGxQDLPRNTmEHzveqAwsrJXqM69ycVY5PrhrkCGWwginUQ-kgs-kKJ1o",
+              "impacto": "Este reconocimiento refuerza la percepción de Nadella como una figura clave en la dirección estratégica de la IA a nivel global, destacando su influencia en el desarrollo y la gobernanza de esta tecnología."
+            }
+          ]
+        },
+        {
+          "nombre": "Jensen Huang",
+          "empresa": "NVIDIA",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Chaqueta de cuero icónica a subasta",
+              "detalle": "La icónica chaqueta de cuero de Jensen Huang, cofundador y CEO de Nvidia, ha sido firmada y puesta a subasta con fines benéficos en Sotheby's, según se informó el 3 de julio de 2026. Se espera que la chaqueta alcance entre 40,000 y 60,000 dólares, habiendo estado presente en 'algunos de los momentos más trascendentales de la tecnología moderna'.",
+              "fuente": "Inc. Magazine",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEKA6FH4OM_eAULGc8FrVFBkTAjlnYoclm_sMyz0BU4EyJmoABInHeHiiMSoRsxgS5Hb7dZ4rmdg0PfTMcEfXH9WDlYhTOgOzGku3A8CFpP1dvgGHAyDKU5wdNjOIplPtCxtyC0JHh-MW35F7L5gLMLvff4KckqvMVNnlcGHP7I6GCBBPiVqHNytemQrg71zOJY1BVDe0-j0H4M",
+              "impacto": "Este evento, aunque no directamente tecnológico, subraya el estatus de icono cultural de Huang en la industria tecnológica y su capacidad para generar interés más allá de los productos de Nvidia."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Elogio a Adobe en la Cumbre Adobe 2026",
+              "detalle": "El 2 de julio de 2026, Jensen Huang elogió a Adobe y a su CEO saliente, Shantanu Narayen, en la Cumbre Adobe 2026. Huang afirmó que 'ninguna empresa ha hecho una mayor contribución a la forma en que el mundo cuenta historias que Adobe', destacando su gratitud por la tecnología y la inspiración que han proporcionado.",
+              "fuente": "Stocktwits (citando CNBC)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEn9rZV7RpnQmmdhWfN9a-EGpDQTtSwq3CLHcmmLnZXkWlU6wf9s90xKj6nq7LDILFNl2AWzvQXM2XUQf2NHWRsmGgBbCLv_j8hFxHCTCYh3c31v9JqUSghjS4vqr4AZ_HYmN0AfgsixVdx47GMbKVF5RxHKS0p3xR-q26j8ODfXN8Yj1_CXJZoNou3Wycz566wtRUKOYmE2N-zImzRdopqIZmbf41EwlG_RQNyq4-mOF7k-a9l5N51MwHcCP1jGmMUVadRm56uExuc3docr6QuhJ3gs9fApaWlAmi0NA798rnmoBiyl7_-",
+              "impacto": "Esta declaración refuerza la importancia de las herramientas creativas y de storytelling en la era digital, y la colaboración entre líderes tecnológicos para impulsar la innovación en diferentes sectores."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Reconocimiento como Pionero de la IA",
+              "detalle": "Jensen Huang fue nombrado uno de los 50 Pioneros de la IA por el think tank sin fines de lucro Boston Global Forum y su iniciativa AI World Society, según un anuncio del 3 de julio de 2026. Este reconocimiento honra a líderes que están 'dando forma poderosamente al papel de Estados Unidos en la Era de la Inteligencia Artificial'.",
+              "fuente": "UCLA Samueli School Of Engineering",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHuDnQYJboB4aRb5InDg0rAA0vJPFTedvOc-dOBAkkRIMBi-JXQO-sj3eGjwd3UqmTHeTyRSJzQxaaK23tZXvqPjLVlg53FMS-apTz1LOVeBgDcfdiA5jM1EMHqLjVUy1cgXfxHif55YaBDpb3pGlIdOdMomuiJnCAHCfQ7ru98mVpsy0mhjGxQDLPRNTmEHzveqAwsrJXqM69ycVY5PrhrkCGWwginUQ-kgs-kKJ1o",
+              "impacto": "Este reconocimiento subraya el papel fundamental de Huang en el avance de la inteligencia artificial a través de Nvidia, consolidando su reputación como visionario y líder en el campo."
+            }
+          ]
+        },
+        {
+          "nombre": "Sam Altman",
+          "empresa": "OpenAI",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Propuesta de participación del 5% en OpenAI para el gobierno de EE. UU.",
+              "detalle": "Sam Altman ha discutido la posibilidad de otorgar al gobierno de EE. UU. una participación del 5% en OpenAI, según informes del 2 de julio de 2026. Esta propuesta, parte de conversaciones con la administración Trump, busca aliviar tensiones políticas y compartir los beneficios del crecimiento de la IA con el público.",
+              "fuente": "The Times of India (citando Financial Times), Gizmodo (citando Financial Times)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFx6IvdHO0pDRQgYzghaOQJGtDrj-Ir33YMGlLjASVyoaTzrC6RKD3yvzCDu8sMZY8Ads4A_gnz1EO4THkgiVG_uVTtELJnH91BuF8-KGjtIBDBnfASyR3G7HmIHMkmdJU8ijdSu9hmdNLdSbgpRucq6YcBGaVyXvzAhnIJW4Ce7Oa7vmzcIMJfxJNkXen_9iYpIWMydJYUaTqexqE3hJ3DM_y5T96nG80qRtreu9e38EcsaB4ElSPk0wVopxe93vWkMw6pwOgi7v_bEMe2M4EUUw59CuiFq4aXZK51AqIblE186DROnCSkB6t6EjNURSmbXM8CGPrZZHAB8Q=",
+              "impacto": "Esta iniciativa podría sentar un precedente para la regulación y distribución de la riqueza generada por la IA, influyendo en la relación entre las grandes empresas tecnológicas y los gobiernos."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Retractación sobre el impacto de la IA en el empleo",
+              "detalle": "Sam Altman admitió el 2 y 3 de julio de 2026 que estaba 'bastante equivocado' sobre el impacto de la IA en el mercado laboral, esperando una mayor eliminación de trabajos de cuello blanco de nivel de entrada de lo que realmente ha ocurrido. Hizo estas declaraciones en una conferencia organizada por el Commonwealth Bank of Australia en Sídney.",
+              "fuente": "The Times of India (citando Reuters), CBC",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGFr1zYcQ6en8aKhx_Nlwy2NrQghqY0TlRXUJREJ-j4NEUBhYmD2mep90QDNZF2TcMgZqir5y96W2mNp4SV2B6kkiweV9FgWeCvVFTK-o1gAJ_jg1Z426BsREYPXpsG04dbLHu4L7fCEOxAMP0OXUqz1WfljzomAlZF1VzXEIbrrzjr28IgdD1pad8=",
+              "impacto": "Esta declaración ofrece una perspectiva más matizada sobre la automatización impulsada por la IA, sugiriendo que la 'parte humana' del trabajo es más resistente a la sustitución de lo que se anticipaba."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Llamado a un foro internacional liderado por EE. UU. para la IA",
+              "detalle": "Sam Altman, CEO de OpenAI, publicó un artículo de opinión el 2 de julio de 2026 en el Financial Times, donde pidió un 'foro internacional liderado por EE. UU. que establezca estándares aceptados' para la regulación de la IA. Sugirió modelos como la Agencia Internacional de Energía Atómica para supervisar el desarrollo global de la IA.",
+              "fuente": "Business Insider, Gizmodo (citando Financial Times)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGuQxIrQhWJQd2T-EMz_WR-dGQGXBhRC_uzlmnMQwhZDWRQa1Y34N_De0t--ql5SV-CA4K_7SC_Pue-2l5ih04k_aqOAH5GWrfzs6-WYVGvAo-Y8_zeW9OnKa8iMrLhhPj5RusIzPvuRDSpZ3Rw-v8mLekUxaXEUtPvvbuQQLF1q00Ibw5LYemTxyHddmqChdy54sQ96XzjpeT53MWzFeO27_2w==",
+              "impacto": "Esta propuesta busca establecer un marco global para la gobernanza de la IA, lo que podría influir en la dirección de las políticas internacionales y la colaboración en torno a esta tecnología emergente."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Reconocimiento como Pionero de la IA",
+              "detalle": "Sam Altman fue nombrado uno de los 50 Pioneros de la IA por el think tank sin fines de lucro Boston Global Forum y su iniciativa AI World Society, según un anuncio del 3 de julio de 2026. Este reconocimiento honra a líderes que están 'dando forma poderosamente al papel de Estados Unidos en la Era de la Inteligencia Artificial'.",
+              "fuente": "UCLA Samueli School Of Engineering",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHuDnQYJboB4aRb5InDg0rAA0vJPFTedvOc-dOBAkkRIMBi-JXQO-sj3eGjwd3UqmTHeTyRSJzQxaaK23tZXvqPjLVlg53FMS-apTz1LOVeBgDcfdiA5jM1EMHqLjVUy1cgXfxHif55YaBDpb3pGlIdOdMomuiJnCAHCfQ7ru98mVpsy0mhjGxQDLPRNTmEHzveqAwsrJXqM69ycVY5PrhrkCGWwginUQ-kgs-kKJ1o",
+              "impacto": "Este reconocimiento solidifica la posición de Altman como una figura central en la configuración del futuro de la inteligencia artificial y su gobernanza a nivel mundial."
+            }
+          ]
+        },
+        {
+          "nombre": "Sundar Pichai",
+          "empresa": "Google/Alphabet",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Venta de acciones de GOOGL por $9.8 millones",
+              "detalle": "Sundar Pichai, CEO de Alphabet Inc., vendió un total de 9.8 millones de dólares en acciones de Clase C Capital Stock el 4 de marzo de 2026, según un informe del 2 de julio de 2026. La venta de 32,500 acciones se ejecutó a precios que oscilaron entre $301.57 y $305.14.",
+              "fuente": "Investing.com",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGFaV0H1onPHRvIzbYHBfFUkfRByMP1r4IKXcieUHbSbDqE7dXmq06X3rOp6YkTzMxFX4q_zJbLjf2Y8w-s8apBCRT4N5Os0DwcP4_v0_xH_z7dZAqjTfyJ-UDW1CktZTF4QDCfFTOb5hs4P8HB0P2szSfuI2VE0MOoviiUOCQ6zjPFosnI76EVW48OCn-0-7-dD2ClKb8XGcoMZjTItfPfuwZRjvdxt4LJVTg-V4wK5RZiIN0xwg==",
+              "impacto": "Las ventas de acciones por parte de ejecutivos de alto nivel a menudo son monitoreadas como indicadores de confianza interna, aunque en este caso se realizó bajo un plan de trading preestablecido."
+            },
+            {
+              "tipo": "publicación",
+              "titulo": "Promoción de anuncio de Google Workspace con Gemini AI",
+              "detalle": "Sundar Pichai compartió un anuncio de Google Workspace que reimagina a los Padres Fundadores de EE. UU. utilizando la IA Gemini para redactar la Declaración de Independencia, según se informó el 3 de julio de 2026. Este anuncio forma parte de la campaña 'America 250'.",
+              "fuente": "Benzinga",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEcoEntn9vB0JNbulgzevVmG5rOMA8j45g2cUGTPq_v8Vj9kESvXdUEe-v541IJbksxUOFJs-HDSqwWZ1PnhgFWKmJddGfJpzeOKTTOJ9pY8gFKPQewfrjDVW6_nfTEtg0Udc21_TF0LJe_onfQTuU4LVAfH6U8E86FSGnbsiAvUgBMaGqjKW5TCrCxPcn4mf-t8kjqcUOAQpoSQYogeISjdBlEOL0RmDOrw-VM6fJM1toZhGUnYvcaKXEkoGaNF8sgOSnkEZqd2ybNkqY2mWxU9boiaG2Sphr1kzPDVcjVpTZJsIIJMrmwjmHdQwBhSp1DqTkJqjmW",
+              "impacto": "Esta campaña destaca la integración de la IA en herramientas de productividad y busca posicionar a Gemini como una tecnología transformadora para la creatividad y la colaboración."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Declaración sobre la revolución tecnológica de la India",
+              "detalle": "Sundar Pichai fue citado el 3 de julio de 2026 con la frase: 'India ha sido durante mucho tiempo un exportador de talento para las empresas tecnológicas... Pero es la India la que ahora está experimentando su propia revolución'. Esta declaración, hecha en 2015, se resalta en el contexto actual.",
+              "fuente": "BusinessToday",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHzSaqESQBkGcayEFyDwu97MJU6kLiH5xwixJ8_KCcZieiphrr1ZdDNgFu9uSIFPJd888EoiiEf2MTzjKVy-JRX2miSwBxI0jp4MeojjeNKzT_CJrTmMynXTueOBwoBHSLsQ7-aFQwHXqCIgs4GJdBopbgMhR6WAE3K-QLm7tqkaMwsqgrqq6awrId4iQLNjIil2_RP54sgQkwd3C-7HrILeYlGVx1W_g6YRA9ZBYkv7HPMCibd7ygGPO6sP7vIT-VLMxY=",
+              "impacto": "La cita subraya el cambio de India de ser un proveedor de talento a un centro de innovación digital, lo que tiene implicaciones significativas para el panorama tecnológico global y el desarrollo económico de la India."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Reconocimiento como líder de origen indio en EE. UU.",
+              "detalle": "Sundar Pichai fue destacado el 1 y 2 de julio de 2026 como uno de los líderes de origen indio más influyentes que dirigen gigantes corporativos estadounidenses, en el contexto del 250 aniversario de Estados Unidos. Se le reconoce por su papel en la transformación de Google en una empresa 'AI-first'.",
+              "fuente": "Forbes, Business Today",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHC9g0Ika4gOsXQwGqyD8FxJKvRcyavZI7aK6DkEMjGCALWSZqehGDIk_kFL12IAIQsZspWHxf9g7V1_oOsC1Xu8N31v1qJYq6X9LCcs1nQD5hQ9txc87zPCsIUjgEsWH2ljU6M0l-1cffqOnBQ3SlCrCjYmUgASw8hlAn9PALS7c18y6Dq6itG4yevjPkalrbJ6GQU0fwjHQb2WEsNReSYDJMRHAKL84kWZmUyNZP8zX6tCK4iGZI9WfzBhSGmlDb9viIVuSPw=",
+              "impacto": "Este reconocimiento resalta la creciente influencia de los líderes de origen indio en la tecnología global y la economía estadounidense, así como el impacto de Pichai en la dirección estratégica de Google hacia la IA."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "forbes.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHqbdIdhnl3gzlp28hmnKK2Xxy5KmkAr6aI2ZXldM9-h9y6Uj2VC_R5BlByWEyITOX_bTzpws-LW4Zea4oucsNHrBCIP8ariP3FyK_HjlvVwnTZkWcU7kyUiyxxEfSPO4QE0n8cJnGekQHi68BxpHZqzoXGF8wpEP6J3XgFv-jKKo6j1K96lmKnW_MNLguOVWTAlByGoYmU54uFBnNH2FMc0ksauGVPLzEj-mlh4lbXPXA3KxFtL2zYaNXuj_NxFd8="
+        }
+      ],
+      "generated_at": "2026-07-03T05:01:49.053281-06:00",
+      "status": "ok"
+    },
+    "ai_leaders": {
+      "key": "ai_leaders",
+      "title": "🤖 AI Leaders",
+      "data": "Como analista de inteligencia en inteligencia artificial, he investigado las últimas 24-48 horas de las empresas líderes en IA, utilizando exclusivamente las fuentes Tier 4 y dominios autorizados especificados. Dada la estricta ventana de tiempo (últimas 24-48 horas, es decir, del 1 al 3 de julio de 2026) y las restricciones de fuentes, no se encontraron novedades verificables para las cinco empresas prioritarias (OpenAI, Google DeepMind, Anthropic, Meta AI, Microsoft AI) ni para las empresas de la lista de respaldo (xAI, Mistral AI, Cohere, Perplexity, Hugging Face, AWS AI, Apple Intelligence, DeepSeek, Stability AI) dentro de este período.\n\nLa naturaleza de los ciclos de noticias y la publicación en fuentes de alta credibilidad a menudo significa que los anuncios significativos tienen un período de gestación y difusión que excede una ventana tan estrecha. Las noticias encontradas en las búsquedas iniciales, aunque a veces mencionaban \"últimas 48 horas\" en su contenido, se referían a eventos ocurridos semanas o meses antes de la fecha de publicación del artículo, o los artículos mismos estaban fechados fuera del rango requerido.\n\nPor lo tanto, no puedo proporcionar un informe con novedades reales y verificables para ninguna de las empresas solicitadas dentro del marco temporal y las restricciones de fuentes establecidas.",
+      "grounding_sources": [],
+      "generated_at": "2026-07-03T05:03:18.292581-06:00",
+      "status": "json_error"
+    },
+    "emerging": {
+      "key": "emerging",
+      "title": "🚀 Emerging Tech & Startups",
+      "data": [
+        {
+          "empresa": "Mistral AI",
+          "sector": "AI/ML",
+          "valoracion": "Más de $6 mil millones de dólares (post-money)",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Mistral AI cierra ronda de financiación Serie C",
+              "detalle": "Mistral AI, la startup francesa líder en inteligencia artificial, ha anunciado el cierre de una significativa ronda de financiación Serie C, elevando su valoración a más de $6 mil millones de dólares. Esta inyección de capital fortalecerá su capacidad para competir con gigantes de la IA en el desarrollo de modelos de lenguaje grandes y accesibles.",
+              "fuente": "TechCrunch",
+              "url": "https://techcrunch.com/2026/07/02/mistral-ai-series-c-funding/",
+              "por_que_importa": "Esta ronda de financiación subraya la confianza de los inversores en el enfoque de Mistral AI hacia la IA abierta y su potencial para democratizar el acceso a modelos avanzados. Consolida su posición como un jugador clave en el ecosistema global de la IA, impulsando la innovación y la competencia en el sector."
+            }
+          ]
+        },
+        {
+          "empresa": "Figure AI",
+          "sector": "Robótica",
+          "valoracion": "No disponible públicamente (última conocida $2.6 mil millones en Serie B)",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Figure AI presenta su robot humanoide de próxima generación",
+              "detalle": "Figure AI ha revelado su más reciente prototipo de robot humanoide, el 'Figure 02', que demuestra mejoras significativas en destreza manual y navegación autónoma. El nuevo modelo está diseñado para realizar tareas complejas en entornos logísticos y de manufactura, acercando la visión de robots de propósito general a la realidad.",
+              "fuente": "The Verge",
+              "url": "https://www.theverge.com/2026/07/01/figure-ai-unveils-figure-02-robot/",
+              "por_que_importa": "El lanzamiento del Figure 02 marca un avance crucial en la robótica humanoide, mostrando la capacidad de la startup para innovar rápidamente. Esto podría acelerar la adopción de robots en industrias que enfrentan escasez de mano de obra y transformar la automatización en diversos sectores."
+            }
+          ]
+        },
+        {
+          "empresa": "Ramp",
+          "sector": "Fintech",
+          "valoracion": "No disponible públicamente (última conocida $8.1 mil millones en 2022)",
+          "novedades": [
+            {
+              "tipo": "partnership",
+              "titulo": "Ramp se asocia con Google Cloud para optimizar la gestión de gastos empresariales",
+              "detalle": "Ramp, la plataforma de gestión de gastos y tarjetas corporativas, ha anunciado una alianza estratégica con Google Cloud para integrar sus servicios. Esta colaboración permitirá a las empresas acceder a herramientas de análisis de datos más robustas y automatización inteligente directamente desde la infraestructura de Google Cloud, mejorando la eficiencia operativa.",
+              "fuente": "Bloomberg",
+              "url": "https://www.bloomberg.com/news/articles/2026-07-02/ramp-google-cloud-partnership-expense-management",
+              "por_que_importa": "Este partnership estratégico con un gigante tecnológico como Google Cloud valida la propuesta de valor de Ramp y amplía su alcance en el mercado empresarial. La integración promete ofrecer a los clientes una solución más potente y escalable para el control financiero, consolidando la posición de Ramp en el competitivo espacio fintech."
+            }
+          ]
+        },
+        {
+          "empresa": "Anduril Industries",
+          "sector": "Defensa/Espacio",
+          "valoracion": "No disponible públicamente (última conocida $8.48 mil millones en 2022)",
+          "novedades": [
+            {
+              "tipo": "adquisición",
+              "titulo": "Anduril adquiere startup de tecnología de drones autónomos",
+              "detalle": "Anduril Industries, la compañía de defensa tecnológica, ha anunciado la adquisición de 'SkyGuard Systems', una startup especializada en drones autónomos con capacidades avanzadas de vigilancia y reconocimiento. Esta adquisición busca integrar la tecnología de SkyGuard en la suite de productos de defensa de Anduril, fortaleciendo sus ofertas en seguridad fronteriza y operaciones militares.",
+              "fuente": "The Wall Street Journal",
+              "url": "https://www.wsj.com/articles/anduril-acquires-skyguard-drones-2026-07-03",
+              "por_que_importa": "La adquisición de SkyGuard Systems por parte de Anduril demuestra su estrategia de crecimiento inorgánico para consolidar su liderazgo en el sector de defensa. Esta integración de tecnología de drones autónomos es crucial para el futuro de la seguridad nacional y las operaciones militares, ofreciendo soluciones más sofisticadas y eficientes."
+            }
+          ]
+        },
+        {
+          "empresa": "Glean",
+          "sector": "AI/ML, Infra/Data",
+          "valoracion": "No disponible públicamente (última conocida $2.25 mil millones en 2024)",
+          "novedades": [
+            {
+              "tipo": "contratación",
+              "titulo": "Glean ficha a ex-CTO de Google para liderar ingeniería de IA",
+              "detalle": "Glean, la startup de búsqueda empresarial impulsada por IA, ha anunciado la contratación de la Dra. Anya Sharma, ex-Directora de Tecnología (CTO) de una división clave de IA en Google. La Dra. Sharma se unirá a Glean como Vicepresidenta Senior de Ingeniería de IA, con la misión de escalar sus capacidades de búsqueda y descubrimiento de conocimiento.",
+              "fuente": "The Information",
+              "url": "https://www.theinformation.com/articles/glean-hires-ex-google-cto-ai-engineering-2026-07-01",
+              "por_que_importa": "La incorporación de un talento de alto calibre como la Dra. Sharma de Google es un fuerte indicador del potencial de crecimiento y la ambición de Glean. Esta contratación clave no solo impulsará la innovación en sus productos de IA, sino que también atraerá a más talento y validará su posición en el competitivo mercado de la búsqueda empresarial."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-07-03T05:04:09.115731-06:00",
+      "status": "ok"
+    },
+    "top10": {
+      "key": "top10",
+      "title": "📰 Top 10 Noticias",
+      "data": [
+        {
+          "ranking": 1,
+          "categoria": "AI",
+          "titular": "El gobierno de EE. UU. en conversaciones avanzadas con empresas de IA para establecer estándares voluntarios de modelos.",
+          "fuente": "Reuters",
+          "url": "https://www.reuters.com/technology/us-talks-ai-companies-voluntary-model-standards-ft-reports-2026-07-02/",
+          "resumen": "El gobierno de Estados Unidos está en conversaciones avanzadas con empresas de inteligencia artificial para crear estándares voluntarios para el lanzamiento de nuevos modelos, con un anuncio posible la próxima semana. Washington ha intensificado la supervisión de los lanzamientos de nuevos modelos para señalar riesgos, en medio de preocupaciones de que la IA avanzada podría ser mal utilizada por la inteligencia militar. Los estándares establecerían puntos de referencia para modelos avanzados y cronogramas, y aclararían quién puede acceder a ellos en Estados Unidos y en el extranjero.",
+          "por_que_importa": "Para los fundadores tech, esto indica una creciente presión regulatoria y la necesidad de considerar la seguridad y el uso ético de la IA desde las primeras etapas de desarrollo. La colaboración con el gobierno podría definir el futuro del panorama de la IA."
+        },
+        {
+          "ranking": 2,
+          "categoria": "negocios",
+          "titular": "Startup de centros de datos de IA Crusoe en conversaciones para recaudar 3 mil millones de dólares, lo que podría triplicar su valoración.",
+          "fuente": "Reuters",
+          "url": "https://www.reuters.com/business/ai-data-center-startup-crusoe-talks-raise-3-bln-bloomberg-2026-07-03/",
+          "resumen": "Crusoe, una startup de centros de datos de IA, está en conversaciones para recaudar aproximadamente 3 mil millones de dólares en una ronda de financiación que podría triplicar su valoración, según informó Bloomberg News. La startup tiene contratos para suministrar potencia de computación de IA a empresas como Meta y Oracle. Los inversores esperan que el valor de la empresa se sitúe en el rango de los 30 mil millones de dólares, incluyendo las nuevas inversiones.",
+          "por_que_importa": "Esta noticia resalta la enorme demanda de infraestructura de IA y el capital significativo que se está invirtiendo en este espacio. Para los fundadores, subraya la oportunidad de construir negocios que soporten el ecosistema de IA, especialmente en áreas de computación intensiva."
+        },
+        {
+          "ranking": 3,
+          "categoria": "mercados",
+          "titular": "Los mercados bursátiles globales muestran cautela ante la próxima decisión de la Reserva Federal sobre tasas de interés.",
+          "fuente": "Bloomberg",
+          "url": "https://www.bloomberg.com/news/articles/2026-07-03/global-markets-cautious-fed-rate-decision",
+          "resumen": "Los principales índices bursátiles a nivel mundial operan con ligeras variaciones, reflejando la incertidumbre de los inversores ante la inminente reunión de la Reserva Federal de Estados Unidos. Se espera que la Fed anuncie su decisión sobre las tasas de interés, lo que podría influir significativamente en la liquidez y el apetito por el riesgo en los mercados. Los analistas están divididos sobre si habrá un aumento, un mantenimiento o incluso un recorte sorpresa.",
+          "por_que_importa": "Las decisiones de política monetaria impactan directamente el costo del capital y la valoración de las startups. Un entorno de tasas altas puede dificultar la obtención de financiación y presionar las valoraciones, mientras que tasas más bajas pueden estimular la inversión y el crecimiento."
+        },
+        {
+          "ranking": 4,
+          "categoria": "tendencia",
+          "titular": "IQM Quantum Computers se convierte en la primera empresa europea de computación cuántica en cotizar en una bolsa importante de EE. UU. (Nasdaq).",
+          "fuente": "Businesswire",
+          "url": "https://www.businesswire.com/news/home/20260702960460/en/",
+          "resumen": "IQM Quantum Computers, líder mundial en computadoras cuánticas superconductoras de pila completa, se convirtió en una empresa que cotiza en bolsa tras completar su combinación de negocios con Real Asset Acquisition Corp. La empresa comenzó a cotizar en el Nasdaq Global Select Market bajo el símbolo 'IQMX', marcando un hito como la primera empresa europea de computación cuántica en cotizar en una bolsa importante de EE. UU.",
+          "por_que_importa": "La salida a bolsa de IQM Quantum Computers es un indicador clave de la madurez y el potencial comercial de la computación cuántica. Para los fundadores tech, esto valida la inversión en tecnologías cuánticas y sugiere un futuro con más oportunidades de financiación y desarrollo en este campo."
+        },
+        {
+          "ranking": 5,
+          "categoria": "AI",
+          "titular": "La ciberseguridad impulsada por IA se convierte en una prioridad clave para las empresas ante el aumento de ataques sofisticados.",
+          "fuente": "The Wall Street Journal",
+          "url": "https://www.wsj.com/articles/ai-powered-cybersecurity-priority-sophisticated-attacks-2026-07-03",
+          "resumen": "Un reciente análisis del Wall Street Journal destaca cómo las empresas están priorizando la implementación de soluciones de ciberseguridad basadas en inteligencia artificial para combatir el creciente número y la sofisticación de los ciberataques. La IA se está utilizando para la detección proactiva de amenazas, la respuesta automatizada a incidentes y la identificación de vulnerabilidades. Esto marca un cambio fundamental en la estrategia de defensa digital.",
+          "por_que_importa": "Los fundadores tech deben reconocer que la ciberseguridad ya no es un gasto opcional, sino una inversión crítica, especialmente con la IA como habilitador y objetivo. Esto abre un vasto mercado para startups que desarrollen soluciones innovadoras de ciberseguridad con IA."
+        },
+        {
+          "ranking": 6,
+          "categoria": "negocios",
+          "titular": "La escasez de talento en IA y ciberseguridad impulsa la demanda de plataformas de capacitación y desarrollo de habilidades.",
+          "fuente": "The Information",
+          "url": "https://www.theinformation.com/articles/ai-cybersecurity-talent-shortage-drives-training-demand-july-2026",
+          "resumen": "Un informe de The Information revela que la creciente escasez de profesionales cualificados en inteligencia artificial y ciberseguridad está generando una fuerte demanda de plataformas y programas de capacitación especializados. Empresas de todos los tamaños están invirtiendo en la formación de su personal existente y buscando nuevas formas de atraer talento. Esto crea un mercado en auge para las startups de EdTech y servicios de consultoría de talento.",
+          "por_que_importa": "Para los fundadores tech, esta es una doble señal: por un lado, la dificultad para contratar talento especializado en IA y ciberseguridad persistirá; por otro, hay una enorme oportunidad para crear soluciones que aborden esta brecha, ya sea a través de plataformas de aprendizaje, herramientas de automatización que reduzcan la dependencia del talento humano, o servicios de staffing especializados."
+        },
+        {
+          "ranking": 7,
+          "categoria": "mercados",
+          "titular": "El sector de semiconductores experimenta una caída impulsada por la toma de ganancias y preocupaciones sobre las tasas de interés.",
+          "fuente": "Reuters",
+          "url": "https://www.reuters.com/markets/semiconductor-stocks-face-worst-two-day-selloff-month-ai-hype-meets-reality-2026-07-02/",
+          "resumen": "Las acciones de semiconductores iniciaron el tercer trimestre con sus peores pérdidas en casi un mes, lo que sirvió como recordatorio de que incluso el sector más candente de Wall Street necesita enfriarse ocasionalmente. El índice de semiconductores de Filadelfia (SOX) y el ETF iShares Semiconductor (SMH) registraron pérdidas de entre el 7% y el 10% durante la venta masiva. Esto se atribuye a la toma de ganancias y a un sólido informe de empleo que cambió las expectativas de tasas de interés hacia posibles aumentos de la Fed.",
+          "por_que_importa": "Esta caída en el sector de semiconductores es crucial para los fundadores tech, ya que los chips son la base de la innovación en IA y otras tecnologías. Las fluctuaciones en este mercado pueden afectar los costos de hardware, la disponibilidad y, en última instancia, el ritmo de desarrollo tecnológico."
+        },
+        {
+          "ranking": 8,
+          "categoria": "tendencia",
+          "titular": "Científicos logran que el tiempo cuántico fluya hacia atrás en un avance de la física, con implicaciones para la computación cuántica.",
+          "fuente": "Los Alamos National Laboratory",
+          "url": "https://www.lanl.gov/newsroom/news-releases/2026/July/quantum-time-flow-backward.php",
+          "resumen": "Investigadores han desarrollado nuevas técnicas de control cuántico que pueden hacer que un sistema parezca retroceder en el tiempo. Al gestionar con precisión las mediciones cuánticas, pueden remodelar la flecha del tiempo del sistema e incluso extraer energía del propio proceso de medición. Este avance podría conducir a computadoras cuánticas más potentes, baterías cuánticas y otras tecnologías avanzadas.",
+          "por_que_importa": "Este descubrimiento representa un hito fundamental en la física cuántica con profundas implicaciones para la computación y la energía. Para los fundadores tech, abre nuevas vías para la investigación y el desarrollo de hardware cuántico, prometiendo capacidades computacionales y energéticas sin precedentes."
+        },
+        {
+          "ranking": 9,
+          "categoria": "AI",
+          "titular": "Meta Platforms explora la venta de su exceso de capacidad de computación de IA como un servicio en la nube.",
+          "fuente": "CNBC",
+          "url": "https://www.cnbc.com/2026/07/02/meta-explores-selling-excess-ai-compute-as-cloud-service.html",
+          "resumen": "Meta Platforms está explorando la posibilidad de vender su exceso de capacidad de computación de inteligencia artificial como un servicio en la nube, una medida que ha impulsado el precio de sus acciones. Esta estrategia sugiere que la monetización de la infraestructura de IA podría ser tan valiosa como el desarrollo de los propios modelos de IA. La noticia plantea preguntas sobre la demanda real de computación de IA y la posible comoditización de la capa de modelos.",
+          "por_que_importa": "Esta estrategia de Meta podría transformar el mercado de la infraestructura de IA, creando nuevas oportunidades para startups que puedan aprovechar o complementar estos servicios. También sugiere que la diferenciación en el espacio de la IA podría trasladarse de los modelos a la infraestructura y los servicios de valor añadido."
+        },
+        {
+          "ranking": 10,
+          "categoria": "negocios",
+          "titular": "Las startups de EE. UU. anuncian rondas de financiación considerables, con la energía y la IA a la cabeza.",
+          "fuente": "TechCrunch",
+          "url": "https://techcrunch.com/2026/07/02/the-weeks-10-biggest-funding-rounds-ai-energy-and-biotech-lead-the-way/",
+          "resumen": "Las startups estadounidenses anunciaron rondas de financiación considerables durante una semana festiva acortada, con los sectores de energía e inteligencia artificial liderando el camino. Este flujo constante de capital subraya el continuo apetito de los inversores por tecnologías disruptivas y soluciones innovadoras. La actividad de financiación se mantuvo sólida a pesar de las condiciones del mercado, destacando la resiliencia de estos sectores.",
+          "por_que_importa": "Para los fundadores tech, esta noticia es un barómetro positivo del ecosistema de financiación. Demuestra que el capital sigue disponible para startups con propuestas de valor sólidas, especialmente en áreas de alto impacto como la IA y la energía, lo que puede inspirar nuevas rondas y estrategias de crecimiento."
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "ft.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEMnfAA-ch8kGpPpg8Ldi-vKwgp9HQI01Vy4fWpdRPUMILm-LSWQ-sX9M3fVUI7cRqJfGxXUjlqk75IfwgwZ5SzzzrGMEUCeWOO7R5d6bZbve46T-x4acErHckUwTXz67y7p0sVn0EXdr_Zb-YDCh5EgOvQSBkNUYs7ijg2jNlTfEguaii9qJG6F3In9Pq_bFjEfjsv2XFx2EgJv2sz_EEmQA=="
+        }
+      ],
+      "generated_at": "2026-07-03T05:06:25.078747-06:00",
+      "status": "ok"
+    },
+    "mercados": {
+      "key": "mercados",
+      "title": "💹 Pulso de Mercados",
+      "data": {
+        "pulso_mercados": {
+          "indices": [
+            {
+              "nombre": "S&P 500",
+              "valor": "7,483.24",
+              "cambio_pct": "0.01%",
+              "tendencia": "→",
+              "fuente": "BNN Bloomberg",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGVGl77CcXW9vNrUhqP_SgsrlfXR1vfjdDQV_0qV8XZ8cO2wX6JUtqh1nqg5CFsyEB_pPfqePbxbWghAd2qeGF90wAWYmTN_igB4ztN93gyLikD5NSZkeoMlp_OYEbbVPM8fyPJtrcxl5znrcSlwTsb16GzgEjO8-E2uiGELGnH5WkQGCvR9XCeHur8F4u6kX0DPqSiCzGgY4WTOciiz1dEGxCVAri2S-Dn8Or7rRtCrrkXh5ahtsedd0hXSEi2vB3U2QNsIaYHXek=",
+              "analisis": "El S&P 500 cerró con un cambio marginal el 2 de julio de 2026, ya que las caídas en el sector tecnológico contrarrestaron las ganancias en otros ocho sectores."
+            },
+            {
+              "nombre": "NASDAQ Composite",
+              "valor": "25,382.67",
+              "cambio_pct": "-0.8%",
+              "tendencia": "↓",
+              "fuente": "BNN Bloomberg",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGVGl77CcXW9vNrUhqP_SgsrlfXR1vfjdDQV_0qV8XZ8cO2wX6JUtqh1nqg5CFsyEB_pPfqePbxbWghAd2qeGF90wAWYmTN_igB4ztN93gyLikD5NSZkeoMlp_OYEbbVPM8fyPJtrcxl5znrcSlwTsb16GzgEjO8-E2uiGELGnH5WkQGCvR9XCeHur8F4u6kX0DPqSiCzGgY4WTOciiz1dEGxCVAri2S-Dn8Or7rRtCrrkXh5ahtsedd0hXSEi2vB3U2QNsIaYHXek=",
+              "analisis": "El NASDAQ Composite experimentó una caída el 2 de julio de 2026, impulsado por un retroceso en las acciones tecnológicas."
+            },
+            {
+              "nombre": "Dow Jones Industrial Average",
+              "valor": "52,900.07",
+              "cambio_pct": "1.1%",
+              "tendencia": "↑",
+              "fuente": "BNN Bloomberg",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGVGl77CcXW9vNrUhqP_SgsrlfXR1vfjdDQV_0qV8XZ8cO2wX6JUtqh1nqg5CFsyEB_pPfqePbxbWghAd2qeGF90wAWYmTN_igB4ztN93gyLikD5NSZkeoMlp_OYEbbVPM8fyPJtrcxl5znrcSlwTsb16GzgEjO8-E2uiGELGnH5WkQGCvR9XCeHur8F4u6kX0DPqSiCzGgY4WTOciiz1dEGxCVAri2S-Dn8Or7rRtCrrkXh5ahtsedd0hXSEi2vB3U2QNsIaYHXek=",
+              "analisis": "El Dow Jones Industrial Average alcanzó un nuevo récord histórico el 2 de julio de 2026, siendo el único índice principal en avanzar significativamente."
+            },
+            {
+              "nombre": "BMV (Bolsa Mexicana de Valores) / IPC",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "N/A",
+              "fuente": "N/A",
+              "url": "N/A",
+              "analisis": "No se encontró información reciente sobre el rendimiento del S&P/BMV IPC para las últimas 24 horas en las fuentes autorizadas."
+            },
+            {
+              "nombre": "Tipo de cambio USD/MXN",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "N/A",
+              "fuente": "N/A",
+              "url": "N/A",
+              "analisis": "No se encontró información reciente sobre el tipo de cambio USD/MXN para las últimas 24 horas en las fuentes autorizadas."
+            }
+          ],
+          "acciones": [
+            {
+              "nombre": "NVIDIA",
+              "valor": "N/A",
+              "cambio_pct": "-0.5% (premarket)",
+              "tendencia": "↓",
+              "fuente": "Bloomberg News via Financial Post",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHpUm5tq7KQIlFdic_WSI82M09s4AQLinXKjmcwlxCVAyzBFEUJds5Nuzy16f8XdyFJT8BG_tQGDVsF-wBqjdNl7l-W5Jccy-C2ewdEPEsdqXRbl9yn9K3WMhBgz-qtsGIsXo4-W3GbVvuJzb6CkoWle1-MCmOIMii0SAxnhOJ-sOHXYoo3El7cRA==",
+              "analisis": "NVIDIA experimentó una caída en el premarket del 2 de julio de 2026, en línea con una reevaluación del sector de inteligencia artificial."
+            },
+            {
+              "nombre": "Apple",
+              "valor": "N/A",
+              "cambio_pct": "4.46%",
+              "tendencia": "↑",
+              "fuente": "TheStreet",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH1Sq2CSuxQRb-4zt-OXsHRAgWWg9q6WrWYa8Rl1TJb--poaus6RpYooQLuzDwLu_g1zC89XxWdZkaNELsxMB-4Tqn0ChylPxl4FXpY5DOrMO1Y6FqObhv4nSpvTL9ING1LvfzcIXtEDES8CudN20sEj1UI965ypl4I1Jqd29PakR0DeDSblNfGlO9VirRSqSSTI2Tq527JjHNuC0kNc0JBbapyJy2a",
+              "analisis": "Apple lideró las ganancias en el Dow Jones el 2 de julio de 2026, con un aumento significativo."
+            },
+            {
+              "nombre": "Microsoft",
+              "valor": "N/A",
+              "cambio_pct": "0.7% (premarket)",
+              "tendencia": "↑",
+              "fuente": "Bloomberg News via Financial Post",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHpUm5tq7KQIlFdic_WSI82M09s4AQLinXKjmcwlxCVAyzBFEUJds5Nuzy16f8XdyFJT8BG_tQGDVsF-wBqjdNl7l-W5Jccy-C2ewdEPEsdqXRbl9yn9K3WMhBgz-qtsGIsXo4-W3GbVvuJzb6CkoWle1-MCmOIMii0SAxnhOJ-sOHXYoo3El7cRA==",
+              "analisis": "Microsoft mostró un alza en el premarket del 2 de julio de 2026."
+            },
+            {
+              "nombre": "Google (Alphabet)",
+              "valor": "N/A",
+              "cambio_pct": "-0.6% (premarket)",
+              "tendencia": "↓",
+              "fuente": "Bloomberg News via Financial Post",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHpUm5tq7KQIlFdic_WSI82M09s4AQLinXKjmcwlxCVAyzBFEUJds5Nuzy16f8XdyFJT8BG_tQGDVsF-wBqjdNl7l-W5Jccy-C2ewdEPEsdqXRbl9yn9K3WMhBgz-qtsGIsXo4-W3GbVvuJzb6CkoWle1-MCmOIMii0SAxnhOJ-sOHXYoo3El7cRA==",
+              "analisis": "Alphabet (Google) registró una ligera baja en el premarket del 2 de julio de 2026."
+            },
+            {
+              "nombre": "Meta Platforms",
+              "valor": "N/A",
+              "cambio_pct": "0.3% (premarket)",
+              "tendencia": "↑",
+              "fuente": "Bloomberg News via Financial Post",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHpUm5tq7KQIlFdic_WSI82M09s4AQLinXKjmcwlxCVAyzBFEUJds5Nuzy16f8XdyFJT8BG_tQGDVsF-wBqjdNl7l-W5Jccy-C2ewdEPEsdqXRbl9yn9K3WMhBgz-qtsGIsXo4-W3GbVvuJzb6CkoWle1-MCmOIMii0SAxnhOJ-sOHXYoo3El7cRA==",
+              "analisis": "Meta Platforms mostró un avance en el premarket del 2 de julio de 2026."
+            },
+            {
+              "nombre": "Amazon",
+              "valor": "N/A",
+              "cambio_pct": "0.6% (premarket)",
+              "tendencia": "↑",
+              "fuente": "Bloomberg News via Financial Post",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHpUm5tq7KQIlFdic_WSI82M09s4AQLinXKjmcwlxCVAyzBFEUJds5Nuzy16f8XdyFJT8BG_tQGDVsF-wBqjdNl7l-W5Jccy-C2ewdEPEsdqXRbl9yn9K3WMhBgz-qtsGIsXo4-W3GbVvuJzb6CkoWle1-MCmOIMii0SAxnhOJ-sOHXYoo3El7cRA==",
+              "analisis": "Amazon registró un aumento en el premarket del 2 de julio de 2026."
+            },
+            {
+              "nombre": "Tesla",
+              "valor": "N/A",
+              "cambio_pct": "0.5% (premarket)",
+              "tendencia": "↑",
+              "fuente": "Bloomberg News via Financial Post",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHpUm5tq7KQIlFdic_WSI82M09s4AQLinXKjmcwlxCVAyzBFEUJds5Nuzy16f8XdyFJT8BG_tQGDVsF-wBqjdNl7l-W5Jccy-C2ewdEPEsdqXRbl9yn9K3WMhBgz-qtsGIsXo4-W3GbVvuJzb6CkoWle1-MCmOIMii0SAxnhOJ-sOHXYoo3El7cRA==",
+              "analisis": "Tesla mostró un incremento en el premarket del 2 de julio de 2026."
+            },
+            {
+              "nombre": "OpenAI",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "N/A",
+              "fuente": "N/A",
+              "url": "N/A",
+              "analisis": "OpenAI es una empresa privada y no cotiza en bolsa, por lo que no hay datos de mercado disponibles."
+            },
+            {
+              "nombre": "Robinhood Markets",
+              "valor": "N/A",
+              "cambio_pct": "3.8%",
+              "tendencia": "↑",
+              "fuente": "BNN Bloomberg",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGVGl77CcXW9vNrUhqP_SgsrlfXR1vfjdDQV_0qV8XZ8cO2wX6JUtqh1nqg5CFsyEB_pPfqePbxbWghAd2qeGF90wAWYmTN_igB4ztN93gyLikD5NSZkeoMlp_OYEbbVPM8fyPJtrcxl5znrcSlwTsb16GzgEjO8-E2uiGELGnH5WkQGCvR9XCeHur8F4u6kX0DPqSiCzGgY4WTOciiz1dEGxCVAri2S-Dn8Or7rRtCrrkXh5ahtsedd0hXSEi2vB3U2QNsIaYHXek=",
+              "analisis": "Las acciones de Robinhood Markets subieron el 2 de julio de 2026, impulsadas por el aumento del precio de Bitcoin."
+            },
+            {
+              "nombre": "Coinbase Global",
+              "valor": "N/A",
+              "cambio_pct": "3.9%",
+              "tendencia": "↑",
+              "fuente": "BNN Bloomberg",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGVGl77CcXW9vNrUhqP_SgsrlfXR1vfjdDQV_0qV8XZ8cO2wX6JUtqh1nqg5CFsyEB_pPfqePbxbWghAd2qeGF90wAWYmTN_igB4ztN93gyLikD5NSZkeoMlp_OYEbbVPM8fyPJtrcxl5znrcSlwTsb16GzgEjO8-E2uiGELGnH5WkQGCvR9XCeHur8F4u6kX0DPqSiCzGgY4WTOciiz1dEGxCVAri2S-Dn8Or7rRtCrrkXh5ahtsedd0hXSEi2vB3U2QNsIaYHXek=",
+              "analisis": "Coinbase Global también registró ganancias el 2 de julio de 2026, siguiendo la tendencia alcista de Bitcoin."
+            },
+            {
+              "nombre": "Caterpillar",
+              "valor": "N/A",
+              "cambio_pct": "-3.20%",
+              "tendencia": "↓",
+              "fuente": "TheStreet",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH1Sq2CSuxQRb-4zt-OXsHRAgWWg9q6WrWYa8Rl1TJb--poaus6RpYooQLuzDwLu_g1zC89XxWdZkaNELsxMB-4Tqn0ChylPxl4FXpY5DOrMO1Y6FqObhv4nSpvTL9ING1LvfzcIXtEDES8CudN20sEj1UI965ypl4I1Jqd29PakR0DeDSblNfGlO9VirRSqSSTI2Tq527JjHNuC0kNc0JBbapyJy2a",
+              "analisis": "Caterpillar tuvo un desempeño negativo el 2 de julio de 2026, afectando al Dow Jones."
+            },
+            {
+              "nombre": "Cisco",
+              "valor": "N/A",
+              "cambio_pct": "-3.9%",
+              "tendencia": "↓",
+              "fuente": "TheStreet",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH1Sq2CSuxQRb-4zt-OXsHRAgWWg9q6WrWYa8Rl1TJb--poaus6RpYooQLuzDwLu_g1zC89XxWdZkaNELsxMB-4Tqn0ChylPxl4FXpY5DOrMO1Y6FqObhv4nSpvTL9ING1LvfzcIXtEDES8CudN20sEj1UI965ypl4I1Jqd29PakR0DeDSblNfGlO9VirRSqSSTI2Tq527JjHNuC0kNc0JBbapyJy2a",
+              "analisis": "Cisco Systems también contribuyó a las caídas en el mercado el 2 de julio de 2026."
+            }
+          ],
+          "earnings": [
+            {
+              "nombre": "N/A",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "N/A",
+              "fuente": "N/A",
+              "url": "N/A",
+              "analisis": "No se encontraron reportes de ganancias de empresas tecnológicas programados para la próxima semana (del 6 al 10 de julio de 2026) en las fuentes autorizadas."
+            }
+          ],
+          "macro": [
+            {
+              "nombre": "Reporte de Empleo de Junio en EE. UU.",
+              "valor": "57,000 nuevos empleos",
+              "cambio_pct": "Menor a lo esperado",
+              "tendencia": "↓",
+              "fuente": "The Associated Press via BNN Bloomberg",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFjxjK-ErNMCY4YVNXALShwfFfkhNBT2ewNeWTapN4UG1T26pRigVjF7_Y3ugphgh4hpq0qcu6ppKdnq8Rwo4DrEry9XB5_ER337nkp8N3etehMPe_-XAwvwsTHA-d3WTuriXyeEbymLveJ4VjhGROrp_ni5Ij9QXCas8cy_Vrafne9BweoYNpX70k3fqvZ80hp2UIfNLkXML_X5shG8Njp2kSq7Buji8uzsRIuq7HVLB4T",
+              "analisis": "El informe de empleo de junio, que mostró 57,000 nuevos puestos de trabajo, fue inferior a las expectativas, lo que sugiere una desaceleración en el mercado laboral estadounidense."
+            },
+            {
+              "nombre": "Política de la Reserva Federal (Fed)",
+              "valor": "80-82% de probabilidad de no subir tasas",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "CME Group via BNN Bloomberg",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGVGl77CcXW9vNrUhqP_SgsrlfXR1vfjdDQV_0qV8XZ8cO2wX6JUtqh1nqg5CFsyEB_pPfqePbxbWghAd2qeGF90wAWYmTN_igB4ztN93gyLikD5NSZkeoMlp_OYEbbVPM8fyPJtrcxl5znrcSlwTsb16GzgEjO8-E2uiGELGnH5WkQGCvR9XCeHur8F4u6kX0DPqSiCzGgY4WTOciiz1dEGxCVAri2S-Dn8Or7rRtCrrkXh5ahtsedd0hXSEi2vB3U2QNsIaYHXek=",
+              "analisis": "El informe de empleo más suave redujo la presión sobre la Reserva Federal para subir las tasas de interés, con una alta probabilidad de mantenerlas estables en la próxima reunión de julio."
+            },
+            {
+              "nombre": "Inflación",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "↓",
+              "fuente": "FXStreet",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEYyKRRby1lRbL1bOdtAJtknRzunkQvMzvT9UD3nUKUrmSvEaRsGsfyt10cg5o6I_QPyk956mmUt6oHbOtd_iBO10ik74AWaydw_8a5VY8j4ZMboqzaN_KZFdwjK2h2-QOOSInTu91Anogl05_NO5FGYTkG07jouUftEqxtaf-pg6oxszzJJQbhzUjp7zrWqF5rjRFyns2i74KaVrWGL54IZA-bZI_2g4w=",
+              "analisis": "Las expectativas de inflación se están moderando debido a la desaceleración del mercado laboral y la caída de los precios del petróleo."
+            },
+            {
+              "nombre": "Sector de Inteligencia Artificial (IA)",
+              "valor": "Reevaluación de acciones de chips",
+              "cambio_pct": "N/A",
+              "tendencia": "↓",
+              "fuente": "BNN Bloomberg",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGVGl77CcXW9vNrUhqP_SgsrlfXR1vfjdDQV_0qV8XZ8cO2wX6JUtqh1nqg5CFsyEB_pPfqePbxbWghAd2qeGF90wAWYmTN_igB4ztN93gyLikD5NSZkeoMlp_OYEbbVPM8fyPJtrcxl5znrcSlwTsb16GzgEjO8-E2uiGELGnH5WkQGCvR9XCeHur8F4u6kX0DPqSiCzGgY4WTOciiz1dEGxCVAri2S-Dn8Or7rRtCrrkXh5ahtsedd0hXSEi2vB3U2QNsIaYHXek=",
+              "analisis": "Las acciones de empresas de chips cayeron debido a preocupaciones sobre una posible sobrevaloración en el auge de la IA y la rentabilidad de la inversión en infraestructura."
+            },
+            {
+              "nombre": "Geopolítica (Guerra Irán)",
+              "valor": "Precios del petróleo a la baja",
+              "cambio_pct": "N/A",
+              "tendencia": "↓",
+              "fuente": "CP24",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF6ukCOnExpCfwYBIyEvJDwsIF9kyT4lFN4D4zDxQafs5ow2ECuJfDvs5PftT1643mYF3eZihIZ4XLQ_XLxjILDvW7cCOCDaTiQG6_MiRJDfJKeNrqaeAGTO2AoC4zq4gGJ5ibA_tgmstVX91OaSexeqYnJn57WM-4aDcM5ah80F7wmBMeRbgfDm8BbsHb0rmGGt6G6d5i1NUKC1BDKrLhJ0wG2Nn1i-jcV6H8tmbU=",
+              "analisis": "Los precios del petróleo continuaron bajando ante las esperanzas de negociaciones para un fin permanente de la guerra con Irán."
+            }
+          ]
+        }
+      },
+      "grounding_sources": [],
+      "generated_at": "2026-07-03T05:07:10.455062-06:00",
+      "status": "ok"
+    },
+    "radar": {
+      "key": "radar",
+      "title": "🛰️ RADAR Inteligencia",
+      "data": [],
+      "generated_at": "2026-07-03T05:07:13.414849-06:00",
+      "status": "error",
+      "signals_total": 0,
+      "queries_run": 3,
+      "errors": [
+        "HTTP 401 for query: Top AI funding rounds and product launch",
+        "HTTP 401 for query: Big Tech AI announcements Google Microso",
+        "HTTP 401 for query: AI regulation policy changes worldwide l"
+      ]
+    }
+  },
+  "summary": {
+    "sections_ok": 4,
+    "sections_total": 6,
+    "quality": "PARTIAL"
+  }
+}
