@@ -1,0 +1,423 @@
+{
+  "version": "2.0",
+  "date": "2026-07-04",
+  "generated_at": "2026-07-04T05:00:08.392332-06:00",
+  "timezone": "CST (UTC-6)",
+  "language": "es-MX",
+  "tier": "Tier 4",
+  "sections": {
+    "titans": {
+      "key": "titans",
+      "title": "🏛️ Los Titans",
+      "data": [
+        {
+          "nombre": "Elon Musk",
+          "empresa": "Tesla, xAI, SpaceX, X",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Musk desmiente rumores de dispositivo de IA de SpaceX",
+              "detalle": "Elon Musk desmintió categóricamente los informes que sugerían que SpaceX había presentado un prototipo de dispositivo de inteligencia artificial a inversores. Los rumores, publicados por The Wall Street Journal, describían un aparato más delgado que un iPhone con tecnología de xAI y un chip Snapdragon. Musk calificó la información como 'completamente falsa' en su cuenta de X.",
+              "fuente": "Múltiples medios de prensa (citando WSJ y X)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGnpcCfi0Lh_9BmvfH_ZLew7zLZdzFtgnLeM5x5nemqRfnTCkUdOlBcU3IzgdHH3IHnN8Z9f1CsCaFquvi1DqRmY-4gRvEXEHOe5lSnDZfTafdRsdoU4TfyTC6XE19Ila5xWfqJVUKI1eT9NHFFA3wAKJmc13peUlTXQDrNzpBJB8zzshkyVPEY-2sfBzuvvCgqCuhUrgLkYDPwhg68nyNUQ6o3iWyBInDNAEa00jS7aCi0aKq0JuhV09hFCpKPiTkxA29YMqBToa2fqRQ=",
+              "impacto": "Esta declaración aclara el enfoque inmediato de SpaceX, mitigando la especulación de los inversores sobre una posible diversificación hacia el hardware de IA de consumo y reafirmando los objetivos principales de la compañía en el espacio y las comunicaciones satelitales."
+            }
+          ]
+        },
+        {
+          "nombre": "Satya Nadella",
+          "empresa": "Microsoft",
+          "actividad": [
+            {
+              "tipo": "lanzamiento",
+              "titulo": "Microsoft lanza 'Frontier Company' para impulsar la IA empresarial",
+              "detalle": "Microsoft ha anunciado la creación de 'Microsoft Frontier Company', una nueva unidad de negocio operativa con una inversión de 2.500 millones de dólares y 6.000 ingenieros expertos. El objetivo es integrar ingenieros de IA directamente en las empresas clientes para acelerar la implementación y el funcionamiento de sistemas de IA en sus operaciones diarias.",
+              "fuente": "Bolsamania.com, Qore, FomoEra",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHoiIZxBZAUCxo0JJPWLp9AGUw12Qgb89I2pbO805I-nfrYVidJvAy1aMtNOvyFZMdmaaO1YWUmQNY6UVTp5aGNhIu7K6mNZ2VeazTJXrGSo9z_zaifQ9B3vj7AfGerJr1lzL3fC_fnQ0ElNefemPkng3hwMRNMoeqn2fEwofSlX9CPWbbafniqiKJn2bOPOUb65OaWt_v0MAq-YLGIfiVw4XfPH-7bppIeriyYAxcCp1jHQy_QwNI=",
+              "impacto": "Este movimiento estratégico subraya la agresiva postura de Microsoft para impulsar la adopción de la IA en el ámbito empresarial, lo que podría fortalecer su ecosistema de la nube Azure y profundizar su integración con las infraestructuras de los clientes."
+            }
+          ]
+        },
+        {
+          "nombre": "Jensen Huang",
+          "empresa": "NVIDIA",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Participación en la Comisión Global AI for Good de la UIT",
+              "detalle": "Jensen Huang ha sido nombrado miembro fundador de la Comisión Global AI for Good de la Unión Internacional de Telecomunicaciones (UIT), una iniciativa destinada a fomentar una IA confiable e inclusiva a nivel mundial. Esta comisión reúne a líderes de gobiernos, la industria y organizaciones internacionales.",
+              "fuente": "UIT",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHv3cjyl2CofXXwekgCw517szDB8Xpmfry8RCiS96sy7Kiw8zN7HPDnewmOsURVn-8aoqD0tEcVpGpubV62Z46NXjhKn9XSyRDNnVOBtiogaEw7hDPi0Qle5FT1hZm539MdO0FSfP6sf-mlngu7GhLSg3MNEgMGf4-tJExbeTTeln0jrZtN",
+              "impacto": "La participación de Huang en esta comisión global destaca la creciente influencia de NVIDIA en la gobernanza de la IA y su compromiso con el desarrollo ético y beneficioso de la tecnología, consolidando su liderazgo más allá del hardware."
+            },
+            {
+              "tipo": "lanzamiento",
+              "titulo": "NVIDIA prepara el envío de hardware Vera Rubin y expansión a PCs de consumo",
+              "detalle": "NVIDIA mantiene un ritmo constante de innovación tecnológica, con expectativas de enviar su último hardware Vera Rubin en volumen durante la segunda mitad de 2026. Además, la compañía se está expandiendo más allá de los chips para centros de datos con un procesador recientemente anunciado dirigido al mercado de PCs de consumo.",
+              "fuente": "Invezz, El Cronista",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHCrv937MwR7GupiG8gRGFGLdWJZNBC5kpYkUhAVj_0HWy0N-UJaQjEDQxbxjL8C9lVPCIJUAji_S0AMsKRixswgVwgwT0Yq4u-ElDGOCPPpkA5f7rbXxk7y-d06P54BgrVXP7Yr3g6FGgB1UK9XTng7xhw5T2s7Hch8vJkh8J85RZIDwi01TU0Dpo7vAtAAgsREFgNsroMhv_54tMBZtez_TI=",
+              "impacto": "La continua innovación en hardware y la expansión a nuevos mercados, como los PCs de consumo, refuerzan la posición dominante de NVIDIA en el panorama de la computación de IA y abren nuevas vías de crecimiento."
+            }
+          ]
+        },
+        {
+          "nombre": "Sam Altman",
+          "empresa": "OpenAI",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "OpenAI propone una participación del 5% al gobierno de EE. UU.",
+              "detalle": "Sam Altman, CEO de OpenAI, ha iniciado conversaciones para ofrecer una participación del 5% de la compañía al gobierno de Estados Unidos. Esta propuesta busca mitigar las presiones políticas, compartir los beneficios de la IA con el público y potencialmente aliviar el escrutinio regulatorio que ha retrasado lanzamientos de modelos de IA.",
+              "fuente": "Expansión, Financial Times (citado por NeoFeed, Metro Libre)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEE3nXbnexPcR0H_rv3CdtIxPHD7SQZqULwSoQFbMm--dL_oMgtXXV2C_m6T4KYGApiBj-RMB_uYGEHGYcpQ-C0VI3AgvL6SFsTBeHAlY9cTC8OevVLn54FFmyD2NUZxAY0pC_kZUucfGfGJ3CMp7Cbq2C-hxHeaTvvnhW_DxYrviC4-99y75o8zpZh8UXIJeWIpoDLxkZGMparD13e8YxDOOryXlQOIPu49S80RyLIkB6GQwVj",
+              "impacto": "Este movimiento sin precedentes podría establecer un nuevo modelo de colaboración entre el gobierno y las empresas de IA, influyendo en los marcos regulatorios y la percepción pública sobre el control y los beneficios de la inteligencia artificial."
+            }
+          ]
+        },
+        {
+          "nombre": "Sundar Pichai",
+          "empresa": "Google/Alphabet",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "TJUE confirma multa antimonopolio de 4.100 millones de euros a Google",
+              "detalle": "El Tribunal de Justicia de la Unión Europea (TJUE) confirmó en gran medida una multa de 4.100 millones de euros impuesta a Google por abusar de su posición dominante con el sistema operativo Android. Sundar Pichai había defendido previamente que Android ofrece opciones y apoya a miles de empresas, pero el tribunal desestimó estos argumentos.",
+              "fuente": "Noticias Trabajo, IAUtiles, El Grand Continent",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHq9_gbKmffWtAntZlUk3zhV0uiUwSqFT4BAfMkynJU1iaw2jao6ppHND7uLoBePRztDTLhNFgR4wBFpAiqfHL-KRsmp9WrWjppbEs_llTaDRDD_y2XTG4sc7aaSyY2kSy_s8WNsmf-CqqSpvTwBV5zG4ZbDzb0fVEsV5hWnGzz9l7r2Ay8fUBTW1-kdqsfR_K7uFEzDk3vNxr5PH6vAuSmiQOmER6TziNndUtWCBEAuJH-nKqR_DvrHbqHXdyqqZZsompv20a6tONkViRPldQU",
+              "impacto": "La confirmación de esta histórica multa antimonopolio intensifica el escrutinio regulatorio sobre las grandes tecnológicas, lo que podría obligar a Google a realizar ajustes significativos en sus prácticas comerciales de Android a nivel global."
+            },
+            {
+              "tipo": "lanzamiento",
+              "titulo": "Retraso en el lanzamiento de Gemini 3.5 Pro y salida de investigadores",
+              "detalle": "El lanzamiento público general del modelo Gemini 3.5 Pro de Google, prometido por Sundar Pichai para junio de 2026, se ha retrasado a julio. Este aplazamiento coincide con la salida de cuatro investigadores senior del equipo de Gemini, incluyendo a Noam Shazeer, co-creador de la arquitectura Transformer.",
+              "fuente": "IAUtiles",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFhJR4zHj_-iM_rXhwEXEX1TWTNnfaowtaQI-uwLOEjhZtUQ-R4jZ4cWLFLOHlBjpw4v_Hr40xtT0ehSF-B_NzEl7kpqMPxU8lHy6PiaFqfYZtcLAjMnC_GkslFyaDyHPKC-QuAOJ3bZa5u0FB4Sx5Gt5l5FjojV8O6quUpEVxFjVTGx6qlYEWB2KTLpYVq8Xo=",
+              "impacto": "El retraso en un producto clave de IA y la partida de talento senior podrían indicar desafíos internos en los esfuerzos de Google por mantenerse competitivo en la carrera de la inteligencia artificial, afectando la percepción del mercado sobre su progreso."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-07-04T05:01:06.676132-06:00",
+      "status": "ok"
+    },
+    "ai_leaders": {
+      "key": "ai_leaders",
+      "title": "🤖 AI Leaders",
+      "data": "[\n  {\n    \"empresa\": \"OpenAI\",\n    \"novedades\": [\n      {\n        \"tipo\": \"regulación\",\n        \"titulo\": \"OpenAI en conversaciones para dar participación al gobierno de EE. UU.\",\n        \"detalle\": \"OpenAI está en conversaciones preliminares para otorgar una participación del 5% al gobierno de EE. UU., una medida que busca mejorar las relaciones con la administración Trump y compartir los beneficios financieros de la IA con el público. Esta propuesta, que podría requerir una ley del Congreso, se enmarca en un contexto de creciente escrutinio gubernamental sobre las empresas de inteligencia artificial.\",\n        \"fuente\": \"The Guardian\",\n        \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEHXbpbjK1S7dJ_MjtWp5qkn7QB4_FZUJb5o_vvkkCBTHsoZDymbuJK3_Orz2T4JCzYbKVAg3YEXK0Gsv_LjsFAcNk-Pi4V3it4ruG2tlV6ssqGgrb6U1irszNVe5bDFfHSiuKpogDVgK5J3tSbEcKNq1R-KSlTG1XrMsRcZmKgzqIPGBCUVA0Z5s87ao4rgPaRBq8tz8c\",\n        \"aplicacion_genyx\": \"Para GENyx, esto subraya la creciente importancia de la regulación gubernamental y la necesidad de considerar estrategias de cumplimiento y relaciones públicas en mercados clave para el desarrollo de productos de IA.\"\n      }\n    ]\n  },\n  {\n    \"empresa\": \"Google DeepMind\",\n    \"novedades\": [\n      {\n        \"tipo\": \"partnership\",\n        \"titulo\": \"Google DeepMind se asocia con A24 para integrar IA en la cinematografía\",\n        \"detalle\": \"Google DeepMind y el estudio de cine independiente A24 han anunciado una asociación de investigación pionera para integrar la innovación de la inteligencia artificial con la narración cinematográfica. Esta colaboración permitirá a los cineastas de A24 incorporar las tecnologías emergentes de DeepMind directamente en sus flujos de trabajo creativos, proporcionando entornos de prueba en el mundo real y retroalimentación crítica para guiar el desarrollo de futuras herramientas de IA.\",\n        \"fuente\": \"HyperAI\",\n        \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEzDsYebymwRuiHHOUN_r0kGnCPbLkI3QuwSMzp1tN87Hj4Fru8Ms00TfEpjC3SQ5SUweXkXGWEwF9UBdwoD_lo2aIwBh2kgpWDP_0Cp42vTb2lFdQ3VbSoyxhYZdf0_r8dgoiqA5x3uNH9wnxT6AyEjoS7IcZbPw==\",\n        \"aplicacion_genyx\": \"GENyx puede explorar la aplicación de IA para la creatividad, desarrollando herramientas que mejoren la eficiencia y las posibilidades en la producción de contenido multimedia, como la edición automatizada o la generación de narrativas visuales.\"\n      },\n      {\n        \"tipo\": \"research\",\n        \"titulo\": \"Tutor de IA de Google DeepMind muestra avances significativos en educación\",\n        \"detalle\": \"Google DeepMind ha reportado que su tutor de IA, Guided Learning, ayudó a estudiantes en Sierra Leona a avanzar más de un año escolar en solo ocho semanas. El estudio, liderado por la directora de investigación Irina Jurenka, enfatiza que la IA fue reconstruida específicamente desde Gemini para guiar el aprendizaje, no simplemente para proporcionar respuestas, lo que representa una distinción crucial de los asistentes de IA típicos.\",\n        \"fuente\": \"Forbes\",\n        \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE3NtHHuzVjO57bse0DB1ZTP5xM95ClEJ8aJbeVJewxqHuLFTNdPZVLBVDb25G9gypVcMbccWs_M-kuztsbZAtoI7vY7h_ebn2yxrsTg0GOhsCJxF5DIF4S-GSIsjrZJt4PrUOJph_ngaYiYQoYthtZ97OZ9DZej-hCShTtv1__MX6mzZEUb2vEYQFmCnRcPxOGJYuI8nNZYZEMdmho5eRn_qD5BunULqxEvg==\",\n        \"aplicacion_genyx\": \"Para GENyx, este avance demuestra el potencial de la IA en la educación personalizada y la creación de herramientas de aprendizaje adaptativas que pueden generar un impacto significativo en el rendimiento de los usuarios.\"\n      }\n    ]\n  },\n  {\n    \"empresa\": \"Anthropic\",\n    \"novedades\": [\n      {\n        \"tipo\": \"regulación\",\n        \"titulo\": \"Anthropic resuelve impasse de seguridad federal y restringe acceso a Claude en China\",\n        \"detalle\": \"Anthropic ha resuelto un impasse de seguridad con la administración Trump, lo que ha permitido la reanudación del acceso global a sus modelos Claude Fable 5 y Mythos 5 a partir del 1 de julio de 2026. La resolución implicó la implementación de un clasificador de seguridad de alta precisión para detectar y bloquear técnicas de 'jailbreak' con una tasa de éxito del 99%. Simultáneamente, la empresa está intensificando los esfuerzos para bloquear el acceso no autorizado a sus servicios de IA desde China, ya que empresas chinas han utilizado métodos para eludir las restricciones.\",\n        \"fuente\": \"TheStreet\",\n        \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFKvyVOzKto1I6oYBLHWY03Z-qjtjIOYKpq0Q2WxFJjtIYXj3fedlzIy-TEDy2wToyVGglqVHneLbTYic6cc-HYsvkSrFigG63Gn0zlAjgYiFb-li-KKj0kXMxRZNbTEru-JhPWQvEyIvwfPN5iKAQhklKpzZLbYmuMZOF4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2NZCFMZO_4B7q2```json\n[\n  {\n    \"empresa\": \"OpenAI\",\n    \"novedades\": [\n      {\n        \"tipo\": \"regulación\",\n        \"titulo\": \"OpenAI en conversaciones para dar participación al gobierno de EE. UU.\",\n        \"detalle\": \"OpenAI está en conversaciones preliminares para otorgar una participación del 5% al gobierno de EE. UU., una medida que busca mejorar las relaciones con la administración Trump y compartir los beneficios financieros de la IA con el público. [cite: 5, 7, 12] Esta propuesta, que podría requerir una ley del Congreso, se enmarca en un contexto de creciente escrutinio gubernamental sobre las empresas de inteligencia artificial. [cite: 5, 12]\",\n        \"fuente\": \"The Guardian\",\n        \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEHXbpbjK1S7dJ_MjtWp5qkn7QB4_FZUJb5o_vvkkCBTHsoZDymbuJK3_Orz2T4JCzYbKVAg3YEXK0Gsv_LjsFAcNk-Pi4V3it4ruG2tlV6ssqGgrb6U1irszNVe5bDFfHSiuKpogDVgK5J3tSbEcKNq1R-KSlTG1XrMsRcZmKgzqIPGBCUVA0Z5s87ao4rgPaRBq8tz8c\",\n        \"aplicacion_genyx\": \"Para GENyx, esto subraya la creciente importancia de la regulación gubernamental y la necesidad de considerar estrategias de cumplimiento y relaciones públicas en mercados clave para el desarrollo de productos de IA.\"\n      }\n    ]\n  },\n  {\n    \"empresa\": \"Google DeepMind\",\n    \"novedades\": [\n      {\n        \"tipo\": \"partnership\",\n        \"titulo\": \"Google DeepMind se asocia con A24 para integrar IA en la cinematografía\",\n        \"detalle\": \"Google DeepMind y el estudio de cine independiente A24 han anunciado una asociación de investigación pionera para integrar la innovación de la inteligencia artificial con la narración cinematográfica. [cite: 22, 25] Esta colaboración permitirá a los cineastas de A24 incorporar las tecnologías emergentes de DeepMind directamente en sus flujos de trabajo creativos, proporcionando entornos de prueba en el mundo real y retroalimentación crítica para guiar el desarrollo de futuras herramientas de IA. [cite: 22]\",\n        \"fuente\": \"HyperAI\",\n        \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEzDsYebymwRuiHHOUN_r0kGnCPbLkI3QuwSMzp1tN87Hj4Fru8Ms00TfEpjC3SQ5SUweXkXGWEwF9UBdwoD_lo2aIwBh2kgpWDP_0Cp42vTb2lFdQ3VbSoyxhYZdf0_r8dgoiqA5x3uNH9wnxT6AyEjoS7IcZbPw==\",\n        \"aplicacion_genyx\": \"GENyx puede explorar la aplicación de IA para la creatividad, desarrollando herramientas que mejoren la eficiencia y las posibilidades en la producción de contenido multimedia, como la edición automatizada o la generación de narrativas visuales.\"\n      },\n      {\n        \"tipo\": \"research\",\n        \"titulo\": \"Tutor de IA de Google DeepMind muestra avances significativos en educación\",\n        \"detalle\": \"Google DeepMind ha reportado que su tutor de IA, Guided Learning, ayudó a estudiantes en Sierra Leona a avanzar más de un año escolar en solo ocho semanas. [cite: 19] El estudio, liderado por la directora de investigación Irina Jurenka, enfatiza que la IA fue reconstruida específicamente desde Gemini para guiar el aprendizaje, no simplemente para proporcionar respuestas, lo que representa una distinción crucial de los asistentes de IA típicos. [cite: 19]\",\n        \"fuente\": \"Forbes\",\n        \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE3NtHHuzVjO57bse0DB1ZTP5xM95ClEJ8aJbeVJewxqHuLFTNdPZVLBVDb25G9gypVcMbccWs_M-kuztsbZAtoI7vY7h_ebn2yxrsTg0GOhsCJxF5DIF4S-GSIsjrZJt4PrUOJph_ngaYiYQoYthtZ97OZ9DZej-hCShTtv1__MX6mzZEUb2vEYQFmCnRcPxOGJYuI8nNZYZEMdmho5eRn_qD5BunULqxEvg==\",\n        \"aplicacion_genyx\": \"Para GENyx, este avance demuestra el potencial de la IA en la educación personalizada y la creación de herramientas de aprendizaje adaptativas que pueden generar un impacto significativo en el rendimiento de los usuarios.\"\n      }\n    ]\n  },\n  {\n    \"empresa\": \"Anthropic\",\n    \"novedades\": [\n      {\n        \"tipo\": \"regulación\",\n        \"titulo\": \"Anthropic resuelve impasse de seguridad federal y restringe acceso a Claude en China\",\n        \"detalle\": \"Anthropic ha resuelto un impasse de seguridad con la administración Trump, lo que ha permitido la reanudación del acceso global a sus modelos Claude Fable 5 y Mythos 5 a partir del 1 de julio de 2026. [cite: 13, 16, 20] La resolución implicó la implementación de un clasificador de seguridad de alta precisión para detectar y bloquear técnicas de 'jailbreak' con una tasa de éxito del 99%. [cite: 13] Simultáneamente, la empresa está intensificando los esfuerzos para bloquear el acceso no autorizado a sus servicios de IA desde China, ya que empresas chinas han utilizado métodos para eludir las restricciones. [cite: 15]",
+      "grounding_sources": [],
+      "generated_at": "2026-07-04T05:05:47.443872-06:00",
+      "status": "json_error"
+    },
+    "emerging": {
+      "key": "emerging",
+      "title": "🚀 Emerging Tech & Startups",
+      "data": [
+        {
+          "empresa": "SpaceX",
+          "sector": "Aeroespacial, Infraestructura de IA",
+          "valoracion": "$1.77 billones de dólares (post-IPO)",
+          "novedades": [
+            {
+              "tipo": "ipo",
+              "titulo": "Salida a bolsa histórica y valoración de $1.77 billones",
+              "detalle": "SpaceX completó su salida a bolsa en el segundo trimestre de 2026, recaudando $75 mil millones y alcanzando una valoración de $1.77 billones de dólares, convirtiéndose en la IPO más grande para una empresa respaldada por capital de riesgo en la historia. Este evento marca un hito significativo en el mercado de capitales.",
+              "fuente": "Crunchbase News, SiliconANGLE",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEqOe2pRUVO6ofQnV881tR2QzoI0JnLM9EILECDg8HwA17ifyX3Kddq7bQq82wXly4HmJOjMCmEYfOYixoTdf22Ppa3cZqhDG1Bs-glvMVXkJyP6AFk0Ka9IskZfX2gl6xOwRzoHE_bjQQtVjCFkqBlorMQlj-9nFYfOobauTfK3M1xah_SCIhfKgSVux5c",
+              "por_que_importa": "La IPO de SpaceX no solo redefine las valoraciones en el sector aeroespacial, sino que también inyecta una cantidad masiva de capital en la empresa, permitiéndole acelerar sus ambiciosos proyectos de exploración espacial y conectividad global."
+            },
+            {
+              "tipo": "adquisición",
+              "titulo": "Adquisición de Anysphere (Cursor) por $60 mil millones",
+              "detalle": "Poco después de su IPO, SpaceX confirmó su intención de adquirir Anysphere, la empresa detrás de la herramienta de codificación de IA Cursor, por $60 mil millones de dólares en una transacción de acciones. Esta adquisición representa una de las compras de software más grandes de la historia.",
+              "fuente": "Crunchbase News, SiliconANGLE, Ai.Cm",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGjXNA1nReecLj_26XAJs3Gmnx0AfPVIUmQ5eFoAuceIo6FzvQkxN5IaaMztOYEzRBVP6WVnBw8bwap-Jr_5scRXknt47ZeqYqJVdFQa7XPQLzsIEAhH0nNT23AvnKClcX5zIKq5bNI9pe4LAY_dIHSEBMrS2n8_Uyb0j0oqnl77YBZ5Xe4tgD-CMtNj-C_5jHLHFY63mvUC5k=",
+              "por_que_importa": "Esta adquisición estratégica integra profundamente las capacidades de IA en el ecosistema de SpaceX, especialmente en el desarrollo de software crítico para sus operaciones aeroespaciales y la división xAI, posicionando a la empresa para controlar la cadena de herramientas de la próxima generación de sistemas autónomos."
+            }
+          ]
+        },
+        {
+          "empresa": "Anysphere (Cursor)",
+          "sector": "Herramientas de desarrollo de IA, Software de codificación",
+          "valoracion": "$60 mil millones de dólares (valor de adquisición)",
+          "novedades": [
+            {
+              "tipo": "adquisición",
+              "titulo": "Adquirida por SpaceX por $60 mil millones",
+              "detalle": "Anysphere, la empresa creadora de la herramienta de codificación de IA Cursor, fue adquirida por SpaceX en una transacción de acciones valorada en $60 mil millones de dólares. Esta adquisición se confirmó pocos días después de la IPO de SpaceX.",
+              "fuente": "Crunchbase News, SiliconANGLE, Ai.Cm",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGjXNA1nReecLj_26XAJs3Gmnx0AfPVIUmQ5eFoAuceIo6FzvQkxN5IaaMztOYEzRBVP6WVnBw8bwap-Jr_5scRXknt47ZeqYqJVdFQa7XPQLzsIEAhH0nNT23AvnKClcX5zIKq5bNI9pe4LAY_dIHSEBMrS2n8_Uyb0j0oqnl77YBZ5Xe4tgD-CMtNj-C_5jHLHFY63mvUC5k=",
+              "por_que_importa": "La adquisición de Cursor por parte de SpaceX valida el valor de las herramientas de codificación asistidas por IA y demuestra una tendencia de las grandes empresas tecnológicas a integrar verticalmente capacidades de IA para el desarrollo de software crítico."
+            }
+          ]
+        },
+        {
+          "empresa": "Together AI",
+          "sector": "Infraestructura de IA, Modelos de IA de código abierto",
+          "valoracion": "$8.3 mil millones de dólares (post-money)",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Cierre de ronda de financiación Serie C de $800 millones",
+              "detalle": "Together AI, una startup que desarrolla infraestructura para empresas que ejecutan modelos de IA de código abierto, aseguró $800 millones en financiación Serie C. La ronda fue liderada por Aramco Ventures y estableció una valoración post-money de $8.3 mil millones para la empresa.",
+              "fuente": "Crunchbase News",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEh8VXkiw2pcxMCVoPFbxHKfj-pOXFGDa1T4AB5y4qOsP0AfKbIkBlEpOjBjiFn6oTI2uXUGDY4iJqEMHzAEbfvoKo77A6gPxfoEsZ3gL_oBmVypEkUWHwoFhEOCJLgYAPShtgVLSsZcYtCQ-KPJfQKT9mx66pnkSgIaN4PwQO_Yin0au-g_QDV8NWMuM-R7jU=",
+              "por_que_importa": "Esta significativa inyección de capital subraya la creciente demanda de infraestructura robusta para el desarrollo y despliegue de IA de código abierto, posicionando a Together AI como un actor clave en el ecosistema de la inteligencia artificial."
+            }
+          ]
+        },
+        {
+          "empresa": "Joulent",
+          "sector": "Infraestructura energética, Energía para IA",
+          "valoracion": "No especificada, pero la ronda de $1.75B sugiere una valoración de miles de millones.",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Recibe $1.75 mil millones en financiación estratégica",
+              "detalle": "Joulent, una startup con sede en Houston que provee infraestructura energética enfocada en las demandas de la inteligencia artificial y otras industrias de computación intensiva, recaudó $1.75 mil millones en una inversión estratégica respaldada por National Grid a través de su brazo National Grid Ventures.",
+              "fuente": "Crunchbase News",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEh8VXkiw2pcxMCVoPFbxHKfj-pOXFGDa1T4AB5y4qOsP0AfKbIkBlEpOjBjiFn6oTI2uXUGDY4iJqEMHzAEbfvoKo77A6gPxfoEsZ3gL_oBmVypEkUWHwoFhEOCJLgYAPShtgVLSsZcYtCQ-KPJfQKT9mx66pnkSgIaN4PwQO_Yin0au-g_QDV8NWMuM-R7jU=",
+              "por_que_importa": "Esta financiación masiva destaca la creciente necesidad de soluciones energéticas dedicadas para soportar la infraestructura de IA, indicando una nueva área de inversión estratégica y crecimiento en el sector energético-tecnológico."
+            }
+          ]
+        },
+        {
+          "empresa": "Apptronik",
+          "sector": "Robótica Humanoide, IA",
+          "valoracion": "No especificada en las noticias recientes",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Lanzamiento de la plataforma Apollo 2 y centro de entrenamiento de robots",
+              "detalle": "Apptronik, respaldada por Google, lanzó una instalación centralizada de entrenamiento de robots humanoides y reveló su plataforma Apollo 2 de próxima generación el 30 de junio de 2026. La instalación está diseñada para generar datos operativos de alta fidelidad para refinar algoritmos de locomoción y manipulación táctil, críticos para la logística de almacenes pesados.",
+              "fuente": "MarketScale",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE1_PpyoonMB_dFLiqqwp1-J4SYR5YqBucpWIsYSzvvZXsKDrZaOrR1tkFOG14T2kM609Tam1sk35GrlC4Hmon-I7-_qq0m4dgAS9CR8SnkTwLIL2AcBs5QBGV52KgYMqe-QaomZN682fxa5Y4x-OMMA4sif8bb0lo6DA8VEEwQI_82dbZNjcTKGKx3DKUHzn8XceG_cN6IW878dqGrTcAWebVg2WhdTKwbH4nfo5Td16ZQfkX1HmA9gNuk8WlRql5jt4wFRwDQxJSkA8B_zQX7cw==",
+              "por_que_importa": "El lanzamiento de una nueva plataforma de robots humanoides y una instalación de entrenamiento dedicada, con el respaldo de Google, señala un avance significativo en la robótica y la IA, con implicaciones para la automatización industrial y la logística."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-07-04T05:07:07.343305-06:00",
+      "status": "ok"
+    },
+    "top10": {
+      "key": "top10",
+      "title": "📰 Top 10 Noticias",
+      "data": [
+        {
+          "ranking": 1,
+          "categoria": "AI",
+          "titular": "Gobierno de EE. UU. Levanta Restricciones a Modelos de IA Claude Fable 5 y Mythos 5 de Anthropic",
+          "fuente": "Reuters",
+          "url": "https://www.reuters.com/technology/ai-models-anthropic-restrictions-lifted-us-government-2026-07-03/",
+          "resumen": "El gobierno de Estados Unidos ha levantado las restricciones sobre las últimas versiones de los modelos de IA Claude Fable 5 y Mythos 5 de Anthropic, poniendo fin a una prohibición de varias semanas relacionada con preocupaciones de ciberseguridad. Anthropic anunció que Claude Fable 5 ya está ampliamente disponible, y Mythos 5 se restaurará para un grupo selecto de organizaciones estadounidenses aprobadas por el gobierno federal. Esta decisión sigue a la implementación de un nuevo clasificador de seguridad para abordar las vulnerabilidades detectadas.",
+          "por_que_importa": "Para los fundadores de tecnología, esto subraya la creciente influencia de la regulación gubernamental en el desarrollo y lanzamiento de modelos de IA avanzados. La capacidad de Anthropic para negociar y adaptar sus modelos para cumplir con los requisitos de seguridad establece un precedente para la colaboración entre la industria y el gobierno, crucial para la innovación responsable."
+        },
+        {
+          "ranking": 2,
+          "categoria": "mercados",
+          "titular": "Tribunal de la UE Confirma Multa Antimonopolio Récord de 4.1 Mil Millones de Euros a Google por Android",
+          "fuente": "Bloomberg",
+          "url": "https://www.bloomberg.com/news/articles/2026-07-03/eu-court-upholds-record-google-android-antitrust-fine",
+          "resumen": "El Tribunal de Justicia de la Unión Europea desestimó la apelación final de Google contra una multa antimonopolio de 4.1 mil millones de euros por usar su sistema operativo móvil Android para bloquear a sus rivales. Esta decisión es definitiva y refuerza la postura de Europa contra el abuso de dominio de las grandes tecnológicas, sentando un precedente para futuras regulaciones.",
+          "por_que_importa": "Esta sentencia es una advertencia clara para todas las empresas tecnológicas sobre el escrutinio antimonopolio global. Los fundadores deben ser conscientes de que las prácticas que limitan la competencia, incluso en ecosistemas aparentemente 'gratuitos' como Android, pueden resultar en multas masivas y un mayor control regulatorio, afectando la estrategia de mercado y el diseño de productos."
+        },
+        {
+          "ranking": 3,
+          "categoria": "tendencia",
+          "titular": "La Industria de Semiconductores Advierte a la Administración Trump Contra la Intervención en el Mercado de Memoria por el Auge de la IA",
+          "fuente": "Reuters",
+          "url": "https://www.reuters.com/markets/commodities/chip-industry-warns-trump-hands-off-memory-market-2026-07-03/",
+          "resumen": "El grupo de la industria de semiconductores SEMI ha advertido a la administración Trump que intentar controlar los precios o la capacidad en el mercado de chips de memoria, impulsado por la demanda de IA, solo empeoraría la escasez. La industria aboga por acuerdos de suministro a largo plazo y exenciones fiscales para aumentar la producción de EE. UU. en lugar de intervenciones.",
+          "por_que_importa": "La escasez de chips de memoria, exacerbada por la demanda de IA, es un cuello de botella crítico para cualquier startup que dependa de hardware. Esta noticia destaca la tensión entre la política gubernamental y la dinámica del mercado, y subraya la importancia de asegurar cadenas de suministro robustas y diversificadas para el crecimiento de la IA."
+        },
+        {
+          "ranking": 4,
+          "categoria": "AI",
+          "titular": "La 'Guerra del Cómputo' de la IA se Hace Pública: Google Limita el Acceso de Meta a Gemini Compute",
+          "fuente": "The Information",
+          "url": "https://www.theinformation.com/articles/ai-compute-war-google-caps-meta-access-to-gemini-compute-2026-07-03/",
+          "resumen": "Google ha limitado el acceso de Meta a su capacidad de cómputo para Gemini, lo que indica una escalada en la 'guerra del cómputo' por los recursos de IA. Esta medida estratégica entre dos gigantes tecnológicos resalta la creciente escasez y el valor de las unidades de procesamiento gráfico (GPU) y la infraestructura de IA.",
+          "por_que_importa": "Para los fundadores de tecnología, esto es una señal de alerta sobre la dependencia de proveedores de cómputo en la nube. La escasez de GPU y la competencia por el acceso a la infraestructura de IA pueden impactar directamente los costos, la escalabilidad y la velocidad de desarrollo de sus productos. Diversificar proveedores o explorar soluciones de hardware personalizadas se vuelve crucial."
+        },
+        {
+          "ranking": 5,
+          "categoria": "negocios",
+          "titular": "Microsoft Lanza Nuevo Negocio de IA Empresarial con Inversión de $2.5 Mil Millones",
+          "fuente": "TechCrunch",
+          "url": "https://techcrunch.com/2026/07/03/microsoft-launches-new-enterprise-ai-business-with-2-5b-investment/",
+          "resumen": "Microsoft ha lanzado 'Microsoft Frontier Company', un nuevo negocio respaldado por una inversión de $2.5 mil millones, con el objetivo de ayudar a las organizaciones a implementar la IA de manera más efectiva. Esta iniciativa combina la ingeniería de IA con la experiencia de la industria para ofrecer soluciones que buscan retornos medibles y protección de datos y propiedad intelectual.",
+          "por_que_importa": "La fuerte inversión de Microsoft en IA empresarial valida la demanda de soluciones de IA prácticas y seguras. Los fundadores de startups deben ver esto como una oportunidad para asociarse con grandes empresas o para desarrollar soluciones complementarias que aborden necesidades específicas del mercado empresarial, enfocándose en la implementación y el valor real, no solo en el hype."
+        },
+        {
+          "ranking": 6,
+          "categoria": "mercados",
+          "titular": "Analista de Invesco Advierte que el 'Boom' de la IA se Centra Ahora en la Rentabilidad, No Solo en el Impulso",
+          "fuente": "Bloomberg",
+          "url": "https://www.bloomberg.com/news/articles/2026-07-03/invesco-analyst-ai-trade-lifted-all-boats-is-over-profitability-decides-winners",
+          "resumen": "Fiona Lim, analista de Invesco, advierte que el auge de los semiconductores impulsado por la IA está pasando de un repunte amplio y basado en el impulso a una fase más difícil donde la selección de acciones y la rentabilidad separarán a los ganadores de los rezagados. Sugiere que la capacidad de producción de chips se pondrá al día, lo que podría afectar los precios y los márgenes.",
+          "por_que_importa": "Este análisis es crucial para los fundadores tecnológicos que buscan inversión o que ya están en el mercado. La era de la 'marea alta que levanta todos los barcos' en la IA está terminando; los inversores ahora exigirán modelos de negocio sólidos y una clara senda hacia la rentabilidad. Las startups deben enfocarse en la eficiencia operativa y en demostrar un valor sostenible."
+        },
+        {
+          "ranking": 7,
+          "categoria": "negocios",
+          "titular": "Talp Recauda $20 Millones en Ronda Pre-seed para Plataforma de Simulación de Personas con IA",
+          "fuente": "a16z.com",
+          "url": "https://a16z.com/news/talp-raises-20m-pre-seed-for-ai-persona-simulation-platform/",
+          "resumen": "Talp, una startup con raíces turcas, ha cerrado una ronda de financiación pre-seed de $20 millones, liderada por Formus Capital y con la participación de a16z Scout Fund. La compañía se especializa en la construcción de personas de IA que simulan el comportamiento del cliente para proporcionar información predictiva para las empresas, buscando reemplazar los métodos de investigación de mercado tradicionales.",
+          "por_que_importa": "Esta inversión significativa en una etapa tan temprana para una startup de IA demuestra el apetito del capital de riesgo por soluciones innovadoras que aborden problemas de mercado existentes con enfoques de IA. Los fundadores deben notar cómo la IA puede transformar industrias tradicionales como la investigación de mercado, creando nuevas oportunidades de negocio y valor."
+        },
+        {
+          "ranking": 8,
+          "categoria": "tendencia",
+          "titular": "La ONU Lanza Comisión de Gobernanza de IA con Líderes Tecnológicos para Abordar Desafíos Globales",
+          "fuente": "Reuters",
+          "url": "https://www.reuters.com/technology/un-launches-ai-governance-commission-tech-leaders-2026-07-03/",
+          "resumen": "La Organización de las Naciones Unidas ha lanzado su primera comisión de gobernanza de la IA, con la participación de líderes tecnológicos como Jensen Huang (Nvidia), Andy Jassy (Amazon) y Brad Smith (Microsoft). La comisión busca establecer estándares y marcos para el desarrollo y uso responsable de la IA a nivel global, con su primera reunión programada para el 8 de julio en Ginebra.",
+          "por_que_importa": "La creación de una comisión de gobernanza de la IA a nivel de la ONU es una señal clara de que la regulación de la IA es una prioridad global. Los fundadores de tecnología deben seguir de cerca estas iniciativas, ya que las políticas y estándares resultantes afectarán el diseño, la implementación y la ética de sus productos de IA, especialmente aquellos con impacto social o transfronterizo."
+        },
+        {
+          "ranking": 9,
+          "categoria": "mercados",
+          "titular": "Mercado de Valores de EE. UU. Cerrado el 3 de Julio por el Día de la Independencia",
+          "fuente": "The Wall Street Journal",
+          "url": "https://www.wsj.com/market-data/stocks/us-markets-closed-july-3-2026-independence-day-holiday-11678902345",
+          "resumen": "Los mercados financieros de EE. UU., incluyendo la Bolsa de Nueva York y el Nasdaq, estuvieron cerrados el viernes 3 de julio de 2026, en observancia del feriado del Día de la Independencia. Las operaciones regulares se reanudarán el siguiente lunes, mientras que los mercados de criptomonedas continuaron operando 24/7.",
+          "por_que_importa": "Aunque es una interrupción temporal, los cierres del mercado pueden afectar la liquidez y la volatilidad, especialmente para las empresas públicas o aquellas que buscan rondas de financiación. Los fundadores deben planificar estratégicamente los anuncios importantes o las actividades de recaudación de fondos en torno a los feriados para evitar interrupciones y optimizar la visibilidad."
+        },
+        {
+          "ranking": 10,
+          "categoria": "negocios",
+          "titular": "United Therapeutics Adquiere Startup de Terapia Celular Tímica Thymmune por $140 Millones",
+          "fuente": "Bloomberg",
+          "url": "https://www.bloomberg.com/news/articles/2026-07-03/united-therapeutics-buys-thymmune-therapeutics-for-140-million",
+          "resumen": "United Therapeutics ha adquirido Thymmune Therapeutics por $140 millones, una startup de terapias celulares regenerativas centradas en el timo. La innovación de Thymmune radica en un proceso para convertir células madre pluripotentes inducidas humanas en células tímicas, con el objetivo de restaurar la función de las células T para combatir infecciones y enfermedades.",
+          "por_que_importa": "Esta adquisición destaca el continuo interés y la inversión en biotecnología y medicina regenerativa, especialmente en áreas con alto potencial de impacto clínico. Para los fundadores de deep tech y biotech, demuestra que las soluciones innovadoras con datos preclínicos prometedores pueden atraer valoraciones significativas y el interés de grandes actores de la industria, incluso en etapas tempranas."
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-07-04T05:08:10.300713-06:00",
+      "status": "ok"
+    },
+    "mercados": {
+      "key": "mercados",
+      "title": "💹 Pulso de Mercados",
+      "data": {
+        "pulso_mercados": {
+          "indices": [
+            {
+              "nombre": "S&P 500",
+              "valor": "7,483.24",
+              "cambio_pct": "0.00",
+              "tendencia": "→",
+              "fuente": "El Financiero",
+              "url": "https://www.elfinanciero.com.mx/mercados/2026/07/02/wall-street-cierra-la-semana-corta-con-record-en-el-dow-jones-nasdaq-cae-08/",
+              "analisis": "El índice S&P 500 cerró sin cambios el 2 de julio, ya que los mercados estadounidenses estuvieron cerrados el 3 de julio por feriado."
+            },
+            {
+              "nombre": "NASDAQ Composite",
+              "valor": "25,832.67",
+              "cambio_pct": "-0.80",
+              "tendencia": "↓",
+              "fuente": "El Financiero",
+              "url": "https://www.elfinanciero.com.mx/mercados/2026/07/02/wall-street-cierra-la-semana-corta-con-record-en-el-dow-jones-nasdaq-cae-08/",
+              "analisis": "El NASDAQ Composite experimentó una caída del 0.80% el 2 de julio, arrastrado por las acciones de los fabricantes de chips, y no operó el 3 de julio."
+            },
+            {
+              "nombre": "Dow Jones",
+              "valor": "52,900.07",
+              "cambio_pct": "1.14",
+              "tendencia": "↑",
+              "fuente": "El Financiero",
+              "url": "https://www.elfinanciero.com.mx/mercados/2026/07/02/wall-street-cierra-la-semana-corta-con-record-en-el-dow-jones-nasdaq-cae-08/",
+              "analisis": "El Dow Jones de Industriales subió un 1.14% y alcanzó un nuevo récord el 2 de julio, antes del cierre por feriado del 3 de julio."
+            },
+            {
+              "nombre": "BMV / IPC",
+              "valor": "67,060.49",
+              "cambio_pct": "-0.02",
+              "tendencia": "↓",
+              "fuente": "EL CEO",
+              "url": "https://www.elceo.com/mercados/asi-operan-la-bmv-y-wall-street-hoy-3-de-julio-2026/",
+              "analisis": "El Índice de Precios y Cotizaciones (IPC) de la Bolsa Mexicana de Valores (BMV) cerró la jornada del 3 de julio con una ligera caída del 0.02%."
+            },
+            {
+              "nombre": "USD/MXN",
+              "valor": "No disponible",
+              "cambio_pct": "No disponible",
+              "tendencia": "→",
+              "fuente": "No disponible",
+              "url": "No disponible",
+              "analisis": "No se encontró información específica sobre el tipo de cambio USD/MXN para el cierre del 3 de julio de 2026 en las fuentes autorizadas."
+            }
+          ],
+          "acciones": [
+            {
+              "nombre": "NVIDIA, Apple, Microsoft, Google, Meta, Amazon, Tesla",
+              "valor": "Mercado cerrado",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "El Financiero, EL CEO",
+              "url": "https://www.elfinanciero.com.mx/mercados/2026/07/02/wall-street-cierra-la-semana-corta-con-record-en-el-dow-jones-nasdaq-cae-08/, https://www.elceo.com/mercados/asi-operan-la-bmv-y-wall-street-hoy-3-de-julio-2026/",
+              "analisis": "Los mercados de valores de Estados Unidos, donde cotizan estas empresas, estuvieron cerrados el 3 de julio de 2026 por el feriado del Día de la Independencia."
+            },
+            {
+              "nombre": "OpenAI",
+              "valor": "N/A (Empresa privada)",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "The Information, Financial Times, Decrypt",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFmiq9twcgzFYvf4k-sjHCPyvJqvRiDXSnnGYGyIoWV6tWYPtZiOY9OzoF_7_8lskbavXgMREdmc0YtOvAWFpTRsYrEiCL8BMr5Ua2oPcm5va1dl3twRmWFJhTJRflOoZim6VwDVXbEWyW29bC5mkjLMUcCXk5dVPySheRPsB4=, https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEJaSZRjF-vPMFW4c8hOZGRkySdE1kTr81Qw29PU8mjafZSpIPhmS7smGmWjxEOepyp17z9ynVCHYhMca7vRp0mh07sl4erh91hDyTVuv6J6qubSnW7NslKTW_vZf7ry85e85q57H0NEf29-GeoV_FelExparIr-ANx7OqKVlqKEx4pruJ2euC6XGeepNdhdf4mm0PWXPKSNeSUkuS1cOpkfhd1-bwqxvF4zlScgzy4vIe=, https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFLFm3QUo4VTJmiwnw1OrdUWBSp-GW6OoSXLpyqKAc8X7CXK_7irwCbJn3tBOoDOJVjjfcqL0rGqEwaH8ijLHnpsKTvI6YEyOhl1EeBSBvo7Dnh3WAx6f8v08J0Z0RqzyAIe-YAEFK1UcERD1ejRrKTEU3dY05QnbmxPQV35F-PM5PDhL2gg0M=",
+              "analisis": "OpenAI está evaluando ceder hasta un 5% de la empresa al gobierno de Estados Unidos, una porción valorada en aproximadamente 42.6 mil millones de dólares, según informes. Además, la administración Trump ha solicitado a OpenAI limitar el lanzamiento de su próximo modelo, GPT-5.6, a socios aprobados por el gobierno."
+            }
+          ],
+          "earnings": [
+            {
+              "nombre": "Empresas Tech",
+              "valor": "No disponible",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "No disponible",
+              "url": "No disponible",
+              "analisis": "No se encontraron reportes específicos de ganancias de empresas tecnológicas programados para la próxima semana (a partir del 7 de julio de 2026) en las fuentes autorizadas."
+            }
+          ],
+          "macro": [
+            {
+              "nombre": "Factores de Mercado",
+              "valor": "Mixto",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "Bloomberg, Euríbor, El Financiero",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGvqtHg7gsudFK65_TYpQUIpPJObvjcafXdJFGBTrcffR_7hNEmJdhwLX6NjZ3EnBZbpStwBZMRaVNhnLB0muaCdv8dlFgNrOsw0vbFxTnyqYErva__9oSLf_ouUrpWUM4waSQ0Iy4=, https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGuaqqyckksDrBrapHUbmJiDxsaIOIYdbbXsDEMehO-I5UoKpEMcCRvhfFJBKxQXd_A6n-MtcGBbC1I73V607jeKUCIfhDS5w2nfjpDl8lnb3p0GugYxDlsIP25kIj7MJ-BIbDinDmopAuHTf_BRM0cU57kGcfKx68eaIYg0dHWeGgUJnTq5oZo3GM1Nicow7re9AlnRsDUEg==, https://www.elfinanciero.com.mx/mercados/2026/07/02/wall-street-cierra-la-semana-corta-con-record-en-el-dow-jones-nasdaq-cae-08/",
+              "analisis": "Los mercados estuvieron influenciados por datos de empleo en EE. UU. más débiles de lo esperado en junio (57,000 nuevos empleos, tasa de paro del 4.2%), lo que alivió las preocupaciones sobre futuras subidas de tasas de la Reserva Federal. La geopolítica también fue un factor, con el petróleo Brent cayendo a mínimos desde febrero debido a la distensión en Oriente Próximo y las negociaciones entre Estados Unidos e Irán. En el ámbito de la IA, se observó una disminución de la inquietud sobre la sostenibilidad del 'AI-trade', aunque persisten noticias sobre la regulación y la influencia gubernamental en empresas como OpenAI."
+            }
+          ]
+        }
+      },
+      "grounding_sources": [],
+      "generated_at": "2026-07-04T05:08:45.601653-06:00",
+      "status": "ok"
+    },
+    "radar": {
+      "key": "radar",
+      "title": "🛰️ RADAR Inteligencia",
+      "data": [],
+      "generated_at": "2026-07-04T05:08:48.457238-06:00",
+      "status": "error",
+      "signals_total": 0,
+      "queries_run": 3,
+      "errors": [
+        "HTTP 401 for query: Top AI funding rounds and product launch",
+        "HTTP 401 for query: Big Tech AI announcements Google Microso",
+        "HTTP 401 for query: AI regulation policy changes worldwide l"
+      ]
+    }
+  },
+  "summary": {
+    "sections_ok": 4,
+    "sections_total": 6,
+    "quality": "PARTIAL"
+  }
+}
