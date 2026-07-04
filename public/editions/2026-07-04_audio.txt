@@ -1,0 +1,94 @@
+El Periódico. Edición del 2026-07-04.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Elon Musk.
+Musk desmiente rumores de dispositivo de IA de SpaceX. Elon Musk desmintió categóricamente los informes que sugerían que SpaceX había presentado un prototipo de dispositivo de inteligencia artificial a inversores. Los rumores, publicados por The Wall Street Journal, describían un aparato más delgado que un iPhone con tecnología de xAI y un chip Snapdragon. Musk calificó la información como 'completamente falsa' en su cuenta de X. Fuente: Múltiples medios de prensa (citando WSJ y X).
+
+Satya Nadella.
+Microsoft lanza 'Frontier Company' para impulsar la IA empresarial. Microsoft ha anunciado la creación de 'Microsoft Frontier Company', una nueva unidad de negocio operativa con una inversión de 2.500 millones de dólares y 6.000 ingenieros expertos. El objetivo es integrar ingenieros de IA directamente en las empresas clientes para acelerar la implementación y el funcionamiento de sistemas de IA en sus operaciones diarias. Fuente: Bolsamania.com, Qore, FomoEra.
+
+Jensen Huang.
+Participación en la Comisión Global AI for Good de la UIT. Jensen Huang ha sido nombrado miembro fundador de la Comisión Global AI for Good de la Unión Internacional de Telecomunicaciones (UIT), una iniciativa destinada a fomentar una IA confiable e inclusiva a nivel mundial. Esta comisión reúne a líderes de gobiernos, la industria y organizaciones internacionales. Fuente: UIT.
+NVIDIA prepara el envío de hardware Vera Rubin y expansión a PCs de consumo. NVIDIA mantiene un ritmo constante de innovación tecnológica, con expectativas de enviar su último hardware Vera Rubin en volumen durante la segunda mitad de 2026. Además, la compañía se está expandiendo más allá de los chips para centros de datos con un procesador recientemente anunciado dirigido al mercado de PCs de consumo. Fuente: Invezz, El Cronista.
+
+Sam Altman.
+OpenAI propone una participación del 5% al gobierno de EE. UU.. Sam Altman, CEO de OpenAI, ha iniciado conversaciones para ofrecer una participación del 5% de la compañía al gobierno de Estados Unidos. Esta propuesta busca mitigar las presiones políticas, compartir los beneficios de la IA con el público y potencialmente aliviar el escrutinio regulatorio que ha retrasado lanzamientos de modelos de IA. Fuente: Expansión, Financial Times (citado por NeoFeed, Metro Libre).
+
+Sundar Pichai.
+TJUE confirma multa antimonopolio de 4.100 millones de euros a Google. El Tribunal de Justicia de la Unión Europea (TJUE) confirmó en gran medida una multa de 4.100 millones de euros impuesta a Google por abusar de su posición dominante con el sistema operativo Android. Sundar Pichai había defendido previamente que Android ofrece opciones y apoya a miles de empresas, pero el tribunal desestimó estos argumentos. Fuente: Noticias Trabajo, IAUtiles, El Grand Continent.
+Retraso en el lanzamiento de Gemini 3.5 Pro y salida de investigadores. El lanzamiento público general del modelo Gemini 3.5 Pro de Google, prometido por Sundar Pichai para junio de 2026, se ha retrasado a julio. Este aplazamiento coincide con la salida de cuatro investigadores senior del equipo de Gemini, incluyendo a Noam Shazeer, co-creador de la arquitectura Transformer. Fuente: IAUtiles.
+
+Sección: 🤖 AI Leaders.
+
+No se encontró información para esta sección.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+SpaceX.
+Salida a bolsa histórica y valoración de $1.77 billones. SpaceX completó su salida a bolsa en el segundo trimestre de 2026, recaudando $75 mil millones y alcanzando una valoración de $1.77 billones de dólares, convirtiéndose en la IPO más grande para una empresa respaldada por capital de riesgo en la historia. Este evento marca un hito significativo en el mercado de capitales. Fuente: Crunchbase News, SiliconANGLE.
+Adquisición de Anysphere (Cursor) por $60 mil millones. Poco después de su IPO, SpaceX confirmó su intención de adquirir Anysphere, la empresa detrás de la herramienta de codificación de IA Cursor, por $60 mil millones de dólares en una transacción de acciones. Esta adquisición representa una de las compras de software más grandes de la historia. Fuente: Crunchbase News, SiliconANGLE, Ai.Cm.
+
+Anysphere (Cursor).
+Adquirida por SpaceX por $60 mil millones. Anysphere, la empresa creadora de la herramienta de codificación de IA Cursor, fue adquirida por SpaceX en una transacción de acciones valorada en $60 mil millones de dólares. Esta adquisición se confirmó pocos días después de la IPO de SpaceX. Fuente: Crunchbase News, SiliconANGLE, Ai.Cm.
+
+Together AI.
+Cierre de ronda de financiación Serie C de $800 millones. Together AI, una startup que desarrolla infraestructura para empresas que ejecutan modelos de IA de código abierto, aseguró $800 millones en financiación Serie C. La ronda fue liderada por Aramco Ventures y estableció una valoración post-money de $8.3 mil millones para la empresa. Fuente: Crunchbase News.
+
+Joulent.
+Recibe $1.75 mil millones en financiación estratégica. Joulent, una startup con sede en Houston que provee infraestructura energética enfocada en las demandas de la inteligencia artificial y otras industrias de computación intensiva, recaudó $1.75 mil millones en una inversión estratégica respaldada por National Grid a través de su brazo National Grid Ventures. Fuente: Crunchbase News.
+
+Apptronik.
+Lanzamiento de la plataforma Apollo 2 y centro de entrenamiento de robots. Apptronik, respaldada por Google, lanzó una instalación centralizada de entrenamiento de robots humanoides y reveló su plataforma Apollo 2 de próxima generación el 30 de junio de 2026. La instalación está diseñada para generar datos operativos de alta fidelidad para refinar algoritmos de locomoción y manipulación táctil, críticos para la logística de almacenes pesados. Fuente: MarketScale.
+
+Sección: 📰 Top 10 Noticias.
+
+Gobierno de EE. UU. Levanta Restricciones a Modelos de IA Claude Fable 5 y Mythos 5 de Anthropic.
+El gobierno de Estados Unidos ha levantado las restricciones sobre las últimas versiones de los modelos de IA Claude Fable 5 y Mythos 5 de Anthropic, poniendo fin a una prohibición de varias semanas relacionada con preocupaciones de ciberseguridad. Anthropic anunció que Claude Fable 5 ya está ampliamente disponible, y Mythos 5 se restaurará para un grupo selecto de organizaciones estadounidenses aprobadas por el gobierno federal. Esta decisión sigue a la implementación de un nuevo clasificador de seguridad para abordar las vulnerabilidades detectadas. Fuente: Reuters.
+¿Por qué importa? Para los fundadores de tecnología, esto subraya la creciente influencia de la regulación gubernamental en el desarrollo y lanzamiento de modelos de IA avanzados. La capacidad de Anthropic para negociar y adaptar sus modelos para cumplir con los requisitos de seguridad establece un precedente para la colaboración entre la industria y el gobierno, crucial para la innovación responsable.
+
+Tribunal de la UE Confirma Multa Antimonopolio Récord de 4.1 Mil Millones de Euros a Google por Android.
+El Tribunal de Justicia de la Unión Europea desestimó la apelación final de Google contra una multa antimonopolio de 4.1 mil millones de euros por usar su sistema operativo móvil Android para bloquear a sus rivales. Esta decisión es definitiva y refuerza la postura de Europa contra el abuso de dominio de las grandes tecnológicas, sentando un precedente para futuras regulaciones. Fuente: Bloomberg.
+¿Por qué importa? Esta sentencia es una advertencia clara para todas las empresas tecnológicas sobre el escrutinio antimonopolio global. Los fundadores deben ser conscientes de que las prácticas que limitan la competencia, incluso en ecosistemas aparentemente 'gratuitos' como Android, pueden resultar en multas masivas y un mayor control regulatorio, afectando la estrategia de mercado y el diseño de productos.
+
+La Industria de Semiconductores Advierte a la Administración Trump Contra la Intervención en el Mercado de Memoria por el Auge de la IA.
+El grupo de la industria de semiconductores SEMI ha advertido a la administración Trump que intentar controlar los precios o la capacidad en el mercado de chips de memoria, impulsado por la demanda de IA, solo empeoraría la escasez. La industria aboga por acuerdos de suministro a largo plazo y exenciones fiscales para aumentar la producción de EE. UU. en lugar de intervenciones. Fuente: Reuters.
+¿Por qué importa? La escasez de chips de memoria, exacerbada por la demanda de IA, es un cuello de botella crítico para cualquier startup que dependa de hardware. Esta noticia destaca la tensión entre la política gubernamental y la dinámica del mercado, y subraya la importancia de asegurar cadenas de suministro robustas y diversificadas para el crecimiento de la IA.
+
+La 'Guerra del Cómputo' de la IA se Hace Pública: Google Limita el Acceso de Meta a Gemini Compute.
+Google ha limitado el acceso de Meta a su capacidad de cómputo para Gemini, lo que indica una escalada en la 'guerra del cómputo' por los recursos de IA. Esta medida estratégica entre dos gigantes tecnológicos resalta la creciente escasez y el valor de las unidades de procesamiento gráfico (GPU) y la infraestructura de IA. Fuente: The Information.
+¿Por qué importa? Para los fundadores de tecnología, esto es una señal de alerta sobre la dependencia de proveedores de cómputo en la nube. La escasez de GPU y la competencia por el acceso a la infraestructura de IA pueden impactar directamente los costos, la escalabilidad y la velocidad de desarrollo de sus productos. Diversificar proveedores o explorar soluciones de hardware personalizadas se vuelve crucial.
+
+Microsoft Lanza Nuevo Negocio de IA Empresarial con Inversión de $2.5 Mil Millones.
+Microsoft ha lanzado 'Microsoft Frontier Company', un nuevo negocio respaldado por una inversión de $2.5 mil millones, con el objetivo de ayudar a las organizaciones a implementar la IA de manera más efectiva. Esta iniciativa combina la ingeniería de IA con la experiencia de la industria para ofrecer soluciones que buscan retornos medibles y protección de datos y propiedad intelectual. Fuente: TechCrunch.
+¿Por qué importa? La fuerte inversión de Microsoft en IA empresarial valida la demanda de soluciones de IA prácticas y seguras. Los fundadores de startups deben ver esto como una oportunidad para asociarse con grandes empresas o para desarrollar soluciones complementarias que aborden necesidades específicas del mercado empresarial, enfocándose en la implementación y el valor real, no solo en el hype.
+
+Analista de Invesco Advierte que el 'Boom' de la IA se Centra Ahora en la Rentabilidad, No Solo en el Impulso.
+Fiona Lim, analista de Invesco, advierte que el auge de los semiconductores impulsado por la IA está pasando de un repunte amplio y basado en el impulso a una fase más difícil donde la selección de acciones y la rentabilidad separarán a los ganadores de los rezagados. Sugiere que la capacidad de producción de chips se pondrá al día, lo que podría afectar los precios y los márgenes. Fuente: Bloomberg.
+¿Por qué importa? Este análisis es crucial para los fundadores tecnológicos que buscan inversión o que ya están en el mercado. La era de la 'marea alta que levanta todos los barcos' en la IA está terminando; los inversores ahora exigirán modelos de negocio sólidos y una clara senda hacia la rentabilidad. Las startups deben enfocarse en la eficiencia operativa y en demostrar un valor sostenible.
+
+Talp Recauda $20 Millones en Ronda Pre-seed para Plataforma de Simulación de Personas con IA.
+Talp, una startup con raíces turcas, ha cerrado una ronda de financiación pre-seed de $20 millones, liderada por Formus Capital y con la participación de a16z Scout Fund. La compañía se especializa en la construcción de personas de IA que simulan el comportamiento del cliente para proporcionar información predictiva para las empresas, buscando reemplazar los métodos de investigación de mercado tradicionales. Fuente: a16z.com.
+¿Por qué importa? Esta inversión significativa en una etapa tan temprana para una startup de IA demuestra el apetito del capital de riesgo por soluciones innovadoras que aborden problemas de mercado existentes con enfoques de IA. Los fundadores deben notar cómo la IA puede transformar industrias tradicionales como la investigación de mercado, creando nuevas oportunidades de negocio y valor.
+
+La ONU Lanza Comisión de Gobernanza de IA con Líderes Tecnológicos para Abordar Desafíos Globales.
+La Organización de las Naciones Unidas ha lanzado su primera comisión de gobernanza de la IA, con la participación de líderes tecnológicos como Jensen Huang (Nvidia), Andy Jassy (Amazon) y Brad Smith (Microsoft). La comisión busca establecer estándares y marcos para el desarrollo y uso responsable de la IA a nivel global, con su primera reunión programada para el 8 de julio en Ginebra. Fuente: Reuters.
+¿Por qué importa? La creación de una comisión de gobernanza de la IA a nivel de la ONU es una señal clara de que la regulación de la IA es una prioridad global. Los fundadores de tecnología deben seguir de cerca estas iniciativas, ya que las políticas y estándares resultantes afectarán el diseño, la implementación y la ética de sus productos de IA, especialmente aquellos con impacto social o transfronterizo.
+
+Mercado de Valores de EE. UU. Cerrado el 3 de Julio por el Día de la Independencia.
+Los mercados financieros de EE. UU., incluyendo la Bolsa de Nueva York y el Nasdaq, estuvieron cerrados el viernes 3 de julio de 2026, en observancia del feriado del Día de la Independencia. Las operaciones regulares se reanudarán el siguiente lunes, mientras que los mercados de criptomonedas continuaron operando 24/7. Fuente: The Wall Street Journal.
+¿Por qué importa? Aunque es una interrupción temporal, los cierres del mercado pueden afectar la liquidez y la volatilidad, especialmente para las empresas públicas o aquellas que buscan rondas de financiación. Los fundadores deben planificar estratégicamente los anuncios importantes o las actividades de recaudación de fondos en torno a los feriados para evitar interrupciones y optimizar la visibilidad.
+
+United Therapeutics Adquiere Startup de Terapia Celular Tímica Thymmune por $140 Millones.
+United Therapeutics ha adquirido Thymmune Therapeutics por $140 millones, una startup de terapias celulares regenerativas centradas en el timo. La innovación de Thymmune radica en un proceso para convertir células madre pluripotentes inducidas humanas en células tímicas, con el objetivo de restaurar la función de las células T para combatir infecciones y enfermedades. Fuente: Bloomberg.
+¿Por qué importa? Esta adquisición destaca el continuo interés y la inversión en biotecnología y medicina regenerativa, especialmente en áreas con alto potencial de impacto clínico. Para los fundadores de deep tech y biotech, demuestra que las soluciones innovadoras con datos preclínicos prometedores pueden atraer valoraciones significativas y el interés de grandes actores de la industria, incluso en etapas tempranas.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
