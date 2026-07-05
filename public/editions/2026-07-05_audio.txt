@@ -1,0 +1,107 @@
+El Periódico. Edición del 2026-07-05.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Elon Musk.
+Musk niega desarrollo de dispositivo de IA portátil por SpaceX. Elon Musk desmintió categóricamente los informes que sugerían que SpaceX estaba desarrollando un dispositivo de IA portátil con un sistema operativo propietario, calificándolos de 'completamente falsos'. Esta declaración se hizo en respuesta a un informe del Wall Street Journal. Fuente: Tom's Hardware.
+Musk advierte sobre producción 'extremadamente lenta' de Optimus. Elon Musk rechazó la teoría de que Tesla está más avanzada de lo que aparenta en la producción de Optimus, el robot humanoide, advirtiendo que la producción será 'extremadamente lenta al principio'. Esta declaración contradice las narrativas optimistas de los fans y se alinea con los plazos de entrega retrasados de la compañía. Fuente: Electrek.
+Misión Starlink programada para el 5 de julio. SpaceX tiene programado un lanzamiento de la misión Starlink para el 5 de julio de 2026. El lanzamiento se realizará desde SLC-40 en Florida, utilizando un cohete Falcon 9 y con un aterrizaje en droneship. Fuente: SpaceX.
+
+Satya Nadella.
+Nadella detalla agenda de IA en Francia. Satya Nadella, CEO de Microsoft, delineó los planes de la compañía para impulsar la adopción de la IA, empoderar a los investigadores y transformar industrias en Francia durante una visita reciente a París. La agenda incluye una colaboración con el Institut Curie y el compromiso de capacitar a un millón de ciudadanos franceses en IA para 2027. Fuente: The French Tech Journal.
+
+Jensen Huang.
+Huang anuncia $1 billón en pedidos y la era de la IA agéntica. Jensen Huang, CEO de NVIDIA, reveló en sus keynotes de GTC San Jose y Computex Taipei (mencionadas en un artículo del 4 de julio de 2026) que la compañía tiene $1 billón en pedidos para sus sistemas Blackwell y Vera Rubin hasta 2027. También declaró que 'la IA agéntica ha llegado, la IA útil ha llegado', destacando la plena producción de la cadena de suministro. Fuente: StartupHub.ai.
+
+Sam Altman.
+OpenAI discute participación del 5% para el gobierno de EE. UU.. OpenAI está en conversaciones preliminares para otorgar al gobierno de EE. UU. una participación del 5% en la empresa. Sam Altman argumenta que esta medida es la mejor manera de compartir los beneficios de la IA con el público y mejorar las relaciones con la administración Trump. Fuente: TIME.
+Altman pide un foro internacional liderado por EE. UU. para estándares de IA. Sam Altman publicó un artículo de opinión en el Financial Times el 2 de julio de 2026, donde abogó por un foro internacional liderado por EE. UU. para establecer estándares globales de seguridad en inteligencia artificial. Argumentó que la IA 'remodelará las condiciones materiales de la vida humana' y requiere un marco global de gobernanza, citando a la Agencia Internacional de Energía Atómica como modelo. Fuente: SiliconANGLE.
+
+Sundar Pichai.
+Pichai destaca anuncio de Google Workspace con IA Gemini. Sundar Pichai, CEO de Alphabet, destacó una nueva campaña publicitaria de Google Workspace que utiliza la IA Gemini y Google Docs para reimaginar a los Padres Fundadores de EE. UU. redactando la Declaración de Independencia. Pichai compartió el video promocional en X el 3 de julio de 2026, elogiando su creatividad y su enfoque en el 250 aniversario de la nación. Fuente: Benzinga.
+
+Sección: 🤖 AI Leaders.
+
+Microsoft AI.
+GitHub Copilot lanza funciones de gobernanza empresarial. GitHub ha introducido nuevas funciones de gobernanza para Copilot Enterprise Cloud, permitiendo a las empresas transmitir sesiones de agentes a SIEM o colectores de eventos y acceder a datos de las últimas 48 horas mediante una API REST. También se han implementado grupos de créditos de IA para centros de costos y las ejecuciones de Copilot CLI en GitHub Actions ahora se autentican con el GITHUB_TOKEN incorporado, mejorando la seguridad y la gestión. Fuente: GitHub Changelog.
+
+Google DeepMind.
+Deprecación de modelos Gemini 2.5 Pro y 3 Flash en GitHub Copilot. GitHub ha confirmado que los modelos Gemini 2.5 Pro y Gemini 3 Flash serán deprecados en todas las superficies de Copilot a partir del 31 de julio de 2026. Los modelos recomendados para su reemplazo son Gemini 3.1 Pro y Gemini 3.5 Flash, lo que indica una evolución en las ofertas de modelos de IA disponibles para desarrolladores. Fuente: GitHub Changelog.
+
+Anthropic.
+Alibaba prohíbe a sus empleados usar Claude Code. Alibaba ha anunciado que prohibirá a sus empleados el uso de la herramienta de codificación Claude Code de Anthropic a partir del 10 de julio de 2026. La decisión se basa en la sospecha de una 'puerta trasera' que inspecciona la información de zona horaria y proxy, dirigiendo al personal a su plataforma interna Qoder. Fuente: Reuters (vía Ground News).
+
+Meta AI.
+Meta planea lanzar 'Meta Compute' para vender capacidad de IA en la nube. Meta Platforms está preparando un nuevo negocio de infraestructura en la nube, denominado 'Meta Compute', con el objetivo de vender acceso a su capacidad de computación de IA y modelos alojados. Esta iniciativa posicionaría a Meta en competencia directa con los principales proveedores de la nube como Amazon Web Services, Microsoft Azure y Google Cloud, buscando monetizar sus extensas inversiones en infraestructura de IA. Fuente: Tom's Hardware.
+
+OpenAI.
+OpenAI propone una participación del 5% al gobierno de EE. UU.. OpenAI ha propuesto otorgar al gobierno de EE. UU. una participación del 5% en la empresa, valorada en aproximadamente 42.6 mil millones de dólares según su valoración de marzo de 2026. Esta propuesta, reportada por el Financial Times, Bloomberg y CNBC, busca aliviar la presión política en Washington y compartir los beneficios de la IA con el público a través de un 'Fondo de Riqueza Pública'. Fuente: Let's Data Science (citando CNBC, Bloomberg, Financial Times).
+
+Sección: 🚀 Emerging Tech & Startups.
+
+SpaceX (adquiriendo Anysphere/Cursor).
+SpaceX adquiere la startup de codificación de IA Cursor por $60 mil millones. SpaceX ha acordado adquirir Anysphere, la empresa matriz de la herramienta de codificación de IA Cursor, en un acuerdo de acciones valorado en $60 mil millones. Esta adquisición se produce días después de la histórica oferta pública inicial (IPO) de SpaceX, que valoró a la compañía en $1.77 billones, y representa la adquisición de startups más grande de la historia. Fuente: Quartz, The Engineering Brief (Medium), TechCrunch (via Scouts by Yutori).
+
+Anthropic.
+Anthropic lanza 'Claude Design' para competir con Figma. Anthropic ha lanzado 'Claude Design', una nueva oferta que entra en competencia directa con Figma en el mercado del software de diseño. Este lanzamiento ha provocado una caída del 14% en las acciones de Figma, destacando el potencial disruptivo de la IA en este sector. Fuente: Intellectia.AI.
+
+ElevenLabs.
+ElevenLabs busca una valoración de $22 mil millones en venta secundaria. ElevenLabs está en conversaciones para una venta secundaria de acciones que podría valorar a la compañía en $22 mil millones. Esto duplicaría su valoración en menos de cinco meses sin necesidad de levantar capital nuevo, tras una ronda Serie D de $500 millones en febrero de 2026 con una valoración de $11 mil millones. Fuente: Tech Funding News.
+
+Kling AI.
+Kling AI cierra ronda de $3 mil millones con respaldo de Alibaba y Tencent. Kling AI, un rival chino de Sora, ha cerrado una ronda de financiación de $3 mil millones, alcanzando una valoración de $18 mil millones. La ronda contó con el respaldo de gigantes tecnológicos chinos como Alibaba y Tencent. Fuente: Tech Funding News.
+
+Crusoe.
+Crusoe triplicará su valoración a $30 mil millones. Se espera que Crusoe triplique su valoración a $30 mil millones, impulsado por la creciente demanda en la carrera por la infraestructura de IA. La empresa se enfoca en utilizar energía limpia para alimentar centros de datos de IA. Fuente: Tech Funding News.
+
+Sección: 📰 Top 10 Noticias.
+
+OpenAI lanza GPT-5.6 Sol, su modelo de próxima generación con seguridad mejorada.
+OpenAI ha presentado GPT-5.6 Sol, su modelo de próxima generación, destacando mejoras significativas en seguridad y capacidades. Este lanzamiento inicial está disponible para un grupo selecto de socios de confianza, como parte de una colaboración con el gobierno de EE. UU.. El modelo promete un salto en inteligencia general y la capacidad de ejecutar tareas complejas del mundo real. Fuente: OpenAI.
+¿Por qué importa? Para los fundadores tech, un modelo de IA más potente y seguro como GPT-5.6 Sol abre nuevas avenidas para la innovación y la creación de productos, al tiempo que subraya la creciente importancia de la seguridad en el desarrollo de IA.
+
+La IA dispara la demanda eléctrica de centros de datos, forzando inversiones masivas en infraestructura.
+Un nuevo informe del Capgemini Research Institute advierte que el consumo eléctrico de los centros de datos se duplicará para 2030 debido a la IA, pasando de 448 TWh en 2025 a casi 980 TWh. Esta demanda sin precedentes está generando una presión significativa sobre las redes eléctricas, haciendo que la planificación energética sea más compleja y requiriendo inversiones masivas en capacidad, almacenamiento y digitalización. La IA ya representa entre el 15% y el 20% del consumo eléctrico de los centros de datos, y esa proporción podría subir al 40% para 2030. Fuente: Zonamovilidad.es.
+¿Por qué importa? La creciente demanda energética de la IA es una tendencia crítica que los fundadores deben monitorear. Esto no solo afecta los costos operativos de la infraestructura de IA, sino que también crea oportunidades para startups en eficiencia energética, gestión de redes y soluciones de energía sostenible.
+
+Meta lanza Llama 4, su nueva generación de modelos de lenguaje de código abierto con enfoque multimodal y eficiencia.
+Meta AI ha lanzado Llama 4, su última familia de modelos de lenguaje grandes de código abierto, que introduce una arquitectura basada en 'mixture of experts' (MoE) para una mayor eficiencia. Los modelos Llama 4 Scout y Maverick, ya disponibles, están diseñados con capacidades multimodales nativas y una longitud de contexto sin precedentes, buscando democratizar el acceso a la IA avanzada. Se espera que se integren en plataformas como WhatsApp, Messenger e Instagram. Fuente: About Meta.
+¿Por qué importa? La liberación de modelos de IA de código abierto y eficientes como Llama 4 reduce la barrera de entrada para la innovación. Esto permite a los fundadores integrar IA avanzada en sus productos con menores costos y mayor flexibilidad, fomentando un ecosistema de desarrollo más abierto.
+
+Google Research logra 'ventaja cuántica práctica' con simulación de moléculas complejas.
+Investigadores de Google Research han anunciado un hito en la computación cuántica, logrando simular con éxito la interacción de moléculas complejas con una precisión sin precedentes utilizando su algoritmo Quantum Echoes. Este avance, publicado en Nature, demuestra la capacidad de los ordenadores cuánticos para resolver problemas que están más allá del alcance de las supercomputadoras clásicas, marcando un paso significativo hacia aplicaciones prácticas. Fuente: blog.google.
+¿Por qué importa? La 'ventaja cuántica práctica' de Google es un indicador clave del progreso en una tecnología disruptiva. Los fundadores tecnológicos deben estar atentos a estos avances, ya que la computación cuántica podría transformar industrias como la farmacéutica, la ciencia de materiales y la criptografía a largo plazo.
+
+La Reserva Federal mantiene tasas de interés estables, pero con preocupación por la inflación persistente.
+La Reserva Federal de EE. UU. decidió mantener su tasa clave sin cambios en su última reunión, aunque casi la mitad de los responsables de política monetaria señalaron que podrían respaldar un aumento de tasas en los próximos meses de este año. El comunicado de la Fed eliminó referencias a futuras bajadas de tipos, reflejando una postura cautelosa y una mayor preocupación por la persistente inflación. Fuente: AP News.
+¿Por qué importa? Las decisiones de la Fed impactan directamente el costo del capital y el apetito por el riesgo. Un entorno de tasas estables con advertencias inflacionarias puede significar un acceso a financiación más ajustado y una mayor presión sobre la rentabilidad para las startups, exigiendo una gestión financiera prudente.
+
+La mayor plataforma de criptomonedas es declarada ilegal en la UE tras el fin del plazo de regulación MiCA.
+La mayor plataforma de criptomonedas ha sido declarada ilegal en la Unión Europea a partir del 1 de julio de 2026, al no haber obtenido la autorización exigida por el Reglamento sobre el Mercado de Criptoactivos (MiCA). Esto afecta a medio millón de usuarios en España, quienes no podrán comprar, vender o realizar intercambios en dicha plataforma. La aplicación plena de MiCA obliga a que las plataformas de criptoactivos operen con licencia en toda la UE. Fuente: Vozpopuli.
+¿Por qué importa? La estricta aplicación de MiCA en la UE subraya la creciente importancia de la regulación en el espacio Web3 y fintech. Los fundadores de startups en este sector deben priorizar el cumplimiento normativo para asegurar la viabilidad y expansión de sus operaciones en mercados clave.
+
+La escasez global de chips de IA se agrava, afectando la producción de servidores y dispositivos.
+La demanda sin precedentes de chips especializados en IA ha exacerbado la escasez global, impactando la cadena de suministro y la capacidad de producción de servidores de IA y dispositivos de vanguardia. Analistas advierten que la situación podría persistir hasta bien entrado el próximo año, con fabricantes desviando capacidad de producción hacia centros de datos ávidos de procesadores. Esta escasez está elevando los precios de la electrónica de consumo y afectando a grandes tecnológicas. Fuente: Reuters.
+¿Por qué importa? La escasez de chips es un cuello de botella crítico para el crecimiento de la IA. Los fundadores deben considerar estrategias de resiliencia en la cadena de suministro, explorar soluciones de software más eficientes en el uso de hardware, y buscar alternativas para mitigar el impacto en el desarrollo y despliegue de sus productos.
+
+Stripe considera la adquisición de PayPal para expandir su oferta de pagos empresariales.
+Stripe, una de las empresas de procesamiento de pagos más valiosas, está explorando la posible adquisición de la totalidad o parte de PayPal. Esta movida estratégica busca fortalecer la posición de Stripe en el mercado de pagos B2B y expandir su oferta empresarial, combinando su infraestructura moderna con la vasta red de usuarios y comerciantes de PayPal. La noticia ha generado gran interés en el sector fintech, dado que Stripe alcanzó una valoración de 159 mil millones de dólares recientemente. Fuente: Bloomberg.
+¿Por qué importa? Una posible adquisición de esta magnitud en el sector fintech indica una consolidación del mercado y la búsqueda de sinergias en pagos digitales. Para los fundadores, esto resalta la importancia de construir soluciones escalables y atractivas para posibles compradores estratégicos, así como la evolución del panorama competitivo.
+
+Sequoia Capital advierte a sus startups sobre un entorno de financiación más conservador en H2 2026.
+Sequoia Capital ha emitido una nota a sus empresas de cartera, aconsejando cautela y eficiencia de capital ante un panorama de financiación que se espera sea más conservador en la segunda mitad de 2026. La firma de capital riesgo enfatiza la importancia de la rentabilidad y la extensión de la pista de aterrizaje, instando a los fundadores a prepararse para un 'momento crucial' donde la disponibilidad de dinero disminuye. Fuente: Sequoia Capital.
+¿Por qué importa? Las advertencias de VC líderes como Sequoia son un barómetro del clima de inversión. Los fundadores deben priorizar la gestión de efectivo, la rentabilidad y la eficiencia operativa para asegurar la supervivencia y el crecimiento en un mercado de capitales más restrictivo.
+
+Startup de biotecnología BioSynth cierra ronda Serie C de $200M para impulsar plataformas de síntesis de proteínas con IA.
+BioSynth, una startup que desarrolla plataformas de síntesis de proteínas impulsadas por inteligencia artificial, ha cerrado una ronda de financiación Serie C de 200 millones de dólares. La inversión, liderada por Andreessen Horowitz, permitirá a la compañía expandir su investigación y desarrollo, así como acelerar la comercialización de sus soluciones. Fuente: TechCrunch.
+¿Por qué importa? Esta significativa inversión en una startup de biotecnología con IA valida el creciente interés y el potencial de disrupción en la intersección de la biología y la inteligencia artificial. Para los fundadores tech, esto señala un área de alto crecimiento y oportunidades para aplicar la IA en campos científicos complejos.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
