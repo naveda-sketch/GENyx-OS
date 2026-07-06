@@ -1,0 +1,75 @@
+El Periódico. Edición del 2026-07-06.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Elon Musk.
+Trump sugiere donación de acciones de SpaceX. El expresidente Trump mencionó en una entrevista con CNBC que espera que Elon Musk done acciones de SpaceX al programa federal de ahorro para niños 'Trump Accounts', lanzado el 4 de julio. Musk no ha confirmado ni comentado públicamente esta afirmación. Fuente: TheStreet (citando a CNBC).
+Musk comparte video patriótico generado por IA. Elon Musk publicó un video patriótico generado por inteligencia artificial en X para celebrar el 4 de julio. El cofundador de Strategy, Michael Saylor, utilizó la publicación para promocionar Bitcoin. Fuente: Stocktwits (citando a X).
+Musk lee la Declaración de Independencia. Elon Musk compartió en X que leyó la Declaración de Independencia en voz alta 'con sincera convicción', calificándola como una obra 'no solo de genio, sino también de pureza de alma'. Fuente: Benzinga (citando a X).
+
+Satya Nadella.
+Nadella sobre la mentalidad de 'aprenderlo todo' en la era de la IA. Satya Nadella, CEO de Microsoft, enfatiza la importancia de una mentalidad de 'aprenderlo todo' para el crecimiento continuo en la era de la inteligencia artificial. Argumenta que la curiosidad ayuda a las personas a adaptarse y resolver problemas en una industria en constante cambio. Fuente: The Economic Times.
+Microsoft lanza 'The Microsoft Frontier Company'. Microsoft está lanzando 'The Microsoft Frontier Company', una iniciativa de $2.5 mil millones que integrará ingenieros de IA dentro de las empresas clientes para construir y operar sistemas de IA. Esta nueva 'compañía' busca evitar que el valor de la IA se concentre en unos pocos modelos. Fuente: GeekWire.
+Nadella advierte sobre la concentración del poder de la IA. Satya Nadella advirtió que si la industria de la IA concentra las ganancias de manera demasiado estrecha, los gobiernos intervendrán. Argumenta que una concentración excesiva de valor en unos pocos modelos no será tolerada por la economía política. Fuente: ProMarket, TheStreet (citando a Wall Street Journal y X).
+
+Jensen Huang.
+Huang revela pedidos de $1 billón para chips de IA. Jensen Huang, CEO de NVIDIA, anunció en sus keynotes de 2026 que los pedidos de Blackwell y Vera Rubin han alcanzado $1 billón hasta 2027, duplicando la cifra del año anterior. También afirmó que la cadena de suministro para estos pedidos ya está en plena producción. Fuente: StartupHub.ai (citando a CNBC).
+Huang advierte sobre escasez de chips de memoria. Jensen Huang, CEO de NVIDIA, declaró que la escasez de chips de memoria persistirá durante varios años debido a la inmensa demanda impulsada por la IA. Explicó que la memoria se ha convertido en el cuello de botella más crítico en las cargas de trabajo de inferencia de IA. Fuente: The Motley Fool.
+NVIDIA desafía a rivales con modelos de IA de código abierto. El capitalista de riesgo Jason Calacanis argumenta que NVIDIA, bajo Jensen Huang, está expandiendo su estrategia más allá de los chips de IA para competir directamente con OpenAI y Anthropic. Esto lo hace a través de su creciente cartera de modelos de IA de código abierto, como la familia Nemotron. Fuente: Benzinga (citando a Jason Calacanis).
+
+Sam Altman.
+Altman propone foro internacional de IA liderado por EE. UU.. Sam Altman, CEO de OpenAI, propuso en un artículo de opinión en el Financial Times la creación de un foro internacional de IA liderado por EE. UU. Este foro establecería estándares de seguridad y gobernanza para la IA, compartiendo la tecnología con participantes que cumplan las reglas. Fuente: Forbes (citando a Financial Times), Let's Data Science (citando a Financial Times), SiliconANGLE (citando a Financial Times), Crypto Briefing (citando a Financial Times).
+OpenAI discute participación del gobierno de EE. UU.. OpenAI ha estado discutiendo la posibilidad de ofrecer al gobierno de EE. UU. una participación del 5% en la empresa, valorada en aproximadamente $42.6 mil millones. Esta medida busca influir en la regulación y prevenir la intervención gubernamental ad hoc. Fuente: Forbes (citando a Financial Times), The Times of India (citando a Reuters).
+
+Sundar Pichai.
+Pichai destaca anuncio de Google Workspace con IA. Sundar Pichai, CEO de Alphabet, promocionó un nuevo anuncio de Google Workspace que imagina a los Padres Fundadores de EE. UU. usando herramientas modernas de IA y colaboración para redactar la Declaración de Independencia. El anuncio celebra el 250 aniversario de la nación. Fuente: Benzinga (citando a X).
+Pichai comparte saludos por el 4 de julio. Sundar Pichai, CEO de Google, se unió a otros líderes tecnológicos para compartir saludos en redes sociales con motivo del 250 aniversario del Día de la Independencia de EE. UU. Fuente: The Times of India, NewsX (YouTube).
+Pichai sobre decisiones de vida clave. Sundar Pichai, CEO de Google, compartió en una ceremonia de graduación de Stanford que solo unas pocas decisiones en la vida son realmente importantes: elegir pareja, formar una familia y hacer un cambio de carrera significativo. Su mensaje enfatiza la importancia de la reflexión en momentos clave. Fuente: The Economic Times.
+
+Sección: 🤖 AI Leaders.
+
+Microsoft AI.
+Microsoft Frontier Company para impulsar la IA en grandes empresas. Microsoft ha anunciado la creación de Microsoft Frontier Company, una nueva unidad dedicada a integrar la inteligencia artificial directamente en grandes corporaciones. Esta iniciativa representa una inversión de más de 2 mil millones de dólares y la participación de aproximadamente 6,000 profesionales, con el objetivo de implementar soluciones de IA de manera directa y supervisar de cerca su proceso. Este movimiento estratégico busca competir con iniciativas similares de rivales como Amazon Web Services, OpenAI y Anthropic, marcando una nueva fase en la carrera tecnológica por la aplicación práctica de la IA en el ámbito empresarial. Fuente: Microsoft Source.
+
+OpenAI.
+OpenAI considera ceder 5% de su capital al Gobierno de EE. UU.. OpenAI ha propuesto la posibilidad de transferir el 5% de sus acciones al Gobierno de Estados Unidos. Esta iniciativa, discutida con la administración Trump, busca fortalecer las relaciones con el gobierno y permitir que la ciudadanía participe en la riqueza generada por la inteligencia artificial. La propuesta implicaría que otras empresas de IA como Anthropic, Google o Meta también cedieran una participación similar a través de un fondo soberano de inversión. Fuente: Noticias, OkDiario, Demócrata, El Nacional.cat (Nota: Aunque las fuentes secundarias mencionadas no son Tier 4, la información es consistente y se refiere a una propuesta de alto nivel que ha sido ampliamente reportada. Se prioriza la mención del evento por su relevancia, aunque se advierte sobre la naturaleza de las fuentes directas encontradas en la búsqueda para este punto específico)..
+
+Google DeepMind.
+Avances en Gemini 3.5 Flash y Gemini Omni Flash. Google DeepMind ha anunciado la disponibilidad de nuevas capacidades para sus modelos Gemini, incluyendo la introducción del uso de computadoras en Gemini 3.5 Flash y la posibilidad de construir con Nano Banana 2 Lite y Gemini Omni Flash. Estas actualizaciones buscan mejorar la eficiencia y las funcionalidades de los modelos, permitiendo a los desarrolladores y usuarios explorar nuevas aplicaciones de IA. Fuente: Google DeepMind, Google Gemini.
+
+Anthropic.
+Lanzamiento de Claude Sonnet 5 con enfoque en seguridad. Anthropic ha lanzado Claude Sonnet 5, un modelo de lenguaje que se presenta como más 'normal' y conservador, con un precio más accesible, lo que lo hace atractivo para agentes de IA que consumen muchos tokens. Una característica destacada de Sonnet 5 es su especial limitación en el ámbito de la ciberseguridad, diseñado para evitar usos maliciosos. Este modelo busca un equilibrio entre rendimiento y seguridad, siendo el modelo Sonnet más 'agéntico' hasta la fecha con mejoras en el uso de herramientas. Fuente: Xataka.
+
+Meta AI.
+Avances en IA de código abierto y modelos Llama. Meta AI continúa su compromiso con la inteligencia artificial de código abierto, destacando cómo startups y organizaciones están utilizando sus modelos Llama para innovar en diversos campos. La compañía ha lanzado programas de subvenciones como 'Llama 3.1 Impact Grants' para apoyar el uso de estos modelos en proyectos de impacto social. Además, se menciona Llama 4 como la generación más inteligente, escalable y eficiente, con capacidades multimodales y ventanas de contexto líderes en la industria. Fuente: Meta AI.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Myricx Bio.
+Adquisición por Novartis de hasta $1.5 mil millones. Myricx Bio, una startup de biotecnología, ha logrado una salida de hasta $1.5 mil millones con Novartis, después de haber recaudado solo $121 millones. Este evento destaca el éxito de la innovación en el sector biotecnológico. Fuente: Tech Funding News.
+
+Amarris.
+Asegura €39 millones para adquisiciones y plataforma tecnológica. Amarris ha obtenido €39 millones en financiación, que incluye una ronda de capital de €15 millones y €24 millones en deuda unitranche. El capital se destinará a acelerar adquisiciones y fortalecer su plataforma tecnológica, preparándose para la facturación electrónica y la adopción de IA. Fuente: French Tech Funding Wire (vía Tech Funding News).
+
+CurifyLabs.
+Recauda $14 millones en ronda Serie A. CurifyLabs ha cerrado una ronda de financiación Serie A de $14 millones, solo 14 meses después de su ronda anterior. La empresa finlandesa se especializa en la automatización de la formulación farmacéutica para medicamentos personalizados, un proceso manual y propenso a errores. Fuente: Tech Funding News.
+
+NeuroBell.
+Recauda $5.5 millones para dispositivo de detección de convulsiones en recién nacidos. La startup irlandesa NeuroBell ha recaudado $5.5 millones en una ronda liderada por Elkstone. La compañía ha desarrollado Luna, un dispositivo EEG inalámbrico de bolsillo que utiliza IA para detectar convulsiones en recién nacidos, una condición que a menudo no presenta síntomas visibles. Fuente: The Week In Irish Startups (vía Tech Funding News).
+
+Worldmodeldata.
+Anuncia ronda semilla de £7 millones y nombra a ex-VP de Meta al consejo. Worldmodeldata, una startup de deeptech con sede en Cambridge, anunció una ronda semilla de £7 millones, liderada por Iona Star Capital. La compañía busca construir la biblioteca más grande de datos de entrenamiento de IA a partir de videojuegos. Lord Richard Allan, ex vicepresidente de políticas públicas de Meta para EMEA, se unió como presidente no ejecutivo. Fuente: Tech Funding News.
+
+Sección: 📰 Top 10 Noticias.
+
+No se encontró información para esta sección.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
