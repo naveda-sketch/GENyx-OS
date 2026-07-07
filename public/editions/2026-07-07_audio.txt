@@ -1,0 +1,99 @@
+El Periódico. Edición del 2026-07-07.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Elon Musk.
+xAI se renombra a SpaceXAI y se integra completamente en SpaceX. La startup de inteligencia artificial de Elon Musk, xAI, se ha renombrado oficialmente como SpaceXAI y se ha integrado por completo en SpaceX. El cambio de nombre y el nuevo logotipo se anunciaron el 6 de julio de 2026 a través de una publicación en la plataforma X. Esta consolidación formaliza la visión de Musk de integrar las operaciones de IA con la infraestructura espacial, incluyendo planes para centros de datos orbitales. Fuente: Daily Beirut.
+
+Satya Nadella.
+Microsoft recorta 4,800 empleos para invertir en IA y Azure. Microsoft anunció el recorte de aproximadamente 4,800 empleos, lo que representa el 2.1% de su fuerza laboral, mientras planea invertir alrededor de $190 mil millones en gastos de capital en 2026 para impulsar la inteligencia artificial y Azure. La compañía busca optimizar sus operaciones y redirigir recursos hacia el crecimiento de la IA. Fuente: The Motley Fool.
+Xbox de Microsoft anuncia recortes de 3,200 empleos y reestructuración. La división Xbox de Microsoft anunció una reestructuración significativa, incluyendo el recorte de aproximadamente 3,200 empleos (20% de su fuerza laboral) y la escisión de cuatro estudios de juegos. El CEO de Microsoft, Satya Nadella, ha indicado que la era de subsidiar Xbox como una apuesta estratégica ha terminado, enfocándose en un retorno al crecimiento para 2027. Fuente: GeekWire.
+
+Jensen Huang.
+Jensen Huang destaca la velocidad de transferencia de datos como nuevo cuello de botella en la IA. El CEO de Nvidia, Jensen Huang, señaló que la velocidad a la que se pueden transferir los datos se ha convertido en un nuevo cuello de botella crítico en el desarrollo de la inteligencia artificial. Para abordar esto, Nvidia ha estado invirtiendo agresivamente en empresas de tecnología fotónica y redes ópticas. Fuente: The Motley Fool.
+Jensen Huang afirma que la IA Agente ha llegado y está generando valor económico. Jensen Huang, CEO de NVIDIA, declaró que la 'IA Agente ha llegado', realizando trabajo productivo, generando valor económico real y escalando rápidamente en empresas e industrias. Esta afirmación se hizo en el contexto de los sólidos resultados financieros de NVIDIA, con un aumento del 85% en los ingresos interanuales. Fuente: 24/7 Wall St..
+
+Sam Altman.
+Sam Altman propone un árbitro global para la IA y una participación del gobierno de EE. UU. en OpenAI. Sam Altman, CEO de OpenAI, propuso la creación de un foro internacional liderado por EE. UU. para establecer estándares de seguridad y gobernar laboratorios de IA, comparándolo con la supervisión de la energía atómica. Simultáneamente, OpenAI está discutiendo ofrecer al gobierno de EE. UU. una participación del 5% en la empresa, valorada en aproximadamente $42.6 mil millones. Fuente: Forbes.
+Sam Altman considera una valoración de IPO de OpenAI inferior a $1 billón como 'inaceptable'. Sam Altman, CEO de OpenAI, ha declarado que cualquier valoración de oferta pública inicial (IPO) para OpenAI por debajo de $1 billón sería 'inaceptable'. Esta postura subraya la alta ambición de la compañía y su confianza en el valor futuro de la inteligencia artificial. Fuente: The Motley Fool.
+
+Sundar Pichai.
+El crecimiento de Google Cloud y los lanzamientos de modelos de IA impulsan la confianza de los inversores. La confianza de los inversores en Alphabet fue impulsada por la cobertura alcista de analistas y el impulso relacionado con la IA, incluyendo menciones de nuevos lanzamientos de modelos de IA y el crecimiento de Google Cloud. Estos factores sugieren oportunidades continuas de monetización en Search y Cloud. Fuente: MarketBeat.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+Créditos de Cómputo para Startups. OpenAI, junto con Anthropic y Google, está ofreciendo créditos de cómputo, descuentos y programas de acceso anticipado a startups. Esta iniciativa busca atraer y retener a empresas emergentes, compitiendo por ingresos empresariales duraderos. Fuente: The Wall Street Journal (reportado por Let's Data Science).
+Nombramiento de Líder de Marketing de Consumo. OpenAI ha nombrado a Mili Kapoor, exejecutiva de Apple, como su nueva Líder de Marketing de Consumo. Kapoor aporta casi dos décadas de experiencia en marketing de consumo y estrategia de marca a nivel global. Fuente: BestMediaInfo.com.
+Colaboración con Databricks en DAIS 2026. OpenAI y Databricks están colaborando para facilitar la creación de agentes de IA listos para producción en entornos empresariales. Databricks proporciona la infraestructura de datos y gobernanza, mientras que OpenAI aporta la inteligencia avanzada de sus modelos. Fuente: Databricks Blog.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Mistral AI.
+Negociaciones para ronda de financiación significativa. Mistral AI está en conversaciones para levantar una nueva ronda de financiación que podría valorar la empresa en aproximadamente $23.15 mil millones de dólares (o €20 mil millones de euros). Esto casi duplicaría su valoración actual, destacando el fuerte interés de los inversores en sus soluciones de IA. Fuente: BusinessGhana, TNW.
+Lanzamiento de modelos de IA de código abierto y herramientas empresariales. Mistral AI ha lanzado Leanstral 1.5, un modelo MoE especializado para la prueba de teoremas, y OCR 4, una solución de inteligencia documental con soporte para 170 idiomas. Además, su CEO, Arthur Mensch, confirmó un 'muy emocionante' modelo de código abierto que se lanzará este verano, con acceso anticipado en julio. Fuente: AI Weekly.
+
+Anthropic.
+Finalizando ronda de financiación de $20 mil millones. Anthropic está finalizando una ronda de financiación masiva de $20 mil millones, lo que la valora en $350 mil millones. Esta ronda la posiciona como una de las empresas de IA más valiosas, enfocada en la seguridad y alineación de la IA. Fuente: Techbible.
+Restauración de Claude Fable 5 tras suspensión. Anthropic ha restaurado el acceso a sus modelos Claude Fable 5, lo que indica una nueva fase en la gobernanza de la IA. Anteriormente, el gobierno de EE. UU. había bloqueado el acceso a estos modelos por preocupaciones de seguridad nacional. Fuente: ETtech.com.
+
+Together AI.
+Cierre de ronda de financiación Serie C de $800 millones. Together AI, desarrollador de una capa de infraestructura para empresas que ejecutan modelos de IA de código abierto, aseguró $800 millones en financiación Serie C. La ronda fue liderada por Aramco Ventures y estableció una valoración post-money de $8.3 mil millones para la startup con sede en San Francisco. Fuente: TechCrunch.
+
+Ineffable Intelligence.
+Ronda de financiación Seed de $1.1 mil millones. Ineffable Intelligence, un laboratorio de IA de frontera con sede en Londres, recaudó $1.1 mil millones en financiación Seed. La ronda fue co-liderada por Sequoia Capital y Lightspeed Venture Partners, con la participación de Nvidia, Google, DST Global, Index Ventures, el UK Sovereign AI Fund y el British Business Bank. Esta es la ronda Seed más grande de Europa. Fuente: Techbible.
+
+Cerebras Systems Inc..
+Salida a bolsa con una valoración superior a $1 mil millones. Cerebras Systems Inc., un fabricante de chips de inferencia, salió a bolsa en el segundo trimestre de 2026 con una valoración superior a los $1 mil millones. Fue una de las dos mayores cotizaciones después de SpaceX en ese trimestre. Fuente: SiliconANGLE.
+
+Sección: 📰 Top 10 Noticias.
+
+Anthropic en conversaciones con Samsung para desarrollar su propio chip de IA personalizado.
+Anthropic, la compañía de inteligencia artificial, está en discusiones preliminares con Samsung Foundry para crear un chip de IA personalizado. Este movimiento busca reducir su dependencia de Nvidia y optimizar el rendimiento y costo de sus modelos Claude. La iniciativa se alinea con una tendencia creciente en la industria de IA hacia el desarrollo de hardware propio. Fuente: The National CIO Review.
+¿Por qué importa? Para los fundadores de tecnología, esto subraya la importancia estratégica de controlar la infraestructura de hardware para el desarrollo y despliegue de IA. Podría significar eficiencias de costos y mejoras de rendimiento, pero también la necesidad de considerar la integración vertical en sus propias hojas de ruta.
+
+Anthropic suspende y luego restaura el acceso a modelos Claude Fable 5 y Mythos 5 tras orden del gobierno de EE. UU..
+Anthropic suspendió temporalmente sus modelos avanzados de IA, Claude Fable 5 y Mythos 5, a nivel mundial debido a una directiva del gobierno de EE. UU. por preocupaciones de seguridad nacional relacionadas con posibles técnicas de 'jailbreaking'. Posteriormente, Fable 5 fue restaurado con salvaguardas de ciberseguridad mejoradas, lo que refleja el creciente escrutinio regulatorio sobre los sistemas de IA potentes. Fuente: Twokq.
+¿Por qué importa? Este incidente resalta los riesgos regulatorios y las implicaciones de seguridad nacional en la IA avanzada. Los fundadores de tecnología deben estar al tanto de las posibles intervenciones gubernamentales y la necesidad de estrategias de cumplimiento y seguridad robustas para sus productos de IA.
+
+SpaceX cierra un acuerdo de $30 mil millones con Google para capacidad de cómputo de IA, impulsando su valoración de IPO.
+SpaceX ha asegurado un acuerdo de $30 mil millones con Google para proporcionar acceso a aproximadamente 110,000 GPUs Nvidia en sus centros de datos, desde octubre de 2026 hasta junio de 2029. Este contrato mensual de $920 millones diversifica significativamente los ingresos de SpaceX y refuerza su posición financiera antes de su esperada salida a bolsa. Fuente: Ai.Cm.
+¿Por qué importa? Esto demuestra la enorme demanda de infraestructura de cómputo de IA y las alianzas estratégicas que se forman para satisfacerla. Para los fundadores, el acceso a la computación de alto rendimiento es un cuello de botella crítico y un activo valioso, abriendo nuevos modelos de negocio para aquellos con recursos de cómputo significativos.
+
+OpenAI discute ofrecer al gobierno de EE. UU. una participación del 5% para aliviar la presión regulatoria.
+OpenAI está en conversaciones preliminares y conceptuales con el gobierno de EE. UU. para ofrecer una participación del 5% en la empresa. Esta propuesta, valorada en más de $42 mil millones, busca distribuir la riqueza generada por la IA y mitigar la presión política sobre las grandes empresas de IA en medio de crecientes llamados a la regulación. Fuente: Forbes.
+¿Por qué importa? Esta propuesta sin precedentes marca un cambio significativo en la relación entre las empresas de IA de vanguardia y los gobiernos. Los fundadores deben monitorear estos desarrollos, ya que la participación gubernamental podría afectar la libertad operativa, el panorama de financiación y la percepción pública de las empresas de IA.
+
+Las acciones de Samsung Electronics caen a pesar de un beneficio operativo récord en el segundo trimestre, por preocupaciones sobre el auge de la IA.
+Samsung Electronics reportó un aumento de 19 veces en su beneficio operativo del segundo trimestre, superando las estimaciones gracias a la fuerte demanda de chips de memoria impulsada por la IA. Sin embargo, sus acciones y las de otros fabricantes de chips cayeron significativamente, ya que los inversores consideraron que los resultados, aunque récord, no cumplieron con las elevadas expectativas del mercado y expresaron preocupación por la sostenibilidad del auge de los chips de IA. Fuente: Reuters.
+¿Por qué importa? Esto ilustra la volatilidad del mercado y las altas expectativas en el sector de la IA. Los fundadores deben recordar que incluso un rendimiento sólido puede ser recibido con escepticismo si no cumple con narrativas de mercado infladas, y deben estar conscientes de la interconexión de las cadenas de suministro de hardware y la salud financiera general del ecosistema tecnológico.
+
+El Tesoro de EE. UU. advierte que el auge de la IA se asemeja a la burbuja de las puntocom, con riesgo de consecuencias económicas.
+Un informe del Tesoro de EE. UU. advierte que la actual euforia de inversión en IA guarda un sorprendente parecido con la burbuja de las puntocom, con el potencial de que una fuerte caída desencadene una amplia repercusión económica. Aunque reconoce la naturaleza transformadora de la IA, el informe destaca las preocupaciones sobre las valoraciones en rápido aumento y la concentración de capital. Fuente: Crypto Briefing.
+¿Por qué importa? Esta es una señal macroeconómica crítica para todos los fundadores de tecnología. Sugiere que, si bien la IA es transformadora, el entusiasmo del mercado podría estar superando los fundamentos en algunas áreas. Los fundadores deben ser cautelosos, centrarse en modelos de negocio sostenibles y estar preparados para posibles correcciones del mercado.
+
+Google invierte $75 millones en A24 para una asociación de investigación de IA en producción cinematográfica.
+Google ha invertido $75 millones en el estudio de cine independiente A24 para una asociación de investigación de IA. Esta colaboración, que involucra a Google DeepMind y A24 Labs, tiene como objetivo desarrollar herramientas de IA para flujos de trabajo de producción como el guion gráfico y los efectos visuales, en lugar de generar contenido directamente, abordando algunas preocupaciones de la industria sobre el papel creativo de la IA. Fuente: Forbes.
+¿Por qué importa? Esto demuestra cómo la IA se está integrando en las industrias creativas, enfocándose en aumentar los flujos de trabajo humanos en lugar de reemplazarlos. Para los fundadores, destaca las oportunidades para aplicaciones de IA en sectores especializados, enfatizando las ganancias de eficiencia y las nuevas herramientas sobre la generación directa de contenido.
+
+Meta proyecta superar a Google en ingresos publicitarios digitales globales para 2026.
+Las previsiones sugieren que Meta Platforms superará a Google en ingresos publicitarios digitales a nivel mundial por primera vez en 2026, con ingresos netos proyectados de $243.46 mil millones frente a los $239.54 mil millones de Google. Este cambio se atribuye al sólido crecimiento del negocio publicitario de Meta y al mejor rendimiento de los creativos publicitarios generados por IA. Fuente: Seeking Alpha.
+¿Por qué importa? Esto indica un cambio competitivo significativo en el panorama de la publicidad digital, una fuente de ingresos crucial para muchas empresas tecnológicas. Los fundadores deben prestar atención a cómo la IA está impulsando la eficiencia y el rendimiento en la publicidad, y considerar cómo las estrategias de estas plataformas podrían afectar sus propios esfuerzos de marketing y adquisición de usuarios.
+
+Wall Street repunta por el entusiasmo de la IA, a pesar de la volatilidad de los fabricantes de chips; el S&P 500 se acerca a un récord.
+Los mercados estadounidenses, especialmente el Nasdaq y el S&P 500, se recuperaron debido al continuo entusiasmo de los inversores por las empresas relacionadas con la IA y las acciones tecnológicas, lo que llevó al S&P 500 a menos del 1% de su máximo histórico. Esto ocurrió a pesar de la volatilidad entre los fabricantes de chips, destacando el fuerte, aunque a veces contradictorio, sentimiento del mercado en torno al auge de la IA. Fuente: Los Angeles Times.
+¿Por qué importa? Esto refleja el sentimiento alcista continuo en el sector tecnológico impulsado por la IA, lo que puede crear oportunidades para la recaudación de fondos y la expansión del mercado. Sin embargo, la volatilidad subyacente en los fabricantes de chips sugiere que el mercado es sensible a los problemas de la cadena de suministro y a las preocupaciones de valoración, lo que insta a los fundadores a equilibrar el optimismo con una evaluación realista de las condiciones del mercado.
+
+Google y Microsoft planean vender sus chips de IA personalizados a terceros, desafiando a Nvidia.
+Google y Microsoft están planeando vender sus chips de IA de diseño personalizado, como las TPUs de Google y los procesadores propios de Microsoft, a clientes externos. Esta estrategia busca reducir su dependencia de Nvidia y ofrecer alternativas a las empresas que buscan construir sus propias plataformas en la nube o infraestructura de IA especializada, intensificando la competencia en el mercado de hardware de IA. Fuente: The Motley Fool.
+¿Por qué importa? Esto significa un cambio importante en el ecosistema de hardware de IA, que podría democratizar el acceso a la computación avanzada de IA más allá del dominio de Nvidia. Para los fundadores de tecnología, esto podría traducirse en más opciones para adquirir infraestructura de IA potente y rentable, fomentando la innovación y reduciendo la dependencia de un solo proveedor.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
