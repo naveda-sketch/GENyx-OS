@@ -1,0 +1,393 @@
+{
+  "version": "2.0",
+  "date": "2026-07-08",
+  "generated_at": "2026-07-08T05:00:51.191711-06:00",
+  "timezone": "CST (UTC-6)",
+  "language": "es-MX",
+  "tier": "Tier 4",
+  "sections": {
+    "titans": {
+      "key": "titans",
+      "title": "🏛️ Los Titans",
+      "data": [
+        {
+          "nombre": "Elon Musk",
+          "empresa": "Tesla, xAI, SpaceX, X",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Juez rechaza anular veredicto de fraude en adquisición de Twitter",
+              "detalle": "Un juez federal rechazó la solicitud de Elon Musk para anular el veredicto de un jurado que lo encontró responsable de defraudar a los inversores de Twitter durante su adquisición de la plataforma en 2022. Aunque el juez falló a favor de Musk en una declaración específica de mayo de 2022, denegó la mayoría de sus mociones, incluyendo la de descertificar la demanda colectiva.",
+              "fuente": "Claims Journal",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFHMFIREElwtLYFZcRxpQ0Pm2-XXKc7c1J8KKvapeZ5cBH4JHvXcx4oZ6BzbfV_5iZZkr0zJz17uYBf6Cx4AxFdRIEr7jvakE6U_UiWN9nOo-WfNZUvgzAinW9g8WOh_W7uM-UfwgUm_91wYTPomu-VfKT5koQZo3QTyPYn",
+              "impacto": "Este revés legal podría acarrear responsabilidades financieras significativas para Musk y X, reforzando la importancia de la transparencia y la rendición de cuentas en adquisiciones corporativas de alto perfil."
+            },
+            {
+              "tipo": "publicación",
+              "titulo": "Preocupaciones sobre la gobernanza de SpaceX tras su salida a bolsa",
+              "detalle": "A pesar del optimismo de Wall Street tras la salida a bolsa de SpaceX en junio, que valoró la empresa en más de 2 billones de dólares, expertos legales y analistas están expresando preocupaciones. Se señala que la estructura de gobernanza de SpaceX otorga un poder desproporcionado a Elon Musk, lo que podría desfavorecer a los inversores públicos.",
+              "fuente": "ProMarket",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF8F9x8lDt0rOifmMJMsUEonscwYoAZaK6WrT9uWmSHxVIZaK8TTG1WAhNmoeL7wWXwyf_953_-X_eFZJxfqgmxU-DyjU-7z7zofG_nrMniSI-VYjk96aeKkqem4dtN7F--Ckgs0KxHD3QmvqTTv_1beCw1tf99SXqlCP37AGynTJwVr_JvaUm99kkrHDccRSrC6eEexui1ndNHyACfQP2rkAgaHYa8",
+              "impacto": "Las discusiones sobre la gobernanza de SpaceX resaltan las preocupaciones continuas sobre el control corporativo y la protección de los inversores en empresas lideradas por fundadores carismáticos, lo que podría influir en el escrutinio regulatorio futuro de IPOs similares."
+            },
+            {
+              "tipo": "movimiento",
+              "titulo": "Mencionado en reunión de Trump con líderes tecnológicos sobre plantas de energía para IA",
+              "detalle": "El expresidente Donald Trump contactó a Elon Musk, junto con otros líderes tecnológicos, para preguntar por qué no habían presentado planes para plantas de energía junto con sus desarrollos de centros de datos. Trump enfatizó su intención de acelerar la aprobación de plantas de combustibles fósiles para alimentar la infraestructura de IA.",
+              "fuente": "Truthout",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHHtRCvJ4tS-x8QGwVYdxy62W4ODD2MtnWH15iwgpDalCYPSuPGqeLsBVpWMJ1Ix0ToC7rCgprepuBQeJvbKGB0oUa_VahAM0kQX_kvKkhVflhWtV1PiuQ5M0z5kGv0l0gUKt26DKlV9Rw72jpHd13Xx-FI4jgwiKuwwhDVPue2Khb7MnoU6qtjf_OW1lWwqmPMoTCMCGZePTadOL9k",
+              "impacto": "Esto indica una posible presión política para el desarrollo de infraestructura energética que soporte la IA, lo que podría influir en la dirección estratégica y las consideraciones ambientales para empresas tecnológicas como SpaceX y xAI."
+            },
+            {
+              "tipo": "movimiento",
+              "titulo": "xAI se renombra a SpaceXAI tras fusión con SpaceX",
+              "detalle": "La compañía de IA de Elon Musk, xAI, que previamente había adquirido X (antes Twitter), se ha fusionado con SpaceX y ha sido renombrada como SpaceXAI. Este cambio fue anunciado en la cuenta oficial de X de la compañía, que también actualizó su nombre de usuario a @SpaceXAI.",
+              "fuente": "Mashable",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH29UcaiJpyNaSKtVoa28C-zLzfvmU9sijsFqbgOCKmhPhpjo95o2dBS2eNWXJW24_VUCoAoGTXgugYY8RFGe6iM08EhxqKKyNAaRmOLa3NOPxSY6qf6KMwQZkblRxLkuOiO_zfwyxYQe0lJ9GNNHgIHtQcrHNNbxE4JsPqi-CYgoaV5qQDBA==",
+              "impacto": "Esta consolidación integra aún más las empresas de Musk, potencialmente optimizando el desarrollo de la IA con la tecnología espacial y reforzando su visión de un ecosistema tecnológico unificado, aunque también centraliza el poder y el riesgo."
+            }
+          ]
+        },
+        {
+          "nombre": "Satya Nadella",
+          "empresa": "Microsoft",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Microsoft anuncia despidos y reestructuración en la división Xbox",
+              "detalle": "Microsoft está recortando aproximadamente 4,800 puestos de trabajo en toda la empresa, con alrededor de 3,200 (20% de la fuerza laboral) afectando a la división Xbox, incluyendo 1,600 despidos inmediatos. Esta reestructuración, liderada por la CEO de Xbox, Asha Sharma, busca reducir las capas de gestión, escindir cuatro estudios de juegos y disminuir el gasto en proveedores en un 50% para volver al crecimiento en 2027.",
+              "fuente": "GeekWire",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGr2joFy8U0ErwXWacHgFoae85L4h7AnVzeyt_yozaY5dlYdRw8gYbuRE3SMv6qItKtbTZPlzAc4PTNagVGDK0ZveRIrYFDuC7px7N8aPwSY11oRAYZKCj_0WhO7lNO9spxIzP4onZpwTf0DcnMydDuZOtZzmWpRQcoc-9RXXH_2QRmo5k1OUd-xU4yzDcMQ4sJblLl2PnVSddxHHQ32p7YrHAF58GngiOHeGztnK6uEQJDekNgIg==",
+              "impacto": "Estos despidos y la reestructuración reflejan el giro agresivo de Microsoft hacia la IA y la nube, indicando un cambio estratégico de segmentos menos rentables como los videojuegos, lo que podría afectar la moral de los empleados y la percepción del mercado sobre la seguridad laboral en la industria tecnológica."
+            },
+            {
+              "tipo": "publicación",
+              "titulo": "Análisis del rendimiento de Microsoft y sus inversiones en IA",
+              "detalle": "Bajo el liderazgo de Satya Nadella, Microsoft se ha transformado en una plataforma de nube e IA, con los ingresos de Azure superando los 75 mil millones de dólares en el año fiscal 2025. La asociación de la compañía con OpenAI le otorga una participación significativa y un negocio de IA de rápido crecimiento. A pesar de una reciente caída en las acciones debido a las preocupaciones sobre el gasto de capital en IA, los analistas ven un potencial alcista considerable.",
+              "fuente": "24/7 Wall St.",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGtVe-86YHdfzTpgyyyS9RtqRGiC2CkKXQsDQ5aGaRTg4aaGXtqEGDbUn8VQzOcPzbUh3NQioHV-xAsm49LdhZoBjAU29jMjVk_5Yp8GJU32YdXyMSj4K-RRnuIEq4MtwBss2H7W5PIeK8nNDBxvTHZ563C-nRwBCbGD44mSslFkt67ISlXA3riVzHas15UpoYZRrH-K0VCTJQFWOAV6lgHfqUkUg==",
+              "impacto": "Esto refuerza la dirección estratégica de Nadella, enfatizando el compromiso de Microsoft con la IA y la nube como motores de crecimiento principales, incluso mientras navega por la volatilidad del mercado y los altos costos de la infraestructura de IA."
+            }
+          ]
+        },
+        {
+          "nombre": "Jensen Huang",
+          "empresa": "NVIDIA",
+          "actividad": [
+            {
+              "tipo": "publicación",
+              "titulo": "Ventas de chips de IA de NVIDIA se estancan en China, rivales locales toman la delantera",
+              "detalle": "Debido a los controles de exportación de EE. UU., las ventas de los chips avanzados de IA H200 de NVIDIA en China se han estancado, permitiendo que competidores locales como Huawei tomen la delantera en el mercado chino. Jensen Huang reconoció que EE. UU. ha perdido su ventaja en el mercado chino de chips de IA avanzados, a pesar de los esfuerzos de NVIDIA por diseñar chips menos potentes (H20) para cumplir con las restricciones.",
+              "fuente": "AP News (vía Vertex AI Search)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEtuHmzjwYGpokT3KgWYarOU-XCGgT170xWEms-iCsYDIuqHWQybnmvnI3hC3iIzNLE9VgDnROhRvBkyAVL8alM5EzLr1gnEu_GxXtEZANK7eIYFGsLQIz82srtrpXY9CQEXumGqJDjUzD_EDAnvbO70lH1rWQoZdKFbJdJoZkZmDN40ybfWMfMNoH_fuWlkxCqez5Wq77Gxbjqf6utjfZu3Oy-bckkl6LeOHZ_ZmjJiu790Yl8x3-cS-LWl9LuecpmU5N-trH_35x4WA==",
+              "impacto": "Esto representa un importante desafío geopolítico y económico para NVIDIA, destacando el impacto de las restricciones comerciales en el liderazgo tecnológico global y acelerando el ascenso de las industrias nacionales de chips de IA en países como China."
+            },
+            {
+              "tipo": "movimiento",
+              "titulo": "Chaqueta de cuero autografiada de Jensen Huang a subasta benéfica",
+              "detalle": "Una icónica chaqueta de cuero Tom Ford, autografiada y usada por Jensen Huang, está siendo subastada por Sotheby's con fines benéficos, con las ofertas comenzando el 7 de julio. La estimación previa a la subasta es de entre 40,000 y 60,000 dólares, lo que refleja el estatus de celebridad de Huang en el mundo de la tecnología.",
+              "fuente": "Benzinga",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFhhtk0pvJlSIjQQx8tL-joY9fjCvkBcRC8DwQIINS9IlSA24Y2kKxayIDmlkEd6TF8jDaNOpklew5hJRwrU5kv4VFf-l-6CVxOByygAK7c9M1sLFaQ68uXVEEWdE1eTmHEQiD9VhssKsjnXA_7toEBByEWMgdCCmu4dbKdFtNm2WadWlpTXeCBZqBWH-fbL8ku7qAFTSTJQMfkQQXAD_-s-JfGFJsrQZ7tIx2yJInCK7rfk_WuDV43_nD0lwOa0RfJACfbiLXwS3xx5YA==",
+              "impacto": "Aunque no es una actividad empresarial directa, este evento subraya la creciente influencia cultural y la marca personal de Huang, lo que beneficia indirectamente la imagen pública y el atractivo de mercado de NVIDIA."
+            }
+          ]
+        },
+        {
+          "nombre": "Sam Altman",
+          "empresa": "OpenAI",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Asiste a la Conferencia Allen & Company Sun Valley",
+              "detalle": "Sam Altman, CEO de OpenAI, fue visto llegando a la exclusiva Conferencia Allen & Company Sun Valley en Sun Valley, Idaho. Este evento anual, conocido como el 'campamento de verano de los multimillonarios', reúne a figuras influyentes de la tecnología, los medios y las finanzas para reuniones y contactos discretos.",
+              "fuente": "SFGATE",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFZ-CDuLiNVni37IXsLHCjH1b-cm6jfH2bCY3QtD0wN-ZqAey6nblCz8gmLgjzXRO4TwYdi5yPgaO6VEDKc9Vy4QcW2R5tPar6w0IxU9q7ZbOEcmsj7mNdzGmqxTIuFTm1RBdO9Sq_yL9MQ5yVw53xIHHTeGds58cUrCJp8kBmOPyTqRw==",
+              "impacto": "La presencia de Altman en este evento de alto perfil indica discusiones estratégicas y contactos continuos en los niveles más altos de la industria, lo que podría conducir a futuras asociaciones, inversiones o influencias políticas para OpenAI."
+            },
+            {
+              "tipo": "movimiento",
+              "titulo": "OpenAI enfrenta múltiples demandas por daños de ChatGPT, incluyendo una nueva de una provincia canadiense",
+              "detalle": "OpenAI se enfrenta a un número creciente de demandas en San Francisco, con una docena de casos agrupados, alegando daños causados por ChatGPT. El último desarrollo incluye la preparación de una demanda por parte de la provincia canadiense de Columbia Británica por la falta de OpenAI en reportar actividad violenta de ChatGPT por parte de un individuo que cometió un tiroteo masivo en una escuela.",
+              "fuente": "The Standard (HK)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHmOOqKB-F55QmkHsEcYsr78OVLMT2brFEaUP9LygIe46DFviHKOVv5ULtVRInpv5ID9R7Qc6nQL5M4yyY-CvpdsRqCIv9XE4yHVvRT66Ekrs8ShbnN4YTAdAbJuMFEKmXYqAlXBmGjO6SImeAECJBqUQIDfFNLpM0hz6z8J5NrDVO2e-H9cjZU18wtbvFcPs0OzT8tRjbSIXTp_miLlQPdNr8JX3rise5lj6wjYR4nKI3ZMGU==",
+              "impacto": "Estas demandas representan un desafío legal y de reputación significativo para OpenAI, planteando preguntas críticas sobre la seguridad de la IA, la moderación de contenido y la responsabilidad de la empresa por el impacto social de sus productos, lo que podría llevar a una mayor presión regulatoria."
+            },
+            {
+              "tipo": "movimiento",
+              "titulo": "Mencionado en reunión de Trump con líderes tecnológicos sobre plantas de energía para IA",
+              "detalle": "El expresidente Donald Trump contactó a Sam Altman, junto con otros líderes tecnológicos, para preguntar por qué no habían presentado planes para plantas de energía junto con sus desarrollos de centros de datos. Trump enfatizó su intención de acelerar la aprobación de plantas de combustibles fósiles para alimentar la infraestructura de IA.",
+              "fuente": "Truthout",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHHtRCvJ4tS-x8QGwVYdxy62W4ODD2MtnWH15iwgpDalCYPSuPGqeLsBVpWMJ1Ix0ToC7rCgprepuBQeJvbKGB0oUa_VahAM0kQX_kvKkhVflhWtV1PiuQ5M0z5kGv0l0gUKt26DKlV9Rw72jpHd13Xx-FI4jgwiKuwwhDVPue2Khb7MnoU6qtjf_OW1lWwqmPMoTCMCGZePTadOL9k",
+              "impacto": "Esto indica una posible presión política para el desarrollo de infraestructura energética que soporte la IA, lo que podría influir en la dirección estratégica y las consideraciones ambientales para empresas tecnológicas como OpenAI."
+            }
+          ]
+        },
+        {
+          "nombre": "Sundar Pichai",
+          "empresa": "Google/Alphabet",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Asiste a la Conferencia Allen & Company Sun Valley",
+              "detalle": "Sundar Pichai, CEO de Alphabet, se espera que asista a la Conferencia Allen & Company Sun Valley, una reunión exclusiva de figuras influyentes de la tecnología, los medios y las finanzas. Este evento es conocido por facilitar discusiones estratégicas y oportunidades de networking de alto nivel.",
+              "fuente": "SFGATE",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFZ-CDuLiNVni37IXsLHCjH1b-cm6jfH2bCY3QtD0wN-ZqAey6nblCz8gmLgjzXRO4TwYdi5yPgaO6VEDKc9Vy4QcW2R5tPar6w0IxU9q7ZbOEcmsj7mNdzGmqxTIuFTm1RBdO9Sq_yL9MQ5yVw53xIHHTeGds58cUrCJp8kBmOPyTqRw==",
+              "impacto": "La asistencia de Pichai a esta conferencia de alto nivel sugiere discusiones estratégicas y contactos continuos que podrían dar forma a futuras colaboraciones, inversiones y el posicionamiento de Google en la industria."
+            },
+            {
+              "tipo": "publicación",
+              "titulo": "Noticia sobre la interrupción del discurso de Sundar Pichai en Stanford por protestas",
+              "detalle": "Noticias recientes cubrieron la interrupción del discurso de graduación de Sundar Pichai en la Universidad de Stanford en junio de 2026, donde estudiantes realizaron una protesta y un boicot. Los manifestantes expresaron su descontento por los supuestos vínculos de Google con Israel a través del Proyecto Nimbus.",
+              "fuente": "Vertex AI Search (Oneindia)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEQ-M9_xOjhjXoKv-5Cc9fpleQzc7w4LsnSq3DRIkUKZhmO9DVNe0U34352_oBAbhlnkVlkyIclnE6ASaGz84VY5eexvTdh1sBa_IftfgOhwnUIYMChyvvWNqjaPLbGZxaxezzbePwChJqZdPAY2C2ENNskMBjWepxzdMIWvwFC0MXaSmTdBvMQL1SHlqli3n8ojkxfwSLzE2BeTlmLVXPN4Z9PzuUBI2Sd4kbo8go==",
+              "impacto": "Este incidente destaca la creciente presión sobre los líderes tecnológicos para abordar las preocupaciones geopolíticas y éticas relacionadas con los contratos y operaciones de sus empresas, lo que podría influir en las futuras decisiones comerciales y estrategias de relaciones públicas de Google."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-07-08T05:02:23.794940-06:00",
+      "status": "ok"
+    },
+    "ai_leaders": {
+      "key": "ai_leaders",
+      "title": "🤖 AI Leaders",
+      "data": [
+        {
+          "empresa": "OpenAI",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Lanzamiento de GPT-5.6 Sol, Terra y Luna",
+              "detalle": "OpenAI ha anunciado el lanzamiento público de su última y potente serie de modelos de IA, GPT-5.6 Sol, junto con Terra y Luna, para este jueves. El gobierno de Estados Unidos dio luz verde a un despliegue más amplio tras semanas de revisión gubernamental y pruebas adicionales.",
+              "fuente": "MarketScreener España, Investing.com, CR Hoy",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGr0xLtmEhPoC_hPaBNwMlcUGqSd8wuD-CVRep2OkZr4zS8J7ZBFbh6f52MjLB-QNl706M98tfoHkVV-6M6PefT-qLGvHj7A0PnG0btTdZ8Nbzvowcbvu2rmJESXweFjp4iRX6Pp4b7ze9RjtjuwZXiAPFWkUpm6-vj-DA9WRWjcwZ2AITKcZ4-st5Hdj-PlTuXA2XqouQOCR-4-hbtqRnUKdhGzUvCR7WpkTKB0SfVilKd4Xgn1FRxWIXxhZVdvNhpfzzvqyoyEXxeN7S5I_Y4kz5Hfk=",
+              "aplicacion_genyx": "Para GENyx, la disponibilidad de modelos más avanzados como GPT-5.6 Sol podría significar una mejora en la calidad y complejidad de las soluciones de IA generativa ofrecidas a los clientes, permitiendo nuevas funcionalidades o una mayor precisión en las existentes."
+            }
+          ]
+        },
+        {
+          "empresa": "Anthropic",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Claude Cowork llega a móvil y web",
+              "detalle": "Anthropic ha extendido la disponibilidad de su asistente de IA, Claude Cowork, a plataformas web y móviles para sus suscriptores Max. Esta expansión busca posicionar a Claude como un asistente de trabajo de fondo capaz de manejar tareas empresariales cotidianas como la redacción de informes y conciliaciones.",
+              "fuente": "DiarioBitcoin.com",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFe-PdsMWiFd6VfaLci4bshrBR_-6sYgqYcqulKSw9v75Ydep0qT2uTLWtjYXSgDJ4W-AXkQ3bJK3EplRpMsvnwl-qsQl0wMCkuIOz6_vtoQIZff1AmZ22plEfYEYiSKoW_jMcYmNVggtHDuQ9G6ulwoakncuP_zymkcbX0cLers20lBN9hgAvDsDZU1Hwp2l2F0vCkOD2gKyaOMU3KJ9WEQnejmsTrNhno1Q9dldiy-OdY5dGf3KDWUZOyetAUjto=",
+              "aplicacion_genyx": "GENyx podría integrar las capacidades multiplataforma de Claude Cowork para ofrecer a sus usuarios una experiencia de IA más fluida y persistente, permitiendo la gestión de tareas empresariales desde cualquier dispositivo."
+            }
+          ]
+        },
+        {
+          "empresa": "Meta AI",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Ampliación de herramientas de IA generativa con Muse Image y Muse Video",
+              "detalle": "Meta ha ampliado sus herramientas de IA generativa con el lanzamiento de Muse Image, que impulsa más de 30 nuevos efectos de IA para Instagram Stories y permite la generación de imágenes en chats directos con Meta AI en WhatsApp. Además, se ha dado un adelanto de Muse Video, el próximo modelo de generación de video en desarrollo.",
+              "fuente": "Forbes México, El Destape, AI at Meta Blog",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFb-BXwEYPHr-rIoAagjO1Xnm01xYYSbnlKc6wWSwkW6Ty39Kx5p8DAhVd5AKd9_Xhtf5e78RsFTqoUj-CHhLVZ6SBFT2UWjdqWTrbOkGZpj89kTz_OM4v0tiEu4Ma43gd4_obAX1ibxlwBQQEx_ZgFxN1-lDrfjsWMPaH8UZEd",
+              "aplicacion_genyx": "La expansión de las capacidades de generación de imágenes y video de Meta AI sugiere que GENyx podría explorar la integración de modelos similares para enriquecer las funcionalidades creativas y de contenido de su plataforma SaaS."
+            }
+          ]
+        },
+        {
+          "empresa": "Microsoft AI",
+          "novedades": [
+            {
+              "tipo": "hiring",
+              "titulo": "Despidos masivos en Microsoft en medio de la inversión en IA",
+              "detalle": "Microsoft está llevando a cabo una ronda de despidos que afectará a aproximadamente 4,800 empleados, lo que representa el 2.1% de su plantilla. Estos recortes se producen mientras la empresa realiza importantes inversiones en infraestructura de IA y busca mejorar la eficiencia en todas sus áreas de negocio.",
+              "fuente": "IG Internacional, Milenio, Revista Mercado",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEDtJ-j_AEqibiQDeFey3dVg5KQ1B3wcUhCwpI87b_u1MUq27JYBqJzlRrMuLxJgrTuFJ_7lq2wCH3efQGAYanadI9Wn5sYv_d2Lty3Mrn9bEkMfFeWlLr4szmTGjhwNDGKKg2s1XChJjKBxbbB8ubgKontcvYbFpPOvGPDL6mlbQQ3Uc3xkv8fE1El4OjLtmd5oGwdeHG_qVjObNdqo85oR6sEcwY2QrXD0RBong1GDA==",
+              "aplicacion_genyx": "Para GENyx, esta noticia resalta la presión sobre las empresas tecnológicas para demostrar el retorno de la inversión en IA, lo que implica que las soluciones SaaS de IA deben enfocarse en la eficiencia y la generación de valor claro para los clientes."
+            }
+          ]
+        },
+        {
+          "empresa": "AWS AI",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Lanzamiento de Amazon Bedrock Managed Knowledge Base y servidor MCP",
+              "detalle": "AWS ha lanzado Amazon Bedrock Managed Knowledge Base para acelerar el desarrollo de aplicaciones de IA empresariales más precisas, simplificando la creación de pipelines RAG. Además, introdujo un servidor de Model Context Protocol (MCP) de código abierto que permite a los asistentes de IA buscar y previsualizar conjuntos de datos en el Registro de Datos Abiertos de AWS.",
+              "fuente": "AWS News Blog, Investing.com",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEm9Yt2C-NvWjImccq8uQvnFyNhsGIcV5uImg9RB7ZNQqrkUkLBL91MhzbJnb4PoWGIoSZ3W-0KSv0dmsxLV3uG5lF4wuAmdoGIc5R3yBLl3FgyUnr_9cpH9j4jPtM0EwTKaeSia4Vh68L7pHfNBN_sgtTWvMyPS7bX1zM81Q==",
+              "aplicacion_genyx": "GENyx podría aprovechar Amazon Bedrock Managed Knowledge Base para mejorar la gestión y recuperación de información en sus propias soluciones, mientras que el servidor MCP ofrece una oportunidad para integrar capacidades de búsqueda de datos más avanzadas para sus clientes."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-07-08T05:03:50.811004-06:00",
+      "status": "ok"
+    },
+    "emerging": {
+      "key": "emerging",
+      "title": "🚀 Emerging Tech & Startups",
+      "data": [
+        {
+          "empresa": "SambaNova",
+          "sector": "IA/Hardware (chips)",
+          "valoracion": "$11 mil millones",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Recauda $1 mil millones en ronda de financiación Serie F",
+              "detalle": "La startup de chips de IA, SambaNova, anunció que ha recaudado $1 mil millones en una ronda de financiación Serie F liderada por General Atlantic, alcanzando una valoración post-dinero de $11 mil millones. Los fondos se utilizarán para expandir la capacidad, escalar implementaciones globalmente y continuar invirtiendo en chips, sistemas, software e infraestructura de IA de pila completa.",
+              "fuente": "Reuters / Business Wire",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEYXpMrOoJPFn7CVOiIDYHY6roaVqrGnmJyPINhpPkNfqJGAEZ5qviZQFKtoqO-yc3tQF767tCf-5qTRFkB-gj3sWeZUAqZboXUlp2iioC-L6q9e7Gs1Y3VQ8xfoM_2RZwndiyzljaO-8G1NTrJEUX_QpVnnbmqE0VBe1UniUDQpI9kCBguDv6mJC9KewPPcjuf4C8iTTcqY4SZwFqJYZF0Rw==",
+              "por_que_importa": "Esta financiación masiva subraya la continua y fuerte inversión en hardware de IA, crucial para el avance de modelos y y aplicaciones de inteligencia artificial, consolidando la posición de SambaNova como un actor clave en la infraestructura de IA."
+            }
+          ]
+        },
+        {
+          "empresa": "Agility Robotics",
+          "sector": "Robótica (humanoides)",
+          "valoracion": "$2.5 mil millones",
+          "novedades": [
+            {
+              "tipo": "ipo",
+              "titulo": "Se hará pública a través de fusión SPAC con valoración de $2.5 mil millones",
+              "detalle": "Agility Robotics, la startup de Oregón que construye robots humanoides bípedos llamados Digit, se hará pública mediante una fusión con la empresa de cheques en blanco Churchill Capital Corp XI. Se espera que el acuerdo recaude más de $620 millones, lo que representa la mayor captación de capital en la historia de la robótica humanoide.",
+              "fuente": "Fenado AI / Briefs Finance",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFM1F2MPKdkVOWNWPE3AKGj-lf8YNvCrCbhXk7rlKMXgAkRudguajsVc3bfRYcfRzfo9gecUcKsBAg0nWaYhBOBylr62gdxacPLFikreEYgEsbaVtQCdiCaLIGPemmNQaq3N3Mys0zeu-3f88EvqHC_OnZxiQP-zQMeU7XJY9vNuPGeHGZWu_kcL8qXap8FhJUnpu0Lbr0vajTmzd-1HZmRmJ1mlRVIavZ01bGnjKsqTRby8A==",
+              "por_que_importa": "Esta es la primera empresa de robótica humanoide pura en los mercados públicos, lo que marca un hito significativo para el sector y podría abrir la puerta a una mayor inversión y adopción de robots humanoides en almacenes y fábricas."
+            }
+          ]
+        },
+        {
+          "empresa": "Orbital",
+          "sector": "Espacio/IA/Infraestructura de datos",
+          "valoracion": "No especificada (startup de 5 meses)",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Propone lanzar 100,000 satélites de centros de datos de IA al espacio",
+              "detalle": "Orbital, una startup de Los Ángeles de cinco meses, ha solicitado a los reguladores estadounidenses permiso para lanzar hasta 100,000 satélites al espacio, cada uno funcionando como un centro de datos para alimentar la inteligencia artificial. La compañía busca proporcionar 10 gigavatios de potencia informática desde el espacio para satisfacer la creciente demanda de IA.",
+              "fuente": "Science News / The Times of India",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEsOsSEBGejcHDsiyh9UNcSXs54Wkvx2c5kQng2k9FeNDcUudoqXpsyh0qvmhz_UgcKGnD3LoKRINlFINfVS4LwiSHd2iVh0bMDTzTYIL8rLlm6Ah9DnqwvPA3n7X5ZyR9kUTGaZbGeXzNUXi8yrKokhbTcM55jkJINeM9diditFU_mqzUGyk8vKKmkCkWp-Uq-nRSx1RZPWGN4orvMT9AvxlcSpGilDGiTZ_oKMSmgAQn0pFeJB2UGNvOXKfEF8VPbexTRZ6_mKZsrxy5wOlqjXw==",
+              "por_que_importa": "Esta propuesta audaz representa una visión disruptiva para la infraestructura de IA, trasladando la capacidad de cómputo al espacio, lo que podría transformar la forma en que se accede y se escala la potencia de procesamiento para la inteligencia artificial."
+            }
+          ]
+        },
+        {
+          "empresa": "Mass Balance",
+          "sector": "Biotecnología/Espacio/IA",
+          "valoracion": "No especificada",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Lanza misión histórica al espacio para investigar enfermedades con IA",
+              "detalle": "La startup londinense de biotecnología espacial, Mass Balance, lanzó su primera misión al espacio, MB-X1, a bordo de un cohete SpaceX Falcon 9. Este laboratorio autónomo en miniatura aprovechará la microgravedad para investigar proteínas causantes de enfermedades y generar datos para entrenar modelos de IA en la identificación de candidatos a fármacos para enfermedades relacionadas con la edad.",
+              "fuente": "Inc. Magazine",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGcbPjSZ9AuADQMzYW6Y4jiVvmDFom-ty3aBvqxPZqJl3ovUp11zhDo9LabX7Z-8zkGbUEblW3yJKbSuipinkYrFIijqgj8IGZE_HbsrgiiRMYk656AOEVzMkvpUAAZYzNZYba7Dke6idBmgm5A7wITuJDTw6iCI7TZtbRZcXhBUd2RVxkjXg_M1Kw7vZ9f56hP3_uuXeO10_zMBq8VMS1TwWlScmc2GuUrGGOC44yMUrFlzHEKk5suQ4UE1sjjfc4jbg_QuXNdDRa6F6FbyXYpa1KOt_-",
+              "por_que_importa": "La combinación de biotecnología, espacio y IA para la investigación de enfermedades abre nuevas fronteras en el descubrimiento de fármacos y la medicina personalizada, aprovechando las condiciones únicas de la microgravedad."
+            }
+          ]
+        },
+        {
+          "empresa": "TurtleTree",
+          "sector": "Biotecnología/Alimentos",
+          "valoracion": "No especificada",
+          "novedades": [
+            {
+              "tipo": "partnership",
+              "titulo": "Se asocia con Novonesis para escalar plataforma de fermentación de precisión",
+              "detalle": "La startup de biotecnología TurtleTree y el gigante de biosoluciones Novonesis han firmado un acuerdo exclusivo para escalar la plataforma de fermentación de precisión de TurtleTree, comenzando con su producto de lactoferrina. La asociación incluye una inversión minoritaria de Novonesis en TurtleTree.",
+              "fuente": "AgFunderNews",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGB1k3qg1UVFQfOW92uxf3mN_i0XBnCm3W-XXCWtPxk6OgEN4LTsSWsDGCZCi7l08Fr3zlRuBQg0b8tV1ECuBT8gnaAPSuy7bwd1D0sPEsE0w53wOsQgffG7kb43aHneUCNgb329A4QgX75lDxwB_Hj4oLlExN8De6xs5gANJDi266f4sdF51EAf-tWKjasumvaQFE=",
+              "por_que_importa": "Esta alianza estratégica con un gigante de la industria y la inversión asociada valida la tecnología de fermentación de precisión de TurtleTree, lo que podría acelerar la comercialización de proteínas lácteas producidas de manera sostenible y disruptir la industria alimentaria."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-07-08T05:04:38.533522-06:00",
+      "status": "ok"
+    },
+    "top10": {
+      "key": "top10",
+      "title": "📰 Top 10 Noticias",
+      "data": null,
+      "grounding_sources": [],
+      "generated_at": "2026-07-08T05:05:53.937687-06:00",
+      "status": "error",
+      "error": "'NoneType' object has no attribute 'strip'"
+    },
+    "mercados": {
+      "key": "mercados",
+      "title": "💹 Pulso de Mercados",
+      "data": [
+        {
+          "nombre": "S&P 500",
+          "valor": "7,503.86",
+          "cambio_pct": -0.45,
+          "tendencia": "↓",
+          "fuente": "Saxo Bank",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGf_ERHkWntYJpppg3SrTzdVpJf_szydUTPUXYyh_IV4tvmmzb0fUSGUYvbaX2b5hFBlqQGdyhjQY48J-TkiDJABavJcX88lgPbwls9DEOG3RROgZV2KiQlqf07oVSfEsUm2q5qZqP3wiqfQArP2K91Z3laWZ-ptGcOxU7oj2cOgjVLdwHdIOtGPFuEUO7rPh0CRsKfu_AAv2664mljPK6T0njeMHX_0_5ZWATB",
+          "analisis": "El S&P 500 cerró a la baja el martes, reflejando la cautela del mercado ante la escalada geopolítica y las preocupaciones por la inflación."
+        },
+        {
+          "nombre": "NASDAQ Composite",
+          "valor": null,
+          "cambio_pct": 1.16,
+          "tendencia": "↑",
+          "fuente": "The Motley Fool",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGfBqpQVVYCg7JmapMTpOMTrUpO52ijWwBtI4tCiXw5QQ72LckzoqYrGnPPvgurhUsaFCq1luNz-wkcyk9xF3WF6MeS1nbgCDnLn6LIA9WYulHIFup8DhgbIpzrv8IdVObGGD8uhp6cv6Phz87JQv7oUJmW7AhFce9Xgy8r5TLs6X_tjHN6i4kBztChP4yIpiA7iJg_",
+          "analisis": "El Nasdaq Composite experimentó un alza, impulsado por el optimismo en torno a la inteligencia artificial que ha dominado Wall Street en los últimos años."
+        },
+        {
+          "nombre": "Dow Jones",
+          "valor": null,
+          "cambio_pct": 0.25,
+          "tendencia": "↑",
+          "fuente": "The Motley Fool",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGfBqpQVVYCg7JmapMTpOMTrUpO52ijWwBtI4tCiXw5QQ72LckzoqYrGnPPvgurhUsaFCq1luNz-wkcyk9xF3WF6MeS1nbgCDnLn6LIA9WYulHIFup8DhgbIpzrv8IdVObGGD8uhp6cv6Phz87JQv7oUJmW7AhFce9Xgy8r5TLs6X_tjHN6i4kBztChP4yIpiA7iJg_",
+          "analisis": "El Dow Jones Industrial Average mostró un ligero avance, en un día donde la inflación y la geopolítica captaron la atención de los inversores."
+        },
+        {
+          "nombre": "BMV (Bolsa Mexicana de Valores) / IPC",
+          "valor": null,
+          "cambio_pct": null,
+          "tendencia": "→",
+          "fuente": "N/A",
+          "url": "N/A",
+          "analisis": "No se encontró información verificable sobre el rendimiento del IPC de la Bolsa Mexicana de Valores en las últimas 24 horas en las fuentes autorizadas."
+        },
+        {
+          "nombre": "Tipo de cambio USD/MXN",
+          "valor": "17.5107",
+          "cambio_pct": -0.02,
+          "tendencia": "↓",
+          "fuente": "Trading Economics",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFizUyauNzzy9dDy4p4HQGDTHGH70wl0vcyWZqifqC5ZQD2vFUZc0Pnd6IPyx0_qO-Wo_6l3V9H2lGF-Hx-MDRfiBzNZEQBtOzW9hYslsmYbhBTcj138LD-rplEhAHmN3c2XMYAN_4",
+          "analisis": "El tipo de cambio USD/MXN mostró una ligera apreciación del peso mexicano, cayendo un 0.02% respecto a la sesión anterior."
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-07-08T05:10:23.245382-06:00",
+      "status": "ok"
+    },
+    "radar": {
+      "key": "radar",
+      "title": "🛰️ RADAR Inteligencia",
+      "data": [],
+      "generated_at": "2026-07-08T05:10:26.360966-06:00",
+      "status": "error",
+      "signals_total": 0,
+      "queries_run": 3,
+      "errors": [
+        "HTTP 401 for query: Top AI funding rounds and product launch",
+        "HTTP 401 for query: Big Tech AI announcements Google Microso",
+        "HTTP 401 for query: AI regulation policy changes worldwide l"
+      ]
+    }
+  },
+  "summary": {
+    "sections_ok": 4,
+    "sections_total": 6,
+    "quality": "PARTIAL"
+  }
+}
