@@ -1,0 +1,82 @@
+El Periódico. Edición del 2026-07-08.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Elon Musk.
+Juez rechaza anular veredicto de fraude en adquisición de Twitter. Un juez federal rechazó la solicitud de Elon Musk para anular el veredicto de un jurado que lo encontró responsable de defraudar a los inversores de Twitter durante su adquisición de la plataforma en 2022. Aunque el juez falló a favor de Musk en una declaración específica de mayo de 2022, denegó la mayoría de sus mociones, incluyendo la de descertificar la demanda colectiva. Fuente: Claims Journal.
+Preocupaciones sobre la gobernanza de SpaceX tras su salida a bolsa. A pesar del optimismo de Wall Street tras la salida a bolsa de SpaceX en junio, que valoró la empresa en más de 2 billones de dólares, expertos legales y analistas están expresando preocupaciones. Se señala que la estructura de gobernanza de SpaceX otorga un poder desproporcionado a Elon Musk, lo que podría desfavorecer a los inversores públicos. Fuente: ProMarket.
+Mencionado en reunión de Trump con líderes tecnológicos sobre plantas de energía para IA. El expresidente Donald Trump contactó a Elon Musk, junto con otros líderes tecnológicos, para preguntar por qué no habían presentado planes para plantas de energía junto con sus desarrollos de centros de datos. Trump enfatizó su intención de acelerar la aprobación de plantas de combustibles fósiles para alimentar la infraestructura de IA. Fuente: Truthout.
+
+Satya Nadella.
+Microsoft anuncia despidos y reestructuración en la división Xbox. Microsoft está recortando aproximadamente 4,800 puestos de trabajo en toda la empresa, con alrededor de 3,200 (20% de la fuerza laboral) afectando a la división Xbox, incluyendo 1,600 despidos inmediatos. Esta reestructuración, liderada por la CEO de Xbox, Asha Sharma, busca reducir las capas de gestión, escindir cuatro estudios de juegos y disminuir el gasto en proveedores en un 50% para volver al crecimiento en 2027. Fuente: GeekWire.
+Análisis del rendimiento de Microsoft y sus inversiones en IA. Bajo el liderazgo de Satya Nadella, Microsoft se ha transformado en una plataforma de nube e IA, con los ingresos de Azure superando los 75 mil millones de dólares en el año fiscal 2025. La asociación de la compañía con OpenAI le otorga una participación significativa y un negocio de IA de rápido crecimiento. A pesar de una reciente caída en las acciones debido a las preocupaciones sobre el gasto de capital en IA, los analistas ven un potencial alcista considerable. Fuente: 24/7 Wall St..
+
+Jensen Huang.
+Ventas de chips de IA de NVIDIA se estancan en China, rivales locales toman la delantera. Debido a los controles de exportación de EE. UU., las ventas de los chips avanzados de IA H200 de NVIDIA en China se han estancado, permitiendo que competidores locales como Huawei tomen la delantera en el mercado chino. Jensen Huang reconoció que EE. UU. ha perdido su ventaja en el mercado chino de chips de IA avanzados, a pesar de los esfuerzos de NVIDIA por diseñar chips menos potentes (H20) para cumplir con las restricciones. Fuente: AP News (vía Vertex AI Search).
+Chaqueta de cuero autografiada de Jensen Huang a subasta benéfica. Una icónica chaqueta de cuero Tom Ford, autografiada y usada por Jensen Huang, está siendo subastada por Sotheby's con fines benéficos, con las ofertas comenzando el 7 de julio. La estimación previa a la subasta es de entre 40,000 y 60,000 dólares, lo que refleja el estatus de celebridad de Huang en el mundo de la tecnología. Fuente: Benzinga.
+
+Sam Altman.
+Asiste a la Conferencia Allen & Company Sun Valley. Sam Altman, CEO de OpenAI, fue visto llegando a la exclusiva Conferencia Allen & Company Sun Valley en Sun Valley, Idaho. Este evento anual, conocido como el 'campamento de verano de los multimillonarios', reúne a figuras influyentes de la tecnología, los medios y las finanzas para reuniones y contactos discretos. Fuente: SFGATE.
+OpenAI enfrenta múltiples demandas por daños de ChatGPT, incluyendo una nueva de una provincia canadiense. OpenAI se enfrenta a un número creciente de demandas en San Francisco, con una docena de casos agrupados, alegando daños causados por ChatGPT. El último desarrollo incluye la preparación de una demanda por parte de la provincia canadiense de Columbia Británica por la falta de OpenAI en reportar actividad violenta de ChatGPT por parte de un individuo que cometió un tiroteo masivo en una escuela. Fuente: The Standard (HK).
+Mencionado en reunión de Trump con líderes tecnológicos sobre plantas de energía para IA. El expresidente Donald Trump contactó a Sam Altman, junto con otros líderes tecnológicos, para preguntar por qué no habían presentado planes para plantas de energía junto con sus desarrollos de centros de datos. Trump enfatizó su intención de acelerar la aprobación de plantas de combustibles fósiles para alimentar la infraestructura de IA. Fuente: Truthout.
+
+Sundar Pichai.
+Asiste a la Conferencia Allen & Company Sun Valley. Sundar Pichai, CEO de Alphabet, se espera que asista a la Conferencia Allen & Company Sun Valley, una reunión exclusiva de figuras influyentes de la tecnología, los medios y las finanzas. Este evento es conocido por facilitar discusiones estratégicas y oportunidades de networking de alto nivel. Fuente: SFGATE.
+Noticia sobre la interrupción del discurso de Sundar Pichai en Stanford por protestas. Noticias recientes cubrieron la interrupción del discurso de graduación de Sundar Pichai en la Universidad de Stanford en junio de 2026, donde estudiantes realizaron una protesta y un boicot. Los manifestantes expresaron su descontento por los supuestos vínculos de Google con Israel a través del Proyecto Nimbus. Fuente: Vertex AI Search (Oneindia).
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+Lanzamiento de GPT-5.6 Sol, Terra y Luna. OpenAI ha anunciado el lanzamiento público de su última y potente serie de modelos de IA, GPT-5.6 Sol, junto con Terra y Luna, para este jueves. El gobierno de Estados Unidos dio luz verde a un despliegue más amplio tras semanas de revisión gubernamental y pruebas adicionales. Fuente: MarketScreener España, Investing.com, CR Hoy.
+
+Anthropic.
+Claude Cowork llega a móvil y web. Anthropic ha extendido la disponibilidad de su asistente de IA, Claude Cowork, a plataformas web y móviles para sus suscriptores Max. Esta expansión busca posicionar a Claude como un asistente de trabajo de fondo capaz de manejar tareas empresariales cotidianas como la redacción de informes y conciliaciones. Fuente: DiarioBitcoin.com.
+
+Meta AI.
+Ampliación de herramientas de IA generativa con Muse Image y Muse Video. Meta ha ampliado sus herramientas de IA generativa con el lanzamiento de Muse Image, que impulsa más de 30 nuevos efectos de IA para Instagram Stories y permite la generación de imágenes en chats directos con Meta AI en WhatsApp. Además, se ha dado un adelanto de Muse Video, el próximo modelo de generación de video en desarrollo. Fuente: Forbes México, El Destape, AI at Meta Blog.
+
+Microsoft AI.
+Despidos masivos en Microsoft en medio de la inversión en IA. Microsoft está llevando a cabo una ronda de despidos que afectará a aproximadamente 4,800 empleados, lo que representa el 2.1% de su plantilla. Estos recortes se producen mientras la empresa realiza importantes inversiones en infraestructura de IA y busca mejorar la eficiencia en todas sus áreas de negocio. Fuente: IG Internacional, Milenio, Revista Mercado.
+
+AWS AI.
+Lanzamiento de Amazon Bedrock Managed Knowledge Base y servidor MCP. AWS ha lanzado Amazon Bedrock Managed Knowledge Base para acelerar el desarrollo de aplicaciones de IA empresariales más precisas, simplificando la creación de pipelines RAG. Además, introdujo un servidor de Model Context Protocol (MCP) de código abierto que permite a los asistentes de IA buscar y previsualizar conjuntos de datos en el Registro de Datos Abiertos de AWS. Fuente: AWS News Blog, Investing.com.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+SambaNova.
+Recauda $1 mil millones en ronda de financiación Serie F. La startup de chips de IA, SambaNova, anunció que ha recaudado $1 mil millones en una ronda de financiación Serie F liderada por General Atlantic, alcanzando una valoración post-dinero de $11 mil millones. Los fondos se utilizarán para expandir la capacidad, escalar implementaciones globalmente y continuar invirtiendo en chips, sistemas, software e infraestructura de IA de pila completa. Fuente: Reuters / Business Wire.
+
+Agility Robotics.
+Se hará pública a través de fusión SPAC con valoración de $2.5 mil millones. Agility Robotics, la startup de Oregón que construye robots humanoides bípedos llamados Digit, se hará pública mediante una fusión con la empresa de cheques en blanco Churchill Capital Corp XI. Se espera que el acuerdo recaude más de $620 millones, lo que representa la mayor captación de capital en la historia de la robótica humanoide. Fuente: Fenado AI / Briefs Finance.
+
+Orbital.
+Propone lanzar 100,000 satélites de centros de datos de IA al espacio. Orbital, una startup de Los Ángeles de cinco meses, ha solicitado a los reguladores estadounidenses permiso para lanzar hasta 100,000 satélites al espacio, cada uno funcionando como un centro de datos para alimentar la inteligencia artificial. La compañía busca proporcionar 10 gigavatios de potencia informática desde el espacio para satisfacer la creciente demanda de IA. Fuente: Science News / The Times of India.
+
+Mass Balance.
+Lanza misión histórica al espacio para investigar enfermedades con IA. La startup londinense de biotecnología espacial, Mass Balance, lanzó su primera misión al espacio, MB-X1, a bordo de un cohete SpaceX Falcon 9. Este laboratorio autónomo en miniatura aprovechará la microgravedad para investigar proteínas causantes de enfermedades y generar datos para entrenar modelos de IA en la identificación de candidatos a fármacos para enfermedades relacionadas con la edad. Fuente: Inc. Magazine.
+
+TurtleTree.
+Se asocia con Novonesis para escalar plataforma de fermentación de precisión. La startup de biotecnología TurtleTree y el gigante de biosoluciones Novonesis han firmado un acuerdo exclusivo para escalar la plataforma de fermentación de precisión de TurtleTree, comenzando con su producto de lactoferrina. La asociación incluye una inversión minoritaria de Novonesis en TurtleTree. Fuente: AgFunderNews.
+
+Sección: 📰 Top 10 Noticias.
+
+No se encontró información para esta sección.
+
+Sección: 💹 Pulso de Mercados.
+
+S&P 500.
+
+NASDAQ Composite.
+
+Dow Jones.
+
+BMV (Bolsa Mexicana de Valores) / IPC.
+
+Tipo de cambio USD/MXN.
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
