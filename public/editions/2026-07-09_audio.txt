@@ -1,0 +1,112 @@
+El Periódico. Edición del 2026-07-09.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Elon Musk.
+SpaceX se une al índice Nasdaq 100. SpaceX, la empresa aeroespacial de Elon Musk, se ha incorporado al índice Nasdaq 100 el 8 de julio de 2026. Este debut en bolsa ha generado un fuerte impulso en Wall Street, aunque algunos analistas mantienen una calificación de venta debido a una posible sobrevaloración. Fuente: Bloomberg en Español.
+
+Satya Nadella.
+El verdadero peligro de la IA es el ser humano. Satya Nadella, CEO de Microsoft, ha declarado que el problema fundamental de la Inteligencia Artificial no reside en la tecnología en sí, sino en el comportamiento humano. Subrayó la importancia de la ética y la responsabilidad en el uso de la IA para evitar la desinformación y asegurar su aceptación social. Fuente: Al Medio Día Radio (vía YouTube).
+
+Sam Altman.
+Propuesta de ceder 5% de OpenAI al gobierno de EE.UU.. Sam Altman, CEO de OpenAI, está evaluando una propuesta para ceder el 5% del capital de la empresa al gobierno de Estados Unidos. Esta iniciativa busca impulsar la infraestructura de inteligencia artificial y permitir que la sociedad comparta los beneficios del rápido avance de la IA. Fuente: iProUP.
+
+Lisa Su.
+Reconocimiento en la lista Fortune Most Powerful Women 2026. Lisa Su, presidenta y directora ejecutiva de AMD, ha sido reconocida en la lista Fortune Most Powerful Women de 2026. Este es un reconocimiento recurrente que destaca su liderazgo y la influencia de AMD en la industria tecnológica global. Fuente: AMD.
+
+Mark Zuckerberg.
+Meta y YouTube declaradas negligentes en caso de adicción a redes sociales. Meta, la empresa de Mark Zuckerberg, junto con YouTube, fueron declaradas negligentes en un caso sobre adicción a las redes sociales. Este veredicto otorga a los demandantes en más de un millar de casos similares una ventaja considerable y envía una señal clara a la industria tecnológica. Fuente: Diario Las Américas.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+Lanzamiento público de GPT-5.6 (Sol, Terra, Luna). OpenAI ha anunciado el lanzamiento público de su serie de modelos GPT-5.6 para el 9 de julio, tras recibir la aprobación del gobierno de EE. UU. Esta serie incluye Sol como modelo insignia, Terra para tareas de rango medio y Luna como una opción rápida y de bajo costo. La compañía está expandiendo el acceso previo a nivel global. Fuente: The Star / Engadget / The Straits Times / OpenAI Discussions.
+Introducción de GPT-Live. OpenAI ha introducido GPT-Live, una nueva adición a su línea de productos. Este lanzamiento sugiere un enfoque en la interactividad y la capacidad de respuesta en tiempo real de sus modelos de IA. Fuente: OpenAI News.
+Investigación sobre evaluación de código. OpenAI publicó una investigación titulada 'Separando la señal del ruido en las evaluaciones de codificación'. Esto indica un esfuerzo continuo por mejorar la precisión y fiabilidad de sus modelos de IA en tareas de desarrollo de software. Fuente: OpenAI News.
+
+Google DeepMind.
+Acelerador AI for the Planet 2026. Google DeepMind ha abierto las aplicaciones para su Acelerador AI for the Planet 2026, un programa de tres meses para startups, equipos de investigación y organizaciones sin fines de lucro en la región de Asia Pacífico. El programa ofrece mentoría de expertos de Google, acceso a tecnologías avanzadas de IA y créditos de Google Cloud para soluciones ambientales. Fuente: Opportunities for Youth.
+Presentaciones en ICML 2026. Google Research y Google DeepMind están presentando más de 130 trabajos aceptados en la 43ª Conferencia Internacional de Aprendizaje Automático (ICML 2026). Entre las presentaciones destacadas se encuentran 'Project Astra: On the Way to Building a Universal AI Assistant' y 'Visual Intelligence: Video Models are Zero-Shot Learners and Reasoners'. Fuente: Google Research Blog.
+
+Anthropic.
+Rastreador oculto en Claude Code. Un desarrollador independiente descubrió un rastreador oculto en el cliente de Claude Code de Anthropic, lo que la empresa confirmó como un 'experimento'. Este experimento tenía como objetivo prevenir el abuso de cuentas por parte de revendedores no autorizados y proteger contra ataques de destilación. Fuente: Malwarebytes.
+Expansión de Claude Cowork a móvil y web. Anthropic está expandiendo las capacidades de Claude Cowork de la aplicación de escritorio a la web y plataformas móviles en fase beta para planes de pago seleccionados. Esta expansión permite a los usuarios continuar sus tareas de IA en diferentes dispositivos y programar trabajos que se ejecuten en segundo plano. Fuente: 9to5Mac.
+Gobierno de EE. UU. utiliza Mythos para ciberseguridad. La agencia de ciberdefensa de EE. UU. está utilizando el software Mythos de Anthropic para auditar el código federal en busca de vulnerabilidades, según informes de Reuters. Esta implementación operativa ha identificado un número significativo de errores en los sistemas gubernamentales, destacando la capacidad de Mythos para abordar problemas de ciberseguridad críticos. Fuente: CNBC Squawk Box / Reuters (citado).
+
+Meta AI.
+Lanzamiento de Muse Image y Muse Video. Meta AI ha lanzado Muse Image y Muse Video, nuevas herramientas de generación de medios. Muse Image permite a los usuarios alterar fotos de cuentas públicas de Instagram con IA, lo que ha generado preocupaciones sobre la privacidad y los 'deepfakes'. Fuente: Meta AI / Mashable / Radio Ink.
+Integración de Muse Image en Advantage+. Muse Image, el modelo de generación de imágenes de la división Superintelligence Labs de Meta, se integrará en la suite de anuncios creativos impulsada por IA de Meta, Advantage+. Esto permitirá a los anunciantes automatizar promociones con tecnología de IA mejorada. Fuente: MediaPost.
+
+Microsoft AI.
+Reemplazo de modelos de IA de terceros por MAI. Microsoft ha comenzado a reemplazar los modelos de IA de OpenAI y Anthropic con sus propios modelos MAI (Microsoft AI) en Excel y Outlook. Esta estrategia busca reducir los costos de inferencia de IA y refleja un cambio hacia el uso de modelos propietarios para tareas específicas. Fuente: Bloomberg (reportado por MLQ News).
+Adopción lenta de Microsoft 365 E7. La adopción de la suite Microsoft 365 E7, que incluye Copilot y Agent 365, ha sido más lenta de lo esperado. Las empresas muestran resistencia a adoptar una única plataforma de IA, prefiriendo usar diferentes modelos para distintas funciones dentro de la organización. Fuente: Channel Dive.
+Nuevas características en Microsoft Teams. Microsoft Teams ha añadido siete nuevas características, incluyendo soporte para aplicaciones en canales privados, un nuevo diseño centrado en el orador para eventos y búsqueda de archivos en la nube. Sin embargo, se pausó el lanzamiento de una actualización de reunión minimizada debido a problemas técnicos. Fuente: Windows Latest.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Agility Robotics.
+Salida a bolsa a través de fusión SPAC. Agility Robotics ha acordado salir a bolsa mediante una fusión con la empresa de adquisición de propósito especial Churchill Capital Corp XI. Este acuerdo valora al desarrollador de robótica humanoide en $2.5 mil millones antes de la transacción, con más de $620 millones en ingresos. Fuente: Robotics & Automation News, AI Weekly.
+
+Unitree.
+Aprobación de IPO en Shanghái. Unitree obtuvo la aprobación de la autoridad reguladora de valores de China para su oferta pública inicial en Shanghái. La empresa busca recaudar aproximadamente 4.2 mil millones de yuanes ($618 millones de dólares) con una valoración de alrededor de $5.9 mil millones, con un posible debut a finales de julio. Fuente: AI Weekly.
+
+Proxima Fusion.
+Inversión de Google en ronda de financiación. Google ha participado en una ronda de financiación de €411 millones (aproximadamente $468 millones de dólares) para la startup alemana de fusión nuclear Proxima Fusion. Esta inversión eleva la valoración de Proxima Fusion a $2.7 mil millones, destacando el interés de las grandes tecnológicas en fuentes de energía limpia y estable. Fuente: BigGo Finance.
+
+OpenAI.
+Lanzamiento de modelos de voz GPT-Live. OpenAI lanzó GPT-Live, una nueva generación de modelos de voz diseñados para hacer las conversaciones con inteligencia artificial más naturales. Estos modelos son capaces de escuchar y hablar simultáneamente en tiempo real, mejorando la interacción con la IA. Fuente: Investing.com.
+
+Klarna.
+Solicita licencia bancaria en EE. UU.. Klarna ha solicitado una licencia bancaria en Estados Unidos, nombrando a Gary Harding como presidente y CEO de Klarna Bank USA. Esta iniciativa marca un paso estratégico para la expansión de la fintech sueca en el mercado financiero estadounidense. Fuente: FinTech Futures.
+
+Sección: 📰 Top 10 Noticias.
+
+DeepSeek, startup china de IA, desarrolla su propio chip de inferencia para reducir dependencia de NVIDIA y Huawei.
+La startup china de inteligencia artificial DeepSeek está desarrollando su propio chip de inferencia de IA, marcando un cambio estratégico para la compañía. Este movimiento busca reducir su dependencia de los procesadores de NVIDIA y Huawei, dándole mayor control sobre los costos de despliegue y el rendimiento. El chip está diseñado específicamente para la inferencia, la etapa de la computación de IA donde los modelos entrenados generan respuestas para los usuarios. Fuente: Reuters (vía Mexico Business News).
+¿Por qué importa? Como fundador tech, esto subraya la creciente importancia de la soberanía tecnológica y el control sobre la cadena de suministro de hardware en la era de la IA. Desarrollar chips internos puede ofrecer ventajas competitivas significativas en rendimiento y costo, un modelo a considerar para startups de IA con alto consumo computacional.
+
+La carrera de los chips de IA: El mercado de semiconductores de $1.3 billones en 2026.
+El mercado global de semiconductores se proyecta que alcance los $1.3 billones en 2026, impulsado por la demanda sin precedentes de procesadores de IA y la infraestructura de centros de datos. Este crecimiento acelerado se debe a la proliferación de grandes modelos de lenguaje y la expansión de la infraestructura en la nube. NVIDIA y AMD son identificados como líderes clave en esta carrera, con el potencial de que el sector alcance los $2 billones para 2030. Fuente: Intellectia AI.
+¿Por qué importa? Este informe destaca la infraestructura fundamental que impulsa la revolución de la IA. Para los fundadores tech, entender esta dinámica es crucial para planificar la escalabilidad de sus productos, las asociaciones estratégicas y las inversiones en hardware, ya que el acceso a chips de IA de alto rendimiento es un cuello de botella crítico.
+
+La computación cuántica avanza, pero la comercialización a gran escala aún está a una década.
+Expertos estiman que las computadoras cuánticas comercializadas y sus aplicaciones a gran escala están a una década o más de distancia. Aunque la tecnología promete resolver problemas complejos que superan a las supercomputadoras clásicas, no las reemplazará, sino que las complementará en áreas como la criptoanálisis y la ciencia de materiales. Fuente: MIT Sloan.
+¿Por qué importa? Como fundador tech, es vital mantener una perspectiva a largo plazo sobre las tecnologías emergentes. Si bien la computación cuántica no es una solución inmediata, su potencial transformador en ciertos nichos significa que las empresas deben monitorear su desarrollo y considerar cómo podría impactar sus industrias en el futuro, especialmente en investigación y desarrollo intensivos.
+
+El chip NVIDIA H100 sigue dominando el mercado de IA, con sucesores más avanzados en camino.
+El chip NVIDIA H100, introducido en 2022, ha establecido el estándar para el entrenamiento de IA generativa, a pesar de su alto costo de $40,000. Sin embargo, ya está siendo superado por sucesores más avanzados como el Blackwell B200 y la próxima arquitectura Rubin. La demanda de potencia computacional para IA está acelerándose, con el CEO de AMD, Lisa Su, señalando que la IA ya utiliza 100 zettaflops, un aumento masivo desde 2022. Fuente: World Economic Forum.
+¿Por qué importa? La rápida evolución del hardware de IA significa que los fundadores deben estar al tanto de las últimas innovaciones para optimizar sus modelos y operaciones. La inversión en infraestructura de IA es masiva, y elegir la plataforma de hardware adecuada puede ser un diferenciador clave en el rendimiento y la eficiencia de sus soluciones de IA.
+
+Seis firmas de capital de riesgo dominan la financiación de startups en la era de los 'Giga VCs'.
+Un grupo de seis firmas de capital de riesgo, apodadas 'G-Flats' (General Catalyst, Founders Fund, Lightspeed, Andreessen Horowitz, Thrive Capital y Sequoia), han recaudado más capital que todos los demás gestores de fondos de VC en EE. UU. en los últimos dos años. Estas 'superfondos' están invirtiendo en etapas más tardías de las empresas, permitiendo que startups como SpaceX, Databricks y Stripe permanezcan privadas por más tiempo con valoraciones superiores a los $150 mil millones. Fuente: Inc. Magazine.
+¿Por qué importa? Esta concentración de capital de riesgo significa que los fundadores deben entender el panorama competitivo para la financiación. Si bien los 'Giga VCs' ofrecen grandes rondas, también pueden implicar presiones para un crecimiento rápido. Conocer a estos actores clave es esencial para la estrategia de recaudación de fondos y para comprender las expectativas de los inversores en el ecosistema actual.
+
+La computación cuántica podría generar $1.3 billones para 2035, transformando múltiples industrias.
+La computación cuántica, aunque aún en desarrollo, tiene el potencial de resolver problemas extremadamente complejos en minutos u horas que a las máquinas clásicas les tomaría milenios. Se espera que genere casi $1.3 billones en valor para 2035, con aplicaciones en finanzas, transporte, farmacéutica y tecnología verde. Inicialmente, trabajará en conjunto con la computación clásica para optimizar soluciones. Fuente: McKinsey.
+¿Por qué importa? Este pronóstico de McKinsey resalta el inmenso potencial a largo plazo de la computación cuántica. Los fundadores tech deben considerar cómo esta tecnología podría disrumpir o crear nuevas oportunidades en sus sectores, especialmente aquellos que dependen de la optimización compleja o el modelado molecular. Es una señal para invertir en investigación y desarrollo o al menos monitorear de cerca su progreso.
+
+Expectativas de inflación a corto y mediano plazo aumentan en junio de 2026, según la Fed de Nueva York.
+Las expectativas de inflación de los hogares en EE. UU. aumentaron en junio de 2026, con la mediana a un año subiendo al 3.7% y a tres años al 3.3%, los niveles más altos desde septiembre de 2023 y junio de 2022, respectivamente. Las expectativas de crecimiento de los precios de la gasolina disminuyeron, mientras que las expectativas sobre el mercado laboral mejoraron. Fuente: Federal Reserve Bank of New York.
+¿Por qué importa? Las expectativas de inflación impactan directamente en el poder adquisitivo, los costos operativos y las decisiones de inversión. Para los fundadores tech, un aumento en las expectativas de inflación puede significar mayores costos de insumos, salarios y una posible presión sobre los márgenes de beneficio. Es crucial monitorear estos indicadores para ajustar las estrategias de precios y financieras.
+
+Las etapas de financiación de startups: de la semilla a la IPO, una guía esencial.
+Una guía exhaustiva detalla las diferentes etapas de financiación de startups, desde la pre-semilla hasta la Oferta Pública Inicial (IPO). Explica cómo los inversores externos proporcionan capital a cambio de capital social, y la importancia de cada ronda para el crecimiento de la empresa. Se destaca que la mayoría de las startups necesitan múltiples rondas de financiación antes de alcanzar la rentabilidad. Fuente: Pulley.
+¿Por qué importa? Para cualquier fundador tech, comprender el ciclo de vida de la financiación es fundamental. Conocer las expectativas de los inversores en cada etapa, desde los ángeles hasta las firmas de capital de riesgo, permite planificar estratégicamente la recaudación de fondos, evitar la dilución excesiva y construir una hoja de ruta clara hacia la liquidez o el crecimiento sostenible.
+
+El diseño de chips de IA: la clave para acelerar las tareas de inteligencia artificial y el crecimiento de LLMs.
+Los chips de IA son circuitos integrados diseñados específicamente para acelerar tareas de inteligencia artificial y aprendizaje automático, optimizados para cálculos matemáticos intensivos y procesamiento de datos a gran escala. Son esenciales para ejecutar redes neuronales complejas y modelos de aprendizaje profundo con alta velocidad y menor consumo de energía. El auge de la IA generativa y los grandes modelos de lenguaje (LLMs) ha impulsado drásticamente la demanda de estos chips especializados. Fuente: Synopsys.
+¿Por qué importa? La eficiencia del hardware es un factor crítico para el éxito de cualquier producto o servicio de IA. Los fundadores tech deben entender cómo los avances en el diseño de chips de IA pueden impactar el rendimiento, el costo y la escalabilidad de sus soluciones, permitiéndoles tomar decisiones informadas sobre la arquitectura de sus sistemas y la selección de proveedores.
+
+El impacto de la IA en la inflación y las tasas de interés: un debate en curso.
+La inteligencia artificial está generando un debate sobre su impacto en la inflación y las tasas de interés. A corto plazo, la inversión masiva en desarrollo de IA podría ser inflacionaria debido a la demanda de energía y hardware. Sin embargo, a largo plazo, la IA podría ser desinflacionaria al aumentar la productividad y reducir el poder de negociación laboral, lo que podría amortiguar el crecimiento salarial. Fuente: J.P. Morgan Asset Management.
+¿Por qué importa? La relación entre la IA y la macroeconomía es compleja y crucial. Los fundadores tech deben considerar cómo las políticas monetarias influenciadas por la IA podrían afectar el costo del capital, la disponibilidad de talento y el entorno empresarial general. Una comprensión de estas dinámicas puede informar las estrategias de crecimiento y la gestión de riesgos financieros.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
