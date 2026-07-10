@@ -1,0 +1,529 @@
+{
+  "version": "2.0",
+  "date": "2026-07-10",
+  "generated_at": "2026-07-10T05:00:52.531409-06:00",
+  "timezone": "CST (UTC-6)",
+  "language": "es-MX",
+  "tier": "Tier 4",
+  "sections": {
+    "titans": {
+      "key": "titans",
+      "title": "🏛️ Los Titans",
+      "data": "No se ha encontrado actividad relevante y verificable de los líderes tecnológicos prioritarios (Elon Musk, Satya Nadella, Jensen Huang, Sam Altman, Sundar Pichai) ni de los líderes de reemplazo (Tim Cook, Mark Zuckerberg, Andy Jassy, Lisa Su, Demis Hassabis) en las últimas 24-48 horas (8-10 de julio de 2026) dentro de las fuentes Tier 4 autorizadas.\n\nLa estricta ventana de tiempo y la restricción a dominios específicos no arrojaron resultados que cumplan con los criterios de \"actividad\" definidos (declaración, lanzamiento, adquisición, publicación, podcast, movimiento) para ninguno de los individuos listados. Por lo tanto, no es posible generar el informe con 5 objetos de actividad verificada.",
+      "grounding_sources": [],
+      "generated_at": "2026-07-10T05:03:02.705281-06:00",
+      "status": "json_error"
+    },
+    "ai_leaders": {
+      "key": "ai_leaders",
+      "title": "🤖 AI Leaders",
+      "data": [
+        {
+          "empresa": "OpenAI",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Lanzamiento de ChatGPT Work y modelos GPT-5.6",
+              "detalle": "OpenAI ha lanzado ChatGPT Work, un agente de productividad que integra Codex y permite realizar tareas complejas en web, móvil y escritorio, utilizando archivos y aplicaciones locales. También se han desplegado los nuevos modelos GPT-5.6 (Sol, Terra, Luna), con Sol como el modelo insignia que ofrece mejoras significativas en codificación, ciberseguridad y diseño.",
+              "fuente": "MacRumors, Engadget, OpenAI Help Center",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFFqpqnapOyE-u-mt4n4jPujnoFOnzXiiRT-XBdoDAPe8z2U3M8dPnyAK1rXA17PneWfmJK6fT5-njxnW39R2etyIylyJM_xx5fOdv9FY3iUAPDhtMcK0F8j0UcK771DG3tkgbJMcnOVzpYBfWfg1Dsk-jgUA",
+              "aplicacion_genyx": "Para GENyx, esto significa nuevas oportunidades para integrar capacidades de agente de IA avanzadas y modelos de lenguaje más potentes en sus soluciones SaaS, mejorando la automatización de tareas y la generación de contenido."
+            },
+            {
+              "tipo": "research",
+              "titulo": "Mejoras en seguridad de los modelos GPT-5.6",
+              "detalle": "La tarjeta del sistema GPT-5.6 de OpenAI detalla las robustas salvaguardas de ciberseguridad implementadas en los nuevos modelos, que bloquean aproximadamente diez veces más actividad potencialmente dañina que las versiones anteriores. Aunque no alcanzan el nivel crítico más alto, muestran una mejora significativa en la detección de vulnerabilidades y la prevención de ataques.",
+              "fuente": "OpenAI",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFSkN14NooZyujVTys2jtBVqxC-XAx_I15rqxgvhBBfdNO1EqcIBO-CoTl7F_C2JEoISm0kpvsZBM5Rl4f6fKCfwQQK_tnM14liVXwl8xWcjuYGY6f5qr-a3Nj3KCbCaqst0damBWs=",
+              "aplicacion_genyx": "GENyx puede aprovechar estas mejoras de seguridad para ofrecer soluciones de IA más confiables y seguras a sus clientes, especialmente en áreas que requieren alta integridad de datos y protección contra ciberamenazas."
+            },
+            {
+              "tipo": "producto",
+              "titulo": "Retiro de modelos antiguos y disponibilidad de o1 en ChatGPT",
+              "detalle": "OpenAI ha anunciado el retiro de modelos como OpenAI o3 y GPT-4.5 de ChatGPT, con fechas límite en agosto y junio de 2026, respectivamente. Simultáneamente, los usuarios de ChatGPT Plus y Team ahora tienen acceso a los modelos o1, con límites de mensajes semanales, buscando una integración automática futura.",
+              "fuente": "OpenAI Help Center",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQET5kcBLUlnDs3TNMCgqygaOjqQKYXSGoW88cjLB9LJG44Kg_JYeCcdsgKlp7tYSQDcOYOXXAtyx0EURtU6TzsOfeKIDJh7txTgNJkp8Qref4Cct52ohWu6xFZ_Gfw54-hD5KT91XRVx77qUrfJj8SRsuWFJDy7j9F7_A==",
+              "aplicacion_genyx": "Esto implica que GENyx debe mantenerse al tanto de las actualizaciones de modelos de OpenAI para asegurar la compatibilidad y optimizar el rendimiento de sus integraciones, aprovechando los modelos más recientes y eficientes."
+            }
+          ]
+        },
+        {
+          "empresa": "Google DeepMind",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Lanzamiento de Gemini 3.1 Flash Lite Image para generación de imágenes más rápida",
+              "detalle": "Google DeepMind ha lanzado Gemini 3.1 Flash Lite Image (nombre interno Nano Banana 2 Lite), su modelo de generación de imágenes más pequeño y rápido. Este modelo ofrece una calidad de texto a imagen cercana a la de los modelos insignia a una fracción del costo, generando imágenes aproximadamente 2.7 veces más rápido que Gemini 3.1 Flash Image.",
+              "fuente": "AlphaSignal",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEU-BZkg7XSbtAxhedDTrs0r9iGMlwzRfbf_bL717s2kzRJkxWDrzdwfhP4ldsVRLS6e97DG7ngHLZ2Sbgva2WE1dg_YvyoWL7JiwvKy4hp9WUQM2Bywx4MwPtCf1XIu6Yxfu96Jou-U-CAA-FjGirtBp6NQJxpqN6A2R9fy0VIeSVfSE92_54SmNobqZGnIw7W-tvWavZfK1Mcwcy8126sQ",
+              "aplicacion_genyx": "GENyx puede integrar este modelo para ofrecer capacidades de generación de imágenes más rápidas y rentables en sus productos SaaS, mejorando la experiencia del usuario y reduciendo los costos operativos."
+            },
+            {
+              "tipo": "producto",
+              "titulo": "Disponibilidad general de AlphaEvolve en Google Cloud",
+              "detalle": "Google DeepMind ha hecho que AlphaEvolve, su agente de optimización de código impulsado por Gemini, esté generalmente disponible para todos los clientes de Google Cloud en la plataforma Gemini Enterprise Agent. AlphaEvolve actúa como un colaborador evolutivo, optimizando algoritmos y devolviendo código legible por humanos, lo que permite a las organizaciones resolver problemas complejos de manera más eficiente.",
+              "fuente": "Google DeepMind, Google Cloud",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEuYw5JfcJ26psVGKXRWO245Dg7ysbW_24Kdea0p-_tZYt-FI1b4gJZL2swZF7mftEXfANTQVPoQlVTToz86HOvFSgWgi6Rom27OqToBIyFurbrvTTkF5bJzNamdhTq8F6dMYcTMczrbNktG7gfGzE6F7ZX96Si52LT0OQ7Wy1DQWh7J1rZ0vyK1E2tvJ0aCvvUME_w_6fnv8QjSHw",
+              "aplicacion_genyx": "Para GENyx, la disponibilidad de AlphaEvolve en Google Cloud representa una oportunidad para optimizar el desarrollo de software y la eficiencia algorítmica de sus propias soluciones de IA, así como ofrecer servicios de optimización de código a sus clientes."
+            },
+            {
+              "tipo": "hiring",
+              "titulo": "Contratación estratégica para la aplicación Gemini",
+              "detalle": "Google DeepMind está buscando un Director de Estrategia de Producto y Negocio para la aplicación Gemini, lo que indica un enfoque continuo en el desarrollo y la estrategia de mercado de Gemini. El rol implica monitorear el ecosistema de IA generativa y desarrollar narrativas estratégicas para alinear a los stakeholders.",
+              "fuente": "Google Careers",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEYLO69VQlt7ek1SdYr-FLa9GYEmlCS0KEBO-C9gC9Z0Z89_Ff3bM9JWwvfZsNBWr1QYaIKczvuJz-9qHcogeSI4efyViN1k2ZUChPH4ESkQitlV3myDnTb0sBa65INFtgitjmBUpTgu0pUpwv8bvVDQ55JpzrTO0rtzTGq1or-L4WFsamf3gBH39hE88lOX3NPSrB-JuXnqztBxeWs-TjWDg2hk6UzdR2i_-9ONrOHG5rXRuw=",
+              "aplicacion_genyx": "Esta contratación sugiere una inversión continua en la estrategia de producto de Gemini, lo que podría traducirse en nuevas funcionalidades y un ecosistema más robusto que GENyx podría integrar en el futuro."
+            }
+          ]
+        },
+        {
+          "empresa": "Anthropic",
+          "novedades": [
+            {
+              "tipo": "regulación",
+              "titulo": "Advertencia de China sobre 'puerta trasera' en Claude Code",
+              "detalle": "Un regulador de la industria chino ha advertido sobre una 'puerta trasera de seguridad' en versiones de la herramienta de codificación de IA de Anthropic, Claude Code. Se alega que esta podría transmitir información sensible sin consentimiento, aunque un ingeniero de Claude Code indicó que era un experimento para prevenir el abuso de cuentas y que sería revertido.",
+              "fuente": "CBS News",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEq63TjoIhWHIv_SycJ7k1jLtxAmB8E6Ul2H-61RVVq6lQSDtQd8azNHG7gOKhkEZYKtwlD6YidGFUAdMiQ7aPTxUHQm1W4cTw2N5DKYRbEiovc0nW9-f7t4BuC9eCJfkhTzX3KM5HG_K_n53v1V2iO7ABM-qkV8D4Tg3tDStRIUDgm0o_K2EVfww==",
+              "aplicacion_genyx": "GENyx debe estar atento a las implicaciones regulatorias y de seguridad de las herramientas de IA, asegurando que cualquier integración con modelos de terceros cumpla con los estándares de privacidad y seguridad para proteger los datos de sus clientes."
+            },
+            {
+              "tipo": "partnership",
+              "titulo": "Anthropic se asocia con el gobierno de California para herramientas de IA",
+              "detalle": "Anthropic se ha asociado con el estado de California para proporcionar a las agencias gubernamentales acceso a sus herramientas de IA, como el chatbot Claude, con un descuento del 50%. El acuerdo busca aumentar la eficiencia de los trabajadores estatales en tareas como el análisis de información y la redacción de documentos, asegurando que la IA complemente y no reemplace el trabajo humano.",
+              "fuente": "Mashable, Newsroom",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFISf1WDOkx-hS60jrkWNsrSFeXm6A0D-JkXEjX79oflfgWtgO7WSsaQ-0Mh6Jg7pKh2a4KcWx1tge1-OFFnb7HTSS_2w4dsEnMwYQNJYnXPYkpWSVeSyy14ENlqzXGcfo-rMUFlbzW8IitTQ4qyLSbyQCjfRzxhhBPxquORxQImgUBh972Va3XIiE=",
+              "aplicacion_genyx": "Esta asociación demuestra la creciente adopción de la IA en el sector público, lo que podría abrir nuevas vías para que GENyx explore asociaciones con entidades gubernamentales o desarrolle soluciones específicas para este sector."
+            },
+            {
+              "tipo": "research",
+              "titulo": "Investigación sobre la limitación de conocimiento de doble uso en modelos de IA",
+              "detalle": "Anthropic ha publicado una investigación sobre un método para limitar las capacidades de doble uso en los modelos de IA, como el conocimiento en ciberseguridad o virología, sin degradar el rendimiento general. Este enfoque, llamado GRAM, permite eliminar módulos de conocimiento específicos después del entrenamiento, ofreciendo un camino hacia un control de acceso más robusto.",
+              "fuente": "Anthropic",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFOy3ui6BBPG3ocxzWJ36fDfoWlEEPuq5-H5WASXsKvKLrTySjCvB1UzddPgiOMgqPIb-feV-P1Q40O_1x8ZEYgBWIZgqsqobFdDxfElAzWKdN4-xfpZbVDTuL7eKdb4daR0c8yg1vpGphhf-gIwSy80Q==",
+              "aplicacion_genyx": "Para GENyx, esta investigación es crucial para el desarrollo responsable de la IA, permitiéndole considerar la implementación de mecanismos para controlar el uso de conocimientos sensibles en sus propios modelos y asegurar la seguridad y ética de sus soluciones."
+            }
+          ]
+        },
+        {
+          "empresa": "Meta AI",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Meta entra al mercado de codificación de IA con Muse Spark 1.1",
+              "detalle": "Meta ha lanzado una actualización importante de su modelo de inteligencia artificial Muse Spark, Muse Spark 1.1, y ha revelado detalles de precios 'muy agresivos y atractivos' para competir con ofertas de Anthropic y OpenAI. La compañía ahora se enfoca en vender acceso a modelos de IA propietarios, aunque sigue comprometida con el código abierto para futuras variantes.",
+              "fuente": "CNBC Africa",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE2W5OWtMkZyYFfwEEbzExI1DrI4DXoz1X7etbbHW9QcSl6U6rqpZJi3I8eyuHwdjN46Mh4zVMLQVReRFvSzW6Fp00ekNbejJmTGwdr1FrhVboRimRctdGJei9xF3WNkutzOWQXwGvz-TLfQEgMXn7Q4YBLneDIgTvv0S2ajvvaN2wWcBPaGrONOKVqRw2OMvSC1_JV7v7XRHd7JnyX0FRcsXqHw==",
+              "aplicacion_genyx": "La entrada de Meta en el mercado de codificación de IA con precios competitivos podría ofrecer a GENyx nuevas opciones de modelos para integrar en sus herramientas de desarrollo, potencialmente reduciendo costos y aumentando la eficiencia."
+            },
+            {
+              "tipo": "regulación",
+              "titulo": "Preocupaciones de privacidad con el generador de imágenes de IA de Meta",
+              "detalle": "El nuevo generador de imágenes de IA de Meta, Muse Image, integrado en Instagram y WhatsApp, ha generado preocupaciones de privacidad. Si una cuenta de Instagram es pública, Meta ha optado por usar esas fotos para funciones de IA generativa sin consentimiento explícito, lo que ha llevado a recomendaciones para configurar las cuentas como privadas.",
+              "fuente": "Proton",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEUqJwHMEVbEQZ-YDZESebVAWlSKUJKT8PWY7WXQ-8iq_Lxe0bMSl7qgfUz1QAKH2cJPxtO5EhBuz4Rsi8UmuBBbS2zGyGzK4qCRVvl3BgnfOerrydPuohE1EhEr6bQrDYnmd_G6kLz64Ccy3twAQ==",
+              "aplicacion_genyx": "GENyx debe tomar nota de estas preocupaciones de privacidad para asegurar que sus propias soluciones de IA generativa manejen los datos de los usuarios de manera ética y transparente, ofreciendo controles claros sobre el uso de datos personales."
+            },
+            {
+              "tipo": "producto",
+              "titulo": "Meta planea una variante de código abierto de Muse Spark",
+              "detalle": "A pesar de enfocarse en modelos propietarios con Muse Spark 1.1, Meta ha confirmado que está desarrollando una variante de código abierto de Muse Spark. Aunque no se ha especificado una fecha de lanzamiento, esta iniciativa demuestra el compromiso continuo de la empresa con la comunidad de código abierto en el ámbito de la IA.",
+              "fuente": "CNBC Africa",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE2W5OWtMkZyYFfwEEbzExI1DrI4DXoz1X7etbbHW9QcSl6U6rqpZJi3I8eyuHwdjN46Mh4zVMLQVReRFvSzW6Fp00ekNbejJmTGwdr1FrhVboRimRctdGJei9xF3WNkutzOWQXwGvz-TLfQEgMXn7Q4YBLneDIgTvv0S2ajvvaN2wWcBPaGrONOKVqRw2OMvSC1_JV7v7XRHd7JnyX0FRcsXqHw==",
+              "aplicacion_genyx": "La eventual liberación de una versión de código abierto de Muse Spark podría proporcionar a GENyx una base de modelos potente y accesible para la innovación, reduciendo la dependencia de soluciones propietarias y fomentando la personalización."
+            }
+          ]
+        },
+        {
+          "empresa": "Microsoft AI",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Microsoft reemplaza modelos de IA de terceros con los propios en Office",
+              "detalle": "Microsoft ha comenzado a reemplazar algunos modelos de IA de OpenAI y Anthropic en aplicaciones de Microsoft 365, como Excel y Outlook, con sus propios modelos de IA (MAI). Esta estrategia busca reducir costos operativos y posicionar a Microsoft como una plataforma capaz de orquestar múltiples modelos de IA, priorizando la eficiencia en la implementación.",
+              "fuente": "The Information",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFxsGrNxFZfitWRTT_uGqhNQhedipGu5UIeXPLbIKhMIsdbXsJtmjW70JiypmYvV8pqtOA05r69MPtQiU3YYi8lRN_uQmVo7d7e4VXhw_11yPXCrMF7FvkLtRyoT33CFYS3xGWU7ExUUr84502929M6j1eVdVqovZ_5-mhgh3OPqxJo1TckzX4KYg_LuPoebttQaMuPLicjUjud5A==",
+              "aplicacion_genyx": "Para GENyx, esta tendencia de Microsoft de desarrollar y priorizar sus propios modelos internos subraya la importancia de tener una estrategia de IA flexible que pueda integrar y cambiar entre diferentes proveedores de modelos, o incluso desarrollar capacidades internas para optimizar costos y rendimiento."
+            },
+            {
+              "tipo": "pricing",
+              "titulo": "Planes y precios de Microsoft 365 Copilot",
+              "detalle": "Microsoft ha detallado los planes y precios de Microsoft 365 Copilot, su asistente de IA diseñado para mejorar la productividad. Copilot Chat, una experiencia de chat de IA basada en la web, está disponible sin costo adicional con planes elegibles de Microsoft 365, mientras que la licencia completa de Microsoft 365 Copilot ofrece funcionalidades más avanzadas y acceso a agentes preconstruidos.",
+              "fuente": "Microsoft",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHG0FPR_T_m4CZuHFBln0Ftr-g4qE7U5p0KBdMJFODSApK5cqnix3aJmjWspACRg1pDn30YCFaSw516wRR-O2VgVSAU5LtK0gPw9AfakRoSA0ABFrqxBkT_C-5dWl2xq9ozudCbFmaaggo82O9WamaxcZQUL9HNX2Ss6UuonpLq4QrhpHBatw==",
+              "aplicacion_genyx": "La estrategia de precios y las características de Copilot son un referente para GENyx en el desarrollo de sus propias ofertas de SaaS de IA, especialmente en cómo empaquetar y monetizar las capacidades de IA para diferentes segmentos de clientes."
+            },
+            {
+              "tipo": "partnership",
+              "titulo": "Integración de Microsoft 365 Copilot con Xero",
+              "detalle": "Microsoft 365 Copilot se ha integrado con Xero, una plataforma de contabilidad, permitiendo a los usuarios acceder a datos financieros actualizados directamente en sus aplicaciones de Microsoft 365. Esta colaboración, que utiliza el agente financiero JAX de Xero, busca optimizar los flujos de trabajo empresariales y proporcionar información financiera en el contexto de las tareas diarias.",
+              "fuente": "Microsoft",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEc-oiT-BfmO2j8F7ZknoO7TNLOaSU4plZRXdYxpuGbqzHGQJB_QpphRyxeTSUHh3mw1_RIRl-yicq3rdZR8JGV101gDgrk88J9tQ0y0AbIrctU6kHEBzf2D98d73cNg_giOFq2ngJm1uszqTtSYEYJDSTvcrYACx4aaOObJsaY3wnMnYj8mhqrRSDNVDh82WIPT4AF0A0uVRcdQkmDycYYjEGZTuGPAH8RS57uQXwj0i7mBruI4hJECX-nheDY0mA5jOuJHdAr9B1Io1o55JY=",
+              "aplicacion_genyx": "Las integraciones de Copilot con herramientas empresariales como Xero demuestran el valor de la interoperabilidad de la IA. GENyx podría buscar asociaciones similares para enriquecer sus propias ofertas de SaaS, permitiendo a sus clientes acceder a información relevante de otras plataformas directamente a través de sus soluciones de IA."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "openai.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGL5BGAgVhIDFodc4lEuk3nr1m4fltRtgSFXz-5UsmT8FLCLVVXQeRCEI4Up8ry5b8bZwxtl3QBkSmeNaBlsA3MMfd9NiJvUSjNSM9txqeeC_CPH7oIfWXU3gG_x4y_HIipJgtQ"
+        },
+        {
+          "title": "openai.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFSkN14NooZyujVTys2jtBVqxC-XAx_I15rqxgvhBBfdNO1EqcIBO-CoTl7F_C2JEoISm0kpvsZBM5Rl4f6fKCfwQQK_tnM14liVXwl8xWcjuYGY6f5qr-a3Nj3KCbCaqst0damBWs="
+        },
+        {
+          "title": "openai.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQET5kcBLUlnDs3TNMCgqygaOjqQKYXSGoW88cjLB9LJG44Kg_JYeCcdsgKlp7tYSQDcOYOXXAtyx0EURtU6TzsOfeKIDJh7txTgNJkp8Qref4Cct52ohWu6xFZ_Gfw54-hD5KT91XRVx77qUrfJj8SRsuWFJDy7j9F7_A=="
+        },
+        {
+          "title": "blog.google",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEuYw5JfcJ26psVGKXRWO245Dg7ysbW_24Kdea0p-_tZYt-FI1b4gJZL2swZF7mftEXfANTQVPoQlVTToz86HOvFSgWgi6Rom27OqToBIyFurbrvTTkF5bJzNamdhTq8F6dMYcTMczrbNktG7gfGzE6F7ZX96Si52LT0OQ7Wy1DQWh7J1rZ0vyK1E2tvJ0aCvvUME_w_6fnv8QjSHw="
+        },
+        {
+          "title": "anthropic.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFOy3ui6BBPG3ocxzWJ36fDfoWlEEPuq5-H5WASXsKvKLrTySjCvB1UzddPgiOMgqPIb-feV-P1Q40O_1x8ZEYgBWIZgqsqobFdDxfElAzWKdN4-xfpZbVDTuL7eKdb4daR0c8yg1vpGphhf-gIwSy80Q=="
+        },
+        {
+          "title": "microsoft.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHG0FPR_T_m4CZuHFBln0Ftr-g4qE7U5p0KBdMJFODSApK5cqnix3aJmjWspACRg1pDn30YCFaSw516wRR-O2VgVSAU5LtK0gPw9AfakRoSA0ABFrqxBkT_C-5dWl2xq9ozudCbFmaaggo82O9WamaxcZQUL9HNX2Ss6UuonpLq4QrhpHBatw=="
+        },
+        {
+          "title": "microsoft.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFb4nHR-Xyme2oJo4JjCbPRx8LVa6Hb8BbFye7T6ofKBMW9PR86Ewq5OXgvG9oDycVtsAzzewBUwSiGYJGbEcpSInqiIowYMohgg8lD13srHmnggRv7gGnay50CQzixUimxxi6uj2gcNt58aYEeMuvsUKbKFf49eRpRsK1jmCVMv2IWr8YMcF8zrBA-C5Eb7w=="
+        },
+        {
+          "title": "microsoft.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEc-oiT-BfmO2j8F7ZknoO7TNLOaSU4plZRXdYxpuGbqzHGQJB_QpphRyxeTSUHh3mw1_RIRl-yicq3rdZR8JGV101gDgrk88J9tQ0y0AbIrctU6kHEBzf2D98d73cNg_giOFq2ngJm1uszqTtSYEYJDSTvcrYACx4aaOObJsaY3wnMnYj8mhqrRSDNVDh82WIPT4AF0A0uVRcdQkmDycYYjEGZTuGPAH8RS57uQXwj0i7mBruI4hJECX-nheDY0mA5jOuJHdAr9B1Io0o55JY="
+        }
+      ],
+      "generated_at": "2026-07-10T05:04:40.426950-06:00",
+      "status": "ok"
+    },
+    "emerging": {
+      "key": "emerging",
+      "title": "🚀 Emerging Tech & Startups",
+      "data": [
+        {
+          "empresa": "Kling AI",
+          "sector": "Inteligencia Artificial (Generación de Video)",
+          "valoracion": "$18 mil millones",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Ronda de financiación de casi $3 mil millones",
+              "detalle": "Kling AI, la unidad de generación de video con IA de la plataforma china de videos cortos Kuaishou, ha cerrado una ronda de financiación de casi $3 mil millones, lo que eleva su valoración post-dinero a $18 mil millones. Esta es la financiación más grande registrada para una empresa de modelos de video con IA a nivel mundial.",
+              "fuente": "FWDStart, The SaaS News, Tech Funding News, BlueFive Capital",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGSv40Q_K8DGxDdbl9iAqvH4--W13SlJFGeP6JOhs1YhcMIonzi7lD8lpUjdW8Cc1M5-rv71oJDRdfngb5uMiI-IhbxokLkcPpAaJIDGlchnp95fsP4t_PU8KHnwjJ5XuhpyYHh-OjXqpElSplNZ5N1bbr-O_Bu_XG7zc-basHNkC-VJnbTTD7OIDoYRLmZa1Gyn-48uzAgXH2eo6yFtWViU7MrcSN7XR83MQyGeAZvRtPJiZUHMFs",
+              "por_que_importa": "Esta mega-ronda subraya la intensa competencia y el enorme capital que fluye hacia la IA generativa de video, posicionando a Kling AI como un actor dominante con una valoración significativa y planes de salida a bolsa, especialmente después de que rivales occidentales como Sora hayan cerrado sus aplicaciones de consumo."
+            }
+          ]
+        },
+        {
+          "empresa": "Kraken Technology",
+          "sector": "Defensa Marítima / IA",
+          "valoracion": "$1 mil millones",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Alcanza el estatus de unicornio con una Serie B de $175M",
+              "detalle": "La startup británica de defensa marítima con IA, Kraken Technology, ha alcanzado el estatus de unicornio tras cerrar una ronda de financiación Serie B de $175 millones, valorando la empresa en $1 mil millones. La ronda fue liderada por Digital Transformation Capital Partners (DTCP) y contó con el apoyo del Fondo de Innovación de la OTAN, British Business Bank y Rheinmetall.",
+              "fuente": "OODAloop, Tech.eu, AI Weekly, Scaling Europe Daily",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE8Coo7czNH23JA2KnvIek61uugNK2LNUVC-PlkUU0sc9bHtFgyzD4uUvhvTqTYL2n8RBmsNDgNc7FJ3_rZmtvrCgWq3AU2xayRymg1opdb-u2m4_baYH4DDacyYLtdPjD0MzuSjVh5ISVId_S6a7n0tL9X5QRDUWCcneO8anmEAPKPX3VcmTyJe710ik57ZcVHWE85IKa1Q--I_6wnMSymhg==",
+              "por_que_importa": "Este logro destaca la creciente inversión en tecnologías de defensa impulsadas por IA, especialmente en el ámbito marítimo, y la confianza de inversores estratégicos como la OTAN en soluciones innovadoras para la seguridad."
+            }
+          ]
+        },
+        {
+          "empresa": "Prime Intellect",
+          "sector": "Infraestructura de IA / Agentes de IA",
+          "valoracion": "$1 mil millones",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Recauda $130M en Serie A con valoración de $1B",
+              "detalle": "Prime Intellect, una startup de San Francisco que ofrece infraestructura y herramientas de software para que las empresas construyan sus propios agentes de IA personalizados, ha recaudado $130 millones en una ronda de financiación Serie A, alcanzando una valoración de $1 mil millones. La ronda fue liderada por Radical Ventures, con la participación de Nvidia Ventures, Intel Capital y Dell Technologies Capital.",
+              "fuente": "The SaaS News, StartupHub.ai, Tech Jacks Solutions, KuCoin",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE-n-eAwJEVIVUe1r1Lr4apBwmqcp3yWzBb_iY25LYA-AXji8Um996u3XCmYCr6Hr96GMOWYypImNnvuVLK8ovU57dplBxm7T-ncZDFFiAO6RGUDFCZkFAqmMsO6n1VqachtYjBPdA2A9Uo-oFlfpARIghkWLtolrZLBzc30fp3o8s",
+              "por_que_importa": "Esta financiación significativa y el estatus de unicornio en una etapa temprana (Serie A) demuestran la fuerte demanda de soluciones que permitan a las empresas desarrollar y controlar sus propias capacidades de IA, reduciendo la dependencia de los grandes laboratorios de modelos fundacionales."
+            }
+          ]
+        },
+        {
+          "empresa": "Databento",
+          "sector": "Fintech / Datos de Mercado",
+          "valoracion": "No divulgada (post-Serie B)",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Asegura $97M en financiación Serie B",
+              "detalle": "Databento, una plataforma de datos de mercado con sede en Salt Lake City, ha cerrado una ronda de financiación Serie B de $97 millones. La ronda fue liderada por New Enterprise Associates (NEA) y contó con la participación de DRW Venture Capital, Redpoint Ventures y Tribe Capital. La empresa planea utilizar el capital para expandir su cobertura de clases de activos y geografías, así como para escalar su infraestructura global.",
+              "fuente": "Utah Business Magazine, The SaaS News, Signalbase, Crypto Briefing",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHe1euTA6At9wbaAVaqKbOLCJz1TYtZ6-zSxHvVKqDvZ1CPshgjRQ01rWJPt3fD4Ok673UBPOcjqZPe45GgzC8N_4yXhVBSDXk4j9wOPELEa3tSg9VIdSelU1SzXEoFMBTaawuVGbasc77JnmdOO3FtcSAmkJtaksRFJe9rSIRuhKbs_bHIKqVtXWNk2loKzgRggOuMypW5bgzXd2hddyv5pfOndxSYo9AWqMq7gn61wXWvcLJYrin8-g==",
+              "por_que_importa": "La financiación de Databento resalta la necesidad crítica de acceso rápido y eficiente a datos de mercado institucionales en el sector financiero, y su rápido crecimiento y rentabilidad con un equipo pequeño demuestran un modelo de negocio disruptivo."
+            }
+          ]
+        },
+        {
+          "empresa": "SpaceXAI",
+          "sector": "Inteligencia Artificial (Modelos de Lenguaje Grandes)",
+          "valoracion": "No divulgada (Grok 4.5 es un producto, no la valoración de la empresa)",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Lanzamiento del modelo de IA Grok 4.5",
+              "detalle": "SpaceXAI ha lanzado Grok 4.5, un nuevo modelo de IA optimizado para tareas de codificación y trabajo de agentes, con un precio significativamente más bajo que sus rivales como Anthropic y OpenAI. El modelo se enfoca en la eficiencia de tokens y la velocidad de procesamiento, ofreciendo un costo de $2 por millón de tokens de entrada y $6 por millón de tokens de salida.",
+              "fuente": "MLQ.ai, InfoWorld, VentureBeat, SpaceXAI (Comunicado oficial)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEy15GLAaFMaxd6SuL0Ns_N1MJjEy-3bM735pX5yD8ywEuJAh60VITDQVUwsmtgJ6LUaGEOOXkWhPB4dpqUpMSnKWMvcc2wec1YY21nWwcvYkL_kcnoAFSYY7lv7E4jj0HCsalCKQzftlMuEXft7d45nZYDCSsJ8lxvhd2cHodGrd9bk1_qbnpUllXJxSDip0ICDS36qKfg_VAQq1sEFY49uCyjO1ySsaLoGtvv",
+              "por_que_importa": "El lanzamiento de Grok 4.5 con una estrategia de precios agresiva y un enfoque en la eficiencia podría alterar el mercado de modelos de IA para empresas, impulsando una mayor competencia en costos y rendimiento para tareas de desarrollo de software y agentes autónomos."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-07-10T05:05:36.447649-06:00",
+      "status": "ok"
+    },
+    "top10": {
+      "key": "top10",
+      "title": "📰 Top 10 Noticias",
+      "data": null,
+      "grounding_sources": [],
+      "generated_at": "2026-07-10T05:06:37.889077-06:00",
+      "status": "error",
+      "error": "'NoneType' object has no attribute 'strip'"
+    },
+    "mercados": {
+      "key": "mercados",
+      "title": "💹 Pulso de Mercados",
+      "data": {
+        "pulso_mercados": {
+          "indices": {
+            "seccion": "indices",
+            "datos": [
+              {
+                "nombre": "S&P 500",
+                "valor": "7,503.85",
+                "cambio_pct": "+0.81%",
+                "tendencia": "↑",
+                "fuente": "Google Finance",
+                "url": "https://www.google.com/finance/quote/SPX:INDEXSP?hl=es",
+                "analisis": "El S&P 500 cerró al alza, impulsado por el optimismo en el sector tecnológico."
+              },
+              {
+                "nombre": "NASDAQ Composite",
+                "valor": "N/A",
+                "cambio_pct": "N/A",
+                "tendencia": "↑",
+                "fuente": "MarketScreener España",
+                "url": "https://www.marketscreener.com/quote/index/NASDAQ-COMPOSITE-10617382/news/Wall-Street-repunt-gracias-al-sector-tecnologico-frente-a-la-tension-en-Oriente-Proximo-44222402/",
+                "analisis": "El NASDAQ Composite repuntó, impulsado por un avance del 2.6% en el sector tecnológico."
+              },
+              {
+                "nombre": "Dow Jones Industrial Average",
+                "valor": "52,487.41",
+                "cambio_pct": "+0.27%",
+                "tendencia": "↑",
+                "fuente": "Google Finance",
+                "url": "https://www.google.com/finance/quote/.DJI:INDEXDJX?hl=es",
+                "analisis": "El Dow Jones Industrial Average registró una ligera subida en la última jornada."
+              },
+              {
+                "nombre": "BMV IPC",
+                "valor": "66,107.28",
+                "cambio_pct": "-0.75%",
+                "tendencia": "↓",
+                "fuente": "Grupo BMV",
+                "url": "https://www.bmv.com.mx/es/mercados/indices/IPC",
+                "analisis": "El S&P/BMV IPC experimentó un descenso en su valor al cierre del 8 de julio de 2026."
+              },
+              {
+                "nombre": "USD/MXN",
+                "valor": "17.5223",
+                "cambio_pct": "-0.10%",
+                "tendencia": "↓",
+                "fuente": "Google Finance",
+                "url": "https://www.google.com/finance/quote/USD-MXN?hl=es",
+                "analisis": "El tipo de cambio del dólar estadounidense frente al peso mexicano mostró una ligera depreciación del dólar."
+              }
+            ]
+          },
+          "acciones": {
+            "seccion": "acciones",
+            "datos": [
+              {
+                "nombre": "NVIDIA",
+                "valor": "N/A",
+                "cambio_pct": "N/A",
+                "tendencia": "↑",
+                "fuente": "Bloomberg Línea, XTB",
+                "url": "https://www.bloomberglinea.com/2026/07/06/wall-street-cierra-al-alza-tras-el-rebote-de-las-tecnologicas-mientras-el-oro-vuelve-a-caer/",
+                "analisis": "NVIDIA contribuyó al impulso del sector tecnológico, con el mercado recuperando el optimismo sobre la inteligencia artificial."
+              },
+              {
+                "nombre": "Apple",
+                "valor": "314.90 USD",
+                "cambio_pct": "+0.48%",
+                "tendencia": "↑",
+                "fuente": "MarketScreener España",
+                "url": "https://www.marketscreener.com/quote/stock/APPLE-INC-4849/news/RESUMEN-DE-PRENSA-Wall-Street-Journal-9-de-julio-44222097/",
+                "analisis": "Apple registró un avance en su cotización en la jornada del 9 de julio de 2026."
+              },
+              {
+                "nombre": "Microsoft",
+                "valor": "N/A",
+                "cambio_pct": "N/A",
+                "tendencia": "→",
+                "fuente": "Bloomberg Línea",
+                "url": "https://www.bloomberglinea.com/2026/06/08/openai-solicita-confidencialmente-su-salida-a-bolsa-mientras-sus-rivales-se-lanzan-al-mercado/",
+                "analisis": "Microsoft se mantiene como una de las empresas líderes en el sector tecnológico, aunque no se reportaron movimientos notables en las últimas 24 horas."
+              },
+              {
+                "nombre": "Google (Alphabet)",
+                "valor": "N/A",
+                "cambio_pct": "N/A",
+                "tendencia": "→",
+                "fuente": "Bloomberg Línea",
+                "url": "https://www.bloomberglinea.com/2026/06/08/openai-solicita-confidencialmente-su-salida-a-bolsa-mientras-sus-rivales-se-lanzan-al-mercado/",
+                "analisis": "Alphabet (Google) se posiciona entre las principales empresas en el ámbito de la inteligencia artificial, sin movimientos significativos reportados recientemente."
+              },
+              {
+                "nombre": "Meta",
+                "valor": "N/A",
+                "cambio_pct": "N/A",
+                "tendencia": "→",
+                "fuente": "Bloomberg Línea",
+                "url": "https://www.bloomberglinea.com/2026/06/08/openai-solicita-confidencialmente-su-salida-a-bolsa-mientras-sus-rivales-se-lanzan-al-mercado/",
+                "analisis": "Meta Platforms es considerada una de las gigantes tecnológicas más atractivas para la inversión, sin movimientos notables en las últimas 24 horas."
+              },
+              {
+                "nombre": "Amazon",
+                "valor": "N/A",
+                "cambio_pct": "N/A",
+                "tendencia": "→",
+                "fuente": "Bloomberg Línea",
+                "url": "https://www.bloomberglinea.com/2026/06/08/openai-solicita-confidencialmente-su-salida-a-bolsa-mientras-sus-rivales-se-lanzan-al-mercado/",
+                "analisis": "Amazon se mantiene como una de las empresas tecnológicas clave, sin reportes de movimientos significativos en las últimas 24 horas."
+              },
+              {
+                "nombre": "Tesla",
+                "valor": "N/A",
+                "cambio_pct": "+1.29%",
+                "tendencia": "↑",
+                "fuente": "Benzinga España",
+                "url": "https://es.benzinga.com/noticias/26/07/49504543/wall-street-hoy-tesla-intel-y-sandisk-lideran-las-acciones-a-seguir-mientras-suben-los-futuros",
+                "analisis": "Tesla Inc. subió tras anunciar que superó las previsiones de entrega de vehículos en el segundo trimestre."
+              },
+              {
+                "nombre": "OpenAI",
+                "valor": "Privada",
+                "cambio_pct": "N/A",
+                "tendencia": "→",
+                "fuente": "Bloomberg Línea, Reuters",
+                "url": "https://www.bloomberglinea.com/2025/10/29/openai-podria-aspirar-a-una-valoracion-de-un-us1-billones-en-su-opi-segun-reuters/",
+                "analisis": "OpenAI está considerando una oferta pública inicial (OPI) que podría alcanzar una capitalización de mercado de US$1 billón, aunque también se reportó que no alcanzó objetivos internos de ingresos y usuarios."
+              },
+              {
+                "nombre": "Cerebras Systems (CBRS.US)",
+                "valor": "N/A",
+                "cambio_pct": "N/A",
+                "tendencia": "↑",
+                "fuente": "XTB",
+                "url": "https://www.xtb.com/es/analisis-de-mercado/apertura-de-mercado-en-eeuu-wall-street-rebota-mientras-la-ia-y-los-semiconductores-eclipsan-las-preocupaciones-sobre-iran",
+                "analisis": "Las acciones de Cerebras Systems subieron tras anunciar planes de inversión multimillonaria en infraestructura de IA en Europa."
+              }
+            ]
+          },
+          "earnings": {
+            "seccion": "earnings",
+            "datos": [
+              {
+                "nombre": "JPMorgan Chase",
+                "valor": "N/A",
+                "cambio_pct": "N/A",
+                "tendencia": "N/A",
+                "fuente": "Investing.com",
+                "url": "https://es.investing.com/news/stock-market-news/sp-500-espera-un-crecimiento-de-bpa-del-23-en-julio-2605510",
+                "analisis": "JPMorgan Chase tiene previsto publicar sus resultados financieros a partir del 14 de julio, marcando el inicio de la temporada de resultados para el sector financiero."
+              },
+              {
+                "nombre": "Goldman Sachs",
+                "valor": "N/A",
+                "cambio_pct": "N/A",
+                "tendencia": "N/A",
+                "fuente": "Investing.com",
+                "url": "https://es.investing.com/news/stock-market-news/sp-500-espera-un-crecimiento-de-bpa-del-23-en-julio-2605510",
+                "analisis": "Goldman Sachs también reportará sus cifras a partir del 14 de julio, contribuyendo a establecer el tono para el sector financiero global."
+              }
+            ],
+            "analisis_general": "Para la próxima semana (13-17 de julio de 2026), las fuentes disponibles no mencionan específicamente empresas tecnológicas que reporten resultados. Los reportes más cercanos son de grandes bancos como JPMorgan Chase y Goldman Sachs."
+          },
+          "macro": {
+            "seccion": "macro",
+            "datos": [
+              {
+                "nombre": "Inteligencia Artificial (IA)",
+                "valor": "N/A",
+                "cambio_pct": "N/A",
+                "tendencia": "↑",
+                "fuente": "Bloomberg Línea, XTB, Finbold",
+                "url": "https://www.bloomberglinea.com/2026/07/06/wall-street-subio-hasta-11-tras-un-fuerte-rebote-del-sector-de-semiconductores/",
+                "analisis": "La inteligencia artificial sigue siendo un motor clave de los mercados, liderando la recuperación y el optimismo en el sector tecnológico, aunque la Fed la ha señalado como un factor que contribuye al aumento de la inflación."
+              },
+              {
+                "nombre": "Política Monetaria de la Fed e Inflación",
+                "valor": "N/A",
+                "cambio_pct": "N/A",
+                "tendencia": "→",
+                "fuente": "upday News, Investing.com, Finbold",
+                "url": "https://www.upday.com/es/funcionarios-de-la-fed-divididos-50-50-sobre-subidas-de-tasas-mientras-el-auge-de-la-ia-alimenta-nuevos-temores-inflacionarios-1662986422204648",
+                "analisis": "La Reserva Federal mantuvo las tasas sin cambios en su reunión de junio, pero las actas revelaron divisiones sobre la trayectoria de la inflación, con la mitad de los funcionarios a favor de subir las tasas antes de fin de año."
+              },
+              {
+                "nombre": "Geopolítica (Oriente Medio)",
+                "valor": "N/A",
+                "cambio_pct": "N/A",
+                "tendencia": "→",
+                "fuente": "MarketScreener España, XTB",
+                "url": "https://www.marketscreener.com/quote/index/NASDAQ-COMPOSITE-10617382/news/Wall-Street-repunt-gracias-al-sector-tecnologico-frente-a-la-tension-en-Oriente-Proximo-44222402/",
+                "analisis": "Las tensiones en Oriente Medio continúan siendo un factor de riesgo, aunque los mercados han mostrado signos de estabilización y un retorno al apetito por el riesgo, sopesando la situación geopolítica frente a la fortaleza tecnológica."
+              },
+              {
+                "nombre": "Mercado Laboral de EE. UU.",
+                "valor": "N/A",
+                "cambio_pct": "N/A",
+                "tendencia": "→",
+                "fuente": "MarketScreener España, XTB",
+                "url": "https://www.marketscreener.com/quote/index/NASDAQ-COMPOSITE-10617382/news/Wall-Street-repunt-gracias-al-sector-tecnologico-frente-a-la-tension-en-Oriente-Proximo-44222402/",
+                "analisis": "Los datos de solicitudes de subsidio por desempleo en EE. UU. disminuyeron la semana pasada, sugiriendo un mercado laboral estable a pesar de la desaceleración en la creación de empleo."
+              }
+            ]
+          }
+        }
+      },
+      "grounding_sources": [],
+      "generated_at": "2026-07-10T05:07:11.007098-06:00",
+      "status": "ok"
+    },
+    "radar": {
+      "key": "radar",
+      "title": "🛰️ RADAR Inteligencia",
+      "data": [],
+      "generated_at": "2026-07-10T05:07:14.270163-06:00",
+      "status": "error",
+      "signals_total": 0,
+      "queries_run": 3,
+      "errors": [
+        "HTTP 401 for query: Top AI funding rounds and product launch",
+        "HTTP 401 for query: Big Tech AI announcements Google Microso",
+        "HTTP 401 for query: AI regulation policy changes worldwide l"
+      ]
+    }
+  },
+  "summary": {
+    "sections_ok": 3,
+    "sections_total": 6,
+    "quality": "PARTIAL"
+  }
+}
