@@ -1,0 +1,95 @@
+El Periódico. Edición del 2026-07-11.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+No se encontró información para esta sección.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+Lanzamiento de ChatGPT 5.6 y rediseño de la aplicación. OpenAI lanzó su modelo avanzado ChatGPT 5.6, que incluye la versión insignia Sol, después de un retraso por preocupaciones de ciberseguridad del gobierno de EE. UU.. Además, la compañía rediseñó su aplicación ChatGPT, fusionando Codex y relegando la experiencia de chat a un segundo plano, lo que indica un cambio de enfoque hacia agentes de codificación. Fuente: The Guardian, Inc. Magazine, Platformer.
+Demanda de Apple por robo de secretos comerciales. Apple ha demandado a OpenAI, acusándola de robar secretos comerciales para construir su propio hardware para ChatGPT. La demanda alega que OpenAI alentó a ex-empleados de Apple a compartir información confidencial, socavando su negocio de hardware emergente. Fuente: PBS.
+
+Google DeepMind.
+Disponibilidad general de AlphaEvolve. Google DeepMind ha anunciado la disponibilidad general de AlphaEvolve, un agente de optimización de código impulsado por Gemini, para todos los clientes de Google Cloud. Esta herramienta ayuda a las organizaciones a encontrar algoritmos más eficientes y a optimizar código existente, devolviendo soluciones legibles por humanos. Fuente: blog.google.
+Lanzamiento de Gemini Omni Flash. En Google I/O 2026, Google DeepMind presentó 'Gemini Omni Flash', una nueva familia de modelos diseñada para unificar la generación de video, imagen y audio en un solo sistema. Este modelo permite traducir ideas complejas en videos interactivos que pueden editarse mediante lenguaje conversacional. Fuente: MediaPost.
+
+Anthropic.
+Fuerza Aérea de EE. UU. prohíbe productos de Anthropic. La Fuerza Aérea de EE. UU. está instando a sus contratistas a eliminar todos los productos de Anthropic de sus sistemas antes del 1 de septiembre, anticipándose a una prohibición más amplia del Departamento de Defensa. Esta medida sigue a desacuerdos sobre salvaguardias que limitan el uso de sus sistemas de IA para vigilancia y armas autónomas. Fuente: Breaking Defense.
+Elon Musk elogia a Anthropic y menciona asociación. Elon Musk ha revertido su postura crítica hacia Anthropic, elogiando a la compañía como 'líder en IA' y mencionando una asociación con SpaceXAI. Este cambio de opinión se produce después de que Musk criticara previamente a Anthropic por diversas razones. Fuente: Business Insider.
+
+Meta AI.
+Meta descontinúa función de IA de imágenes por privacidad. Meta ha descontinuado una función de su herramienta de generación de imágenes con IA, Muse Image, que permitía a los usuarios referenciar cuentas públicas de Instagram para crear nuevas imágenes. La decisión se tomó tras una fuerte reacción negativa por preocupaciones de privacidad, incluyendo críticas de la industria de Hollywood. Fuente: Reuters, Fox Business, Los Angeles Times.
+
+Microsoft AI.
+Uso de IA para descubrir vulnerabilidades de seguridad en Windows. Microsoft ha intensificado el uso de la inteligencia artificial, incluyendo su sistema MDASH, para descubrir vulnerabilidades en el código base de Windows, lo que se espera que aumente el volumen de actualizaciones de seguridad. La compañía también está actualizando su Ciclo de Vida de Desarrollo Seguro (SDL) para abordar las técnicas de ataque habilitadas por IA. Fuente: BleepingComputer, Microsoft Windows Blogs.
+Informe de Sostenibilidad Ambiental 2026. Microsoft publicó su Informe de Sostenibilidad Ambiental de 2026, destacando cómo la era de la IA está aumentando la demanda de energía, agua y materiales. La compañía enfatiza su responsabilidad de asegurar que la tecnología fortalezca los sistemas y comunidades, impulsando una infraestructura de IA más eficiente y resiliente. Fuente: Microsoft On the Issues.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+SambaNova.
+Ronda de financiación Serie F de $1 mil millones. SambaNova, desarrollador de chips de IA e infraestructura de IA empresarial, anunció una ronda de financiación Serie F de $1 mil millones, elevando su valoración post-money a $11 mil millones. La ronda fue liderada por General Atlantic, con la participación de una larga lista de inversores, incluyendo Battery Ventures, BlackRock, Capital Group, Intel Capital, Qatar Investment Authority y T. Rowe Price. Fuente: Crunchbase News.
+
+Oxylabs.
+Primera ronda de financiación de €114 millones. Oxylabs, una plataforma de inteligencia web y proveedor de proxies premium, ha cerrado su primera ronda de financiación, recaudando €114 millones (aproximadamente $125 millones de dólares). La ronda se completó en julio de 2026 con un único inversor, lo que subraya la confianza en su capacidad para permitir a las empresas aprovechar el poder del big data. Fuente: Tech.eu Funding Explorer.
+
+Kraken.
+Recauda $175 millones con una valoración de $1 mil millones. Kraken, una startup de barcos autónomos, ha recaudado $175 millones en una ronda de financiación, alcanzando una valoración de $1 mil millones. Esta inversión significativa impulsa el desarrollo de tecnología de navegación autónoma, un área crítica para la logística marítima, la defensa y la exploración oceánica. Fuente: SiliconANGLE.
+
+Cursor.
+SpaceX busca adquirir Cursor en un acuerdo de $60 mil millones. SpaceX está en proceso de un acuerdo de $60 mil millones en acciones para adquirir Cursor, una startup de codificación. Aunque el acuerdo está pendiente de cierre en el tercer trimestre de 2026, la noticia ha sido destacada en informes recientes sobre el panorama de financiación de capital de riesgo, lo que indica la importancia estratégica de las herramientas de codificación impulsadas por IA. Fuente: SiliconANGLE.
+
+Cerebras Systems Inc..
+Completó una exitosa Oferta Pública Inicial (IPO) de $34.3 mil millones. Cerebras Systems Inc., un pionero en la fabricación de chips de IA, completó una IPO de $34.3 mil millones. Aunque la salida a bolsa ocurrió en mayo de 2026, su impacto y rendimiento continúan siendo un tema de análisis en los informes de mercado de julio de 2026, destacando el fuerte interés de los inversores en el sector de chips de IA. Fuente: SiliconANGLE, IPOScoop.
+
+Sección: 📰 Top 10 Noticias.
+
+OpenAI Lanza GPT-Live, la Nueva Generación de Modelos de Voz para Interacción Natural Humano-IA.
+OpenAI ha lanzado GPT-Live, una nueva serie de modelos de voz que permiten una interacción más natural y simultánea entre humanos e IA, superando las limitaciones de los sistemas en cascada anteriores. Esta tecnología ya impulsa ChatGPT Voz, mejorando la fluidez y la capacidad de respuesta. Fuente: OpenAI Help Center.
+¿Por qué importa? Para los fundadores tech, esto representa un avance significativo en la interfaz de usuario de la IA, abriendo nuevas posibilidades para aplicaciones de voz más inmersivas y eficientes, desde asistentes virtuales hasta interfaces de control de sistemas complejos.
+
+La Computación Cuántica Sale del Laboratorio y Llega a las Empresas.
+La computación cuántica está dejando de ser una promesa futurista para encontrar aplicaciones concretas en sectores como la banca, farmacéutica y logística. Empresas como IBM y Microsoft están haciendo avances significativos en la estabilidad y el número de qubits, con el objetivo de alcanzar la ventaja cuántica verificable en los próximos años. Fuente: TN.
+¿Por qué importa? Los fundadores tech deben monitorear de cerca estos avances, ya que la computación cuántica podría revolucionar la optimización, el descubrimiento de materiales y la criptografía, creando nuevas oportunidades y desafíos para la infraestructura tecnológica existente.
+
+La Estrategia de Inversión 'Comprar Chips, Vender Software' Pierde Fuerza en Wall Street.
+La estrategia de inversión dominante de 2026, que favorecía a las empresas de chips sobre las de software, muestra signos de desmoronamiento. Las acciones de software están repuntando tras meses de caídas por temores a la IA, mientras que los fabricantes de chips, que impulsaron el mercado, están flaqueando ante dudas sobre la sostenibilidad de la inversión en IA. Fuente: Bloomberg.
+¿Por qué importa? Esto indica un posible reequilibrio en el mercado tecnológico. Los fundadores de startups de software podrían ver un renovado interés de los inversores, mientras que las empresas de hardware deben justificar sus altas valoraciones con un crecimiento sostenido y real más allá del 'hype' inicial de la IA.
+
+Startup Quaise Energy Recauda $134 Millones en Serie B para Geotermia Supercaliente.
+Quaise Energy, una startup que desarrolla tecnología de perforación por ondas milimétricas para acceder a energía geotérmica supercaliente, ha cerrado una ronda de financiación Serie B de 134 millones de dólares. La inversión, liderada por Prelude Ventures y con participación de JERA e Idemitsu, impulsará el 'Project Obsidian', la primera planta comercial de este tipo. Fuente: Merca2.es.
+¿Por qué importa? Esta noticia es crucial para fundadores en el espacio de energía limpia y tecnología profunda. Demuestra el apetito de los inversores por soluciones innovadoras en energía, incluso con horizontes de desarrollo a largo plazo, y el potencial de tecnologías disruptivas para abordar desafíos globales.
+
+Google DeepMind Advierte sobre la Transición hacia la Superinteligencia Artificial.
+Investigadores de Google DeepMind han publicado un informe que sugiere que la llegada de la Inteligencia Artificial General (AGI) podría ser solo un paso intermedio hacia sistemas capaces de superar a grandes organizaciones humanas (ASI). El informe destaca la importancia de comprender y gestionar esta transición potencialmente rápida y compleja. Fuente: Mundo IA.
+¿Por qué importa? Este análisis subraya la necesidad de que los fundadores tech no solo se enfoquen en el desarrollo de IA, sino también en la ética, la seguridad y la gobernanza de estos sistemas. La comprensión de la trayectoria a largo plazo de la IA es vital para construir tecnologías responsables y sostenibles.
+
+La UE Publica Plan de Acción sobre Ciberseguridad e Inteligencia Artificial.
+La Comisión Europea ha lanzado un Plan de Acción sobre Ciberseguridad e Inteligencia Artificial, estableciendo un enfoque coordinado para abordar los desafíos y oportunidades de la IA avanzada en ciberseguridad. El plan busca garantizar que la UE tenga la capacidad técnica para evaluar riesgos y facilitar el acceso a capacidades avanzadas de IA para actores europeos. Fuente: Cuatrecasas.
+¿Por qué importa? Los fundadores de startups de IA y ciberseguridad deben estar al tanto de este marco regulatorio. La inversión en ciberseguridad impulsada por IA y el cumplimiento de las normativas europeas serán factores críticos para la adopción y el éxito en el mercado de la UE.
+
+Micron Anuncia Inversión de $2.600 Millones en EE. UU. para Fortalecer el Sector Nacional de Semiconductores.
+Micron Technology ha anunciado una inversión de 2.600 millones de dólares en Estados Unidos para fortalecer el ecosistema nacional de semiconductores, incluyendo una planta de fabricación de obleas de silicio en bruto de GlobalWafers. Esta iniciativa busca asegurar la cadena de suministro y apoyar la expansión de la infraestructura de fabricación de chips en el país. Fuente: Infobae.
+¿Por qué importa? Esta inversión es una señal clara de la creciente importancia estratégica de la fabricación local de semiconductores. Los fundadores de hardware y startups que dependen de chips deben considerar las implicaciones de estas tendencias de relocalización y diversificación de la cadena de suministro.
+
+La Realidad Aumentada y la IA Generativa Impulsan las Gafas Inteligentes en 2026.
+La realidad aumentada (RA) y la inteligencia artificial generativa están convergiendo para impulsar el despegue de las gafas inteligentes ligeras en 2026. Se espera que la IA actúe como el 'cerebro' y la RA como los 'ojos', permitiendo la creación de contenido instantáneo y una comprensión contextual del entorno. Fuente: Realidad Aumentada 2026.
+¿Por qué importa? Para los fundadores tech, esto abre un nuevo paradigma en la interacción humano-computadora. Las startups que desarrollen aplicaciones, hardware o plataformas para este ecosistema de 'inteligencia inmersiva' podrían capitalizar una tendencia de mercado masiva, pero deben considerar los desafíos de privacidad y ética.
+
+Mercados Asiáticos Ofrecen Oportunidades de Inversión Pese a Dólar Fuerte, Impulsados por IA.
+Los mercados emergentes de Asia, junto con Brasil y México, están mostrando oportunidades de inversión a pesar de la fortaleza del dólar. Corea del Sur y Taiwán, en particular, lideran con rendimientos de dos dígitos, impulsados por su papel clave en la cadena de suministro de semiconductores y la inteligencia artificial. Fuente: Expansión.
+¿Por qué importa? Los fundadores tech que busquen capital o expandir sus operaciones deben considerar la creciente importancia de los mercados asiáticos, especialmente aquellos vinculados a la IA y los semiconductores. La diversificación geográfica de las inversiones y las operaciones puede ser una estrategia clave.
+
+Startup Lyzr Recauda $100 Millones en Serie B con Ayuda de su Propia IA para la Gestión de Inversiones.
+La startup Lyzr, especializada en agentes de IA para empresas, ha logrado recaudar 100 millones de dólares en su ronda de inversión Serie B utilizando su propio sistema de IA, 'SivaClaw', para gestionar el proceso. Este sistema interactuó con más de 130 inversores potenciales, preparando documentos y analizando el interés, marcando una nueva tendencia en el capital de riesgo. Fuente: Zamin.uz.
+¿Por qué importa? Esto demuestra el potencial transformador de la IA en funciones empresariales tradicionalmente humanas, como la recaudación de fondos. Los fundadores tech pueden explorar cómo la IA puede optimizar procesos internos y externos, desde la gestión de inversores hasta la automatización de ventas, liberando tiempo para el desarrollo de productos y la estrategia.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
