@@ -1,0 +1,96 @@
+El Periódico. Edición del 2026-07-12.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+No se encontró información para esta sección.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+OpenAI lanza ChatGPT Work para automatización de tareas. OpenAI ha lanzado ChatGPT Work, un agente de IA integrado en su chatbot insignia, impulsado por GPT-5.6. Este producto busca transformar ChatGPT de una herramienta de preguntas y respuestas a una plataforma de trabajo autónoma capaz de ejecutar tareas complejas en correo electrónico, calendarios y aplicaciones de mensajería. Fuente: VentureBeat.
+Apple demanda a OpenAI por robo de secretos comerciales. Apple ha demandado a OpenAI y a dos de sus ejecutivos, alegando que robaron secretos comerciales de Apple para desarrollar su propio hardware. La demanda acusa a OpenAI de tomar atajos ilegales y de un patrón coordinado de mala conducta a nivel institucional. Fuente: CBS News.
+
+Google DeepMind.
+Google DeepMind presenta Gemini 3 Deep Think para razonamiento avanzado. Google DeepMind ha anunciado Gemini 3 Deep Think, un modo de razonamiento especializado actualizado para abordar desafíos complejos en ciencia, investigación e ingeniería. Este modelo de IA tiene como objetivo acelerar el descubrimiento matemático y científico. Fuente: AISurfing.
+Protestas en San Francisco contra el ritmo de desarrollo de la IA. Cientos de personas protestaron en San Francisco el 11 de julio frente a las oficinas de OpenAI, Anthropic y Google DeepMind, manifestando preocupación por el ritmo del desarrollo de la IA. La protesta subraya la creciente oposición pública y la presión regulatoria sobre las empresas de IA. Fuente: Lumien.
+
+Anthropic.
+Anthropic descubre el 'J-space' en Claude, un espacio de pensamiento interno. Investigadores de Anthropic han desarrollado una herramienta para leer el 'espacio de trabajo' interno de Claude, denominado 'J-space', donde el modelo razona en 'pensamientos no expresados'. Este avance ofrece una visión sin precedentes de cómo los modelos de lenguaje grandes procesan la información. Fuente: TNW.
+Anthropic retira función de Claude Code por envío de metadatos de usuarios chinos. Anthropic admitió haber incrustado código en Claude Code que enviaba metadatos sobre algunos usuarios chinos, lo que generó preocupaciones de privacidad y llevó a una rápida reversión de la función. Este incidente subraya los riesgos de confianza en los sistemas de IA de código cerrado. Fuente: Cybernews.
+
+Meta AI.
+Meta descontinúa la función de IA Muse Image por preocupaciones de privacidad. Meta ha descontinuado su función de IA Muse Image, que permitía a los usuarios generar imágenes utilizando cuentas públicas de Instagram, debido a la fuerte crítica por preocupaciones de privacidad. La función fue retirada días después de su lanzamiento. Fuente: Reuters.
+Detector de IA de Meta falla en identificar imágenes generadas por sí mismo. Un informe de Reuters reveló que la herramienta de detección de IA de Meta para Muse Image no logró identificar más de la mitad de las imágenes generadas por el propio modelo una vez que fueron recortadas. Esto destaca los desafíos en la detección de contenido generado por IA. Fuente: Gizmodo.
+
+Microsoft AI.
+Microsoft emplea IA para identificar y corregir vulnerabilidades de seguridad en Windows. Microsoft está utilizando IA para identificar proactivamente vulnerabilidades de seguridad en Windows antes de que los hackers puedan explotarlas, lo que resultará en actualizaciones de seguridad más frecuentes. La compañía está actualizando su modelo de desarrollo de software seguro para abordar amenazas impulsadas por IA. Fuente: PCWorld.
+Emisiones de carbono de Microsoft aumentan 25% por inversión en infraestructura de IA. Las emisiones de carbono de Microsoft aumentaron un 25% en 2025, principalmente debido a la expansión de sus inversiones en infraestructura de centros de datos de IA. Este crecimiento presenta un desafío para su objetivo de ser carbono negativo para 2030. Fuente: Engadget.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Mango.
+Mango levanta 6 millones de dólares para el primer buró de crédito de la construcción en México. La startup mexicana Mango, una plataforma de infraestructura financiera para la industria de la construcción, cerró una ronda Seed+ de 6 millones de dólares. Esta inversión fue liderada por Brick & Mortar Ventures y contó con la participación de Ironspring Ventures, lo que eleva el capital total levantado por la compañía desde su fundación a 6 millones de dólares. Los fondos permitirán acelerar el desarrollo tecnológico, fortalecer el análisis de datos, ampliar la oferta de productos financieros y expandir la presencia de la compañía en México y América Latina. Fuente: Forbes México.
+
+MiniMax.
+MiniMax cierra ronda de USD $2.000 millones y su CEO promete no cobrar salario hasta lograr AGI. MiniMax, una startup de inteligencia artificial, ha anunciado el cierre de una nueva ronda de financiación por 2.000 millones de dólares. Este movimiento subraya la intensa carrera global por desarrollar sistemas de IA cada vez más avanzados. El CEO de la compañía se ha comprometido a no recibir salario hasta que la empresa logre la Inteligencia Artificial General (AGI), lo que refleja una fuerte convicción en su visión a largo plazo. Fuente: Diario Bitcoin.
+
+Addi.
+Addi cierra una Serie D de US$85 millones para acelerar su crecimiento e inversión en IA. La fintech colombiana Addi ha cerrado una ronda de inversión Serie D por 85 millones de dólares, una de las mayores inyecciones de capital para una empresa tecnológica colombiana en los últimos años. La operación fue coliderada por Citius y BTG Pactual, y permitirá a Addi acelerar su crecimiento comercial y potenciar el desarrollo de nuevas capacidades tecnológicas, con un enfoque particular en la inteligencia artificial. El CEO de Addi, Santiago Suárez, indicó que esta ronda no era estrictamente necesaria, pero fue aceptada debido al interés de Citius, y esperan que sea la última por un tiempo, dada la rentabilidad y el crecimiento del negocio. Fuente: Startuplinks noticias.
+
+Lyzr.
+Startup de IA utiliza su propio agente para recaudar 100 millones de dólares. Lyzr, una startup de IA con sede en Jersey City, Nueva Jersey, ha recaudado 100 millones de dólares en su ronda de financiación Serie B. Lo notable de esta ronda es que la empresa utilizó su propio agente de inteligencia artificial, SivaClaw, para interactuar con más de 130 inversores, redactar memorandos de inversión y seguir las presentaciones. Este enfoque innovador eliminó la necesidad de viajes físicos de los fundadores a Silicon Valley, demostrando la eficacia de su tecnología. Fuente: Cadena 3.
+
+Robo.ai.
+Robo.ai construye el 'Parque Industrial Robo.ai' en los EAU para logística inteligente y eVTOL. Robo.ai está actualmente construyendo el 'Parque Industrial Robo.ai' en los Emiratos Árabes Unidos, con el objetivo de establecer un centro para el despliegue de vehículos eléctricos de despegue y aterrizaje vertical (eVTOL) y soluciones de logística inteligente. Esta iniciativa forma parte de su hoja de ruta más reciente para 2025-2026, que también incluye la comercialización a gran escala de su marca de logística autónoma Astra y la integración de billeteras digitales en sus nodos vehiculares para transacciones automatizadas máquina a máquina. Fuente: Bitget.
+
+Sección: 📰 Top 10 Noticias.
+
+Apple demanda a OpenAI por robo de secretos comerciales en su división de hardware.
+Apple presentó una demanda contra OpenAI el 11 de julio de 2026, acusando a la empresa de IA de orquestar una campaña para robar secretos comerciales relacionados con el desarrollo de dispositivos. La demanda alega que más de 400 exempleados de Apple ahora trabajan en OpenAI y que se les incentivó a compartir información confidencial. Fuente: AP News.
+¿Por qué importa? Esta demanda subraya la intensa competencia por el talento y la propiedad intelectual en el sector de la IA, lo que podría sentar un precedente sobre cómo las empresas protegen sus innovaciones y gestionan la fuga de cerebros, impactando las estrategias de contratación y desarrollo de productos para fundadores tech.
+
+Meta Platforms revela estrategia para vender capacidad de cómputo de IA y producir chips propios 'Iris'.
+Meta Platforms está desarrollando planes para una unidad de negocio en la nube, 'Meta Compute', que venderá acceso a su capacidad de cómputo de IA y modelos, compitiendo con AWS, Azure y Google Cloud. Además, la compañía comenzará a producir sus propios chips de IA, denominados 'Iris', en septiembre de 2026, con el objetivo de reducir la dependencia de proveedores externos. Fuente: Bloomberg.
+¿Por qué importa? Este movimiento posiciona a Meta como un competidor directo en el mercado de infraestructura de IA, lo que podría alterar la dinámica de costos y disponibilidad para startups que buscan recursos de cómputo avanzados, ofreciendo nuevas opciones pero también intensificando la competencia.
+
+SK Hynix realiza el mayor debut de ADR en Nasdaq, recaudando $26.5 mil millones impulsado por la demanda de IA.
+SK Hynix, un proveedor líder de memoria de alto ancho de banda (HBM) para chips de IA, debutó en Nasdaq el 10 de julio de 2026, recaudando aproximadamente $26.5 mil millones en la mayor oferta de American Depositary Receipts (ADR) de la historia. La fuerte demanda refleja el interés de los inversores en la infraestructura de IA y la escasez de productos de memoria avanzados. Fuente: The Wall Street Journal.
+¿Por qué importa? Este IPO récord destaca la enorme capitalización y el apetito del mercado por empresas clave en la cadena de suministro de IA, indicando dónde se está concentrando la inversión a gran escala y la importancia de la infraestructura de hardware para el futuro de la IA.
+
+OpenAI lanza públicamente GPT-5.6 en tres versiones y presenta ChatGPT Work para tareas empresariales.
+OpenAI lanzó su nueva familia de modelos GPT-5.6 (Sol, Terra y Luna) el 9 de julio de 2026, con un enfoque en la mejora de la eficiencia y la capacidad para tareas de codificación y trabajo empresarial. También introdujo ChatGPT Work, un agente diseñado para realizar trabajos completos en lugar de solo responder preguntas. Fuente: OpenAI.
+¿Por qué importa? La disponibilidad de modelos de IA más potentes y especializados para el trabajo, junto con un enfoque en la eficiencia de tokens, podría acelerar la adopción de la IA en flujos de trabajo empresariales y reducir los costos operativos para las startups, democratizando el acceso a capacidades avanzadas.
+
+SpaceXAI (anteriormente xAI) lanza Grok 4.5 con un fuerte enfoque en codificación y tareas empresariales.
+SpaceXAI, la división de IA de Elon Musk (anteriormente xAI), lanzó Grok 4.5 el 8 de julio de 2026, destacando sus capacidades en codificación, finanzas y tareas autónomas. El modelo fue entrenado junto con la plataforma de codificación Cursor, adquirida recientemente, y busca competir en el mercado empresarial de IA. Fuente: Forbes.
+¿Por qué importa? La entrada de Grok 4.5 en el espacio empresarial, especialmente con capacidades de codificación avanzadas, intensifica la competencia en el mercado de modelos de IA y ofrece nuevas herramientas para desarrolladores y empresas, impulsando la innovación y la eficiencia en el desarrollo de software.
+
+Anthropic supera a OpenAI en ingresos anualizados, impulsado por clientes empresariales y desarrolladores.
+Anthropic ha superado a OpenAI en su tasa de ingresos anualizados, alcanzando los $30 mil millones en abril de 2026, con aproximadamente el 85% de sus ingresos provenientes de clientes empresariales y desarrolladores. Este hito subraya la efectividad de su modelo de negocio enfocado en B2B frente al de OpenAI, más centrado en el consumidor. Fuente: Forbes.
+¿Por qué importa? La rentabilidad de Anthropic a través de un modelo B2B demuestra que la monetización de la IA a nivel empresarial es una estrategia viable y potencialmente más sostenible que la dependencia de suscripciones de consumo, ofreciendo un modelo a seguir para startups de IA.
+
+El mercado de valores de EE. UU. se está volviendo 'demasiado grande para fracasar', según analistas.
+Analistas sugieren que el mercado de valores de EE. UU. ha crecido tanto y está tan interconectado con la economía que se está volviendo 'demasiado grande para fracasar'. Esto implica que los formuladores de políticas podrían verse obligados a intervenir en caso de una caída prolongada, dada la amplia propiedad de acciones entre los estadounidenses. Fuente: Morningstar.
+¿Por qué importa? Esta tendencia sugiere una posible intervención gubernamental en futuras crisis de mercado, lo que podría influir en la percepción del riesgo y las estrategias de inversión para los fundadores tecnológicos que dependen del capital de riesgo y los mercados públicos.
+
+La Ley '21st Century ROAD to Housing Act' se convierte en ley en EE. UU., buscando facilitar la construcción de viviendas.
+La '21st Century ROAD to Housing Act' se convirtió en ley el 11 de julio de 2026, con el objetivo de reducir las barreras innecesarias a la construcción de viviendas, fortalecer los bancos comunitarios y asegurar que las familias, no los inversores institucionales, tengan una oportunidad justa de comprar una casa. La ley también prohíbe la emisión de una Moneda Digital del Banco Central (CBDC) hasta el 31 de diciembre de 2030. Fuente: U.S. House Committee on Financial Services.
+¿Por qué importa? Esta legislación podría impactar el sector inmobiliario y la financiación de proyectos, así como la política monetaria futura, afectando indirectamente las condiciones económicas generales para las startups. La prohibición de una CBDC también es relevante para las fintech y el futuro de los pagos digitales.
+
+La inteligencia artificial remodela el mercado financiero de EE. UU. mientras EX DeFi lanza tecnología de trading impulsada por IA.
+El mercado financiero de EE. UU. está experimentando cambios estructurales impulsados por la IA, con un flujo creciente de capital internacional hacia empresas tecnológicas. En este contexto, EX DeFi ha lanzado una tecnología de trading automatizado basada en IA, que combina inteligencia artificial, análisis de big data y ejecución automatizada para ofrecer una experiencia de trading más inteligente y eficiente. Fuente: GlobeNewswire.
+¿Por qué importa? La creciente integración de la IA en el trading y la asignación de capital indica una transformación fundamental en los mercados, creando oportunidades y desafíos para las startups fintech y aquellas que buscan financiación, al tiempo que resalta la necesidad de comprender las herramientas de IA en finanzas.
+
+Bruselas exige a Meta cambios en el diseño 'adictivo' de Instagram y Facebook.
+La Comisión Europea ha acusado a Meta de violar la normativa de Servicios Digitales de la UE debido al diseño 'adictivo' de Instagram y y Facebook, que incluye funciones como el 'scroll infinito' y la reproducción automática. Bruselas exige cambios en el diseño de las plataformas y amenaza con multas significativas si no se implementan medidas para proteger el bienestar de los usuarios, especialmente menores. Fuente: EL PAÍS.
+¿Por qué importa? Esta presión regulatoria sobre las grandes plataformas tecnológicas resalta la creciente importancia de la ética en el diseño de productos y la protección del usuario, un factor crítico para cualquier fundador que desarrolle aplicaciones con elementos de interacción social, y que debe considerar el impacto social de su tecnología.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
