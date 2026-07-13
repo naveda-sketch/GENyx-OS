@@ -1,0 +1,82 @@
+El Periódico. Edición del 2026-07-13.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Elon Musk.
+Miles de empleados de SpaceX se convierten en millonarios y ambiciones lunares/marcianas. Elon Musk declaró que la valoración de SpaceX ha convertido a miles de empleados en millonarios, tras la salida a bolsa de la compañía en junio con una capitalización de mercado de aproximadamente 2 billones de dólares. SpaceX superó brevemente a Microsoft y se estableció como la quinta empresa más grande del mundo por valor de mercado. Musk también reiteró sus ambiciones a largo plazo de establecer bases en la Luna y Marte. Fuente: The Times of India.
+Disputa con Sam Altman y planes de centros de datos orbitales. Elon Musk acusó a Sam Altman de 'estafar a un nivel completamente nuevo' y de robar tecnología de Apple, en medio de una demanda de Apple contra OpenAI. Musk también afirmó que SpaceX comenzará a volar sus centros de datos orbitales el próximo año, en un intercambio de declaraciones con Altman. Fuente: Forbes, Benzinga.
+Fundación Musk financió viaje de Tommy Robinson a Rusia. El padre de Elon Musk, Errol Musk, declaró que la fundación familiar de Elon Musk financió el viaje de Tommy Robinson, activista británico de extrema derecha, a Rusia. Robinson se reunió con figuras empresariales rusas y promovió protestas antimigratorias en Gran Bretaña. Fuente: The Guardian.
+
+Satya Nadella.
+Acuña el término 'Paradoja Inversa de la Información' y advierte sobre riesgos de IA. Satya Nadella acuñó el término 'Paradoja Inversa de la Información', advirtiendo que las empresas corren el riesgo de ceder conocimiento propietario al usar herramientas de IA. Propuso un enfoque de cinco puntos para solucionar este problema, enfatizando la importancia de que las empresas posean su infraestructura de IA y no dependan de un solo modelo. Fuente: Benzinga, Business Standard, The Indian Express.
+
+Jensen Huang.
+La IA transforma la ingeniería de software en NVIDIA. Jensen Huang afirmó que la IA está transformando los roles de los ingenieros de software en NVIDIA, quienes ahora se centran menos en la codificación en Python y más en el desarrollo de agentes de IA, puntos de referencia y salvaguardias. Huang cree que la IA está creando nuevas oportunidades laborales y mejorando la productividad general. Fuente: The Times of India.
+NVIDIA lanza Ising y posiciona la IA como 'plano de control' cuántico. Jensen Huang declaró que la IA es el 'plano de control' de las máquinas cuánticas, coincidiendo con el lanzamiento de Ising por parte de NVIDIA, una familia de modelos abiertos para acelerar el desarrollo de procesadores cuánticos. Ising busca convertir los procesadores cuánticos en sistemas escalables y confiables. Fuente: Stocktwits.
+
+Sam Altman.
+Afirma que el modelo 5.6 Sol es el 'mejor del mundo' y disputa con Musk. Sam Altman afirmó que el modelo de IA más reciente de OpenAI, 5.6 Sol, es el 'mejor modelo del mundo en este momento', en un comentario dirigido a Elon Musk. Esto ocurrió en medio de una disputa pública en la que Musk acusó a Altman de 'estafar'. Fuente: Forbes.
+Respuesta a la demanda de Apple por secretos comerciales. Sam Altman declaró que 'no le teme a Apple' después de que la compañía presentara una demanda contra OpenAI por presunto robo de secretos comerciales. Apple alega que OpenAI alentó a ex empleados de Apple a compartir información confidencial para el desarrollo de sus propios dispositivos. Fuente: Stocktwits.
+Búsqueda de valoración de 1 billón de dólares para IPO de OpenAI. OpenAI busca una valoración de 1 billón de dólares para su salida a bolsa, aunque los asesores no están convencidos de que sea factible a corto plazo. SoftBank, un inversor clave, tiene un préstamo de 40 mil millones de dólares que vence en marzo de 2027 y presiona para que la IPO se realice según lo previsto. Fuente: The Motley Fool.
+
+Sundar Pichai.
+Admisión de rezago en la carrera de IA en codificación agéntica. Sundar Pichai admitió que Google está rezagado frente a rivales como Anthropic y OpenAI en la codificación agéntica, una capacidad de IA que se ha convertido en un campo de batalla lucrativo. Aunque los modelos de Google son fuertes en texto, multimodalidad, voz y razonamiento, no lo son en tareas de codificación de largo alcance. Fuente: The Times of India.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+Lanzamiento de GPT-Live. OpenAI ha lanzado GPT-Live, una IA de voz de dúplex completo que puede escuchar, hablar y razonar de manera simultánea, a diferencia de los modelos anteriores que tomaban turnos. Esta tecnología busca mejorar la interacción conversacional con la IA. Fuente: AI News Today / OpenAI News.
+Demanda de Apple y disputa Musk-Altman. Apple presentó una demanda contra OpenAI el 11 de julio por el presunto robo de secretos comerciales y la contratación de más de 400 de sus exempleados. Este evento desencadenó un enfrentamiento público en X entre Elon Musk y Sam Altman, dominando el discurso tecnológico durante el fin de semana. Fuente: AI News Today / AIpster.
+Lanzamiento de GPT-5.6 Sol, Terra y Luna. OpenAI ha lanzado GPT-5.6 Sol, su modelo más potente para tareas agénticas en codificación, biología y ciberseguridad, con una eficiencia de tokens un 54% mayor. También introdujo Terra, un modelo equilibrado y rentable, y Luna, un modelo rápido y asequible. GPT-5.6 Sol es ahora el modelo preferido en Microsoft 365 Copilot. Fuente: Fox Business Video / PYMNTS.com / OpenAI News.
+
+Google DeepMind.
+Lanzamiento de agentes Deep Research y Deep Research Max. Google DeepMind ha lanzado en vista previa pública los agentes Deep Research y Deep Research Max, impulsados por Gemini 3.1 Pro. Estos agentes de IA autónomos están diseñados para la investigación, con soporte para MCP, gráficos nativos, entradas multimodales y la capacidad de consultar más de 100 fuentes por tarea. Fuente: ETIH EdTech News.
+El cambio de la IA hacia el 'pensamiento lento'. Ed Chi, vicepresidente de investigación en Google DeepMind, destacó que el futuro de la IA se dirige hacia capacidades de razonamiento más profundas, pasando del reconocimiento rápido de patrones a un 'pensamiento lento' o de Sistema 2. Esto marca el inicio de una nueva era de agentes de IA con mayor capacidad de razonamiento. Fuente: digitimes.
+Próximo lanzamiento de Gemini 3.5 Pro. Se ha filtrado que Gemini 3.5 Pro de Google DeepMind se lanzará el 17 de julio de 2026. Este modelo incluirá un preentrenamiento desde cero, una ventana de contexto de 2 millones de tokens y capacidades de razonamiento 'Deep Think' en su nivel Ultra, con precios API competitivos. Fuente: AI News Today.
+
+Anthropic.
+Claude Cowork disponible en móvil y web. Anthropic ha lanzado oficialmente Claude Cowork para plataformas móviles y web, extendiendo el agente digital más allá de su aplicación de escritorio original. Esta actualización permite el procesamiento en segundo plano basado en la nube, lo que significa que las tareas programadas y la agregación de datos pueden continuar ejecutándose de forma autónoma, incluso sin conexión. Fuente: AIpster.
+Lanzamiento de la beca Claude Corps. Anthropic ha anunciado Claude Corps, un programa de becas remuneradas de 12 meses para capacitar a personas al inicio de su carrera como profesionales de IA en organizaciones sin fines de lucro. El programa busca construir capacidad de IA en sectores que no pueden competir por talento a salarios de mercado. Fuente: AI News Today.
+Descubrimiento del 'J-space' para la transparencia de modelos. Anthropic ha descubierto el 'J-space', un conjunto de patrones neuronales internos que ofrecen una nueva visibilidad sobre cómo sus modelos resuelven problemas. Este avance mejora la transparencia de la IA, permitiendo entender mejor el razonamiento interno de modelos como Claude. Fuente: CIO.
+
+Meta AI.
+Lanzamiento y precios de Muse Spark 1.1. Meta ha lanzado Muse Spark 1.1, un modelo de IA con capacidades de codificación y tareas agénticas. El acceso al modelo tiene un costo de $1.25 por millón de tokens de entrada y $4.25 por millón de tokens de salida. Fuente: Barchart.com.
+Negocio de nube Meta Compute y chip Iris AI. Meta planea lanzar Meta Compute, un negocio de nube para monetizar su capacidad de cómputo excedente, compitiendo con AWS y Azure. Además, la compañía tiene previsto iniciar la producción de su chip de IA interno, Iris, en septiembre de 2026, buscando reducir la dependencia de aceleradores de terceros. Fuente: AI Funding Tracker / StocksToTrade / The Cryptonomist.
+Posible cambio a modelos de IA cerrados. Existe especulación de que Meta podría estar considerando un cambio en su estrategia de IA, pasando de sus modelos Llama de código abierto a modelos 'frontier' más potentes y potencialmente propietarios. Estos modelos podrían ser lanzados inicialmente como cerrados para gestionar riesgos de seguridad y proteger especificaciones. Fuente: MediaPost.
+
+Microsoft AI.
+Recortes de empleo y reestructuración hacia la IA. Microsoft está eliminando aproximadamente 4,800 puestos de trabajo, lo que representa el 2.1% de su fuerza laboral, como parte de una reestructuración que prioriza las inversiones en infraestructura de IA. La empresa ha aclarado que estos recortes no se deben a la sustitución de roles por IA, sino a una realineación de recursos. Fuente: The Business Standard / Insurance Journal.
+Creación de Microsoft Frontier y aumento de precios de M365. Microsoft ha creado 'Microsoft Frontier', una nueva empresa de $2.5 mil millones con 6,000 ingenieros dedicados a impulsar la adopción de la IA en empresas. Simultáneamente, los precios de Microsoft 365 están aumentando, con incrementos del 8-15% para planes empresariales y del 25-33% para planes de primera línea. Fuente: Microsoft 365 AI Workplace Update July 2026.
+Actualizaciones de Copilot y disponibilidad general de Cowork. Microsoft ha lanzado varias actualizaciones para Copilot, incluyendo la selección de Sonnet 5, razonamiento Work IQ sobre Power BI y nuevas capacidades de visión. Además, Cowork ha alcanzado la disponibilidad general (GA) con un modelo de costos basado completamente en el consumo, lo que permite a las empresas gestionar mejor sus gastos de IA. Fuente: Microsoft 365 AI Workplace Update July 2026.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Anthropic PBC.
+Ronda de financiamiento de $65 mil millones. Anthropic cerró una ronda de financiamiento de $65 mil millones en el segundo trimestre de 2026, elevando su valoración post-dinero a $965 mil millones. Esta inyección de capital la posiciona por delante de OpenAI Group PBC en términos de valoración, destacando la intensa competencia en el sector de la IA. Fuente: SiliconANGLE.
+
+SpaceX.
+IPO de $1.7 billones en el segundo trimestre de 2026. SpaceX completó una oferta pública inicial (IPO) de $1.7 billones en el segundo trimestre de 2026, generando un valor récord para una salida a bolsa de una empresa respaldada por capital de riesgo en EE. UU. Fuente: SiliconANGLE.
+Adquisición de Cursor, una startup de codificación de IA, por $60 mil millones. SpaceX acordó adquirir la startup de codificación de IA, Cursor, en una transacción de acciones valorada en $60 mil millones. Esta adquisición, esperada para cerrarse en el tercer trimestre de 2026, integrará las herramientas de codificación de IA de Cursor en el ecosistema de SpaceX. Fuente: ListingTrack / SiliconANGLE.
+
+Twenty.
+Cierre de ronda de financiamiento Serie B por $100 millones. Twenty ha recaudado $100 millones en una ronda de financiamiento Serie B, lo que valora a la compañía en $1 mil millones. Este financiamiento indica una fuerte confianza de los inversores en su potencial de crecimiento. Fuente: Datapile.
+
+Allium.
+Recauda $40 millones para expandir servicios de datos blockchain. Allium, una plataforma de datos empresariales con sede en Nueva York, ha recaudado $40 millones para expandir su infraestructura de servicios de datos blockchain. La empresa atiende a clientes importantes como Visa, Stripe y Fidelity, que requieren análisis confiables en cadena para sus operaciones. Fuente: Datapile.
+
+Twelve Labs.
+Asegura financiamiento Serie B para inteligencia de video. Twelve Labs, una empresa líder en inteligencia de video, ha asegurado financiamiento en una ronda Serie B. La compañía ha desarrollado un sistema único para transformar video en inteligencia accionable, dirigido a empresas y creadores para utilizar eficazmente vastos archivos de video. Fuente: Datapile.
+
+Sección: 📰 Top 10 Noticias.
+
+No se encontró información para esta sección.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
