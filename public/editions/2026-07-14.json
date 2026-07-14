@@ -1,0 +1,470 @@
+{
+  "version": "2.0",
+  "date": "2026-07-14",
+  "generated_at": "2026-07-14T05:00:11.709801-06:00",
+  "timezone": "CST (UTC-6)",
+  "language": "es-MX",
+  "tier": "Tier 4",
+  "sections": {
+    "titans": {
+      "key": "titans",
+      "title": "🏛️ Los Titans",
+      "data": [
+        {
+          "nombre": "Satya Nadella",
+          "empresa": "Microsoft",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Advertencia sobre el doble pago en IA",
+              "detalle": "Satya Nadella, CEO de Microsoft, ha expresado su preocupación de que las empresas podrían estar pagando dos veces por la inteligencia artificial: primero con dinero y luego con la entrega de datos estratégicos a los proveedores de modelos de IA. Su advertencia se centra en los derechos sobre los datos de uso y las condiciones que los proveedores establecen para almacenarlos o aprender de ellos.",
+              "fuente": "DiarioBitcoin",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFGdS-YvaDPR9q7oZURpdOtGJ8_OrW9uno-Ku6LnYGxfM-c0PpTJ1YDidIOtp62Vn9Q__6xTrhl8cmaZu8VRYq0Ux4kdAy8TEFmCVK8UQLyG55fsAFxAF_poz4cG2kUCIJ_FvSBSty2CekxduBdrn_z1QlcbkNN47v9Q65w68wkJl-WivGWV6Vh6od7afANAZHEfMGdALF1mJGTMM3jF-Zig_EfX_HHCj1x08qqWcTv1mnec8o1pLXtIGmplQ",
+              "impacto": "Esta declaración subraya la creciente preocupación por la soberanía de los datos y la propiedad intelectual en la era de la IA, lo que podría impulsar a las empresas a buscar soluciones de IA de código abierto o a negociar acuerdos más estrictos con los proveedores."
+            }
+          ]
+        },
+        {
+          "nombre": "Jensen Huang",
+          "empresa": "NVIDIA",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Desmiente rumores de retrasos y aborda competencia de chips ASIC",
+              "detalle": "Jensen Huang, CEO de NVIDIA, junto con la CFO Colette Kress y el director de Relaciones con Inversores, Toshiya Hari, asistieron a un roadshow para inversores organizado por Morgan Stanley. En este evento, Huang abordó directamente las preocupaciones de los inversores institucionales sobre el progreso de los productos, la competencia de los chips ASIC y la sostenibilidad del crecimiento de NVIDIA, desmintiendo rumores de retrasos.",
+              "fuente": "TradingKey",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGs2wjSVQQyLMxbTXSfOGwkbRA9tEq7vd3h0o6eoKQxliGpeRk-RRC4VUoIrdg2WnjYV5SYD3q6MZu5EW6rawMZn9Q9Dfp1v7GG7WweJ-2EAR8S9SvhkkB6d3Ro_sEwA52biY-pidIqmn0dIQnSRltSwRozCj83_mXuOPo6VY4YQyucGnGRJTHu0MokXmAY28puiSWYCK0rc-5JAav1-KrPT7xBB4LDIF-y_VjJhD66FFAdFT5MFRcvfOLnPw",
+              "impacto": "Esta intervención directa busca tranquilizar a los inversores sobre la capacidad de NVIDIA para mantener su liderazgo en el mercado de IA y chips, mitigando la incertidumbre sobre la competencia y el desarrollo de productos."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "China no necesita chips de NVIDIA para su ejército",
+              "detalle": "Jensen Huang declaró que China \"no necesita los chips de Nvidia, ni las plataformas tecnológicas estadounidenses, para construir su ejército\". Esta afirmación se produce en un contexto donde las autoridades chinas han comunicado a empresas como Alibaba y ByteDance que pronto podrán adquirir chips H200.",
+              "fuente": "Xataka México",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEgcp83Shm3kPg1WXUBsNQrs_iiSZYWXR7gnoGB2-9-qWZ2891aEkPT1hND-isgErreLNtaOXa3pnTvaRw0pHw93G4ez_C0-m7pxBhOm78Emj01RZ1Bm_nSeQgNeDBdo8ixwUeET-CCF_CzyacvV2pg5yzmeCLjI-aGNqdDK2sgsZBN4Y-dF1ZQujbSVF1bQgW51HPQXIj9NwkI-wtzVd7TdJrHZvxwh1DJrjk7kBCeURJwkqk0e8tjl5vVArrtNh1ofCSpmEX65KKxH_N72XMWIlU9BbmyFuWxvJLU",
+              "impacto": "La declaración de Huang podría interpretarse como un intento de desvincular a NVIDIA de las tensiones geopolíticas y las restricciones de exportación, sugiriendo que China tiene la capacidad de desarrollar su propia tecnología militar sin depender de proveedores externos."
+            }
+          ]
+        },
+        {
+          "nombre": "Sam Altman",
+          "empresa": "OpenAI",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Musk 'obsesionado' con el último modelo GPT",
+              "detalle": "Sam Altman, CEO de OpenAI, afirmó que Elon Musk está \"obsesionado\" con él, utilizando como prueba el hecho de que Musk alardea de su último modelo GPT. Altman sugirió que hay muchos indicadores que apuntan a que el modelo 5.6 Sol es el mejor modelo de IA del mundo, y la reacción de Musk es una confirmación de ello.",
+              "fuente": "Forbes México",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEh10hiMdmLV_aEgOLNNH78c6XTEuk_g9SRW7CQdV4wdOvg1C9YhdOzfT61thgDPwQQGi8r-FUmW4enHuPhn-kM6zQX6KpO7j8yKmlcVlmgX3xYt-K0OoLDkD10qXw5SH4g9c0z5Ywodn1CJi30ydSFvI1vg9Zu9sn4g9c0z5Ywodn1CJi30ydSFvI1vg9Zu9sn4g56BtZXUzXj7YT4u8HS8XG2qebodlcUaA71o5H091zBjGzV9Ko1aAVBS-SdbRzYd2Ql23g",
+              "impacto": "Esta declaración resalta la intensa rivalidad y el escrutinio público entre los líderes de las principales empresas de IA, lo que puede influir en la percepción del mercado sobre la superioridad tecnológica de OpenAI."
+            },
+            {
+              "tipo": "publicación",
+              "titulo": "La IA transformará la vida humana a una escala inédita",
+              "detalle": "Sam Altman publicó un artículo de opinión en Financial Times donde pide la creación de un marco internacional para regular los modelos más avanzados de IA. Argumenta que la inteligencia artificial transformará las condiciones materiales de la vida humana a una escala sin precedentes desde la electricidad, y que el mundo no podrá disfrutar de sus beneficios sin abordar las amenazas reales a la seguridad.",
+              "fuente": "Business Insider",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFy6U9dbsUi36vrLiBOynw3OVhhy5ANNfOuxM2BEXLSwlo23zFHokC4Xd2Li3w_RG2Oi8NrGwk9h718dd0UpGg1KdoKHQU_o6p9HsHO1qxJtHZ-K08LqyF7nVBYS2fvM2zXV1_DHphNJw9-caaJHTJUh41jHHzeEsrk0qHy-PFZFJIR-olXko7Kd9cy2dhFtOz1ecG0MqsZdAac24rg-2UPsrY2O-DpyDWhTjubNp6vn_TQcr",
+              "impacto": "Esta publicación refuerza el llamado a la regulación global de la IA, posicionando a Altman como una figura clave en el debate sobre la gobernanza de la tecnología y su impacto en la sociedad y la economía."
+            }
+          ]
+        },
+        {
+          "nombre": "Dario Amodei",
+          "empresa": "Anthropic",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Suspensión de acceso a tecnología de IA por seguridad nacional",
+              "detalle": "Anthropic, bajo el liderazgo de Dario Amodei, suspendió el acceso a la versión más potente de su tecnología de inteligencia artificial en cumplimiento de una orden de Washington, invocando un riesgo de seguridad nacional. Este movimiento se discutió en el contexto de una cumbre donde Amodei participó en un almuerzo sobre la regulación de la IA.",
+              "fuente": "AFP",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHSn4Kumr8S7yY25zXBW2YAAeOFFdtg1Y04G_l3a0Xxh9ycpUP7HJ9BXIzG9QwQp3brroCsUWdk43iJ2sd7pPwKv3GcT27AsdswaRSdKZ5hh6qVx5a56XLgDbpvKrmumnncvYP5vqKUfTRcVcCaNQ0Khzzk46Wmk5r0X_JZL_4q1k3VYdqz1MJrjONQL-geFtrhDmXRVnPhVSDNjOnQ1Ff80btqwsaAKxD3VZpulcb9h3OWmHa2tiU",
+              "impacto": "Esta acción subraya la creciente influencia de los gobiernos en el desarrollo de la IA y la preocupación por los riesgos de seguridad nacional asociados a las tecnologías avanzadas, lo que podría ralentizar la innovación o redirigirla hacia usos más controlados."
+            }
+          ]
+        },
+        {
+          "nombre": "Larry Ellison",
+          "empresa": "Oracle",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Caída significativa en la fortuna personal y valoración de Oracle",
+              "detalle": "La fortuna de Larry Ellison, presidente de Oracle, se redujo en aproximadamente 125 mil millones de dólares en el último mes, con las acciones de Oracle desplomándose más del 5% el lunes, alcanzando un declive del 47% desde su máximo intradiario del 1 de junio. Esto lo hizo caer del puesto 2 al 8 en la lista de multimillonarios.",
+              "fuente": "Forbes México",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHkaLL3UaEKBJTZ65EDyXAZRWINmZlBfTAiNcrhlI3lri6shoQ2Yq16o9fpoAyJNVVRnzB0AMDT6SxHPp9QYxJIQt5_wUT92VYHDcOmLvc9xUsBzsVWY-TWqLByuii6gXVF2ZLWW0ljuV8LaXpFTQoLztlEnQ4deBem6Jmj4KKDHntrdlbNE7-T--hj0pM1HOdYN6ZgEJt6oQxE7GM0T3HQFEs-dUG5s6t8czz9wxs6pym3CwMzVKxAdrTlTapFiH7Mvw4_i7tQbBk",
+              "impacto": "Esta caída en la valoración de Oracle y la fortuna de Ellison refleja la volatilidad del mercado tecnológico, especialmente en el sector de la IA y la nube, y podría generar preocupaciones entre los inversores sobre la estabilidad a largo plazo de la empresa."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "forbes.com.mx",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHkaLL3UaEKBJTZ65EDyXAZRWINmZlBfTAiNcrhlI3lri6shoQ2Yq16o9fpoAyJNVVRnzB0AMDT6SxHPp9QYxJIQt5_wUT92VYHDcOmLvc9xUsBzsWVY-TWqLByuii6gXVF2ZLWW0ljuV8LaXpFTQoLztlEnQ4deBem6Jmj4KKDHntrdlbNE7-T--hj0pM1HOdYN6ZgEJt6oQxE7GM0T3HQFEs-dUG5s6t8czz9wxs6pym3CwMzVKxAdrTlTapFiH7Mvw4_i7tQbBk="
+        }
+      ],
+      "generated_at": "2026-07-14T05:02:08.539973-06:00",
+      "status": "ok"
+    },
+    "ai_leaders": {
+      "key": "ai_leaders",
+      "title": "🤖 AI Leaders",
+      "data": [
+        {
+          "empresa": "OpenAI",
+          "novedades": [
+            {
+              "tipo": "regulación",
+              "titulo": "Apple demanda a OpenAI por robo de secretos industriales",
+              "detalle": "Apple ha presentado una demanda federal contra OpenAI, su startup de hardware io Products y dos exempleados clave, acusando a OpenAI de orquestar un esfuerzo coordinado para captar talento interno y extraer información confidencial sobre su hardware. OpenAI ha negado todas las acusaciones, marcando este caso como uno de los litigios tecnológicos más relevantes del año.",
+              "fuente": "Café con IA",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE-K-paI_eYadicbMwrKhhhfRpy2Fjo8QsK0qhZIVMa4FMtNtK_W8_1qmR14E7Z4HSSgDHqK5h2ikJljXLkN7_L26N1Hqzyl6EdBly40R-clglFO6eUpUzql7ConRFICZ1FDZ0GpgWYcKz-WVEqD1i9eZozOjZPDrx6Qy8=",
+              "aplicacion_genyx": "Para GENyx, esto subraya la importancia de proteger la propiedad intelectual y establecer acuerdos claros con los empleados, especialmente en un sector tan competitivo como el de la IA."
+            },
+            {
+              "tipo": "partnership",
+              "titulo": "OpenAI explora participación pública en su accionariado",
+              "detalle": "OpenAI estaría estudiando la posibilidad de incorporar participación estatal en su capital, lo que indica que la inteligencia artificial se está percibiendo como un activo estratégico comparable a las grandes infraestructuras nacionales. Este movimiento podría redefinir la relación entre los laboratorios de IA y los gobiernos.",
+              "fuente": "Café con IA",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE-K-paI_eYadicbMwrKhhhfRpy2Fjo8QsK0qhZIVMa4FMtNtK_W8_1qmR14E7Z4HSSgDHqK5h2ikJljXLkN7_L26N1Hqzyl6EdBly40R-clglFO6eUpUzql7ConRFICZ1FDZ0GpgWYcKz-WVEqD1i9eZozOjZPDrx6Qy8=",
+              "aplicacion_genyx": "GENyx podría considerar cómo las asociaciones público-privadas o la percepción de la IA como infraestructura nacional podrían influir en el acceso a recursos y la regulación futura de sus servicios SaaS."
+            },
+            {
+              "tipo": "producto",
+              "titulo": "Lanzamiento de ChatGPT Work con GPT-5.6",
+              "detalle": "OpenAI ha presentado ChatGPT Work, un agente avanzado capaz de operar directamente sobre ordenadores y dispositivos móviles, impulsado por el modelo GPT-5.6. Este lanzamiento amplía las capacidades de automatización y asistencia personal para usuarios empresariales y profesionales.",
+              "fuente": "Café con IA",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE-K-paI_eYadicbMwrKhhhfRpy2Fjo8QsK0qhZIVMa4FMtNtK_W8_1qmR14E7Z4HSSgDHqK5h2ikJljXLkN7_L26N1Hqzyl6EdBly40R-clglFO6eUpUzql7ConRFICZ1FDZ0GpgWYcKz-WVEqD1i9eZozOjZPDrx6Qy8=",
+              "aplicacion_genyx": "Para GENyx, esto destaca la tendencia hacia agentes de IA más autónomos y multifuncionales, lo que podría inspirar el desarrollo de funcionalidades similares para la automatización de tareas empresariales dentro de su plataforma SaaS."
+            },
+            {
+              "tipo": "research",
+              "titulo": "GPT-5.6 Sol Ultra resuelve problema matemático de 50 años",
+              "detalle": "El modelo GPT-5.6 Sol Ultra de OpenAI ha logrado resolver la conjetura de la doble cubierta cíclica, un problema matemático de 50 años de antigüedad, utilizando 64 subagentes en paralelo. Este avance demuestra la capacidad de la IA para abordar problemas complejos en matemáticas.",
+              "fuente": "AI Top 5",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFvT9Jo75y7WM-svOKcxo5Wack7SDbvkGx9fWNVulbDTHxyS1lyGOdg-sfWYw_qr1Yu-6Mk4IdqYRuVTDvCtDY1lPKRnlmc5wYpecL_l3aJZ44zpLxynEczpD7GDW9S3_-uTPIrLdU=",
+              "aplicacion_genyx": "Este logro de investigación sugiere que GENyx podría explorar la aplicación de modelos avanzados de IA para resolver problemas complejos de optimización o análisis de datos para sus clientes empresariales."
+            }
+          ]
+        },
+        {
+          "empresa": "Google DeepMind",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Lanzamiento de Gemini Ultra 2 con mejoras en razonamiento",
+              "detalle": "Google DeepMind ha lanzado Gemini Ultra 2, la sucesora de Gemini Ultra, que muestra mejoras significativas en los puntos de referencia de razonamiento matemático, incluyendo MATH y AIME. Esta nueva versión cierra la brecha con GPT-5 en la resolución de problemas complejos de varios pasos y está disponible a través de Gemini Advanced y la API de Google Cloud AI.",
+              "fuente": "Skycrumbs Blog",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH3hw1UHqUzygdFt_CmzmuHmKkMLaFCnqLQHcgn1l_qfi6UqTV8xs_g1CpPiDXODjxubs0Jm47EBxfQ26NnzW4hmw1wA3Rt3ZYV-nkt1FSvnJiqZNHq-I6QQtgSnyvLamo9LE9mi0Od0my_",
+              "aplicacion_genyx": "Para GENyx, la mejora en las capacidades de razonamiento de Gemini Ultra 2 indica una oportunidad para integrar modelos de lenguaje más potentes que puedan ofrecer análisis más profundos y soluciones a problemas complejos para los usuarios de su SaaS."
+            },
+            {
+              "tipo": "research",
+              "titulo": "Avances en AlphaFold 3 para el descubrimiento de fármacos",
+              "detalle": "AlphaFold 3 ha continuado generando una investigación significativa en 2026, convirtiéndose en una herramienta fundamental en el descubrimiento de fármacos. Su capacidad para predecir la estructura de complejos proteicos, incluyendo interacciones con ADN, ARN y moléculas pequeñas, ha sido acreditada por varias compañías farmacéuticas en la identificación de sitios de unión para nuevos candidatos a fármacos.",
+              "fuente": "Skycrumbs Blog",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH3hw1UHqUzygdFt_CmzmuHmKkMLaFCnqLQHcgn1l_qfi6UqTV8xs_g1CpPiDXODODjxubs0Jm47EBxfQ26NnzW4hmw1wA3Rt3ZYV-nkt1FSvnJiqZNHq-I6QQtgSnyvLamo9LE9mi0Od0my_",
+              "aplicacion_genyx": "Aunque es un campo diferente, el éxito de AlphaFold 3 en la ciencia sugiere que GENyx podría explorar la aplicación de IA para resolver problemas complejos en nichos específicos de sus clientes, utilizando modelos especializados para tareas de alto valor."
+            },
+            {
+              "tipo": "producto",
+              "titulo": "Actualizaciones en Lyria para la generación de música con IA",
+              "detalle": "El modelo de generación de música Lyria de DeepMind ha recibido actualizaciones significativas en 2026, mejorando su capacidad para mantener un estilo consistente en composiciones más largas y añadiendo un control más granular sobre la instrumentación y el tempo. Lyria está integrado en las herramientas de música de YouTube para creadores.",
+              "fuente": "Skycrumbs Blog",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH3hw1UHqUzygdFt_CmzmuHmKkMLaFCnqLQHcgn1l_qfi6UqTV8xs_g1CpPiDXODjxubs0Jm47EBxfQ26NnzW4hmw1wA3Rt3ZYV-nkt1FSvnJiqZNHq-I6QQtgSnyvLamo9LE9mi0Od0my_",
+              "aplicacion_genyx": "Esto demuestra el potencial de la IA generativa en la creación de contenido, lo que podría inspirar a GENyx a desarrollar herramientas de IA para la generación automatizada de elementos de marketing o personalización de interfaces para sus clientes."
+            },
+            {
+              "tipo": "research",
+              "titulo": "Validación experimental de materiales predichos por GNoME",
+              "detalle": "En 2026, varios laboratorios académicos han reportado la síntesis experimental de materiales inicialmente predichos por GNoME, un paso significativo de validación. DeepMind se ha asociado con instituciones de investigación para hacer que la base de datos sea accesible públicamente, acelerando la verificación independiente.",
+              "fuente": "Skycrumbs Blog",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH3hw1UHqUzygdFt_CmzmuHmKkMLaFCnqLQHcgn1l_qfi6UqTV8xs_g1CpPiDXODjxubs0Jm47EBxfQ26NnzW4hmw1wA3Rt3ZYV-nkt1FSvnJiqZNHq-I6QQtgSnyvLamo9LE9mi0Od0my_",
+              "aplicacion_genyx": "La validación de predicciones de IA en el descubrimiento de materiales resalta el valor de la IA para acelerar la innovación. GENyx podría aplicar principios similares para ofrecer a sus clientes herramientas de predicción y simulación en sus respectivos dominios, como la optimización de cadenas de suministro o la previsión de tendencias de mercado."
+            }
+          ]
+        },
+        {
+          "empresa": "Meta AI",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Meta prepara la producción de su propio chip de IA",
+              "detalle": "Meta está dando un gran paso en la carrera de la IA al prepararse para producir su propio chip de IA, diseñado para mejorar el rendimiento de sus sistemas de IA y reducir la dependencia de proveedores externos. Esta expansión de infraestructura de IA busca soportar futuros productos y servicios.",
+              "fuente": "TrendVer Verse / The Cryptonomist",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGQaTcpYCvb_938b95zsqvwKyzulvXVUfqGIaxXYKtsTtdvPqEcL0vNtDDudFku6KoIOJFB-ibaUkRcpUBjPD-7uk2CBhl92dEGHtURVPDJraaz90rzJG3AjG5GNrsyLwbyaF8h4U0=",
+              "aplicacion_genyx": "Para GENyx, la inversión de Meta en hardware propio subraya la importancia de la optimización de la infraestructura para el rendimiento de la IA, lo que podría llevar a GENyx a explorar soluciones de hardware o asociaciones para mejorar la eficiencia de sus modelos."
+            },
+            {
+              "tipo": "producto",
+              "titulo": "Quejas de marcas sobre herramientas de publicidad de IA de Meta",
+              "detalle": "Las herramientas de publicidad de IA de Meta están generando críticas por parte de algunas marcas, que alegan que producen absurdos y tergiversaciones. Un ejemplo citado es un anuncio de Instagram que mostraba una bicicleta con dos manillares, atribuido a una función de IA que la empresa activó automáticamente.",
+              "fuente": "MediaPost",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGpXYELyz_F1A2sOM3zjCzHau5z0rHZJmv6EoWZLW5-C9Ozj0JTad7emH3JlQ2uw_K0u0vn-io2m9FpJK5LxKpPeISkMqFkmRdUJvE_lpcCRYatw7p6p1HFhOaC9c1w7r_2ETPEguxDbQTkH7tt0kKZ-0wbGiJSmwjErpvfJabx6QNWKhYgUKDUapqyAsETnms8B8HtS1hBCocUphBhLq_Sws2hcLj1",
+              "aplicacion_genyx": "Esto sirve como una advertencia para GENyx sobre la necesidad de una supervisión humana robusta y mecanismos de control de calidad para las salidas de IA, especialmente en aplicaciones críticas para el negocio como el marketing."
+            },
+            {
+              "tipo": "producto",
+              "titulo": "Meta retira Muse Image AI tras críticas por privacidad",
+              "detalle": "Meta retiró su función Muse Image AI el 10 de julio, solo tres días después de su lanzamiento, debido a una masiva reacción negativa por preocupaciones de privacidad y consentimiento. La función permitía a los usuarios generar imágenes de IA utilizando fotos de cuentas públicas de Instagram de adultos.",
+              "fuente": "YouTube (Drip Report)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF70XiYJEvgAlCa44yROATm5j2plWxW5V0P-OpTbHsJ8UOOaaWP-DLLEWp_SuT2exNQCOnD24HXrYInoGO5FTicgd6D2CNYFrfK-L5n0XJKTi6ehn-I7dbd7PLlh5itfOdS2wgszg==",
+              "aplicacion_genyx": "GENyx debe priorizar la ética y la privacidad en el diseño y lanzamiento de sus productos de IA, asegurando que las características generativas respeten la privacidad del usuario y los estándares de consentimiento para evitar reacciones negativas y daños a la reputación."
+            },
+            {
+              "tipo": "research",
+              "titulo": "Meta's Muse Spark 1.1 lidera pruebas de codificación",
+              "detalle": "Meta's Muse Spark 1.1 ha obtenido una impresionante puntuación de 51 en el índice de inteligencia de análisis artificial, superando a GLM 5.2 en tareas de codificación con una puntuación de 71.3. También muestra una menor tasa de alucinaciones, lo que lo convierte en una herramienta más fiable y rentable para los desarrolladores.",
+              "fuente": "AI Top 5",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFvT9Jo75y7WM-svOKcxo5Wack7SDbvkGx9fWNVulbDTHxyS1lyGOdg-sfWYw_qr1Yu-6Mk4IdqYRuVTDvCtDY1lPKRnlmc5wYpecL_l3aJZ44zpLxynEczpD7GDW9S3_-uTPIrLdU=",
+              "aplicacion_genyx": "Este avance en la capacidad de codificación de la IA de Meta sugiere que GENyx podría integrar herramientas de IA para la generación de código, la depuración o la optimización de software, mejorando la productividad de los desarrolladores que utilizan su plataforma."
+            }
+          ]
+        },
+        {
+          "empresa": "Microsoft AI",
+          "novedades": [
+            {
+              "tipo": "partnership",
+              "titulo": "Microsoft lanza 'Microsoft Frontier Company'",
+              "detalle": "Microsoft ha lanzado 'Microsoft Frontier Company', una nueva unidad de negocio respaldada por una inversión de 2.500 millones de dólares y 6.000 expertos en la industria e ingeniería. Esta iniciativa busca ayudar a las empresas a pasar de la experimentación con IA a la obtención de resultados comerciales medibles, integrando la IA en los sistemas empresariales y flujos de trabajo existentes.",
+              "fuente": "YouTube (AI6 Podcast)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHdngudqL_gu8EpmksScpn58_1ARzOnxVHB_axjKRBtLQ2h7YNhOfUHDxkrFFfVpV17JM4nQ-FRpCPLkFRfuRCvtxt7w8rb-J_Yq83m9o6nRdImcaAWSZIW-tMd-1Yq0lH_oM8OxhE=",
+              "aplicacion_genyx": "Para GENyx, esto resalta la creciente demanda de soluciones de IA que no solo sean innovadoras, sino también implementables y que generen un ROI claro. GENyx podría enfocarse en ofrecer servicios de consultoría o integración profunda para asegurar el éxito de la adopción de su SaaS de IA en entornos empresariales complejos."
+            }
+          ]
+        },
+        {
+          "empresa": "xAI",
+          "novedades": [
+            {
+              "tipo": "regulación",
+              "titulo": "xAI se une a la competencia por dominar ecosistemas completos de IA",
+              "detalle": "xAI, junto con OpenAI, Meta, Anthropic y Google, está compitiendo para dominar el ecosistema completo de servicios de IA, lo que implica una expansión estratégica más allá del desarrollo de modelos para convertirse en plataformas integrales de servicios, agentes y herramientas. Este movimiento eleva el nivel de competencia en el sector.",
+              "fuente": "Café con IA",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE-K-paI_eYadicbMwrKhhhfRpy2Fjo8QsK0qhZIVMa4FMtNtK_W8_1qmR14E7Z4HSSgDHqK5h2ikJljXLkN7_L26N1Hqzyl6EdBly40R-clglFO6eUpUzql7ConRFICZ1FDZ0GpgWYcKz-WVEqD1i9eZozOjZPDrx6Qy8=",
+              "aplicacion_genyx": "GENyx debe estar atenta a la consolidación del mercado y considerar cómo posicionar su oferta SaaS dentro de estos ecosistemas dominantes, ya sea a través de integraciones estratégicas o especializándose en nichos de alto valor."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-07-14T05:03:18.949140-06:00",
+      "status": "ok"
+    },
+    "emerging": {
+      "key": "emerging",
+      "title": "🚀 Emerging Tech & Startups",
+      "data": [
+        {
+          "empresa": "Draig Therapeutics",
+          "sector": "Biotech/Salud",
+          "valoracion": "No disponible públicamente (ronda Serie B de $65M)",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Cierre de ronda de financiación Serie B de $65 millones",
+              "detalle": "Draig Therapeutics, una empresa biofarmacéutica en etapa clínica, anunció el cierre de una ronda de financiación Serie B de $65 millones, superando las expectativas. La ronda fue liderada por Deep Track Capital, con la participación de Janus Henderson Investors, Marshall Wace, British Business Bank y Jefferson Life Sciences.",
+              "fuente": "Business Wire",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGtgOiY9UtVppBEbTD8M37qqM-9rbKz34GofACiEsbfMIW-VG08QbG3o0jHvm8HVNz6WDMi06_mhplFwxWyF1KUfHnPmSnHfQqD5kVZYwSPk9YIbp5Q7HKIpJfMFsSYoFnzcN4lw1oL_NPUxW77X1I0RDhnHJuSZfZsOi1MxZc=",
+              "por_que_importa": "Esta financiación significativa en Serie B valida el potencial de Draig Therapeutics para desarrollar terapias transformadoras en trastornos neuropsiquiátricos. Los fondos permitirán acelerar el desarrollo de sus moduladores de receptores AMPA y GABAA, abordando necesidades críticas en el sector de la salud."
+            }
+          ]
+        },
+        {
+          "empresa": "Accelerant",
+          "sector": "Fintech/Insurtech",
+          "valoracion": "No disponible públicamente",
+          "novedades": [
+            {
+              "tipo": "partnership",
+              "titulo": "Asociación con WoodStar Reciprocal Exchange",
+              "detalle": "Accelerant, una plataforma de intercambio de riesgos basada en datos, anunció una asociación con WoodStar Reciprocal Exchange, una nueva compañía de seguros capitalizada con más de $220 millones en notas de superávit y capital de terceros, incluyendo Kilter Finance (respaldado por KKR).",
+              "fuente": "Business Wire",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGna8P0I_BUJJIaUtoBIcApjRHd1dmDZgwf_nFp_TJ_fR2eIyMHFq5ZPFKX-JwJIIcGAIrrIkPRpjz-_SlsOG_0VYy6RUkVrRbZfMNnxa13mq3B12Nxw9riVtqUpYtnLr8l_HNruYn7cqpu6BcS8spwcJ-CM8GUqnqyhIjYfEHyoQgZo7EkFIQ=",
+              "por_que_importa": "Esta alianza estratégica es crucial para Accelerant, ya que expande su capacidad en el mercado de seguros especializados al integrar un nuevo asegurador capitalizado. Demuestra la confianza del mercado en su plataforma de intercambio de riesgos y su modelo de negocio."
+            }
+          ]
+        },
+        {
+          "empresa": "Personalis",
+          "sector": "Biotech/Salud",
+          "valoracion": "No disponible públicamente",
+          "novedades": [
+            {
+              "tipo": "expansión",
+              "titulo": "Expansión global con marca UKCA para NeXT Personal®",
+              "detalle": "Personalis, líder en genómica avanzada para oncología de precisión, ha logrado la marca UKCA (United Kingdom Conformity Assessed) para su prueba NeXT Personal Dx. Esto expande el acceso a la detección de enfermedad residual mínima (MRD) y el soporte biofarmacéutico en Gran Bretaña.",
+              "fuente": "Business Wire",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGtgOiY9UtVppBEbTD8M37qqM-9rbKz34GofACiEsbfMIW-VG08QbG3o0jHvm8HVNz6WDMi06_mhplFwxWyF1KUfHnPmSnHfQqD5kVZYwSPk9YIbp5Q7HKIpJfMFsSYoFnzcN4lw1oL_NPUxW77X1I0RDhnHJuSZfZsOi1MxZc=",
+              "por_que_importa": "La obtención de la marca UKCA es un paso significativo para Personalis, permitiéndole expandir su tecnología de genómica de precisión a un mercado clave. Esto facilitará un mayor acceso a diagnósticos avanzados de cáncer y fortalecerá su posición en el sector biofarmacéutico global."
+            }
+          ]
+        },
+        {
+          "empresa": "Camena Bioscience",
+          "sector": "Biotech (Descubrimiento de fármacos impulsado por IA)",
+          "valoracion": "No disponible públicamente",
+          "novedades": [
+            {
+              "tipo": "contratación",
+              "titulo": "Nombramiento de Gregory P. McGuinness como CEO",
+              "detalle": "Camena Bioscience, pionera en la síntesis enzimática de ADN para el descubrimiento de anticuerpos impulsado por IA, anunció el nombramiento de Gregory P. McGuinness como Director Ejecutivo. McGuinness cuenta con más de 30 años de liderazgo ejecutivo y experiencia operativa.",
+              "fuente": "Business Wire",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGtgOiY9UtVppBEbTD8M37qqM-9rbKz34GofACiEsbfMIW-VG08QbG3o0jHvm8HVNz6WDMi06_mhplFwxWyF1KUfHnPmSnHfQqD5kVZYwSPk9YIbp5Q7HKIpJfMFsSYoFnzcN4lw1oL_NPUxW77X1I0RDhnHJuSZfZsOi1MxZc=",
+              "por_que_importa": "La incorporación de un CEO experimentado como Gregory P. McGuinness es una contratación clave que impulsará el crecimiento y la comercialización de la plataforma gSynth® de Camena Bioscience. Su experiencia será fundamental para escalar las operaciones y capitalizar el potencial del descubrimiento de anticuerpos impulsado por IA."
+            }
+          ]
+        },
+        {
+          "empresa": "Corner Health",
+          "sector": "Health Tech",
+          "valoracion": "No disponible públicamente (rondas Seed y Serie A de $32.5M)",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Recauda $32.5 millones en financiación Seed y Serie A",
+              "detalle": "Corner Health, una empresa dedicada a reconstruir la atención primaria empoderando a las enfermeras practicantes (NP) para establecer y escalar sus propias clínicas locales, anunció que ha recaudado $32.5 millones en financiación Seed y Serie A. La Serie A fue liderada por Oak HC/FT.",
+              "fuente": "Business Wire",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGna8P0I_BUJJIaUtoBIcApjRHd1dmDZgwf_nFp_TJ_fR2eIyMHFq5ZPFKX-JwJIIcGAIrrIkPRpjz-_SlsOG_0VYy6RUkVrRbZfMNxna13mq3B12Nxw9riVtqUpYtnLr8l_HNruYn7cqpu6BcS8spwcJ-CM8GUqnqyhIjYfEHyoQgZo7EkFIQ=",
+              "por_que_importa": "Esta inyección de capital permitirá a Corner Health expandir su red y apoyar a más profesionales de la salud en la creación de prácticas de atención primaria. La financiación subraya la creciente inversión en modelos de atención médica innovadores y descentralizados."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-07-14T05:03:54.144995-06:00",
+      "status": "ok"
+    },
+    "top10": {
+      "key": "top10",
+      "title": "📰 Top 10 Noticias",
+      "data": [],
+      "grounding_sources": [],
+      "generated_at": "2026-07-14T05:04:49.864800-06:00",
+      "status": "ok"
+    },
+    "mercados": {
+      "key": "mercados",
+      "title": "💹 Pulso de Mercados",
+      "data": {
+        "pulso_de_mercados": {
+          "indices": [
+            {
+              "nombre": "S&P 500",
+              "valor": "7,515.34",
+              "cambio_pct": "-0.8%",
+              "tendencia": "↓",
+              "fuente": "Associated Press",
+              "url": "https://www.kare11.com/article/news/nation-world/how-major-us-stock-indexes-fared-monday-7-13-2026/83-05047b19-2045-4229-847e-972161111626",
+              "analisis": "El S&P 500 cerró a la baja el lunes, afectado por las tensiones en Medio Oriente y la caída de las acciones de inteligencia artificial."
+            },
+            {
+              "nombre": "NASDAQ Composite",
+              "valor": "25,873.18",
+              "cambio_pct": "-1.6%",
+              "tendencia": "↓",
+              "fuente": "Associated Press",
+              "url": "https://www.kare11.com/article/news/nation-world/how-major-us-stock-indexes-fared-monday-7-13-2026/83-05047b19-2045-4229-847e-972161111626",
+              "analisis": "El Nasdaq Composite experimentó una caída significativa el lunes, liderada por el retroceso de las acciones de inteligencia artificial."
+            },
+            {
+              "nombre": "Dow Jones Industrial Average",
+              "valor": "52,498.64",
+              "cambio_pct": "-0.3%",
+              "tendencia": "↓",
+              "fuente": "Associated Press",
+              "url": "https://www.kare11.com/article/news/nation-world/how-major-us-stock-indexes-fared-monday-7-13-2026/83-05047b19-2045-4229-847e-972161111626",
+              "analisis": "El Dow Jones también cerró con pérdidas el lunes, en un día marcado por la incertidumbre geopolítica."
+            }
+          ],
+          "acciones": [
+            {
+              "nombre": "OpenAI (Valoración)",
+              "valor": "$852 mil millones",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "Forbes",
+              "url": "https://www.forbes.com/sites/antoniopequenoiv/2026/03/31/openai-valuation-reaches-852-billion-after-massive-funding-round/",
+              "analisis": "OpenAI alcanzó una valoración de $852 mil millones en su última ronda de financiación en marzo de 2026, consolidando su posición como una de las empresas privadas más valiosas en el sector de la IA."
+            }
+          ],
+          "earnings": [],
+          "macro": [
+            {
+              "nombre": "Inflación (IPC de junio)",
+              "valor": "N/A (publicación hoy)",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "Bureau of Labor Statistics",
+              "url": "https://www.bls.gov/news.release/archives/cpi_06102026.htm",
+              "analisis": "La publicación del Índice de Precios al Consumidor (IPC) de junio de 2026, programada para hoy, es un evento clave que influirá en las expectativas del mercado sobre la política de la Reserva Federal."
+            },
+            {
+              "nombre": "Testimonio del Presidente de la Fed",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "Reuters",
+              "url": "https://www.reuters.com/markets/global-markets-fed-spotlight-warsh-faces-congress-2026-07-14/",
+              "analisis": "El Presidente de la Reserva Federal, Kevin Warsh, testificará ante el Congreso hoy y mañana, un evento crucial que podría ofrecer señales sobre futuras decisiones de política monetaria."
+            },
+            {
+              "nombre": "Tensiones Geopolíticas y Precios del Petróleo",
+              "valor": "Brent Crude: +3.4%",
+              "cambio_pct": "+3.4%",
+              "tendencia": "↑",
+              "fuente": "The Guardian",
+              "url": "https://www.theguardian.com/business/live/2026/jul/14/oil-and-gas-prices-jump-uk-interest-rate-hike-expectations-increase-as-middle-east-tensions-ratchet-higher-business-live",
+              "analisis": "Las tensiones geopolíticas en el Medio Oriente, con ataques y el anuncio de un bloqueo estadounidense en el Estrecho de Ormuz, han provocado un aumento significativo en los precios del petróleo."
+            },
+            {
+              "nombre": "Impacto de la IA en el Mercado",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "↓",
+              "fuente": "Associated Press",
+              "url": "https://www.wsls.com/news/money/2026/07/14/oil-prices-jump-as-fighting-flares-in-the-middle-east-while-ai-led-retreat-pulls-asian-stocks-lower/",
+              "analisis": "Las acciones relacionadas con la inteligencia artificial experimentaron una caída, contribuyendo a las pérdidas generales del mercado."
+            }
+          ]
+        }
+      },
+      "grounding_sources": [
+        {
+          "title": "forbes.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEW-rxGu-2JZXgG_qOHstnX2BGv-O_ptT6abyoGPiAhUpDfqq83c3eLRepuvE2u7Y9biSRGtnoUqBiElEXEr_FOFVEI1IYH8NUqlBN1x9rcALsQc80GrJ6LJ3jtqIkotPQpM0p-odTtM1Gc4Tylvba0heou6LeFanWEC3JYVonuyMTtnrzvHPOx-C5DRQ9U0dnvbMFUzpCrMEiPTVkZIm6Q2qtdRUfFbuODQid1tRlu1o7hXzLm"
+        },
+        {
+          "title": "forbes.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG1sS1Qg-mBtapkEvDitVOGIbAxev8axudK72ZjmLb0QaWmKMcrCLWlchW7w-nYWunVQ0QQoyQNQKuFksOzPZEaR3Ng5vY9fY15Ppyw3qRYHvjvbkMwbMzBqXe62zez2ZOSiClt26d9XG6mUF59JTiUDW40QbdrraL0joJo9ALxdHh1t4g6QubpIpwpf1nq3lR_6-96XNryJs_xEzWAwKhlj7en3yO_J-W3_zs="
+        },
+        {
+          "title": "bingx.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEiDPSpU7qoIsAo1I9NhLZluxgQgEt9JyhyuiHM807dOg-kMVVWQd5pzLxLft6Bh62cyhFfhPxfpDB2e2Vblm2XVBwHfmC8lwaRF9RcijupdfjQRPl250zD35wNVQgaKjpDjdfKEL9S-ok26Skw0CxY_1ns1B6vtszABMNZZigwr9AqQYZfaSM4iUfOVPt5mIvXpD0PfXvMeB1NqTXKr5QGo7yOjmz8eaWF9Q=="
+        }
+      ],
+      "generated_at": "2026-07-14T05:05:58.956743-06:00",
+      "status": "ok"
+    },
+    "radar": {
+      "key": "radar",
+      "title": "🛰️ RADAR Inteligencia",
+      "data": [],
+      "generated_at": "2026-07-14T05:06:02.043323-06:00",
+      "status": "error",
+      "signals_total": 0,
+      "queries_run": 3,
+      "errors": [
+        "HTTP 401 for query: Top AI funding rounds and product launch",
+        "HTTP 401 for query: Big Tech AI announcements Google Microso",
+        "HTTP 401 for query: AI regulation policy changes worldwide l"
+      ]
+    }
+  },
+  "summary": {
+    "sections_ok": 5,
+    "sections_total": 6,
+    "quality": "PARTIAL"
+  }
+}
