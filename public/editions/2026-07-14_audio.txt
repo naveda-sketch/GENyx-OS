@@ -1,0 +1,74 @@
+El Periódico. Edición del 2026-07-14.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Satya Nadella.
+Advertencia sobre el doble pago en IA. Satya Nadella, CEO de Microsoft, ha expresado su preocupación de que las empresas podrían estar pagando dos veces por la inteligencia artificial: primero con dinero y luego con la entrega de datos estratégicos a los proveedores de modelos de IA. Su advertencia se centra en los derechos sobre los datos de uso y las condiciones que los proveedores establecen para almacenarlos o aprender de ellos. Fuente: DiarioBitcoin.
+
+Jensen Huang.
+Desmiente rumores de retrasos y aborda competencia de chips ASIC. Jensen Huang, CEO de NVIDIA, junto con la CFO Colette Kress y el director de Relaciones con Inversores, Toshiya Hari, asistieron a un roadshow para inversores organizado por Morgan Stanley. En este evento, Huang abordó directamente las preocupaciones de los inversores institucionales sobre el progreso de los productos, la competencia de los chips ASIC y la sostenibilidad del crecimiento de NVIDIA, desmintiendo rumores de retrasos. Fuente: TradingKey.
+China no necesita chips de NVIDIA para su ejército. Jensen Huang declaró que China "no necesita los chips de Nvidia, ni las plataformas tecnológicas estadounidenses, para construir su ejército". Esta afirmación se produce en un contexto donde las autoridades chinas han comunicado a empresas como Alibaba y ByteDance que pronto podrán adquirir chips H200. Fuente: Xataka México.
+
+Sam Altman.
+Musk 'obsesionado' con el último modelo GPT. Sam Altman, CEO de OpenAI, afirmó que Elon Musk está "obsesionado" con él, utilizando como prueba el hecho de que Musk alardea de su último modelo GPT. Altman sugirió que hay muchos indicadores que apuntan a que el modelo 5.6 Sol es el mejor modelo de IA del mundo, y la reacción de Musk es una confirmación de ello. Fuente: Forbes México.
+La IA transformará la vida humana a una escala inédita. Sam Altman publicó un artículo de opinión en Financial Times donde pide la creación de un marco internacional para regular los modelos más avanzados de IA. Argumenta que la inteligencia artificial transformará las condiciones materiales de la vida humana a una escala sin precedentes desde la electricidad, y que el mundo no podrá disfrutar de sus beneficios sin abordar las amenazas reales a la seguridad. Fuente: Business Insider.
+
+Dario Amodei.
+Suspensión de acceso a tecnología de IA por seguridad nacional. Anthropic, bajo el liderazgo de Dario Amodei, suspendió el acceso a la versión más potente de su tecnología de inteligencia artificial en cumplimiento de una orden de Washington, invocando un riesgo de seguridad nacional. Este movimiento se discutió en el contexto de una cumbre donde Amodei participó en un almuerzo sobre la regulación de la IA. Fuente: AFP.
+
+Larry Ellison.
+Caída significativa en la fortuna personal y valoración de Oracle. La fortuna de Larry Ellison, presidente de Oracle, se redujo en aproximadamente 125 mil millones de dólares en el último mes, con las acciones de Oracle desplomándose más del 5% el lunes, alcanzando un declive del 47% desde su máximo intradiario del 1 de junio. Esto lo hizo caer del puesto 2 al 8 en la lista de multimillonarios. Fuente: Forbes México.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+Apple demanda a OpenAI por robo de secretos industriales. Apple ha presentado una demanda federal contra OpenAI, su startup de hardware io Products y dos exempleados clave, acusando a OpenAI de orquestar un esfuerzo coordinado para captar talento interno y extraer información confidencial sobre su hardware. OpenAI ha negado todas las acusaciones, marcando este caso como uno de los litigios tecnológicos más relevantes del año. Fuente: Café con IA.
+OpenAI explora participación pública en su accionariado. OpenAI estaría estudiando la posibilidad de incorporar participación estatal en su capital, lo que indica que la inteligencia artificial se está percibiendo como un activo estratégico comparable a las grandes infraestructuras nacionales. Este movimiento podría redefinir la relación entre los laboratorios de IA y los gobiernos. Fuente: Café con IA.
+Lanzamiento de ChatGPT Work con GPT-5.6. OpenAI ha presentado ChatGPT Work, un agente avanzado capaz de operar directamente sobre ordenadores y dispositivos móviles, impulsado por el modelo GPT-5.6. Este lanzamiento amplía las capacidades de automatización y asistencia personal para usuarios empresariales y profesionales. Fuente: Café con IA.
+
+Google DeepMind.
+Lanzamiento de Gemini Ultra 2 con mejoras en razonamiento. Google DeepMind ha lanzado Gemini Ultra 2, la sucesora de Gemini Ultra, que muestra mejoras significativas en los puntos de referencia de razonamiento matemático, incluyendo MATH y AIME. Esta nueva versión cierra la brecha con GPT-5 en la resolución de problemas complejos de varios pasos y está disponible a través de Gemini Advanced y la API de Google Cloud AI. Fuente: Skycrumbs Blog.
+Avances en AlphaFold 3 para el descubrimiento de fármacos. AlphaFold 3 ha continuado generando una investigación significativa en 2026, convirtiéndose en una herramienta fundamental en el descubrimiento de fármacos. Su capacidad para predecir la estructura de complejos proteicos, incluyendo interacciones con ADN, ARN y moléculas pequeñas, ha sido acreditada por varias compañías farmacéuticas en la identificación de sitios de unión para nuevos candidatos a fármacos. Fuente: Skycrumbs Blog.
+Actualizaciones en Lyria para la generación de música con IA. El modelo de generación de música Lyria de DeepMind ha recibido actualizaciones significativas en 2026, mejorando su capacidad para mantener un estilo consistente en composiciones más largas y añadiendo un control más granular sobre la instrumentación y el tempo. Lyria está integrado en las herramientas de música de YouTube para creadores. Fuente: Skycrumbs Blog.
+
+Meta AI.
+Meta prepara la producción de su propio chip de IA. Meta está dando un gran paso en la carrera de la IA al prepararse para producir su propio chip de IA, diseñado para mejorar el rendimiento de sus sistemas de IA y reducir la dependencia de proveedores externos. Esta expansión de infraestructura de IA busca soportar futuros productos y servicios. Fuente: TrendVer Verse / The Cryptonomist.
+Quejas de marcas sobre herramientas de publicidad de IA de Meta. Las herramientas de publicidad de IA de Meta están generando críticas por parte de algunas marcas, que alegan que producen absurdos y tergiversaciones. Un ejemplo citado es un anuncio de Instagram que mostraba una bicicleta con dos manillares, atribuido a una función de IA que la empresa activó automáticamente. Fuente: MediaPost.
+Meta retira Muse Image AI tras críticas por privacidad. Meta retiró su función Muse Image AI el 10 de julio, solo tres días después de su lanzamiento, debido a una masiva reacción negativa por preocupaciones de privacidad y consentimiento. La función permitía a los usuarios generar imágenes de IA utilizando fotos de cuentas públicas de Instagram de adultos. Fuente: YouTube (Drip Report).
+
+Microsoft AI.
+Microsoft lanza 'Microsoft Frontier Company'. Microsoft ha lanzado 'Microsoft Frontier Company', una nueva unidad de negocio respaldada por una inversión de 2.500 millones de dólares y 6.000 expertos en la industria e ingeniería. Esta iniciativa busca ayudar a las empresas a pasar de la experimentación con IA a la obtención de resultados comerciales medibles, integrando la IA en los sistemas empresariales y flujos de trabajo existentes. Fuente: YouTube (AI6 Podcast).
+
+xAI.
+xAI se une a la competencia por dominar ecosistemas completos de IA. xAI, junto con OpenAI, Meta, Anthropic y Google, está compitiendo para dominar el ecosistema completo de servicios de IA, lo que implica una expansión estratégica más allá del desarrollo de modelos para convertirse en plataformas integrales de servicios, agentes y herramientas. Este movimiento eleva el nivel de competencia en el sector. Fuente: Café con IA.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Draig Therapeutics.
+Cierre de ronda de financiación Serie B de $65 millones. Draig Therapeutics, una empresa biofarmacéutica en etapa clínica, anunció el cierre de una ronda de financiación Serie B de $65 millones, superando las expectativas. La ronda fue liderada por Deep Track Capital, con la participación de Janus Henderson Investors, Marshall Wace, British Business Bank y Jefferson Life Sciences. Fuente: Business Wire.
+
+Accelerant.
+Asociación con WoodStar Reciprocal Exchange. Accelerant, una plataforma de intercambio de riesgos basada en datos, anunció una asociación con WoodStar Reciprocal Exchange, una nueva compañía de seguros capitalizada con más de $220 millones en notas de superávit y capital de terceros, incluyendo Kilter Finance (respaldado por KKR). Fuente: Business Wire.
+
+Personalis.
+Expansión global con marca UKCA para NeXT Personal®. Personalis, líder en genómica avanzada para oncología de precisión, ha logrado la marca UKCA (United Kingdom Conformity Assessed) para su prueba NeXT Personal Dx. Esto expande el acceso a la detección de enfermedad residual mínima (MRD) y el soporte biofarmacéutico en Gran Bretaña. Fuente: Business Wire.
+
+Camena Bioscience.
+Nombramiento de Gregory P. McGuinness como CEO. Camena Bioscience, pionera en la síntesis enzimática de ADN para el descubrimiento de anticuerpos impulsado por IA, anunció el nombramiento de Gregory P. McGuinness como Director Ejecutivo. McGuinness cuenta con más de 30 años de liderazgo ejecutivo y experiencia operativa. Fuente: Business Wire.
+
+Corner Health.
+Recauda $32.5 millones en financiación Seed y Serie A. Corner Health, una empresa dedicada a reconstruir la atención primaria empoderando a las enfermeras practicantes (NP) para establecer y escalar sus propias clínicas locales, anunció que ha recaudado $32.5 millones en financiación Seed y Serie A. La Serie A fue liderada por Oak HC/FT. Fuente: Business Wire.
+
+Sección: 📰 Top 10 Noticias.
+
+No se encontró información para esta sección.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
