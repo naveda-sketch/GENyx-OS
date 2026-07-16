@@ -1,0 +1,114 @@
+El Periódico. Edición del 2026-07-16.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Elon Musk.
+Inversión de SpaceX en xAI. SpaceX, la compañía aeroespacial de Elon Musk, acordó invertir 2.000 millones de dólares en la empresa de inteligencia artificial xAI del magnate. Esta inversión subraya la creciente sinergia entre las diversas empresas de Musk y su apuesta por el desarrollo de la IA. Fuente: The Wall Street Journal.
+
+Lisa Su.
+Actualización de perfil en Forbes destacando liderazgo en IA. El perfil de Lisa Su en Forbes fue actualizado el 15 de julio de 2026, destacando su liderazgo en la transformación de AMD y su preparación para competir contra Nvidia en la revolución de la IA. La publicación enfatiza su papel en el resurgimiento de la empresa de semiconductores. Fuente: Forbes.
+
+Satya Nadella.
+Advertencia sobre la 'Paradoja Inversa de la Información' en IA. Satya Nadella, CEO de Microsoft, advirtió sobre la 'Paradoja Inversa de la Información', señalando que las empresas pagan dos veces por la inteligencia artificial: con dinero y con el conocimiento propietario que deben revelar para que la IA sea útil. Argumentó que al consumir inteligencia, se crea inteligencia, y lo que se crea debería pertenecer al usuario. Fuente: Business Insider, La Vanguardia.
+
+Jensen Huang.
+Desmentido de rumores sobre retrasos en chips de IA. Jensen Huang, CEO de NVIDIA, desmintió los rumores sobre posibles retrasos en la producción masiva de la próxima generación de chips de IA de la compañía. Aseguró que se avecina una producción masiva, calmando las preocupaciones de los inversores institucionales. Fuente: Business Insider.
+
+Sam Altman.
+Comentarios sobre la 'obsesión' de Elon Musk y el modelo GPT-5.6 Sol. Sam Altman, CEO de OpenAI, afirmó que Elon Musk está 'obsesionado' con él, alardeando de su último modelo GPT-5.6 Sol. Altman sugirió que la 'obsesión' de Musk es un indicador de la superioridad de su modelo de IA. Fuente: Forbes México.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+Lanzamiento de ChatGPT Work y nuevos modelos 5.6. OpenAI ha lanzado una nueva 'mega-app' para ChatGPT que incluye ChatGPT Work (para tareas no relacionadas con código) y Codex (para desarrolladores). También introdujo el nuevo modelo insignia 5.6 con tres niveles de inteligencia: Sol (muy inteligente), Terra (equilibrio costo/inteligencia) y Luna (muy económica). Fuente: How to AI | Ruben Hassid.
+Despliegue gradual de ChatGPT Work y Codex. OpenAI está desplegando gradualmente ChatGPT Work y Codex, que son modos dentro de la aplicación de escritorio de ChatGPT. ChatGPT Work está diseñado para investigación y entregables, mientras que Codex es para desarrollo de software. Ambos están disponibles en la aplicación de escritorio, y Work también en web y móvil. Fuente: OpenAI Help Center.
+Lanzamiento de la aplicación de escritorio oficial de ChatGPT para Windows. OpenAI ha lanzado la aplicación de escritorio oficial de ChatGPT para Windows, que funciona como un centro de comando para el desarrollo de software agéntico. Permite la multitarea con agentes, el aislamiento del trabajo en entornos de trabajo y la revisión de cambios antes de fusionar. Fuente: Microsoft Store.
+
+Google DeepMind.
+Gemini 3.5 Flash disponible en Gemini Enterprise Agent Platform. Google ha lanzado Gemini 3.5 Flash en su Gemini Enterprise Agent Platform, ofreciendo inteligencia de nivel Pro a un costo y velocidad de nivel Flash. Este modelo destaca por su competencia en codificación, ejecución agéntica paralela y soporte para diversas modalidades. Fuente: Google Cloud Documentation.
+Google DeepMind expande esfuerzos en bioseguridad con nuevo programa. Google DeepMind ha presentado un nuevo programa de bioresiliencia para ayudar a gobiernos e investigadores a prevenir, detectar y responder a amenazas biológicas. Esto subraya la apuesta de Google por utilizar modelos de IA de frontera para mitigar los riesgos biológicos que la propia IA podría generar. Fuente: Axios.
+'Vibe Coding' con Gemini para parsers de Google SecOps. Google ha demostrado cómo usar Gemini para 'vibe coding' de parsers de Google SecOps, permitiendo a los equipos de seguridad crear, solucionar problemas y validar parsers personalizados en minutos, en lugar de semanas. Esto simplifica la integración de nuevas fuentes de registro sin necesidad de experiencia profunda en regex. Fuente: Google Community.
+
+Anthropic.
+Tensiones entre Anthropic y funcionarios de defensa de EE. UU. por restricciones de IA. A principios de 2026, las tensiones entre Anthropic y los funcionarios de defensa de EE. UU. se intensificaron debido a las políticas de la compañía que prohíben el uso de sus sistemas para armas autónomas y vigilancia masiva de ciudadanos estadounidenses. Este conflicto destaca la tensión entre los principios de seguridad de la IA de Anthropic y las demandas gubernamentales. Fuente: Britannica Money.
+Debate sobre la 'Constitución' de Claude como sistema de control responsable. Un informe reciente examina si la 'Constitución para Claude' de Anthropic puede considerarse parte de un sistema de control responsable y rendición de cuentas. El debate se centra en la evidencia necesaria para conectar los valores públicos y la dirección de entrenamiento con el control operacional y la gobernanza de la IA. Fuente: Effective Altruism Forum.
+Anthropic lanza 'Claude for Teachers' con acceso premium gratuito. Anthropic ha lanzado 'Claude for Teachers', ofreciendo a los maestros verificados en escuelas estadounidenses un año de acceso gratuito a sus herramientas premium de IA. La iniciativa busca aliviar la carga de trabajo de los educadores, integrándose con estándares académicos y generando planes de lecciones alineados con el currículo. Fuente: Forbes.
+
+Meta AI.
+Estrategia de IA de código abierto de Meta con Llama para startups. Meta continúa con su estrategia de IA de código abierto, utilizando Llama para presionar los precios de los modelos cerrados y fomentar la adopción por parte de startups. La estrategia busca 'comoditizar' la capa del modelo que los competidores monetizan, atraer desarrolladores y acelerar el ecosistema de herramientas alrededor de la pila de Meta. Fuente: Auroviq.
+Llama 4 Scout de Meta con ventana de contexto de 10 millones de tokens. Meta ha lanzado Llama 4 Scout, un modelo de código abierto con una ventana de contexto de 10 millones de tokens, una capacidad sin precedentes que permite procesar grandes volúmenes de datos como bases de código completas o extensos documentos de investigación en una sola instrucción. Fuente: TECHSY.
+Comparativa de precios de hosting de Meta Llama por terceros. Meta no vende directamente la API de Llama, sino que se distribuye a través de hosts de terceros. Deepinfra es el más económico para Llama 3.3 70B, mientras que Groq ofrece la mayor velocidad. Esta dinámica de precios y rendimiento entre proveedores ofrece flexibilidad a los usuarios. Fuente: AI Pricing Guru.
+
+Microsoft AI.
+GitHub Copilot Code Review para Pull Requests en Azure Repos. Microsoft ha lanzado la función de revisión de código de GitHub Copilot para pull requests en Azure Repos. Esta característica permite a Copilot actuar como un revisor automatizado, publicando comentarios y sugerencias en el código cambiado, lo que agiliza el proceso de revisión antes de la aprobación humana. Fuente: Microsoft Learn.
+Copilot Autofix para escaneo de código en GitHub Advanced Security para Azure DevOps. Microsoft ha introducido Copilot Autofix como una característica de GitHub Advanced Security para Azure DevOps. Esta herramienta genera soluciones sugeridas para alertas de escaneo de código, utilizando el agente de codificación de Copilot para producir un pull request con el cambio propuesto, facilitando la corrección de vulnerabilidades y errores. Fuente: Microsoft Learn.
+Guía para elegir la versión de Microsoft Copilot adecuada. Microsoft ha publicado una guía para ayudar a los usuarios y administradores a decidir qué versión de Copilot es la adecuada para sus necesidades, incluyendo Microsoft 365 Copilot Chat, Microsoft 365 Copilot, Microsoft Copilot, Microsoft Security Copilot, GitHub Copilot y Copilot Studio. La guía destaca las diferencias clave en capacidades y licenciamiento. Fuente: Microsoft Learn.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Spectro Cloud.
+Recauda más de $100 millones en ronda de financiación Serie D. Spectro Cloud, proveedor de software de gestión de infraestructura de IA, ha cerrado una ronda de financiación Serie D de más de $100 millones. La ronda fue liderada por Growth Equity de Goldman Sachs Alternatives y contó con la participación estratégica de AMD Ventures, Ericsson, LG Technology Ventures y Maximus. Esta inversión eleva el capital total recaudado por la compañía a $260 millones. Fuente: Business Wire.
+
+Anthropic.
+Impulsa regulaciones de seguridad de IA más estrictas a nivel estatal. Anthropic está respaldando activamente proyectos de ley de seguridad de IA progresivamente más estrictos a nivel estatal en EE. UU., incluyendo medidas en California, Nueva York, Illinois y Massachusetts. La compañía apoya una medida en Massachusetts que requeriría evaluaciones de riesgo independientes cada seis meses para laboratorios con ingresos significativos o gasto en I+D en IA. Fuente: AI Weekly (vía Politico.com), Business Insider.
+
+Stripe.
+Reporta una oferta de $53 mil millones para adquirir PayPal. Stripe y la firma de capital privado Advent International han presentado una oferta conjunta para adquirir PayPal Holdings Inc. por más de $53 mil millones. La propuesta, que valora a PayPal en $60.50 por acción, busca fusionar la infraestructura de Stripe con los 439 millones de cuentas de consumidores de PayPal. Fuente: Financial IT.
+
+Anduril Industries.
+Nombrada como potencial proveedor de armas hipersónicas para el Ejército de EE. UU.. Un alto funcionario del Ejército de EE. UU. ha nombrado a Anduril como un potencial proveedor de armas hipersónicas. Esta mención se produce en el contexto de un requisito emergente para una combinación de misiles de largo alcance de alta y baja tecnología. Fuente: Aviation Week (vía RealClearDefense).
+
+OpenAI.
+Propone una participación de $42 mil millones al gobierno de EE. UU. y se prepara para una IPO. OpenAI ha propuesto otorgar al gobierno de EE. UU. una participación del 5% en la compañía, valorada en aproximadamente $42.6 mil millones, basándose en una valoración reciente de $852 mil millones. Esta propuesta, presentada por Sam Altman al Presidente Trump y otros funcionarios, busca que las principales empresas de IA de EE. UU. cedan una parte de su capital a un fondo público. La compañía también se encuentra a semanas de presentar una solicitud confidencial para su Oferta Pública Inicial (IPO). Fuente: AI News Today (vía vertexaisearch.cloud.google.com).
+
+Sección: 📰 Top 10 Noticias.
+
+El BCE mantiene tasas de interés sin cambios, pero el repunte del petróleo genera incertidumbre para futuras decisiones..
+El Banco Central Europeo (BCE) decidió mantener su tasa de depósito en 2.25%, en línea con las expectativas del mercado. Sin embargo, el reciente aumento en los precios del petróleo, impulsado por tensiones geopolíticas, ha reabierto el debate sobre posibles futuras subidas de tasas. Se espera que el BCE revise nuevamente su política en septiembre. Fuente: Reuters / FXStreet.
+¿Por qué importa? La estabilidad o cambio en las tasas de interés impacta directamente el costo del capital para startups y empresas tecnológicas. Un entorno de tasas más altas puede dificultar la obtención de financiación y encarecer los préstamos para expansión e inversión.
+
+Stripe y Advent International lanzan oferta de $53 mil millones para adquirir PayPal..
+Stripe y el fondo de inversión Advent International han presentado una oferta conjunta de $60.50 por acción para adquirir PayPal, valorando la compañía en más de $53 mil millones. Esta operación, de concretarse, sería una de las mayores en la historia del sector fintech y consolidaría a Stripe como un actor dominante en la infraestructura de pagos digitales globales. Fuente: Reuters / elEconomista.es.
+¿Por qué importa? Esta mega-adquisición redefiniría el panorama de pagos digitales, afectando a startups fintech que compiten o colaboran con estas plataformas. Podría generar nuevas oportunidades o consolidar el poder de mercado, impactando la innovación y la competencia en el sector.
+
+Startup Hemispheric recauda $52 millones para su IA 'Descartes' que lee el cerebro sin cirugía..
+La startup israelí de neurotecnología Hemispheric ha salido del modo sigiloso con una financiación de $52 millones y el lanzamiento de 'Descartes', un modelo de IA de 6 mil millones de parámetros. Este modelo traduce la actividad eléctrica del cerebro en métricas cuantificables para el diagnóstico médico no invasivo, con un enfoque inicial en trastornos como el estrés postraumático y el Alzheimer. Fuente: FomoEra.
+¿Por qué importa? Este avance representa un hito significativo en la intersección de la IA y la salud, abriendo nuevas vías para el diagnóstico temprano y personalizado de enfermedades neurológicas. Para fundadores tech, subraya el potencial de la IA para transformar sectores tradicionales con soluciones no invasivas y de alto impacto.
+
+Neko Health, startup de escaneo corporal de Daniel Ek, cierra Serie C de $700 millones para expansión en EE. UU..
+Neko Health, la startup de escaneo corporal fundada por Daniel Ek (cofundador de Spotify), ha recaudado $700 millones en una ronda de financiación Serie C. Los fondos se destinarán a acelerar su lanzamiento en Estados Unidos, comenzando por Nueva York, y a escalar su tecnología de escaneo corporal que integra imágenes propietarias con análisis de sangre y datos de Apple Health. Fuente: Panorama Online / Vietnam.vn.
+¿Por qué importa? Esta inversión masiva valida el modelo de negocio de salud preventiva basado en tecnología y la confianza en la visión de Neko Health. Demuestra que el capital de riesgo sigue fluyendo hacia soluciones innovadoras en salud digital con un claro potencial de mercado y escalabilidad global.
+
+Thinking Machines lanza Inkling, un modelo de IA multimodal de código abierto que desafía a las plataformas cerradas..
+Thinking Machines Lab, cofundada por la ex CTO de OpenAI Mira Murati, ha lanzado Inkling, un modelo de IA multimodal de código abierto con 975 mil millones de parámetros. Entrenado para interpretar audio, video y texto, Inkling busca ofrecer una alternativa versátil y personalizable a los sistemas cerrados, destacando por su capacidad de autoajuste y eficiencia. Fuente: NEO / GptZone.
+¿Por qué importa? La aparición de modelos de IA de código abierto de esta magnitud democratiza el acceso a la tecnología de frontera, permitiendo a startups y desarrolladores innovar sin la dependencia de grandes proveedores. Esto podría acelerar la creación de nuevas aplicaciones y servicios de IA en diversos sectores.
+
+Avances en 'Twistrónica' con grafeno abren nuevas vías para computación cuántica y electrónica..
+Investigadores han logrado manipular las propiedades de materiales avanzados, como el grafeno, mediante un 'ángulo mágico' de giro atómico. Este descubrimiento en el campo de la 'twistrónica' permite crear materiales con propiedades extraordinarias, como la superconductividad, y tiene implicaciones significativas para el desarrollo de la computación cuántica y la electrónica de bajo consumo. Fuente: La Voz de Madrid.
+¿Por qué importa? Esta tendencia en ciencia de materiales es fundamental para la próxima generación de hardware. Fundadores en deep tech, computación cuántica y electrónica deben estar atentos a estos avances, ya que podrían habilitar nuevas arquitecturas y eficiencias energéticas para sus productos.
+
+La IA acelera el descubrimiento de vulnerabilidades, generando una 'ola de parches' en ciberseguridad..
+La nueva generación de Inteligencia Artificial, con modelos como Mythos, está revolucionando la ciberseguridad al descubrir fallas de lógica en millones de líneas de código a una velocidad sin precedentes. Esto reduce el tiempo entre la divulgación de una vulnerabilidad crítica y su explotación activa a 24-48 horas, lo que exige una reestructuración urgente de los procesos de parcheo y defensa. Fuente: ITseller Chile.
+¿Por qué importa? Para cualquier fundador tech, la ciberseguridad es crítica. La IA está transformando el panorama de amenazas y defensas. Entender cómo la IA acelera el descubrimiento de vulnerabilidades es clave para invertir en soluciones de seguridad proactivas y automatizadas, y para garantizar la resiliencia de sus productos y servicios.
+
+El mercado de capital riesgo global muestra signos de recuperación, con España superando los 2.000 millones de euros en el primer semestre..
+La inversión en startups en España alcanzó los 2.059 millones de euros en el primer semestre de 2026, un aumento del 5% respecto al año anterior, impulsado por un reducido número de megarrondas. A nivel global, el crédito privado sigue creciendo, aunque con advertencias sobre la concentración de riesgo y la necesidad de mayor supervisión. Fuente: Funds Society / Aesec.
+¿Por qué importa? La recuperación del capital riesgo es una señal positiva para startups que buscan financiación. Sin embargo, la concentración en megarrondas sugiere que el acceso al capital puede seguir siendo desafiante para empresas en etapas tempranas. Es crucial entender las tendencias de inversión y los criterios de los VCs.
+
+Ode with Anthropic debuta con $1.5 mil millones para implementar IA en empresas no digitales..
+Anthropic, Blackstone y Hellman & Friedman han lanzado oficialmente 'Ode with Anthropic', una empresa conjunta con una inversión de $1.5 mil millones. La firma, que ya cuenta con 100 ingenieros, se enfoca en implementar la tecnología de IA de Anthropic dentro de empresas medianas de diversos sectores, reconociendo que el éxito de la IA no solo depende del modelo, sino de su integración efectiva. Fuente: FomoEra.
+¿Por qué importa? Este movimiento destaca la creciente demanda de servicios de implementación de IA y la necesidad de puentes entre la tecnología de frontera y las operaciones empresariales. Fundadores de startups de servicios de IA o de plataformas de integración deben ver esto como una validación de mercado y una oportunidad para especializarse en la adopción de IA en sectores específicos.
+
+Japón reconocerá las criptomonedas como activos financieros, endureciendo su regulación..
+El Parlamento de Japón ha aprobado una enmienda legislativa para designar a las criptomonedas como 'activos financieros', lo que las someterá a normativas más estrictas, incluyendo las de uso de información privilegiada y sanciones más severas para plataformas no registradas. Este cambio, que entrará en vigor en un año, busca formalizar la creciente adopción de criptoactivos en el país. Fuente: Reuters / MarketScreener.
+¿Por qué importa? La regulación clara y el reconocimiento como activos financieros pueden legitimar aún más el espacio cripto, atrayendo a inversores institucionales y fomentando la innovación responsable. Sin embargo, las startups de blockchain y cripto deben adaptarse a un entorno regulatorio más estricto, lo que podría implicar mayores costos de cumplimiento.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
