@@ -1,0 +1,119 @@
+El Periódico. Edición del 2026-07-17.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Elon Musk.
+Adquisición de una empresa de turbinas de gas móvil. Elon Musk adquirió en secreto APR Energy, una empresa de turbinas de gas móvil con una de las flotas más grandes del mundo, por aproximadamente mil millones de dólares. La transacción, que se cerró en mayo, salió a la luz a través de documentos de la Comisión Federal de Comercio (FTC) y divulgaciones de partes interesadas minoritarias. Esta adquisición se realizó a título personal de Musk, no a través de sus empresas. Fuente: Latitude Media, Teslarati.
+Aborto del lanzamiento de Starship Flight 13. El lanzamiento de prueba de Starship Flight 13 de SpaceX fue abortado el 16 de julio de 2026, después de que cuatro de los 33 motores Raptor 3 no se encendieran durante la cuenta regresiva. Elon Musk confirmó que dos motores serán reemplazados y se apunta a un relanzamiento a principios de la próxima semana. Fuente: Teslarati, Tesla Oracle, Space.
+La UE acepta el plan de acción de X para la transparencia. La Unión Europea aceptó el plan de acción de la red social X de Elon Musk para cumplir con las normas de transparencia y el acceso de los investigadores a los datos bajo la Ley de Servicios Digitales de la UE. Esto sigue a una multa de 120 millones de euros impuesta a X el año pasado. Fuente: Reuters via WTVB.
+
+Satya Nadella.
+Advertencia sobre el 'Paradox of Reverse Information' en IA. Satya Nadella advirtió que las empresas que utilizan modelos de IA propietarios pagan dos veces: una con dinero y otra con su conocimiento propietario, que se utiliza para entrenar los modelos. Propone un marco de 'IA soberana' donde las organizaciones mantengan el control de sus datos, modelos e infraestructura de IA para evitar que su conocimiento institucional beneficie a los competidores. Fuente: Fast Company, The Times of India, Softonic, Android Headlines, The Hindu, The National CIO Review.
+Crítica a las restricciones del modelo Fable de Anthropic. Satya Nadella expresó su preocupación por las prácticas restrictivas del modelo de IA Fable de Anthropic, señalando que el modelo a menudo deniega solicitudes de usuarios legítimas. Cuestionó la lógica detrás de controles de contenido tan estrictos para una herramienta creativa durante una discusión con el equipo de desarrollo de Copilot de Microsoft. Fuente: GuruFocus, Briefs Finance, AI Weekly.
+
+Jensen Huang.
+Desestimación de retrasos en Vera Rubin y afirmación de producción masiva. Jensen Huang desestimó los informes sobre retrasos en el lanzamiento del hardware de IA Vera Rubin de NVIDIA, afirmando que la producción está en marcha y que los sistemas de aceleradores de IA de alta gama se entregarán a los clientes en volúmenes de producción 'gigantes'. Esto contradice los rumores de problemas de calificación de memoria HBM4. Fuente: Benzinga, GuruFocus.
+Impulso de la 'IA Física' en Japón y nuevas asociaciones. Jensen Huang visitó Japón para reunirse con socios de robótica y promover la era de la 'IA Física'. Durante su visita, NVIDIA anunció asociaciones con empresas japonesas como Fanuc y Yaskawa Electric para avanzar en el desarrollo de robótica e IA. También se confirmó que Noetra, una empresa respaldada por el gobierno, comprará 27,500 chips NVIDIA Rubin para desarrollar IA física. Fuente: Wccftech, India Today Global, IGR.
+Reencuentro con Shoichiro Irimajiri de Sega. Jensen Huang se reunió con el ex-presidente de Sega, Shoichiro Irimajiri, en Tokio, 30 años después de que una inversión de 5 millones de dólares de Sega salvara a NVIDIA de la quiebra. En el evento, se anunció una nueva asociación tecnológica entre Sega y NVIDIA, que incluirá el soporte de RTX Spark para futuros títulos de Sega. Fuente: GAMES.GG, Inc.com.
+
+Sam Altman.
+Advertencia de 'contratiempos' por la demanda de GPT-5.6 Sol. Sam Altman advirtió en X que el crecimiento de GPT-5.6 Sol es 'una locura' y que podría haber 'contratiempos' ya que la infraestructura de inferencia de OpenAI lucha por satisfacer la demanda. Codex y ChatGPT Work han alcanzado los 8 millones de usuarios activos, lo que ha obligado a OpenAI a eliminar límites de tarifas y restablecer topes de uso. Fuente: MLQ.ai News.
+Disputas con Elon Musk y críticas a Anthropic. Sam Altman ha reanudado sus disputas públicas con Elon Musk, criticando los planes de SpaceX para centros de datos en el espacio y las acusaciones de Apple contra OpenAI. También ha lanzado indirectas a Anthropic, su principal competidor, por su anuncio sobre 'preguntas difíciles' y sus políticas restrictivas. Fuente: Business Insider, Fool.com.
+Reconocimiento de deficiencias pasadas y expectativas de crecimiento. Sam Altman reconoció en una entrevista de junio de 2026 que OpenAI no cumplió los objetivos internos de usuarios y ingresos a finales de abril, citando preocupaciones sobre el gasto masivo en IA y los plazos de retorno poco claros. Sin embargo, también destacó un aumento del 54% en la eficiencia de tokens para ciertas tareas en las nuevas iteraciones del modelo. Fuente: Crypto Briefing.
+
+Demis Hassabis.
+Ensayo sobre la seguridad de la IA. Demis Hassabis, CEO de Google DeepMind, publicó un ensayo sobre la seguridad de la IA, que fue aprobado por Sam Altman y Elon Musk. Este ensayo se suma a la creciente conversación sobre la necesidad de regular la IA a medida que avanza hacia capacidades sobrehumanas. Fuente: Business Insider, Axios, OpenAI.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+OpenAI lanza agenda política sobre seguridad juvenil y alfabetización en IA. OpenAI ha publicado una agenda política integral que aborda la seguridad de los jóvenes en línea, la promoción de la alfabetización en IA y la gestión de la transición de la fuerza laboral. La compañía busca implementar una experiencia más protectora para menores, herramientas de supervisión parental y restricciones en la publicidad dirigida a este grupo demográfico. Fuente: OpenAI News.
+OpenAI presenta GPT-Red para la mejora autónoma de la robustez. OpenAI ha lanzado GPT-Red, un avance en investigación enfocado en la mejora autónoma de la robustez de los modelos de IA. Esta iniciativa busca que los sistemas de IA puedan identificar y corregir sus propias vulnerabilidades para ser más seguros y confiables, marcando un paso hacia sistemas de IA más resilientes. Fuente: OpenAI News.
+OpenAI planea un altavoz ChatGPT como compañero de hogar con IA. OpenAI está desarrollando un altavoz con la marca ChatGPT, que se posicionará como un nuevo compañero de hogar impulsado por IA. Este dispositivo representa un paso clave para OpenAI en el negocio de hardware, tras la adquisición de io Products por $6.5 mil millones el año pasado, buscando expandir la presencia de la IA en el ámbito doméstico. Fuente: Los Angeles Times.
+
+Google DeepMind.
+Co-fundador de Google DeepMind propone un organismo regulador de IA. Demis Hassabis, co-fundador de Google DeepMind, ha propuesto la creación de un organismo de vigilancia liderado por EE. UU. para evaluar modelos de IA avanzados antes de su lanzamiento. Este organismo, financiado por la industria, buscaría establecer reglas claras y podría prohibir modelos inseguros del mercado estadounidense, similar a la Autoridad Reguladora de la Industria Financiera (FINRA). Fuente: Technology Review.
+Lanzamiento de Gemini 3.5 Pro de Google DeepMind retrasado por mejoras en codificación. Google DeepMind ha retrasado el lanzamiento de su modelo insignia de IA, Gemini 3.5 Pro, por varios meses, ya que los ingenieros buscan mejorar sus capacidades, particularmente en codificación. Este retraso se debe a que el modelo no alcanzó las mejoras esperadas en el rendimiento de codificación, a pesar de haber actualizado los datos de entrenamiento. Fuente: Bloomberg.
+
+Meta AI.
+Empleados de Meta demandan por despidos discriminatorios impulsados por IA. Veintiséis empleados de Meta han presentado una demanda acusando a la empresa de utilizar inteligencia artificial para seleccionar trabajadores para despidos masivos. La demanda alega que Meta usó sistemas de IA para elegir a 8,000 empleados (10% de su fuerza laboral) para ser despedidos, mientras la compañía redirige recursos hacia su agenda de IA. Fuente: AFP.
+Meta contrata a ejecutivo de AWS para impulsar expansión de centros de datos de IA. Meta ha contratado a Dave Brown, un alto ejecutivo de Amazon Web Services (AWS), para liderar la expansión de su infraestructura de IA y centros de datos. Brown, con casi 20 años de experiencia en AWS, se unirá a Meta en las próximas semanas para enfocarse en el desarrollo masivo de centros de datos y la iniciativa Meta Compute. Fuente: The Information (citando The Wall Street Journal).
+
+Microsoft AI.
+Microsoft reestructura su división de ciberseguridad para acelerar la IA. Microsoft está reestructurando su división de ciberseguridad, reemplazando a ocho ejecutivos para integrar más rápidamente la inteligencia artificial en sus productos de defensa empresarial. La compañía está desarrollando más productos de seguridad impulsados por IA, como Microsoft Security Copilot, y reduciendo la inversión en productos de seguridad tradicionales. Fuente: The Information.
+GitHub Copilot implementa facturación basada en el uso para todos los planes. GitHub Copilot ha implementado la facturación basada en el uso para todos sus planes a partir del 1 de junio de 2026, y ha reabierto las inscripciones para nuevos suscriptores. Los usuarios ahora tienen opciones de 'Pagar sobre la marcha' o actualizar a un plan superior para continuar usando Copilot una vez que superen los límites de uso incluidos. Fuente: GitHub Community.
+GitHub Copilot lanza webinar sobre optimización de costos de tokens. GitHub ha anunciado un webinar el 16 de julio de 2026, coorganizado con Andela, enfocado en cómo líderes de tecnología y finanzas pueden optimizar los costos de tokens de GitHub Copilot. Este evento busca ayudar a las empresas a gestionar eficientemente los gastos asociados con el uso de herramientas de codificación de IA. Fuente: GitHub.
+
+Cohere.
+La Universidad de Toronto se asocia con Cohere para la adopción de IA a escala. La Universidad de Toronto ha establecido una ambiciosa asociación plurianual con Cohere, líder canadiense en IA soberana, para impulsar la adopción responsable de la inteligencia artificial a gran escala. Esta colaboración permitirá a la universidad utilizar la plataforma de IA agentic de Cohere, North, para coordinar tareas complejas y gestionar información de forma segura. Fuente: University of Toronto.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+DeepSeek.
+Busca $1.5B con valoración de $71B. La startup china de IA, DeepSeek, está en conversaciones para una nueva ronda de financiación de aproximadamente $1.5 mil millones, lo que elevaría su valoración a unos $71 mil millones. Esta noticia sigue a una ronda de financiación anterior de $7 mil millones a una valoración de $50 mil millones hace solo unas semanas, lo que demuestra un rápido aumento en su valoración. Fuente: Bloomberg (citado por OurAlpha, MLQ.ai, Tech Funding News, KuCoin, AI Weekly).
+Prepara oferta pública inicial (IPO). DeepSeek está preparando una oferta pública inicial (IPO) que podría ocurrir tan pronto como a finales de 2026 o principios de 2027. La compañía está trabajando con asesores contables y bancarios para finalizar sus estados financieros para diciembre de 2026, un paso requerido antes de cualquier presentación. Fuente: Bloomberg (citado por OurAlpha, MLQ.ai, Tech Funding News, KuCoin, AI Weekly).
+
+Helsing.
+Recauda $1.8B para escalar plataforma de IA para defensa. Helsing, una empresa de IA enfocada en la defensa, ha recaudado $1.8 mil millones en una ronda de financiación de inversores como Dragoneer y Lightspeed. Este capital se utilizará para escalar su plataforma de IA, lo que permitirá un mayor desarrollo y despliegue de sus tecnologías en el sector de la defensa. Fuente: Crescendo.ai.
+
+Walden Robotics.
+Lanzamiento con $300M y valoración de $1.1B. Walden Robotics ha salido del modo sigiloso con una financiación de $300 millones, lo que valora la empresa en $1.1 mil millones. La ronda fue co-liderada por Toyota y Deviation Capital, con participación de NVIDIA, Boeing, Samsung Ventures, entre otros. Fuente: Business Wire.
+Desarrollo de robots de propósito general. La compañía se enfoca en construir y desplegar robots de propósito general que continuamente aprenden y mejoran mientras realizan trabajos reales. Este enfoque en la IA física y la capacidad de adaptación de los robots busca abordar una amplia gama de tareas en el mundo real. Fuente: Business Wire.
+
+Aqemia.
+Expande colaboración de investigación con Sanofi. Aqemia, una empresa de invención de fármacos que combina IA generativa y física inspirada en la cuántica, ha anunciado la expansión de su colaboración de investigación de varios años con la compañía farmacéutica global Sanofi. Esta expansión incluye la nominación de un nuevo objetivo terapéutico y un pago adicional, lo que podría hacer que Aqemia sea elegible para recibir hasta un total de $140 millones. Fuente: Business Wire.
+
+Vogenx.
+Se une a la fila de IPOs para financiar fármaco metabólico. Vogenx ha presentado su solicitud para una oferta pública inicial (IPO) con el objetivo de financiar su fármaco metabólico en etapa de fase 2. Esta medida indica la confianza de la empresa en su pipeline de productos y la búsqueda de capital para avanzar en sus ensayos clínicos. Fuente: Fierce Biotech.
+
+Sección: 📰 Top 10 Noticias.
+
+Visa lanza una plataforma de stablecoins empresariales para facilitar la adopción institucional..
+Visa ha presentado la Plataforma de Stablecoins de Visa (VSP), una nueva oferta empresarial diseñada para que instituciones financieras, fintechs y empresas cripto-nativas accedan a capacidades de stablecoins en un entorno gestionado por Visa. La plataforma inicialmente soportará Open USD (OUSD) y ofrecerá infraestructura de monedero como servicio, junto con la integración en la red existente de Visa para operaciones de tesorería y liquidación. Fuente: Morningstar.
+¿Por qué importa? Esta iniciativa de un gigante financiero como Visa legitima aún más las stablecoins como infraestructura de pago y tesorería, abriendo nuevas vías para la innovación en fintech y cripto. Los fundadores tech deben considerar cómo integrar estas capacidades en sus productos y prepararse para una mayor competencia en el espacio de pagos digitales.
+
+El mercado de OPI de EE. UU. se acerca a un récord histórico en 2026, impulsado por la salida a bolsa de SpaceX..
+La actividad de ofertas públicas iniciales (OPI) en EE. UU. ha experimentado un aumento histórico en la primera mitad de 2026, acercándose al récord total de capital recaudado en 2021. Este repunte fue impulsado significativamente por la OPI de SpaceX, que recaudó un récord de $75 mil millones, junto con otras grandes cotizaciones como la ADR de SK Hynix. Fuente: Nasdaq.
+¿Por qué importa? Un mercado de OPI robusto, liderado por empresas tecnológicas de alto perfil, indica una fuerte confianza de los inversores y ofrece oportunidades significativas de captación de capital y vías de salida para startups tecnológicas maduras. Los fundadores deben observar esta tendencia como un indicador de la salud del mercado y una posible estrategia de crecimiento.
+
+Fireworks AI recauda $1.5 mil millones en una ronda de financiación, desafiando el dominio de las grandes tecnológicas en IA..
+Fireworks AI, una startup de infraestructura de IA fundada por Lin Qiao, quien lideró el desarrollo de PyTorch en Meta, ha cerrado una ronda de financiación de $1.5 mil millones. Esta inversión masiva subraya la creciente competencia en el espacio de modelos fundacionales de IA y la búsqueda de alternativas a los actores dominantes de Big Tech. Fuente: The Information.
+¿Por qué importa? Esta ronda de financiación récord demuestra que el ecosistema de IA sigue siendo dinámico y que hay un apetito considerable por soluciones de infraestructura de IA fuera de los gigantes tecnológicos. Los fundadores tech deben ver esto como una señal de que la innovación y la disrupción son posibles, incluso en mercados dominados, si se cuenta con el talento y la visión adecuados.
+
+La financiación de capital de riesgo se concentra en startups de IA, con mega-rondas dominando el panorama..
+La financiación global de capital de riesgo en 2025 alcanzó los $345 mil millones, con un aumento del 14% interanual. Las startups nativas de IA capturaron el 38% de todos los dólares de VC, la mayor concentración en una década. Las mega-rondas (más de $100 millones) representaron el 52% del capital total desplegado, creando una dinámica de 'barra' donde las etapas iniciales se recuperaron, pero las etapas intermedias son más competitivas. Fuente: PitchBook.
+¿Por qué importa? Esta tendencia indica que, si bien el capital de riesgo está disponible, se está concentrando fuertemente en la IA y en las etapas avanzadas. Los fundadores fuera del sector de IA o en etapas tempranas deben ser conscientes de este panorama competitivo y demostrar una eficiencia de capital excepcional para atraer inversiones.
+
+Crypto.com asegura una inversión estratégica de $400 millones de Citadel Securities, valorando la empresa en $20 mil millones..
+El exchange de criptomonedas Crypto.com ha alcanzado una valoración de $20 mil millones tras una inversión de $400 millones de la firma de mercados Citadel Securities. Esta inyección de capital estratégico por parte de una importante empresa de finanzas tradicionales subraya la creciente institucionalización de las criptomonedas y la convergencia entre los mercados financieros tradicionales y los activos digitales. Fuente: Financial Times.
+¿Por qué importa? Esta inversión es un fuerte indicador de la maduración del espacio cripto y su integración en las finanzas tradicionales. Para los fundadores de fintech y cripto, esto significa un ecosistema más robusto, mayor liquidez y posibles oportunidades de asociación con actores financieros establecidos, pero también una mayor escrutinio regulatorio.
+
+El CEO de Google DeepMind, Demis Hassabis, propone un organismo de estándares de IA de frontera para pruebas de seguridad previas al lanzamiento..
+Demis Hassabis, CEO de Google DeepMind, ha publicado un marco que advierte sobre los riesgos biológicos y nucleares severos que los modelos de código abierto podrían presentar en 18 meses. Propone un organismo de estándares de IA, modelado a partir de FINRA, para realizar pruebas de seguridad de modelos de frontera hasta 30 días antes de su lanzamiento, con el objetivo de evaluar capacidades cibernéticas, biológicas y de engaño. Fuente: DeepMind.
+¿Por qué importa? La propuesta de un líder clave en IA para un organismo de estándares subraya la creciente preocupación por la seguridad y la gobernanza de la IA avanzada. Los fundadores de startups de IA deben anticipar posibles regulaciones y la necesidad de integrar prácticas de seguridad y ética rigurosas desde el diseño, lo que podría influir en los ciclos de desarrollo y los costos.
+
+TSMC invertirá $100 mil millones adicionales en Arizona, impulsada por la fuerte demanda de chips de IA..
+TSMC, el principal fabricante mundial de chips de IA avanzados, ha prometido una inversión adicional de $100 mil millones en Arizona, EE. UU. La compañía citó la continua y robusta demanda impulsada por la inteligencia artificial como el principal motor de esta expansión, proyectando un fuerte crecimiento hasta 2030. Fuente: Reuters.
+¿Por qué importa? Esta inversión masiva de TSMC destaca la importancia crítica de los semiconductores para el avance de la IA y la creciente necesidad de diversificar las cadenas de suministro. Los fundadores de hardware de IA y startups que dependen de chips avanzados deben estar al tanto de estas inversiones, ya que impactan la disponibilidad, el costo y la geopolítica de los componentes esenciales.
+
+La regulación de la IA se vuelve activa y exigible a nivel global, con muchas organizaciones sin preparación..
+La regulación de la inteligencia artificial ha pasado de ser una preocupación futura a una realidad activa y exigible a nivel mundial. Con leyes como la Ley de IA de la UE y NIS2 entrando en vigor, muchas organizaciones carecen de la visibilidad operativa y el control necesarios para cumplir con estos requisitos, lo que plantea desafíos significativos para la seguridad y la gobernanza de la IA. Fuente: SC Media.
+¿Por qué importa? Los fundadores tech deben reconocer que la era de la IA no regulada está terminando. La falta de preparación para el cumplimiento normativo puede generar riesgos legales y de reputación. Es crucial implementar estrategias sólidas de gobernanza de IA y protección de datos para asegurar el despliegue responsable y auditable de la tecnología.
+
+IBM detalla métricas clave para medir el rendimiento de las computadoras cuánticas: qubits programables, operaciones y circuitos por segundo..
+IBM ha delineado tres métricas fundamentales para evaluar el rendimiento de cualquier computadora cuántica: qubits programables (escala), operaciones de qubit (calidad) y circuitos máximos por segundo (velocidad). Estas métricas buscan proporcionar una forma estandarizada de comparar la capacidad computacional y la eficiencia de costos de las computadoras cuánticas en diversas modalidades de hardware. Fuente: IBM.
+¿Por qué importa? La estandarización de métricas de rendimiento en la computación cuántica es crucial para su maduración como tecnología. Para los fundadores tech, esto significa una mayor claridad en la evaluación de las capacidades cuánticas y una base para futuras aplicaciones, lo que les permite planificar la integración de la computación cuántica en sus estrategias a largo plazo.
+
+Los traders de bonos reducen las apuestas de alza de tasas de la Fed ante una perspectiva de inflación más suave en EE. UU..
+El mercado de bonos de EE. UU. ha mostrado un tono alcista, con los traders de opciones de tasas de interés reduciendo sus apuestas de nuevas alzas por parte de la Reserva Federal. Esto se produce tras dos informes de inflación más bajos de lo esperado, lo que sugiere que la política monetaria actual podría ser lo suficientemente restrictiva, aunque las tensiones en Medio Oriente y los precios del petróleo aún plantean riesgos inflacionarios. Fuente: Financial Post.
+¿Por qué importa? Una perspectiva de inflación más suave y la posible pausa en las alzas de tasas de la Fed pueden influir en el costo del capital y el entorno de inversión. Los fundadores tech deben monitorear estas señales macroeconómicas, ya que impactan las valoraciones de las empresas, la disponibilidad de financiación y el poder adquisitivo de los consumidores.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
