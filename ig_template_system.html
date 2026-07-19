@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Madre Masas — Plantillas IG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold-wheat: #C4A265;
+    --beige-flour: #F5F0E8;
+    --charcoal-toast: #2D2A26;
+    --crust-dark: #8B6914;
+    --linen: #E8E0D4;
+    --bg-app: #1a1816;
+    --bg-card: #252220;
+    --bg-card-hover: #2e2b28;
+    --text-primary: #f1f0ed;
+    --text-secondary: #a09a90;
+    --border-subtle: rgba(196, 162, 101, 0.15);
+    --gold-glow: rgba(196, 162, 101, 0.08);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg-app);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  .app-header {
+    text-align: center; padding: 40px 24px 32px;
+    border-bottom: 1px solid var(--border-subtle);
+    background: linear-gradient(180deg, rgba(196,162,101,0.06) 0%, transparent 100%);
+  }
+  .app-header .wheat-icon { font-size: 28px; margin-bottom: 8px; display: block; color: var(--gold-wheat); }
+  .app-header h1 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; letter-spacing: -0.02em; }
+  .app-header h1 span { color: var(--gold-wheat); }
+  .app-header p { font-size: 13px; color: var(--text-secondary); margin-top: 6px; letter-spacing: 0.04em; }
+  .app-layout { display: grid; grid-template-columns: 340px 1fr; max-width: 1400px; margin: 0 auto; min-height: calc(100vh - 140px); }
+  .sidebar { padding: 28px 24px; border-right: 1px solid var(--border-subtle); overflow-y: auto; background: rgba(0,0,0,0.15); }
+  .sidebar h2 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold-wheat); margin-bottom: 16px; }
+  .template-grid { display: grid; gap: 8px; margin-bottom: 28px; }
+  .template-btn { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 12px; background: var(--bg-card); border: 1px solid var(--border-subtle); cursor: pointer; transition: all 0.2s; text-align: left; color: var(--text-primary); }
+  .template-btn:hover { background: var(--bg-card-hover); border-color: rgba(196,162,101,0.3); }
+  .template-btn.active { background: var(--gold-glow); border-color: var(--gold-wheat); box-shadow: 0 0 20px rgba(196,162,101,0.1); }
+  .template-btn .t-icon { font-size: 22px; width: 32px; text-align: center; flex-shrink: 0; }
+  .template-btn .t-info { flex: 1; }
+  .template-btn .t-name { font-size: 14px; font-weight: 600; display: block; }
+  .template-btn .t-desc { font-size: 11px; color: var(--text-secondary); display: block; margin-top: 2px; }
+  .template-btn .t-palancas { font-size: 10px; color: var(--gold-wheat); display: block; margin-top: 4px; font-weight: 500; }
+  .form-section { margin-bottom: 24px; }
+  .form-section label { display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); margin-bottom: 8px; }
+  .form-input { width: 100%; padding: 10px 14px; border-radius: 8px; background: var(--bg-card); border: 1px solid var(--border-subtle); color: var(--text-primary); font-family: 'Inter', sans-serif; font-size: 14px; outline: none; transition: border-color 0.2s; }
+  .form-input:focus { border-color: var(--gold-wheat); }
+  .form-input::placeholder { color: var(--text-secondary); }
+  textarea.form-input { resize: vertical; min-height: 60px; line-height: 1.5; }
+  .upload-area { border: 2px dashed rgba(196,162,101,0.25); border-radius: 12px; padding: 24px; text-align: center; cursor: pointer; transition: all 0.2s; background: var(--bg-card); }
+  .upload-area:hover { border-color: var(--gold-wheat); background: var(--gold-glow); }
+  .upload-area.has-image { border-style: solid; border-color: var(--gold-wheat); padding: 8px; }
+  .upload-area .upload-icon { font-size: 28px; margin-bottom: 8px; }
+  .upload-area .upload-text { font-size: 13px; color: var(--text-secondary); }
+  .upload-area .upload-text strong { color: var(--gold-wheat); }
+  .upload-area img { max-width: 100%; border-radius: 8px; display: block; }
+  .upload-area input[type="file"] { display: none; }
+  .format-row { display: flex; gap: 8px; }
+  .format-btn { flex: 1; padding: 10px; border-radius: 8px; text-align: center; background: var(--bg-card); border: 1px solid var(--border-subtle); cursor: pointer; transition: all 0.2s; font-size: 12px; color: var(--text-secondary); font-weight: 600; }
+  .format-btn:hover { border-color: rgba(196,162,101,0.3); }
+  .format-btn.active { background: var(--gold-glow); border-color: var(--gold-wheat); color: var(--gold-wheat); }
+  .format-btn .fmt-label { display: block; }
+  .format-btn .fmt-size { display: block; font-size: 10px; font-weight: 400; margin-top: 2px; }
+  .btn-download { display: block; width: 100%; padding: 14px; border-radius: 12px; background: linear-gradient(135deg, var(--gold-wheat), var(--crust-dark)); border: none; color: #fff; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.25s; box-shadow: 0 4px 16px rgba(196,162,101,0.3); }
+  .btn-download:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(196,162,101,0.4); }
+  .btn-download:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+  .preview-area { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; background: repeating-conic-gradient(rgba(255,255,255,0.015) 0% 25%, transparent 0% 50%) 50% / 20px 20px; }
+  .preview-container { position: relative; border-radius: 8px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05); max-height: 80vh; }
+  .preview-container canvas { display: block; max-width: 100%; max-height: 80vh; height: auto; }
+  .preview-label { position: absolute; top: -28px; left: 0; font-size: 11px; color: var(--text-secondary); letter-spacing: 0.04em; }
+  .empty-state { text-align: center; color: var(--text-secondary); padding: 60px 40px; }
+  .empty-state .empty-icon { font-size: 48px; margin-bottom: 16px; opacity: 0.4; }
+  .empty-state h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--text-primary); margin-bottom: 8px; }
+  .empty-state p { font-size: 13px; line-height: 1.6; max-width: 320px; margin: 0 auto; }
+  .attribution-note { background: rgba(196,162,101,0.08); border: 1px solid rgba(196,162,101,0.2); border-radius: 8px; padding: 12px 14px; margin-bottom: 20px; }
+  .attribution-note p { font-size: 11px; color: var(--text-secondary); line-height: 1.5; }
+  .attribution-note code { color: var(--gold-wheat); font-size: 11px; background: rgba(0,0,0,0.3); padding: 1px 5px; border-radius: 3px; }
+  @media (max-width: 900px) { .app-layout { grid-template-columns: 1fr; } .sidebar { border-right: none; border-bottom: 1px solid var(--border-subtle); } .preview-area { padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="app-header">
+  <span class="wheat-icon">🌾</span>
+  <h1><span>La Madre Masas</span> — Plantillas IG</h1>
+  <p>SISTEMA VISUAL · 4 PLANTILLAS · 7 PALANCAS · AUTENTICIDAD ARTESANAL</p>
+</header>
+<div class="app-layout">
+  <aside class="sidebar">
+    <h2>Tipo de plantilla</h2>
+    <div class="template-grid">
+      <button class="template-btn active" data-template="producto" onclick="selectTemplate('producto')"><span class="t-icon">🍞</span><span class="t-info"><span class="t-name">Producto</span><span class="t-desc">Pieza individual + precio + CTA WhatsApp</span><span class="t-palancas">P1 Club · P4 Catálogo</span></span></button>
+      <button class="template-btn" data-template="historia" onclick="selectTemplate('historia')"><span class="t-icon">👩‍🍳</span><span class="t-info"><span class="t-name">Historia</span><span class="t-desc">Paty, su cocina, la mano en la masa</span><span class="t-palancas">P2 Reclutamiento</span></span></button>
+      <button class="template-btn" data-template="proceso" onclick="selectTemplate('proceso')"><span class="t-icon">🫧</span><span class="t-info"><span class="t-name">Proceso</span><span class="t-desc">Miga, fermentación, detrás de cámaras</span><span class="t-palancas">P3 Muestreo · P6 Retención</span></span></button>
+      <button class="template-btn" data-template="comunidad" onclick="selectTemplate('comunidad')"><span class="t-icon">🏘️</span><span class="t-info"><span class="t-name">Comunidad</span><span class="t-desc">Entregas, clientes, barrio</span><span class="t-palancas">P5 Grupos · Referidos</span></span></button>
+    </div>
+    <h2>Formato</h2>
+    <div class="form-section">
+      <div class="format-row">
+        <button class="format-btn active" data-format="square" onclick="selectFormat('square')"><span class="fmt-label">Cuadrado</span><span class="fmt-size">1080 × 1080</span></button>
+        <button class="format-btn" data-format="vertical" onclick="selectFormat('vertical')"><span class="fmt-label">Vertical</span><span class="fmt-size">1080 × 1350</span></button>
+      </div>
+    </div>
+    <h2>Foto</h2>
+    <div class="form-section">
+      <div class="upload-area" id="uploadArea" onclick="document.getElementById('fileInput').click()">
+        <input type="file" id="fileInput" accept="image/*" onchange="handleFileUpload(event)">
+        <div id="uploadPlaceholder"><div class="upload-icon">📷</div><div class="upload-text">Carga una foto <strong>real</strong> de Paty<br><span style="font-size:11px;opacity:0.7">Solo -real o menu/La Madre/ (rank 0)</span></div></div>
+        <img id="uploadPreview" style="display:none" alt="Preview">
+      </div>
+    </div>
+    <div id="templateFields"></div>
+    <div class="attribution-note"><p>📊 <strong>Link de bio:</strong> usa el link de atribución <code>/r/{code}</code> → <code>wa.me</code> del backend, no un wa.me crudo. Cada visita queda trazada por palanca.</p></div>
+    <button class="btn-download" id="btnDownload" onclick="downloadImage()" disabled>⬇ Descargar PNG</button>
+  </aside>
+  <main class="preview-area">
+    <div id="emptyState" class="empty-state"><div class="empty-icon">🌾</div><h3>Sube una foto para empezar</h3><p>Selecciona un tipo de plantilla y carga una foto real de Paty. La preview se genera en tiempo real.</p></div>
+    <div class="preview-container" id="previewContainer" style="display:none"><span class="preview-label" id="previewLabel"></span><canvas id="canvas"></canvas></div>
+  </main>
+</div>
+<script>
+const STATE={template:'producto',format:'square',image:null,fields:{}};
+const PAL={gold:'#C4A265',beige:'#F5F0E8',charcoal:'#2D2A26',crust:'#8B6914',linen:'#E8E0D4'};
+const WHEAT_SVG=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 120" fill="none" stroke="${PAL.gold}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.35"><path d="M40 110 C40 80 40 50 38 25"/><path d="M38 25 C32 30 28 38 30 48"/><path d="M38 25 C44 30 48 38 46 48"/><path d="M39 40 C33 44 29 52 31 60"/><path d="M39 40 C45 44 49 52 47 60"/><path d="M39 55 C34 58 30 64 32 72"/><path d="M39 55 C44 58 48 64 46 72"/><path d="M40 68 C35 71 32 76 33 82"/><path d="M40 68 C45 71 48 76 47 82"/><path d="M40 80 C37 82 35 86 36 90"/><path d="M40 80 C43 82 45 86 44 90"/><ellipse cx="30" cy="22" rx="4" ry="9" transform="rotate(-15 30 22)"/><ellipse cx="46" cy="22" rx="4" ry="9" transform="rotate(15 46 22)"/><ellipse cx="26" cy="34" rx="3.5" ry="8" transform="rotate(-20 26 34)"/><ellipse cx="50" cy="34" rx="3.5" ry="8" transform="rotate(20 50 34)"/><ellipse cx="28" cy="48" rx="3" ry="7" transform="rotate(-15 28 48)"/><ellipse cx="48" cy="48" rx="3" ry="7" transform="rotate(15 48 48)"/><ellipse cx="31" cy="60" rx="2.5" ry="6" transform="rotate(-10 31 60)"/><ellipse cx="47" cy="60" rx="2.5" ry="6" transform="rotate(10 47 60)"/></svg>`;
+let wheatImg=null;
+(function(){const b=new Blob([WHEAT_SVG],{type:'image/svg+xml'});const u=URL.createObjectURL(b);wheatImg=new Image();wheatImg.onload=()=>URL.revokeObjectURL(u);wheatImg.src=u;})();
+const TEMPLATE_FIELDS={
+  producto:[{id:'productName',label:'Nombre del producto',type:'text',placeholder:'Hogaza Natural'},{id:'price',label:'Precio',type:'text',placeholder:'$85'},{id:'detail',label:'Detalle (opcional)',type:'text',placeholder:'Masa madre · 24h fermentación'}],
+  historia:[{id:'quote',label:'Frase de Paty',type:'textarea',placeholder:'Llevo 15 años horneando con masa madre.\nCada hogaza lleva tiempo, nunca prisa.'}],
+  proceso:[{id:'processLabel',label:'Etiqueta del proceso',type:'text',placeholder:'Fermentación 24h'}],
+  comunidad:[{id:'communityText',label:'Texto de comunidad',type:'text',placeholder:'De nuestra cocina a tu mesa'},{id:'ctaText',label:'CTA',type:'text',placeholder:'Únete al club → link en bio'}]
+};
+function selectTemplate(id){STATE.template=id;document.querySelectorAll('.template-btn').forEach(b=>b.classList.toggle('active',b.dataset.template===id));renderFields();renderCanvas();}
+function selectFormat(f){STATE.format=f;document.querySelectorAll('.format-btn').forEach(b=>b.classList.toggle('active',b.dataset.format===f));renderCanvas();}
+function renderFields(){const c=document.getElementById('templateFields');const fs=TEMPLATE_FIELDS[STATE.template]||[];c.innerHTML=fs.map(f=>`<div class="form-section"><label for="${f.id}">${f.label}</label>${f.type==='textarea'?`<textarea class="form-input" id="${f.id}" placeholder="${f.placeholder}" oninput="onFieldChange('${f.id}',this.value)">${STATE.fields[f.id]||''}</textarea>`:`<input class="form-input" type="text" id="${f.id}" placeholder="${f.placeholder}" value="${STATE.fields[f.id]||''}" oninput="onFieldChange('${f.id}',this.value)">`}</div>`).join('');}
+function onFieldChange(id,v){STATE.fields[id]=v;renderCanvas();}
+function handleFileUpload(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{const img=new Image();img.onload=()=>{STATE.image=img;const p=document.getElementById('uploadPreview');p.src=ev.target.result;p.style.display='block';document.getElementById('uploadPlaceholder').style.display='none';document.getElementById('uploadArea').classList.add('has-image');document.getElementById('btnDownload').disabled=false;renderCanvas();};img.src=ev.target.result;};r.readAsDataURL(f);}
+function renderCanvas(){if(!STATE.image)return;const canvas=document.getElementById('canvas');const ctx=canvas.getContext('2d');const W=1080,H=STATE.format==='vertical'?1350:1080;canvas.width=W;canvas.height=H;document.getElementById('emptyState').style.display='none';document.getElementById('previewContainer').style.display='block';document.getElementById('previewLabel').textContent=`${STATE.template.toUpperCase()} · ${W}×${H} · La Madre Masas`;({producto:renderProducto,historia:renderHistoria,proceso:renderProceso,comunidad:renderComunidad})[STATE.template](ctx,W,H);}
+function drawImageCover(ctx,img,x,y,w,h){const ir=img.width/img.height,cr=w/h;let sx=0,sy=0,sw=img.width,sh=img.height;if(ir>cr){sw=img.height*cr;sx=(img.width-sw)/2;}else{sh=img.width/cr;sy=(img.height-sh)/2;}ctx.drawImage(img,sx,sy,sw,sh,x,y,w,h);}
+function drawWheatWatermark(ctx,W,_H,s=48){if(!wheatImg||!wheatImg.complete)return;const m=28,a=80/120;ctx.save();ctx.globalAlpha=0.3;ctx.drawImage(wheatImg,W-m-s*a,m,s*a,s);ctx.restore();}
+function drawRoundedRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
+function wrapText(ctx,t,x,y,mw,lh){const ws=t.split(' ');let l='',ty=y;for(const w of ws){const tt=l+w+' ';if(ctx.measureText(tt).width>mw&&l!==''){ctx.fillText(l.trim(),x,ty);l=w+' ';ty+=lh;}else{l=tt;}}ctx.fillText(l.trim(),x,ty);return ty;}
+function renderProducto(ctx,W,H){const n=STATE.fields.productName||'Nombre del producto',p=STATE.fields.price||'$—',d=STATE.fields.detail||'',bH=160;drawImageCover(ctx,STATE.image,0,0,W,H);const bY=H-bH;ctx.fillStyle='rgba(245,240,232,0.92)';ctx.fillRect(0,bY,W,bH);ctx.fillStyle=PAL.gold;ctx.fillRect(0,bY,W,2);ctx.fillStyle=PAL.charcoal;ctx.font='bold 38px "Playfair Display",serif';ctx.textBaseline='top';ctx.fillText(n,40,bY+24);ctx.font='600 32px "Inter",sans-serif';ctx.fillStyle=PAL.crust;ctx.fillText(p,W-40-ctx.measureText(p).width,bY+28);if(d){ctx.font='400 16px "Inter",sans-serif';ctx.fillStyle='#6b6560';ctx.fillText(d,40,bY+74);}ctx.font='500 15px "Inter",sans-serif';ctx.fillStyle=PAL.gold;ctx.fillText('📱 Pedidos: link en bio',40,bY+bH-36);ctx.font='italic 14px "Playfair Display",serif';ctx.fillStyle='#8a8078';const b='La Madre Masas';ctx.fillText(b,W-40-ctx.measureText(b).width,bY+bH-36);drawWheatWatermark(ctx,W,H,52);}
+function renderHistoria(ctx,W,H){const q=STATE.fields.quote||'';drawImageCover(ctx,STATE.image,0,0,W,H);const g=ctx.createLinearGradient(0,H*0.45,0,H);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(0.5,'rgba(0,0,0,0.25)');g.addColorStop(1,'rgba(0,0,0,0.7)');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);if(q){ctx.save();ctx.font='italic 30px "Playfair Display",serif';ctx.fillStyle='rgba(255,255,255,0.95)';ctx.textBaseline='top';const ls=q.split('\n');let y=H-120-(ls.length-1)*42;for(const l of ls){wrapText(ctx,`"${l}"`,48,y,W-96,42);y+=42;}ctx.restore();}ctx.font='600 14px "Inter",sans-serif';ctx.fillStyle='rgba(196,162,101,0.7)';ctx.textBaseline='bottom';ctx.fillText('La Madre Masas',48,H-32);ctx.fillText('🌾',W-70,H-30);drawWheatWatermark(ctx,W,H,44);}
+function renderProceso(ctx,W,H){const lb=STATE.fields.processLabel||'';drawImageCover(ctx,STATE.image,0,0,W,H);if(lb){ctx.save();ctx.font='500 15px "Inter",sans-serif';const tw=ctx.measureText(lb).width,px=14,lx=28,ly=H-48;drawRoundedRect(ctx,lx,ly-20,tw+px*2,40,6);ctx.fillStyle='rgba(0,0,0,0.55)';ctx.fill();ctx.fillStyle='rgba(245,240,232,0.9)';ctx.textBaseline='middle';ctx.fillText(lb,lx+px,ly);ctx.restore();}ctx.font='italic 13px "Playfair Display",serif';ctx.fillStyle='rgba(245,240,232,0.4)';ctx.textBaseline='bottom';const b='La Madre Masas';ctx.fillText(b,W-32-ctx.measureText(b).width,H-24);drawWheatWatermark(ctx,W,H,40);}
+function renderComunidad(ctx,W,H){const t=STATE.fields.communityText||'De nuestra cocina a tu mesa',cta=STATE.fields.ctaText||'Únete al club → link en bio',bd=5,ip=24;ctx.fillStyle=PAL.linen;ctx.fillRect(0,0,W,H);const pH=H-170;drawImageCover(ctx,STATE.image,bd+ip,bd+ip,W-(bd+ip)*2,pH-ip);const tY=pH+16;ctx.save();ctx.textAlign='center';ctx.textBaseline='top';ctx.font='700 28px "Playfair Display",serif';ctx.fillStyle=PAL.charcoal;ctx.fillText(t,W/2,tY);ctx.fillStyle=PAL.gold;ctx.fillRect(W/2-30,tY+44,60,2);ctx.font='500 16px "Inter",sans-serif';ctx.fillStyle=PAL.gold;ctx.fillText(cta,W/2,tY+60);ctx.font='italic 13px "Playfair Display",serif';ctx.fillStyle='#a09a90';ctx.fillText('La Madre Masas',W/2,H-28);ctx.textAlign='start';ctx.restore();}
+function downloadImage(){const c=document.getElementById('canvas'),a=document.createElement('a');a.download=`lamadremasas_${STATE.template}_${new Date().toISOString().slice(0,10)}.png`;a.href=c.toDataURL('image/png');a.click();}
+renderFields();
+</script>
+</body>
+</html>
