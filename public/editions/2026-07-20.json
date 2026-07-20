@@ -1,0 +1,434 @@
+{
+  "version": "2.0",
+  "date": "2026-07-20",
+  "generated_at": "2026-07-20T05:00:42.996219-06:00",
+  "timezone": "CST (UTC-6)",
+  "language": "es-MX",
+  "tier": "Tier 4",
+  "sections": {
+    "titans": {
+      "key": "titans",
+      "title": "🏛️ Los Titans",
+      "data": "No se encontró actividad relevante verificable para Elon Musk, Satya Nadella, Jensen Huang, Sam Altman o Sundar Pichai en las últimas 24-48 horas (18-20 de julio de 2026) dentro de las fuentes Tier 4 autorizadas. Las búsquedas arrojaron resultados con fechas anteriores a este período.\n\nDado que no se encontró actividad para los líderes prioritarios, se procedió a buscar en la lista de reemplazo de líderes tecnológicos importantes. Sin embargo, tras una revisión exhaustiva de las fuentes autorizadas para el período del 18 al 20 de julio de 2026, tampoco se encontró actividad relevante y verificable para Tim Cook (Apple), Mark Zuckerberg (Meta), Dario Amodei (Anthropic), Andy Jassy (Amazon) o Lisa Su (AMD).\n\nLa estricta ventana de tiempo de 24-48 horas y la limitación a las fuentes Tier 4 autorizadas no permitieron identificar eventos significativos para ninguno de los ejecutivos solicitados en este informe.",
+      "grounding_sources": [],
+      "generated_at": "2026-07-20T05:01:39.573540-06:00",
+      "status": "json_error"
+    },
+    "ai_leaders": {
+      "key": "ai_leaders",
+      "title": "🤖 AI Leaders",
+      "data": [
+        {
+          "empresa": "OpenAI",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Reportes de eliminación de archivos por GPT-5.6 Sol a través de Codex",
+              "detalle": "Usuarios han reportado que el modelo GPT-5.6 Sol de OpenAI, cuando se interactúa con él a través de la herramienta Codex, ha causado la eliminación de archivos en sus sistemas. OpenAI había advertido previamente que el sistema podría ser 'descuidado' y tomar acciones 'disruptivas'.",
+              "fuente": "The Independent",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG9Wq2ssT1WEKIkZdGFhuB2JHf4nYiOoF_80NauaSeRw5KUC6UH4XltfI5_NRTTlNWnrWNPdrWIA6SZlY933hOQp3ypcR-y9kLg7eHm0w85Pp6lO_Fiie_UwTeJIQ9VxnMKQFBs1bhE3Z_gb1xxXPzEXgIpTozmgXDQoTCwt2GZW8IDNEGeL6Zm54j-vyi-3y1d6e6MOS-qqQFADVJFW9jkMFig1V-c",
+              "aplicacion_genyx": "GENyx debe priorizar la robustez y la seguridad de sus modelos de IA para evitar la pérdida de datos de los clientes, implementando pruebas rigurosas y mecanismos de reversión."
+            },
+            {
+              "tipo": "producto",
+              "titulo": "Actualizaciones de la aplicación de escritorio ChatGPT",
+              "detalle": "OpenAI ha actualizado su aplicación de escritorio ChatGPT con una interfaz más clara para 'Chat' y 'Work', conversaciones recientes unificadas, integración de proyectos y sincronización de conversaciones de trabajo en la nube entre dispositivos. Estas mejoras buscan optimizar el flujo de trabajo y la continuidad para los usuarios.",
+              "fuente": "Releasebot / OpenAI Help Center",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFveEny5BKVYMdQTwybfn4zg8pq42-hgyI_k0pG8G7uRVD-3vNIWRo8uwMe1akeP8-wdL1sUL0VbLslRpGaEbt3VO_G7qZqs4x4iaMEIPrMOxl09dKJXTRlP6IZ9-Wh",
+              "aplicacion_genyx": "GENyx puede aprender de estas mejoras para ofrecer una experiencia de usuario más fluida y productiva en su propia plataforma, especialmente en la gestión de proyectos y la sincronización multidispositivo."
+            },
+            {
+              "tipo": "regulación",
+              "titulo": "Controles parentales y alertas de seguridad ampliados para adolescentes en ChatGPT",
+              "detalle": "OpenAI ha implementado nuevos controles para padres de usuarios adolescentes de ChatGPT, incluyendo la opción de 'Modo Estudio' para cuentas vinculadas y notificaciones ampliadas en casos de desactivación por violaciones relacionadas con amenazas o actos de violencia.",
+              "fuente": "ETIH EdTech News",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGpEm5ijhdAiFBUkbwaiBWVIDS17tBYK21W0hf2YLpcg9OZn0C5kT4y_ZjrRL4xEh5EXMW1IZnmZ_la6OVVnMzcwqj5spbf0NQrzcWi0n0BYbQyZU7ds8sv3DKF9TrcVEKdjibL5X_aU-8XO-xn7Ls2IMJc7RrauHW9VPEXOEfQfrc=",
+              "aplicacion_genyx": "GENyx debe considerar la implementación de características de seguridad y control de contenido adaptadas a diferentes grupos de edad o tipos de usuario para garantizar un uso responsable de su IA."
+            }
+          ]
+        },
+        {
+          "empresa": "Google DeepMind",
+          "novedades": [
+            {
+              "tipo": "regulación",
+              "titulo": "CEO de Google DeepMind pide un organismo de control de IA liderado por EE. UU.",
+              "detalle": "Demis Hassabis, CEO de Google DeepMind, ha propuesto la creación de un organismo de control en EE. UU., similar a FINRA, para probar modelos avanzados de IA antes de su lanzamiento y potencialmente prohibir aquellos considerados inseguros. Advierte sobre los riesgos de la inteligencia artificial general.",
+              "fuente": "AI Magazine / Inc.",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGcUgswVweLIwRH4QPpWOaxx6h8E3ea8x3w82QDtOAlTb4aleFVT5K-u6atFopCMbdR5sv_Swl5iZLPjiF4FEiou6dWEggG6Zn9jZuU4pTOz8-vnQKTrQS4tbrLhJrmzbif4dpOZ5BfEkl8W_VoWsN4hZ6XnjiVSY3Ra0STrH75L_FZ0ThD6oqWF_8iN_T9T6nt75M",
+              "aplicacion_genyx": "GENyx debe monitorear de cerca las discusiones regulatorias y considerar la adopción proactiva de estándares de seguridad y ética para sus modelos de IA, anticipándose a futuras normativas."
+            },
+            {
+              "tipo": "producto",
+              "titulo": "Actualizaciones del modelo de generación de música Lyria AI",
+              "detalle": "El modelo Lyria de DeepMind para la generación de música con IA ha recibido actualizaciones significativas en 2026, mejorando su capacidad para mantener un estilo consistente en composiciones más largas y ofreciendo un control más granular sobre la instrumentación y el tempo, integrándose en las herramientas de música de YouTube.",
+              "fuente": "Skycrumbs Blog",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHNCDkC4ICu08JpkKPG8jEjJDzuAY2PzddD-iIs-2nYmI_AJ_15Hlp7lTCZPW7eED4BvmZFDCtcXykAeCweJz1TAVYxkMDy9BRYwoAZaSG7j9JlZfCJ-2K6-KGoUVNpJE8Z4LUQkqptM3JM",
+              "aplicacion_genyx": "GENyx podría explorar la integración de capacidades de IA generativa para medios, como la música, para enriquecer las experiencias de usuario o para ofrecer herramientas creativas a sus clientes."
+            }
+          ]
+        },
+        {
+          "empresa": "Anthropic",
+          "novedades": [
+            {
+              "tipo": "pricing",
+              "titulo": "Cambios en el acceso a Claude Fable 5",
+              "detalle": "Anthropic ha integrado su modelo Claude Fable 5 en los planes Max y Team Premium con un límite del 50% de uso, finalizando el acceso intermitente anterior. Los usuarios de Pro y Team Standard seguirán con créditos de uso y recibirán un crédito único de $100.",
+              "fuente": "The News International",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHeh6TWesMnJcEPcM9a9meBkTRIPMrw-4Jpzh6e4Cunh_p91q2Cd_5r4di_LTv6Lep4Sif6zBkll6v1VX47TvPxY7XkLdEy4Tum7-HKpZgWgkFYxI1FKTj5_5gAOEQND0pXnYZ63S_f4QJbNykjXTCgQmTocpLGzHcwBTCtcC3oLihlnet35jxtlQDr1pzXdsHhJER1jHWW4jwzd7SP0N-pN1wMqwjnqHsZQpFD91",
+              "aplicacion_genyx": "GENyx debe evaluar continuamente sus modelos de precios y acceso a funciones premium, asegurando que la disponibilidad del modelo se alinee con la capacidad y las expectativas del cliente."
+            },
+            {
+              "tipo": "partnership",
+              "titulo": "UST se asocia con Anthropic para implementar Claude AI en plataformas empresariales",
+              "detalle": "UST ha anunciado una asociación con Anthropic para desplegar la inteligencia artificial Claude en diversas plataformas empresariales, lo que facilitará la integración de las capacidades de IA de Anthropic en soluciones corporativas.",
+              "fuente": "NewsNow",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEsYvGIp5ftxizPAXf2FgEmpYbMG1r_xpfSRwU1DVYAit_NxBw0PICm2zG27EQIrxw01Z71H9tzr6xXEf4ENvNI-OxEtUK_irDix9yQInsGmSs6KXfjBOCEXEPaM4jnAlxPQqloWnEFWEQ=",
+              "aplicacion_genyx": "GENyx puede buscar alianzas estratégicas con integradores de sistemas o proveedores de soluciones empresariales para expandir el alcance y la adopción de sus productos de IA en el mercado corporativo."
+            },
+            {
+              "tipo": "partnership",
+              "titulo": "Meta y Anthropic en conversaciones para un acuerdo de computación de $10 mil millones",
+              "detalle": "Meta y Anthropic están en negociaciones iniciales para un posible acuerdo de arrendamiento de capacidad de computación de IA valorado en hasta $10 mil millones durante dos años, lo que subraya la alta demanda de infraestructura de IA.",
+              "fuente": "TheStreet",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGsYKPhUwWjn850mYzUeBz3u9ns0qza66sdZDNNLXYyp3qMdcLhN5HYGg5mxeFjlrKRr5mqFq5jXlXvN2adq2GmsLxBcsaVqdqYfhYWU6iNvvic1sx3jb7W3Qtm9yBWDxC7TvdxVIvLLsoc3BKeLIvtkQhzE9KPKDRvuddyag==",
+              "aplicacion_genyx": "GENyx debería considerar la posibilidad de establecer acuerdos de infraestructura a gran escala para asegurar la capacidad de cómputo necesaria para el crecimiento de sus modelos y servicios de IA."
+            }
+          ]
+        },
+        {
+          "empresa": "Meta AI",
+          "novedades": [
+            {
+              "tipo": "partnership",
+              "titulo": "Meta explora arrendamiento de capacidad de IA a Anthropic",
+              "detalle": "Meta está en conversaciones iniciales para arrendar hasta $10 mil millones en capacidad de cómputo de IA a Anthropic durante dos años, lo que podría generar una nueva fuente de ingresos para las inversiones en infraestructura de IA de Meta.",
+              "fuente": "Techzine Global",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFmSbWHHJe7RwQgdXJ-QiHlW9KxEebVj1QZ2zKa8URJiqYNZAFgavbboIhacMgEK739wm7u2dcQOChrCCaYGTfDFFK9xG1qggV0UzWFVzqLLlhLo9Sq13HXth3-nsKUwCsaZ36UFTBkCOZ8nBkXoLti_q901YhYlQEA1F-l7B0Ht6LzTeS4K5I12nYRg4QVWB02RqvF3vxxqoxlgWW-mk2GitMfh75lhQuvCjSlBWuuipgSig==",
+              "aplicacion_genyx": "GENyx podría explorar modelos de negocio para monetizar su propia infraestructura de IA o capacidad de cómputo, ofreciendo servicios a otras empresas que requieran recursos intensivos en IA."
+            },
+            {
+              "tipo": "regulación",
+              "titulo": "Demanda acusa a Meta de usar IA para despidos discriminatorios",
+              "detalle": "Una demanda alega que Meta utilizó herramientas de IA para identificar y despedir a empleados que habían tomado licencias protegidas, lo que plantea serias preocupaciones sobre el sesgo algorítmico y la discriminación en las decisiones automatizadas de recursos humanos.",
+              "fuente": "LA Times",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG3qfOUqJld7foEN-1O2G_ljQ38d101hSLv0WQwSaKoQksqIFxMt0QOrNSr05I38wifCvgoHiDLCkX-F-KFl769Q0NAXoM1ul_-99s1Pj4K19ufQUsX3gHYnY1wFuK44QgWUKiyMUZI0jpdDqk4M_fildeiY9ReoDGOKBopO818XUeUd01_mzeZ9W5e6QFj1tR-16TC2Nkj61LPjNnY38wVVOhh_x2A2ZS28VR00QNXeCZini0JKK9g5rb_",
+              "aplicacion_genyx": "GENyx debe implementar estrictas auditorías de sesgo y transparencia en sus algoritmos de IA, especialmente en aplicaciones que impactan decisiones críticas como la contratación o evaluación de personal, para evitar implicaciones legales y éticas."
+            },
+            {
+              "tipo": "producto",
+              "titulo": "Bots de IA de Meta agotan recursos de editores sin generar tráfico",
+              "detalle": "Los bots de IA de Meta están generando miles de millones de solicitudes a sitios de editores, incurriendo en costos para estos últimos, pero sin devolver tráfico a sus plataformas, lo que genera un debate sobre la compensación justa por el uso de contenido para el entrenamiento de IA.",
+              "fuente": "TechRadar",
+              "url": "https://vertexaisearch.cloud.com/grounding-api-redirect/AUZIYQEsbkuR-ORg4whvsDkA6uOto3YpFPJpkQFcRC-o6qAdK1GxcGDmT_gBGJGYiVxy1eY8-uQFFEsL0ED4kAl-vp4g1wxEAukZvrAueoaCFpzMq02em789kV4WlIctugeFcq1mKv0qKEj1oSFLNCvyOKvVZYqn9JO0ToedBi8ot0Zif-SbVeMIh5PeLqcqyO3OfUzr9_4xN32A4aTjLum7dstDs34S6IyvqV1njdV6Vj5RAcHK3_wXeqJF3EYtJzJFS6P4FKR1mKUfKJZVF1Pe1PTTpFiUSZenQF8pQQ-w9JVdUyxwTKkF95pPTj9jY1wG6gDMEFm_Z6GZMg==",
+              "aplicacion_genyx": "GENyx debe desarrollar políticas claras y transparentes sobre el uso de datos de terceros para el entrenamiento de sus modelos de IA, incluyendo mecanismos de atribución y compensación si aplica, para fomentar relaciones sostenibles con los proveedores de contenido."
+            }
+          ]
+        },
+        {
+          "empresa": "Microsoft AI",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Actualización de seguridad de Windows 11 con 570 correcciones impulsadas por IA",
+              "detalle": "La actualización de Windows 11 de julio de 2026 incluye un número récord de 570 correcciones de vulnerabilidades, con Microsoft atribuyendo este volumen a la capacidad de la IA para detectar fallas en el código y transformar la seguridad del sistema operativo.",
+              "fuente": "Windows Latest / Briefs Finance",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFsQtE7zzO8XQFyNEnOE8mugV7qpXwrIWQodTCvCtCaKr7qiCcB4X5A52im6XkJ9P07W4K0xqZtNnuHZYGetsdzcGY8JS-5A94aMK2VfCxLni7FSblAbPq9TFnL-RYePMFEtF2IrWKSEzCrTOJ3Kyzvhv9MM9PHfD-1KssISP1AdcoUDFQN0sqDcFH3VTJrQJvg4Fk4OFM3J9gxlBxJ1OsJHXZavyDvF9kSgs5Ile_UDH0i3eUf9uxSeJE",
+              "aplicacion_genyx": "GENyx puede integrar herramientas de IA para la detección proactiva de vulnerabilidades en su propio código y productos, mejorando la seguridad y la confianza del cliente en sus soluciones SaaS."
+            },
+            {
+              "tipo": "producto",
+              "titulo": "Actualización de componentes de IA en Windows 11",
+              "detalle": "Una actualización fuera de banda para Windows 11 (KB5121767) ha actualizado los componentes de IA a la versión 1.2605.856.0, mejorando funcionalidades como la búsqueda de imágenes, extracción de contenido, análisis semántico y el modelo de configuración.",
+              "fuente": "Microsoft Support",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJFcA905jtOJW6UI91fuSrdtM6FwkBFNX8Ailt75G2vH0EeNknnRmVAQgLXG7S6ojWu_dHxHOKVwDLgRZ3PdRRl3m2ketbTtwz4kGwYR1UzqMf8kZsTkf-xrQ_hc9PJd4Me9xEI09IdWzbYP4d3vsimJOKQuiNdozrR_rI7kmbSHWWNS0z3gG_oy5YSyLRDC7DS6dH",
+              "aplicacion_genyx": "GENyx debe priorizar la actualización constante de sus componentes de IA para incorporar las últimas mejoras en rendimiento y capacidades, ofreciendo a los usuarios las herramientas más avanzadas."
+            },
+            {
+              "tipo": "producto",
+              "titulo": "Disponibilidad general de Copilot Cowork",
+              "detalle": "Microsoft ha anunciado la disponibilidad general de Copilot Cowork, una herramienta que facilita la colaboración asistida por IA en entornos de trabajo, permitiendo a los equipos aprovechar las capacidades de Copilot para una mayor productividad.",
+              "fuente": "Microsoft Source",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFGbmcuRyMsyV8rnemuAQzEvcvzoHdI1ElzLhUQybFT9ZYxPxjLBD2csWDT1-QdkIzOr5iRXdDcDjiOS_QvLhbzKpi6zcEaJM73HNi9O7bwDhA3GjWVESiXnDEn3xpEFZrSjScU",
+              "aplicacion_genyx": "GENyx puede desarrollar o integrar funcionalidades de colaboración impulsadas por IA en su plataforma para mejorar la eficiencia de los equipos de sus clientes y la gestión de proyectos."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "microsoft.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFGbmcuRyMsyV8rnemuAQzEvcvzoHdI1ElzLhUQybFT9ZYxPxjLBD2csWDT1-QdkIzOr5iRXdDcDjiOS_QvLhbzKpi6zcEaJM73HNi9O7bwDhA3GjWVESiXnDEn3xpEFZrSjScU"
+        },
+        {
+          "title": "microsoft.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHeSKWU4PibOfGDvSTHMfofZR-kWBhzqNOWuOi42KWUKrxnV8FixUKJ_B7Cc7_b9llvuqNaT5iQEd9BPsMaiNkQkQUb6AMLebFQJ8YyJ1Hmcu9sUb7O0GcLpUAyB9U="
+        },
+        {
+          "title": "microsoft.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGB7mMNgNK9a9_Sl8MILQbTU7AuFTQmdjw6d5BObiXEOiDXzOC_j7Rlgyr9uuXgIf6yAhjUwPlUwyBbJZ1_FI-yuyo7xERcaQia-rWRK-SCT02f88y0A6x9_Q=="
+        },
+        {
+          "title": "microsoft.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQElLdhUuwWoVcUy91Z7qtqZI3vFdjQUYf416CFgDulCXGT3ktQOPYV_6iDjX4cvwgTbQeSV4MxtLvJ63Y4akpu79RFyc2FqY1JR48jcgUnzE63p7TjIoHQhg-GhuKp4_LcBrA=="
+        },
+        {
+          "title": "microsoft.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJFcA905jtOJW6UI91fuSrdtM6FwkBFNX8Ailt75G2vH0EeNknnRmVAQgLXG7S6ojWu_dHxHOKVwDLgRZ3PdRRl3m2ketbTtwz4kGwYR1UzqMf8kZsTkf-xrQ_hc9PJd4Me9xEI09IdWzbYP4d3vsimJOKQuiNdozrR_rI7kmbSHWWNS0z3gG_oy5YSyLRDC7DS6dH"
+        }
+      ],
+      "generated_at": "2026-07-20T05:03:20.242674-06:00",
+      "status": "ok"
+    },
+    "emerging": {
+      "key": "emerging",
+      "title": "🚀 Emerging Tech & Startups",
+      "data": [
+        {
+          "empresa": "Moonshot AI",
+          "sector": "AI/ML",
+          "valoracion": "Más de $30 mil millones (estimada)",
+          "novedades": [
+            {
+              "tipo": "ipo",
+              "titulo": "Preparación para IPO y alta demanda de Kimi K3",
+              "detalle": "Moonshot AI, la startup china de inteligencia artificial, se está preparando para salir a bolsa en los próximos seis meses, buscando aprovechar el impulso de su último modelo Kimi K3. La empresa apunta a una valoración superior a los 30 mil millones de dólares en su actual ronda de financiación. Además, la demanda del procesador K3 de Kimi ha sido tan alta en las últimas 48 horas que Moonshot ha suspendido temporalmente las nuevas suscripciones para priorizar la capacidad de procesamiento para los miembros existentes.",
+              "fuente": "Business Insider, Marketing4eCommerce",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGaXYIstVI2NZLdqMl4bJCBccoOR5fv95qYHXfLYISv3cP1BuXU1ePCa4E0cLtKp0MOUITwYKJLjDJdeXwpq0nWXbBOBdIRB4ZCI9bzeGWwShZFmmtIHqx894Cg2Xd-jWJWFHTrUt0PeP5iOlZ0uB6BVd9QFGXc0WFwQ1s6PmoSdu5DMza_ECTK4tRLG4XjmEEW3bO-Fx5cUlccrS4XjNQAXcRXBE8EaeINbw611TzgqJH6EW7GMCGAs_cy-B9rCA-xOLMrSA==, https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEKQA2BsMZ3HPUaFjvGBx3l8ctQTlj6xsp1O06bkoAZWC3epTJS39zBqfctC6tSpkc4pJX6kr9mLHqsWRX3Le32ExEGwT2nlIyWHBDtaUQvRbo-nG2wCdc76D1CkaYdqZYMyF33Z0FDxik_KNT0UHcFsdv8zLKpEK1sP7xHv5g3Dbb4VpYauVDB8JHKtNN9",
+              "por_que_importa": "La inminente salida a bolsa con una valoración tan alta subraya la confianza del mercado en el potencial de la IA china. La interrupción de suscripciones por alta demanda del Kimi K3 demuestra una adopción masiva y la capacidad disruptiva de su tecnología, lo que podría redefinir el panorama competitivo de la IA global."
+            }
+          ]
+        },
+        {
+          "empresa": "Helsing",
+          "sector": "IA en Defensa (DefenseTech)",
+          "valoracion": "Superior a los €1.000 millones (unicornio)",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Ronda de financiación de €450 millones y estatus de unicornio",
+              "detalle": "Helsing, una startup alemana de IA en defensa, cerró una ronda de financiación de 450 millones de euros liderada por General Catalyst. Esta inversión eleva su valoración por encima de los 1.000 millones de euros, consolidándola como un unicornio en el sector. Los fondos se destinarán al desarrollo de plataformas de IA para la defensa.",
+              "fuente": "Ecosistema Startup",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFP7SQG31vhT-4l7kcl0m7t-mcqeR6mVj3ZzSryuzc0xNi16LZs2HUMQyoGAIVuuC1x9sUwzBqnbnHcHHtqikAfSrh9H4aQVUPuGXB4YHPR4-mwg-PMEF_yXvDQ1UsRfJ0YZgJF7P16WOuO3c8NwN60DgjKqeaeYkMxAqPTHQKzDnViEPQZ6RGNucYi_eEgbg==",
+              "por_que_importa": "Esta ronda de financiación masiva destaca el creciente interés del capital riesgo en el sector de DefenseTech, impulsado por la necesidad de soberanía tecnológica y la aplicación de IA en sistemas autónomos y drones. Helsing se posiciona como líder en este mercado emergente."
+            }
+          ]
+        },
+        {
+          "empresa": "Tekever",
+          "sector": "Drones, Defensa (DefenseTech)",
+          "valoracion": "No especificada",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Ronda de financiación de €70 millones",
+              "detalle": "Tekever, una startup portuguesa especializada en drones, levantó 70 millones de euros en una ronda de financiación liderada por Gifford y respaldada por el NATO Innovation Fund. Esta inversión subraya la importancia de las tecnologías de doble uso (civil y militar) en el contexto actual.",
+              "fuente": "Ecosistema Startup",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFP7SQG31vhT-4l7kcl0m7t-mcqeR6mVj3ZzSryuzc0xNi16LZs2HUMQyoGAIVuuC1x9sUwzBqnbnHcHHtqikAfSrh9H4aQVUPuGXB4YHPR4-mwg-PMEF_yXvDQ1UsRfJ0YZgJF7P16WOuO3c8NwN60DgjKqeaeYkMxAqPTHQKzDnViEPQZ6RGNucYi_eEgbg==",
+              "por_que_importa": "La financiación de Tekever, con el apoyo del Fondo de Innovación de la OTAN, resalta la creciente inversión en tecnologías de defensa y la relevancia de los drones en la estrategia militar moderna, así como la búsqueda de autonomía tecnológica en Europa."
+            }
+          ]
+        },
+        {
+          "empresa": "Alpaca",
+          "sector": "Fintech (Trading Embebido)",
+          "valoracion": "No especificada",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Recauda $135 millones en ronda de financiación Serie D extendida",
+              "detalle": "Alpaca, una startup de trading embebido, ha recaudado 135 millones de dólares en una ronda de financiación Serie D extendida. La ronda fue liderada por Peak XV, con la participación de Elefund, Opera Tech Ventures y Unbound. Esta inversión significativa impulsará aún más su crecimiento en el sector fintech.",
+              "fuente": "Axios",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGNiF5xb1H7IvV74xL01Gwjxek_5C3btZEtjs16cM0MC4K6V63y2pPueSbxCFw2ZuVd9leFnnIhHt16w1s_fqy_9vUlTrfPYmeTIrfD-EOJYXBlwQoY0BrBxh4rMQUptsT-radx6LP411v34goIsd2IYWsQHWcgJwBnSbS7eE1I6vL4WURkLsYI=",
+              "por_que_importa": "Una ronda Serie D tan sustancial indica una fuerte tracción y confianza de los inversores en el modelo de negocio de Alpaca, que facilita el trading embebido, una tendencia creciente en el sector fintech que permite a cualquier aplicación ofrecer servicios financieros."
+            }
+          ]
+        },
+        {
+          "empresa": "Gauntlet Networks",
+          "sector": "Fintech (Gestión de Riesgos DeFi, Cripto)",
+          "valoracion": "No especificada",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Recauda $125 millones en ronda de financiación Serie C",
+              "detalle": "Gauntlet Networks, una empresa de gestión de riesgos DeFi y bóvedas de criptomonedas con sede en Nueva York, ha recaudado 125 millones de dólares en una ronda de financiación Serie C. La ronda fue liderada por SBI Holdings USA. Esta inversión refuerza su posición en el espacio de las finanzas descentralizadas, un área crítica para la estabilidad del ecosistema cripto.",
+              "fuente": "Axios",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGNiF5xb1H7IvV74xL01Gwjxek_5C3btZEtjs16cM0MC4K6V63y2pPueSbxCFw2ZuVd9leFnnIhHt16w1s_fqy_9vUlTrfPYmeTIrfD-EOJYXBlwQoY0BrBxh4rMQUptsT-radx6LP411v34goIsd2IYWsQHWcgJwBnSbS7eE1I6vL4WURkLsYI=",
+              "por_que_importa": "La financiación de Gauntlet Networks subraya la creciente necesidad de soluciones robustas de gestión de riesgos en el volátil sector de las finanzas descentralizadas (DeFi). Su tecnología es crucial para la adopción y estabilidad a largo plazo de los protocolos cripto."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-07-20T05:04:11.777304-06:00",
+      "status": "ok"
+    },
+    "top10": {
+      "key": "top10",
+      "title": "📰 Top 10 Noticias",
+      "data": [
+        {
+          "ranking": 1,
+          "categoria": "AI",
+          "titular": "Moonshot AI de China pausa suscripciones de Kimi K3 por alta demanda y avanza hacia una posible OPI",
+          "fuente": "Reuters",
+          "url": "https://www.reuters.com/markets/deals/chinas-moonshot-pauses-kimi-subscriptions-amid-hot-demand-ipo-push-2026-07-20/",
+          "resumen": "La startup china Moonshot AI ha suspendido temporalmente las nuevas suscripciones para su modelo Kimi K3 debido a una demanda que ha superado su capacidad. La compañía también está en proceso de reestructuración para una posible Oferta Pública Inicial (OPI) en Hong Kong, buscando capital fresco tras una valoración de 30 mil millones de dólares en junio.",
+          "por_que_importa": "Esto subraya la intensa competencia y la rápida evolución en el espacio global de la IA, especialmente el ascenso de modelos chinos. Para un fundador tech, indica la necesidad crítica de escalar la infraestructura de cómputo y la oportunidad de capitalizar el interés de los inversores en IA de vanguardia."
+        },
+        {
+          "ranking": 2,
+          "categoria": "Negocios",
+          "titular": "Anthropic se acerca a una OPI con una posible valoración de 1.2 billones de dólares",
+          "fuente": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/07/20/anthropics-potential-12-trillion-ipo-could-make-this-stock-a-major-beneficiary/",
+          "resumen": "Anthropic, el desarrollador del modelo de lenguaje grande Claude, está avanzando hacia una OPI, con transacciones en el mercado secundario que valoran a la compañía en aproximadamente 1.2 billones de dólares. Amazon, uno de sus principales inversores, se beneficiaría significativamente de esta salida a bolsa.",
+          "por_que_importa": "Una OPI de esta magnitud para una empresa de IA establece un nuevo precedente para las valoraciones en el sector y demuestra el enorme apetito del mercado por la inteligencia artificial. Los fundadores tech deben observar estas valoraciones para entender el potencial de salida y las expectativas de crecimiento para sus propias startups de IA."
+        },
+        {
+          "ranking": 3,
+          "categoria": "AI",
+          "titular": "Bristol Myers Squibb construirá la 'fábrica de IA' más potente en ciencias de la vida con NVIDIA",
+          "fuente": "Bristol Myers Squibb (Comunicado de Prensa)",
+          "url": "https://news.bms.com/news/corporate-financial/2026/Bristol-Myers-Squibb-to-Build-the-Most-Powerful-AI-Factory-in-Life-Sciences-with-NVIDIA/",
+          "resumen": "Bristol Myers Squibb ha anunciado una colaboración con NVIDIA para construir lo que describen como la 'fábrica de IA' más poderosa en ciencias de la vida. Esta iniciativa busca acelerar el descubrimiento y desarrollo de fármacos mediante el uso de inteligencia artificial avanzada.",
+          "por_que_importa": "Esta noticia destaca la adopción masiva de la IA en industrias tradicionales y el papel crucial de la infraestructura de cómputo (NVIDIA). Los fundadores tech deben buscar oportunidades para aplicar soluciones de IA en sectores no tecnológicos y considerar alianzas estratégicas con gigantes de la infraestructura."
+        },
+        {
+          "ranking": 4,
+          "categoria": "Mercados",
+          "titular": "Irán amenaza con bloquear el Estrecho de Ormuz mientras EE. UU. realiza ataques en la región",
+          "fuente": "The Guardian",
+          "url": "https://www.theguardian.com/world/live/2026/jul/20/middle-east-crisis-live-iran-us-strikes-strait-hormuz-oil-gas",
+          "resumen": "Irán ha prometido que 'ni una sola gota' de petróleo o gas pasará por el Estrecho de Ormuz, una ruta marítima vital, mientras Estados Unidos lleva a cabo su novena noche de ataques en la región. Esta escalada de tensiones geopolíticas ha provocado un aumento en los precios del gas en EE. UU.",
+          "por_que_importa": "Las tensiones geopolíticas pueden tener un impacto directo en los mercados energéticos y, por ende, en los costos operativos de las empresas. Los fundadores tech deben monitorear estos eventos para anticipar fluctuaciones en los precios de la energía y sus efectos en la cadena de suministro y la economía global."
+        },
+        {
+          "ranking": 5,
+          "categoria": "Tendencia",
+          "titular": "La computación cuántica y la filosofía del devenir técnico: un horizonte de cinco años perpetuo",
+          "fuente": "ArXiv.org",
+          "url": "https://arxiv.org/abs/2607.09876",
+          "resumen": "Un nuevo artículo de investigación en ArXiv explora por qué tecnologías como la computación cuántica parecen estar siempre a 'cinco años de distancia'. Argumenta que este horizonte perpetuo no es un fracaso de pronóstico, sino una característica inherente de las 'Tecnologías Perpetuas de Cinco Años' (PFYT), donde el objeto técnico y su ecosistema habilitador deben co-desarrollarse.",
+          "por_que_importa": "Para los fundadores tech, este análisis ofrece una perspectiva crucial sobre la naturaleza del desarrollo de tecnologías disruptivas. Ayuda a gestionar las expectativas sobre los plazos de comercialización de innovaciones fundamentales y a planificar estrategias de I+D a largo plazo, entendiendo que el progreso es recursivo y no lineal."
+        },
+        {
+          "ranking": 6,
+          "categoria": "Mercados",
+          "titular": "La inflación de junio fue menor a lo esperado, ¿podría impulsar un nuevo mercado alcista de criptomonedas?",
+          "fuente": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/07/20/inflation-in-june-was-lower-than-anticipated-could-that-support-a-new-crypto-bull-market/",
+          "resumen": "Los datos del Índice de Precios al Consumidor (IPC) de junio mostraron una caída del 0.4% mensual y un 3.5% anualizado, la mayor disminución mensual desde abril de 2020. Aunque un solo dato no define un mercado alcista, esta tendencia de enfriamiento de la inflación podría ser una de las condiciones previas para un repunte en el mercado de criptomonedas.",
+          "por_que_importa": "La inflación y las políticas de la Fed son factores clave que influyen en la liquidez y el apetito por el riesgo en los mercados financieros, incluyendo las criptomonedas. Los fundadores tech, especialmente en Web3 y fintech, deben seguir de cerca estos indicadores macroeconómicos para anticipar cambios en el sentimiento de los inversores y la disponibilidad de capital."
+        },
+        {
+          "ranking": 7,
+          "categoria": "Tendencia",
+          "titular": "IonQ emerge como una acción de computación cuántica con potencial de crecimiento",
+          "fuente": "The Motley Fool",
+          "url": "https://www.fool.com/investing/2026/07/20/1-quantum-computing-stock-that-could-be-the-next-palantir/",
+          "resumen": "IonQ, una empresa de computación cuántica que utiliza iones atrapados, está mostrando un crecimiento de ingresos significativo, superando los 100 millones de dólares en 2025. La compañía está construyendo una plataforma cuántica de pila completa que abarca computación, redes, detección y seguridad, posicionándose como un actor clave en la intersección de la IA y la computación cuántica.",
+          "por_que_importa": "Esta noticia destaca el progreso tangible en la comercialización de la computación cuántica. Los fundadores tech deben prestar atención a empresas como IonQ, ya que sus avances podrían abrir nuevas fronteras para la resolución de problemas complejos y la creación de aplicaciones innovadoras en IA y otras áreas."
+        },
+        {
+          "ranking": 8,
+          "categoria": "AI",
+          "titular": "Australia implementará nuevas reglas para frenar el uso gubernamental de la toma de decisiones automatizada por IA",
+          "fuente": "The Guardian",
+          "url": "https://www.theguardian.com/technology/ai",
+          "resumen": "El gobierno australiano ha anunciado nuevas regulaciones destinadas a limitar el uso de la toma de decisiones automatizada por inteligencia artificial en el sector público. Estas reglas buscan garantizar la transparencia, la rendición de cuentas y la equidad en la implementación de sistemas de IA.",
+          "por_que_importa": "La regulación de la IA es una tendencia global creciente. Los fundadores tech deben estar al tanto de los marcos regulatorios emergentes, ya que afectarán el diseño, desarrollo y despliegue de sus productos de IA, especialmente aquellos con implicaciones éticas o sociales significativas."
+        },
+        {
+          "ranking": 9,
+          "categoria": "Mercados",
+          "titular": "La medida de inflación preferida de la Fed se prepara para una revisión a la baja",
+          "fuente": "The Wall Street Journal",
+          "url": "https://www.wsj.com/articles/feds-preferred-inflation-gauge-set-for-downward-revision-11679344800",
+          "resumen": "El Buró de Análisis Económico de EE. UU. planea revisar la forma en que calcula los precios de varios servicios, incluyendo la gestión de inversiones y el software, lo que se espera que reduzca la medida de inflación subyacente preferida por la Reserva Federal. Esta revisión podría aliviar la presión sobre los responsables de la política monetaria al considerar futuros aumentos de tasas.",
+          "por_que_importa": "Una menor inflación subyacente podría influir en las decisiones de la Fed sobre las tasas de interés, impactando directamente el costo del capital y las valoraciones de las empresas tecnológicas y startups. Los fundadores deben entender cómo estos cambios metodológicos pueden afectar la percepción económica y las políticas monetarias."
+        },
+        {
+          "ranking": 10,
+          "categoria": "Tendencia",
+          "titular": "Crece la preocupación por los empleos de IA, pero las habilidades humanas clave permanecen irremplazables",
+          "fuente": "The Guardian",
+          "url": "https://www.theguardian.com/technology/ai",
+          "resumen": "A medida que la inteligencia artificial avanza, aumentan las preocupaciones sobre su impacto en el mercado laboral y la posible automatización de empleos. Sin embargo, un análisis reciente destaca que ciertas habilidades humanas, como la creatividad, el pensamiento crítico y la inteligencia emocional, siguen siendo difíciles de replicar por las máquinas y son cada vez más valoradas.",
+          "por_que_importa": "Los fundadores tech deben entender la evolución del mercado laboral impulsado por la IA para enfocar el desarrollo de productos y la contratación en áreas donde la colaboración humano-IA genere el mayor valor. Esto implica diseñar herramientas que aumenten las capacidades humanas en lugar de simplemente reemplazarlas, y priorizar el desarrollo de talento con habilidades complementarias a la IA."
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-07-20T05:05:25.903255-06:00",
+      "status": "ok"
+    },
+    "mercados": {
+      "key": "mercados",
+      "title": "💹 Pulso de Mercados",
+      "data": {
+        "pulso_mercados": {
+          "seccion": "indices",
+          "datos": [
+            {
+              "nombre": "S&P 500",
+              "valor": 7457.69,
+              "cambio_pct": -0.97,
+              "tendencia": "↓"
+            },
+            {
+              "nombre": "NASDAQ Composite",
+              "valor": 25520.24,
+              "cambio_pct": -1.39,
+              "tendencia": "↓"
+            },
+            {
+              "nombre": "Dow Jones",
+              "valor": 52146.42,
+              "cambio_pct": -0.77,
+              "tendencia": "↓"
+            },
+            {
+              "nombre": "S&P/BMV IPC",
+              "valor": 66634.23,
+              "cambio_pct": 0.42,
+              "tendencia": "↑"
+            },
+            {
+              "nombre": "USD/MXN",
+              "valor": 17.5153,
+              "cambio_pct": -0.152,
+              "tendencia": "↓"
+            }
+          ],
+          "fuente": "BNN Bloomberg, Investing.com, Grupo BMV, Wise",
+          "url": "https://www.bnnbloomberg.ca/s-p-500-stock-price-charts-and-news-today-1.1279261, https://www.investing.com/indices/us-spx-500-historical-data, https://www.investing.com/indices/nasdaq-composite, https://www.investing.com/indices/us-30-historical-data, https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEdlJuRoCkkhy3KQtHLgYvUR4BLAbg3dBJp2-FpVtJ4qL-DUa8K9eTQVGxlRrp9Veojxt-bTwVLNywrliJejN8ojtbLZmpaFw9LqfI7GtyE24APgWzzDgMc20APd4wfJg==, https://www.investing.com/indices/mexico-ipc, https://wise.com/gb/currency-converter/usd-to-mxn-exchange-rate-history",
+          "analisis": "Los principales índices bursátiles de EE. UU. cerraron a la baja el 17 de julio de 2026, con el S&P 500, NASDAQ Composite y Dow Jones experimentando caídas, mientras que el S&P/BMV IPC de México mostró un ligero avance. El tipo de cambio USD/MXN reflejó una ligera apreciación del peso mexicano."
+        }
+      },
+      "grounding_sources": [],
+      "generated_at": "2026-07-20T05:06:21.997949-06:00",
+      "status": "ok"
+    },
+    "radar": {
+      "key": "radar",
+      "title": "🛰️ RADAR Inteligencia",
+      "data": [],
+      "generated_at": "2026-07-20T05:06:24.962514-06:00",
+      "status": "error",
+      "signals_total": 0,
+      "queries_run": 3,
+      "errors": [
+        "HTTP 401 for query: Top AI funding rounds and product launch",
+        "HTTP 401 for query: Big Tech AI announcements Google Microso",
+        "HTTP 401 for query: AI regulation policy changes worldwide l"
+      ]
+    }
+  },
+  "summary": {
+    "sections_ok": 4,
+    "sections_total": 6,
+    "quality": "PARTIAL"
+  }
+}
