@@ -9478,16 +9478,17 @@ function PulsoAgentesPanel() {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
         <p style={{ fontSize: 11, fontWeight: 700, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.06em', margin: 0 }}>🔌 Pulso de Agentes</p>
         <div style={{ fontSize: 11, color: '#94a3b8', background: 'rgba(0,0,0,0.2)', padding: '2px 8px', borderRadius: 10 }}>
-          Alive: <span style={{ color: '#10b981', fontWeight: 700 }}>{summary.alive}</span> | Silent: <span style={{ color: '#ef4444', fontWeight: 700 }}>{summary.silent}</span> | No Data: <span style={{ color: '#9ca3af', fontWeight: 700 }}>{summary.no_data}</span> | Total: {summary.total}
+          Alive: <span style={{ color: '#10b981', fontWeight: 700 }}>{summary.alive}</span> | Idle: <span style={{ color: '#f59e0b', fontWeight: 700 }}>{summary.idle || summary.silent}</span> | Fail: <span style={{ color: '#ef4444', fontWeight: 700 }}>{summary.fail || 0}</span> | Total: {summary.total}
         </div>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 10 }}>
         {agents.map((a, i) => {
-          const isAlive = a.state === 'alive';
-          const isSilent = a.state === 'silent';
-          const bg = isAlive ? 'rgba(16,185,129,0.08)' : isSilent ? 'rgba(239,68,68,0.08)' : 'rgba(255,255,255,0.04)';
-          const br = isAlive ? 'rgba(16,185,129,0.2)' : isSilent ? 'rgba(239,68,68,0.2)' : 'rgba(255,255,255,0.08)';
-          const icon = isAlive ? '🟢' : isSilent ? '🔴' : '⚪';
+          const isAlive = a.status === 'alive' || a.state === 'alive';
+          const isFail = a.status === 'fail' || a.state === 'fail';
+          const isIdle = a.status === 'idle' || a.state === 'idle' || a.state === 'silent';
+          const bg = isFail ? 'rgba(239,68,68,0.08)' : isIdle ? 'rgba(245,158,11,0.08)' : isAlive ? 'rgba(16,185,129,0.08)' : 'rgba(255,255,255,0.04)';
+          const br = isFail ? 'rgba(239,68,68,0.2)' : isIdle ? 'rgba(245,158,11,0.2)' : isAlive ? 'rgba(16,185,129,0.2)' : 'rgba(255,255,255,0.08)';
+          const icon = isFail ? '🔴' : isIdle ? '🟡' : isAlive ? '🟢' : '⚪';
           const since = a.hours_since != null ? `${a.hours_since.toFixed(1)}h` : '—';
           return (
             <div key={i} style={{ background: bg, border: `1px solid ${br}`, borderRadius: 8, padding: '10px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -10310,6 +10311,80 @@ function A0DrillDown() {
           ))}
         </div>
       )}
+
+      {/* ═══ INDICADORES TRI-ESTADO — REGLA 26: MEDIDO / MAL / DESCONOCIDO ═══ */}
+      {/* Un dato ausente (null) JAMÁS se lee como un dato bueno (verde). */}
+      {/* PRs #872 + #874: guards_count, total_tests, main_lines, admin_endpoints_unauthed_count */}
+      {/* pueden ser null cuando la medición NO se pudo realizar. */}
+      {data && (data.security || data.drift || data.coverage) && (() => {
+        // Tri-state resolver: MEDIDO+bueno=verde, MEDIDO+malo=rojo/ámbar, DESCONOCIDO=gris
+        const triState = (value, status, reason, goodFn, label, icon, formatFn) => {
+          const isUnknown = value === null || value === undefined || status === 'DESCONOCIDO';
+          if (isUnknown) {
+            return {
+              color: '#6b7280', bg: 'rgba(107,114,128,0.12)', border: 'rgba(107,114,128,0.25)',
+              icon: '❓', display: 'NO MEDIDO', reason: reason || 'Medición no disponible',
+              label, originalIcon: icon,
+            };
+          }
+          const isGood = typeof goodFn === 'function' ? goodFn(value) : value >= goodFn;
+          return {
+            color: isGood ? '#10b981' : '#f59e0b',
+            bg: isGood ? 'rgba(16,185,129,0.08)' : 'rgba(245,158,11,0.08)',
+            border: isGood ? 'rgba(16,185,129,0.2)' : 'rgba(245,158,11,0.25)',
+            icon: isGood ? '✅' : '⚠️',
+            display: formatFn ? formatFn(value) : String(value),
+            reason: null, label, originalIcon: icon,
+          };
+        };
+
+        const sec = data.security || {};
+        const dri = data.drift || {};
+        const cov = data.coverage || {};
+
+        const indicators = [
+          triState(sec.guards_count, sec.guards_status, sec.guards_unknown_reason,
+            (v) => v >= 10, 'Candados Seguridad', '🔒', (v) => `${v} guardias`),
+          triState(sec.admin_endpoints_unauthed_count, sec.admin_endpoints_status, sec.admin_endpoints_unknown_reason,
+            (v) => v === 0, 'Endpoints sin Auth', '🛡️', (v) => v === 0 ? '0 — limpio' : `${v} sin auth`),
+          triState(cov.total_tests, cov.tests_status, cov.tests_unknown_reason,
+            (v) => v >= 100, 'Tests Totales', '🧪', (v) => `${v} tests`),
+          triState(dri.main_lines, dri.main_status, dri.main_unknown_reason,
+            (v) => v <= 15000, 'Tamaño main.py', '📏', (v) => `${(v || 0).toLocaleString()} líneas`),
+          triState(dri.core_lines, dri.core_status, dri.core_unknown_reason,
+            (v) => v <= 5000, 'Tamaño agent_core', '📐', (v) => `${(v || 0).toLocaleString()} líneas`),
+        ];
+
+        return (
+          <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
+            <p style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: 12 }}>📊 Indicadores de Salud — Tri-estado (REGLA 26)</p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: 10 }}>
+              {indicators.map((ind, i) => (
+                <div key={i} style={{
+                  background: ind.bg,
+                  border: `1px solid ${ind.border}`,
+                  borderRadius: 10, padding: 12, textAlign: 'center',
+                  position: 'relative',
+                }} title={ind.reason || ''}>
+                  <div style={{ fontSize: 16, marginBottom: 4 }}>{ind.icon}</div>
+                  <div style={{ fontSize: 16, fontWeight: 800, color: ind.color }}>{ind.display}</div>
+                  <div style={{ fontSize: 9, color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase', marginTop: 4 }}>
+                    {ind.originalIcon} {ind.label}
+                  </div>
+                  {ind.reason && (
+                    <div style={{ fontSize: 9, color: '#6b7280', marginTop: 4, fontStyle: 'italic', lineHeight: 1.3 }}>
+                      {ind.reason.length > 60 ? ind.reason.substring(0, 57) + '...' : ind.reason}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+            <p style={{ fontSize: 9, color: '#6b7280', marginTop: 10, textAlign: 'center' }}>
+              ✅ = medido OK · ⚠️ = medido, fuera de umbral · ❓ = no medido (DESCONOCIDO) — nunca verde por defecto
+            </p>
+          </div>
+        );
+      })()}
 
       {/* Bitácora reciente */}
       <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: 16, marginBottom: 16 }}>
