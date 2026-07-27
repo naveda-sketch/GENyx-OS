@@ -1,0 +1,75 @@
+El Periódico. Edición del 2026-07-27.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Sundar Pichai.
+Alphabet aumenta la inversión en centros de datos para IA. Alphabet, la empresa matriz de Google, ha elevado su guía de gastos de capital para 2026 a un rango de entre $195 mil millones y $205 mil millones, un aumento de $10 mil millones. Esta inversión se destinará principalmente a la infraestructura de centros de datos, crucial para el desarrollo y despliegue de la inteligencia artificial. Fuente: The Motley Fool.
+
+Sam Altman.
+Sam Altman declara que la IA ha alcanzado la 'singularidad'. Sam Altman, CEO de OpenAI, afirmó en el podcast 'Relentless' que la inteligencia artificial ha entrado en la etapa de 'singularidad', un punto en el que la IA supera la inteligencia humana y se mejora a un ritmo impredecible. Anteriormente, Altman había predicho que la IA superaría la inteligencia humana en la mayoría de los campos para 2030. Fuente: Today News.
+Sam Altman modera expectativas sobre la semana laboral de 4 días por IA. Sam Altman ha moderado su postura anterior sobre la implementación de una semana laboral de cuatro días gracias a la IA, indicando que la 'competencia impulsa la economía'. Esto contrasta con su carta abierta de abril, donde abogaba por usar las ganancias de productividad de la IA para experimentar con semanas laborales más cortas sin recortes salariales. Fuente: Benzinga.
+Sam Altman reitera su visión de una 'IA democrática'. Sam Altman ha vuelto a enmarcar la carrera de la inteligencia artificial como una contienda entre democracias y autoritarismos, renovando su propuesta de una 'IA democrática'. Esto ocurre mientras Anthropic, un competidor, aboga por controles más estrictos en la exportación de chips. Fuente: TNW.
+
+Satya Nadella.
+Satya Nadella advierte sobre burbuja de IA y concentración de poder. En una entrevista con Fareed Zakaria de CNN, Satya Nadella, CEO de Microsoft, advirtió sobre los riesgos de una burbuja en el sector de la IA y la creciente concentración de poder. Nadella enfatizó la necesidad de un 'ecosistema de IA democrático' donde el acceso no esté limitado por unos pocos hiperescaladores. Fuente: Crypto Briefing.
+Microsoft impulsa modelos MAI internos para optimizar costos de IA. Satya Nadella ha destacado el rendimiento de los modelos de IA internos (MAI) de Microsoft, afirmando que superan a los modelos frontera de propósito general, con el objetivo de reducir los crecientes costos de la IA. La empresa busca que los clientes dependan menos de modelos frontera costosos y opten por soluciones más específicas y rentables. Fuente: ITPro.
+
+Mark Zuckerberg.
+Mark Zuckerberg presenta la visión de Meta para la IA: empoderar a las personas. El CEO de Meta, Mark Zuckerberg, presentó la última visión de la compañía para la inteligencia artificial, argumentando que la tecnología debería empoderar a las personas en lugar de reemplazarlas. Meta lanzó un nuevo video que describe su enfoque de la IA, contrastándolo con una narrativa 'distópica' en torno a la tecnología. Fuente: Fox Business.
+Zuckerberg admite un desarrollo de agentes de IA más lento de lo previsto. Mark Zuckerberg, CEO de Meta, comunicó en una reunión interna que el desarrollo de agentes de IA en los últimos cuatro meses no ha 'acelerado de la manera que esperábamos'. Esta declaración, según una grabación escuchada por Reuters, sugiere desafíos en la implementación de sus ambiciones de IA. Fuente: NDTV.COM.
+
+Tim Cook.
+Tim Cook destaca la alta demanda de Mac Mini para IA. Durante la llamada de resultados del jueves, Tim Cook, CEO de Apple, mencionó que la demanda de Mac Mini para tareas de inteligencia artificial está superando las expectativas, lo que ha provocado problemas en la cadena de suministro. Esto subraya el creciente papel de los productos de Apple en el ecosistema de la IA. Fuente: Business Insider.
+Transición de liderazgo: John Ternus como sucesor de Tim Cook. Aunque la noticia de la sucesión de Tim Cook por John Ternus como CEO de Apple se ha estado gestando, las discusiones recientes en torno a los resultados financieros de Apple y los comentarios sobre el 'nuevo CEO' John Ternus, así como la mención de Cook entregando el micrófono a Ternus en la llamada de ganancias, indican que esta transición sigue siendo un tema actual y relevante en el ámbito ejecutivo. Fuente: Today's latest updates (vía CBS News), AP News, Business Insider.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+Actualización de la interfaz de usuario para ChatGPT Work y Codex. OpenAI ha actualizado la interfaz de usuario de ChatGPT, permitiendo a los usuarios alternar fácilmente entre los modos 'Chat', 'Work' y 'Codex' desde un menú superior izquierdo. Las conversaciones de 'Chat' y 'Work' ahora aparecen juntas en 'Recientes', con opciones de filtro para una mejor organización. Fuente: OpenAI Help Center.
+Creación y gestión de sitios web con ChatGPT. ChatGPT ahora permite a los usuarios describir el sitio web que desean construir, añadir contenido y datos, y revisar una vista previa generada por la IA. Los usuarios pueden solicitar cambios hasta que el sitio esté listo para compartir o publicar. Fuente: OpenAI Help Center.
+
+Google DeepMind.
+Integración de Gemini en Google Docs. Gemini ahora está disponible en Google Docs a través de Google Workspace Experiments, permitiendo a los usuarios escribir, editar, resumir documentos y crear imágenes. Los usuarios pueden seleccionar dónde Gemini puede buscar información de forma proactiva para mejorar el contenido. Fuente: Google.
+Lanzamiento de CodeMender para seguridad de código. Google Cloud ha lanzado CodeMender, un agente de IA para la seguridad del código, gestionado en la plataforma Gemini Enterprise Agent. Ofrece flexibilidad multi-modelo, remediación automatizada de parches y priorización de vulnerabilidades por explotabilidad. Fuente: Google Cloud.
+
+xAI.
+Lanzamiento de la API de Voz a Voz de Grok. xAI ha lanzado la API de Voz a Voz de Grok, que permite configurar varias herramientas en una sesión para mejorar las capacidades de los agentes de voz. Esta API soporta diferentes voces y control de razonamiento, y permite reemplazos de pronunciación para una mayor precisión. Fuente: xAI Docs.
+
+Meta AI.
+Nuevas funciones de automatización para el asistente de IA de Meta. Meta ha introducido nuevas funciones de automatización de tareas para su asistente de IA, permitiendo a los usuarios recibir resúmenes diarios y establecer tareas recurrentes como planes de comidas y actualizaciones de tendencias. Esta mejora busca optimizar la interacción del usuario al comprender el contexto sin necesidad de indicaciones constantes. Fuente: Meta AI.
+
+Microsoft AI.
+Plataforma de IA y Agentes para Empresas. Microsoft ha lanzado una plataforma de IA y agentes para empresas, que incluye Copilot Studio, Microsoft 365 Copilot y Agent 365. Esta plataforma permite a los socios ayudar a los clientes a implementar agentes inteligentes para automatizar tareas rutinarias y coordinar procesos complejos. Fuente: Microsoft.
+HelpDesk Copilot con Agentes de Microsoft Foundry y Azure. Microsoft ha presentado HelpDesk Copilot, un servicio de asistencia de IA impulsado por eventos que utiliza Agentes de Microsoft Foundry y Azure Container Apps. Este sistema triaje preguntas de empleados, responde con información de una base de conocimientos y puede escalar a humanos cuando sea necesario. Fuente: Microsoft.
+Habilidades y Agentes Personalizados para GitHub Copilot. Microsoft ha lanzado 'skills' para GitHub Copilot, permitiendo a los desarrolladores seleccionar e instalar habilidades específicas para sus agentes de codificación. Esto ayuda a los agentes como Copilot CLI y GitHub Copilot en VS Code a tener conocimiento de dominio sobre SDKs específicos, mejorando la asistencia en proyectos. Fuente: GitHub.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Hailo.
+Microchip Technology adquiere la startup israelí de chips de IA Hailo. Microchip Technology ha firmado un acuerdo definitivo para adquirir Hailo, una empresa israelí desarrolladora de procesadores Edge AI y software. Hailo, que alguna vez fue valorada en más de mil millones de dólares, enfrentó desafíos de liquidez, lo que llevó a esta adquisición por un precio no revelado. La transacción se espera que se cierre a finales del trimestre actual, el 30 de septiembre. Fuente: Tech in Asia.
+
+DeepSeek.
+DeepSeek suspende ronda de financiación secundaria de $74 mil millones. La startup china de IA DeepSeek ha suspendido temporalmente una ronda de financiación secundaria que la habría valorado en hasta $74 mil millones. Esta decisión se produce semanas después de haber cerrado una ronda de $7 mil millones en junio, que la valoró en $50 mil millones. La pausa se atribuye a la frustración del fundador por la filtración de comentarios realizados a inversores. Fuente: Reuters.
+
+Neuralink.
+La valoración de Neuralink en el mercado secundario se dispara a $42 mil millones. La valoración de Neuralink, la startup de implantes cerebrales de Elon Musk, ha alcanzado aproximadamente $42 mil millones en el mercado secundario, con algunas ofertas que implican un precio de hasta $60 mil millones. Este aumento sigue a la exitosa salida a bolsa de SpaceX y anticipa una posible IPO de Neuralink, impulsando el interés de los inversores en las empresas de Musk. Fuente: NewsFormal.
+
+ChangXin Memory Technologies (CXMT).
+CXMT se dispara un 500% en su debut en Shanghái tras la mayor IPO de Asia. Las acciones de ChangXin Memory Technologies (CXMT), el principal fabricante chino de chips de memoria DRAM, se dispararon más del 500% en su debut comercial en Shanghái. La empresa recaudó $8.6 mil millones en su IPO, convirtiéndose en la oferta de semiconductores más grande de China continental y alcanzando una capitalización de mercado de hasta $540 mil millones. Fuente: Reuters.
+
+Moonshot AI.
+Moonshot AI lanza los pesos abiertos de su modelo Kimi K3. La startup china Moonshot AI ha lanzado los pesos abiertos de su modelo de IA Kimi K3, haciéndolo disponible para descarga pública a partir del 26-27 de julio de 2026. Kimi K3 cuenta con 2.8 billones de parámetros y una ventana de contexto de 1 millón de tokens, posicionándose como un competidor disruptivo frente a los modelos líderes de IA occidentales. Fuente: EL PAÍS English.
+
+Sección: 📰 Top 10 Noticias.
+
+No se encontró información para esta sección.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
