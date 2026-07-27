@@ -1,0 +1,366 @@
+{
+  "version": "2.0",
+  "date": "2026-07-27",
+  "generated_at": "2026-07-27T05:00:11.692876-06:00",
+  "timezone": "CST (UTC-6)",
+  "language": "es-MX",
+  "tier": "Tier 4",
+  "sections": {
+    "titans": {
+      "key": "titans",
+      "title": "🏛️ Los Titans",
+      "data": [
+        {
+          "nombre": "Sundar Pichai",
+          "empresa": "Google/Alphabet",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Alphabet aumenta la inversión en centros de datos para IA",
+              "detalle": "Alphabet, la empresa matriz de Google, ha elevado su guía de gastos de capital para 2026 a un rango de entre $195 mil millones y $205 mil millones, un aumento de $10 mil millones. Esta inversión se destinará principalmente a la infraestructura de centros de datos, crucial para el desarrollo y despliegue de la inteligencia artificial.",
+              "fuente": "The Motley Fool",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFM_L1veo8VRXgLDd0AGasiZpDwfeMg-IQ8t6Uf9GKkWjLgFMxgKf7tlGjf_U1-1GAtYddgp-5kjd1lz1rrcU2LZMhjokMPGV8Q_zvAV6D0-nTTK3Eg3IXb8Ny2-Z503ZHkM2A1Iujxe-aWCJqWgkKYCKNRVweuVABXO8BE_S4RLp-6xM6-A2UaN1iIrXz3eXL5EOIciiHuww==",
+              "impacto": "Este movimiento subraya la agresiva estrategia de Alphabet en la carrera de la IA, asegurando la capacidad computacional necesaria y beneficiando indirectamente a proveedores de chips como Nvidia y Broadcom."
+            }
+          ]
+        },
+        {
+          "nombre": "Sam Altman",
+          "empresa": "OpenAI",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Sam Altman declara que la IA ha alcanzado la 'singularidad'",
+              "detalle": "Sam Altman, CEO de OpenAI, afirmó en el podcast 'Relentless' que la inteligencia artificial ha entrado en la etapa de 'singularidad', un punto en el que la IA supera la inteligencia humana y se mejora a un ritmo impredecible. Anteriormente, Altman había predicho que la IA superaría la inteligencia humana en la mayoría de los campos para 2030.",
+              "fuente": "Today News",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG747cfSdvjRxRxMTCZKZjjakT7aq4uES38qt-nBkMVygah_jOUCM8wy0MTkGqbh6fBtpq5V_w6_vEhvw-ERUhfnklUb8YPhD2WHS52ileDxAfx3BS-O1Q9WtJFGclv3pPCUhSXL4kfwrXtx305SkFcUovdX-zmoO1ptwNt9w1JydjR7i--HlwH6dBK6bpwb0dDuN9nHkLptljDgRR69dj8fzfYwAyikcLpKRaxzX_ZxCbY8k3rTxtkWvDpUwJbNlu91AK1fHhVxWEkwYQvsJYcZ_ca-iv43c4aRlYUjBeI9D-_S8CMiRoGurvRctFYnIP4M-wH9Koxka2ZLkVkzlDq9uMj-hU1NDFNjPK4=",
+              "impacto": "Esta declaración de un líder clave en IA podría intensificar el debate público sobre el control y la ética de la inteligencia artificial avanzada, así como acelerar la inversión y la investigación en seguridad de IA."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Sam Altman modera expectativas sobre la semana laboral de 4 días por IA",
+              "detalle": "Sam Altman ha moderado su postura anterior sobre la implementación de una semana laboral de cuatro días gracias a la IA, indicando que la 'competencia impulsa la economía'. Esto contrasta con su carta abierta de abril, donde abogaba por usar las ganancias de productividad de la IA para experimentar con semanas laborales más cortas sin recortes salariales.",
+              "fuente": "Benzinga",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGP-2eRHFdInShM2vzdI4rIeAxcvyVlu5komM3CToH2rRSEwQ2u8liIYl-OwWv82pPYRJShbN3eeBjC1JxVBJhVAR7k2BpRPV6KQiuyA2yLJW7MxxkvF5qAXs5HAMhVUZerwkhg9QZNBW-n0eAQ9SDnm76cx6r9FUbpFvVJh4mAuP8RuGqLrcnDzZzKfSCcP_ufDgPIaejah8F2OJWrEYvkcqwSmx7rMGZ2OZIhTORQ8aRNbbsppdAMv1bmcIfzYcqggE0pFXIgp3gb0CqllPUzup1n5w==",
+              "impacto": "La revisión de su perspectiva sugiere una visión más pragmática sobre los plazos y desafíos económicos de la adopción de la IA a gran escala, lo que podría influir en las políticas laborales y las expectativas de la fuerza laboral."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Sam Altman reitera su visión de una 'IA democrática'",
+              "detalle": "Sam Altman ha vuelto a enmarcar la carrera de la inteligencia artificial como una contienda entre democracias y autoritarismos, renovando su propuesta de una 'IA democrática'. Esto ocurre mientras Anthropic, un competidor, aboga por controles más estrictos en la exportación de chips.",
+              "fuente": "TNW",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE5hhFXBeYiwHD5XscwtfQKEetjUBB0GMW173WAU8S0twjBLwIMeLgvLZUFlce8bhgzWVOKyYYMa-_RpJXsXPjgEDeJc059ghPfeqiFgVdCkTCwseQ7oZ7mdWewzkr1yq7A5ttqZnlnPT4AbdQexJNY77pXBm3Fk-d6WmEV9Xz4HaLtYX19dwG8wURzYwd-xQIZEtovPK-dUmLJ3a5nXwG-w==",
+              "impacto": "Esta postura refuerza la narrativa geopolítica en torno al desarrollo de la IA y podría influir en las regulaciones internacionales y las alianzas tecnológicas."
+            }
+          ]
+        },
+        {
+          "nombre": "Satya Nadella",
+          "empresa": "Microsoft",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Satya Nadella advierte sobre burbuja de IA y concentración de poder",
+              "detalle": "En una entrevista con Fareed Zakaria de CNN, Satya Nadella, CEO de Microsoft, advirtió sobre los riesgos de una burbuja en el sector de la IA y la creciente concentración de poder. Nadella enfatizó la necesidad de un 'ecosistema de IA democrático' donde el acceso no esté limitado por unos pocos hiperescaladores.",
+              "fuente": "Crypto Briefing",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEll-jdba8-psttxOdy8_3if7LFoP7xJu0YGgNZeUPtmDI4rakCMhU6zr_mIEJq7gd_RcBYdFeUUjb9rkSYYK1tYLsidBfINo2sDsd4kaISavqnKIo3okFPG7RRI9A6hSwwo4peYKZBmcnKUgjYVxKSx2nwpeFauJrVcRkd",
+              "impacto": "La declaración de Nadella, un actor clave en la IA, podría generar un mayor escrutinio regulatorio sobre el mercado de la IA y fomentar la diversificación en el desarrollo y la infraestructura de la IA."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Microsoft impulsa modelos MAI internos para optimizar costos de IA",
+              "detalle": "Satya Nadella ha destacado el rendimiento de los modelos de IA internos (MAI) de Microsoft, afirmando que superan a los modelos frontera de propósito general, con el objetivo de reducir los crecientes costos de la IA. La empresa busca que los clientes dependan menos de modelos frontera costosos y opten por soluciones más específicas y rentables.",
+              "fuente": "ITPro",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFUx6P7jynkXgMonhm6nwckr6yTNORRAx6YTho_KSDlX5Giru1B66p_V1z_Xkc6xdvipCmO6Nkdmy2oLsYk-k0jd_stoObWxIdFNys4x28J7mgRq_lpq52lwIr-zjmu7Koeqmd-3UDqeni-7iTlzw7vjN0cFQgmwBgwQV0VM2xcRnsArOZBVjoMUqPVGLtierL9Qavw7p5Lj5cRQy_tuGWKEEMgQghyHL7PHwSXvCQyTA7P3EobBfvJhBcrbDS8gkimUSTOn11UaEKbpiEl7DCp0wVj_HZ8IKGluJp7hBxFxPvyEKXWLC8uuM_APqJvGMMGTBC4dPkv_drhTZJ2ZSczOrFlLBkwbx9Y5mAY4r6usHxs3ffri5Wg3a3amuvRP3qwUBjO7qE6DIddEs",
+              "impacto": "Esta estrategia de Microsoft podría impulsar una tendencia en la industria hacia el desarrollo de modelos de IA más especializados y eficientes en costos, lo que podría beneficiar a las empresas que buscan implementar soluciones de IA de manera más económica."
+            }
+          ]
+        },
+        {
+          "nombre": "Mark Zuckerberg",
+          "empresa": "Meta",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Mark Zuckerberg presenta la visión de Meta para la IA: empoderar a las personas",
+              "detalle": "El CEO de Meta, Mark Zuckerberg, presentó la última visión de la compañía para la inteligencia artificial, argumentando que la tecnología debería empoderar a las personas en lugar de reemplazarlas. Meta lanzó un nuevo video que describe su enfoque de la IA, contrastándolo con una narrativa 'distópica' en torno a la tecnología.",
+              "fuente": "Fox Business",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGYlia22BagYNX1RM4FF91xLY8ShBX-0oK3QhJ1OAbY23i8EaH48NYhRHoTtGSDAFWnowWorpVOWuAlAVgm5mhgpq_QEHN0rOA4qker6jOPoLYnCYrYLkaY8N3_n82jTccV5eGqzpUW1ScVsEH2DSNvKrI5FIi-0sp3XAzOQ75c6pfQE1rNwfuwhGumCdy-WQ==",
+              "impacto": "Esta declaración busca posicionar a Meta como un líder en IA con un enfoque humanista, lo que podría influir en la percepción pública y el desarrollo ético de la IA en la industria."
+            },
+            {
+              "tipo": "declaración",
+              "titulo": "Zuckerberg admite un desarrollo de agentes de IA más lento de lo previsto",
+              "detalle": "Mark Zuckerberg, CEO de Meta, comunicó en una reunión interna que el desarrollo de agentes de IA en los últimos cuatro meses no ha 'acelerado de la manera que esperábamos'. Esta declaración, según una grabación escuchada por Reuters, sugiere desafíos en la implementación de sus ambiciones de IA.",
+              "fuente": "NDTV.COM",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHZRjFgmOX4edP-3M1dr47LQhbbkWQJpVm8suKX4aVSs52VizN9muEjIEpm8fUOilJO-Sn0v2xh8bxWIqY4AQKnoATdsgDHwa3CT_0U2qdqJW31lVDdmcCs0BSULgUzA_bPhVDyWQ==",
+              "impacto": "Este reconocimiento podría generar cautela entre los inversores y la industria sobre los plazos de desarrollo de la IA, destacando la complejidad de escalar estas tecnologías."
+            }
+          ]
+        },
+        {
+          "nombre": "Tim Cook",
+          "empresa": "Apple",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Tim Cook destaca la alta demanda de Mac Mini para IA",
+              "detalle": "Durante la llamada de resultados del jueves, Tim Cook, CEO de Apple, mencionó que la demanda de Mac Mini para tareas de inteligencia artificial está superando las expectativas, lo que ha provocado problemas en la cadena de suministro. Esto subraya el creciente papel de los productos de Apple en el ecosistema de la IA.",
+              "fuente": "Business Insider",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGBU9M1rvSROAszojCysAlLz2igygb6mp-hlrur2Wsdg4f9XSJWdksR0g0_4ctHvYB-4S3tT1EzGkaXpPNIIuM1TyheekzkOvTu6s44l6owXJ7UqbWoyNB5s7HBJgmPNg6j7hsxCZvYsNYoXrM=",
+              "impacto": "Esta declaración indica la creciente integración de las capacidades de IA en el hardware de consumo y el potencial de Apple para capitalizar la demanda de herramientas de IA a nivel de usuario y desarrollador."
+            },
+            {
+              "tipo": "movimiento",
+              "titulo": "Transición de liderazgo: John Ternus como sucesor de Tim Cook",
+              "detalle": "Aunque la noticia de la sucesión de Tim Cook por John Ternus como CEO de Apple se ha estado gestando, las discusiones recientes en torno a los resultados financieros de Apple y los comentarios sobre el 'nuevo CEO' John Ternus, así como la mención de Cook entregando el micrófono a Ternus en la llamada de ganancias, indican que esta transición sigue siendo un tema actual y relevante en el ámbito ejecutivo.",
+              "fuente": "Today's latest updates (vía CBS News), AP News, Business Insider",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGBCWO8LINxPfQMeRZdWkcGl37rx9nPDz66GuFJpMzo_tj8I2Pmf5knV0kKzAThxbRZg-AFrGL8IlVqEvWIYXgg42TwuFqnEuZW3x65ho6XsWFCguQTTWb6N0b9LFeLbgA=",
+              "impacto": "Este cambio de liderazgo en una de las empresas tecnológicas más grandes del mundo marca una nueva era para Apple, con posibles implicaciones en la dirección estratégica de la compañía, especialmente en el ámbito de la IA y el hardware."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "apnews.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFFt4DXahagVkoLzxWncnH9jvSa2mo79VSuShU2DqQU3J72P-sYUVxf28E0errtG6ov9Xb6A-ItNBECQNBQYQMNi8J72j9BQ8WWu09NDLjLdlOyhNUl5bwTvcY="
+        }
+      ],
+      "generated_at": "2026-07-27T05:01:13.569049-06:00",
+      "status": "ok"
+    },
+    "ai_leaders": {
+      "key": "ai_leaders",
+      "title": "🤖 AI Leaders",
+      "data": [
+        {
+          "empresa": "OpenAI",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Actualización de la interfaz de usuario para ChatGPT Work y Codex",
+              "detalle": "OpenAI ha actualizado la interfaz de usuario de ChatGPT, permitiendo a los usuarios alternar fácilmente entre los modos 'Chat', 'Work' y 'Codex' desde un menú superior izquierdo. Las conversaciones de 'Chat' y 'Work' ahora aparecen juntas en 'Recientes', con opciones de filtro para una mejor organización.",
+              "fuente": "OpenAI Help Center",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF5f_AfDyeld6v5DgDk0WTU6RwD-bd-9uIEKYCjpApiXvReWLVVHv6Mck8blpoJOdf93yIeE_8uRRcRSiAxYmyv70U7dictNoLxRdPho19LrLms1v5jzBlyeUhh-9KfVuDR-DXXH66UskDydoFd232OjYTwxGPqKbu2EYoy9g==",
+              "aplicacion_genyx": "Esta mejora de la interfaz de usuario podría inspirar a GENyx a optimizar la navegación y la organización de los diferentes módulos de su plataforma, mejorando la experiencia del usuario al gestionar múltiples proyectos de IA."
+            },
+            {
+              "tipo": "producto",
+              "titulo": "Creación y gestión de sitios web con ChatGPT",
+              "detalle": "ChatGPT ahora permite a los usuarios describir el sitio web que desean construir, añadir contenido y datos, y revisar una vista previa generada por la IA. Los usuarios pueden solicitar cambios hasta que el sitio esté listo para compartir o publicar.",
+              "fuente": "OpenAI Help Center",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFiwEviWgIP57d-QiTStR41SPXZYmHXHM6E_DH2SgTrfw3Pou0mWma4AnhmPhyDXCphoPtuDmRBzS1w1jB4TUT3PK_cqj462qeFVhiWO96glN-dqBGurfaN39O9sRQFMQJKIVHRobQVRYHDoHk5bpKe4Y-ujXbrNYd2zlQLEGgp0VnOXiDpquJgtzI=",
+              "aplicacion_genyx": "GENyx podría explorar la integración de capacidades de construcción de sitios web impulsadas por IA para permitir a sus clientes generar rápidamente interfaces de usuario o portales para sus soluciones de IA."
+            }
+          ]
+        },
+        {
+          "empresa": "Google DeepMind",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Integración de Gemini en Google Docs",
+              "detalle": "Gemini ahora está disponible en Google Docs a través de Google Workspace Experiments, permitiendo a los usuarios escribir, editar, resumir documentos y crear imágenes. Los usuarios pueden seleccionar dónde Gemini puede buscar información de forma proactiva para mejorar el contenido.",
+              "fuente": "Google",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGCb0Ev6V_tCwp_o8Ryrum1bVa6Q9z-eIkNCzZMva5EjwiP-9D7qKjrASPzhAOvQ-6v83XD8-dMWo-wx54AHNE7Mtfzk12tqOCKXgpkLUsS7oCmUWwux-Q9erUM6QRKShkBAznnbQubJrz36svpYEOo-JwQifhWi49vOGynP4rPVRWkass1YsnRLjn_kHYdqxAYPdVdjoNwvP4M5eu1i28=",
+              "aplicacion_genyx": "GENyx podría integrar capacidades similares de asistencia de IA en sus propias herramientas de documentación y gestión de proyectos, permitiendo a los usuarios generar informes, resúmenes o incluso visualizaciones de datos directamente dentro de la plataforma."
+            },
+            {
+              "tipo": "producto",
+              "titulo": "Lanzamiento de CodeMender para seguridad de código",
+              "detalle": "Google Cloud ha lanzado CodeMender, un agente de IA para la seguridad del código, gestionado en la plataforma Gemini Enterprise Agent. Ofrece flexibilidad multi-modelo, remediación automatizada de parches y priorización de vulnerabilidades por explotabilidad.",
+              "fuente": "Google Cloud",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE_Ctod-0F_dlODj8iRMkYSWofeAdYrUK54Ln7J-VT8lhnhCIb-mna6DWtWxlb55CXyisEH-XHbl0MBptZAvzCag6L5fMk9eioUdJVX6z5e-HAwSWD2Q6yX1PyLFeePMnD_HvBNJro=",
+              "aplicacion_genyx": "GENyx podría desarrollar o integrar agentes de seguridad de código similares para sus clientes, ofreciendo análisis automatizados de vulnerabilidades y sugerencias de remediación para el código de IA que desarrollan."
+            }
+          ]
+        },
+        {
+          "empresa": "xAI",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Lanzamiento de la API de Voz a Voz de Grok",
+              "detalle": "xAI ha lanzado la API de Voz a Voz de Grok, que permite configurar varias herramientas en una sesión para mejorar las capacidades de los agentes de voz. Esta API soporta diferentes voces y control de razonamiento, y permite reemplazos de pronunciación para una mayor precisión.",
+              "fuente": "xAI Docs",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFSTMnyRmFcGlbFGzsOQBS2vHjKbEN4Yt9Di9rEyHZ68nn3xHAGj-jnIJxjmaZUIepnAw6aXP7ssWuXGbthMHNGzo8NBlxr_YyA7_MwWKAFWiW5iI2gzZg4oFUgVe5sfGgHSu9C0WGHuzmZACIdqTWKXDzd7qv4gstXHbg=",
+              "aplicacion_genyx": "GENyx podría integrar capacidades de voz a voz avanzadas en sus asistentes de IA o interfaces de usuario, permitiendo interacciones más naturales y personalizadas con sus soluciones."
+            }
+          ]
+        },
+        {
+          "empresa": "Meta AI",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Nuevas funciones de automatización para el asistente de IA de Meta",
+              "detalle": "Meta ha introducido nuevas funciones de automatización de tareas para su asistente de IA, permitiendo a los usuarios recibir resúmenes diarios y establecer tareas recurrentes como planes de comidas y actualizaciones de tendencias. Esta mejora busca optimizar la interacción del usuario al comprender el contexto sin necesidad de indicaciones constantes.",
+              "fuente": "Meta AI",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEHkzlUPUAJatyOom0XySHrPMmtlw_2tOg-YTn56RRcn7wsGCLPFwsCFplP0toX-JTaSuQwD8U3hx9jpNyk4cbz1alMml3ocSn5O2_MgNicoWF18ZVgAboXR5rASUeLM40ZNQGQMOQdUgTbrB9y42LKbqhRY2N6YpZGSMrA3NBj7d0_JXt37l9oOR_-d6GAURLQvadNzeAaIYkv_th-0Mhwv_HAqI5VOor6ByOlSJyIlinqlULF4vIwvjEqsQnK7i0Gbi3n",
+              "aplicacion_genyx": "GENyx podría implementar funciones de automatización de tareas similares en su plataforma, permitiendo a los usuarios programar informes, análisis predictivos o actualizaciones de modelos de IA de forma recurrente."
+            }
+          ]
+        },
+        {
+          "empresa": "Microsoft AI",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Plataforma de IA y Agentes para Empresas",
+              "detalle": "Microsoft ha lanzado una plataforma de IA y agentes para empresas, que incluye Copilot Studio, Microsoft 365 Copilot y Agent 365. Esta plataforma permite a los socios ayudar a los clientes a implementar agentes inteligentes para automatizar tareas rutinarias y coordinar procesos complejos.",
+              "fuente": "Microsoft",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHgf9TC5B0sFraQrACAONqhOYbZVu5GvTmUphse9kDaizWnSlgBeGnGeuOWdeS0kekolLz6TD5nnxhhyVFEOvsH7NnUJ-rV0_DPikyCZhZVtyuW5xJ1gPrNRZplI1-pwsUqlfrKAcKxumKRC8D_N1ebtJFhEY-XoNDqFCHu",
+              "aplicacion_genyx": "GENyx podría desarrollar un 'Agent Studio' propio, permitiendo a sus clientes construir, personalizar y desplegar agentes de IA para automatizar flujos de trabajo específicos dentro de sus operaciones empresariales."
+            },
+            {
+              "tipo": "research",
+              "titulo": "HelpDesk Copilot con Agentes de Microsoft Foundry y Azure",
+              "detalle": "Microsoft ha presentado HelpDesk Copilot, un servicio de asistencia de IA impulsado por eventos que utiliza Agentes de Microsoft Foundry y Azure Container Apps. Este sistema triaje preguntas de empleados, responde con información de una base de conocimientos y puede escalar a humanos cuando sea necesario.",
+              "fuente": "Microsoft",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHXAm4X9ZLi4i0rn-CqaHf1zfWL14pJRu66rCF3b0yGXWBEZHrtGliH_DT_C2vXL49DjjCZLzJSdeP0QwzRYoQCR6VQsTGemI5yl0N-T22J6OigP4cOAhuE7NEgsjyrKUYIpOaUEKMNYn4z1Mtfv6lenfIn6icBCp_yn9TOOPxRijuPUi9NZumH_U1Xe5lVYq0nlZBb9LbmTB1_ZSo0GMkSzvw32vhkCq-i1Jqr0gAqTrdhIHnj59J59E8KxGVCfKuNMtGMcubZXwAHwsYJN_8=",
+              "aplicacion_genyx": "GENyx podría investigar la creación de agentes de IA especializados para funciones de soporte al cliente o TI, utilizando arquitecturas basadas en eventos y la integración con plataformas en la nube para ofrecer soluciones de asistencia automatizada."
+            },
+            {
+              "tipo": "producto",
+              "titulo": "Habilidades y Agentes Personalizados para GitHub Copilot",
+              "detalle": "Microsoft ha lanzado 'skills' para GitHub Copilot, permitiendo a los desarrolladores seleccionar e instalar habilidades específicas para sus agentes de codificación. Esto ayuda a los agentes como Copilot CLI y GitHub Copilot en VS Code a tener conocimiento de dominio sobre SDKs específicos, mejorando la asistencia en proyectos.",
+              "fuente": "GitHub",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHFd_CltsEvpksPKrxM4POGe1UodNoFddiORqB20g_XHffuyXVM08WQBVCnxBPBw_axPGhdzTOHLMlM4EMfZ8JpDe6hZVfyPKFxJqR9T6zcK-TUKPxQgj-O5mYclpk=",
+              "aplicacion_genyx": "GENyx podría desarrollar un sistema de 'habilidades' modular para sus propios modelos de IA, permitiendo a los usuarios cargar conocimientos específicos del dominio para personalizar el comportamiento de la IA en diferentes aplicaciones."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-07-27T05:02:38.113675-06:00",
+      "status": "ok"
+    },
+    "emerging": {
+      "key": "emerging",
+      "title": "🚀 Emerging Tech & Startups",
+      "data": [
+        {
+          "empresa": "Hailo",
+          "sector": "IA/Hardware (Procesadores Edge AI)",
+          "valoracion": "Previamente más de $1B, adquirida por una fracción de su valoración anterior (no revelada)",
+          "novedades": [
+            {
+              "tipo": "adquisición",
+              "titulo": "Microchip Technology adquiere la startup israelí de chips de IA Hailo",
+              "detalle": "Microchip Technology ha firmado un acuerdo definitivo para adquirir Hailo, una empresa israelí desarrolladora de procesadores Edge AI y software. Hailo, que alguna vez fue valorada en más de mil millones de dólares, enfrentó desafíos de liquidez, lo que llevó a esta adquisición por un precio no revelado. La transacción se espera que se cierre a finales del trimestre actual, el 30 de septiembre.",
+              "fuente": "Tech in Asia",
+              "url": "https://www.techinasia.com/us-chipmaker-microchip-acquires-israeli-ai-firm-hailo",
+              "por_que_importa": "Esta adquisición destaca la consolidación en el sector de chips de IA, donde las grandes empresas de semiconductores buscan integrar capacidades de IA de vanguardia. Para Hailo, representa una salida después de un período turbulento, y para Microchip, acelera su expansión en el procesamiento de IA de alto rendimiento en el borde."
+            }
+          ]
+        },
+        {
+          "empresa": "DeepSeek",
+          "sector": "IA/ML (Modelos de Lenguaje Grandes)",
+          "valoracion": "$50 mil millones (tras ronda de financiación de junio)",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "DeepSeek suspende ronda de financiación secundaria de $74 mil millones",
+              "detalle": "La startup china de IA DeepSeek ha suspendido temporalmente una ronda de financiación secundaria que la habría valorado en hasta $74 mil millones. Esta decisión se produce semanas después de haber cerrado una ronda de $7 mil millones en junio, que la valoró en $50 mil millones. La pausa se atribuye a la frustración del fundador por la filtración de comentarios realizados a inversores.",
+              "fuente": "Reuters",
+              "url": "https://www.reuters.com/markets/deals/deepseek-tells-prospective-investors-funding-pause-bloomberg-news-reports-2026-07-25/",
+              "por_que_importa": "La suspensión de una ronda de financiación tan grande para una de las startups de IA más valiosas de China, junto con sus preparativos para una posible salida a bolsa, subraya la volatilidad y la intensa escrutinio en el mercado de la IA, especialmente en el contexto de la competencia tecnológica entre EE. UU. y China."
+            }
+          ]
+        },
+        {
+          "empresa": "Neuralink",
+          "sector": "Biotecnología/Salud (Interfaces Cerebro-Computadora)",
+          "valoracion": "$42 mil millones (transacciones en el mercado secundario), con ofertas de hasta $60 mil millones",
+          "novedades": [
+            {
+              "tipo": "ipo",
+              "titulo": "La valoración de Neuralink en el mercado secundario se dispara a $42 mil millones",
+              "detalle": "La valoración de Neuralink, la startup de implantes cerebrales de Elon Musk, ha alcanzado aproximadamente $42 mil millones en el mercado secundario, con algunas ofertas que implican un precio de hasta $60 mil millones. Este aumento sigue a la exitosa salida a bolsa de SpaceX y anticipa una posible IPO de Neuralink, impulsando el interés de los inversores en las empresas de Musk.",
+              "fuente": "NewsFormal",
+              "url": "https://newsformal.com/neuralinks-secondary-market-valuation-hits-42-billion-as-musks-halo-inflates-demand/",
+              "por_que_importa": "El aumento masivo en la valoración de Neuralink en el mercado secundario, sin un producto comercializado, refleja el 'efecto Musk' y el enorme potencial percibido de las interfaces cerebro-computadora. Esto indica una fuerte confianza de los inversores en la visión a largo plazo de la compañía y su capacidad para revolucionar la neurotecnología."
+            }
+          ]
+        },
+        {
+          "empresa": "ChangXin Memory Technologies (CXMT)",
+          "sector": "Semiconductores (Chips de Memoria DRAM)",
+          "valoracion": "$540 mil millones (capitalización de mercado tras la salida a bolsa)",
+          "novedades": [
+            {
+              "tipo": "ipo",
+              "titulo": "CXMT se dispara un 500% en su debut en Shanghái tras la mayor IPO de Asia",
+              "detalle": "Las acciones de ChangXin Memory Technologies (CXMT), el principal fabricante chino de chips de memoria DRAM, se dispararon más del 500% en su debut comercial en Shanghái. La empresa recaudó $8.6 mil millones en su IPO, convirtiéndose en la oferta de semiconductores más grande de China continental y alcanzando una capitalización de mercado de hasta $540 mil millones.",
+              "fuente": "Reuters",
+              "url": "https://www.reuters.com/markets/deals/chipmaker-cxmt-vaults-top-chinas-valuation-with-530-surge-shanghai-debut-2026-07-27/",
+              "por_que_importa": "La espectacular salida a bolsa de CXMT subraya la creciente demanda de chips de memoria impulsada por la IA y la ambición de China de lograr la autosuficiencia tecnológica. Su éxito posiciona a CXMT como un actor clave en la cadena de suministro global de semiconductores, desafiando a los líderes establecidos del mercado."
+            }
+          ]
+        },
+        {
+          "empresa": "Moonshot AI",
+          "sector": "IA/ML (Modelos de Lenguaje Grandes)",
+          "valoracion": "No disponible públicamente",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Moonshot AI lanza los pesos abiertos de su modelo Kimi K3",
+              "detalle": "La startup china Moonshot AI ha lanzado los pesos abiertos de su modelo de IA Kimi K3, haciéndolo disponible para descarga pública a partir del 26-27 de julio de 2026. Kimi K3 cuenta con 2.8 billones de parámetros y una ventana de contexto de 1 millón de tokens, posicionándose como un competidor disruptivo frente a los modelos líderes de IA occidentales.",
+              "fuente": "EL PAÍS English",
+              "url": "https://english.elpais.com/technology/2026-07-26/kimi-k3-the-chinese-ai-that-has-put-silicon-valley-on-alert.html",
+              "por_que_importa": "El lanzamiento de los pesos abiertos de Kimi K3 es un evento significativo que democratiza el acceso a modelos de IA de vanguardia. Al ofrecer un modelo potente y de código abierto, Moonshot AI intensifica la competencia en el espacio de la IA generativa y podría acelerar la innovación al permitir que desarrolladores de todo el mundo construyan sobre su tecnología."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-07-27T05:03:54.734619-06:00",
+      "status": "ok"
+    },
+    "top10": {
+      "key": "top10",
+      "title": "📰 Top 10 Noticias",
+      "data": "No se encontraron 10 noticias que cumplan estrictamente con los criterios de ser de las \"últimas 24 horas\" (26-27 de julio de 2026) y provenir exclusivamente de las \"fuentes Tier 4 autorizadas\" proporcionadas. La mayoría de los resultados de búsqueda dentro de los dominios autorizados son de fechas anteriores a las últimas 24 horas o provienen de dominios no autorizados.\n\nLa instrucción crítica es: \"Si Google Search te devuelve resultados de dominios NO listados arriba, IGNÓRALOS y busca la misma información en los dominios autorizados. Prefiere siempre Reuters/Bloomberg/FT sobre cualquier medio regional. Si no encuentras la noticia en fuentes Tier 4, OMÍTELA.\"\n\nPor lo tanto, no puedo generar el JSON con 10 noticias bajo estas estrictas condiciones.",
+      "grounding_sources": [],
+      "generated_at": "2026-07-27T05:04:38.005596-06:00",
+      "status": "json_error"
+    },
+    "mercados": {
+      "key": "mercados",
+      "title": "💹 Pulso de Mercados",
+      "data": {
+        "pulso_mercados": {
+          "indices": [],
+          "acciones": [],
+          "earnings": [],
+          "macro": []
+        }
+      },
+      "grounding_sources": [],
+      "generated_at": "2026-07-27T05:05:57.830712-06:00",
+      "status": "ok"
+    },
+    "radar": {
+      "key": "radar",
+      "title": "🛰️ RADAR Inteligencia",
+      "data": [],
+      "generated_at": "2026-07-27T05:06:00.707855-06:00",
+      "status": "error",
+      "signals_total": 0,
+      "queries_run": 3,
+      "errors": [
+        "HTTP 401 for query: Top AI funding rounds and product launch",
+        "HTTP 401 for query: Big Tech AI announcements Google Microso",
+        "HTTP 401 for query: AI regulation policy changes worldwide l"
+      ]
+    }
+  },
+  "summary": {
+    "sections_ok": 4,
+    "sections_total": 6,
+    "quality": "PARTIAL"
+  }
+}
