@@ -1,0 +1,74 @@
+{
+  "version": "2.0",
+  "date": "2026-08-03",
+  "generated_at": "2026-08-03T05:00:21.707192-06:00",
+  "timezone": "CST (UTC-6)",
+  "language": "es-MX",
+  "tier": "Tier 4",
+  "sections": {
+    "titans": {
+      "key": "titans",
+      "title": "🏛️ Los Titans",
+      "data": null,
+      "grounding_sources": [],
+      "generated_at": "2026-08-03T05:00:22.012996-06:00",
+      "status": "error",
+      "error": "403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Lightning dunning decision is deny for project: projects/1036078022330', 'status': 'PERMISSION_DENIED'}}"
+    },
+    "ai_leaders": {
+      "key": "ai_leaders",
+      "title": "🤖 AI Leaders",
+      "data": null,
+      "grounding_sources": [],
+      "generated_at": "2026-08-03T05:00:24.060598-06:00",
+      "status": "error",
+      "error": "403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Lightning dunning decision is deny for project: projects/1036078022330', 'status': 'PERMISSION_DENIED'}}"
+    },
+    "emerging": {
+      "key": "emerging",
+      "title": "🚀 Emerging Tech & Startups",
+      "data": null,
+      "grounding_sources": [],
+      "generated_at": "2026-08-03T05:00:26.109667-06:00",
+      "status": "error",
+      "error": "403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Lightning dunning decision is deny for project: projects/1036078022330', 'status': 'PERMISSION_DENIED'}}"
+    },
+    "top10": {
+      "key": "top10",
+      "title": "📰 Top 10 Noticias",
+      "data": null,
+      "grounding_sources": [],
+      "generated_at": "2026-08-03T05:00:28.149969-06:00",
+      "status": "error",
+      "error": "403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Lightning dunning decision is deny for project: projects/1036078022330', 'status': 'PERMISSION_DENIED'}}"
+    },
+    "mercados": {
+      "key": "mercados",
+      "title": "💹 Pulso de Mercados",
+      "data": null,
+      "grounding_sources": [],
+      "generated_at": "2026-08-03T05:00:30.188930-06:00",
+      "status": "error",
+      "error": "403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Lightning dunning decision is deny for project: projects/1036078022330', 'status': 'PERMISSION_DENIED'}}"
+    },
+    "radar": {
+      "key": "radar",
+      "title": "🛰️ RADAR Inteligencia",
+      "data": [],
+      "generated_at": "2026-08-03T05:00:33.014624-06:00",
+      "status": "error",
+      "signals_total": 0,
+      "queries_run": 3,
+      "errors": [
+        "HTTP 401 for query: Top AI funding rounds and product launch",
+        "HTTP 401 for query: Big Tech AI announcements Google Microso",
+        "HTTP 401 for query: AI regulation policy changes worldwide l"
+      ]
+    }
+  },
+  "summary": {
+    "sections_ok": 0,
+    "sections_total": 6,
+    "quality": "FAIL"
+  }
+}
