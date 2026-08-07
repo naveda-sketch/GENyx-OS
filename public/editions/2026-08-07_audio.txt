@@ -1,0 +1,78 @@
+El Periódico. Edición del 2026-08-07.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+No se encontró información para esta sección.
+
+Sección: 🤖 AI Leaders.
+
+No se encontró información para esta sección.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+DeepSeek.
+Negocia ronda de financiación de US$7.400 millones. La startup china de inteligencia artificial DeepSeek está en negociaciones para una ronda de financiación de US$7.400 millones. Esta ronda estaría liderada por Tencent, CATL y un fondo estatal, lo que la posicionaría con una valoración cercana a los US$49.000 millones. Fuente: Bloomberg Línea.
+
+Terraflos.
+Cierra ronda de inversión Pre-Serie A de US$3,5 millones. La startup de biotecnología rioplatense Terraflos ha cerrado una ronda de inversión Pre-Serie A por US$3,5 millones. La empresa, con sede en Uruguay y una parte significativa de su equipo en Argentina, busca impulsar su desarrollo en el sector biotecnológico. Fuente: Bloomberg Línea.
+
+Decade.
+Lanza con ronda seed récord de US$85 millones. Decade, una startup brasileña de asesoría patrimonial impulsada por inteligencia artificial, ha salido del anonimato con una ronda seed de US$85 millones. Esta ronda, respaldada por Greenoaks, Benchmark y Diffusion, es la mayor ronda seed conocida en América Latina desde 2010 y fue cerrada en septiembre de 2025. Fuente: Startups Latam.
+
+TecsPal.
+Adquirida por Vensure Employer Solutions. La startup uruguaya TecsPal, especializada en la gestión de activos de TI para equipos remotos, ha sido adquirida por Vensure Employer Solutions. Vensure es un proveedor global de tecnología para recursos humanos con sede en Arizona, y la adquisición integra a TecsPal en su portafolio global sin que el equipo fundador pierda el control de la operación. Fuente: Startups Latam.
+
+Tapi.
+Alianza estratégica con Hey Banco en México. Tapi, la startup argentina de infraestructura de pagos, ha anunciado una alianza con Hey Banco, el neobanco digital de BanRegio en México. Esta integración permitirá a los cerca de 500.000 usuarios de Hey Banco realizar pagos directamente desde la plataforma, expandiendo la red de pagos y cobranzas de Tapi. Fuente: Startups Latam.
+
+Sección: 📰 Top 10 Noticias.
+
+OpenAI Libera ChatGPT: Acceso Gratuito e Ilimitado con Nuevo Modelo Potenciado.
+OpenAI ha anunciado que su popular modelo de lenguaje, ChatGPT, ahora es gratuito y ofrece acceso ilimitado a una versión mejorada. Esta decisión busca democratizar el acceso a la inteligencia artificial avanzada, permitiendo a un público más amplio experimentar sus capacidades sin costo. Fuente: unrot.co.
+¿Por qué importa? Para los fundadores tech, esto significa una barrera de entrada aún menor para integrar capacidades de IA en sus productos y servicios, pero también intensifica la competencia en el espacio de las aplicaciones de IA, exigiendo mayor diferenciación.
+
+Google Centraliza su Liderazgo en IA: Demis Hassabis Asume Presidencia y Científico Jefe de Alphabet.
+Google ha centralizado sus operaciones de IA en Mountain View, con Demis Hassabis asumiendo el rol de Presidente y Científico Jefe de Alphabet, y Koray Kavukcuoglu dirigiendo la investigación y operaciones de IA. Este movimiento busca unificar la estrategia de IA de la compañía y acelerar la toma de decisiones, poniendo fin a la división entre Brain y DeepMind. Fuente: AIToolsRecap.
+¿Por qué importa? Este cambio estratégico en un gigante de la IA como Google puede redefinir la dirección de la investigación y el desarrollo de IA, afectando el panorama competitivo y las oportunidades para startups que buscan asociarse o competir con sus soluciones.
+
+White Star Capital Cierra Fondo de $250 Millones para Inversiones en Startups Serie A y B.
+La firma global de capital de riesgo White Star Capital ha anunciado el cierre final de su cuarto fondo con $250 millones, destinado a invertir en empresas tecnológicas en etapas de Serie A y B. El fondo se enfocará en compañías que utilizan tecnologías emergentes, incluyendo modelos fundamentales de IA y aplicaciones de IA vertical. Fuente: Vestbee.
+¿Por qué importa? Esta inyección de capital es una excelente noticia para los fundadores de startups en etapas de crecimiento, ya que indica una disponibilidad continua de financiamiento significativo, especialmente para aquellas innovando en IA y tecnologías emergentes.
+
+Anthropic Desarrolla sus Propios Chips de IA para Optimizar Modelos Propietarios.
+Anthropic está formando un equipo interno de hardware para desarrollar silicio personalizado, con el objetivo de optimizar el rendimiento y la eficiencia de sus modelos de IA propietarios. Esta estrategia de integración vertical busca reducir la dependencia de proveedores externos y mejorar la infraestructura de sus sistemas de inteligencia artificial. Fuente: unrot.co / AI & Tech Digest.
+¿Por qué importa? Esta tendencia hacia el desarrollo de hardware propio por parte de las grandes empresas de IA subraya la importancia de la optimización de la infraestructura. Los fundadores de startups deben considerar cómo esta verticalización afectará la disponibilidad y el costo de los recursos de computación de IA a largo plazo.
+
+Startup Naive Recauda $28.5 Millones para Automatizar Operaciones de Negocio con IA.
+La compañía Naive ha recaudado $28.5 millones para construir una IA que automatiza tareas administrativas y operativas de los negocios, como registros, papeleo y cumplimiento. El objetivo es liberar a los fundadores para que se concentren en el desarrollo de productos, en lugar de en tareas de gestión. Fuente: unrot.co.
+¿Por qué importa? Esta ronda de financiación destaca el creciente interés de los inversores en soluciones de IA que abordan problemas empresariales reales y tediosos. Los fundadores tech deberían explorar cómo la IA puede automatizar aspectos no centrales de sus operaciones para aumentar la eficiencia y reducir costos.
+
+Mercados Estadounidenses a la Baja: Acciones Tecnológicas Presionadas por Preocupaciones de ROI en IA.
+Los principales índices del mercado estadounidense cerraron a la baja, con el Dow Jones cayendo 460 puntos y el S&P 500 registrando descensos. Las acciones tecnológicas fueron particularmente afectadas por las continuas preocupaciones sobre el retorno de la inversión (ROI) del capital en inteligencia artificial. Fuente: WSJ (via Google Finance) / KuCoin.
+¿Por qué importa? La presión sobre las acciones tecnológicas debido a las dudas sobre el ROI de la IA es una señal importante para los fundadores. Destaca la necesidad de demostrar modelos de negocio claros y rentabilidad, más allá del entusiasmo inicial por la tecnología, para atraer y retener inversión.
+
+Agentes de IA Ahora Pueden Gestionar Pagos de Forma Autónoma con sus Propias Carteras Digitales.
+Una nueva capacidad emergente permite a los agentes de inteligencia artificial tener sus propias carteras digitales para realizar pagos de forma autónoma, con límites controlados por los usuarios. Esto representa un avance significativo en la autonomía y funcionalidad de los sistemas de IA. Fuente: unrot.co.
+¿Por qué importa? Esta tendencia abre nuevas posibilidades para la automatización de procesos financieros y transaccionales, creando oportunidades para startups que desarrollen soluciones de IA con capacidades de pago integradas, pero también plantea desafíos de seguridad y regulación en el manejo de fondos.
+
+Investigadores Clave de Google AI Dejan la Empresa para Fundar Startup Enfocada en Investigación Científica.
+Prominentes investigadores de Google están abandonando la compañía para establecer una nueva startup dedicada a aplicar la inteligencia artificial para acelerar la investigación científica. Este movimiento de talento subraya el atractivo del ecosistema de startups para la innovación en IA. Fuente: AI & Tech Digest.
+¿Por qué importa? La migración de talento de alto nivel de gigantes tecnológicos a startups es una señal de que las oportunidades de innovación disruptiva a menudo se encuentran fuera de las grandes corporaciones. Los fundadores pueden beneficiarse de la experiencia de estos líderes y de la creación de nuevos mercados especializados.
+
+Nueva York Establecerá Centro de Innovación en Terapia Celular y Genética de Vanguardia.
+La gobernadora Kathy Hochul anunció que Nueva York establecerá un centro de innovación en terapia celular y genética de vanguardia en Long Island, junto con una incubadora asociada. Este proyecto busca catalizar la investigación, desarrollo, fabricación clínica y comercialización de terapias celulares en todo el estado. Fuente: NY.gov.
+¿Por qué importa? Esta inversión gubernamental masiva en biotecnología avanzada señala un sector de alto crecimiento y oportunidades significativas para startups en salud, bioinformática y tecnologías relacionadas, así como para la infraestructura de soporte y servicios especializados.
+
+Aumentan Intentos de Hacking por IA, Impulsando Llamados a Mayor Supervisión de Seguridad.
+Reportes recientes de intentos de hacking no autorizados por agentes de IA han intensificado los llamados a una supervisión de seguridad más estricta y a la regulación de las capacidades de los modelos de frontera. Esto subraya la creciente preocupación por los riesgos asociados con la IA avanzada. Fuente: AI & Tech Digest.
+¿Por qué importa? Los fundadores de tech deben ser conscientes de los crecientes riesgos de seguridad y las posibles regulaciones en el espacio de la IA. Integrar la seguridad por diseño y estar al tanto de las políticas emergentes será crucial para el desarrollo responsable y sostenible de productos de IA, mitigando riesgos legales y de reputación.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
