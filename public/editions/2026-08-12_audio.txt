@@ -1,0 +1,126 @@
+El Periódico. Edición del 2026-08-12.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Elon Musk.
+El tráfico de internet de agentes de IA superará el uso humano. Elon Musk afirmó en X que el tráfico de internet generado por agentes de inteligencia artificial 'obviamente superará con creces el uso humano'. Esta declaración subraya su visión del futuro dominado por la IA y la escala de la infraestructura necesaria para soportarla. Fuente: ELON CHRON, YouTube (Elon Musk's Daily X Posts).
+Integración de Starlink en Cybercab de Tesla. Tesla publicó imágenes en X el 10 de agosto de 2026, mostrando el 'Primer Cybercab con integración Starlink'. El vehículo autónomo de dos asientos incorpora hardware de internet satelital en su techo para asegurar conectividad en zonas sin cobertura celular. Fuente: Briefs Finance.
+La IA representará el 99% del valor de SpaceX. Elon Musk informó al personal de SpaceX que los ingresos por IA superarán todas las demás líneas de negocio de la compañía 'probablemente en septiembre'. SpaceX está invirtiendo fuertemente en infraestructura de IA, apuntando a 10 GW de capacidad de cómputo para finales de 2027. Fuente: KeepTrack.space.
+
+Satya Nadella.
+Chips de IA propios de Microsoft impulsan la eficiencia. Citi elevó su precio objetivo para Microsoft a $600, citando el potencial de los chips de IA personalizados de Microsoft para mejorar la economía de la nube. Satya Nadella había declarado previamente que los chips desarrollados internamente pueden ofrecer ganancias de eficiencia de hasta el 40%. Fuente: MarketBeat.
+Expansión de operaciones de nube y IA en India. Microsoft está expandiendo sus operaciones en la India, habiendo abierto una importante región de centro de datos en Hyderabad y comprometiendo aproximadamente $20.5 mil millones para sus operaciones de nube y IA en el país. Fuente: MarketBeat.
+
+Sundar Pichai.
+Aumento del pronóstico de gasto de capital para 2026. Sundar Pichai elevó el pronóstico de gasto de capital de Alphabet para 2026 a un rango de $195 mil millones a $205 mil millones, desde una previsión anterior de $180 mil millones a $190 mil millones. Este aumento, impulsado por la inversión en IA, causó una caída del 7% en el precio de las acciones. Fuente: The Motley Fool.
+
+Mark Zuckerberg.
+Manifiesto 'El Futuro es para Todos' sobre la Superinteligencia. El 10 de agosto de 2026, Mark Zuckerberg publicó una columna titulada 'El Futuro es para Todos', donde abogó por la distribución amplia de la superinteligencia como 'superinteligencia personal' en lugar de concentrarla en pocas manos. También desafió el pesimismo sobre el desempleo masivo por la IA, prediciendo un aumento del empleo a largo plazo. Fuente: GIGAZINE, The Motley Fool.
+Lanzamiento de nuevo modelo de IA de código abierto. El 10 de agosto de 2026, Meta lanzó un nuevo modelo de IA que puede ejecutarse en una computadora personal y anunció que abriría los 'pesos' de su último modelo de IA, permitiendo su descarga pública. Zuckerberg abogó por reducir las barreras para la IA de código abierto. Fuente: Bangladesh Sangbad Sangstha (BSS), NAMPA.
+Inversión de $145 mil millones en infraestructura de IA. Mark Zuckerberg planea gastar hasta $145 mil millones en infraestructura de IA este año, una cifra que, según Barclays en un segmento de CNBC el 10 de agosto de 2026, aún no se ha traducido en ganancias de productividad medibles en la economía general. Fuente: 24/7 Wall St..
+
+Tim Cook.
+Reacción a la rebaja de calificación de Jefferies. El 10 de agosto de 2026, Jefferies rebajó la calificación de Apple de 'Mantener' a 'Rendimiento inferior', citando el aumento de los costos de la memoria y la supuesta cancelación del iPhone totalmente de cristal. Sin embargo, un informe de Bloomberg del 11 de agosto contradijo la narrativa de la cancelación del iPhone. Fuente: The Motley Fool.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+OpenAI pausa desarrollo de Astra por capacidades cibernéticas críticas. OpenAI ha pausado actividades internas relacionadas con su próximo modelo de IA, Astra, después de que una evaluación interna revelara que el modelo había logrado avances significativos en codificación y ciberseguridad, alcanzando capacidades 'Críticas' según su marco de preparación. La empresa está implementando controles de seguridad reforzados y trabajando con agencias gubernamentales para probar el modelo. Fuente: NAMPA (vía AFP).
+OpenAI prueba anuncios en ChatGPT. OpenAI está probando la inclusión de anuncios en ChatGPT, lo que podría representar un nuevo modelo de monetización para su popular chatbot. Esto indica un esfuerzo por diversificar sus fuentes de ingresos más allá de las suscripciones premium y las licencias empresariales. Fuente: OpenAI News.
+Modelos Daybreak de OpenAI disponibles en AWS. Los modelos Daybreak de OpenAI ahora están disponibles a través de AWS, lo que amplía su alcance y facilita que más desarrolladores y empresas integren estas capacidades de IA en sus aplicaciones. Esta colaboración estratégica con un proveedor líder de la nube busca acelerar la adopción de sus modelos. Fuente: OpenAI News.
+
+Google DeepMind.
+Reestructuración de liderazgo en Google DeepMind. Sundar Pichai anunció cambios en Google DeepMind, con Demis Hassabis asumiendo el rol de Presidente de GDM y Científico Jefe de Alphabet, enfocándose en la AGI y la ciencia. Koray Kavukcuoglu será SVP de Google DeepMind, liderando el desarrollo de modelos Gemini y la investigación de IA de frontera. Fuente: Google Blog.
+
+Anthropic.
+Anthropic implementará marcas de agua en contenido generado por IA. Anthropic planea añadir marcas de agua invisibles al texto y metadatos firmados a las imágenes generadas por sus modelos Claude, a partir de agosto de 2026. Esta medida busca cumplir con las regulaciones de transparencia de la Ley de IA de la UE y se aplicará globalmente. Fuente: Computerworld.
+
+Meta AI.
+Meta lanza nuevo modelo de IA y Zuckerberg expone visión de IA de código abierto. Meta lanzó un nuevo modelo de IA que puede ejecutarse en una computadora personal, mientras Mark Zuckerberg abogó por reducir las barreras para la IA de código abierto. Zuckerberg presentó su visión para una 'superinteligencia personal' distribuida, buscando democratizar el acceso a la IA. Fuente: AFP.
+
+Microsoft AI.
+Microsoft planea lanzar chip de IA de próxima generación en septiembre. Microsoft tiene previsto presentar su chip de IA de próxima generación, el Maia 300, en septiembre, con el objetivo de aumentar significativamente su producción interna el próximo año. Esto busca reducir la dependencia de proveedores externos y optimizar su infraestructura de IA. Fuente: The Information.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Hadrian.
+Recauda $1.37 mil millones en ronda de financiación Serie D. Hadrian, una empresa de manufactura avanzada que construye fábricas altamente automatizadas para el sector de defensa y aeroespacial en EE. UU., ha cerrado una ronda de financiación Serie D de $1.37 mil millones de USD. Esta inversión eleva la valoración de la compañía a $7.87 mil millones de USD y se utilizará para expandir su red de fábricas, investigación y desarrollo, y capacidades de producción. Fuente: PR Newswire, The Robot Report, TechFinitive, GovCon Wire.
+
+Moove.
+Recauda $250 millones en financiación Serie C. Moove, una empresa global de movilidad que construye la capa operativa para la movilidad autónoma, ha recaudado $250 millones de USD en una ronda de financiación Serie C, valorando la compañía en $2.1 mil millones de USD. La ronda fue liderada por Mubadala Investment Company y co-liderada por Woven Capital (fondo de crecimiento de Toyota) e Ion Pacific. Los fondos se destinarán a la expansión de su negocio de vehículos autónomos, incluyendo la propiedad de flotas autónomas y la infraestructura de depósitos 'Nests' centrada en robótica. Fuente: Mubadala Investment Company, The Robot Report.
+
+Anthropic.
+Se asocia con Macquarie y GIC para construir centros de datos de IA. Anthropic ha formado una asociación estratégica con Macquarie Asset Management y el fondo soberano de Singapur GIC para construir centros de datos dedicados a la IA. La nueva entidad, llamada Theseus Infrastructure, desarrollará y operará sitios de computación de IA, inicialmente en Estados Unidos, con Macquarie y GIC financiando la mayor parte del capital. Anthropic se compromete a cubrir los aumentos de precios de la electricidad para los consumidores asociados a sus centros de datos. Fuente: The Straits Times, DealStreetAsia, The Real Deal, Value Add VC.
+
+Manifest AI.
+Desarrolla tecnología para la retención de capacidad de procesamiento de LLMs. Manifest AI está desarrollando una tecnología innovadora diseñada para la retención de la capacidad de procesamiento en modelos de lenguaje grandes (LLMs). Su objetivo es convertirse en la solución de referencia para tareas que implican procesar enormes cantidades de datos, como el análisis de videos de horas de duración o la creación de agentes de IA capaces de mantener tareas durante semanas. Fuente: MIT Technology Review en español.
+
+Liquid AI.
+Lanza modelos fundacionales líquidos (LFMs) más pequeños y eficientes. Liquid AI, una spin-off del MIT, está redefiniendo la arquitectura de IA al combinar transformadores con sus propias redes neuronales líquidas para crear Modelos Fundacionales Líquidos (LFMs). Estos modelos son significativamente más pequeños y consumen menos energía que la mayoría de los LLMs, lo que los hace ideales para aplicaciones en dispositivos con recursos limitados, como los chips integrados en vehículos de fabricantes como Mercedes. Fuente: MIT Technology Review en español.
+
+Sección: 📰 Top 10 Noticias.
+
+Meta Lanza Muse Glimmer, Impulsando la IA Abierta y Local para Agentes..
+Meta Superintelligence Labs ha lanzado Muse Glimmer, un modelo de IA de 30 mil millones de parámetros optimizado para flujos de trabajo de agentes locales y de código abierto bajo la licencia Apache 2.0. Este modelo compacto puede ejecutarse en una Mac o PC con una sola GPU de consumidor, permitiendo aplicaciones de IA sin depender de la infraestructura en la nube. La iniciativa busca democratizar el acceso a la IA avanzada, permitiendo a desarrolladores y empresas entrenar y poseer sus propios modelos de IA personalizados. Fuente: Meta AI Research.
+¿Por qué importa? Para los fundadores de tecnología, esto significa una reducción significativa en los costos y la dependencia de la infraestructura en la nube para el desarrollo de IA. Abre nuevas oportunidades para aplicaciones de IA centradas en la privacidad y el procesamiento en el dispositivo, fomentando la innovación en modelos de código abierto y agentes autónomos.
+
+Nvidia Lidera Iniciativa de Financiamiento de $500 Mil Millones para Infraestructura de IA con Firmas de Wall Street..
+Nvidia ha anunciado asociaciones estratégicas con seis gigantes financieros, incluyendo BlackRock y Goldman Sachs, para movilizar más de $500 mil millones en capital de terceros destinado a la infraestructura de IA. Esta iniciativa busca establecer la computación de IA como una 'clase de activo invertible', facilitando la financiación de centros de datos y fábricas de chips. La medida subraya la creciente demanda de capacidad de computación de IA y la necesidad de nuevas fuentes de capital para su expansión masiva. Fuente: Forbes.
+¿Por qué importa? Esta inyección masiva de capital en infraestructura de IA es crucial para los fundadores, ya que puede aliviar las limitaciones de acceso a la computación de alto rendimiento. Sin embargo, también plantea preguntas sobre la obsolescencia del hardware de IA y quién asumirá los riesgos a largo plazo.
+
+IBM y Together AI Firman Acuerdo de $240 Millones para Escalar Inferencia de IA de Código Abierto en la Nube de IBM..
+IBM y Together AI han anunciado un acuerdo plurianual de $240 millones para desplegar un gran clúster de sistemas NVIDIA HGX B300 en IBM Cloud, con disponibilidad esperada para el primer trimestre de 2027. Together AI utilizará esta infraestructura para proporcionar inferencia de modelos de código abierto a escala empresarial. Esta colaboración busca acelerar la adopción de la IA agéntica en las empresas y posicionar la IA de código abierto como una opción viable para las organizaciones. Fuente: IBM Newsroom.
+¿Por qué importa? Este acuerdo es una señal clara de la creciente madurez y adopción de la IA de código abierto en el ámbito empresarial. Para los fundadores, significa un mayor acceso a infraestructura de IA potente y económica, lo que puede reducir las barreras de entrada y acelerar el desarrollo de soluciones innovadoras.
+
+Anthropic Implementa Marcas de Agua Invisibles en Textos Generados por IA de Claude a Nivel Mundial..
+Anthropic ha comenzado a incrustar marcas de agua imperceptibles en el texto y los archivos generados por sus modelos de IA Claude, una medida para cumplir con las regulaciones de transparencia de la Ley de IA de la UE. Estas marcas de agua, invisibles para los lectores humanos pero detectables por sistemas informáticos, permanecerán con el contenido incluso si se copia y pega. La política se aplica a nivel mundial, no solo en Europa. Fuente: Forbes.
+¿Por qué importa? Esta medida establece un precedente importante para la procedencia y autenticidad del contenido generado por IA. Los fundadores deben considerar las implicaciones éticas y regulatorias, así como la necesidad de herramientas de detección de IA, ya que esto podría influir en la confianza del usuario y en la forma en que se consume y verifica el contenido digital.
+
+OpenAI Lanza GPT-5.6-Cyber, un Modelo Especializado para Ciberseguridad con Menos Restricciones..
+OpenAI ha presentado GPT-5.6-Cyber, una versión más permisiva de su modelo GPT-5.6 Sol, diseñada específicamente para tareas de ciberseguridad como la investigación de vulnerabilidades y el desarrollo de cadenas de exploits. Este modelo está disponible a través de la nueva capa 'Daybreak Red', que ofrece acceso a modelos de ciberseguridad entrenados con menos salvaguardias para defensores autorizados. Fuente: AWS Artificial Intelligence Blog.
+¿Por qué importa? La disponibilidad de modelos de IA especializados en ciberseguridad puede transformar la forma en que las startups abordan la seguridad de sus productos y sistemas. Permite una detección y respuesta más rápidas a las amenazas, pero también subraya la carrera armamentista de la IA, donde las herramientas ofensivas y defensivas evolucionan rápidamente.
+
+Intel Recauda $20 Mil Millones en Venta de Acciones para Financiar Expansión de Fabricación de Chips..
+Intel anunció una oferta de acciones comunes de $15 mil millones, que luego se amplió a $20 mil millones debido a una demanda que superó los $100 mil millones. Los fondos se destinarán a gastos de capital, incluyendo la expansión de su negocio de fabricación de chips por contrato, con el objetivo de competir con líderes de la industria como TSMC. Esta es la primera venta pública de acciones de Intel desde 1971. Fuente: The Motley Fool.
+¿Por qué importa? La inversión masiva de Intel en la fabricación de chips es una señal de la intensa competencia en la cadena de suministro de semiconductores, impulsada por la demanda de IA. Para los fundadores de hardware y startups que dependen de chips, esto podría significar una mayor disponibilidad y diversificación de proveedores a largo plazo, pero también refleja los enormes costos de capital en la industria.
+
+River AI Asegura $1.1 Mil Millones en Financiamiento para Impulsar la IA Personal y Empresarial..
+River AI, una startup cofundada por Igor Babuschkin (ex-xAI), ha recaudado $1.1 mil millones en una ronda de financiación liderada por General Catalyst y AMP PBC, con la participación estratégica de NVIDIA y AMD Ventures. La compañía se enfoca en construir IA personal y herramientas para que las empresas entrenen sus propios modelos de IA en datos propietarios, promoviendo un ecosistema de modelos de código abierto. Fuente: Morningstar.
+¿Por qué importa? Esta ronda de financiación masiva valida el interés en la IA personal y en soluciones que permiten a las empresas tener mayor control sobre sus modelos de IA. Los fundadores en el espacio de la IA deberían tomar nota de la preferencia por modelos de código abierto y la capacidad de entrenar IA con datos propios, lo que puede ser un diferenciador clave en el mercado.
+
+Agentes de IA Demuestran Capacidad para Descubrir Vulnerabilidades Críticas Rápidamente, Incluyendo en Zoom..
+Investigadores de ciberseguridad han demostrado que herramientas de IA disponibles públicamente pueden descubrir y explotar vulnerabilidades críticas, como un fallo de día cero en Zoom, con menos de 20 prompts y en menos de 24 horas. Esta capacidad, que antes requería equipos de élite y meses de trabajo, resalta la velocidad a la que la IA puede ser 'armada' y la urgencia para que los defensores mejoren sus estrategias de parcheo y detección. Fuente: Security Boulevard.
+¿Por qué importa? Este desarrollo es una llamada de atención para todos los fundadores de tecnología sobre la creciente amenaza de los ciberataques asistidos por IA. Subraya la necesidad de integrar la IA en las estrategias de ciberseguridad desde el diseño y de estar preparados para un ciclo de vida de vulnerabilidades y parches mucho más rápido.
+
+NVIDIA Impulsa el Desarrollo de Modelos de IA de Código Abierto y Agénticos Locales..
+NVIDIA está fomentando activamente el ecosistema de código abierto y el desarrollo de IA agéntica local, lanzando nuevas herramientas como Nemotron 3.5 Lightning y NeMo Switchyard. La compañía celebra a los socios y comunidades de código abierto que avanzan en la IA local, facilitando a desarrolladores y entusiastas la construcción, personalización y ejecución de agentes cada vez más capaces en sus propios dispositivos. Fuente: NVIDIA Investor Relations.
+¿Por qué importa? Para los fundadores, el apoyo de NVIDIA a la IA de código abierto y local es una gran noticia, ya que reduce la barrera de entrada para experimentar y construir con IA potente. Esto puede democratizar el desarrollo de IA, permitiendo a las startups innovar sin la necesidad de una infraestructura en la nube masiva, lo que fomenta la privacidad y la personalización.
+
+Mercados Bursátiles de EE. UU. Cierran a la Baja Ante Incertidumbre Geopolítica y Expectativa de Datos de Inflación..
+Los principales índices bursátiles de EE. UU. cerraron a la baja el martes 11 de agosto de 2026, con el S&P 500 cayendo un 0.32% y el Nasdaq Composite un 0.60%. Los inversores mostraron cautela ante la renovada incertidumbre geopolítica en Medio Oriente, que afectó los precios del petróleo, y la anticipación del informe del Índice de Precios al Consumidor (IPC) que se publicará el miércoles. Fuente: TheStreet.
+¿Por qué importa? La cautela en los mercados y la sensibilidad a los factores macroeconómicos como la inflación y la geopolítica son cruciales para los fundadores. Esto puede influir en el acceso a capital, las valoraciones de las startups y el sentimiento general de los inversores, haciendo que la planificación financiera y la gestión de riesgos sean aún más importantes.
+
+Sección: 💹 Pulso de Mercados.
+
+S&P 500: 7,728.20, cambio de -0.3%.
+NASDAQ Composite: 26,445.45, cambio de -0.6%.
+Dow Jones Industrial Average: 53,791.85, cambio de -0.3%.
+BMV (Bolsa Mexicana de Valores) / IPC: N/A, cambio de N/A.
+Tipo de cambio USD/MXN: 17.0686, cambio de -0.494%.
+NVIDIA: N/A, cambio de N/A.
+Apple: N/A, cambio de N/A.
+Microsoft: 503.81, cambio de -0.44%.
+Google (Alphabet GOOGL): 343.80, cambio de -3.84%.
+Meta: N/A, cambio de N/A.
+Amazon: 272.41, cambio de -2.04%.
+Tesla: 332.81, cambio de +0.58%.
+OpenAI: N/A, cambio de N/A.
+N/A: N/A, cambio de N/A.
+Factores Macroeconómicos: N/A, cambio de N/A.
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
