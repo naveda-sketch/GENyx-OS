@@ -1,0 +1,107 @@
+El Periódico. Edición del 2026-08-13.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Mark Zuckerberg.
+Manifiesto sobre la superinteligencia personal y el futuro de la IA. Mark Zuckerberg publicó un extenso manifiesto de 6,500 palabras donde expone su visión para el futuro de la inteligencia artificial. En este, aboga por la 'superinteligencia personal' accesible para todos, el desarrollo de modelos de IA de código abierto y una menor regulación gubernamental de la tecnología. Fuente: The Washington Post.
+Lanzamiento del modelo de IA de código abierto Muse Glimmer. Junto con su manifiesto, Mark Zuckerberg anunció el lanzamiento de un nuevo modelo de IA de código abierto llamado Muse Glimmer. También indicó que los pesos de su modelo más avanzado, Muse Spark 1.2, se liberarían próximamente. Fuente: The Guardian.
+
+Dario Amodei.
+Anthropic prepara una OPV histórica con valoración de $2 billones. Anthropic, la empresa de inteligencia artificial cofundada por Dario Amodei, se prepara para una Oferta Pública de Venta (OPV) en octubre de 2026, con inversores que anticipan una valoración superior a los 2 billones de dólares. Esta cifra podría superar la OPV de SpaceX y convertirse en la mayor de la historia, impulsada por un repunte significativo en sus ingresos anualizados proyectados. Fuente: The Officer (citando Financial Times).
+
+Jensen Huang.
+Discusión sobre la asociación de financiación de $500 mil millones para infraestructura de IA. Jensen Huang participó en una discusión con socios, incluyendo Goldman Sachs y BlackRock, sobre una asociación de financiación de $500 mil millones de NVIDIA. El objetivo es asegurar fondos para los clientes que construyen infraestructura de IA, destacando el impacto revolucionario de la IA en los negocios y la creación de riqueza. Fuente: CNBC (vía YouTube).
+
+Sam Altman.
+Google muestra erróneamente la muerte de Sam Altman. El 12 de agosto de 2026, la Búsqueda de Google mostró información falsa indicando que Sam Altman, CEO de OpenAI, había fallecido. El error, atribuido a vandalismo malicioso en Wikipedia, apareció en el panel de información y fue corregido rápidamente. Fuente: Facebook (citando Google Search/Wikipedia).
+
+Sundar Pichai.
+Alphabet aumenta la guía de gasto de capital a $200 mil millones para infraestructura de IA. Sundar Pichai, CEO de Alphabet, anunció un aumento en la guía de gasto de capital de la compañía para 2026, elevándola a un rango de $195 mil millones a $205 mil millones. Este movimiento masivo está destinado a construir una infraestructura de IA robusta y asegurar la posición de Google en la carrera de la inteligencia artificial. Fuente: The Motley Fool.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+OpenAI pausa el desarrollo del modelo Astra por riesgos de ciberseguridad. OpenAI ha suspendido ciertas actividades internas de desarrollo de su próximo modelo, Astra, después de que evaluaciones preliminares revelaran que el sistema podría haber alcanzado el 'umbral crítico de ciberseguridad'. Se descubrió que Astra podía iniciar ciberataques de forma autónoma, lo que llevó a la compañía a pausar el trabajo en situaciones que no cumplan con los más altos niveles de protección y controles de seguridad. Fuente: La Jornada.
+La jefa de ética de OpenAI dejó la compañía y no ha sido reemplazada. Chloé Bakalar, la única persona especializada en ética de OpenAI, dejó la compañía en julio de 2026, menos de un año después de su contratación. Su partida deja a OpenAI sin un experto en ética en un momento de creciente preocupación por la seguridad y las implicaciones morales de la IA. Fuente: Gizmodo.
+Salida a bolsa de OpenAI (S-1) inminente con proyecciones de ingresos y pérdidas. Se espera que el prospecto público S-1 de OpenAI aparezca en SEC EDGAR en cualquier momento, revelando ingresos de $2 mil millones al mes y una pérdida proyectada de $14 mil millones para 2026. También se espera la divulgación de los términos de reparto de ingresos con Microsoft, con un objetivo de cotización en septiembre. Fuente: AIToolsRecap.
+
+Google DeepMind.
+Reestructuración directiva en Google DeepMind: Hassabis a chairman, Jeff Dean funda nueva empresa. Google DeepMind ha experimentado una importante reestructuración directiva, con Demis Hassabis asumiendo el rol de chairman y chief scientist de Alphabet, mientras que Jeff Dean, Sanjay Ghemawat, Oriol Vinyals y Quoc Le han dejado la compañía para fundar Discovery Loop, una corporación dedicada a automatizar el método científico. Koray Kavukcuoglu ha asumido el liderazgo de Gemini. Fuente: Arkaia Corporation.
+Google DeepMind lanza WeatherNext 2 para predicción meteorológica avanzada. Google DeepMind ha lanzado WeatherNext 2, una arquitectura que redefine la predicción meteorológica global mediante inteligencia artificial y redes generativas funcionales (FGN). Esta innovación permite simular 1000 escenarios simultáneos y ganar 24 horas de antelación en los pronósticos, con el código liberado en GitHub y Google Colab para democratizar la tecnología. Fuente: YouTube (Maestrando).
+Gemini de Google supera los mil millones de usuarios mensuales activos. Gemini de Google ha superado el hito de los mil millones de usuarios mensuales activos, convirtiéndose en el producto de más rápido crecimiento de la compañía. Este logro subraya la amplia adopción y el impacto de los modelos de lenguaje grandes de Google en la vida cotidiana. Fuente: IA de Visión Mental (Buttondown).
+
+Anthropic.
+Anthropic reporta primer beneficio operativo en el segundo trimestre de 2026. Anthropic ha reportado ingresos de $10.9 mil millones en el segundo trimestre de 2026, un aumento del 130% respecto al trimestre anterior, logrando su primer beneficio operativo de $559 millones, dos años antes de lo previsto. Este logro se atribuye en parte a un descuento en costos de computación de SpaceX, aunque se espera presión en la rentabilidad para el tercer y cuarto trimestre. Fuente: AIToolsRecap.
+Riot Platforms se dispara tras acuerdo de $9 mil millones con Anthropic. Riot Platforms experimentó un aumento del 14% en el pre-mercado tras informes de un acuerdo de $9 mil millones con Anthropic. Este acuerdo subraya la creciente demanda de infraestructura de computación para IA y las significativas inversiones que las empresas de IA están realizando en este ámbito. Fuente: YouTube (Inversiones y Trading).
+Bernie Sanders pide a Anthropic, OpenAI y Meta pausar el desarrollo de IA. El senador Bernie Sanders ha solicitado a OpenAI, Anthropic y Meta que pausen el desarrollo de la inteligencia artificial. Esta petición surge en medio de crecientes preocupaciones sobre la seguridad, la ética y el impacto social de los modelos de IA avanzados. Fuente: Gate News.
+
+Meta AI.
+Meta lanza nuevo modelo de IA para optimizar procesamiento de lenguaje natural. Meta ha presentado oficialmente su más reciente modelo de inteligencia artificial, diseñado para optimizar el procesamiento de lenguaje natural y mejorar la integración de herramientas de desarrollo en sus distintas plataformas digitales. Este sistema busca fortalecer la capacidad de respuesta y la eficiencia computacional dentro del ecosistema de la compañía. Fuente: Abya Yala Tv.
+Meta libera Muse Glimmer, un modelo de IA open source de 30 mil millones de parámetros. Meta Superintelligence Labs ha publicado Muse Glimmer, un modelo de IA multimodal de 30 mil millones de parámetros bajo licencia Apache 2.0, que puede ejecutarse en una sola GPU de consumo gracias a la cuantización de 4 bits. Este modelo está diseñado para tareas agénticas, evaluación LLM-as-judge y razonamiento en múltiples pasos, soportando más de 100 idiomas. Fuente: SiliconANGLE.
+Meta cancela la adquisición de Manus AI por orden del regulador chino. Meta ha cancelado la adquisición de la startup de agentes de IA Manus AI por 2 mil millones de dólares, siguiendo una orden de los reguladores chinos. Manus afirmó que operará de forma independiente y que los usuarios deben hacer una copia de seguridad de los datos debido a los cambios de cumplimiento normativo exigidos para separarse de Meta. Fuente: Gate News.
+
+Microsoft AI.
+Empresas brasileñas adoptan IA y nube de Microsoft con gobernanza. Empresas brasileñas están adoptando tecnologías de IA y nube de Microsoft para mejorar el rendimiento de los negocios y cumplir con requisitos regulatorios y operativos en evolución. Un informe de ISG Provider Lens® destaca que las organizaciones priorizan la IA y la modernización de aplicaciones, colaborando con socios de servicios para establecer controles de datos. Fuente: ISG Provider Lens®.
+Microsoft aumentará la producción de chips de IA internos MAIA 300 para septiembre de 2026. Microsoft está aumentando la producción de sus chips de IA internos, con el lanzamiento del próximo chip MAIA 300 programado para septiembre de 2026. La compañía está negociando con TSMC para asegurar la producción de más de 300,000 chips MAIA, con entregas esperadas para 2027, buscando reducir costos y ejecutar modelos propios y de OpenAI de manera más eficiente. Fuente: The Information (vía KuCoin).
+Microsoft enfrenta demanda judicial de inversores sobre Copilot con plazo del 11 de agosto. Microsoft enfrenta un plazo del 11 de agosto para una acción judicial de inversores relacionada con Copilot. La demanda se complica por los recientes números de la compañía, que muestran una caída del 23% interanual en el flujo de caja libre a $19.6 mil millones en el cuarto trimestre, a pesar de un crecimiento del 43% en los ingresos de Azure. Fuente: TIKR.com.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+OpenAI.
+Modelos Daybreak disponibles en AWS. OpenAI ha anunciado que sus modelos Daybreak, parte de su iniciativa de ciberseguridad, ahora están disponibles en Amazon Web Services (AWS). Esta expansión permite a los defensores acceder a modelos de IA de vanguardia para la investigación de vulnerabilidades y la remediación. Fuente: OpenAI Newsroom.
+Pruebas de anuncios en ChatGPT. OpenAI está realizando pruebas de anuncios dentro de su plataforma ChatGPT. Esta iniciativa podría representar un nuevo modelo de monetización para la compañía y un cambio en la experiencia del usuario de su popular chatbot. Fuente: OpenAI Newsroom.
+
+Google DeepMind.
+Cambios de liderazgo en Google DeepMind y Alphabet. Sundar Pichai, CEO de Google y Alphabet, anunció cambios en el liderazgo de Google DeepMind. Demis Hassabis dejará sus responsabilidades operativas diarias para convertirse en Presidente de Google DeepMind y Científico Jefe de Alphabet, enfocándose en la configuración futura de la AGI. Koray Kavukcuoglu asumirá el cargo de Vicepresidente Senior de Google DeepMind. Fuente: Google Blog.
+
+Sección: 📰 Top 10 Noticias.
+
+Mercados Globales Reaccionan Positivamente a Informe de Inflación de EE. UU., S&P 500 Cerca de Máximos Históricos.
+Los mercados bursátiles de EE. UU. subieron en la apertura del 12 de agosto de 2026, impulsados por un informe del Índice de Precios al Consumidor (IPC) más moderado de lo esperado y los resultados positivos de empresas de inteligencia artificial y infraestructura en la nube. El S&P 500 ganó un 0.30%, mientras que el Nasdaq Composite saltó un 0.59%, acercándose a sus récords históricos. Fuente: TheStreet.
+¿Por qué importa? Un IPC favorable y el buen desempeño de las acciones de IA y la nube indican un entorno de inversión optimista, lo que puede facilitar la captación de capital y el crecimiento para startups tecnológicas.
+
+Meta Lanza Muse Glimmer, un Modelo de IA Abierto para Ejecución Local en PCs y Macs.
+Meta ha lanzado Muse Glimmer, un modelo de código abierto de 30 mil millones de parámetros diseñado para agentes de IA locales, codificación y uso de herramientas. Este modelo está optimizado para ejecutarse en Macs y PCs con una sola GPU de consumo, democratizando el acceso a capacidades avanzadas de IA. Fuente: Business Standard.
+¿Por qué importa? La disponibilidad de modelos de IA de código abierto que pueden ejecutarse localmente reduce las barreras de entrada para desarrolladores y startups, fomentando la innovación y permitiendo la creación de aplicaciones de IA más personalizadas y seguras.
+
+Finvolve Invierte en la Startup de Defensa Tecnológica KshatraLabs para Sistemas Antidrones Impulsados por IA.
+Finvolve, un fondo de capital de riesgo, junto con India Accelerator, ha anunciado una inversión en KshatraLabs, una startup india de tecnología de defensa. KshatraLabs desarrolla sistemas interceptores aéreos autónomos para contrarrestar la creciente amenaza de drones hostiles y enjambres de drones, con el objetivo de avanzar en el desarrollo de productos y capacidades de ingeniería. Fuente: IndianWeb2.com.
+¿Por qué importa? Esta inversión destaca la creciente importancia de la tecnología de defensa y la IA en la seguridad nacional, abriendo un nicho de mercado significativo para startups que puedan innovar en soluciones de contramedidas de drones y sistemas autónomos.
+
+La IA Agéntica Transforma el Soporte Clínico, Abordando Cuellos de Botella en la Atención Médica.
+La IA agéntica está emergiendo como una prioridad estratégica para el soporte clínico, ya que los escritorios de servicio lentos o ineficientes en el sector de la salud no solo frustran a los usuarios, sino que también interrumpen la atención y agotan la capacidad del personal. Esta tecnología promete optimizar los flujos de trabajo y la toma de decisiones en entornos sanitarios. Fuente: HCLTech US.
+¿Por qué importa? Para los fundadores tech, esto señala una oportunidad masiva en el sector de la salud para desarrollar soluciones de IA agéntica que mejoren la eficiencia operativa, la calidad de la atención al paciente y la satisfacción del personal médico.
+
+El Financiamiento Global para Startups Adquiere un 'Pasaporte', con el 43.6% de Nuevos Unicornios Fuera de EE. UU..
+En la primera mitad de 2026, 195 empresas alcanzaron una valoración de mil millones de dólares, con el 43.6% de estos nuevos unicornios fundados fuera de Estados Unidos. Este cambio indica una descentralización del capital de riesgo, con un aumento notable en China y el lanzamiento de fondos como el 'Scaleup Europe Fund' de 5 mil millones de euros. Fuente: Startup Club.
+¿Por qué importa? Esta tendencia global significa que los fundadores tech no necesitan reubicarse para acceder a capital significativo, y la competencia por la innovación se está intensificando a nivel mundial, abriendo nuevas oportunidades en mercados emergentes.
+
+Experian Reporta que la IA Impulsa una Nueva Etapa en la Experiencia Financiera de los Chilenos.
+Un estudio de Experian revela que el 90% de los chilenos utiliza inteligencia artificial y el 70% reconoce mejoras en su experiencia financiera gracias a estas tecnologías. La IA se ha convertido en una herramienta habitual para la detección de fraude, aprobaciones rápidas de productos y asistentes virtuales en el sector financiero. Fuente: FinteChile.
+¿Por qué importa? La alta adopción de IA en servicios financieros en mercados como Chile demuestra la demanda de soluciones innovadoras. Los fundadores tech deben enfocarse en cómo la IA puede simplificar procesos, fortalecer la seguridad y facilitar la toma de decisiones financieras para los consumidores.
+
+Gartner Proyecta que el 40% de las Aplicaciones Empresariales Adoptarán Agentes de IA para 2026.
+Gartner predice que para 2026, el 40% de las aplicaciones empresariales incorporarán agentes de inteligencia artificial, un aumento significativo desde menos del 5% en 2025. Esta tendencia marca un punto de inflexión en la automatización de procesos y la toma de decisiones empresariales. Fuente: The Daily Star.
+¿Por qué importa? La rápida adopción de agentes de IA transformará los flujos de trabajo empresariales. Los fundadores deben desarrollar soluciones que integren capacidades de IA agéntica para ofrecer valor real y diferenciarse en un mercado cada vez más automatizado.
+
+Índice del Dólar Estadounidense Repunta Tras Datos de IPC, Apuestas de la Fed Cambian.
+El Índice del Dólar Estadounidense (USDX) repuntó el 13 de agosto de 2026, recuperando las pérdidas iniciales tras un informe de IPC más moderado. Las probabilidades de un aumento de tasas de la Fed en septiembre cayeron del 49% al 40%, lo que sugiere que el mercado está ajustando sus expectativas sobre la política monetaria. Fuente: Vantage Markets.
+¿Por qué importa? Los cambios en las expectativas de tasas de interés de la Fed y la fortaleza del dólar pueden influir en los costos de financiamiento, las inversiones extranjeras y la competitividad de las exportaciones para las startups con operaciones internacionales.
+
+Tesla Anuncia Plan de $10.1 Mil Millones para Enorme Fábrica Solar en Texas, Enfocada en IA y Robótica.
+Tesla ha revelado una propuesta de 10.1 mil millones de dólares para una fábrica solar masiva en el condado de Fort Bend, Texas, con operaciones comerciales previstas para el primer trimestre de 2029. Este plan, denominado 'Project Crystal Sun', se enfoca en alimentar las operaciones de IA y robótica de Tesla, no solo la energía para el consumidor. Fuente: The News International.
+¿Por qué importa? Esta inversión masiva de Tesla en energía solar para sus operaciones de IA y robótica subraya la creciente interconexión entre la energía limpia y la infraestructura tecnológica avanzada, creando oportunidades para startups en energía renovable, fabricación de semiconductores y soluciones de IA eficientes energéticamente.
+
+Gobernadora Hochul Anuncia Expansión de WithCoverage, Creando 205 Empleos en Nueva York con IA.
+La gobernadora Kathy Hochul anunció que WithCoverage, una empresa de tecnología de seguros impulsada por inteligencia artificial, expandirá significativamente sus operaciones en la ciudad de Nueva York. Esta expansión creará 205 nuevos empleos a tiempo completo y representa una inversión de 25 millones de dólares en investigación y desarrollo durante los próximos cinco años. Fuente: NY.Gov.
+¿Por qué importa? La expansión de empresas de insurtech basadas en IA demuestra el potencial de la inteligencia artificial para transformar industrias tradicionales. Para los fundadores tech, esto resalta la importancia de la innovación en sectores regulados y la creación de empleo a través de la tecnología.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
