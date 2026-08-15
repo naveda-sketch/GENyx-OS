@@ -1,0 +1,106 @@
+El Periódico. Edición del 2026-08-15.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Jensen Huang.
+NVIDIA lanza el chip RTX Spark para IA en PCs. NVIDIA presentó el chip RTX Spark, diseñado para integrar capacidades de inteligencia artificial directamente en laptops y computadoras. Este lanzamiento, anunciado por el CEO Jensen Huang, es el resultado de un esfuerzo de tres años en colaboración con MediaTek y Microsoft para 'reinventar la PC' en la era de la IA. El chip RTX Spark permitirá ejecutar agentes de IA autónomos de forma local, sin depender exclusivamente de la nube, y debutará este otoño en equipos de Dell, HP, Lenovo, ASUS, Microsoft Surface y MSI. Fuente: Reuters (vía Global Studio TV).
+Huang descarta reducción de empleos por IA. Jensen Huang, CEO de NVIDIA, afirmó que la inteligencia artificial no reducirá los empleos en ingeniería de software. Por el contrario, Huang sostuvo que la IA está impulsando más contrataciones en el sector. Esta declaración se dio en el contexto del anuncio del chip RTX Spark y la mención de que OpenAI, Anthropic y SpaceX son los primeros en adoptar su procesador Vera. Fuente: Reuters (vía Global Studio TV).
+
+Sam Altman.
+Advertencia sobre la privacidad en interacciones con IA. Sam Altman, Director Ejecutivo de OpenAI, emitió una advertencia sobre la privacidad de las conversaciones con modelos de IA. Señaló que muchas personas comparten información privada con la IA que normalmente discutirían con un abogado o terapeuta. Altman enfatizó que, a diferencia de las conversaciones con profesionales, lo que se le dice a una IA no está protegido por confidencialidad y podría ser usado en un tribunal. Fuente: Facebook (citando a Sam Altman).
+
+Satya Nadella.
+Microsoft y la ambición de Copilot en la IA. Un reporte de 'The Information' sugiere que Microsoft ha reducido su ambición con la IA, notando que el uso de Copilot no es tan extendido como se esperaba. Sin embargo, Satya Nadella, CEO de Microsoft, apareció en un video demostrando las capacidades de Copilot para manejar el Campeonato Mundial de Excel, buscando validar la promesa de que la IA puede realizar múltiples tareas. Fuente: Facebook (citando The Information).
+
+Elon Musk.
+NVIDIA invierte US$21 mil millones en SpaceX. NVIDIA ha revelado nuevas cifras sobre sus inversiones, incluyendo una participación de casi US$21 mil millones en SpaceX, la compañía aeroespacial liderada por Elon Musk. Esta inversión significativa por parte de un gigante tecnológico como NVIDIA subraya la confianza en el futuro y el potencial de crecimiento de SpaceX. Fuente: Facebook (citando a NVIDIA).
+
+Mark Zuckerberg.
+Zuckerberg sobre el propósito de Facebook y el rol de la IA. Mark Zuckerberg, CEO de Meta, ha declarado que Facebook ya no cumple con su propósito original, enfocándose ahora en videos de tendencia, problemas globales e interacción masiva, en lugar de la interacción social íntima. Además, Meta está apostando por la inteligencia artificial para sustituir los vínculos humanos en un contexto de creciente soledad, con Zuckerberg señalando que la gente usa los chats de IA para conversaciones difíciles. Fuente: Facebook (citando a Mark Zuckerberg).
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+OpenAI nombra a Dali Rajic como Director de Ingresos. OpenAI ha designado a Dali Rajic como su nuevo Director de Ingresos. Rajic, con experiencia previa en empresas de ciberseguridad y software empresarial, liderará la organización global de ingresos de OpenAI para escalar la adopción de sus productos de IA en el mercado. Su nombramiento busca fortalecer el liderazgo comercial de la compañía en un momento de rápida expansión. Fuente: OpenAI.
+Actualizaciones de GPT-5.6: Guía para desarrolladores y modo ultrarrápido. OpenAI ha lanzado una 'Guía para desarrolladores de GPT-5.6' y ha presentado un 'modo ultrarrápido' para GPT-5.6 Sol, que promete una velocidad hasta 14 veces mayor. Estas mejoras están diseñadas para optimizar la eficiencia y la accesibilidad, permitiendo a los desarrolladores construir aplicaciones más rápidas y potentes utilizando los modelos de lenguaje de OpenAI. Fuente: OpenAI.
+
+Anthropic.
+Anthropic en conversaciones para adquirir la startup Decart por $6 mil millones. Anthropic está en negociaciones para adquirir Decart, una startup de infraestructura de IA valorada en aproximadamente $6 mil millones. Decart se especializa en software que mejora la eficiencia de los chips, lo que podría reducir los costos de entrenamiento y operación de IA para Anthropic. Esta sería la mayor adquisición conocida de Anthropic, buscando fortalecer su infraestructura de cómputo. Fuente: Bloomberg Intelligence.
+
+Microsoft AI.
+Actualizaciones de Azure Content Understanding con soporte para GPT-5. Azure Content Understanding ha recibido actualizaciones significativas, incluyendo un soporte más amplio para la serie de modelos GPT-5, menor uso de tokens, puntuación de confianza mejorada y nuevas APIs síncronas. Estas mejoras están diseñadas para ayudar a los desarrolladores a extraer y procesar información de contenido empresarial de manera más eficiente y con mayor precisión. Fuente: Microsoft Developer Blogs.
+
+xAI.
+Grok 4.6 de xAI se lanza en GitHub Copilot. Grok 4.6, el último modelo de razonamiento de xAI, se está implementando en GitHub Copilot, extendiendo su disponibilidad a través de ocho superficies de desarrollo. Este modelo está diseñado para tareas de codificación de largo alcance y flujos de trabajo complejos de varios pasos, ofreciendo capacidades avanzadas de razonamiento y uso de herramientas para desarrolladores. Fuente: GitHub Blog.
+
+Hugging Face.
+Publicación de blog sobre 'Agentes Durmientes' y cómo controlarlos. Hugging Face ha publicado un artículo en su blog titulado 'Sleeper Agents and How to Tame Them', que aborda la investigación sobre agentes de IA con comportamientos latentes y cómo gestionarlos de forma segura. Esta publicación destaca la importancia de la seguridad y el control en el desarrollo de sistemas de IA avanzados para prevenir acciones no deseadas. Fuente: Hugging Face Blog.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Yuno.
+Yuno recauda US$45 millones en ronda de financiación Serie B. La paytech colombiana Yuno cerró una ronda de financiación Serie B de US$45 millones, liderada por Global PayTech Ventures. La inversión, que también contó con la participación de Andreessen Horowitz y Tiger Global, se destinará a investigación y desarrollo, expansión de productos e infraestructura global de pagos, con el objetivo de alcanzar la rentabilidad y un volumen de transacciones anual de US$100 mil millones en los próximos 12 meses. La empresa, fundada en 2022, ofrece una plataforma que conecta a negocios con más de 1,000 métodos de pago en más de 190 países a través de una única API. Fuente: CFOtech Asia.
+
+OpenAI.
+OpenAI duplica ingresos a US$40 mil millones anualizados y se prepara para IPO, en medio de cambios ejecutivos. OpenAI ha duplicado sus ingresos anualizados a más de US$40 mil millones, en comparación con los US$20 mil millones a finales de 2025, impulsada por suscripciones empresariales y agentes de codificación de IA. La compañía se está preparando para una oferta pública inicial (IPO) que podría valorarla en US$1 billón. Sin embargo, enfrenta una reorganización en su cúpula directiva, con la salida de la Directora de Ingresos Denise Dresser y el ejecutivo Brad Lightcap, lo que genera interrogantes entre los inversores potenciales. En respuesta, OpenAI ha nombrado a Dali Rajic como su nuevo Director de Ingresos. Fuente: Benzinga.
+
+Galgo.
+Uber invierte en Galgo para expandir el financiamiento de motocicletas en América Latina. Uber Technologies Inc. ha realizado una inversión estratégica en la fintech chilena Galgo para ampliar el acceso a la financiación de motocicletas para sus conductores y repartidores en América Latina. Esta alianza, que comenzará en México y se extenderá a Chile y Colombia en 2027, permitirá a Galgo desarrollar productos de crédito adaptados y financiar su expansión a un cuarto país latinoamericano. Galgo busca aumentar sus ingresos anualizados de US$100 millones a US$500 millones para 2030. Fuente: La Tercera.
+
+Ábaco.
+Ábaco asegura US$53 millones para financiar la cadena de suministro impulsada por IA en Centroamérica. La fintech centroamericana Ábaco, con sede en El Salvador, ha asegurado US$53 millones en financiación, incluyendo una línea de crédito de US$50 millones de Accial Capital y Pomona Impact, y una ronda seed de US$3 millones. La empresa utiliza inteligencia artificial para ofrecer financiación de la cadena de suministro a pequeñas y medianas empresas en El Salvador, Guatemala, Costa Rica y República Dominicana, convirtiendo las cuentas por cobrar en liquidez en 24 horas. Desde su fundación en 2023, ha originado US$100 millones en crédito. Fuente: BNamericas.
+
+Gamgee.
+Gamgee lanza vacunas personalizadas de ARNm contra el cáncer para perros, impulsadas por IA. Gamgee, una startup fundada por Paul Conyngham, ha lanzado una plataforma integral para vacunas personalizadas de ARNm contra el cáncer para perros, utilizando IA y genómica computacional. La empresa, parte del batch de Verano 2026 de Y Combinator, secuencia el ADN del tumor y el sano de un perro para diseñar una vacuna que enseña al sistema inmunitario a atacar el cáncer. Están realizando ensayos clínicos en Australia y aceptando casos a nivel mundial, con el objetivo de diseñar una vacuna en 48 horas a un costo de US$2,000. Fuente: PYMNTS.com.
+
+Sección: 📰 Top 10 Noticias.
+
+DeepMind presenta 'Gemini Ultra 2.0' con capacidades multimodales avanzadas.
+DeepMind ha anunciado el lanzamiento de Gemini Ultra 2.0, su modelo de IA más potente hasta la fecha, destacando mejoras significativas en razonamiento multimodal y comprensión contextual. Este nuevo modelo promete revolucionar la interacción humano-computadora y la automatización de tareas complejas. Fuente: DeepMind Blog.
+¿Por qué importa? Para un fundador tech, esto significa acceso a herramientas de IA más sofisticadas que pueden potenciar la innovación de productos y servicios, así como la optimización de operaciones, pero también plantea la necesidad de adaptarse rápidamente a las nuevas capacidades y estándares de la IA.
+
+La Reserva Federal mantiene tasas de interés estables, señalando cautela ante la inflación.
+En su última reunión, la Reserva Federal de EE. UU. decidió mantener las tasas de interés sin cambios, citando la persistente preocupación por la inflación a pesar de una desaceleración económica global. La decisión busca equilibrar la estabilidad de precios con el apoyo al crecimiento. Fuente: Reuters.
+¿Por qué importa? Las tasas de interés estables pueden influir en el costo del capital para startups y empresas tecnológicas, afectando las decisiones de inversión y expansión. Un entorno de inflación persistente también puede impactar los costos operativos y la rentabilidad.
+
+Startup de biotecnología 'BioGenix' cierra ronda de financiación Serie C de $200 millones.
+BioGenix, una prometedora startup enfocada en terapias génicas personalizadas, ha anunciado el cierre de una ronda de financiación Serie C de 200 millones de dólares, liderada por Sequoia Capital. La inversión impulsará la investigación y el desarrollo de sus plataformas de edición genética. Fuente: TechCrunch.
+¿Por qué importa? Este evento subraya el continuo interés de los inversores en el sector de la biotecnología y la salud digital, señalando oportunidades para fundadores que buscan capital en áreas de alto impacto científico y tecnológico.
+
+Avances en computación cuántica de IBM prometen acelerar el descubrimiento de materiales.
+Investigadores de IBM han logrado un avance significativo en la simulación de materiales a nivel cuántico, lo que podría reducir drásticamente el tiempo y el costo del descubrimiento de nuevos materiales para diversas industrias. Este hito acerca la computación cuántica a aplicaciones prácticas. Fuente: MIT Technology Review.
+¿Por qué importa? Los fundadores tech deben estar atentos a cómo la computación cuántica puede transformar industrias enteras, desde la manufactura hasta la energía. Entender estas capacidades emergentes es clave para identificar futuras ventajas competitivas.
+
+La UE propone nuevas regulaciones para el uso ético de la IA en sectores críticos.
+La Comisión Europea ha presentado una propuesta para endurecer las regulaciones sobre el uso de sistemas de inteligencia artificial en sectores considerados de alto riesgo, como la salud y la seguridad pública. El objetivo es garantizar la transparencia, la responsabilidad y la protección de los derechos fundamentales. Fuente: Financial Times.
+¿Por qué importa? Para los fundadores de startups de IA, estas regulaciones son cruciales. Implican la necesidad de integrar consideraciones éticas y de cumplimiento desde el diseño de sus productos, lo que puede afectar el desarrollo, la implementación y la expansión en mercados clave.
+
+Amazon anuncia una inversión masiva en infraestructura de energía renovable para sus centros de datos.
+Amazon ha revelado planes para invertir miles de millones en nuevos proyectos de energía renovable a nivel mundial, con el objetivo de alimentar completamente sus operaciones de centros de datos con energía limpia. Esta iniciativa busca reducir su huella de carbono y cumplir con sus objetivos de sostenibilidad. Fuente: Bloomberg.
+¿Por qué importa? Esta noticia resalta la creciente presión y el compromiso de las grandes tecnológicas con la sostenibilidad. Los fundadores deben considerar cómo la energía renovable y las prácticas ecológicas pueden integrarse en sus modelos de negocio para atraer inversores y clientes conscientes.
+
+Reporte de ganancias de NVIDIA supera expectativas impulsado por la demanda de chips de IA.
+NVIDIA ha reportado ganancias trimestrales que superaron las estimaciones de los analistas, atribuyendo el éxito a la robusta demanda de sus unidades de procesamiento gráfico (GPU) para aplicaciones de inteligencia artificial. La compañía proyecta un crecimiento continuo en el sector de centros de datos. Fuente: CNBC.
+¿Por qué importa? El rendimiento de NVIDIA es un barómetro clave para el mercado de la IA. Los fundadores tecnológicos deben observar estas tendencias para entender la disponibilidad y el costo de la infraestructura de hardware esencial para sus soluciones de IA.
+
+Nuevas vulnerabilidades críticas descubiertas en la cadena de suministro de software global.
+Investigadores de seguridad han identificado una serie de vulnerabilidades críticas en componentes ampliamente utilizados dentro de la cadena de suministro de software, lo que podría exponer a innumerables empresas a ataques cibernéticos. Se insta a las organizaciones a auditar y actualizar sus dependencias. Fuente: Ars Technica.
+¿Por qué importa? La seguridad de la cadena de suministro es una preocupación creciente. Los fundadores deben priorizar la resiliencia cibernética y la gestión de riesgos en sus productos y operaciones, ya que un solo punto de falla puede tener repercusiones devastadoras.
+
+A16z publica informe sobre el futuro de la Web3 y la tokenización de activos reales.
+Andreessen Horowitz (a16z) ha lanzado un informe detallado explorando el potencial de la Web3 para tokenizar activos del mundo real, desde bienes raíces hasta propiedad intelectual. El informe destaca las oportunidades de inversión y los desafíos regulatorios en este espacio emergente. Fuente: A16z.com.
+¿Por qué importa? Este análisis de una firma de VC líder ofrece una hoja de ruta para fundadores interesados en el ecosistema Web3. Comprender la tokenización de activos reales puede abrir nuevas vías para la creación de valor y modelos de negocio disruptivos.
+
+Google AI presenta un nuevo chip de IA de bajo consumo para dispositivos edge.
+Google AI ha anunciado el desarrollo de un nuevo chip de inteligencia artificial diseñado específicamente para el procesamiento de IA en dispositivos edge, con un enfoque en la eficiencia energética. Este chip permitirá capacidades de IA más potentes y autónomas en una amplia gama de hardware. Fuente: Google AI Blog.
+¿Por qué importa? La democratización de la IA a través de hardware de bajo consumo es fundamental. Los fundadores que desarrollan soluciones para IoT, robótica o dispositivos portátiles pueden aprovechar estos avances para crear productos más inteligentes y eficientes, reduciendo la dependencia de la nube.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
