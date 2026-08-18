@@ -1,0 +1,97 @@
+El Periódico. Edición del 2026-08-18.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+No se encontró información para esta sección.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+OpenAI se une al proyecto PORTS-Pike y ofrece créditos Codex a estudiantes de Ohio.. OpenAI está invirtiendo en el proyecto PORTS-Pike y proporcionará hasta $84 millones en créditos para Codex a aproximadamente 844,000 estudiantes universitarios, de colegios comunitarios y escuelas técnicas de Ohio durante el año académico 2026-2027. Estos créditos permitirán a los estudiantes usar Codex, una herramienta de OpenAI dentro de ChatGPT, para desarrollar software y completar proyectos técnicos, fomentando habilidades para diversas carreras. Fuente: OpenAI.
+OpenAI otorga subvenciones para promover la oportunidad económica y la resiliencia social en la era de la IA.. OpenAI está otorgando subvenciones a 14 proyectos liderados por organizaciones independientes para fomentar la oportunidad económica y la resiliencia social a medida que avanza la IA. Estas subvenciones, que suman un total de $1 millón en fondos y hasta $1 millón en créditos de API, buscan apoyar la investigación y el desarrollo de políticas que aseguren que la IA avanzada beneficie a toda la humanidad. Fuente: OpenAI.
+OpenAI lanza 'Trusted Access for Cyber' con GPT-Daybreak-Blue para trabajo defensivo.. OpenAI está ofreciendo 'Trusted Access for Cyber' para que los equipos utilicen GPT-Daybreak-Blue en trabajos defensivos autorizados, incluyendo respuesta a incidentes, ingeniería de detección y análisis de malware. Esta iniciativa busca mejorar la seguridad cibernética utilizando inteligencia de frontera para identificar y corregir vulnerabilidades antes de que puedan ser explotadas. Fuente: OpenAI.
+
+Google DeepMind.
+Google Gemini y Pixel se asocian con clubes de fútbol para mejorar la experiencia de los fans con IA.. Google Gemini y Pixel se han asociado con cinco clubes de fútbol globales para mejorar la experiencia de los aficionados en los días de partido a través de la inteligencia artificial y la tecnología de teléfonos inteligentes. Esta colaboración busca innovar la interacción de los fans con el deporte, incluyendo un compromiso para aumentar la visibilidad del fútbol femenino. Fuente: Google Blog.
+AlphaFold 3 disponible en la Plataforma de Agentes Empresariales Gemini de Google Cloud.. AlphaFold 3, el modelo de predicción de estructuras de proteínas, ahora está disponible en la Plataforma de Agentes Empresariales Gemini de Google Cloud. Esto permite a los usuarios implementar y utilizar AlphaFold 3 para realizar predicciones sobre estructuras de proteínas, con opciones de despliegue y facturación detalladas. Fuente: Google Cloud Documentation.
+
+Anthropic.
+Claude de Anthropic implementará marcas de agua invisibles en el texto generado por IA.. Anthropic anunció que su modelo Claude comenzará a añadir marcas de agua invisibles al texto generado por IA para cumplir con una regulación de la UE que exige el marcado de todo el texto generado por IA a partir de diciembre. Esta medida busca la transparencia, aunque ha generado debate sobre su posible impacto en la calidad del texto y la detectabilidad de la IA. Fuente: Anthropic.
+Modelos Claude de Anthropic disponibles en Microsoft Foundry.. Los modelos Claude de Anthropic ahora están disponibles en Microsoft Foundry, ofreciendo capacidades avanzadas de IA conversacional, comprensión del lenguaje y generación para aplicaciones inteligentes. Esta integración permite a los usuarios de Microsoft Foundry acceder a los modelos Claude para tareas complejas de razonamiento, generación de código y tareas multimodales, incluyendo el análisis de imágenes. Fuente: Microsoft Learn.
+
+Microsoft AI.
+Microsoft Copilot se describe como un compañero de IA que mejora la productividad.. Microsoft Copilot se posiciona como un compañero de IA integrado en los productos de Microsoft, diseñado para mejorar la productividad mediante asistencia inteligente, generación de contenido y automatización de tareas. La documentación también aborda la diferencia entre un modelo de IA y un agente de IA, indicando que Copilot abarca ambos conceptos para ofrecer una experiencia de usuario más completa. Fuente: Microsoft Learn.
+Microsoft AI lanza MAI-Code-1.1-Flash, un modelo de código más rápido y eficiente para GitHub Copilot.. Microsoft AI ha lanzado MAI-Code-1.1-Flash, una versión mejorada de su modelo de código que ofrece un rendimiento más rápido y eficiente para GitHub Copilot. Este nuevo modelo procesa tokens un 25% más rápido y utiliza un 25% menos de tokens para completar tareas, lo que se traduce en respuestas más rápidas y una reducción del costo en un 75% en comparación con la versión anterior. Fuente: Microsoft AI.
+Microsoft ofrece capacitación sobre Microsoft 365 Copilot y agentes de IA.. Microsoft está ofreciendo sesiones de capacitación para Microsoft 365 Copilot, enfocadas en cómo construir, usar y compartir agentes de IA para automatizar tareas de negocio, mejorar la colaboración en equipo y aumentar la productividad. También hay capacitación específica para el sector legal, buscando minimizar el tiempo en tareas repetitivas y acelerar la investigación legal con herramientas de IA. Fuente: Microsoft Events.
+
+xAI.
+xAI lanza Grok 4.6 con inteligencia significativamente mejorada.. xAI ha lanzado Grok 4.6, una actualización de su modelo de IA que presume de una inteligencia significativamente mejorada, alcanzando 61 puntos en el Índice de Inteligencia de Artificial Analysis. El modelo demuestra un rendimiento excepcional en tareas de agentes y resolución autónoma de problemas en entornos de terminal Linux, con precios de API sin cambios de $2 por millón de tokens de entrada y $6 por millón de tokens de salida. Fuente: Google Search (informando sobre el lanzamiento de xAI).
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Cursor.
+SpaceX adquiere Cursor por $60 mil millones. SpaceX ha completado oficialmente la adquisición de Cursor, una startup de codificación asistida por IA, por un valor de $60 mil millones en una transacción de acciones. Esta adquisición estratégica integra la tecnología de Cursor en la división SpaceXAI, otorgándole acceso a la vasta infraestructura de GPU de SpaceX para escalar sus capacidades de IA. Fuente: Forbes.
+
+Higgsfield.
+Higgsfield cierra ronda de financiación Serie B de $400 millones. La empresa de generación de imágenes y videos con IA, Higgsfield, ha completado una ronda de financiación Serie B de $400 millones, elevando su valoración a $5.4 mil millones. La ronda fue liderada por DST Global y contó con la participación de Goldman Sachs Alternatives, Valor Capital y Tribe Capital, entre otros. Los fondos se destinarán a la expansión del talento, el desarrollo de productos y la mejora de la capacidad computacional. Fuente: FinSMEs.
+
+Wispr Flow.
+Wispr Flow recauda $280 millones en financiación Serie B. Wispr Flow, la startup de IA de voz detrás de la aplicación de dictado Wispr Flow, ha recaudado $280 millones en una ronda de financiación Serie B, valorando la compañía en $2 mil millones. La ronda fue liderada por Menlo Ventures y busca mejorar la precisión del dictado a través de su nuevo modelo de voz interno, Canto, y expandirse a herramientas de automatización de reuniones. Fuente: Reuters (vía WTVB).
+
+OpenRouter.
+Stripe adquiere OpenRouter por más de $7 mil millones. Stripe ha llegado a un acuerdo para adquirir OpenRouter, la puerta de enlace de enrutamiento de modelos de IA, por más de $7 mil millones en efectivo y acciones. Esta es la adquisición más grande en la historia de Stripe y le otorga el control de una capa de enrutamiento neutral crucial en la IA, utilizada por millones de desarrolladores para acceder a más de 400 modelos de IA. Fuente: The National CIO Review.
+
+Smith+Nephew (en asociación con Imperial College London).
+Smith+Nephew e Imperial College London lanzan centro de robótica quirúrgica. Smith+Nephew, la compañía global de tecnología médica, y el Imperial College London han lanzado una asociación de cinco años para impulsar la investigación y la innovación en robótica quirúrgica para afecciones musculoesqueléticas. Este centro, el primero de su tipo para Smith+Nephew en una universidad, reunirá a expertos académicos e ingenieros para traducir avances en visión por computadora y detección en técnicas quirúrgicas robóticas avanzadas. Fuente: Morningstar.
+
+Sección: 📰 Top 10 Noticias.
+
+Google DeepMind lanza modelo de IA avanzado para predicción climática global.
+Google DeepMind ha anunciado el lanzamiento de su último modelo de inteligencia artificial, 'ClimaNet', diseñado para ofrecer predicciones climáticas a corto y mediano plazo con una precisión sin precedentes. Este modelo utiliza redes neuronales profundas para analizar vastos conjuntos de datos meteorológicos y oceanográficos, mejorando la capacidad de anticipar eventos extremos. Fuente: DeepMind Blog.
+¿Por qué importa? Para un fundador tech, este avance subraya el potencial de la IA para resolver problemas globales complejos y abre oportunidades en sectores como la agricultura de precisión, seguros y gestión de riesgos, donde la predicción exacta es crítica.
+
+Startup de chips de IA 'QuantumCore' recauda $500M en ronda Serie D liderada por Andreessen Horowitz.
+QuantumCore, una prometedora startup especializada en el desarrollo de chips de IA de próxima generación, ha cerrado una ronda de financiación Serie D de 500 millones de dólares. La inversión fue liderada por Andreessen Horowitz, elevando la valoración de la compañía a más de 5 mil millones de dólares. Fuente: TechCrunch.
+¿Por qué importa? Esta noticia es crucial para los fundadores, ya que indica un fuerte apetito inversor en hardware de IA especializado, señalando dónde se está concentrando el capital de riesgo y las áreas de mayor crecimiento en la infraestructura tecnológica.
+
+Avance en corrección de errores cuánticos acerca la computación cuántica práctica.
+Investigadores del MIT y IBM han logrado un hito significativo en la corrección de errores cuánticos, un obstáculo fundamental para la computación cuántica a gran escala. Su nuevo método demuestra una mayor estabilidad y coherencia en los qubits, lo que podría acelerar el desarrollo de ordenadores cuánticos comerciales. Fuente: MIT Technology Review.
+¿Por qué importa? Este avance es una señal para los fundadores de que la computación cuántica está madurando. Aunque aún no es mainstream, es vital monitorear estos progresos para identificar futuras aplicaciones y disrupciones en criptografía, ciencia de materiales y optimización.
+
+Mercados reaccionan a la decisión del BCE de mantener tasas de interés por inflación persistente.
+El Banco Central Europeo (BCE) ha anunciado su decisión de mantener las tasas de interés sin cambios, citando la persistencia de las presiones inflacionarias en la eurozona. Esta medida ha generado una reacción mixta en los mercados de valores y bonos, con inversores evaluando el impacto en el crecimiento económico. Fuente: Reuters.
+¿Por qué importa? Las decisiones de los bancos centrales impactan directamente el costo del capital y el entorno de inversión. Unas tasas estables pero con inflación persistente pueden significar un acceso más caro a la financiación para startups y una presión continua sobre los márgenes operativos.
+
+EE. UU. impulsa bloque tecnológico para aislar a China en carrera por la IA.
+Estados Unidos está preparando una advertencia a 35 países que cooperan en inteligencia artificial, instándolos a evitar compromisos simultáneos con iniciativas tecnológicas chinas si desean mantener su lugar en el esquema estadounidense. Esta medida busca consolidar una red de países aliados para reforzar las cadenas de suministro de IA y limitar el avance tecnológico de China. Fuente: Reuters.
+¿Por qué importa? Esta escalada geopolítica en la carrera por la IA significa que los fundadores deben considerar cuidadosamente sus cadenas de suministro, mercados objetivo y posibles restricciones tecnológicas. La elección de socios y la procedencia de la tecnología serán factores estratégicos críticos.
+
+Stripe lanza nueva suite de herramientas de pago con IA para e-commerce.
+Stripe ha presentado una innovadora suite de herramientas de pago impulsadas por inteligencia artificial, diseñadas para mejorar la seguridad, optimizar las tasas de conversión y personalizar la experiencia de compra en el comercio electrónico. Estas herramientas utilizan IA para detectar fraudes de manera más efectiva y adaptar las opciones de pago a cada usuario. Fuente: Press Stripe.
+¿Por qué importa? Para los fundadores de e-commerce o SaaS, esta noticia es vital. La integración de IA en los pagos puede reducir el fraude, aumentar la eficiencia y mejorar la experiencia del cliente, impactando directamente en los ingresos y la retención. Es una señal de la evolución de la infraestructura financiera.
+
+La IA acapara la producción mundial de memoria RAM en 2026, afectando otros sectores.
+La creciente demanda de chips de memoria RAM de alto rendimiento por parte de la industria de la inteligencia artificial está acaparando una parte significativa de la producción global. Esto está generando escasez y aumento de precios en otros sectores tecnológicos, como la fabricación de smartphones, laptops y consolas de videojuegos. Fuente: The Verge (via Facebook post).
+¿Por qué importa? Los fundadores de hardware o startups que dependen de componentes electrónicos deben estar alerta a esta tendencia. La escasez y el encarecimiento de la RAM pueden impactar los costos de producción, los márgenes y la disponibilidad de productos, requiriendo estrategias de cadena de suministro más robustas.
+
+Bolsas globales cotizan en negativo; rentabilidad de la deuda y petróleo al alza.
+Los mercados bursátiles globales abrieron en negativo, con la rentabilidad de la deuda disparada y los precios del petróleo al alza. Esta situación se atribuye a la preocupación por las finanzas públicas y las tensiones geopolíticas en Oriente Próximo, que avivan los temores de una aceleración de la inflación. Fuente: Bloomberg.
+¿Por qué importa? La volatilidad en los mercados y el aumento de los costos de la deuda y la energía son factores críticos para cualquier fundador. Esto puede afectar la confianza de los inversores, el acceso a capital y los costos operativos de las empresas, especialmente aquellas con cadenas de suministro globales.
+
+Modelo de IA chino GLM-5.3 muestra capacidades avanzadas de programación y hacking.
+El laboratorio chino Z.AI ha entrenado su modelo de lenguaje GLM-5.3, que no solo demuestra capacidades mejoradas en programación, sino que también ha desarrollado habilidades avanzadas para identificar y explotar vulnerabilidades de ciberseguridad. Este avance subraya la rápida evolución de la IA en China a pesar de las restricciones de chips. Fuente: WWWhat's New (citando Reuters).
+¿Por qué importa? Este desarrollo es una llamada de atención para los fundadores sobre la dualidad de la IA. Si bien ofrece herramientas poderosas para el desarrollo, también presenta riesgos significativos en ciberseguridad. Es crucial invertir en defensas robustas y entender las implicaciones de seguridad de los modelos de IA avanzados.
+
+La IA genérica no funciona; empresas necesitan soluciones verticales, según estudio.
+Un nuevo estudio de Vanson Bourne, comisionado por Aptean, revela que la IA de propósito general no está cumpliendo las expectativas de las empresas, con solo el 39% atribuyendo un impacto directo en sus ganancias. El informe sugiere que las empresas necesitan soluciones de IA verticales y especializadas para obtener un valor real. Fuente: Portal ERP (citando estudio de Vanson Bourne comisionado por Aptean).
+¿Por qué importa? Para los fundadores de startups de IA, esta es una validación clave. El mercado está madurando más allá del hype de la IA genérica, y hay una clara demanda de soluciones específicas para la industria. Esto resalta la importancia de la especialización y la profunda comprensión del dominio para construir productos de IA exitosos y valiosos.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
