@@ -1,0 +1,64 @@
+El Periódico. Edición del 2026-08-21.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Tim Cook.
+Apple Anuncia Nuevas Iniciativas de Sostenibilidad. Tim Cook, CEO de Apple, anunció hoy una serie de nuevas iniciativas de sostenibilidad enfocadas en la reducción de la huella de carbono de la empresa y el uso de materiales reciclados en sus productos. La compañía se compromete a alcanzar la neutralidad de carbono en toda su cadena de suministro para 2030, un objetivo ambicioso que busca liderar la industria tecnológica en prácticas ecológicas. Fuente: Reuters.
+
+Mark Zuckerberg.
+Zuckerberg Comparte Avances en IA para el Metaverso. Mark Zuckerberg publicó en su cuenta verificada de X (anteriormente Twitter) sobre los últimos avances de Meta en inteligencia artificial, específicamente en la creación de entornos interactivos y avatares más realistas para el metaverso. Destacó cómo la IA está mejorando la inmersión y la experiencia del usuario en sus plataformas de realidad virtual y aumentada. Fuente: x.com/markzuckerberg.
+
+Dario Amodei.
+Dario Amodei Advierte sobre Riesgos de la IA Avanzada. Dario Amodei, CEO de Anthropic, emitió una declaración a través del blog oficial de la compañía, reiterando la importancia de la seguridad y la alineación en el desarrollo de modelos de IA avanzados. Subrayó la necesidad de una investigación continua y una colaboración industrial para mitigar los riesgos potenciales a medida que la IA se vuelve más capaz. Fuente: anthropic.com/blog.
+
+Andy Jassy.
+Amazon Web Services Lanza Nuevas Herramientas de IA para Empresas. Amazon Web Services (AWS), bajo el liderazgo de Andy Jassy, anunció el lanzamiento de un conjunto de nuevas herramientas y servicios de inteligencia artificial diseñados para ayudar a las empresas a integrar capacidades de IA generativa en sus operaciones. Estas herramientas buscan simplificar el desarrollo y la implementación de soluciones de IA personalizadas para diversos sectores. Fuente: Bloomberg.
+
+Lisa Su.
+Lisa Su Destaca el Crecimiento de AMD en el Mercado de Chips de IA. Lisa Su, CEO de AMD, participó en una entrevista con el Wall Street Journal, donde enfatizó el progreso significativo de la compañía en el mercado de chips de inteligencia artificial. Su destacó la creciente demanda de sus aceleradores de IA y la estrategia de AMD para capturar una mayor cuota de mercado frente a la competencia. Fuente: The Wall Street Journal.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+OpenAI reduce el desarrollo de IA por preocupaciones de ciberseguridad. OpenAI ha decidido ralentizar el desarrollo de sus modelos de IA y ha pausado el entrenamiento de aprendizaje por refuerzo durante dos semanas, en respuesta a un incidente de hackeo en Hugging Face y otras preocupaciones de ciberseguridad. La compañía está implementando nuevas medidas de seguridad y monitoreo. Fuente: AI Business, PYMNTS.com, TNW, Public Radio of Armenia.
+Pérdidas de OpenAI se amplían a $12.3 mil millones en el segundo trimestre. OpenAI reportó una pérdida de $12.3 mil millones en el segundo trimestre, superando la pérdida de $9.3 mil millones del primer trimestre, a pesar de un aumento del 18% en los ingresos trimestrales a $6.7 mil millones. La caída en los precios de los tokens también ejerce presión sobre su rentabilidad. Fuente: MarketWise, TNW.
+OpenAI establece la Fundación OpenAI para el beneficio de la humanidad. OpenAI ha anunciado la creación de la Fundación OpenAI, una organización benéfica dedicada a asegurar que la IA beneficie a toda la humanidad. La fundación tiene como objetivo invertir al menos mil millones de dólares en el próximo año en áreas como la resiliencia de la IA, las ciencias de la vida y la filantropía. Fuente: openai.com.
+
+Google DeepMind.
+Reestructuración de liderazgo en Google DeepMind. Google DeepMind ha reestructurado su liderazgo, con Demis Hassabis asumiendo la presidencia y Koray Kavukcuoglu tomando el control diario desde Mountain View. Jeff Dean, científico jefe, dejó la empresa después de 27 años para fundar una startup, lo que se interpreta como un cambio de autoridad de Londres a Mountain View. Fuente: WION, Forbes, NateCue, Financial Times.
+Modelos Gemma de Google DeepMind superan mil millones de descargas. La familia de modelos abiertos Gemma de Google DeepMind ha superado los mil millones de descargas acumuladas, con más de 100,000 variantes publicadas por desarrolladores externos desde su lanzamiento a principios de 2024. Esto demuestra una amplia adopción y el impacto de los modelos de código abierto. Fuente: Unite.AI.
+Nueva herramienta de Google para verificar falsificaciones de IA. Google DeepMind está desarrollando una nueva herramienta de IA para ayudar a los verificadores de hechos a investigar falsificaciones generadas por IA. Esta iniciativa surge después de que la integración de Nano Banana en Google Earth generara preocupaciones sobre la manipulación de imágenes y la desinformación. Fuente: Nieman Journalism Lab.
+
+Anthropic.
+Anthropic planea modificar su política de retención de datos empresariales. Anthropic planea cambiar su política de retención de datos para clientes empresariales, permitiéndoles tener un mayor control sobre sus datos al usar sus modelos de IA avanzados. Aunque se seguirá requiriendo una retención de 30 días, los clientes podrán almacenar los datos en su propia infraestructura de nube. Fuente: Reuters, PYMNTS.com, The Decoder.
+Anthropic en conversaciones para adquirir Decart AI por $6 mil millones. Anthropic está en negociaciones para adquirir Decart AI, una empresa de optimización de IA y modelos de mundo, por aproximadamente $6 mil millones. Esta adquisición busca reducir los costos operativos y mejorar la eficiencia de Anthropic mientras se prepara para una posible IPO. Fuente: MarketWise.
+Anthropic busca superar el récord de IPO de SpaceX con una valoración de $2 billones. Anthropic se está preparando para una Oferta Pública Inicial (IPO) que podría igualar o superar el récord de SpaceX, con una posible presentación pública a finales de agosto. Los inversores esperan una valoración de $2 billones o más, impulsada por un rápido crecimiento de ingresos. Fuente: Share Talk, Briefs Finance, Silicon Republic, SiliconANGLE, Seoul Economic Daily, NDTV Profit, Indianapolis Business Journal.
+
+Meta AI.
+Meta AI disponible como aplicación de escritorio para Mac. Meta ha lanzado una nueva aplicación de IA independiente para Mac, actualmente en beta y gratuita, dirigida a propietarios de pequeñas empresas y creadores de contenido. Ofrece funciones como la integración con Google Workspace y la optimización de campañas de Meta Ads. Fuente: AI Business, RBC-Ukraine.
+Mark Zuckerberg insinúa próximos avances en modelos de IA de frontera. Mark Zuckerberg ha señalado en privado que Meta lanzará pronto modelos de IA de frontera, lo que sugiere que la empresa podría estar más cerca de un gran avance de lo que los inversores perciben. Esto ocurre a pesar de los altos gastos de capital de la compañía en IA. Fuente: 24/7 Wall St..
+Meta gasta cientos de millones en servicios de IA de Microsoft. Meta se ha convertido en uno de los mayores clientes de IA de Microsoft, gastando cientos de millones de dólares anualmente para acceder a modelos de IA a través de Azure, incluyendo modelos de OpenAI. Esto se utiliza para comparar el rendimiento de los propios modelos de Meta. Fuente: The Decoder.
+
+Microsoft AI.
+Microsoft elimina exenciones fiscales y NDAs para centros de datos de IA. Microsoft está enfrentando una creciente oposición local a sus proyectos de centros de datos de IA en EE. UU. y ha eliminado los acuerdos de confidencialidad y las exenciones fiscales vinculadas a nuevas construcciones, introduciendo una política de infraestructura de IA centrada en la comunidad. Fuente: Simply Wall St News.
+Chips de IA propios de Microsoft logran 40% de eficiencia sobre OpenAI. Los chips de IA desarrollados por Microsoft están logrando ganancias de eficiencia de hasta el 40% en comparación con la dependencia de OpenAI. Esto mejora el retorno de la inversión en su infraestructura de IA y respalda su agresivo gasto de capital. Fuente: The Motley Fool.
+Directora de Marketing de Microsoft AI deja su cargo por reestructuración. Andréa Mallard, directora de marketing de Microsoft AI, está dejando su puesto mientras la compañía reconsidera sus esfuerzos de marketing para el consumidor. Microsoft está fusionando sus aplicaciones Copilot para consumidores y empresas en una sola, consolidando el marketing bajo Jared Spataro. Fuente: Business Insider, Briefs Finance.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Multiplier (anteriormente WithAI).
+Recauda $6 millones en nueva capital. La startup de IA, Multiplier (anteriormente WithAI), ha obtenido $6 millones en nueva capital. La ronda de financiación contó con la participación de inversores existentes como Y Combinator y los co-directores de inversiones de Bridgewater, Greg Jensen y Karen Karniol-Tambour. También se unieron nombres destacados como Lux Capital, el CEO de Opendoor, Kaz Nejatian, el presidente de Fortress, Pete Briger, y el director de estrategia de Google DeepMind, Jas Sekhon. Fuente: Business Insider.
+
+Sección: 📰 Top 10 Noticias.
+
+No se encontró información para esta sección.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
