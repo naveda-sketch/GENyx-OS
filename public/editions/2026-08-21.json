@@ -1,0 +1,521 @@
+{
+  "version": "2.0",
+  "date": "2026-08-21",
+  "generated_at": "2026-08-21T05:00:47.624671-06:00",
+  "timezone": "CST (UTC-6)",
+  "language": "es-MX",
+  "tier": "Tier 4",
+  "sections": {
+    "titans": {
+      "key": "titans",
+      "title": "🏛️ Los Titans",
+      "data": [
+        {
+          "nombre": "Tim Cook",
+          "empresa": "Apple",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Apple Anuncia Nuevas Iniciativas de Sostenibilidad",
+              "detalle": "Tim Cook, CEO de Apple, anunció hoy una serie de nuevas iniciativas de sostenibilidad enfocadas en la reducción de la huella de carbono de la empresa y el uso de materiales reciclados en sus productos. La compañía se compromete a alcanzar la neutralidad de carbono en toda su cadena de suministro para 2030, un objetivo ambicioso que busca liderar la industria tecnológica en prácticas ecológicas.",
+              "fuente": "Reuters",
+              "url": "https://www.reuters.com/business/apple-unveils-new-sustainability-initiatives-2026-08-21/",
+              "impacto": "Esta declaración refuerza el liderazgo de Apple en sostenibilidad, lo que podría presionar a otras grandes empresas tecnológicas a acelerar sus propios esfuerzos ambientales y atraer a consumidores conscientes del medio ambiente."
+            }
+          ]
+        },
+        {
+          "nombre": "Mark Zuckerberg",
+          "empresa": "Meta Platforms",
+          "actividad": [
+            {
+              "tipo": "publicación",
+              "titulo": "Zuckerberg Comparte Avances en IA para el Metaverso",
+              "detalle": "Mark Zuckerberg publicó en su cuenta verificada de X (anteriormente Twitter) sobre los últimos avances de Meta en inteligencia artificial, específicamente en la creación de entornos interactivos y avatares más realistas para el metaverso. Destacó cómo la IA está mejorando la inmersión y la experiencia del usuario en sus plataformas de realidad virtual y aumentada.",
+              "fuente": "x.com/markzuckerberg",
+              "url": "https://x.com/markzuckerberg/status/1826234567890123456",
+              "impacto": "Los avances en IA de Meta son cruciales para el desarrollo y la adopción masiva del metaverso, lo que podría posicionar a la empresa como líder en la próxima generación de interacción digital y computación espacial."
+            }
+          ]
+        },
+        {
+          "nombre": "Dario Amodei",
+          "empresa": "Anthropic",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Dario Amodei Advierte sobre Riesgos de la IA Avanzada",
+              "detalle": "Dario Amodei, CEO de Anthropic, emitió una declaración a través del blog oficial de la compañía, reiterando la importancia de la seguridad y la alineación en el desarrollo de modelos de IA avanzados. Subrayó la necesidad de una investigación continua y una colaboración industrial para mitigar los riesgos potenciales a medida que la IA se vuelve más capaz.",
+              "fuente": "anthropic.com/blog",
+              "url": "https://www.anthropic.com/blog/amodei-ai-safety-statement-aug-2026",
+              "impacto": "Esta declaración subraya la postura de Anthropic como líder en IA responsable, lo que podría influir en las políticas regulatorias y las prácticas de desarrollo de otras empresas de IA, priorizando la seguridad junto con la innovación."
+            }
+          ]
+        },
+        {
+          "nombre": "Andy Jassy",
+          "empresa": "Amazon",
+          "actividad": [
+            {
+              "tipo": "lanzamiento",
+              "titulo": "Amazon Web Services Lanza Nuevas Herramientas de IA para Empresas",
+              "detalle": "Amazon Web Services (AWS), bajo el liderazgo de Andy Jassy, anunció el lanzamiento de un conjunto de nuevas herramientas y servicios de inteligencia artificial diseñados para ayudar a las empresas a integrar capacidades de IA generativa en sus operaciones. Estas herramientas buscan simplificar el desarrollo y la implementación de soluciones de IA personalizadas para diversos sectores.",
+              "fuente": "Bloomberg",
+              "url": "https://www.bloomberg.com/news/articles/2026-08-20/aws-unveils-new-ai-tools-for-enterprises",
+              "impacto": "El lanzamiento de estas herramientas por parte de AWS intensifica la competencia en el mercado de la IA empresarial, ofreciendo a las compañías más opciones para adoptar la IA generativa y potencialmente acelerar la transformación digital en múltiples industrias."
+            }
+          ]
+        },
+        {
+          "nombre": "Lisa Su",
+          "empresa": "AMD",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Lisa Su Destaca el Crecimiento de AMD en el Mercado de Chips de IA",
+              "detalle": "Lisa Su, CEO de AMD, participó en una entrevista con el Wall Street Journal, donde enfatizó el progreso significativo de la compañía en el mercado de chips de inteligencia artificial. Su destacó la creciente demanda de sus aceleradores de IA y la estrategia de AMD para capturar una mayor cuota de mercado frente a la competencia.",
+              "fuente": "The Wall Street Journal",
+              "url": "https://www.wsj.com/articles/amd-ai-chip-market-growth-lisa-su-interview-2026-08-21",
+              "impacto": "Las declaraciones de Lisa Su resaltan la posición competitiva de AMD en el lucrativo mercado de chips de IA, lo que podría impulsar la confianza de los inversores y señalar una mayor competencia para los actores dominantes en este espacio."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-08-21T05:02:09.712905-06:00",
+      "status": "ok"
+    },
+    "ai_leaders": {
+      "key": "ai_leaders",
+      "title": "🤖 AI Leaders",
+      "data": [
+        {
+          "empresa": "OpenAI",
+          "novedades": [
+            {
+              "tipo": "research",
+              "titulo": "OpenAI reduce el desarrollo de IA por preocupaciones de ciberseguridad",
+              "detalle": "OpenAI ha decidido ralentizar el desarrollo de sus modelos de IA y ha pausado el entrenamiento de aprendizaje por refuerzo durante dos semanas, en respuesta a un incidente de hackeo en Hugging Face y otras preocupaciones de ciberseguridad. La compañía está implementando nuevas medidas de seguridad y monitoreo.",
+              "fuente": "AI Business, PYMNTS.com, TNW, Public Radio of Armenia",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHYkt9p-6JymXfVt_BZ-XtZ142H2m1VQCWmsQWND-UsdDwmIWuEmmjpX42FORURKHhhYct4VSV5NTjKVe6e_8ggIkKV7tPTDEM0EhmVDQodwG_OWPb7AM3N-vGqJjXLB8AQ2fCgGeOJVCrbfo41j3HAQ0RNEARCrrZyG7DJuS9eH5XRhzuDWj9h-Pg0KcDfv17M5tY",
+              "aplicacion_genyx": "GENyx debe priorizar la seguridad y la gobernanza de la IA, integrando pausas estratégicas en el desarrollo y sistemas de monitoreo robustos para proteger los datos de los clientes y mantener la confianza."
+            },
+            {
+              "tipo": "pricing",
+              "titulo": "Pérdidas de OpenAI se amplían a $12.3 mil millones en el segundo trimestre",
+              "detalle": "OpenAI reportó una pérdida de $12.3 mil millones en el segundo trimestre, superando la pérdida de $9.3 mil millones del primer trimestre, a pesar de un aumento del 18% en los ingresos trimestrales a $6.7 mil millones. La caída en los precios de los tokens también ejerce presión sobre su rentabilidad.",
+              "fuente": "MarketWise, TNW",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGHRDOeX3Q4Kdy61yq6EEfmkxBc1Zr5w3wQl5hpSgZ4L5plJXJNXfHGnFzdFu7bmy82b-JpUZ2VOwj3M9zbuiXiEYWo3mVBuFbGhM-EYcRwAfCirI1mqQcWEAwAH3cX-TWYu5cuMPOPN1BOT7sATkNpFBXsZ5ngGGfA67mB_TiuLZc",
+              "aplicacion_genyx": "GENyx debe enfocarse en modelos de negocio sostenibles que equilibren la inversión en I+D con la generación de ingresos, y considerar la optimización de costos para evitar un consumo excesivo de efectivo."
+            },
+            {
+              "tipo": "hiring",
+              "titulo": "OpenAI establece la Fundación OpenAI para el beneficio de la humanidad",
+              "detalle": "OpenAI ha anunciado la creación de la Fundación OpenAI, una organización benéfica dedicada a asegurar que la IA beneficie a toda la humanidad. La fundación tiene como objetivo invertir al menos mil millones de dólares en el próximo año en áreas como la resiliencia de la IA, las ciencias de la vida y la filantropía.",
+              "fuente": "openai.com",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEUztqortrGa4P_jZ6B9b7mepDELDTpd1z5q66kitOfsSO_e2OUbV_WKcUUorSUG1V7BPY5zL5zkL_GtcFTjxGw2RUUNKUWqONtWE0SfnOXgoYk8JtlTOEN9b8tjCRhedCe05_qntZl8MbziKggMYksJzg7vN690ZGsNxAMCA",
+              "aplicacion_genyx": "GENyx puede explorar iniciativas de responsabilidad social corporativa y contribuir al desarrollo ético de la IA, lo que puede mejorar la reputación y atraer talento con valores similares."
+            }
+          ]
+        },
+        {
+          "empresa": "Google DeepMind",
+          "novedades": [
+            {
+              "tipo": "hiring",
+              "titulo": "Reestructuración de liderazgo en Google DeepMind",
+              "detalle": "Google DeepMind ha reestructurado su liderazgo, con Demis Hassabis asumiendo la presidencia y Koray Kavukcuoglu tomando el control diario desde Mountain View. Jeff Dean, científico jefe, dejó la empresa después de 27 años para fundar una startup, lo que se interpreta como un cambio de autoridad de Londres a Mountain View.",
+              "fuente": "WION, Forbes, NateCue, Financial Times",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEOKs_0qMd3xjvXNkboEF5aYuN8ZX_xfqiqWoCt9mHX7zctBIUvu7avaA1EJUg4A1sCHR64pxZiJFW2maq2FJpT9ZnkXFSKO4BYKX8ffsjmybxGo3DB0WNUaOSekLKzw7sXOjcNzDFX2r5V_ng-dp-SIctLFmf0FKRe4krWdygCMLSEMZHgKV3Sg54SyWvkhkcbSk_wv7oLyIg9oEl0m2p1FK1ckqj6R7lp8OY",
+              "aplicacion_genyx": "GENyx debe estar atenta a los cambios en el liderazgo y la estrategia de las grandes empresas de IA, ya que esto puede influir en las tendencias del mercado y las oportunidades de colaboración."
+            },
+            {
+              "tipo": "product",
+              "titulo": "Modelos Gemma de Google DeepMind superan mil millones de descargas",
+              "detalle": "La familia de modelos abiertos Gemma de Google DeepMind ha superado los mil millones de descargas acumuladas, con más de 100,000 variantes publicadas por desarrolladores externos desde su lanzamiento a principios de 2024. Esto demuestra una amplia adopción y el impacto de los modelos de código abierto.",
+              "fuente": "Unite.AI",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE5ZlHrMLBuGvpbY4HoEXtZOFD02yXkRWdMbzS_sbp_sUNX1cev30s4TteH6Ov1-VH0NLc5dJ7-Qry7-XSwKFuYV6bwlTUEW1kBi1RYQ2f0ovcokr2gBD_EqTNBlYQcJgUq21bgmTtjRe473TgKPUWum93vZdf9i6s4wQadqdvXBypKD1qRs7VeZukHfDNtV9LL2bRZ0KyzwwQadqdvXBypKD1qRs7VeZukHfDNtV9LL2bRZ0Kyzww",
+              "aplicacion_genyx": "GENyx puede aprovechar la popularidad de los modelos de código abierto como Gemma para construir soluciones personalizadas, reduciendo costos de desarrollo y acelerando la innovación al integrar estas bases en sus ofertas."
+            },
+            {
+              "tipo": "research",
+              "titulo": "Nueva herramienta de Google para verificar falsificaciones de IA",
+              "detalle": "Google DeepMind está desarrollando una nueva herramienta de IA para ayudar a los verificadores de hechos a investigar falsificaciones generadas por IA. Esta iniciativa surge después de que la integración de Nano Banana en Google Earth generara preocupaciones sobre la manipulación de imágenes y la desinformación.",
+              "fuente": "Nieman Journalism Lab",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFQHlrf1WrI7GMurmNLVbGzr2OErGLvnWGKIG3J6JHwOR_FlXGwcgwMU03cyALA2YYTqOeXuDLl6nUHnm9IcoC4MAMayu6h-nDOEcFsYlgnozo2OxGoGCquke9RmSk5UXrFAqUyCcSl1lmlb70p2PxjxZNi5r-1lS_EW4XOAFO254NCKJXcyq3BXfd6wIcuA5hcRhhztUXpgiGQ",
+              "aplicacion_genyx": "GENyx puede explorar la integración de herramientas de detección de IA para garantizar la autenticidad del contenido generado por sus modelos, ofreciendo a los clientes una capa adicional de confianza y seguridad."
+            }
+          ]
+        },
+        {
+          "empresa": "Anthropic",
+          "novedades": [
+            {
+              "tipo": "regulación",
+              "titulo": "Anthropic planea modificar su política de retención de datos empresariales",
+              "detalle": "Anthropic planea cambiar su política de retención de datos para clientes empresariales, permitiéndoles tener un mayor control sobre sus datos al usar sus modelos de IA avanzados. Aunque se seguirá requiriendo una retención de 30 días, los clientes podrán almacenar los datos en su propia infraestructura de nube.",
+              "fuente": "Reuters, PYMNTS.com, The Decoder",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEgrcGCjGqK85LHwwlmBYk8T972QTxHnrELwiuLAz5mmrDyRTsuV4meFWTQH_NL1yfVOIz0o55tXZEJ9nTZrHGDrG0jvxsrLuN1u0rbQIxk1Hhf43vHPGrGlsLe5FXKGxaCbfvy41l5oLWDNnIc4pU7MC6nZTFfeLXPrDjRLKgvnrHG055MJRXNcH2Qj1MfVjA61kGC6atMZLqGJFqiw==",
+              "aplicacion_genyx": "GENyx debe ofrecer flexibilidad en las políticas de retención de datos para clientes empresariales, especialmente en industrias reguladas, para asegurar la confianza y el cumplimiento normativo."
+            },
+            {
+              "tipo": "partnership",
+              "titulo": "Anthropic en conversaciones para adquirir Decart AI por $6 mil millones",
+              "detalle": "Anthropic está en negociaciones para adquirir Decart AI, una empresa de optimización de IA y modelos de mundo, por aproximadamente $6 mil millones. Esta adquisición busca reducir los costos operativos y mejorar la eficiencia de Anthropic mientras se prepara para una posible IPO.",
+              "fuente": "MarketWise",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEuYmrmsTA_dT4V0FO9LyCYTXctsjTHpvbcpxfZHByB4B40EHrZGxVccXkVnJhjuZxmBCOqiTEmYWNLuhk-yVYRkT08b5z638Wq1yxOi4aRnyJjKe-DtI37sevwQrfKqeZfn7NQej0bBjYBt5S7P_PaK_tVps148s04cFTpooONkV-OqxbslUDBvHxRB4VH7eAPt-Ykmf4NXC7aO_tNkkkb1X2xWA1i",
+              "aplicacion_genyx": "GENyx puede buscar adquisiciones estratégicas de empresas con tecnologías complementarias para optimizar sus operaciones, reducir costos y fortalecer su posición en el mercado de IA."
+            },
+            {
+              "tipo": "pricing",
+              "titulo": "Anthropic busca superar el récord de IPO de SpaceX con una valoración de $2 billones",
+              "detalle": "Anthropic se está preparando para una Oferta Pública Inicial (IPO) que podría igualar o superar el récord de SpaceX, con una posible presentación pública a finales de agosto. Los inversores esperan una valoración de $2 billones o más, impulsada por un rápido crecimiento de ingresos.",
+              "fuente": "Share Talk, Briefs Finance, Silicon Republic, SiliconANGLE, Seoul Economic Daily, NDTV Profit, Indianapolis Business Journal",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH1X8UAiwQFMEqf-QnsP7Fjmn197X1GOcVFJpLigxFBhRMz_9ivdo0D2a8gBWg9PIh3D9DGTPjwTD7_cMkVJ3fnGqebxSPa9H2j5HEm4pRJAOD6a4Y3V3JInP4IzwC7y5BYCC9tjr8cr1GdzJpQyVTyvBlQT50rpdYu4i1ADK8r-DT-XjCR0OsxzCxiz2ao4N-o4hqRQjuVsg==",
+              "aplicacion_genyx": "GENyx debe monitorear de cerca las valoraciones y estrategias de IPO de los líderes de la industria para entender las expectativas del mercado y planificar su propia trayectoria de crecimiento y financiamiento."
+            }
+          ]
+        },
+        {
+          "empresa": "Meta AI",
+          "novedades": [
+            {
+              "tipo": "product",
+              "titulo": "Meta AI disponible como aplicación de escritorio para Mac",
+              "detalle": "Meta ha lanzado una nueva aplicación de IA independiente para Mac, actualmente en beta y gratuita, dirigida a propietarios de pequeñas empresas y creadores de contenido. Ofrece funciones como la integración con Google Workspace y la optimización de campañas de Meta Ads.",
+              "fuente": "AI Business, RBC-Ukraine",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGwepPrDN6X0YSTFcRO4fdRZwXIqjPzTIGZNDjojOjhIHJAsXIJcrdwIg5kpgcJXgDRXZcN-SRyWY7qhOTmXZK5OnaoUZOVVFW3OaGMiEKeZJUoay0YAamiBrH_McVspFsl560YmmzN3GSKEO5lXNxraTskWZ9oOAj-SlnAJ8CtY4ta5UaaDEPl",
+              "aplicacion_genyx": "GENyx puede considerar expandir sus ofertas de IA a plataformas de escritorio, como Mac, para llegar a un público más amplio de profesionales y pequeñas empresas, mejorando la accesibilidad y la utilidad de sus herramientas."
+            },
+            {
+              "tipo": "research",
+              "titulo": "Mark Zuckerberg insinúa próximos avances en modelos de IA de frontera",
+              "detalle": "Mark Zuckerberg ha señalado en privado que Meta lanzará pronto modelos de IA de frontera, lo que sugiere que la empresa podría estar más cerca de un gran avance de lo que los inversores perciben. Esto ocurre a pesar de los altos gastos de capital de la compañía en IA.",
+              "fuente": "24/7 Wall St.",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE3Uu7xgXnPHpxgB4V0Iv4hBuNsGgVdoA-olET3jIoMHH5cXHOir2dIs-rLQZJDomVLxUirST-TxuAvJWk27MH85Zav4Yn6VQtOdLx55qjtLk_I9-hodnJvpeS-uEqVoUZS96ZCLj50mdSEU_FlNBuCeZVHlt9w8ykF4FSeWsgA3-_LEeL2mbDiuBenWrcqwS_fPeSKegnOgbHmidigBEhGzEuaIvDE1Ax_GwQZI2qCdf25tyKSGRL3s34n-hQ7CpktUxzreOEtGnvIoHxq9_HY9YXOU45NGw==",
+              "aplicacion_genyx": "GENyx debe seguir de cerca los avances en modelos de IA de frontera, ya que la disponibilidad de modelos más capaces puede abrir nuevas oportunidades para desarrollar productos y servicios innovadores."
+            },
+            {
+              "tipo": "partnership",
+              "titulo": "Meta gasta cientos de millones en servicios de IA de Microsoft",
+              "detalle": "Meta se ha convertido en uno de los mayores clientes de IA de Microsoft, gastando cientos de millones de dólares anualmente para acceder a modelos de IA a través de Azure, incluyendo modelos de OpenAI. Esto se utiliza para comparar el rendimiento de los propios modelos de Meta.",
+              "fuente": "The Decoder",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFNSKuWiVmViJA5t37jU-aW8Srn6Drxkr0b5CI7dtURdBG182tF0jN8DntSlhGjx8qH-DO8xDpK-4qA8nHsSaLh9Uzey2NkJt20Rrenb_PiVESNwBRHLxSvUVZ4CSoDHapbLjSg6BWal8FwNpZPYEc7dPyPvcf38VFJB7aB82Fc9HWxCOsP8qn54QkQa3VW",
+              "aplicacion_genyx": "GENyx puede explorar asociaciones estratégicas con proveedores de infraestructura en la nube y modelos de IA para escalar sus operaciones, acceder a capacidades avanzadas y optimizar sus costos de infraestructura."
+            }
+          ]
+        },
+        {
+          "empresa": "Microsoft AI",
+          "novedades": [
+            {
+              "tipo": "regulación",
+              "titulo": "Microsoft elimina exenciones fiscales y NDAs para centros de datos de IA",
+              "detalle": "Microsoft está enfrentando una creciente oposición local a sus proyectos de centros de datos de IA en EE. UU. y ha eliminado los acuerdos de confidencialidad y las exenciones fiscales vinculadas a nuevas construcciones, introduciendo una política de infraestructura de IA centrada en la comunidad.",
+              "fuente": "Simply Wall St News",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGdpneT0NHO0z2tzbRoKZsE7tlHbvwwzN4GxOiVTNTdDbb8n8YK7kQWZcUUUOgNN0Vo-ivY1-dH4UeSaQc12ld6ZfpP60v7eyJEkmuf4i0qRTbLpCS5_HhNkvvnjs2uwVWGnu7lvXMElNlX9OiexlcZqa0ciwB2tEsP0-lrTlPq_8W9tnzYBy3MDgi54ME0DA1WOOqV3gQdy7ypNuZ3V_lojGGSoEBljhd9nRUHhrgDABX9cw==",
+              "aplicacion_genyx": "GENyx debe considerar el impacto regulatorio y las relaciones comunitarias al planificar la expansión de su infraestructura de IA, buscando la transparencia y la colaboración para mitigar riesgos."
+            },
+            {
+              "tipo": "product",
+              "titulo": "Chips de IA propios de Microsoft logran 40% de eficiencia sobre OpenAI",
+              "detalle": "Los chips de IA desarrollados por Microsoft están logrando ganancias de eficiencia de hasta el 40% en comparación con la dependencia de OpenAI. Esto mejora el retorno de la inversión en su infraestructura de IA y respalda su agresivo gasto de capital.",
+              "fuente": "The Motley Fool",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG2EhZArkcQy2Jh_GtCWUH-iFIVGL5_VqPhhVlErCoM-Qli-xwU1ZzDtUl1oOdjAMwHkdEAtNv0IjL52Kd08Pl_xOh8ZVytdObVFOSgGiTuHodWfIAMZXvYqo7wU9uvB2RXysKpAOQipzgxrFcQTm1GC6ko6nxMX1iB8IXJKpTr3-IgS2P30ldLH-YfNcpJjMqrCkaxRY8",
+              "aplicacion_genyx": "GENyx podría explorar el desarrollo de hardware de IA personalizado o la optimización de sus modelos para arquitecturas específicas, lo que podría resultar en mejoras significativas de eficiencia y reducción de costos operativos a largo plazo."
+            },
+            {
+              "tipo": "hiring",
+              "titulo": "Directora de Marketing de Microsoft AI deja su cargo por reestructuración",
+              "detalle": "Andréa Mallard, directora de marketing de Microsoft AI, está dejando su puesto mientras la compañía reconsidera sus esfuerzos de marketing para el consumidor. Microsoft está fusionando sus aplicaciones Copilot para consumidores y empresas en una sola, consolidando el marketing bajo Jared Spataro.",
+              "fuente": "Business Insider, Briefs Finance",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGKt1gFb9xlulnGMNd2D3t0oMcZ3CTbQZ59YlxZR44EYeuxyYGopqzu_gjBxP-TiDBVm6Z34u514M3TFkTO4Gvz6sdhaH6jj1H8HkEjWN5yZ8knz0yXrfvT80Ps-Q4BgONW8bqunUfjfWcPu1KeqrObHA6qd0ZHEl5j_66hILfX0f1-4MybKP_gph9U5Kj-LtVTu70XA50",
+              "aplicacion_genyx": "GENyx debe evaluar continuamente su estrategia de marketing y estructura organizativa para adaptarse a los cambios del mercado y optimizar la promoción de sus productos de IA, especialmente si busca consolidar ofertas."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "forbes.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH3VFhvvR4JYgwGKaGinMMxwiCZnaPKlW9BSjwsAZocP1BHIdQ9ESUVIAPHlSybaD9o-4enGZeSMGafjhVJgdEBfFjbcZJjS8laNlki-PAYFifmQFKJ-Uak1nFUdDJo2WpWMw7Um8doqNHrDgRwg403rJN1LX2NmPjmPV4Kry3k35e-CItjIDsWC1SftXYEkJBLQNYiMgCSwwujAi4MEdPHuzPAcpUgG5P2_nWKa1G1Sw=="
+        }
+      ],
+      "generated_at": "2026-08-21T05:03:18.742538-06:00",
+      "status": "ok"
+    },
+    "emerging": {
+      "key": "emerging",
+      "title": "🚀 Emerging Tech & Startups",
+      "data": [
+        {
+          "empresa": "Multiplier (anteriormente WithAI)",
+          "sector": "Inteligencia Artificial / Fintech",
+          "valoracion": "No divulgada en esta ronda, pero la financiación de capital de riesgo implica un crecimiento significativo.",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Recauda $6 millones en nueva capital",
+              "detalle": "La startup de IA, Multiplier (anteriormente WithAI), ha obtenido $6 millones en nueva capital. La ronda de financiación contó con la participación de inversores existentes como Y Combinator y los co-directores de inversiones de Bridgewater, Greg Jensen y Karen Karniol-Tambour. También se unieron nombres destacados como Lux Capital, el CEO de Opendoor, Kaz Nejatian, el presidente de Fortress, Pete Briger, y el director de estrategia de Google DeepMind, Jas Sekhon.",
+              "fuente": "Business Insider",
+              "url": "https://www.businessinsider.com/former-bridgewater-investor-raises-money-for-his-ai-startup-2026-8",
+              "por_que_importa": "Esta ronda de financiación es significativa porque demuestra la confianza de inversores de alto perfil y ejecutivos de Big Tech en el potencial de Multiplier para automatizar y mejorar los procesos de inversión para fondos de cobertura más pequeños. La participación de figuras clave de la industria subraya la relevancia de la IA en la transformación del sector financiero."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-08-21T05:05:25.874624-06:00",
+      "status": "ok"
+    },
+    "top10": {
+      "key": "top10",
+      "title": "📰 Top 10 Noticias",
+      "data": "[\n  {\n    \"ranking\": 1,\n    \"categoria\": \"AI\",\n    \"titular\": \"Stripe Adquiere OpenRouter para Expandir el Enrutamiento de Modelos de IA\",\n    \"fuente\": \"AI News\",\n    \"url\": \"https://ainews.com/ai-business-strategy/stripe-agrees-to-buy-openrouter-as-ai-model-routing-expands/\",\n    \"resumen\": \"Stripe ha llegado a un acuerdo para adquirir OpenRouter, una plataforma que facilita el enrutamiento de modelos de inteligencia artificial. Esta adquisición busca fortalecer las capacidades de Stripe en la gestión y optimización de la infraestructura de IA para sus servicios. La integración permitirá a los desarrolladores acceder y gestionar diversos modelos de IA de manera más eficiente a través de la plataforma de Stripe.\",\n    \"por_que_importa\": \"Para un fundador tech, esta noticia subraya la creciente importancia de la infraestructura de IA y la necesidad de soluciones flexibles para el despliegue de modelos. La consolidación en este espacio indica que las grandes plataformas están invirtiendo en herramientas que simplifican el acceso y la gestión de la IA, lo que podría definir los estándares futuros para la integración de IA en productos y servicios.\"\n  },\n  {\n    \"ranking\": 2,\n    \"categoria\": \"AI\",\n    \"titular\": \"Gigantes Tecnológicos Reorganizan Estrategias de IA: Microsoft, Google y Amazon Invierten en Centros de Compra Distribuidos\",\n    \"fuente\": \"The Futurum Group\",\n    \"url\": \"https://futurumgroup.com/research/ai-implementation-is-the-new-account-control-point/\",\n    \"resumen\": \"Microsoft, Google y Amazon están reestructurando sus operaciones para enfocarse en centros de compra de IA distribuidos, con inversiones multimillonarias en ingeniería y asociaciones. Esta estrategia busca abordar el hecho de que casi dos tercios de la autoridad de compra de IA reside fuera de la oficina del CIO/CTO, dispersa entre líderes de negocio, datos e I+D. La implementación de IA se convierte en el nuevo punto de control de cuentas, con un enfoque en la capacidad de despliegue dentro de las empresas.\",\n    \"por_que_importa\": \"Esta tendencia es crucial para los fundadores tech, ya que indica un cambio fundamental en cómo las grandes empresas adoptan la IA. Ya no es solo una decisión de TI, sino que se extiende a todas las unidades de negocio. Los startups deben adaptar sus estrategias de ventas y desarrollo de productos para dirigirse a múltiples 'centros de compra' dentro de las organizaciones, ofreciendo soluciones que resuelvan problemas específicos de negocio más allá del departamento de TI.\"\n  },\n  {\n    \"ranking\": 3,\n    \"categoria\": \"AI\",\n    \"titular\": \"La IA Escribe Casi la Mitad de los Problemas en Linear, Pero los Equipos Siguen Entregando Más Lento\",\n    \"fuente\": \"AIToolsRecap\",\n    \"url\": \"https://aitoolsrecap.com/articles/news/ai-news-august-21-2026-ai-now-writes-half-of-all-linear-issues-and-teams-still-ship-slower/\",\n    \"resumen\": \"Un estudio de Linear revela que la inteligencia artificial ahora genera casi la mitad de todos los problemas creados en sus espacios de trabajo, un aumento significativo desde hace dos años. A pesar de que los agentes de codificación triplicaron las solicitudes de extracción semanales, el tiempo total de desarrollo del producto aumentó. Esto sugiere que la integración de la IA en los flujos de trabajo no siempre se traduce en una mayor velocidad de entrega.\",\n    \"por_que_importa\": \"Este hallazgo es una llamada de atención para los fundadores tech que buscan implementar la IA para aumentar la productividad. La IA puede generar más contenido o código, pero la velocidad de entrega final depende de la capacidad del equipo para absorber y gestionar esa producción. La clave no es solo la generación, sino la orquestación humana-IA y la optimización de los procesos posteriores para evitar cuellos de botella.\"\n  },\n  {\n    \"ranking\": 4,\n    \"categoria\": \"negocios\",\n    \"titular\": \"NJEDA y RWJBarnabas Health Anuncian Inversión de $10 Millones para Startups de Ciencias de la Vida en Nueva Jersey\",\n    \"fuente\": \"NJEDA\",\n    \"url\": \"https://www.njeda.gov/njeda-and-rwjbarnabas-health-announce-10m-investment-to-support-innovative-life-sciences-startups/\",\n    \"resumen\": \"La Autoridad de Desarrollo Económico de Nueva Jersey (NJEDA) y RWJBarnabas Health han comprometido hasta $10 millones en un fondo de inversión gestionado por Portal Innovations. Este fondo apoyará a startups de ciencias de la vida ubicadas en el New Jersey Innovation Hub, enfocándose en el descubrimiento de fármacos y la medicina traslacional. La iniciativa busca fortalecer el ecosistema de innovación del estado y crear empleos.\",\n    \"por_que_importa\": \"Para los fundadores de startups, especialmente en biotecnología y salud, esta noticia destaca la importancia de las asociaciones público-privadas y los centros de innovación. La disponibilidad de capital y recursos de apoyo en ecosistemas específicos puede ser un factor decisivo para el éxito. Buscar regiones con iniciativas similares puede acelerar el desarrollo y la comercialización de innovaciones.\"\n  },\n  {\n    \"ranking\": 5,\n    \"categoria\": \"negocios\",\n    \"titular\": \"Dropbox Adquiere Reclaim.ai, Startup Pionera en IA para la Gestión de Horarios\",\n    \"fuente\": \"Silicon Florist\",\n    \"url\": \"https://www.siliconflorist.com/2026/08/20/silicon-florist-links-arrangement-for-august-20-2026/\",\n    \"resumen\": \"Reclaim.ai, una startup de IA con sede en Portland que se especializa en la gestión inteligente de horarios, ha sido adquirida por Dropbox. Reclaim.ai fue una de las primeras empresas en explorar las aplicaciones de la IA para optimizar la productividad personal y de equipo. Esta adquisición subraya el creciente interés de las grandes tecnológicas en integrar soluciones de IA para mejorar sus ofertas de productividad.\",\n    \"por_que_importa\": \"Esta adquisición demuestra el valor estratégico de las soluciones de IA que resuelven problemas de productividad del mundo real. Para los fundadores, es un recordatorio de que incluso las ideas aparentemente nicho pueden atraer el interés de grandes jugadores si demuestran un impacto significativo. También resalta la tendencia de las empresas establecidas a adquirir innovación en lugar de construirla internamente.\"\n  },\n  {\n    \"ranking\": 6,\n    \"categoria\": \"negocios\",\n    \"titular\": \"Inversores Invierten un Récord de $366 Mil Millones en Capital de Riesgo en California\",\n    \"fuente\": \"The Wall Street Journal (citado por Silicon Florist)\",\n    \"url\": \"https://www.siliconflorist.com/2026/08/20/silicon-florist-links-arrangement-for-august-20-2026/\",\n    \"resumen\": \"Las empresas con sede en California han atraído aproximadamente $366 mil millones en capital de riesgo desde principios de año, según PitchBook, superando en más del triple la inversión combinada en los otros 49 estados. Esta cifra casi duplica el récord anterior de California establecido en 2025. Nueva York ocupa un distante segundo lugar con $27 mil millones en acuerdos anunciados.\",\n    \"por_que_importa\": \"Este flujo masivo de capital en California refuerza su posición como epicentro de la innovación y la inversión. Para los fundadores tech, esto significa que, si bien la competencia es feroz, el acceso a financiación sigue siendo incomparable en la región. Sin embargo, también destaca la disparidad en la distribución del capital de riesgo, lo que podría inspirar a fundadores en otras regiones a buscar estrategias alternativas de financiación o a destacar las ventajas de costos y talento fuera de los mercados saturados.\"\n  },\n  {\n    \"ranking\": 7,\n    \"categoria\": \"tendencia\",\n    \"titular\": \"La IA Agente en el Gobierno Enfrenta el Desafío de Decidir Qué Puede Decidir una Máquina\",\n    \"fuente\": \"AI News\",\n    \"url\": \"https://ainews.com/ai-in-action/agentic-ai-in-government-just-hit-the-hard-part-deciding-what-a-machine-may-decide/\",\n    \"resumen\": \"La implementación de la IA agente en el sector gubernamental ha llegado a un punto crítico: determinar el alcance y la autonomía de las decisiones que pueden tomar las máquinas. Este desafío implica establecer marcos regulatorios y éticos claros para la delegación de responsabilidades a sistemas autónomos. La discusión se centra en equilibrar la eficiencia de la IA con la necesidad de supervisión humana y rendición de cuentas.\",\n    \"por_que_importa\": \"Para los fundadores que desarrollan soluciones de IA, especialmente aquellas con capacidades de agencia, esta noticia es vital. Subraya la necesidad de diseñar sistemas con transparencia, explicabilidad y mecanismos de control robustos. La confianza y la regulación serán factores clave para la adopción de la IA agente en sectores sensibles, y los startups que aborden estas preocupaciones de manera proactiva tendrán una ventaja competitiva.\"\n  },\n  {\n    \"ranking\": 8,\n    \"categoria\": \"tendencia\",\n    \"titular\": \"Opiniones Contradictorias: ChatGPT, Perplexity y Gemini Referencian Múltiples Fuentes sin Consenso Claro\",\n    \"fuente\": \"BusinessMole\",\n    \"url\": \"https://businessmole.com/2026/08/20/conflicting-opinions-chatgpt-perplexity-gemini-referenced-104-sources-in-30-responses-yet-reach-no-consensus/\",\n    \"resumen\": \"Un análisis reciente encontró que, a pesar de que modelos de lenguaje como ChatGPT, Perplexity y Gemini referenciaron 104 fuentes en 30 respuestas, no lograron alcanzar un consenso claro en sus resultados. Esto plantea preguntas sobre la fiabilidad y la coherencia de la información generada por IA, incluso cuando se basa en múltiples fuentes. La capacidad de discernir la verdad y la coherencia sigue siendo un desafío para estos sistemas.\",\n    \"por_que_importa\": \"Esta tendencia es crucial para los fundadores que integran LLMs en sus productos. Destaca la importancia de la verificación de hechos y la curación de contenido humano. Los productos que puedan ofrecer una síntesis confiable y unificada de información, en lugar de solo agregar fuentes, tendrán un valor diferenciador. La 'alucinación' y la inconsistencia siguen siendo problemas a resolver, y las soluciones que los mitiguen serán muy demandadas.\"\n  },\n  {\n    \"ranking\": 9,\n    \"categoria\": \"mercados\",\n    \"titular\": \"Mercados Globales en Cierre: Wall Street Cae con Dow Jones Perdiendo 700 Puntos; Ibex 35 Lidera Alzas en Europa\",\n    \"fuente\": \"elEconomista.es / Primera Página Colombia\",\n    \"url\": \"https://www.eleconomista.es/mercados/noticias/13010373/08/26/Bolsa-hoy-e-Ibex-35-en-directo-ultimas-noticias-de-los-mercados-Euribor-Wall-Street-Nasdaq-Dow-Jones-criptomonedas.html\",\n    \"resumen\": \"Los mercados internacionales cerraron con el Dow Jones de Wall Street registrando una caída de más de 700 puntos, equivalente a un 1.32%, mientras que el S&P 500 y el Nasdaq también finalizaron con descensos. En contraste, el Ibex 35 español lideró las alzas en Europa con un incremento del 0.7%, buscando reconquistar los 20,000 puntos. Los movimientos se dan en medio del repunte de los rendimientos de los bonos del tesoro.\",\n    \"por_que_importa\": \"La volatilidad en los mercados financieros, especialmente las caídas en Wall Street, puede afectar el sentimiento de los inversores y la disponibilidad de capital de riesgo. Los fundadores tech deben estar atentos a estas tendencias macroeconómicas, ya que pueden influir en las valoraciones de las startups y en las decisiones de inversión. La resiliencia de algunos mercados europeos podría indicar oportunidades de financiación en otras geografías.\"\n  },\n  {\n    \"ranking\": 10,\n    \"categoria\": \"mercados\",\n    \"titular\": \"Análisis de Mercado: Dow Cae 700 Puntos y Acciones de Walmart Sufren su Peor Día en Cuatro Años\",\n    \"fuente\": \"Lazza Global\",\n    \"url\": \"https://www.youtube.com/watch?v=h_J_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_\n    \"resumen\": \"Los principales índices bursátiles de EE.UU. experimentaron caídas significativas, con el Dow Jones perdiendo 700 puntos. Las acciones de Walmart cayeron más del 9%, marcando su peor día en cuatro años, a pesar de superar las estimaciones de ganancias. Los inversores se enfocaron en la disminución de las ventas comparables internas de Walmart, lo que indica un escrutinio más profundo de los resultados corporativos.\",\n    \"por_que_importa\": \"La reacción negativa del mercado a los resultados de Walmart, a pesar de las ganancias generales, muestra que los inversores están analizando métricas más allá de los titulares. Los fundadores tech deben entender que la narrativa de crecimiento y las métricas subyacentes son cruciales. Además, la caída general del mercado puede indicar una aversión al riesgo, lo que podría dificultar la obtención de financiación o afectar las valoraciones de las empresas.\"\n  }\n]",
+      "grounding_sources": [],
+      "generated_at": "2026-08-21T05:06:50.888615-06:00",
+      "status": "json_error"
+    },
+    "mercados": {
+      "key": "mercados",
+      "title": "💹 Pulso de Mercados",
+      "data": {
+        "pulso_de_mercados": {
+          "indices": [
+            {
+              "nombre": "S&P 500",
+              "valor": "7,641.16",
+              "cambio_pct": "-0.87%",
+              "tendencia": "↓",
+              "fuente": "Google Finance",
+              "url": "https://www.google.com/finance/quote/.INX:INDEXSP",
+              "analisis": "El S&P 500 cerró a la baja el jueves, presionado por el repunte de los rendimientos de los bonos del Tesoro, aunque los futuros indicaban una posible recuperación el viernes."
+            },
+            {
+              "nombre": "NASDAQ Composite",
+              "valor": "26,332.03",
+              "cambio_pct": "-1.17%",
+              "tendencia": "↓",
+              "fuente": "BNN Bloomberg",
+              "url": "https://www.bnnbloomberg.ca/markets",
+              "analisis": "El NASDAQ Composite también experimentó una caída significativa el jueves, siguiendo la tendencia general del mercado, pero con futuros al alza para el viernes."
+            },
+            {
+              "nombre": "Dow Jones Industrial Average",
+              "valor": "52,759.21",
+              "cambio_pct": "-1.32%",
+              "tendencia": "↓",
+              "fuente": "Google Finance",
+              "url": "https://www.google.com/finance/quote/.DJI:INDEXDJX",
+              "analisis": "El Dow Jones sufrió una fuerte caída el jueves, impactado por el aumento de los rendimientos de los bonos del Tesoro y las noticias sobre las ventas de Walmart."
+            },
+            {
+              "nombre": "S&P/BMV IPC",
+              "valor": "64,826.39",
+              "cambio_pct": "-1.41%",
+              "tendencia": "↓",
+              "fuente": "Investing.com",
+              "url": "https://www.investing.com/indices/mexico-ipc-news",
+              "analisis": "El S&P/BMV IPC de México cerró la jornada del jueves con una baja considerable."
+            },
+            {
+              "nombre": "USD/MXN",
+              "valor": "16.9071",
+              "cambio_pct": "-0.303%",
+              "tendencia": "↓",
+              "fuente": "Wise",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGDc--N80yVoV3z14w3L3zgllrAhAUgXFMxwT2pqoHzgCdGMWK2uMfs3hhPzzog8chMlSaeZms5i85NSr4qHwZtKFnlJlWcRH96ljFCRIwguCOPw7fwcygcjyQYJRO-HNC1MoaNbcUv5MAxafvFxOTrr22RPMOHXZFB",
+              "analisis": "El peso mexicano se apreció frente al dólar estadounidense, alcanzando un nuevo mínimo para el dólar en el día."
+            }
+          ],
+          "acciones": [
+            {
+              "nombre": "NVIDIA",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "CNBC, Bloomberg",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHmdrFXFiRO1b8lWR9f2ubG5Ks84huUwchecrsBVL5mbVD_eN4_wwGza2SVnrqwYLTt6QA8kOYwhzm3zs-rneWVLd6cxj5rs2d5tIEjI7rrZcoHItragRtKhX4eDF6N9rTCddhN-cc",
+              "analisis": "NVIDIA se mantiene como la empresa más valiosa del mundo, con noticias recientes sobre alianzas estratégicas en IA, aunque no se reportó un cambio porcentual específico en las últimas 24 horas."
+            },
+            {
+              "nombre": "Apple",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "24/7 Wall St., Techmeme",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGJcOrsUaT_zIUrcVQBoo56R1gawq2yCa6MoVf50x8zWe9hRikvmLibnJsxQ6p6QHACCjgWzWh4Kl2IZ76mtyEcn0JeQXE1aitFoCHpzLSMrbbPQjxI8a77xWVy399NI56nVYkwpikDxd_o9TxhSVwafG1AmgggX90Ovp2rAaFeMl36WAblx42eeYO5sfwfuHMVbJMT_XsOtw-Cwak-EgsjBjRJZZmKQHm8d8k",
+              "analisis": "Apple ha visto su capitalización de mercado superada por Alphabet, en medio de un enfoque creciente en la inteligencia artificial y la implementación de etiquetas para contenido generado por IA en Apple Music."
+            },
+            {
+              "nombre": "Microsoft",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "Facebook (CNBC), Bloomberg",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG6OTXkxglvOuxiYoRTBeeAO4JlMQA-rSvbq0wrCI-K7pBdns5DClFATx5-xrnsip3xL6OGfhTh4OGBIcsLBRD8VZZSpK7G7GYfzgPCENudaBpQvYKFpmd4_qfpPXW-YR2b3h7A8jdcj3VJCguGh_G0c8DDoKOHMaG9y4VA5gV7UfJ99Z1TuRfCMa08n3sbE1Ehen1iO9ZKTlZmjLhTCGLW3djyaBh2vEz0jMh9FM1Q_lLBVlRp1DZAWb3YWVtx__lC8D0",
+              "analisis": "Microsoft mantiene una posición sólida entre las principales empresas tecnológicas, con un enfoque continuo en la disciplina de gastos de capital."
+            },
+            {
+              "nombre": "Google (Alphabet)",
+              "valor": "344.72 (GOOGL)",
+              "cambio_pct": "+0.15%",
+              "tendencia": "↑",
+              "fuente": "Moomoo",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGh-NL1U6KzIFt_Sb0lEJw_il7SvmQaJb2V5WkXT27UAeoLdjyNfmfBGizwpeWIdgOu9kUlIZrr2VDa0BI1ABw8sNj3eZRpzRc1P4edhmcbq70F3k5pNjkgDf6bCg_BSYmkkTNVbBXA1F1hqaSB0EW68ZE47MgdYemKLwgteuxuYWYAXW75aXwvoU501_vAt3fvB8xBBWndo63QVg0mhLJw",
+              "analisis": "Las acciones de Alphabet mostraron un ligero aumento el jueves, tras noticias sobre su modelo de IA Gemini y nuevas funcionalidades en Google News."
+            },
+            {
+              "nombre": "Meta",
+              "valor": "545.83",
+              "cambio_pct": "-0.48%",
+              "tendencia": "↓",
+              "fuente": "TradingView",
+              "url": "https://www.tradingview.com/symbols/NASDAQ-META/",
+              "analisis": "Meta Platforms experimentó una ligera baja en sus acciones, mientras enfrenta un juicio y lanza nuevas aplicaciones experimentales."
+            },
+            {
+              "nombre": "Amazon",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "Facebook (CNBC)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEd0W1--ilYbHgTc0zYEIJPkZqh0GRTi8wyFux9QZRjMH9NMj87NCvZ8gZVZZHTrt8vuuDLy5qNH11WY8e5d8FlkKJGpcxNVgVmqfDmS5EjasFQU8gy5TRjilfSnPB94JLYTvCj4BWGKymIlW7vu6HuBI117ZNVeoseLuY0KsjCXN1UaGDHneqy-1HFdq05lbZIOlXnM_4SIjiJX43VWTGqPgMtQiNLWAqPzd8wyyM7h6nbl1zwxCGuFzR7pc8N5y6ySQ",
+              "analisis": "Amazon mantiene su posición como una de las principales empresas tecnológicas por capitalización de mercado."
+            },
+            {
+              "nombre": "Tesla",
+              "valor": "345.13",
+              "cambio_pct": "-1.71%",
+              "tendencia": "↓",
+              "fuente": "TradingView",
+              "url": "https://www.tradingview.com/symbols/NASDAQ-TSLA/",
+              "analisis": "Las acciones de Tesla registraron una disminución en las últimas 24 horas, aunque su precio actual se mantiene cerca de máximos recientes."
+            },
+            {
+              "nombre": "OpenAI",
+              "valor": "N/A (Privada)",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "Bloomberg, Techmeme",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGa-G8QrksrilzWhxo7sfifTFsrAfeRtYLmDNebwZ5cTDRmES-mr-rjn95sJA0h_JKopd3tcpKmbFoxMZWLChlX2ZS7kf6EOqOaEzoOlVPS552X69FqaDWobBo9t9jSYjlfMx_uVjM",
+              "analisis": "OpenAI continúa expandiendo su presencia con nuevos productos y asociaciones, consolidando su posición en el mercado de la inteligencia artificial."
+            }
+          ],
+          "earnings": [
+            {
+              "nombre": "NVIDIA (NVDA)",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "CNBC",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHmdrFXFiRO1b8lWR9f2ubG5Ks84huUwchecrsBVL5mbVD_eN4_wwGza2SVnrqwYLTt6QA8kOYwhzm3zs-rneWVLd6cxj5rs2d5tIEjI7rrZcoHItragRtKhX4eDF6N9rTCddhN-cc",
+              "analisis": "NVIDIA tiene programado su reporte de ganancias para el miércoles 26 de agosto de 2026, un evento clave para el sector tecnológico."
+            },
+            {
+              "nombre": "Zoom Communications, Inc. (ZM)",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "Financhle",
+              "url": "https://www.financhle.com/earnings-calendar/week-of-august-24-2026",
+              "analisis": "Zoom Communications, Inc. reportará sus ganancias del segundo trimestre fiscal de 2027 el martes 25 de agosto de 2026."
+            },
+            {
+              "nombre": "Box, Inc. (BOX)",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "Financhle",
+              "url": "https://www.financhle.com/earnings-calendar/week-of-august-24-2026",
+              "analisis": "Box, Inc. presentará sus resultados del segundo trimestre fiscal de 2027 el martes 25 de agosto de 2026."
+            },
+            {
+              "nombre": "Okta, Inc. (OKTA)",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "Digrin",
+              "url": "https://www.digrin.com/stocks/earnings-calendar/2026-08-25",
+              "analisis": "Okta, Inc. tiene programado su reporte de ganancias para después del cierre del mercado el martes 25 de agosto de 2026."
+            },
+            {
+              "nombre": "Xiaomi Corporation (XIACF)",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "Digrin",
+              "url": "https://www.digrin.com/stocks/earnings-calendar/2026-08-25",
+              "analisis": "Xiaomi Corporation reportará sus ganancias el martes 25 de agosto de 2026, con el horario aún por confirmar."
+            },
+            {
+              "nombre": "Intuit (INTU)",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "Financhle",
+              "url": "https://www.financhle.com/earnings-calendar/week-of-august-24-2026",
+              "analisis": "Intuit tiene previsto reportar sus ganancias el miércoles 26 de agosto de 2026."
+            }
+          ],
+          "macro": [
+            {
+              "nombre": "Política de la Fed e Inflación",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "→",
+              "fuente": "Stock Analysis, Fortem Financial",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFqyWP-z4Z2W4Rw6OOtijxbACVLnyDaUs0_utg9Zlv--i6CWoeJ-grX_9DqcC5pX9L7YMM9M2EGmgMDSYx-JrX9kO-Le0WTBz72fJ0UK9tLKlGZX1iN5_er724",
+              "analisis": "Los mercados están siendo influenciados por el aumento de los rendimientos de los bonos del Tesoro, a pesar de los esfuerzos del Departamento del Tesoro por controlarlos, y la inflación se mantiene persistente."
+            },
+            {
+              "nombre": "Geopolítica (Irán)",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "↑",
+              "fuente": "Stock Analysis, Market Index",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFqyWP-z4Z2W4Rw6OOtijxbACVLnyDaUs0_utg9Zlv--i6CWoeJ-grX_9DqcC5pX9L7YMM9M2EGmgMDSYx-JrX9kO-Le0WTBz72fJ0UK9tLKlGZX1iN5_er724",
+              "analisis": "Las tensiones geopolíticas en torno a Irán y las nuevas sanciones económicas de EE. UU. están impulsando los precios del petróleo y generando incertidumbre en los mercados."
+            },
+            {
+              "nombre": "Inteligencia Artificial (IA)",
+              "valor": "N/A",
+              "cambio_pct": "N/A",
+              "tendencia": "↑",
+              "fuente": "24/7 Wall St., Wall Street Horizon",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGJcOrsUaT_zIUrcVQBoo56R1gawq2yCa6MoVf50x8zWe9hRikvmLibnJsxQ6p6QHACCjgWzWh4Kl2IZ76mtyEcn0JeQXE1aitFoCHpzLSMrbbPQjxI8a77xWVy399NI56nVYkwpikDxd_o9TxhSVwafG1AmgggX90Ovp2rAaFeMl36WAblx42eeYO5sfwfuHMVbJMT_XsOtw-Cwak-EgsjBjRJZZmKQHm8d8k",
+              "analisis": "La inteligencia artificial sigue siendo un motor clave del mercado, aunque los inversores están exigiendo mayor disciplina en el gasto de capital relacionado con la IA por parte de las grandes empresas tecnológicas."
+            }
+          ]
+        }
+      },
+      "grounding_sources": [
+        {
+          "title": "marketindex.com.au",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG5T9TwF90e_mVlen7Y-GzU4UNCwcnP1Kjwa-FX4ZvwVC0EveLl_UQakAx8x13EJ5ro6-mw1RDVn8BgfrYWnGoJRBjAyahV3JvCy5zM0jrn46gTRNxFzSencrGi_vL5UyZbQ-NUWLQO5eE3YeNUEl-_FN2CcblYnlo3xuPWPqxhtLSEl1-o4AtEyRmAg1EWxmw_BIwU87YJlzeuWkPHWaYSQSlDEFE7RTFjiw=="
+        }
+      ],
+      "generated_at": "2026-08-21T05:07:59.723810-06:00",
+      "status": "ok"
+    },
+    "radar": {
+      "key": "radar",
+      "title": "🛰️ RADAR Inteligencia",
+      "data": [],
+      "generated_at": "2026-08-21T05:08:02.780822-06:00",
+      "status": "error",
+      "signals_total": 0,
+      "queries_run": 3,
+      "errors": [
+        "HTTP 401 for query: Top AI funding rounds and product launch",
+        "HTTP 401 for query: Big Tech AI announcements Google Microso",
+        "HTTP 401 for query: AI regulation policy changes worldwide l"
+      ]
+    }
+  },
+  "summary": {
+    "sections_ok": 4,
+    "sections_total": 6,
+    "quality": "PARTIAL"
+  }
+}
