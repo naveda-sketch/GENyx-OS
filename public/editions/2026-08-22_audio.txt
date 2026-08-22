@@ -1,0 +1,92 @@
+El Periódico. Edición del 2026-08-22.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Elon Musk.
+Ucrania busca aprobación de Starlink para ataques de drones. Ucrania ha solicitado a Estados Unidos ayuda para obtener permiso de Elon Musk para usar terminales Starlink en drones de largo alcance. El objetivo es atacar lanzadores de misiles balísticos rusos hasta 200 kilómetros dentro de Rusia, según informó el Financial Times. La propuesta fue planteada por el Presidente Volodymyr Zelenskyy a Donald Trump en una reunión en julio, pero Trump no mostró apoyo a la iniciativa. Fuente: Financial Times.
+
+Tim Cook.
+Tim Cook dejará su cargo como CEO de Apple en septiembre. Tim Cook, CEO de Apple, se retirará de su cargo en septiembre de 2026 y será reemplazado por el jefe de hardware John Ternus. Cook asumirá el rol de presidente ejecutivo, manteniendo su participación en áreas como las relaciones gubernamentales. Este cambio marca el fin de su mandato de casi 15 años al frente de la compañía. Fuente: MarketWatch.
+
+Satya Nadella.
+Nuevas aplicaciones y agentes de Dragon Copilot en Microsoft Marketplace. Microsoft anunció la disponibilidad de nuevas aplicaciones y agentes para Dragon Copilot en Microsoft Marketplace. Estas herramientas permiten a los socios integrar capacidades personalizadas directamente en el flujo de trabajo de los médicos, facilitando el desarrollo y la implementación de soluciones de IA específicas para el sector de la salud. La iniciativa busca simplificar la comercialización y el despliegue de software de IA en organizaciones sanitarias. Fuente: Microsoft Learn.
+
+Jensen Huang.
+Nvidia licencia tecnología y invierte en Poolside AI. Nvidia ha llegado a un acuerdo para licenciar el sistema Model Factory de la startup de IA Poolside por 6 mil millones de dólares, además de una inversión de 1 mil millones de dólares en la compañía. El acuerdo, reportado por Bloomberg el 20 de agosto, también incluye ofertas de empleo para más de 100 empleados de Poolside, permitiendo a Nvidia integrar capacidades clave de IA mientras Poolside mantiene su independencia operativa. Fuente: Bloomberg.
+
+Sam Altman.
+Introducción de 'AI Futures' y 'Zero Data Retention'. OpenAI ha anunciado la introducción de 'AI Futures', una iniciativa para explorar el futuro de la inteligencia artificial, y la oferta de 'Zero Data Retention' para sus modelos de frontera. Esta última característica permite a los clientes empresariales utilizar modelos avanzados de IA sin que OpenAI retenga sus datos, abordando preocupaciones clave sobre la privacidad y seguridad de la información. Fuente: OpenAI.com.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+OpenAI reduce precios de su modelo GPT-5.6 Sol. OpenAI ha anunciado una reducción de más del 20% en los precios para desarrolladores de su modelo de frontera GPT-5.6 Sol. Esta medida busca mantener la competitividad frente a modelos de IA rivales como Claude de Anthropic y modelos chinos. Los nuevos precios se aplican a la API de OpenAI, ChatGPT Work y la herramienta de codificación Codex. Fuente: Reuters (vía ET Enterprise AI).
+Controles parentales para ChatGPT y detección de edad automática. OpenAI ha introducido controles parentales para ChatGPT, permitiendo a los padres vincular sus cuentas con las de adolescentes menores de 18 años y establecer restricciones de uso apropiadas para la edad. Además, la compañía está implementando un sistema de 'predicción de edad' para identificar cuentas de usuarios menores de 18 años y aplicar salvaguardias más estrictas automáticamente. Fuente: Facebook (Publicación verificada de OpenAI).
+OpenAI lanza Harness, el motor de agentes de código abierto. OpenAI ha liberado como código abierto Harness, el motor detrás de Codex, bajo la licencia Apache-2.0. Esta herramienta optimiza el rendimiento de los agentes de IA, logrando una reducción de seis veces en el consumo de tokens y mejorando significativamente las puntuaciones de referencia. La liberación posiciona a Harness como una plataforma para construir agentes de IA personalizados. Fuente: ET Enterprise AI.
+
+Google DeepMind.
+Avances en IA para juegos con SIMA 2 y Gemini. Google DeepMind está explorando nuevas fronteras en la investigación de IA y juegos, con un enfoque en SIMA 2, un agente que juega, razona y aprende de manera interactiva. Este agente, impulsado por los modelos de IA de frontera Gemini, busca desbloquear nuevas experiencias de juego y capacidades de IA que funcionen con juegos existentes sin necesidad de modificaciones en el código. Fuente: Google DeepMind.
+Actualizaciones de Gemini para el hogar mejoran comandos de voz. Google está implementando una nueva actualización para Gemini para el hogar, que corrige problemas con los comandos de voz para Spotify, la transmisión de mensajes y los controles de luces inteligentes. Aunque los usuarios han criticado la falta de solución a otros problemas, estas mejoras buscan optimizar la experiencia del asistente de voz en dispositivos inteligentes. Fuente: TechRadar.
+Hitos en la adopción de Gemma y avances en Gemini Robotics. El blog de Google celebra mil millones de descargas de Gemma y destaca su uso en proyectos innovadores, como C2S-Scale para descubrir vías de terapia contra el cáncer y DolphinGemma para decodificar vocalizaciones de delfines. Además, se mencionan avances en Gemini Robotics ER 2 y Gemini API Managed Agents 3.6 Flash, indicando un progreso continuo en modelos y herramientas de IA. Fuente: Google Blog.
+
+Anthropic.
+Preocupaciones sobre prácticas de 'acaparamiento y destrucción' de libros por empresas de IA. Más de una docena de grupos de interés público y defensa del consumidor han instado a la Comisión Federal de Comercio (FTC) a investigar a los desarrolladores de IA, incluida Anthropic, por supuestamente comprar, escanear y destruir libros para entrenar sus modelos de lenguaje. Argumentan que estas prácticas de 'acaparamiento y destrucción' podrían limitar el acceso público a materiales esenciales y constituir una competencia desleal. Fuente: CBS News.
+Anthropic contrata a Eric Boyd de Microsoft como jefe de infraestructura. Anthropic ha contratado a Eric Boyd, un veterano ejecutivo de Microsoft que anteriormente lideró el trabajo de la plataforma Azure AI, como su nuevo jefe de infraestructura. Esta contratación estratégica añade un líder experimentado en ingeniería de nube e IA a medida que la compañía expande los sistemas detrás de su creciente cartera de productos. Fuente: Redmondmag.com.
+Ode, empresa afiliada a Anthropic, adquiere Casper Studios. Ode, la empresa de servicios de inteligencia artificial formada por Anthropic con un compromiso financiero de 1.500 millones de dólares, ha adquirido Casper Studios. Esta adquisición busca fortalecer las capacidades de Ode en la construcción de habilidades, conectores y contexto dentro de los productos de Anthropic, facilitando la integración de Claude en los sistemas existentes de los equipos. Fuente: CRN.
+
+Meta AI.
+Actualización de Meta AI con Llama 3 y nuevas integraciones. Meta ha lanzado una nueva versión de Meta AI, su asistente de IA, potenciada por el modelo Llama 3 de última generación, que también está siendo liberado como código abierto. Esta actualización integra Meta AI en las barras de búsqueda de WhatsApp, Instagram, Facebook y Messenger, y también está disponible a través de un sitio web dedicado, meta.ai. Fuente: Facebook (Publicación oficial de Meta).
+Meta AI ahora disponible como aplicación de escritorio para Mac. Meta ha lanzado una nueva aplicación de IA independiente para Mac, en fase beta y de uso gratuito para usuarios con una cuenta de Meta. La aplicación está diseñada para asistir a propietarios de pequeñas empresas y creadores de medios, permitiendo conectar Meta AI con Google Workspace y Meta Ads para gestionar documentos, optimizar campañas y obtener información contextual. Fuente: AI Business.
+Preocupaciones de privacidad por gafas inteligentes de Meta AI. Una mujer fue filmada sin su consentimiento por un hombre usando gafas inteligentes con IA de Meta, lo que generó un video viral y levantó preocupaciones sobre la privacidad y el consentimiento. Este incidente subraya una tendencia creciente de creadores de contenido que utilizan tecnología de IA portátil para grabar a personas sin su permiso, llevando a Instagram a tomar medidas contra videos que acosan o invaden la privacidad. Fuente: CBS News.
+
+Microsoft AI.
+Actualizaciones y experiencia unificada para Microsoft Copilot. Microsoft está actualizando Copilot para ofrecer una experiencia más simple y cohesiva, permitiendo a los usuarios acceder a Word, Excel, Outlook y otras aplicaciones de Microsoft 365 directamente desde la aplicación. Los usuarios podrán iniciar sesión con cuentas personales, laborales o escolares, y los suscriptores de Microsoft 365 obtendrán límites de uso más altos y modelos de IA avanzados. Fuente: Microsoft Support.
+Nuevas capacidades en Copilot Studio y modelos de IA. Copilot Studio ha introducido nuevas capacidades, incluyendo la disponibilidad general para seleccionar Claude Sonnet 5 o GPT-5.5 Chat como modelo de IA principal para agentes, mejorando la calidad de respuesta y el razonamiento. También se ha lanzado una vista previa de GPT-5.5 Reasoning (Deep) como modelo experimental para agentes que requieren un razonamiento analítico profundo. Fuente: Microsoft Learn.
+Integraciones de Copilot con socios y uso de Azure AI por Meta. Socios como S&P Global, ZoomInfo y Blackbaud han anunciado integraciones más profundas de sus herramientas de datos, seguridad y flujo de trabajo en la pila de IA de Microsoft, incluyendo Microsoft 365 Copilot y Azure. Además, Meta Platforms se ha convertido en uno de los mayores clientes de Azure AI, lo que subraya cómo los ecosistemas de terceros y la demanda a hiperescala se anclan en la infraestructura de nube e IA de Microsoft. Fuente: Simply Wall St News.
+
+xAI.
+Vulnerabilidad de 'Cryptographic Context Injection' en Grok y Gemini. Investigadores de Adversa AI descubrieron una nueva técnica de ataque llamada 'Cryptographic Context Injection' que puede eludir las salvaguardias de seguridad de la IA en modelos como Grok de xAI y Gemini. Esta técnica oculta instrucciones maliciosas hasta que se descifran dentro de un entorno de ejecución confiable, permitiendo la generación de contenido restringido. Fuente: SecurityWeek.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Castelion.
+Ronda de financiación Serie C de $1 mil millones. Castelion, una startup de tecnología de defensa con sede en Torrance, ha recaudado $1 mil millones en financiación Serie C, que incluye $800 millones en capital y una línea de crédito rotatoria de $250 millones. Esta ronda eleva la valoración de la empresa a $13 mil millones y fue coliderada por JPMorgan Chase, Andreessen Horowitz y Carlyle. Fuente: dot.LA, Crunchbase News, Traders Union.
+
+Etched.
+Ronda de financiación de $700 millones. Etched, un desarrollador de clústeres de inferencia de IA con sede en San José, cerró una ronda de financiación de $700 millones liderada por Jane Street. Esta inversión valora a la compañía en $21 mil millones, destacando la fuerte demanda de infraestructura de cómputo de IA especializada. Fuente: Crunchbase News, Traders Union.
+
+Safe Superintelligence Inc. (SSI).
+Asociación estratégica con Nvidia. Safe Superintelligence Inc. (SSI), el laboratorio de investigación de IA cofundado por Ilya Sutskever, anunció una asociación estratégica a largo plazo con Nvidia. El acuerdo incluye una inversión directa de Nvidia y la colaboración en el desarrollo técnico de las plataformas de cómputo actuales y futuras de Nvidia, otorgando a SSI acceso a la plataforma Vera Rubin de próxima generación. Fuente: The Information.
+
+Rillet.
+Ronda de financiación Serie C de $100 millones. Rillet, una startup de contabilidad nativa de IA, ha recaudado $100 millones en financiación Serie C, alcanzando una valoración de $1 mil millones. La ronda fue liderada por ICONIQ, con la participación de inversores existentes como Andreessen Horowitz y Sequoia, marcando su entrada al club de los unicornios. Fuente: WorkNation News, Today's Startup News, Crunchbase News.
+
+Starcloud.
+Extensión de financiación Serie A de $250 millones. Starcloud, una startup que construye centros de datos en el espacio, ha recaudado $250 millones en una extensión de financiación Serie A, valorando a la compañía en $2.3 mil millones. La ronda fue liderada por Manhattan West e incluyó nuevos inversores como Nvidia y Cisco Investments. Fuente: GeekWire, MarketScreener.
+
+Sección: 📰 Top 10 Noticias.
+
+No se encontró información para esta sección.
+
+Sección: 💹 Pulso de Mercados.
+
+S&P 500: 7,674.37, cambio de +0.4%.
+NASDAQ Composite: 26,180.45, cambio de +0.4%.
+Dow Jones Industrial Average: 53,277.01, cambio de +1.0%.
+Tipo de cambio USD/MXN: 16.9100, cambio de -0.27%.
+Tesla (TSLA): 362.86 USD, cambio de +5.2%.
+Microsoft (MSFT): 483.24 USD, cambio de +0.43%.
+Alphabet (GOOGL): 344.82 USD, cambio de +1.22%.
+Meta Platforms (META): N/A, cambio de >+1%.
+OpenAI (Not Publicly Traded): N/A, cambio de N/A.
+Empresas Tech: N/A, cambio de N/A.
+Política de la Fed e Inflación: N/A, cambio de N/A.
+Tensiones Geopolíticas: N/A, cambio de N/A.
+Impacto de la Inteligencia Artificial (IA): N/A, cambio de N/A.
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
