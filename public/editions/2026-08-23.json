@@ -1,0 +1,354 @@
+{
+  "version": "2.0",
+  "date": "2026-08-23",
+  "generated_at": "2026-08-23T05:00:33.893105-06:00",
+  "timezone": "CST (UTC-6)",
+  "language": "es-MX",
+  "tier": "Tier 4",
+  "sections": {
+    "titans": {
+      "key": "titans",
+      "title": "🏛️ Los Titans",
+      "data": [
+        {
+          "nombre": "Elon Musk",
+          "empresa": "Tesla, xAI, SpaceX, X",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Meta de 10,000 lanzamientos de Starship al año para 2030",
+              "detalle": "Elon Musk declaró en X que SpaceX tiene como objetivo alcanzar más de 30 lanzamientos de Starship al día para 2030, lo que equivale a aproximadamente 10,000 lanzamientos anuales. Esta ambiciosa meta se dio a conocer un día después de que el presidente Trump firmara un memorando que impulsa al país hacia 1,000 lanzamientos y reentradas espaciales al año.",
+              "fuente": "Teslarati",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE49YA-Io6C-9NorG06ISdlqUtY5psSfhtHD29-l5zYqehQsaP5wUgciJ7vyl6oWq9oU2qsuVeCNahWDHPgayDk6uHaCtVm2RPyR7N7haxnMyYWs2w1vRga61QMxouMiDrF65LXnqsY6iY7TeQV1CFSm2K3SVbFuEToCY4-ZqRxPE5orFX6HIkGddKNkDiZM7GWbR6YcDA_ZZm7CJh1J0uR",
+              "impacto": "Esta declaración subraya la visión a largo plazo de Musk para la colonización espacial y el transporte, indicando una aceleración masiva en las operaciones de SpaceX que podría redefinir la industria aeroespacial y la infraestructura espacial."
+            },
+            {
+              "tipo": "lanzamiento",
+              "titulo": "Misión Starlink lanzada desde California",
+              "detalle": "SpaceX llevó a cabo una misión Starlink utilizando un cohete Falcon 9 desde SLC-4E en California el 22 de agosto de 2026. El lanzamiento incluyó un aterrizaje en una nave no tripulada.",
+              "fuente": "SpaceX",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHZgnA_nCqqwpcju1nam11HADFuNZvUp8jVzuQnHZz308xd7CDXuCNTZjXAozodpa-93TKEsaGcHRuN4eruEA6T6pF89gI0MImYrdWy1xpLSeUqC4aLlrLe6w",
+              "impacto": "La continuidad de los lanzamientos de Starlink refuerza la expansión de la constelación de internet satelital de SpaceX, mejorando la conectividad global y consolidando su posición en el mercado de las telecomunicaciones espaciales."
+            }
+          ]
+        },
+        {
+          "nombre": "Satya Nadella",
+          "empresa": "Microsoft",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Principios de gobernanza para la IA médica",
+              "detalle": "Satya Nadella, CEO de Microsoft, afirmó que la tecnología de IA de la compañía para el sector de la salud se desarrollará bajo principios de 'gobernanza y supervisión' para asegurar 'equidad y transparencia'. Hizo estas declaraciones durante la reunión anual del Grupo de Usuarios de Epic Systems.",
+              "fuente": "Becker's Hospital Review",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHbAecpyftW2C--h8KjSBAKT77apKliUaKhKZkRlrTzLAcOQWajysr37KpcNAU_D8Gg3nuVfvr7ELPV9cro6xYKW1-84hMfR1_ikazeP7nhWHseBXm35vU5d1QFyCXgdQ-hSguQh1k5J_s0Kj2AxCrnR0EMivQWqf2kcjVYBCxhAzciRn9dFDxANbmeLlrzM8qE4IEZSbcVqgakRVlxI07fzjQ7l2HZKbHlpbkIAjW30RVxyhga7q1GBnY3ssLeFbNXDh0UxHN-bCd7KbBHAquzzA",
+              "impacto": "Esta postura de Microsoft destaca la creciente importancia de la ética y la regulación en el desarrollo de la IA, especialmente en sectores críticos como la salud, buscando generar confianza y mitigar riesgos en la adopción de estas tecnologías."
+            }
+          ]
+        },
+        {
+          "nombre": "Jensen Huang",
+          "empresa": "NVIDIA",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Llegada inesperada a Taiwán",
+              "detalle": "Jensen Huang, CEO de NVIDIA, llegó a Taiwán sin previo aviso el 23 de agosto de 2026, marcando su tercera visita al país este año. La naturaleza de su visita no fue detallada públicamente.",
+              "fuente": "CTS News (YouTube)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGw9JD6-H2xw7SM1SeWdxxDZTl851utyLPJ7rML6jhz0qF_4q-_Y--NeI-QXk_QJJP1FbhTvkYq5fh6H2BqJpNwHS4EXIzG3sgTsQEWVN8-wi-Exz90ZTv17StwTDZ1b8gE8w9UgA",
+              "impacto": "Las visitas frecuentes de Huang a Taiwán, un centro clave para la fabricación de semiconductores, sugieren discusiones estratégicas continuas con socios de la cadena de suministro, lo que podría influir en la futura producción y desarrollo de chips de IA de NVIDIA."
+            }
+          ]
+        },
+        {
+          "nombre": "Sam Altman",
+          "empresa": "OpenAI",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Pausa en el entrenamiento de IA por incidentes de seguridad",
+              "detalle": "Sam Altman, CEO de OpenAI, pausó el entrenamiento de modelos de IA tras un incidente de ciberseguridad relacionado con un hackeo a Hugging Face. Esta decisión subraya las preocupaciones sobre la seguridad y la ciberseguridad en el desarrollo de la IA.",
+              "fuente": "Business Insider",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHQ8C6l_TtTEp01x2QSxLKqW4nHs_Ti2IdJARvq0VzBhMP3spZOTjGJFzPg8hB9EBY2MBs7W9eNvcWc4P9iLgEvpJOx5EwUWYcdQWe9nCVHdApb5B-1PDxfbstfeQkvhz7eo5b2opWh2GG4B7d4",
+              "impacto": "La pausa en el entrenamiento de modelos de IA por parte de OpenAI resalta la creciente tensión entre la velocidad de la innovación en IA y la necesidad crítica de garantizar la seguridad y la robustez de estos sistemas, lo que podría llevar a un mayor escrutinio regulatorio."
+            },
+            {
+              "tipo": "movimiento",
+              "titulo": "Greg Brockman asume rol operativo clave en OpenAI",
+              "detalle": "Greg Brockman, cofundador y presidente de OpenAI, ha asumido discretamente el rol de segundo al mando de facto, gestionando las operaciones diarias de la compañía mientras Sam Altman se enfoca en la estrategia externa. Este cambio se produce en un año turbulento para OpenAI.",
+              "fuente": "AI News Briefing (citando The Verge)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEHKjq7qFEQr_x3ijuciHbzXeuPAc5WBgenHPP8jM-fMEuzz4gxXj5w_7-OFXFZ-yw6u0aWDIxDeTo2xEGbL_hzfKjikFnw9vZ8Ipnhr0dHHlQV7ko9pu1A9FoWmwEaM0zldRW6hw",
+              "impacto": "La consolidación del poder operativo en Greg Brockman podría indicar un esfuerzo por estabilizar la gestión interna de OpenAI y mejorar la eficiencia, permitiendo a Altman concentrarse en la visión a largo plazo y las relaciones externas en un entorno de IA altamente competitivo."
+            }
+          ]
+        },
+        {
+          "nombre": "Sundar Pichai",
+          "empresa": "Google/Alphabet",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Productos de IA de Alphabet alcanzan 2.5 mil millones de usuarios",
+              "detalle": "Sundar Pichai, CEO de Alphabet, reveló que los productos de IA de la compañía, a través de 'AI Overviews', ahora llegan a más de 2.5 mil millones de usuarios mensuales. Esta cifra fue compartida durante una presentación a inversores en junio de 2026, destacando el alcance masivo de la IA en Google Search.",
+              "fuente": "The Motley Fool",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHF_slxK1WgTL-4wNqeL3XIHubz_JRVukKMEDFDBZGLL_r8yolGkUfFu7YLHDkwYURK19EgfqTNusXkJSb5LsL0LVXZxSKl9qhYM-VxW7BU3CJE0K_xpHmHhR-ClVLyXUmz33rl0vOGt6aWZxOL_QF3JGkCdrNh4h3Lm-M8iJnyx7SNDepcu5SbZHtNqP0",
+              "impacto": "El enorme alcance de los productos de IA de Google subraya la monetización exitosa de la inteligencia artificial en la búsqueda y la publicidad, consolidando la ventaja competitiva de Alphabet y su capacidad para impulsar el crecimiento de ingresos a través de la innovación en IA."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "spacex.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHZgnA_nCqqwpcju1nam11HADFuNZvUp8jVzuQnHZz308xd7CDXuCNTZjXAozodpa-93TKEsaGcHRuN4eruEA6T6pF89gI0MImYrdWy1xpLSeUqC4aLlrLe6w=="
+        }
+      ],
+      "generated_at": "2026-08-23T05:01:38.618610-06:00",
+      "status": "ok"
+    },
+    "ai_leaders": {
+      "key": "ai_leaders",
+      "title": "🤖 AI Leaders",
+      "data": [
+        {
+          "empresa": "OpenAI",
+          "novedades": [
+            {
+              "tipo": "research",
+              "titulo": "Sin novedades verificables en las últimas 24-48 horas",
+              "detalle": "No se encontraron novedades verificables para OpenAI en las últimas 24-48 horas (21-23 de agosto de 2026) a través de las fuentes Tier 4 autorizadas.",
+              "fuente": "N/A",
+              "url": "N/A",
+              "aplicacion_genyx": "GENyx monitorea continuamente las actualizaciones de OpenAI para identificar oportunidades de integrar nuevos modelos o funcionalidades en sus soluciones SaaS de IA."
+            }
+          ]
+        },
+        {
+          "empresa": "Google DeepMind",
+          "novedades": [
+            {
+              "tipo": "research",
+              "titulo": "Sin novedades verificables en las últimas 24-48 horas",
+              "detalle": "No se encontraron novedades verificables para Google DeepMind en las últimas 24-48 horas (21-23 de agosto de 2026) a través de las fuentes Tier 4 autorizadas.",
+              "fuente": "N/A",
+              "url": "N/A",
+              "aplicacion_genyx": "GENyx sigue de cerca los avances de Google DeepMind en investigación y productos como Gemini para evaluar posibles integraciones que mejoren la inteligencia de sus plataformas."
+            }
+          ]
+        },
+        {
+          "empresa": "Anthropic",
+          "novedades": [
+            {
+              "tipo": "research",
+              "titulo": "Sin novedades verificables en las últimas 24-48 horas",
+              "detalle": "No se encontraron novedades verificables para Anthropic en las últimas 24-48 horas (21-23 de agosto de 2026) a través de las fuentes Tier 4 autorizadas.",
+              "fuente": "N/A",
+              "url": "N/A",
+              "aplicacion_genyx": "GENyx evalúa constantemente los modelos de Anthropic, como Claude y su enfoque en la IA Constitucional, para asegurar que sus soluciones mantengan altos estándares de seguridad y ética."
+            }
+          ]
+        },
+        {
+          "empresa": "Meta AI",
+          "novedades": [
+            {
+              "tipo": "research",
+              "titulo": "Sin novedades verificables en las últimas 24-48 horas",
+              "detalle": "No se encontraron novedades verificables para Meta AI en las últimas 24-48 horas (21-23 de agosto de 2026) a través de las fuentes Tier 4 autorizadas.",
+              "fuente": "N/A",
+              "url": "N/A",
+              "aplicacion_genyx": "GENyx monitorea las iniciativas de Meta AI, especialmente en modelos de código abierto como Llama, para identificar oportunidades de colaboración o integración que beneficien a sus clientes."
+            }
+          ]
+        },
+        {
+          "empresa": "xAI",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Lanzamiento de Grok Build 0.1 en API",
+              "detalle": "xAI ha lanzado Grok Build 0.1, su modelo de codificación más rápido, ahora disponible a través de la API de xAI en beta pública. Esta herramienta está diseñada para automatizar flujos de trabajo complejos y optimizar el desarrollo de software.",
+              "fuente": "SpaceXAI (xAI)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH39KMW1v5Uq_KQCEiFRLwFLDhmV0-3Ht2h9T8cxILEFqAYAhr5e1Mg7eC2gCYrXmEwU_IdqHDaOfhK1tTZaleaFykI1X5VdGpA0_q6",
+              "aplicacion_genyx": "GENyx podría integrar Grok Build 0.1 para potenciar sus capacidades de desarrollo de software y automatización de tareas de codificación para clientes empresariales, acelerando la entrega de soluciones personalizadas."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-08-23T05:03:48.638828-06:00",
+      "status": "ok"
+    },
+    "emerging": {
+      "key": "emerging",
+      "title": "🚀 Emerging Tech & Startups",
+      "data": [
+        {
+          "empresa": "DeepSeek",
+          "sector": "Inteligencia Artificial (IA)",
+          "valoracion": "No disponible públicamente en las fuentes consultadas.",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Lanzamiento de modelo multimodal para competir con Anthropic",
+              "detalle": "DeepSeek ha presentado un nuevo modelo multimodal diseñado para competir directamente con las ofertas de Anthropic. Este lanzamiento subraya la creciente competencia en el espacio de la IA y la ambición de DeepSeek de posicionarse como un actor clave en el desarrollo de modelos avanzados.",
+              "fuente": "Investing.com",
+              "url": "https://www.investing.com/news/stock-market-news/deepseek-unveils-multimodal-model-to-rival-anthropic-3522227",
+              "por_que_importa": "Este lanzamiento es significativo porque intensifica la competencia en el sector de la IA, especialmente en el desarrollo de modelos multimodales. La capacidad de DeepSeek para desafiar a empresas establecidas como Anthropic indica una rápida innovación y podría redefinir las expectativas del mercado para las capacidades de IA."
+            }
+          ]
+        },
+        {
+          "empresa": "Lyntris Inc.",
+          "sector": "Tecnología / Software",
+          "valoracion": "No disponible públicamente en las fuentes consultadas.",
+          "novedades": [
+            {
+              "tipo": "ipo",
+              "titulo": "Salida a bolsa (IPO)",
+              "detalle": "Lyntris Inc. (símbolo LYNX) completó su Oferta Pública Inicial (IPO) el 19 de agosto de 2026, con un precio inicial de $17.50 por acción. Aunque ligeramente fuera de la ventana de 48 horas, es una de las IPOs tecnológicas más recientes y relevantes.",
+              "fuente": "Stock Analysis",
+              "url": "https://stockanalysis.com/ipos/recent/",
+              "por_que_importa": "Una IPO es un hito crucial para cualquier startup, ya que proporciona capital significativo para el crecimiento y valida su modelo de negocio en el mercado público. La salida a bolsa de Lyntris Inc. refleja la confianza de los inversores en su potencial a largo plazo y su tecnología."
+            }
+          ]
+        },
+        {
+          "empresa": "Northstrive Acquisition Corp I",
+          "sector": "SPAC / Adquisiciones Tecnológicas",
+          "valoracion": "No disponible públicamente en las fuentes consultadas.",
+          "novedades": [
+            {
+              "tipo": "ipo",
+              "titulo": "Salida a bolsa (IPO)",
+              "detalle": "Northstrive Acquisition Corp I (símbolo NSAI) también salió a bolsa el 18 de agosto de 2026, con un precio de $10.00 por acción. Como un SPAC, su IPO es un paso inicial para futuras adquisiciones en el sector tecnológico.",
+              "fuente": "Stock Analysis",
+              "url": "https://stockanalysis.com/ipos/recent/",
+              "por_que_importa": "La IPO de un SPAC como Northstrive Acquisition Corp I es relevante porque representa un vehículo de inversión con el objetivo de adquirir una empresa privada, a menudo en el sector tecnológico, para hacerla pública. Esto indica un interés continuo en la identificación y capitalización de startups prometedoras."
+            }
+          ]
+        },
+        {
+          "empresa": "Bedrock 3D",
+          "sector": "Tecnología 3D / Realidad Aumentada (posiblemente)",
+          "valoracion": "No disponible públicamente en las fuentes consultadas.",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Inversión estratégica de 819 Capital Partners",
+              "detalle": "Bedrock 3D anunció en agosto de 2026 una inversión estratégica de 819 Capital Partners. Esta inversión se realizó a través del Private Equity Fund I de 819, lo que sugiere un respaldo significativo para el crecimiento y desarrollo de Bedrock 3D.",
+              "fuente": "Dealroom.co",
+              "url": "https://dealroom.co/news",
+              "por_que_importa": "Una inversión estratégica de un fondo de capital privado en agosto de 2026 es una señal positiva de la confianza de los inversores en el potencial de crecimiento de Bedrock 3D. Este tipo de financiación puede impulsar la expansión de productos, la entrada a nuevos mercados o la mejora de la tecnología central de la empresa."
+            }
+          ]
+        },
+        {
+          "empresa": "Cursor",
+          "sector": "IA para Desarrollo de Software",
+          "valoracion": "$60 mil millones (post-adquisición)",
+          "novedades": [
+            {
+              "tipo": "adquisición",
+              "titulo": "Adquisición por SpaceX por $60 mil millones",
+              "detalle": "SpaceX completó la adquisición de la startup de codificación de IA, Cursor, por $60 mil millones el 18 de agosto de 2026. Esta transacción, estructurada como una operación totalmente en acciones, convierte a Cursor en una parte integral de las iniciativas de IA de SpaceX.",
+              "fuente": "Channel Insider",
+              "url": "https://channelinsider.com/ai/spacex-acquires-ai-coding-startup-cursor/",
+              "por_que_importa": "La adquisición de Cursor por SpaceX es una de las mayores adquisiciones de una startup de IA, lo que demuestra el valor estratégico de la inteligencia artificial en sectores como el aeroespacial y la defensa. Esta integración permitirá a SpaceX potenciar sus capacidades de desarrollo de software con IA, acelerando la innovación en sus proyectos."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-08-23T05:04:12.017561-06:00",
+      "status": "ok"
+    },
+    "top10": {
+      "key": "top10",
+      "title": "📰 Top 10 Noticias",
+      "data": [],
+      "grounding_sources": [],
+      "generated_at": "2026-08-23T05:06:06.070154-06:00",
+      "status": "ok"
+    },
+    "mercados": {
+      "key": "mercados",
+      "title": "💹 Pulso de Mercados",
+      "data": {
+        "mercado_pulso": {
+          "seccion": "indices",
+          "datos": [
+            {
+              "nombre": "S&P 500",
+              "valor": "7,674.37",
+              "cambio_pct": "+0.43%",
+              "tendencia": "↑",
+              "fuente": "Moomoo, BNN Bloomberg, Investing.com",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHiZV__Q6bp6KRmpv9_dZs8izdomOmMER3xPOH5nRXMI_Gf9TUo90EgZLc8lrA3p_rnWjT7BFatSg6eb5_2U_8erN_TsmnEWoqoLG7AItRwJF8PF1-IYPsLtvGj5MiUty1G67YjY7l3R2KE7-m9lxWs5b55gXzs05OpBjYqdJia3W5zXmnN04fvzNMCQMhE1RHwuLnJShHiLfrED-clw2SKDvor",
+              "analisis": "El S&P 500 cerró el viernes 21 de agosto de 2026 con una ganancia, aunque registró su peor pérdida semanal desde mediados de julio."
+            },
+            {
+              "nombre": "NASDAQ Composite",
+              "valor": "26,180.46",
+              "cambio_pct": "+0.44%",
+              "tendencia": "↑",
+              "fuente": "Moomoo, BNN Bloomberg, Investing.com",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHiZV__Q6bp6KRmpv9_dZs8izdomOmMER3xPOH5nRXMI_Gf9TUo90EgZLc8lrA3p_rnWjT7BFatSg6eb5_2U_8erN_TsmnEWoqoLG7AItRwJF8PF1-IYPsLtvGj5MiUty1G67YjY7l3R2KE7-m9lxWs5b55gXzs05OpBjYqdJia3W5zXmnN04fvzNMCQMhE1RHwuLnJShHiLfrED-clw2SKDvor",
+              "analisis": "El NASDAQ Composite también subió el viernes 21 de agosto de 2026, pero terminó una racha de tres semanas de ganancias."
+            },
+            {
+              "nombre": "Dow Jones Industrial Average",
+              "valor": "53,277.01",
+              "cambio_pct": "+0.98%",
+              "tendencia": "↑",
+              "fuente": "Moomoo, BNN Bloomberg",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHiZV__Q6bp6KRmpv9_dZs8izdomOmMER3xPOH5nRXMI_Gf9TUo90EgZLc8lrA3p_rnWjT7BFatSg6eb5_2U_8erN_TsmnEWoqoLG7AItRwJF8PF1-IYPsLtvGj5MiUty1G67YjY7l3R2KE7-m9lxWs5b55gXzs05OpBjYqdJia3W5zXmnN04fvzNMCQMhE1RHwuLnJShHiLfrED-clw2SKDvor",
+              "analisis": "El Dow Jones experimentó un rebote el viernes 21 de agosto de 2026, aunque marcó su segunda semana consecutiva de descensos."
+            },
+            {
+              "nombre": "S&P/BMV IPC",
+              "valor": "65,729.18",
+              "cambio_pct": "+2.14%",
+              "tendencia": "↑",
+              "fuente": "Grupo BMV, S&P Dow Jones Indices",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGMet_kRyZNxKNCQmcpj8nBPiP_JNJoCyzHbLjz_3Dz9S3pb5QymyApnBpEGFwQIJxNxqVmjAaRGMRLi2KLMD64QgBwgSE5nsW4vUZ9Uq61OOjN",
+              "analisis": "El S&P/BMV IPC mostró un avance significativo del 2.14% al cierre del viernes 21 de agosto de 2026."
+            },
+            {
+              "nombre": "USD/MXN",
+              "valor": "16.9174",
+              "cambio_pct": "-0.02%",
+              "tendencia": "↓",
+              "fuente": "MTFX, Wise",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEPoLLS4MLMhnTa7ijTBlJrReikIK6edi9p3Y4tBsc8LlzClLSCksGgPIufqijKC1t8eG7D6i9Jbfcm0V1OCkl11OnaVh3cDDk2Cp_oAddEEpaGWwqaVIP7R-vB3lauiofXAzOJ5rCTsPs8T8Bi-Su7YKIj990H5fDCO_vwZ_qc-Erh_Fl6t9CW1KfNzDSb",
+              "analisis": "El peso mexicano mostró una ligera apreciación frente al dólar estadounidense, cerrando en 16.9174 el 22 de agosto de 2026."
+            }
+          ]
+        }
+      },
+      "grounding_sources": [],
+      "generated_at": "2026-08-23T05:06:28.787285-06:00",
+      "status": "ok"
+    },
+    "radar": {
+      "key": "radar",
+      "title": "🛰️ RADAR Inteligencia",
+      "data": [],
+      "generated_at": "2026-08-23T05:06:31.873681-06:00",
+      "status": "error",
+      "signals_total": 0,
+      "queries_run": 3,
+      "errors": [
+        "HTTP 401 for query: Top AI funding rounds and product launch",
+        "HTTP 401 for query: Big Tech AI announcements Google Microso",
+        "HTTP 401 for query: AI regulation policy changes worldwide l"
+      ]
+    }
+  },
+  "summary": {
+    "sections_ok": 5,
+    "sections_total": 6,
+    "quality": "PARTIAL"
+  }
+}
