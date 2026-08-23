@@ -1,0 +1,68 @@
+El Periódico. Edición del 2026-08-23.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Elon Musk.
+Meta de 10,000 lanzamientos de Starship al año para 2030. Elon Musk declaró en X que SpaceX tiene como objetivo alcanzar más de 30 lanzamientos de Starship al día para 2030, lo que equivale a aproximadamente 10,000 lanzamientos anuales. Esta ambiciosa meta se dio a conocer un día después de que el presidente Trump firmara un memorando que impulsa al país hacia 1,000 lanzamientos y reentradas espaciales al año. Fuente: Teslarati.
+Misión Starlink lanzada desde California. SpaceX llevó a cabo una misión Starlink utilizando un cohete Falcon 9 desde SLC-4E en California el 22 de agosto de 2026. El lanzamiento incluyó un aterrizaje en una nave no tripulada. Fuente: SpaceX.
+
+Satya Nadella.
+Principios de gobernanza para la IA médica. Satya Nadella, CEO de Microsoft, afirmó que la tecnología de IA de la compañía para el sector de la salud se desarrollará bajo principios de 'gobernanza y supervisión' para asegurar 'equidad y transparencia'. Hizo estas declaraciones durante la reunión anual del Grupo de Usuarios de Epic Systems. Fuente: Becker's Hospital Review.
+
+Jensen Huang.
+Llegada inesperada a Taiwán. Jensen Huang, CEO de NVIDIA, llegó a Taiwán sin previo aviso el 23 de agosto de 2026, marcando su tercera visita al país este año. La naturaleza de su visita no fue detallada públicamente. Fuente: CTS News (YouTube).
+
+Sam Altman.
+Pausa en el entrenamiento de IA por incidentes de seguridad. Sam Altman, CEO de OpenAI, pausó el entrenamiento de modelos de IA tras un incidente de ciberseguridad relacionado con un hackeo a Hugging Face. Esta decisión subraya las preocupaciones sobre la seguridad y la ciberseguridad en el desarrollo de la IA. Fuente: Business Insider.
+Greg Brockman asume rol operativo clave en OpenAI. Greg Brockman, cofundador y presidente de OpenAI, ha asumido discretamente el rol de segundo al mando de facto, gestionando las operaciones diarias de la compañía mientras Sam Altman se enfoca en la estrategia externa. Este cambio se produce en un año turbulento para OpenAI. Fuente: AI News Briefing (citando The Verge).
+
+Sundar Pichai.
+Productos de IA de Alphabet alcanzan 2.5 mil millones de usuarios. Sundar Pichai, CEO de Alphabet, reveló que los productos de IA de la compañía, a través de 'AI Overviews', ahora llegan a más de 2.5 mil millones de usuarios mensuales. Esta cifra fue compartida durante una presentación a inversores en junio de 2026, destacando el alcance masivo de la IA en Google Search. Fuente: The Motley Fool.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+Sin novedades verificables en las últimas 24-48 horas. No se encontraron novedades verificables para OpenAI en las últimas 24-48 horas (21-23 de agosto de 2026) a través de las fuentes Tier 4 autorizadas. Fuente: N/A.
+
+Google DeepMind.
+Sin novedades verificables en las últimas 24-48 horas. No se encontraron novedades verificables para Google DeepMind en las últimas 24-48 horas (21-23 de agosto de 2026) a través de las fuentes Tier 4 autorizadas. Fuente: N/A.
+
+Anthropic.
+Sin novedades verificables en las últimas 24-48 horas. No se encontraron novedades verificables para Anthropic en las últimas 24-48 horas (21-23 de agosto de 2026) a través de las fuentes Tier 4 autorizadas. Fuente: N/A.
+
+Meta AI.
+Sin novedades verificables en las últimas 24-48 horas. No se encontraron novedades verificables para Meta AI en las últimas 24-48 horas (21-23 de agosto de 2026) a través de las fuentes Tier 4 autorizadas. Fuente: N/A.
+
+xAI.
+Lanzamiento de Grok Build 0.1 en API. xAI ha lanzado Grok Build 0.1, su modelo de codificación más rápido, ahora disponible a través de la API de xAI en beta pública. Esta herramienta está diseñada para automatizar flujos de trabajo complejos y optimizar el desarrollo de software. Fuente: SpaceXAI (xAI).
+
+Sección: 🚀 Emerging Tech & Startups.
+
+DeepSeek.
+Lanzamiento de modelo multimodal para competir con Anthropic. DeepSeek ha presentado un nuevo modelo multimodal diseñado para competir directamente con las ofertas de Anthropic. Este lanzamiento subraya la creciente competencia en el espacio de la IA y la ambición de DeepSeek de posicionarse como un actor clave en el desarrollo de modelos avanzados. Fuente: Investing.com.
+
+Lyntris Inc..
+Salida a bolsa (IPO). Lyntris Inc. (símbolo LYNX) completó su Oferta Pública Inicial (IPO) el 19 de agosto de 2026, con un precio inicial de $17.50 por acción. Aunque ligeramente fuera de la ventana de 48 horas, es una de las IPOs tecnológicas más recientes y relevantes. Fuente: Stock Analysis.
+
+Northstrive Acquisition Corp I.
+Salida a bolsa (IPO). Northstrive Acquisition Corp I (símbolo NSAI) también salió a bolsa el 18 de agosto de 2026, con un precio de $10.00 por acción. Como un SPAC, su IPO es un paso inicial para futuras adquisiciones en el sector tecnológico. Fuente: Stock Analysis.
+
+Bedrock 3D.
+Inversión estratégica de 819 Capital Partners. Bedrock 3D anunció en agosto de 2026 una inversión estratégica de 819 Capital Partners. Esta inversión se realizó a través del Private Equity Fund I de 819, lo que sugiere un respaldo significativo para el crecimiento y desarrollo de Bedrock 3D. Fuente: Dealroom.co.
+
+Cursor.
+Adquisición por SpaceX por $60 mil millones. SpaceX completó la adquisición de la startup de codificación de IA, Cursor, por $60 mil millones el 18 de agosto de 2026. Esta transacción, estructurada como una operación totalmente en acciones, convierte a Cursor en una parte integral de las iniciativas de IA de SpaceX. Fuente: Channel Insider.
+
+Sección: 📰 Top 10 Noticias.
+
+No se encontró información para esta sección.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
