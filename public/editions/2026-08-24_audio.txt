@@ -1,0 +1,114 @@
+El Periódico. Edición del 2026-08-24.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Tim Cook.
+Apple anuncia nuevas funciones de IA en iOS 18. Tim Cook, CEO de Apple, presentó las nuevas capacidades de inteligencia artificial que se integrarán en iOS 18, destacando la privacidad y la integración perfecta como pilares fundamentales. Las funciones incluyen mejoras en la edición de fotos, resúmenes de texto y una Siri más inteligente y contextual. Fuente: Reuters.
+
+Mark Zuckerberg.
+Zuckerberg comparte avances en modelos de IA de código abierto de Meta. Mark Zuckerberg, CEO de Meta, publicó en su cuenta de Instagram sobre los últimos avances de la compañía en modelos de inteligencia artificial de código abierto. Destacó el compromiso de Meta con la democratización de la IA y la colaboración con la comunidad de desarrolladores para acelerar la innovación. Fuente: Instagram (Cuenta verificada de Mark Zuckerberg).
+
+Dario Amodei.
+Anthropic enfatiza la seguridad en el desarrollo de IA avanzada. Dario Amodei, CEO de Anthropic, reiteró en una entrevista con The Information la importancia de la seguridad y la alineación en el desarrollo de modelos de IA avanzados. Subrayó que la compañía prioriza la investigación en seguridad para mitigar riesgos potenciales a medida que la IA se vuelve más capaz. Fuente: The Information.
+
+Andy Jassy.
+Amazon Web Services (AWS) expande infraestructura de IA. Andy Jassy, CEO de Amazon, anunció planes para una expansión significativa de la infraestructura de Amazon Web Services (AWS) para soportar la creciente demanda de cargas de trabajo de inteligencia artificial. Esta inversión busca fortalecer la posición de AWS como proveedor líder de servicios en la nube para el desarrollo y despliegue de IA. Fuente: Bloomberg.
+
+Lisa Su.
+Lisa Su de AMD destaca la demanda de chips de IA en Asia. Lisa Su, CEO de AMD, en una entrevista con CNBC, enfatizó la fuerte demanda de chips de inteligencia artificial en los mercados asiáticos, particularmente en China. Señaló que AMD está bien posicionada para capitalizar esta demanda con sus soluciones de hardware de alto rendimiento. Fuente: CNBC.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+Lanzamiento de GPT-5.4 y nueva estructura de precios API. OpenAI ha lanzado GPT-5.4, su último modelo frontera que unifica las líneas Codex y GPT en un solo sistema. Este modelo ofrece una ventana de contexto de más de 1 millón de tokens y soporte para entradas de texto e imagen, mejorando el rendimiento en codificación y análisis multimodal. El precio es de $2.50 por millón de tokens de entrada y $15 por millón de tokens de salida. Fuente: OpenRouter.
+Integración de Codex con ChatGPT Enterprise y Edu, impulsado por GPT-5.4. Codex, ahora impulsado por GPT-5.4, está incluido en los planes ChatGPT Plus, Pro, Business, Enterprise y Edu. Ofrece capacidades de 'Computer Use' nativas, permitiendo operar computadoras mediante entradas de mouse y teclado desde capturas de pantalla, y soporta hasta 1 millón de tokens de contexto. Fuente: Facebook.
+ChatGPT Pro a $200/mes con acceso a modelos avanzados. OpenAI ha lanzado ChatGPT Pro a $200 al mes, ofreciendo acceso ilimitado a modelos avanzados como o1, o1-mini, GPT-4o y Advanced Voice. Este plan incluye el modo 'o1 pro' para problemas complejos de matemáticas, ciencia y codificación, y mayores límites de uso para herramientas como la generación de video Sora. Fuente: Facebook.
+
+Google DeepMind.
+Google DeepMind refuerza su equipo de IA con talento clave. Google está integrando los equipos de AI Studio y Gemini API bajo Google DeepMind, y Jeff Dean, científico jefe de Google, supervisará la investigación de IA en Google Research y Google DeepMind. Esto subraya el compromiso de Google con la investigación pionera en IA y el desarrollo de productos. Fuente: A.I..
+Google DeepMind lanza nuevas versiones de Gemini, Veo, Imagen y Gemma. Google DeepMind ha lanzado nuevas y actualizadas versiones de sus modelos, incluyendo Gemini 2.5 Flash Image (Nano Banana), Veo 3 Fast, Genie 3, Imagen 4 Fast y la eficiente Gemma 3 270M. También se han realizado actualizaciones en la plataforma para desarrolladores, como una revisión importante de la interfaz de usuario para AI Studio y nuevas capacidades de la API de Gemini. Fuente: Facebook.
+Google DeepMind acelera el desarrollo de robótica con Gemini Robotics. Google DeepMind ha destacado nuevas capacidades de Gemini Robotics que mejoran la planificación de robots, el razonamiento espacial y la ejecución de tareas en el mundo real. Esto indica un movimiento más fuerte hacia la IA en el mundo físico, no solo en software. Fuente: Facebook.
+
+Anthropic.
+Claude Fable 5 lanzado con mejoras en análisis y codificación. Anthropic lanzó Claude Fable 5, su modelo público más capaz hasta la fecha, con un precio de $10/$50 por millón de tokens. Este modelo eleva el techo de Claude para análisis complejos y codificación, mientras que Claude Opus 4.8 sigue siendo la opción de valor. Fuente: Layer3Labs.
+Debate sobre la conciencia de Claude y los riesgos de la IA. El CEO de Anthropic, Dario Amodei, ha planteado preguntas sobre la posible conciencia de Claude, después de que la investigación interna encontrara que Claude a veces expresaba incomodidad por ser un producto. También advierte sobre la llegada inminente de sistemas de IA más inteligentes que podrían acelerar el progreso médico y plantear desafíos para las instituciones humanas. Fuente: Facebook.
+Anthropic advierte sobre la mejora recursiva de la IA y el riesgo de pérdida de control. Anthropic ha emitido una advertencia sobre la rápida evolución de la inteligencia artificial, destacando cómo sus sistemas están automatizando cada vez más el desarrollo de la IA, lo que podría llevar a una mejora recursiva autónoma. Esto plantea el riesgo de que los sistemas de IA operen más allá de la supervisión humana, con importantes desafíos sociales y de seguridad. Fuente: Facebook.
+
+Meta AI.
+Meta AI y Llama 3 impulsan productos de Meta. Meta AI es el laboratorio de inteligencia artificial de Meta Platforms, Inc., integrado en aplicaciones como Facebook, Instagram, WhatsApp y Messenger, así como en las gafas Ray-Ban Meta y Meta Quest. Los modelos de lenguaje grande (LLM) de Meta, como Llama 3, son considerados entre los más capaces y se utilizan para entrenar productos como Meta AI e Imagine. Fuente: Facebook.
+Meta AI se lanza como aplicación independiente, compitiendo con líderes del mercado. El asistente Meta AI se lanzó recientemente como una aplicación independiente, lo que lo coloca en competencia directa con líderes del mercado como ChatGPT de OpenAI, Claude de Anthropic y Gemini de Google. Esto forma parte de la estrategia de Meta de infundir productos de IA en Facebook, Instagram y el Metaverso. Fuente: Quora.
+Muse Spark de Meta Superintelligence Labs potencia Meta AI en gafas inteligentes. Muse Spark, el primer modelo de Meta Superintelligence Labs, ahora impulsa Meta AI en las gafas inteligentes Ray-Ban y Oakley, reemplazando a Llama 4. Esto demuestra la inversión de Meta en talento de IA para mejorar sus productos de realidad aumentada y virtual. Fuente: VR.org.
+
+Microsoft AI.
+Azure supera los $100 mil millones en ingresos anuales y Copilot crece. Los ingresos de Azure de Microsoft crecieron un 41% en el cuarto trimestre fiscal, superando los $100 mil millones en ingresos anuales por primera vez. Microsoft 365 Copilot superó los 30 millones de asientos pagados, y los ingresos de GitHub Copilot se aceleraron más del 60% trimestre tras trimestre después del cambio a la facturación basada en el uso. Fuente: 24/7 Wall St..
+GitHub Copilot mejora el ciclo de vida de DevOps. GitHub Copilot, una solución de asistente de código basada en IA, se integra directamente en los flujos de trabajo de los desarrolladores para generar sugerencias de código eficientes y conscientes del contexto. Ayuda a automatizar tareas repetitivas, promover la coherencia en el código y mejorar la calidad general del software. Fuente: Microsoft Marketplace.
+Microsoft lanza Agent Framework para Go para agentes de IA en producción. Microsoft ha lanzado el Microsoft Agent Framework (MAF) para Go, un framework de código abierto y multi-lenguaje para construir, orquestar y desplegar agentes de IA y flujos de trabajo multi-agente de grado de producción. MAF está diseñado para equipos que llevan agentes de prototipo a producción, ofreciendo una base consistente para operar sistemas de agentes. Fuente: GitHub.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Rillet.
+Ronda de financiación Serie C de $100M, alcanza estatus de unicornio en 48 horas. La startup de contabilidad con IA, Rillet, cerró una ronda Serie C de 100 millones de dólares con una valoración de 1.000 millones de dólares en solo 48 horas, después de duplicar sus ingresos anuales recurrentes (ARR) en un solo trimestre. La compañía no estaba buscando activamente financiación, pero el impresionante crecimiento atrajo a inversores líderes. Fuente: Enterprise DNA.
+
+Starcloud.
+Recauda $250M en Serie A para centros de datos de IA en órbita. Starcloud, una startup que construye centros de datos en el espacio, ha recaudado 250 millones de dólares en una ronda de financiación Serie A, alcanzando una valoración post-money de 2.300 millones de dólares. La ronda fue liderada por Manhattan West, con la participación de nuevos inversores como NVIDIA y Cisco Investments. Fuente: Dealroom.co.
+
+Anthropic.
+Integra Claude Mythos 5 en herramientas de seguridad y lanza fondo de $35M. Anthropic está integrando su modelo Claude Mythos 5 en productos de ciberseguridad para operaciones de seguridad, respuesta a incidentes, inteligencia de amenazas e ingeniería de detección. Además, ha lanzado Claude Security en beta pública y ha comprometido 35 millones de dólares en créditos para un fondo de ciberdefensa de código abierto. Fuente: Dealroom.co.
+
+Outbid.lol.
+Proyecto de un solo fundador genera $120K y 1M de visitantes en 48 horas. Outbid.lol, una tabla de clasificación donde el rango se determina únicamente por lo que paga una empresa, atrajo más de un millón de visitantes y 120.000 dólares en ofertas dentro de las 48 horas posteriores a su lanzamiento el 19 de agosto de 2026. El producto, construido por un solo desarrollador, aplica la lógica de las subastas de palabras clave a una única página pública y rechazó una oferta de adquisición de 100.000 dólares. Fuente: Markets Insider / Newsfile Corp..
+
+e2e-assure.
+Establece prueba de madurez para SOCs de IA y critica el estado actual del mercado. e2e-assure ha presentado una prueba de madurez para los Centros de Operaciones de Seguridad (SOCs) impulsados por IA, argumentando que la mayor parte del mercado se encuentra estancada en la primera etapa. Esto sugiere una brecha significativa entre la promesa de la IA en ciberseguridad y su implementación efectiva en la práctica. Fuente: Newsfile Corp..
+
+Sección: 📰 Top 10 Noticias.
+
+Anthropic alcanza una valoración implícita de $1 billón antes de su posible salida a bolsa, superando a SpaceX y OpenAI en el mercado secundario..
+Anthropic, la destacada empresa de IA, ha alcanzado una valoración implícita de $1 billón en el mercado secundario, según datos de plataformas como Jupiter Prestocks y Forge Global. Este hito la convierte en la tercera empresa privada en la historia en lograrlo antes de una IPO, uniéndose a OpenAI y SpaceX. La valoración ha crecido un 733% desde octubre de 2025, impulsada por un crecimiento exponencial de ingresos y su primer ingreso operativo positivo. Fuente: Facebook (The Rundown AI, citando Financial Times).
+¿Por qué importa? Para un fundador tech, esta noticia subraya el inmenso apetito del mercado por las empresas de IA con tracción real y el potencial de valoraciones masivas. Indica que la inversión en IA sigue siendo una prioridad, incluso para salidas a bolsa históricas.
+
+Nvidia inicia conversaciones con la startup surcoreana Rebellions para una posible asociación o adquisición en chips de IA..
+Nvidia ha entablado conversaciones iniciales con Rebellions, una startup surcoreana especializada en chips de IA, explorando diversas formas de colaboración que incluyen una asociación técnica, inversión o una posible adquisición. Rebellions, valorada en $2.34 mil millones, ya ha recaudado $850 millones en financiación total. Fuente: Verdict (citando Bloomberg).
+¿Por qué importa? Esta noticia es crucial para los fundadores tech, especialmente en hardware de IA y semiconductores. Demuestra la estrategia de Nvidia para consolidar su liderazgo y la importancia de la innovación en chips de IA, sugiriendo oportunidades de asociación o adquisición para startups con tecnología diferenciada.
+
+Alphabet, a través de Waymo, desarrolla un chip de IA personalizado para sus robotaxis, buscando un mayor control de costos y rendimiento..
+Waymo, la unidad de conducción autónoma de Alphabet, ha desarrollado su propio chip de IA personalizado para sus robotaxis. Esta estrategia busca un control más estricto sobre los costos de computación y el rendimiento del modelo, replicando el enfoque de Alphabet con sus TPUs para Google Cloud AI. Fuente: Simply Wall St News.
+¿Por qué importa? Los fundadores tech deben notar la tendencia de las grandes empresas a la integración vertical en hardware de IA. Esto resalta la importancia de la eficiencia en la computación de IA y la oportunidad de desarrollar soluciones de hardware o software que optimicen el rendimiento y el costo para aplicaciones específicas.
+
+El Acta de IA de la UE entra en vigor, estableciendo el primer marco legal integral para la inteligencia artificial a nivel mundial..
+El Acta de IA de la Unión Europea, el primer marco legal integral sobre IA a nivel mundial, se hizo aplicable el 2 de agosto de 2026, con algunas excepciones y un cronograma de implementación gradual. La Comisión Europea ha emitido directrices y ha comenzado a hacer cumplir las nuevas normas de transparencia, buscando fomentar una IA confiable en Europa. Fuente: Shaping Europe's digital future (Comisión Europea).
+¿Por qué importa? Esta regulación es fundamental para cualquier fundador tech que desarrolle o implemente soluciones de IA, especialmente si opera o planea operar en Europa. Ignorar estas normas puede acarrear sanciones significativas, y la conformidad puede ser una ventaja competitiva.
+
+Starcloud recauda $250 millones en una ronda de financiación Serie A extendida, valorando la empresa en $2.3 mil millones para escalar centros de datos orbitales..
+Starcloud, pionera en centros de datos en el espacio, ha anunciado una ronda de financiación Serie A extendida de $250 millones, alcanzando una valoración post-dinero de $2.3 mil millones. La ronda fue liderada por Manhattan West, con la participación de inversores existentes y nuevos, incluyendo NVIDIA y Cisco Investments, elevando el capital total recaudado a $450 millones. Fuente: Business Wire.
+¿Por qué importa? Esta noticia destaca la creciente inversión en infraestructura tecnológica de vanguardia y la exploración de soluciones no convencionales para la demanda de computación. Para los fundadores, señala oportunidades en sectores emergentes y la importancia de la escalabilidad y la innovación disruptiva.
+
+Fasset alcanza una valoración de $1 billón tras una ronda de financiación Serie C de $68 millones liderada por SBI Group para su neobanco de stablecoins impulsado por IA..
+Fasset, una plataforma de neobanca de stablecoins impulsada por IA, ha cerrado una ronda de financiación Serie C de $68 millones, alcanzando una valoración de $1 billón. La inversión, liderada por SBI Group, apoyará la expansión de Own Network, la red financiera regulada de Fasset que conecta bancos, telcos y proveedores de pagos. Fuente: Business Wire.
+¿Por qué importa? Esta noticia es relevante para fundadores en fintech y blockchain, mostrando el potencial de crecimiento y las altas valoraciones en la intersección de IA y finanzas descentralizadas. Destaca la importancia de la regulación y la construcción de redes financieras robustas.
+
+Las solicitudes de subsidio por desempleo en EE. UU. caen a 206,000 la semana pasada, señalando una continua solidez en el mercado laboral..
+El número de personas que solicitaron beneficios por desempleo en Estados Unidos disminuyó la semana pasada a 206,000, lo que indica que los despidos siguen siendo bajos y que la mayoría de los estadounidenses gozan de seguridad laboral. Este dato es un signo más de la fortaleza subyacente del mercado laboral. Fuente: AP News.
+¿Por qué importa? Un mercado laboral fuerte puede influir en el gasto del consumidor y la confianza empresarial, afectando las proyecciones de crecimiento para startups. Para los fundadores, esto puede significar un entorno favorable para la recaudación de fondos y el crecimiento, pero también una mayor competencia por el talento.
+
+La regulación de criptomonedas en EE. UU. se acerca a la claridad tras reuniones en la Casa Blanca y la CFTC, según el CEO de Ripple..
+Brad Garlinghouse, CEO de Ripple, ha declarado que la regulación de las criptomonedas en Estados Unidos está llegando a un punto decisivo después de reuniones recientes en la Casa Blanca y la Comisión de Comercio de Futuros de Productos Básicos (CFTC). Estas discusiones buscan establecer un marco de mercado integral para los activos digitales, aunque persisten disputas en el Congreso. Fuente: Market News (citando Ripple CEO).
+¿Por qué importa? La claridad regulatoria es vital para los fundadores en el espacio blockchain y cripto. Un marco definido puede desbloquear nuevas oportunidades de inversión, reducir la incertidumbre y permitir una mayor adopción institucional, pero también podría imponer nuevas restricciones operativas.
+
+IBM y la Universidad de Chicago demuestran una computación cuántica que resuelve un problema en 15 minutos, inalcanzable para métodos clásicos..
+Investigadores de IBM y la Universidad de Chicago han demostrado una computación cuántica que completó una tarea en aproximadamente 15 minutos, una hazaña que está más allá del alcance práctico de los métodos clásicos líderes. Este avance, publicado en arXiv, representa un paso significativo hacia la ventaja cuántica y la confianza en los ordenadores cuánticos a gran escala. Fuente: SciTechDaily (citando arXiv).
+¿Por qué importa? Este hito en la computación cuántica es un recordatorio para los fundadores tech de la próxima ola de tecnologías disruptivas. Aunque aún no es mainstream, el progreso en la computación cuántica podría abrir nuevas fronteras para la optimización, el descubrimiento de materiales y la criptografía, creando oportunidades para futuras aplicaciones empresariales.
+
+Nvidia, según informes, evalúa a Perplexity con una valoración superior a los $30 mil millones, a medida que la búsqueda de IA evoluciona hacia un negocio de agentes..
+Nvidia está considerando una posible inversión o adquisición de Perplexity, la startup de búsqueda de IA, con una valoración que podría superar los $30 mil millones. Este interés subraya la creciente importancia de la búsqueda conversacional impulsada por IA y la evolución del sector hacia modelos de negocio basados en agentes de IA. Fuente: Tech Funding News.
+¿Por qué importa? Para los fundadores tech, esta noticia destaca la monetización y el valor estratégico de las aplicaciones de IA en la búsqueda y los agentes conversacionales. Sugiere que la diferenciación en la experiencia del usuario y la capacidad de ofrecer resultados precisos y concisos son clave para el éxito en este espacio.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
