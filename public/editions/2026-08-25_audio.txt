@@ -1,0 +1,106 @@
+El Periódico. Edición del 2026-08-25.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Tim Cook.
+Fiesta de despedida antes de la transición de CEO. Apple celebró una fiesta de despedida para Tim Cook el 23 de agosto de 2026 en el campus de Apple Park, antes de que deje su cargo como CEO el 1 de septiembre para convertirse en presidente ejecutivo. El evento, al que asistieron aproximadamente 200 personas, incluyó una actuación de OneRepublic y discursos de figuras clave de Apple, como Laurene Powell Jobs y el CEO entrante John Ternus. Cook también hizo una rara mención pública de su pareja. Fuente: The Information (reportado por MacTech.com, MacRumors, AppleInsider, The CSR Journal).
+
+Mark Zuckerberg.
+Manifiesto sobre el futuro de la IA. Mark Zuckerberg publicó un manifiesto de 6,500 palabras esta semana, detallando la visión de Meta para la inteligencia artificial. Argumenta que la superinteligencia personal debe estar disponible para todos y no ser controlada por unas pocas entidades grandes. El ensayo también aborda la postura de Meta contra la regulación gubernamental excesiva en el desarrollo de la IA. Fuente: Meta (reportado por The Motley Fool, TechTarget, ALM Corp, Axios, TechPolicy.Press).
+
+Dario Amodei.
+Preparativos para IPO con acciones de supervoto. Anthropic está preparando la emisión de acciones con derechos de supervoto para su CEO Dario Amodei y otros cofundadores, con el fin de asegurar su control antes de una posible oferta pública inicial (IPO) a finales de septiembre de 2026. Esta estructura busca proteger a los fundadores de la presión de los accionistas externos, a pesar de su participación relativamente pequeña en la propiedad. Fuente: The Information y Bloomberg (reportado por Oninvest, edgeX Exchange, BloFin, Taipei Times, Los Angeles Times, International Finance Magazine, TipRanks).
+
+Lisa Su.
+Inversión de más de $10 mil millones en Taiwán para chips de IA. La CEO de AMD, Lisa Su, anunció el 23 de agosto de 2026 una inversión de más de $10 mil millones en el ecosistema industrial de Taiwán. Esta inversión está destinada a expandir la colaboración en empaques avanzados y fabricación con socios como TSMC, ASE Technology, SPIL y Powertech Technology, para satisfacer la creciente demanda global de infraestructura de IA. Fuente: The Motley Fool y BigGo Finance (reportando declaraciones de Lisa Su).
+
+Andy Jassy.
+El negocio de chips de Amazon supera los $25 mil millones en ingresos anuales. Andy Jassy, CEO de Amazon, declaró el 25 de agosto de 2026 que el negocio de chips de la compañía ya genera más de $25 mil millones en ingresos anuales y está creciendo a tasas de tres dígitos. Amazon se está consolidando como un importante fabricante de chips para centros de datos, compitiendo con empresas como Nvidia. Fuente: Light Reading.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+Mejora de rendimiento y precio con GPT-5.6 en Kiro. OpenAI ha anunciado avances en la relación precio-rendimiento para desarrolladores con la integración de GPT-5.6 en Kiro. Esta actualización busca optimizar la eficiencia y el costo de sus modelos para la comunidad de desarrolladores. Fuente: OpenAI.
+
+Anthropic.
+Proceso de contratación prioriza la misión de seguridad de la IA. Anthropic está incluyendo preguntas en sus entrevistas de trabajo sobre la disposición de los candidatos a priorizar la seguridad de la IA, incluso si esto afectara negativamente las ambiciones comerciales o el valor de las acciones de la empresa. Esta práctica subraya su compromiso con la seguridad y la gobernanza de la IA. Fuente: X (anteriormente Twitter).
+
+Mistral AI.
+Mistral AI se consolida como líder europeo en IA con Le Chat. Mistral AI se posiciona como una empresa europea clave en inteligencia artificial, destacando por sus modelos de lenguaje y su asistente conversacional 'Le Chat'. Esta herramienta permite a los usuarios chatear, redactar y analizar información de manera eficiente. Fuente: The AI Revolution News.
+
+Microsoft AI.
+Investigación en IA para complementar el razonamiento humano. Microsoft AI Research se enfoca en la creación de máquinas de inteligencia artificial diseñadas para complementar el razonamiento humano. El objetivo es enriquecer las experiencias y competencias de las personas mediante la IA. Fuente: Microsoft AI Research.
+
+Stability AI.
+Lanzamiento de Stable Diffusion 3 Medium. Stability AI ha lanzado Stable Diffusion 3 Medium, un modelo de texto a imagen más pequeño y eficiente, diseñado para ser accesible a una amplia gama de usuarios y aplicaciones. Este modelo ofrece una calidad de imagen mejorada y un rendimiento más rápido en comparación con versiones anteriores. Fuente: TechCrunch.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Hugging Face.
+Explora una posible venta por más de $13 mil millones. Hugging Face, una plataforma líder en IA de código abierto, está explorando una posible venta que podría valorarla en más de $13 mil millones. Las discusiones surgieron el 23 de agosto de 2026 y fueron confirmadas el 24 de agosto de 2026, con interés de grandes empresas tecnológicas que ya habían invertido en la compañía. Fuente: BetaNews.
+
+Cityblock Health.
+Recauda $116 millones en Serie E. Cityblock Health, un proveedor de atención médica basado en valor que ofrece servicios integrados de atención primaria, salud conductual y servicios sociales, recaudó $116 millones en una ronda de financiación Serie E liderada por General Catalyst. Fuente: AlleyWatch.
+Adquiere Homeward Health. Junto con la ronda de financiación, Cityblock Health anunció un acuerdo definitivo para adquirir el proveedor de atención médica rural Homeward Health en una transacción de acciones. Esta adquisición posiciona a la plataforma combinada para atender a 120 millones de personas inscritas en programas de atención médica patrocinados por el gobierno. Fuente: AlleyWatch.
+
+Digs.
+Recauda $25.3 millones en financiación Serie A. Digs, una startup con sede en Vancouver, Washington, que desarrolla software de IA para la construcción residencial, recaudó $25.3 millones en financiación Serie A. La ronda fue liderada por el gigante de productos de construcción Builders FirstSource. Fuente: GeekWire.
+Se asocia con Builders FirstSource. Como parte del acuerdo de financiación, Digs firmó un acuerdo de cinco años con Builders FirstSource para integrar su plataforma de IA en el ecosistema digital del gigante de la construcción. Esto ampliará las herramientas para sus 140,000 clientes constructores, agilizando procesos desde estimaciones hasta el mantenimiento del hogar. Fuente: GeekWire.
+
+Fasset.
+Recauda $68 millones en financiación Serie C. Fasset, la plataforma de neobanca de stablecoins impulsada por IA, anunció que ha recaudado $68 millones en financiación Serie C. Esta ronda valora a la compañía en $1 mil millones. Fuente: VC News Daily.
+
+Dexmate.
+NEC Orchestrating Future Fund invierte en Dexmate. NEC Corporation, a través de su fondo de capital de riesgo corporativo (CVC) NEC Orchestrating Future Fund, ha invertido en Dexmate, una startup estadounidense que ofrece el robot humanoide controlado por IA 'VEGA' y una plataforma de desarrollo de IA Física. Fuente: NEC Corporation.
+
+Sección: 📰 Top 10 Noticias.
+
+NVIDIA Asegura Campus Tecnológico de SB Energy en Ohio para Hospedar Exclusivamente Cómputo de IA de NVIDIA.
+NVIDIA ha garantizado que el campus tecnológico PORTS-Pike de SB Energy en Ohio albergará exclusivamente su infraestructura de cómputo de IA. Esta medida, anunciada el 24 de agosto de 2026, forma parte de una estrategia más amplia de NVIDIA para establecer plataformas de financiación de infraestructura de IA con socios financieros clave, con el objetivo de movilizar más de 500 mil millones de dólares en capital de terceros. Fuente: NVIDIA Investor Relations.
+¿Por qué importa? Para un fundador tech, esto subraya la creciente demanda de infraestructura de IA dedicada y el modelo de negocio de NVIDIA de asegurar la adopción de su hardware a través de alianzas estratégicas y financiación. Indica la consolidación del mercado de cómputo de IA y la necesidad de capital masivo para escalar, lo que puede influir en las decisiones de inversión y desarrollo de productos.
+
+No se encontraron noticias adicionales de Tier 4 en las últimas 24 horas.
+No se identificaron noticias adicionales que cumplieran con los estrictos criterios de fuentes Tier 4 y el plazo de las últimas 24 horas (24-25 de agosto de 2026). Fuente: N/A.
+¿Por qué importa? La ausencia de noticias destacadas de fuentes Tier 4 en un período tan corto puede indicar un momento de calma en el ciclo de noticias de alto impacto o la dificultad de obtener información en tiempo real bajo restricciones estrictas.
+
+No se encontraron noticias adicionales de Tier 4 en las últimas 24 horas.
+No se identificaron noticias adicionales que cumplieran con los estrictos criterios de fuentes Tier 4 y el plazo de las últimas 24 horas (24-25 de agosto de 2026). Fuente: N/A.
+¿Por qué importa? La ausencia de noticias destacadas de fuentes Tier 4 en un período tan corto puede indicar un momento de calma en el ciclo de noticias de alto impacto o la dificultad de obtener información en tiempo real bajo restricciones estrictas.
+
+No se encontraron noticias adicionales de Tier 4 en las últimas 24 horas.
+No se identificaron noticias adicionales que cumplieran con los estrictos criterios de fuentes Tier 4 y el plazo de las últimas 24 horas (24-25 de agosto de 2026). Fuente: N/A.
+¿Por qué importa? La ausencia de noticias destacadas de fuentes Tier 4 en un período tan corto puede indicar un momento de calma en el ciclo de noticias de alto impacto o la dificultad de obtener información en tiempo real bajo restricciones estrictas.
+
+No se encontraron noticias adicionales de Tier 4 en las últimas 24 horas.
+No se identificaron noticias adicionales que cumplieran con los estrictos criterios de fuentes Tier 4 y el plazo de las últimas 24 horas (24-25 de agosto de 2026). Fuente: N/A.
+¿Por qué importa? La ausencia de noticias destacadas de fuentes Tier 4 en un período tan corto puede indicar un momento de calma en el ciclo de noticias de alto impacto o la dificultad de obtener información en tiempo real bajo restricciones estrictas.
+
+No se encontraron noticias adicionales de Tier 4 en las últimas 24 horas.
+No se identificaron noticias adicionales que cumplieran con los estrictos criterios de fuentes Tier 4 y el plazo de las últimas 24 horas (24-25 de agosto de 2026). Fuente: N/A.
+¿Por qué importa? La ausencia de noticias destacadas de fuentes Tier 4 en un período tan corto puede indicar un momento de calma en el ciclo de noticias de alto impacto o la dificultad de obtener información en tiempo real bajo restricciones estrictas.
+
+No se encontraron noticias adicionales de Tier 4 en las últimas 24 horas.
+No se identificaron noticias adicionales que cumplieran con los estrictos criterios de fuentes Tier 4 y el plazo de las últimas 24 horas (24-25 de agosto de 2026). Fuente: N/A.
+¿Por qué importa? La ausencia de noticias destacadas de fuentes Tier 4 en un período tan corto puede indicar un momento de calma en el ciclo de noticias de alto impacto o la dificultad de obtener información en tiempo real bajo restricciones estrictas.
+
+No se encontraron noticias adicionales de Tier 4 en las últimas 24 horas.
+No se identificaron noticias adicionales que cumplieran con los estrictos criterios de fuentes Tier 4 y el plazo de las últimas 24 horas (24-25 de agosto de 2026). Fuente: N/A.
+¿Por qué importa? La ausencia de noticias destacadas de fuentes Tier 4 en un período tan corto puede indicar un momento de calma en el ciclo de noticias de alto impacto o la dificultad de obtener información en tiempo real bajo restricciones estrictas.
+
+No se encontraron noticias adicionales de Tier 4 en las últimas 24 horas.
+No se identificaron noticias adicionales que cumplieran con los estrictos criterios de fuentes Tier 4 y el plazo de las últimas 24 horas (24-25 de agosto de 2026). Fuente: N/A.
+¿Por qué importa? La ausencia de noticias destacadas de fuentes Tier 4 en un período tan corto puede indicar un momento de calma en el ciclo de noticias de alto impacto o la dificultad de obtener información en tiempo real bajo restricciones estrictas.
+
+No se encontraron noticias adicionales de Tier 4 en las últimas 24 horas.
+No se identificaron noticias adicionales que cumplieran con los estrictos criterios de fuentes Tier 4 y el plazo de las últimas 24 horas (24-25 de agosto de 2026). Fuente: N/A.
+¿Por qué importa? La ausencia de noticias destacadas de fuentes Tier 4 en un período tan corto puede indicar un momento de calma en el ciclo de noticias de alto impacto o la dificultad de obtener información en tiempo real bajo restricciones estrictas.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
