@@ -1,0 +1,601 @@
+{
+  "version": "2.0",
+  "date": "2026-08-25",
+  "generated_at": "2026-08-25T05:00:40.370966-06:00",
+  "timezone": "CST (UTC-6)",
+  "language": "es-MX",
+  "tier": "Tier 4",
+  "sections": {
+    "titans": {
+      "key": "titans",
+      "title": "🏛️ Los Titans",
+      "data": [
+        {
+          "nombre": "Tim Cook",
+          "empresa": "Apple",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Fiesta de despedida antes de la transición de CEO",
+              "detalle": "Apple celebró una fiesta de despedida para Tim Cook el 23 de agosto de 2026 en el campus de Apple Park, antes de que deje su cargo como CEO el 1 de septiembre para convertirse en presidente ejecutivo. El evento, al que asistieron aproximadamente 200 personas, incluyó una actuación de OneRepublic y discursos de figuras clave de Apple, como Laurene Powell Jobs y el CEO entrante John Ternus. Cook también hizo una rara mención pública de su pareja.",
+              "fuente": "The Information (reportado por MacTech.com, MacRumors, AppleInsider, The CSR Journal)",
+              "url": "https://www.macrumors.com/2026/08/24/apple-tim-cook-farewell-party/",
+              "impacto": "Este evento marca el inicio formal de la transición de liderazgo en Apple, con Cook asumiendo un rol más estratégico y el nuevo CEO enfrentando el desafío de mantener el impulso de innovación de la compañía."
+            }
+          ]
+        },
+        {
+          "nombre": "Mark Zuckerberg",
+          "empresa": "Meta",
+          "actividad": [
+            {
+              "tipo": "publicación",
+              "titulo": "Manifiesto sobre el futuro de la IA",
+              "detalle": "Mark Zuckerberg publicó un manifiesto de 6,500 palabras esta semana, detallando la visión de Meta para la inteligencia artificial. Argumenta que la superinteligencia personal debe estar disponible para todos y no ser controlada por unas pocas entidades grandes. El ensayo también aborda la postura de Meta contra la regulación gubernamental excesiva en el desarrollo de la IA.",
+              "fuente": "Meta (reportado por The Motley Fool, TechTarget, ALM Corp, Axios, TechPolicy.Press)",
+              "url": "https://www.techpolicy.press/zuckerbergs-ai-manifesto-lost-it-at-compute/",
+              "impacto": "La publicación de este manifiesto posiciona a Meta como un defensor clave de la IA abierta y accesible, lo que podría influir en el debate regulatorio global y la dirección del desarrollo de la IA."
+            }
+          ]
+        },
+        {
+          "nombre": "Dario Amodei",
+          "empresa": "Anthropic",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Preparativos para IPO con acciones de supervoto",
+              "detalle": "Anthropic está preparando la emisión de acciones con derechos de supervoto para su CEO Dario Amodei y otros cofundadores, con el fin de asegurar su control antes de una posible oferta pública inicial (IPO) a finales de septiembre de 2026. Esta estructura busca proteger a los fundadores de la presión de los accionistas externos, a pesar de su participación relativamente pequeña en la propiedad.",
+              "fuente": "The Information y Bloomberg (reportado por Oninvest, edgeX Exchange, BloFin, Taipei Times, Los Angeles Times, International Finance Magazine, TipRanks)",
+              "url": "https://www.taipeitimes.com/News/business/archives/2026/08/23/2003863412",
+              "impacto": "La implementación de acciones de supervoto podría permitir a los fundadores de Anthropic mantener su visión a largo plazo para la IA, pero también podría generar preocupaciones entre los inversores sobre la gobernanza corporativa."
+            }
+          ]
+        },
+        {
+          "nombre": "Lisa Su",
+          "empresa": "AMD",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Inversión de más de $10 mil millones en Taiwán para chips de IA",
+              "detalle": "La CEO de AMD, Lisa Su, anunció el 23 de agosto de 2026 una inversión de más de $10 mil millones en el ecosistema industrial de Taiwán. Esta inversión está destinada a expandir la colaboración en empaques avanzados y fabricación con socios como TSMC, ASE Technology, SPIL y Powertech Technology, para satisfacer la creciente demanda global de infraestructura de IA.",
+              "fuente": "The Motley Fool y BigGo Finance (reportando declaraciones de Lisa Su)",
+              "url": "https://www.biggo.com.tw/finance/news/amd-to-invest-over-10-billion-in-taiwan-lisa-su-says-teaming-up-with-tsmc-to-accelerate-ai-system-level-production/",
+              "impacto": "Esta inversión estratégica subraya la importancia de Taiwán en la cadena de suministro de semiconductores para IA y posiciona a AMD para un crecimiento significativo en el mercado de chips de IA."
+            }
+          ]
+        },
+        {
+          "nombre": "Andy Jassy",
+          "empresa": "Amazon",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "El negocio de chips de Amazon supera los $25 mil millones en ingresos anuales",
+              "detalle": "Andy Jassy, CEO de Amazon, declaró el 25 de agosto de 2026 que el negocio de chips de la compañía ya genera más de $25 mil millones en ingresos anuales y está creciendo a tasas de tres dígitos. Amazon se está consolidando como un importante fabricante de chips para centros de datos, compitiendo con empresas como Nvidia.",
+              "fuente": "Light Reading",
+              "url": "https://www.lightreading.com/ai-ml/amazon-emerges-as-a-major-data-centre-chipmaker-alongside-nvidia",
+              "impacto": "El crecimiento del negocio de chips de Amazon reduce su dependencia de proveedores externos y fortalece su posición en el mercado de infraestructura de IA, ofreciendo alternativas a sus clientes de AWS."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-08-25T05:02:45.730839-06:00",
+      "status": "ok"
+    },
+    "ai_leaders": {
+      "key": "ai_leaders",
+      "title": "🤖 AI Leaders",
+      "data": [
+        {
+          "empresa": "OpenAI",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Mejora de rendimiento y precio con GPT-5.6 en Kiro",
+              "detalle": "OpenAI ha anunciado avances en la relación precio-rendimiento para desarrolladores con la integración de GPT-5.6 en Kiro. Esta actualización busca optimizar la eficiencia y el costo de sus modelos para la comunidad de desarrolladores.",
+              "fuente": "OpenAI",
+              "url": "https://openai.com/news/advancing-price-performance-for-developers-with-gpt-5-6-in-kiro",
+              "aplicacion_genyx": "GENyx podría aprovechar estas mejoras en precio-rendimiento para optimizar sus propios modelos de IA, reduciendo costos operativos y ofreciendo soluciones más competitivas a sus clientes."
+            }
+          ]
+        },
+        {
+          "empresa": "Anthropic",
+          "novedades": [
+            {
+              "tipo": "hiring",
+              "titulo": "Proceso de contratación prioriza la misión de seguridad de la IA",
+              "detalle": "Anthropic está incluyendo preguntas en sus entrevistas de trabajo sobre la disposición de los candidatos a priorizar la seguridad de la IA, incluso si esto afectara negativamente las ambiciones comerciales o el valor de las acciones de la empresa. Esta práctica subraya su compromiso con la seguridad y la gobernanza de la IA.",
+              "fuente": "X (anteriormente Twitter)",
+              "url": "https://x.com/Canuto/status/1824701980800000000",
+              "aplicacion_genyx": "Para GENyx, esto resalta la importancia de integrar la ética y la seguridad de la IA desde la fase de contratación, asegurando que el equipo comparta los valores fundamentales de desarrollo responsable."
+            }
+          ]
+        },
+        {
+          "empresa": "Mistral AI",
+          "novedades": [
+            {
+              "tipo": "producto",
+              "titulo": "Mistral AI se consolida como líder europeo en IA con Le Chat",
+              "detalle": "Mistral AI se posiciona como una empresa europea clave en inteligencia artificial, destacando por sus modelos de lenguaje y su asistente conversacional 'Le Chat'. Esta herramienta permite a los usuarios chatear, redactar y analizar información de manera eficiente.",
+              "fuente": "The AI Revolution News",
+              "url": "https://www.airevolution.news/mistral-la-apuesta-europea-de-ia/",
+              "aplicacion_genyx": "GENyx puede observar la estrategia de Mistral AI para desarrollar asistentes conversacionales especializados, lo que podría inspirar nuevas funcionalidades o la mejora de sus propias interfaces de usuario basadas en IA."
+            }
+          ]
+        },
+        {
+          "empresa": "Microsoft AI",
+          "novedades": [
+            {
+              "tipo": "research",
+              "titulo": "Investigación en IA para complementar el razonamiento humano",
+              "detalle": "Microsoft AI Research se enfoca en la creación de máquinas de inteligencia artificial diseñadas para complementar el razonamiento humano. El objetivo es enriquecer las experiencias y competencias de las personas mediante la IA.",
+              "fuente": "Microsoft AI Research",
+              "url": "https://www.microsoft.com/en-us/research/research-area/artificial-intelligence/",
+              "aplicacion_genyx": "Esta dirección de investigación sugiere a GENyx la importancia de desarrollar soluciones de IA que no solo automaticen, sino que también aumenten las capacidades humanas, creando un valor añadido en la interacción con el usuario."
+            }
+          ]
+        },
+        {
+          "empresa": "Stability AI",
+          "novedades": [
+            {
+              "tipo": "product",
+              "titulo": "Lanzamiento de Stable Diffusion 3 Medium",
+              "detalle": "Stability AI ha lanzado Stable Diffusion 3 Medium, un modelo de texto a imagen más pequeño y eficiente, diseñado para ser accesible a una amplia gama de usuarios y aplicaciones. Este modelo ofrece una calidad de imagen mejorada y un rendimiento más rápido en comparación con versiones anteriores.",
+              "fuente": "TechCrunch",
+              "url": "https://techcrunch.com/2026/08/23/stability-ai-launches-stable-diffusion-3-medium-a-smaller-more-efficient-text-to-image-model/",
+              "aplicacion_genyx": "GENyx podría integrar modelos de generación de imágenes más eficientes como Stable Diffusion 3 Medium para ofrecer a sus clientes capacidades avanzadas de creación de contenido visual, mejorando la personalización y la automatización en sus servicios SaaS."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "openai.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFezL3TK028y8U1CuPF7K5u3owXs7Egm_74JdkGVy8vAwobxtSZxuWgQnQHG9qUcIz9Ucz_of7YdyWZohLuu8JUO354223J0BK8eyZnaJ-zkKIpzSxQb6IDXlo="
+        },
+        {
+          "title": "microsoft.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHg8bPpGHyumCVKrWQ8RTBuOiUA7nfXjE4s5SV7q9l0UbcZsa7TwGmgr-hFBHbc4RE_rGCf3QC_82pA2eU6J0s5UhdOQ_K0NS9VHxaziCgC6hPeqgtIYYgfvpQriShkdBFsTeB3cLSF3SgEOcE3-GpO2cE-v4pyK8VgNW2d6OcPFtCNBOsIR5qPotA="
+        }
+      ],
+      "generated_at": "2026-08-25T05:03:58.288112-06:00",
+      "status": "ok"
+    },
+    "emerging": {
+      "key": "emerging",
+      "title": "🚀 Emerging Tech & Startups",
+      "data": [
+        {
+          "empresa": "Hugging Face",
+          "sector": "AI/ML, Plataformas de Desarrollo",
+          "valoracion": "Más de $13 mil millones (rumoreada)",
+          "novedades": [
+            {
+              "tipo": "adquisición",
+              "titulo": "Explora una posible venta por más de $13 mil millones",
+              "detalle": "Hugging Face, una plataforma líder en IA de código abierto, está explorando una posible venta que podría valorarla en más de $13 mil millones. Las discusiones surgieron el 23 de agosto de 2026 y fueron confirmadas el 24 de agosto de 2026, con interés de grandes empresas tecnológicas que ya habían invertido en la compañía.",
+              "fuente": "BetaNews",
+              "url": "https://betanews.com/2026/08/24/hugging-face-explores-sale-worth-13-billion-or-more/",
+              "por_que_importa": "Esta noticia es crucial porque una valoración tan alta y el interés de adquisición por parte de Big Tech subrayan la consolidación y el valor estratégico de las plataformas de IA de código abierto en el ecosistema tecnológico, especialmente en un momento de intensa competencia en IA."
+            }
+          ]
+        },
+        {
+          "empresa": "Cityblock Health",
+          "sector": "HealthTech AI Enterprise",
+          "valoracion": "Aproximadamente $1 mil millones (financiación total)",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Recauda $116 millones en Serie E",
+              "detalle": "Cityblock Health, un proveedor de atención médica basado en valor que ofrece servicios integrados de atención primaria, salud conductual y servicios sociales, recaudó $116 millones en una ronda de financiación Serie E liderada por General Catalyst.",
+              "fuente": "AlleyWatch",
+              "url": "https://alleywatch.com/2026/08/the-alleywatch-startup-daily-funding-report-8-24-2026/",
+              "por_que_importa": "Esta significativa ronda de financiación Serie E valida el modelo de negocio de Cityblock Health en la atención médica basada en valor, especialmente para poblaciones desatendidas, y demuestra la continua inversión en soluciones HealthTech impulsadas por IA."
+            },
+            {
+              "tipo": "adquisición",
+              "titulo": "Adquiere Homeward Health",
+              "detalle": "Junto con la ronda de financiación, Cityblock Health anunció un acuerdo definitivo para adquirir el proveedor de atención médica rural Homeward Health en una transacción de acciones. Esta adquisición posiciona a la plataforma combinada para atender a 120 millones de personas inscritas en programas de atención médica patrocinados por el gobierno.",
+              "fuente": "AlleyWatch",
+              "url": "https://alleywatch.com/2026/08/the-alleywatch-startup-daily-funding-report-8-24-2026/",
+              "por_que_importa": "La adquisición de Homeward Health es una jugada estratégica que expande el alcance de Cityblock Health a los mercados rurales, consolidando su posición en el sector de HealthTech y mostrando una tendencia hacia la integración de servicios para una cobertura más amplia."
+            }
+          ]
+        },
+        {
+          "empresa": "Digs",
+          "sector": "Inteligencia Artificial, Construcción",
+          "valoracion": "No divulgada (Serie A)",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Recauda $25.3 millones en financiación Serie A",
+              "detalle": "Digs, una startup con sede en Vancouver, Washington, que desarrolla software de IA para la construcción residencial, recaudó $25.3 millones en financiación Serie A. La ronda fue liderada por el gigante de productos de construcción Builders FirstSource.",
+              "fuente": "GeekWire",
+              "url": "https://www.geekwire.com/2026/homebuilding-ai-startup-digs-raises-25-3m-and-partners-with-building-products-giant/",
+              "por_que_importa": "Esta financiación Serie A, liderada por un actor importante de la industria, destaca el creciente interés y la inversión en la aplicación de la IA para optimizar y transformar el sector de la construcción, tradicionalmente lento en la adopción tecnológica."
+            },
+            {
+              "tipo": "partnership",
+              "titulo": "Se asocia con Builders FirstSource",
+              "detalle": "Como parte del acuerdo de financiación, Digs firmó un acuerdo de cinco años con Builders FirstSource para integrar su plataforma de IA en el ecosistema digital del gigante de la construcción. Esto ampliará las herramientas para sus 140,000 clientes constructores, agilizando procesos desde estimaciones hasta el mantenimiento del hogar.",
+              "fuente": "GeekWire",
+              "url": "https://www.geekwire.com/2026/homebuilding-ai-startup-digs-raises-25-3m-and-partners-with-building-products-giant/",
+              "por_que_importa": "La asociación estratégica con un gigante de la industria como Builders FirstSource es un valioso respaldo para Digs, lo que le permite escalar rápidamente su tecnología y demuestra el potencial de la IA para crear 'gemelos digitales' de hogares que perduran más allá de la fase de construcción."
+            }
+          ]
+        },
+        {
+          "empresa": "Fasset",
+          "sector": "Fintech, Neobanca, IA",
+          "valoracion": "$1 mil millones",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Recauda $68 millones en financiación Serie C",
+              "detalle": "Fasset, la plataforma de neobanca de stablecoins impulsada por IA, anunció que ha recaudado $68 millones en financiación Serie C. Esta ronda valora a la compañía en $1 mil millones.",
+              "fuente": "VC News Daily",
+              "url": "https://vcnewsdaily.com/",
+              "por_que_importa": "Una ronda Serie C significativa y una valoración de unicornio ($1B) para Fasset demuestran la madurez y el potencial de crecimiento en el espacio de la neobanca y las stablecoins, con la IA como un diferenciador clave en el sector Fintech."
+            }
+          ]
+        },
+        {
+          "empresa": "Dexmate",
+          "sector": "Robótica, IA Física",
+          "valoracion": "No divulgada (inversión CVC)",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "NEC Orchestrating Future Fund invierte en Dexmate",
+              "detalle": "NEC Corporation, a través de su fondo de capital de riesgo corporativo (CVC) NEC Orchestrating Future Fund, ha invertido en Dexmate, una startup estadounidense que ofrece el robot humanoide controlado por IA 'VEGA' y una plataforma de desarrollo de IA Física.",
+              "fuente": "NEC Corporation",
+              "url": "https://www.nec.com/en/press/202608/global_20260825_01.html",
+              "por_que_importa": "Esta inversión de un fondo CVC de una gran corporación como NEC subraya la importancia estratégica de la IA Física y la robótica humanoide. La solución integrada de Dexmate, que combina hardware y una plataforma de desarrollo, podría acelerar significativamente la adopción de robots impulsados por IA en el mundo real."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-08-25T05:05:21.409850-06:00",
+      "status": "ok"
+    },
+    "top10": {
+      "key": "top10",
+      "title": "📰 Top 10 Noticias",
+      "data": [
+        {
+          "ranking": 1,
+          "categoria": "AI",
+          "titular": "NVIDIA Asegura Campus Tecnológico de SB Energy en Ohio para Hospedar Exclusivamente Cómputo de IA de NVIDIA",
+          "fuente": "NVIDIA Investor Relations",
+          "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Partners-With-Apollo-BlackRock-Blackstone-Brookfield-Goldman-Sachs-and-KKR-to-Establish-AI-Compute-Infrastructure-Financing-Platforms-to-Mobilize-Over-500-Billion-of-Third-Party-Capital/default.aspx",
+          "resumen": "NVIDIA ha garantizado que el campus tecnológico PORTS-Pike de SB Energy en Ohio albergará exclusivamente su infraestructura de cómputo de IA. Esta medida, anunciada el 24 de agosto de 2026, forma parte de una estrategia más amplia de NVIDIA para establecer plataformas de financiación de infraestructura de IA con socios financieros clave, con el objetivo de movilizar más de 500 mil millones de dólares en capital de terceros.",
+          "por_que_importa": "Para un fundador tech, esto subraya la creciente demanda de infraestructura de IA dedicada y el modelo de negocio de NVIDIA de asegurar la adopción de su hardware a través de alianzas estratégicas y financiación. Indica la consolidación del mercado de cómputo de IA y la necesidad de capital masivo para escalar, lo que puede influir en las decisiones de inversión y desarrollo de productos."
+        },
+        {
+          "ranking": 2,
+          "categoria": "N/A",
+          "titular": "No se encontraron noticias adicionales de Tier 4 en las últimas 24 horas",
+          "fuente": "N/A",
+          "url": "N/A",
+          "resumen": "No se identificaron noticias adicionales que cumplieran con los estrictos criterios de fuentes Tier 4 y el plazo de las últimas 24 horas (24-25 de agosto de 2026).",
+          "por_que_importa": "La ausencia de noticias destacadas de fuentes Tier 4 en un período tan corto puede indicar un momento de calma en el ciclo de noticias de alto impacto o la dificultad de obtener información en tiempo real bajo restricciones estrictas."
+        },
+        {
+          "ranking": 3,
+          "categoria": "N/A",
+          "titular": "No se encontraron noticias adicionales de Tier 4 en las últimas 24 horas",
+          "fuente": "N/A",
+          "url": "N/A",
+          "resumen": "No se identificaron noticias adicionales que cumplieran con los estrictos criterios de fuentes Tier 4 y el plazo de las últimas 24 horas (24-25 de agosto de 2026).",
+          "por_que_importa": "La ausencia de noticias destacadas de fuentes Tier 4 en un período tan corto puede indicar un momento de calma en el ciclo de noticias de alto impacto o la dificultad de obtener información en tiempo real bajo restricciones estrictas."
+        },
+        {
+          "ranking": 4,
+          "categoria": "N/A",
+          "titular": "No se encontraron noticias adicionales de Tier 4 en las últimas 24 horas",
+          "fuente": "N/A",
+          "url": "N/A",
+          "resumen": "No se identificaron noticias adicionales que cumplieran con los estrictos criterios de fuentes Tier 4 y el plazo de las últimas 24 horas (24-25 de agosto de 2026).",
+          "por_que_importa": "La ausencia de noticias destacadas de fuentes Tier 4 en un período tan corto puede indicar un momento de calma en el ciclo de noticias de alto impacto o la dificultad de obtener información en tiempo real bajo restricciones estrictas."
+        },
+        {
+          "ranking": 5,
+          "categoria": "N/A",
+          "titular": "No se encontraron noticias adicionales de Tier 4 en las últimas 24 horas",
+          "fuente": "N/A",
+          "url": "N/A",
+          "resumen": "No se identificaron noticias adicionales que cumplieran con los estrictos criterios de fuentes Tier 4 y el plazo de las últimas 24 horas (24-25 de agosto de 2026).",
+          "por_que_importa": "La ausencia de noticias destacadas de fuentes Tier 4 en un período tan corto puede indicar un momento de calma en el ciclo de noticias de alto impacto o la dificultad de obtener información en tiempo real bajo restricciones estrictas."
+        },
+        {
+          "ranking": 6,
+          "categoria": "N/A",
+          "titular": "No se encontraron noticias adicionales de Tier 4 en las últimas 24 horas",
+          "fuente": "N/A",
+          "url": "N/A",
+          "resumen": "No se identificaron noticias adicionales que cumplieran con los estrictos criterios de fuentes Tier 4 y el plazo de las últimas 24 horas (24-25 de agosto de 2026).",
+          "por_que_importa": "La ausencia de noticias destacadas de fuentes Tier 4 en un período tan corto puede indicar un momento de calma en el ciclo de noticias de alto impacto o la dificultad de obtener información en tiempo real bajo restricciones estrictas."
+        },
+        {
+          "ranking": 7,
+          "categoria": "N/A",
+          "titular": "No se encontraron noticias adicionales de Tier 4 en las últimas 24 horas",
+          "fuente": "N/A",
+          "url": "N/A",
+          "resumen": "No se identificaron noticias adicionales que cumplieran con los estrictos criterios de fuentes Tier 4 y el plazo de las últimas 24 horas (24-25 de agosto de 2026).",
+          "por_que_importa": "La ausencia de noticias destacadas de fuentes Tier 4 en un período tan corto puede indicar un momento de calma en el ciclo de noticias de alto impacto o la dificultad de obtener información en tiempo real bajo restricciones estrictas."
+        },
+        {
+          "ranking": 8,
+          "categoria": "N/A",
+          "titular": "No se encontraron noticias adicionales de Tier 4 en las últimas 24 horas",
+          "fuente": "N/A",
+          "url": "N/A",
+          "resumen": "No se identificaron noticias adicionales que cumplieran con los estrictos criterios de fuentes Tier 4 y el plazo de las últimas 24 horas (24-25 de agosto de 2026).",
+          "por_que_importa": "La ausencia de noticias destacadas de fuentes Tier 4 en un período tan corto puede indicar un momento de calma en el ciclo de noticias de alto impacto o la dificultad de obtener información en tiempo real bajo restricciones estrictas."
+        },
+        {
+          "ranking": 9,
+          "categoria": "N/A",
+          "titular": "No se encontraron noticias adicionales de Tier 4 en las últimas 24 horas",
+          "fuente": "N/A",
+          "url": "N/A",
+          "resumen": "No se identificaron noticias adicionales que cumplieran con los estrictos criterios de fuentes Tier 4 y el plazo de las últimas 24 horas (24-25 de agosto de 2026).",
+          "por_que_importa": "La ausencia de noticias destacadas de fuentes Tier 4 en un período tan corto puede indicar un momento de calma en el ciclo de noticias de alto impacto o la dificultad de obtener información en tiempo real bajo restricciones estrictas."
+        },
+        {
+          "ranking": 10,
+          "categoria": "N/A",
+          "titular": "No se encontraron noticias adicionales de Tier 4 en las últimas 24 horas",
+          "fuente": "N/A",
+          "url": "N/A",
+          "resumen": "No se identificaron noticias adicionales que cumplieran con los estrictos criterios de fuentes Tier 4 y el plazo de las últimas 24 horas (24-25 de agosto de 2026).",
+          "por_que_importa": "La ausencia de noticias destacadas de fuentes Tier 4 en un período tan corto puede indicar un momento de calma en el ciclo de noticias de alto impacto o la dificultad de obtener información en tiempo real bajo restricciones estrictas."
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-08-25T05:06:42.736898-06:00",
+      "status": "ok"
+    },
+    "mercados": {
+      "key": "mercados",
+      "title": "💹 Pulso de Mercados",
+      "data": {
+        "pulso_de_mercados": {
+          "indices": {
+            "seccion": "indices",
+            "datos": [
+              {
+                "nombre": "S&P 500",
+                "valor": "7,652.86",
+                "cambio_pct": "-0.28%",
+                "tendencia": "↓",
+                "fuente": "TheStreet",
+                "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG5Ks9_u3hDBj6I81-aCIhDoJc844oOA_jlHr0urZOEDL9WVSA5PrWWwsw3TF__B_SGnADU0UwufUj9XBpA4sdNPyy3hOC1nfYwaLBrVEt5hQ6udmlKEgx9DwwkQRR_TtDDwLY0WOQnZ0xOyfhdGLFc9yBtceo3JfEXySUfCsP2u2jtBrvxrO6fv-D5AfSW6yRNh8_3ZctpJxP3wLn8JJfriP61Zvl0",
+                "analisis": "El S&P 500 cerró a la baja, arrastrado por la debilidad del sector tecnológico y la cautela de los inversores."
+              },
+              {
+                "nombre": "NASDAQ Composite",
+                "valor": "25,980.19",
+                "cambio_pct": "-0.76%",
+                "tendencia": "↓",
+                "fuente": "NBC Palm Springs",
+                "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEy-NNCxw5s2X8fBSO3ja8FEVD3JQBMXmu7-UyiOzN6x7jMou7DkZcQlgAIfl_2C3XWxv_SHoTooytNpdqwr2LbM_FXjBcSwwaZu80gukkdol8z5muahkj3N_o1YaJlyudgLQb6Hg8ToLFUkdg7j-0R2Pmj03KX8V2paHkpgqxhGAilrPO2uCRsEkzXn41_-HZXZJ4H-rwZcUDPp9wjxCpizzSNKaOcbofb4FfBugVZ8w9bCIt-BopFnvY",
+                "analisis": "El Nasdaq Composite experimentó una caída más pronunciada, con el sector tecnológico liderando el descenso en una jornada mixta para Wall Street."
+              },
+              {
+                "nombre": "Dow Jones Industrial Average",
+                "valor": "53,417.16",
+                "cambio_pct": "+0.26%",
+                "tendencia": "↑",
+                "fuente": "TheStreet",
+                "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG5Ks9_u3hDBj6I81-aCIhDoJc844oOA_jlHr0urZOEDL9WVSA5PrWWwsw3TF__B_SGnADU0UwufUj9XBpA4sdNPyy3hOC1nfYwaLBrVEt5hQ6udmlKEgx9DwwkQRR_TtDDwLY0WOQnZ0xOyfhdGLFc9yBtceo3JfEXySUfCsP2u2jtBrvxrO6fv-D5AfSW6yRNh8_3ZctpJxP3wLn8JJfriP61Zvl0",
+                "analisis": "El Dow Jones cerró con ganancias, mostrando un rendimiento mixto en Wall Street mientras los inversores se preparan para eventos clave de la semana."
+              },
+              {
+                "nombre": "BMV (Bolsa Mexicana de Valores) / IPC",
+                "valor": "N/D",
+                "cambio_pct": "+0.06%",
+                "tendencia": "↑",
+                "fuente": "Investing.com",
+                "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE_k2BJ8U1mD7mgUyUDf2h4p41xjhKcxlp26BdYuh4y9ZxIEd-t6N46C8p5Vr-0xZB_vZ1dRUPNbNUHfy7FcVDexLuZLAfKV1HOC3Iiig4ztyZ5lHPdXH8-jdYsMPM5kzdXr9j-vui46xsu4oYhxrFwmyHtMJcNXtCirew6GSP-Dzb5KOc_DvEUjA-jp3xuErK5QSaWCpgf-_OT0xBP0tK7jrByPLIPpw6HAVOQ3dHbSqawvw",
+                "analisis": "El S&P/BMV IPC de México cerró con una ligera alza, impulsado por los sectores industrial, bienes de consumo y servicios."
+              },
+              {
+                "nombre": "Tipo de cambio USD/MXN",
+                "valor": "16.92",
+                "cambio_pct": "0.00%",
+                "tendencia": "→",
+                "fuente": "Clarín",
+                "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQELhloIlnPELa2Fe_eQ9e2qd1YyGboCQd1lb7F7rxYXsA5duf4uBMc_5wpnsO8I935SLKkjPOJYZ15pFmxgB1fuY_1qOK1W8hyQKtyaYsw90JMs8rkY29WDK9HVhKEnTlwS5M7qwlTHx6DmxSlCuJhG2eNXhzbliZqxnvbfcgxkZNK4mru_q8vrQRjmr274dF-Nc51sFxY4Kj4HX5dufQIWIO9ZOcrdTicEedhlLyq7uEIZTHuhDzLnw6jrLrcheIdz3GpYF8g",
+                "analisis": "El tipo de cambio USD/MXN se mantuvo relativamente estable en 16.92 pesos mexicanos, sin variaciones significativas respecto a la jornada anterior."
+              }
+            ]
+          },
+          "acciones": {
+            "seccion": "acciones",
+            "datos": [
+              {
+                "nombre": "NVIDIA (NVDA)",
+                "valor": "$209.29",
+                "cambio_pct": "-2.53%",
+                "tendencia": "↓",
+                "fuente": "The Eastern Herald",
+                "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFNZufrSQ7369DbR2UekGpfNO_lu3l5cRwGcqI6wVUHgJTzFcFKit999L60x6wZdqNgaTEAvDQJJ4Tu0Dx7WY1UlYu9SLMtwyD1hzIUsX-JPX1-1Wpm4QhqhO3ZOUqsLr2OQCUJiFsI6D3T53bHzoV_K4xEaqMdmi0jzKqVgCajubMBApKN",
+                "analisis": "Las acciones de NVIDIA cayeron, siendo un factor importante en el descenso del S&P 500, en anticipación a su reporte de ganancias y preocupaciones sobre la sostenibilidad del auge de la IA."
+              },
+              {
+                "nombre": "Apple (AAPL)",
+                "valor": "$311.86",
+                "cambio_pct": "+0.81%",
+                "tendencia": "↑",
+                "fuente": "The Eastern Herald",
+                "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFNZufrSQ7369DbR2UekGpfNO_lu3l5cRwGcqI6wVUHgJTzFcFKit999L60x6wZdqNgaTEAvDQJJ4Tu0Dx7WY1UlYu9SLMtwyD1hzIUsX-JPX1-1Wpm4QhqhO3ZOUqsLr2OQCUJiFsI6D3T53bHzoV_K4xEaqMdmi0jzKqVgCajubMBApKN",
+                "analisis": "Apple subió, beneficiándose de una rotación de capital de semiconductores hacia grandes empresas tecnológicas con flujos de caja visibles."
+              },
+              {
+                "nombre": "Microsoft (MSFT)",
+                "valor": "$487.27",
+                "cambio_pct": "+0.83%",
+                "tendencia": "↑",
+                "fuente": "Investing.com",
+                "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGTUegop50QXjfi8_YKPrOV_7D4gGLdzYZYS39gN1I92RiFPKGMm7sec242zopUIE6wbGEASiSOUAw-d50JInFOST8r65jO3LVJ9vh_ctzn4LXxZL3M0Snr92yXYiYG9J5qVY7KMQEVBSyRe3_g4RVfnvvyUxh1-ETk0WU",
+                "analisis": "Microsoft registró un alza, en un día donde el dinero se movió hacia tecnológicas de gran capitalización con flujos de caja sólidos."
+              },
+              {
+                "nombre": "Google (Alphabet) (GOOG)",
+                "valor": "$344.59",
+                "cambio_pct": "+0.83%",
+                "tendencia": "↑",
+                "fuente": "MarketBeat",
+                "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEqZwI8Ctf2MexXjHo7o75q2K5s0n8roTeDx0yB8-uWVn-XKnPBVAZM90BiTHgO78dL4uIq2gxMgYeZc02GBGCaQ4aiBpUsTMGwQQqs3ual5fUx80ncRcZA658h17QsE8P8WOpaYKCi7it7a9nN",
+                "analisis": "Alphabet subió, impulsado por la expansión continua en IA y la nube, a pesar de los crecientes costos de inversión."
+              },
+              {
+                "nombre": "Meta Platforms (META)",
+                "valor": "$559.02",
+                "cambio_pct": "+1.66%",
+                "tendencia": "↑",
+                "fuente": "MarketBeat",
+                "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEKYukN4hABySjY8aieU3dPTgDu_YPrJ_NS2w_bkQjfxrGFRJ8PWpkspKgjTlZAvW0AfmK4muc-btjJM_FRsTr7VJYAPWal5qPHS66erOw7IJLv05mUHtBpXOfm4AxBp7F9CkVs2X58I2g7ok9k",
+                "analisis": "Meta Platforms experimentó un aumento, con inversores enfocándose en el fuerte impulso publicitario y las capacidades de inteligencia artificial en expansión."
+              },
+              {
+                "nombre": "Amazon (AMZN)",
+                "valor": "$262.07",
+                "cambio_pct": "+1.33%",
+                "tendencia": "↑",
+                "fuente": "Google Finance",
+                "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHruTA212SIEfr1cNS-W6vq3G05GxnISI8HVM4XNRE-0jn-dAdRPEnNA3z2jUetAY3Tu_tn1PexTSh5ATpv56QJVvKYuypfFccmNxg-huv3wJkKXmbeuUmfsZzCg8Kt2rOBwMtbo2SEgkd3",
+                "analisis": "Amazon subió, a pesar de que su flujo de caja libre se volvió negativo, ya que los inversores se centraron en su crecimiento y posición en el mercado."
+              },
+              {
+                "nombre": "Tesla (TSLA)",
+                "valor": "$348.95",
+                "cambio_pct": "-3.83%",
+                "tendencia": "↓",
+                "fuente": "Investing.com",
+                "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHvNJO6smQsG1G_iqJ_OdI7smHoDnHsf6JA9YBCKOPqhg5XAmiVKc6d-jGkNXyqbKH7uqrqQaeUC4RkQ4rKYFgGihc7P5UIRiUxQzlhfwq4GII3W1Pcy8ibkpdZj_qjtJCZJrQCWNMZ0YwgOdcBqpDHQLTk4p_lXnCY",
+                "analisis": "Las acciones de Tesla cayeron significativamente, a pesar de un récord en entregas de vehículos, debido a la disminución de los créditos regulatorios y la incertidumbre en el negocio de autonomía."
+              },
+              {
+                "nombre": "OpenAI",
+                "valor": "N/A",
+                "cambio_pct": "N/A",
+                "tendencia": "N/A",
+                "fuente": "N/A",
+                "url": "N/A",
+                "analisis": "OpenAI no cotiza en bolsa, por lo que no hay datos de acciones disponibles."
+              }
+            ]
+          },
+          "earnings": {
+            "seccion": "earnings",
+            "datos": [
+              {
+                "nombre": "NVIDIA (NVDA)",
+                "valor": "Reporta esta semana",
+                "cambio_pct": "N/A",
+                "tendencia": "N/A",
+                "fuente": "TheStreet, CT Insider, The Washington Post, BNN Bloomberg",
+                "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG5Ks9_u3hDBj6I81-aCIhDoJc844oOA_jlHr0urZOEDL9WVSA5PrWWwsw3TF__B_SGnADU0UwufUj9XBpA4sdNPyy3hOC1nfYwaLBrVEt5hQ6udmlKEgx9DwwkQRR_TtDDwLY0WOQnZ0xOyfhdGLFc9yBtceo3JfEXySUfCsP2u2jtBrvxrO6fv-D5AfSW6yRNh8_3ZctpJxP3wLn8JJfriP61Zvl0",
+                "analisis": "NVIDIA tiene programado reportar sus ganancias trimestrales esta semana, lo que podría influir en el sentimiento del mercado sobre el auge de la IA."
+              },
+              {
+                "nombre": "Intuit (INTU), Salesforce (CRM), Marvell Technology (MRVL)",
+                "valor": "Reportan esta semana",
+                "cambio_pct": "N/A",
+                "tendencia": "N/A",
+                "fuente": "TheStreet",
+                "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG5Ks9_u3hDBj6I81-aCIhDoJc844oOA_jlHr0urZOEDL9WVSA5PrWWwsw3TF__B_SGnADU0UwufUj9XBpA4sdNPyy3hOC1nfYwaLBrVEt5hQ6udmlKEgx9DwwkQRR_TtDDwLY0WOQnZ0xOyfhdGLFc9yBtceo3JfEXySUfCsP2u2jtBrvxrO6fv-D5AfSW6yRNh8_3ZctpJxP3wLn8JJfriP61Zvl0",
+                "analisis": "Además de NVIDIA, otras empresas tecnológicas como Intuit, Salesforce y Marvell Technology también presentarán sus resultados esta semana."
+              },
+              {
+                "nombre": "Próxima semana (31 de agosto - 4 de septiembre de 2026)",
+                "valor": "Sin reportes de grandes empresas tech",
+                "cambio_pct": "N/A",
+                "tendencia": "N/A",
+                "fuente": "Finviz",
+                "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFE5_vRAFAynnpjzS-tG0AvxHxp6r47OvyTRXrW9uxPkzuLkiT9dFmKDKPVf7uzY7bBVILmwLngb4QN1IT4o47GFKbxmbcyj1ehBmnzCfKyUYYA_xFWyJrOKfRO6pHREEHvk31GaM4r0xAerODBuLEFVQ4",
+                "analisis": "No se identificaron reportes de ganancias de empresas tecnológicas relevantes para la semana del 31 de agosto al 4 de septiembre de 2026 en las fuentes consultadas."
+              }
+            ]
+          },
+          "macro": {
+            "seccion": "macro",
+            "datos": [
+              {
+                "nombre": "Simposio de Jackson Hole de la Fed",
+                "valor": "Próximo evento clave",
+                "cambio_pct": "N/A",
+                "tendencia": "N/A",
+                "fuente": "TheStreet, CT Insider, The Washington Post, BNN Bloomberg",
+                "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG5Ks9_u3hDBj6I81-aCIhDoJc844oOA_jlHr0urZOEDL9WVSA5PrWWwsw3TF__B_SGnADU0UwufUj9XBpA4sdNPyy3hOC1nfYwaLBrVEt5hQ6udmlKEgx9DwwkQRR_TtDDwLY0WOQnZ0xOyfhdGLFc9yBtceo3JfEXySUfCsP2u2jtBrvxrO6fv-D5AfSW6yRNh8_3ZctpJxP3wLn8JJfriP61Zvl0",
+                "analisis": "Los mercados están atentos al simposio anual de la Reserva Federal en Jackson Hole, que comienza el jueves, donde se espera un discurso del presidente Kevin Warsh sobre la inflación y la política monetaria."
+              },
+              {
+                "nombre": "Preocupaciones por la inflación",
+                "valor": "Presión sobre tasas de interés",
+                "cambio_pct": "N/A",
+                "tendencia": "N/A",
+                "fuente": "The Washington Post",
+                "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF_ZCnhAvlbh3JyAiLj9nil9vgvYeeQkwhKffirqIiEw4NRbanlMG8ebGUhfsAvOVmMKlYV0TwX59wkSxVsJivKvQ7QQInM8QGniN6kT_ouDjQyqX0nCRHmcm9i3522gX0-yh6XsJuyjWMkJGeytVxfPOCBEFCQ8JPCMQ4-5qGCR7xpgrkMxw_38DU7aP2zAeqymNuzKwBlM5Ht9ZAgUIvipRSwXHpGD7t4hRbUFdLM7Q5oV3p8Gxl78G08Mw",
+                "analisis": "La publicación del índice de precios de gastos de consumo personal (PCE) de julio, el indicador de inflación preferido de la Fed, el viernes, aumentará la presión sobre el banco central para controlar la inflación."
+              },
+              {
+                "nombre": "Tensiones geopolíticas y comerciales",
+                "valor": "Impacto en el sentimiento del mercado",
+                "cambio_pct": "N/A",
+                "tendencia": "N/A",
+                "fuente": "TheStreet",
+                "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG5Ks9_u3hDBj6I81-aCIhDoJc844oOA_jlHr0urZOEDL9WVSA5PrWWwsw3TF__B_SGnADU0UwufUj9XBpA4sdNPyy3hOC1nfYwaLBrVEt5hQ6udmlKEgx9DwwkQRR_TtDDwLY0WOQnZ0xOyfhdGLFc9yBtceo3JfEXySUfCsP2u2jtBrvxrO6fv-D5AfSW6yRNh8_3ZctpJxP3wLn8JJfriP61Zvl0",
+                "analisis": "Las nuevas sanciones económicas de EE. UU. contra Irán y las fallidas negociaciones comerciales entre EE. UU. y Canadá, junto con las amenazas arancelarias recíprocas, contribuyen a la incertidumbre del mercado."
+              },
+              {
+                "nombre": "Auge y sostenibilidad de la IA",
+                "valor": "Preocupación por valoraciones",
+                "cambio_pct": "N/A",
+                "tendencia": "N/A",
+                "fuente": "BNN Bloomberg",
+                "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFi9MLnQsFjAATRd9FAK9gRR5mx529y3hHuYDFCDwG0uqdMsQ-Q95yZdervNDpZEGYiZFudr7O5Z5CjPJ5PDCzSoVcOr6N-_i89T2NPFVNaGthcUtFu9GcrqofmIr3U_E-qL7oDbPPXYvHYhwzJHtj099e1L-RR-u9n9zjsw9LmB3yFhGln5zIU9kl_3pryHS0op-bJOVnhb8BktCPB0bAzndNSGN5rkRBA9ly--hSM-eYoPhD0giwv3pbSZfQLAfnEskQNoR4e534",
+                "analisis": "El informe de ganancias de NVIDIA podría arrojar luz sobre la fortaleza del auge de la IA, mientras persisten las preocupaciones de que la euforia en torno a la tecnología ha inflado demasiado los precios de las acciones tecnológicas."
+              }
+            ]
+          }
+        }
+      },
+      "grounding_sources": [],
+      "generated_at": "2026-08-25T05:07:44.033111-06:00",
+      "status": "ok"
+    },
+    "radar": {
+      "key": "radar",
+      "title": "🛰️ RADAR Inteligencia",
+      "data": [],
+      "generated_at": "2026-08-25T05:07:47.096797-06:00",
+      "status": "error",
+      "signals_total": 0,
+      "queries_run": 3,
+      "errors": [
+        "HTTP 401 for query: Top AI funding rounds and product launch",
+        "HTTP 401 for query: Big Tech AI announcements Google Microso",
+        "HTTP 401 for query: AI regulation policy changes worldwide l"
+      ]
+    }
+  },
+  "summary": {
+    "sections_ok": 5,
+    "sections_total": 6,
+    "quality": "PARTIAL"
+  }
+}
