@@ -1,0 +1,110 @@
+El Periódico. Edición del 2026-08-26.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Jensen Huang.
+Inversión en Perplexity AI. NVIDIA, bajo el liderazgo de su CEO Jensen Huang, planea encabezar una inversión multimillonaria en Perplexity, un proveedor de agentes de IA que ha mostrado un crecimiento significativo en sus ingresos este año. Esta inversión subraya el interés continuo de NVIDIA en el ecosistema de la IA más allá de su negocio principal de hardware. Fuente: The Information.
+
+Sam Altman.
+Alianza con Broadcom para chips de IA y necesidad de infraestructura de cómputo. OpenAI se ha asociado con Broadcom para producir sus propios chips de inteligencia artificial a partir de 2026, buscando reducir su dependencia de NVIDIA y satisfacer la creciente demanda de potencia computacional. Sam Altman, CEO de OpenAI, ha reiterado la necesidad urgente de expandir la infraestructura de cómputo para los modelos de IA, planeando duplicar su flota de servidores en los próximos cinco meses. Fuente: Forbes Centroamérica.
+
+Mark Zuckerberg.
+Estrategia de inversión en IA para un segundo negocio. Meta Platforms está bajo presión por demandas y altos costos, pero la pregunta clave es si el CEO Mark Zuckerberg puede construir un segundo negocio, además de la publicidad, a partir de las grandes inversiones en inteligencia artificial. Los analistas se mantienen optimistas sobre su capacidad para impulsar esta apuesta de IA. Fuente: Barchart.com.
+
+Tim Cook.
+Reflexión sobre parques nacionales en redes sociales. Tim Cook, CEO de Apple, compartió en redes sociales una fotografía #ShotOniPhone de Yosemite, expresando su gratitud por los momentos de reflexión que encuentra en los parques nacionales. Esta publicación se enmarca en la #NationalParkWeek. Fuente: Apple Newsroom (vía Tim Cook en X).
+
+Dario Amodei.
+El 'backlash' de la IA es una 'crisis de confianza'. Dario Amodei, CEO de Anthropic, afirmó el 16 de agosto que la reacción pública negativa contra la inteligencia artificial se debe fundamentalmente a una 'crisis de confianza', y no a las advertencias sobre los riesgos de la IA. Amodei argumentó que la gente desconfía de las empresas y gobiernos, sospechando que buscan nuevas formas de perjudicarlos. Fuente: ECIKS.org.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+OpenAI presenta 'Jalapeño' para inferencia de IA más rápida. OpenAI ha anunciado los primeros resultados de 'Jalapeño', un avance en inferencia de IA que demuestra una velocidad y eficiencia líderes en la industria. Este desarrollo podría optimizar significativamente el rendimiento de los modelos de IA. Fuente: OpenAI.
+OpenAI lanza plugin de administración para ChatGPT Work y Codex. OpenAI ha introducido un plugin de administración para sus plataformas ChatGPT Work y Codex, facilitando la gestión y el control de estas herramientas de IA en entornos empresariales. Esto busca mejorar la adopción y la gobernanza de la IA en organizaciones. Fuente: OpenAI.
+OpenAI mejora relación precio-rendimiento de GPT-5.6 para desarrolladores. OpenAI ha anunciado mejoras en la relación precio-rendimiento de su modelo GPT-5.6 en la plataforma Kiro, lo que beneficia a los desarrolladores al hacer que el acceso a capacidades avanzadas de IA sea más asequible y eficiente. Fuente: OpenAI.
+
+Google DeepMind.
+Google DeepMind celebra 15 años de investigación en IA para juegos. Google DeepMind ha publicado una actualización sobre sus 15 años de investigación en IA aplicada a juegos, desde Atari hasta EVE Online. Este trabajo destaca los avances en la capacidad de la IA para aprender y dominar entornos complejos de juego. Fuente: Google DeepMind.
+Modelo WeatherNext de DeepMind logra avance en pronóstico de ciclones. El modelo WeatherNext de Google DeepMind ha logrado un avance significativo en el pronóstico de ciclones, demostrando la capacidad de la IA para mejorar la precisión en la predicción de fenómenos meteorológicos extremos. Fuente: Google DeepMind.
+Google DeepMind introduce uso de computadora en Gemini 3.5 Flash. Google DeepMind ha integrado la capacidad de uso de computadora en su modelo Gemini 3.5 Flash, permitiendo que el modelo interactúe y utilice herramientas informáticas para realizar tareas más complejas y diversas. Fuente: Google DeepMind.
+
+Anthropic.
+Anthropic actualiza Claude Tag para una interacción proactiva en Slack. Anthropic ha actualizado su agente Claude Tag en Slack para que pueda leer conversaciones completas y participar proactivamente sin ser invocado directamente. Esta mejora busca transformar la IA de una herramienta individual a un 'colega' de equipo. Fuente: VentureBeat.
+
+Meta AI.
+Meta lanzará agente de IA de consumo 'Hatch' con suscripción mensual. Meta planea lanzar un agente de IA para consumidores llamado 'Hatch' en las próximas semanas, con un costo de suscripción de hasta $199 al mes. Este agente permitirá a los usuarios realizar diversas tareas como compras y gestión de correos electrónicos. Fuente: The Information, The Motley Fool.
+Meta integrará agentes de IA de terceros en WhatsApp. Meta está preparando una función para WhatsApp que permitirá a los usuarios conectarse con agentes de IA de terceros, lo que podría lanzarse tan pronto como esta semana. Esto expande las capacidades de IA dentro de su ecosistema de mensajería. Fuente: The Motley Fool.
+
+Microsoft AI.
+Microsoft avanza en seguridad 'Zero Trust' para agentes de IA. Microsoft ha lanzado nuevas herramientas y guías para implementar el modelo de seguridad 'Zero Trust' en agentes de IA y DevSecOps. Esto busca fortalecer la protección contra amenazas cibernéticas en el desarrollo y despliegue de soluciones de IA. Fuente: Microsoft Source.
+Google y Microsoft compiten por llevar la IA a las escuelas de EE. UU.. Google y Microsoft están intensificando sus esfuerzos para integrar la inteligencia artificial en las escuelas de Estados Unidos. Ambas empresas buscan expandir el uso de sus tecnologías de IA en el ámbito educativo, profundizando su presencia en las aulas. Fuente: The New York Times.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Figure AI.
+Ronda de financiación Serie C de más de $1 mil millones. Figure AI ha recibido más de $1 mil millones en capital comprometido en una nueva ronda de financiación Serie C, lo que eleva su valoración post-money a $39 mil millones. La ronda fue liderada por Parkway, con la participación de inversores estratégicos como NVIDIA, Intel, LG, Salesforce, T-Mobile y Qualcomm. Fuente: Facebook (múltiples publicaciones citando la noticia).
+
+Thinking Machines Lab.
+Ronda de financiación semilla de $2 mil millones. Thinking Machines Lab, una startup liderada por la ex CTO de OpenAI, Mira Murati, ha asegurado una ronda de financiación semilla de $2 mil millones, elevando su valoración a $12 mil millones. Este logro es notable dado que la empresa aún no ha lanzado un producto. La ronda incluyó inversores prominentes como Nvidia y Andreessen Horowitz. Fuente: Facebook (múltiples publicaciones citando la noticia).
+
+Castelion.
+Mega-ronda de financiación Serie C de $800 millones. Castelion, una empresa de tecnología de defensa, ha cerrado una ronda de financiación Serie C de $800 millones, alcanzando una valoración de $13 mil millones. La ronda fue liderada por JPMorganChase Strategic Investment Group, con la participación de Andreessen Horowitz y Carlyle. Fuente: QuantLogix.
+
+Muon Space.
+Ronda de financiación Serie C de $250 millones. Muon Space ha completado una ronda de financiación Serie C de $250 millones, lo que eleva su valoración a $1.5 mil millones. La ronda fue liderada por Eclipse Capital. Fuente: QuantLogix.
+
+General Intuition.
+Ronda de financiación Serie B con una valoración de $6 mil millones. General Intuition, con sede en Nueva York, está levantando una ronda Serie B con una valoración pre-money de $6 mil millones. Esto ocurre solo semanas después de haber recaudado $320 millones con una valoración de $2.3 mil millones. Nuevos inversores como Valor Equity Partners, Point72 Ventures y Seven Seven Six están respaldando la ronda, junto con los inversores existentes Khosla Ventures y General Catalyst. Fuente: Dealroom News.
+
+Sección: 📰 Top 10 Noticias.
+
+La Ley de Inteligencia Artificial de la UE Comienza su Aplicación, Impactando a Empresas Globales.
+La Unión Europea ha comenzado a aplicar las principales disposiciones de su Ley de Inteligencia Artificial, otorgando a los reguladores europeos mayor autoridad sobre las empresas y tecnologías de IA, incluso aquellas fuera de la UE si sus sistemas se utilizan en el mercado europeo. Esta ley establece requisitos de transparencia para sistemas de IA de propósito general, la divulgación de interacciones con chatbots y el etiquetado de deepfakes. Fuente: GlobeNewswire.
+¿Por qué importa? Como fundador tech, esta regulación extraterritorial significa que cualquier producto o servicio de IA que opere en la UE debe cumplir con estas estrictas normas, impactando el diseño, desarrollo y despliegue global de soluciones de IA. Ignorar estas leyes podría resultar en multas sustanciales y barreras de entrada al mercado europeo.
+
+Científicos Utilizan IA para Bioingeniería de Virus Sintéticos, Planteando Oportunidades y Riesgos Éticos.
+Científicos de la Universidad de Stanford y el Arc Institute han utilizado inteligencia artificial para diseñar los primeros genomas de virus sintéticos no encontrados en la naturaleza, específicamente bacteriófagos que destruyeron E. coli en laboratorio. Este avance abre la puerta a nuevas terapias, pero también plantea serias preocupaciones éticas y de seguridad sobre el uso malicioso o la creación inadvertida de agentes biológicos peligrosos. Fuente: Georgetown University.
+¿Por qué importa? Este hito subraya el poder dual de la IA en biotecnología. Para los fundadores de deep tech, representa una oportunidad inmensa en salud y biotecnología, pero también exige una profunda consideración ética y la anticipación de regulaciones estrictas sobre el desarrollo y la aplicación de IA en campos sensibles.
+
+Collate Lanza AI Governance Studio para la Gestión y Cumplimiento de Activos de IA Empresariales.
+Collate Inc. ha lanzado AI Governance Studio, una nueva capacidad que permite a las organizaciones descubrir, organizar y gobernar sus activos de IA en más de 130 plataformas, incluyendo AWS Bedrock, Databricks y Snowflake. La solución proporciona un inventario centralizado de LLMs, agentes y aplicaciones de IA, verificando continuamente su cumplimiento con los marcos regulatorios. Fuente: GlobeNewswire.
+¿Por qué importa? A medida que la IA se integra más en las operaciones empresariales, la gobernanza y el cumplimiento se vuelven críticos. Esta noticia destaca la creciente demanda de herramientas que permitan a los fundadores tech gestionar y auditar sus activos de IA, mitigando riesgos de seguridad y regulatorios.
+
+Startup Global de Agentes de IA Liner Recauda $36.1 Millones en Ronda de Financiación Serie C.
+Liner, una startup global de agentes de IA, ha recaudado $36.1 millones en una ronda de financiación Serie C. La inversión refleja la confianza en la expansión de Liner de la IA de consumo a la IA empresarial, con la compañía superando a GPT-4 en precisión de respuesta de búsqueda y alcanzando 14 millones de usuarios registrados. Fuente: GlobeNewswire.
+¿Por qué importa? Esta ronda de financiación subraya el fuerte interés de los inversores en startups de IA que demuestran tracción y una estrategia clara para monetizar sus capacidades, especialmente en la transición de B2C a B2B con agentes de IA especializados. Es un indicador de dónde fluye el capital de riesgo.
+
+Startup de IA para Construcción Digs Recauda $25.3M y se Asocia con Gigante de Productos de Construcción.
+Digs, una startup de IA para la construcción residencial, ha recaudado $25.3 millones en financiación Serie A, liderada por el gigante de productos de construcción Builders FirstSource. El acuerdo de cinco años integrará la plataforma de IA de Digs en el ecosistema digital de Builders FirstSource, optimizando desde estimaciones de pre-construcción hasta el mantenimiento del hogar. Fuente: GeekWire.
+¿Por qué importa? Esta noticia muestra el potencial de la IA para transformar industrias tradicionales como la construcción. Para los fundadores tech, resalta la importancia de las asociaciones estratégicas con grandes corporaciones para escalar y la oportunidad de aplicar la IA para resolver problemas complejos en mercados establecidos.
+
+Booz Allen Cierra Adquisición de Ultra Mission Solutions por $720 Millones en Defensa Tecnológica.
+Booz Allen Hamilton ha completado la adquisición de la unidad de negocio de soluciones de misión de Ultra I&C por $720 millones. Esta compra añade software de defensa, cifrado y productos de edge computing a la cartera de Booz Allen, fortaleciendo su unidad de tecnología de defensa. Fuente: GovCon Wire.
+¿Por qué importa? Esta adquisición multimillonaria destaca la consolidación en el sector de la tecnología de defensa y la creciente demanda de capacidades avanzadas en software, ciberseguridad y edge computing. Los fundadores tech deben observar cómo las grandes empresas buscan integrar tecnologías clave a través de M&A para satisfacer las necesidades gubernamentales y de seguridad.
+
+JPMorgan Contrata a Ejecutivo de Citi para Impulsar su Banca de Inversión Tecnológica.
+JPMorgan Chase ha contratado a Dan McDow de Citigroup para dirigir su negocio de banca de inversión tecnológica en la costa este. Este movimiento se produce en un momento de gran actividad en el sector tecnológico, impulsado por la recuperación de las valoraciones del software y el continuo crecimiento del ecosistema de la inteligencia artificial. Fuente: Reuters.
+¿Por qué importa? La contratación de alto perfil en la banca de inversión tecnológica por parte de un gigante como JPMorgan es una señal de confianza en el futuro del sector. Para los fundadores tech, esto sugiere un entorno favorable para la financiación y las salidas, especialmente en áreas relacionadas con el software y la IA.
+
+La Inteligencia Artificial Transforma la Gestión de Cumplimiento Fiscal en Finanzas.
+La inteligencia artificial está transformando las operaciones fiscales, permitiendo a las instituciones financieras automatizar tareas repetitivas de cumplimiento y liberar a los profesionales para enfocarse en la interpretación regulatoria y casos complejos. Se espera que la IA mejore la calidad de los datos, aumente la eficiencia y reduzca los riesgos en la gestión de cumplimiento fiscal. Fuente: FinTech Global.
+¿Por qué importa? Esta noticia ilustra una tendencia clave: la aplicación de la IA para optimizar procesos de back-office en la industria financiera. Los fundadores tech pueden identificar oportunidades para desarrollar soluciones de IA que aborden ineficiencias en cumplimiento, contabilidad y otras funciones empresariales críticas.
+
+El Mercado Anticipa los Resultados del Segundo Trimestre de Nvidia, Clave para el Sector de la IA.
+Nvidia se prepara para anunciar sus resultados del segundo trimestre fiscal de 2027, con analistas esperando ingresos de aproximadamente $92.2 mil millones, casi el doble que el año anterior, impulsados por la demanda de IA. El mercado estará atento a la guía de la compañía para el tercer trimestre, ya que se considera un barómetro clave para el entusiasmo y la sostenibilidad de la inversión en inteligencia artificial. Fuente: Kiplinger.
+¿Por qué importa? Los resultados de Nvidia son un indicador crucial de la salud del mercado de la IA y la inversión en infraestructura. Para los fundadores tech, un desempeño sólido o una guía optimista pueden reforzar la confianza en el sector, mientras que cualquier señal de desaceleración podría indicar una recalibración en las expectativas de crecimiento de la IA.
+
+Simposio de Jackson Hole se Centrará en la Innovación Financiera y sus Implicaciones Políticas.
+El Banco de la Reserva Federal de Kansas City celebrará su Simposio de Política Económica anual en Jackson Hole del 27 al 29 de agosto, centrándose este año en 'Innovación Financiera: Implicaciones para Pagos y Política'. El evento reunirá a banqueros centrales, formuladores de políticas y académicos para discutir el impacto de las nuevas tecnologías, como los sistemas de pago digital, las criptomonedas y las stablecoins, en el futuro de la moneda y la política monetaria. Fuente: Federal Reserve Bank of Kansas City.
+¿Por qué importa? Este simposio es un foro influyente para la discusión de políticas monetarias globales. Para los fundadores tech en fintech y blockchain, las discusiones y posibles conclusiones sobre la innovación financiera, especialmente en pagos y activos digitales, pueden señalar futuras direcciones regulatorias y oportunidades de mercado.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
