@@ -1,0 +1,603 @@
+{
+  "version": "2.0",
+  "date": "2026-08-26",
+  "generated_at": "2026-08-26T05:00:10.581188-06:00",
+  "timezone": "CST (UTC-6)",
+  "language": "es-MX",
+  "tier": "Tier 4",
+  "sections": {
+    "titans": {
+      "key": "titans",
+      "title": "🏛️ Los Titans",
+      "data": [
+        {
+          "nombre": "Jensen Huang",
+          "empresa": "NVIDIA",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Inversión en Perplexity AI",
+              "detalle": "NVIDIA, bajo el liderazgo de su CEO Jensen Huang, planea encabezar una inversión multimillonaria en Perplexity, un proveedor de agentes de IA que ha mostrado un crecimiento significativo en sus ingresos este año. Esta inversión subraya el interés continuo de NVIDIA en el ecosistema de la IA más allá de su negocio principal de hardware.",
+              "fuente": "The Information",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEbaQJo0W8Pe079Nrxa7BxrI6N7y-hztCjVIuyRMShuLt-dGecjfrfRtTI4XO7K2wWu9KJch4uPrVKYAxtFFETMZBl9_4NyGC5mjo7paVy7yV8Tx-LC8VBcTrxUM_BMmyW5o9IRV3_90tsqFA90R5vQ0otBXwODAuth_2OCWMP42IGgttYAxYxGLQ==",
+              "impacto": "Esta inversión refuerza la posición de NVIDIA como un actor clave en el desarrollo de la IA, no solo como proveedor de chips, sino también como inversor estratégico en empresas que utilizan su tecnología, lo que podría acelerar la adopción de agentes de IA en el mercado."
+            }
+          ]
+        },
+        {
+          "nombre": "Sam Altman",
+          "empresa": "OpenAI",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Alianza con Broadcom para chips de IA y necesidad de infraestructura de cómputo",
+              "detalle": "OpenAI se ha asociado con Broadcom para producir sus propios chips de inteligencia artificial a partir de 2026, buscando reducir su dependencia de NVIDIA y satisfacer la creciente demanda de potencia computacional. Sam Altman, CEO de OpenAI, ha reiterado la necesidad urgente de expandir la infraestructura de cómputo para los modelos de IA, planeando duplicar su flota de servidores en los próximos cinco meses.",
+              "fuente": "Forbes Centroamérica",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF16MrJ7_cpCLuNC_k3BfWDmaHtFVfXSHZFrFtFwYiFsNr6smOuXjg8Sj4cF_81UuiQezLxcpZuRL2iSvGbfx98C4RGreHstIIi8n_hW3J9JefEwcNFREBs2nv2BQtKxfb3zFncFkVswSiqymTTD_E7vimB4m5He1pissv4LCVhKr2WSUv3G5idhfb3dhhbP3wRYFz3Qqh74UHz0VUHSpS3FkPqyZXCQz99sXGsk29YtDA0wVRKCxsaNDWP2bIgcmZyP3ZGulHqWFTGDi-VTg-LsA==",
+              "impacto": "Esta estrategia de OpenAI busca asegurar su autonomía en el suministro de hardware crítico y escalar sus operaciones para mantener su liderazgo en la carrera de la IA, lo que podría intensificar la competencia en el mercado de chips de IA y la infraestructura de centros de datos."
+            }
+          ]
+        },
+        {
+          "nombre": "Mark Zuckerberg",
+          "empresa": "Meta",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Estrategia de inversión en IA para un segundo negocio",
+              "detalle": "Meta Platforms está bajo presión por demandas y altos costos, pero la pregunta clave es si el CEO Mark Zuckerberg puede construir un segundo negocio, además de la publicidad, a partir de las grandes inversiones en inteligencia artificial. Los analistas se mantienen optimistas sobre su capacidad para impulsar esta apuesta de IA.",
+              "fuente": "Barchart.com",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHzsRHpR5R6HhszUEhLPkWxLqNPVydA3kLl8TUFPHR6WOyq88G9RkNEzzu6ryzMNCyNYu3ixapBhNIYR5kafeZG2m_7POYJWswjL-RddCW0fHLo4cpiSYzvUiFWayGkgLEb7IdTPfw2TojTp09M7QpWem3FiZxNEM8CyBolsTYkq53rfRYIpfN51AuUSfpMOWxCVSKad9KZvjA8bfXtI2lQgz-r75iK7saQKfOxNmTqVibV5Og==",
+              "impacto": "La estrategia de Zuckerberg de diversificar los ingresos de Meta a través de la IA es crucial para el futuro de la empresa, ya que busca reducir la dependencia de la publicidad y capitalizar el creciente mercado de la inteligencia artificial, lo que podría redefinir su modelo de negocio a largo plazo."
+            }
+          ]
+        },
+        {
+          "nombre": "Tim Cook",
+          "empresa": "Apple",
+          "actividad": [
+            {
+              "tipo": "publicación",
+              "titulo": "Reflexión sobre parques nacionales en redes sociales",
+              "detalle": "Tim Cook, CEO de Apple, compartió en redes sociales una fotografía #ShotOniPhone de Yosemite, expresando su gratitud por los momentos de reflexión que encuentra en los parques nacionales. Esta publicación se enmarca en la #NationalParkWeek.",
+              "fuente": "Apple Newsroom (vía Tim Cook en X)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHTsFqtbtM27fL8IK3XKtFHuX6V5lIAL8MCvWBXPra6-B9KaHKOYAWm-GgRnhYl8ikrT9g_FLMK5nh6gh2DMZK57OJqgPi2L_9loWqAPn2uafslfx_HXrjSEmI==",
+              "impacto": "Aunque es una publicación personal, resalta el uso de los productos de Apple (iPhone) para la creación de contenido y mantiene la imagen de la marca asociada a experiencias de alta calidad y valores apreciados por el público."
+            }
+          ]
+        },
+        {
+          "nombre": "Dario Amodei",
+          "empresa": "Anthropic",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "El 'backlash' de la IA es una 'crisis de confianza'",
+              "detalle": "Dario Amodei, CEO de Anthropic, afirmó el 16 de agosto que la reacción pública negativa contra la inteligencia artificial se debe fundamentalmente a una 'crisis de confianza', y no a las advertencias sobre los riesgos de la IA. Amodei argumentó que la gente desconfía de las empresas y gobiernos, sospechando que buscan nuevas formas de perjudicarlos.",
+              "fuente": "ECIKS.org",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFLFDzns8amtC2yp09xIJy7NkXdJoMsB0aDvtM8iAb1TOc4RRLVD-lGRY1fpEartB-ezavHA1bz5kDXWrj1bqYtPA1lzRIA1buOTBHx5b3cJ6KhsJgZUBY0v3CBM48Na430usLTmyCvLooa2NJaLo_5rQ==",
+              "impacto": "Esta declaración subraya la creciente preocupación por la percepción pública de la IA y la necesidad de que la industria genere confianza, lo que podría influir en las futuras regulaciones y en la adopción generalizada de la tecnología."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-08-26T05:01:48.736184-06:00",
+      "status": "ok"
+    },
+    "ai_leaders": {
+      "key": "ai_leaders",
+      "title": "🤖 AI Leaders",
+      "data": [
+        {
+          "empresa": "OpenAI",
+          "novedades": [
+            {
+              "tipo": "research",
+              "titulo": "OpenAI presenta 'Jalapeño' para inferencia de IA más rápida",
+              "detalle": "OpenAI ha anunciado los primeros resultados de 'Jalapeño', un avance en inferencia de IA que demuestra una velocidad y eficiencia líderes en la industria. Este desarrollo podría optimizar significativamente el rendimiento de los modelos de IA.",
+              "fuente": "OpenAI",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHAlRelEOYlV6GKk8gc7LW5TKOHcpW0rToskYdSm8bXB59JntNzYeaMCpw29rJjzIq-xOMXCM7mRQnWYG2iY1t7diShuD1ylDZRePFB3nA=",
+              "aplicacion_genyx": "GENyx podría integrar estas optimizaciones de inferencia para ofrecer a sus clientes un procesamiento de modelos de IA más rápido y rentable, mejorando la experiencia del usuario y reduciendo los costos operativos."
+            },
+            {
+              "tipo": "product",
+              "titulo": "OpenAI lanza plugin de administración para ChatGPT Work y Codex",
+              "detalle": "OpenAI ha introducido un plugin de administración para sus plataformas ChatGPT Work y Codex, facilitando la gestión y el control de estas herramientas de IA en entornos empresariales. Esto busca mejorar la adopción y la gobernanza de la IA en organizaciones.",
+              "fuente": "OpenAI",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFEWaxkmttnV3dkdBmZuE_LYVudnKehCjY00zDEJXLc4WwABmPoe7sdeEstgPaZPACZhbk8l_tzG-eDJsACRzDk6IPz-Zl0f8PNtP6swqW26Bs_7w==",
+              "aplicacion_genyx": "GENyx podría aprovechar este plugin para ofrecer a sus clientes empresariales una administración más sencilla de sus soluciones de IA basadas en ChatGPT y Codex, permitiendo una integración y supervisión más eficientes."
+            },
+            {
+              "tipo": "pricing",
+              "titulo": "OpenAI mejora relación precio-rendimiento de GPT-5.6 para desarrolladores",
+              "detalle": "OpenAI ha anunciado mejoras en la relación precio-rendimiento de su modelo GPT-5.6 en la plataforma Kiro, lo que beneficia a los desarrolladores al hacer que el acceso a capacidades avanzadas de IA sea más asequible y eficiente.",
+              "fuente": "OpenAI",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFEWaxkmttnV3dkdBmZuE_LYVudnKehCjY00zDEJXLc4WwABmPoe7sdeEstgPaZPACZhbk8l_tzG-DJsACRzDk6IPz-Zl0f8PNtP6swqW26Bs_7w==",
+              "aplicacion_genyx": "GENyx podría capitalizar esta mejora para reducir los costos de desarrollo y operación de sus propias soluciones basadas en GPT-5.6, o trasladar estos beneficios a sus clientes, ofreciendo servicios de IA más competitivos."
+            }
+          ]
+        },
+        {
+          "empresa": "Google DeepMind",
+          "novedades": [
+            {
+              "tipo": "research",
+              "titulo": "Google DeepMind celebra 15 años de investigación en IA para juegos",
+              "detalle": "Google DeepMind ha publicado una actualización sobre sus 15 años de investigación en IA aplicada a juegos, desde Atari hasta EVE Online. Este trabajo destaca los avances en la capacidad de la IA para aprender y dominar entornos complejos de juego.",
+              "fuente": "Google DeepMind",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFG3NwYYW3dUHug5bSAMDfTVsVqbP0ejdST51xBxodJ4y6qyfABmBn6TJaY__WjnrxSFbthoQUyaNFASGFtfHiXIZtafCdh1QHESnL0usbAOtSs9CxQFaY6NH_Oyg==",
+              "aplicacion_genyx": "Los avances en el aprendizaje de IA en entornos complejos de juegos podrían inspirar a GENyx a desarrollar agentes de IA más robustos para la automatización de procesos empresariales complejos o la simulación de escenarios de negocio."
+            },
+            {
+              "tipo": "research",
+              "titulo": "Modelo WeatherNext de DeepMind logra avance en pronóstico de ciclones",
+              "detalle": "El modelo WeatherNext de Google DeepMind ha logrado un avance significativo en el pronóstico de ciclones, demostrando la capacidad de la IA para mejorar la precisión en la predicción de fenómenos meteorológicos extremos.",
+              "fuente": "Google DeepMind",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFG3NwYYW3dUHug5bSAMDfTVsVqbP0ejdST51xBxodJ4y6qyfABmBn6TJaY__WjnrxSFbthoQUyaNFASGFtfHiXIZtafCdh1QHESnL0usbAOtSs9CxQFaY6NH_Oyg==",
+              "aplicacion_genyx": "Este tipo de investigación en modelos predictivos avanzados podría ser relevante para GENyx al explorar la aplicación de IA para la predicción de tendencias de mercado, gestión de riesgos o optimización de la cadena de suministro en sectores sensibles al clima."
+            },
+            {
+              "tipo": "product",
+              "titulo": "Google DeepMind introduce uso de computadora en Gemini 3.5 Flash",
+              "detalle": "Google DeepMind ha integrado la capacidad de uso de computadora en su modelo Gemini 3.5 Flash, permitiendo que el modelo interactúe y utilice herramientas informáticas para realizar tareas más complejas y diversas.",
+              "fuente": "Google DeepMind",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGNhtk3_XUV2Q_F_PHuVck45X9Kwe6le78tyyouaGcJPHFu-7FDmfoYklJ1VNDIOT2TrlouU6iqiJ6xAZo1nkcKVlqjPkBWmiCs5_qJSp8nFbsVMHEpznDo",
+              "aplicacion_genyx": "La capacidad de Gemini 3.5 Flash para usar computadoras podría permitir a GENyx desarrollar agentes de IA que automaticen tareas complejas que requieren interacción con software y sistemas, mejorando la eficiencia operativa de sus clientes."
+            }
+          ]
+        },
+        {
+          "empresa": "Anthropic",
+          "novedades": [
+            {
+              "tipo": "product",
+              "titulo": "Anthropic actualiza Claude Tag para una interacción proactiva en Slack",
+              "detalle": "Anthropic ha actualizado su agente Claude Tag en Slack para que pueda leer conversaciones completas y participar proactivamente sin ser invocado directamente. Esta mejora busca transformar la IA de una herramienta individual a un 'colega' de equipo.",
+              "fuente": "VentureBeat",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGR7Qy5tXVUlDp2AH6EEhiP0ZhyFCyQL0LAfoDW82H_2yqqHOML-LU7fGVL3Z_cAddGNpo_7H01TkLI5dqVpmUgRs1YZjkHBak29pl-2G99Ux32rBnLT5kkT-e5gYqYOBkCBAhyAZowqOZHvvJRI2di1QPAW9Kt_EFoqeWz0_Ef7Zn1W6xerShPg0lU36hZlsurTn2x2-GMbDrLH8IwpU3tKFiF0fZHtWDSdjv_1mNB-vNMAkHNSKymMRWa_ptQH3lr2YyXA3yh_q4=",
+              "aplicacion_genyx": "GENyx podría integrar capacidades similares de agentes de IA proactivos en sus plataformas de colaboración empresarial, permitiendo que la IA asista a los equipos de manera más fluida y contextualizada, optimizando flujos de trabajo y la toma de decisiones."
+            }
+          ]
+        },
+        {
+          "empresa": "Meta AI",
+          "novedades": [
+            {
+              "tipo": "product",
+              "titulo": "Meta lanzará agente de IA de consumo 'Hatch' con suscripción mensual",
+              "detalle": "Meta planea lanzar un agente de IA para consumidores llamado 'Hatch' en las próximas semanas, con un costo de suscripción de hasta $199 al mes. Este agente permitirá a los usuarios realizar diversas tareas como compras y gestión de correos electrónicos.",
+              "fuente": "The Information, The Motley Fool",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFpCAe5aQBf8BO0I_VGMMowZ2WLHk9TFsyhWkCmqPZ_hZK_1zulLipx6QfZluKx6kFx0m15H-5_mQ28F-gdnBRfUu4Vbt9k-htbauGu2T0YC2E4Jnk-sFtVAdMwj1Sn1dytnHHcoF5Pu3Y=",
+              "aplicacion_genyx": "GENyx podría analizar este movimiento de Meta para entender la disposición de los consumidores a pagar por agentes de IA avanzados, informando su propia estrategia de precios y desarrollo de productos para el mercado SaaS."
+            },
+            {
+              "tipo": "product",
+              "titulo": "Meta integrará agentes de IA de terceros en WhatsApp",
+              "detalle": "Meta está preparando una función para WhatsApp que permitirá a los usuarios conectarse con agentes de IA de terceros, lo que podría lanzarse tan pronto como esta semana. Esto expande las capacidades de IA dentro de su ecosistema de mensajería.",
+              "fuente": "The Motley Fool",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHC0BSH2T-qRliiGfU_LB82RzBUzFxn81l6JIGtd2TphjEUWnU-Nt_PICdtxcLXepKpo1NVqgZEy0di7sprAjh7NjDHwr-Rjf18ndvAo0gdsignAg31jB4s1M4S13bwGdZ9VzfNt5aLBwDBK5dVxR91Z-Pd6EdOOwpLkzpWd8JKMMhIUspWeYWYJ999joJRB_ZdH1pwZEoH5s5m24KxGZiIXJ5OwwA=",
+              "aplicacion_genyx": "GENyx podría explorar la integración de sus propias soluciones de IA como agentes de terceros en plataformas de mensajería populares como WhatsApp, abriendo nuevos canales para la interacción con clientes y la prestación de servicios."
+            }
+          ]
+        },
+        {
+          "empresa": "Microsoft AI",
+          "novedades": [
+            {
+              "tipo": "security",
+              "titulo": "Microsoft avanza en seguridad 'Zero Trust' para agentes de IA",
+              "detalle": "Microsoft ha lanzado nuevas herramientas y guías para implementar el modelo de seguridad 'Zero Trust' en agentes de IA y DevSecOps. Esto busca fortalecer la protección contra amenazas cibernéticas en el desarrollo y despliegue de soluciones de IA.",
+              "fuente": "Microsoft Source",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHUKvWJmAiOn8O1d9Nxbg7Mxyqg9aKeoXoOJIrM610zFdPmKDootoR8-kHvSn34CiSdGXxiPKC51GsViUElSB7cZ_KoUlGQCim84Yj47BlW7UhgXEBB0Ez76--n-zBYdNb2VVvnuTpI",
+              "aplicacion_genyx": "GENyx puede adoptar los principios y herramientas de seguridad 'Zero Trust' de Microsoft para sus propias soluciones de IA, garantizando una mayor protección de los datos y sistemas de sus clientes frente a ciberataques."
+            },
+            {
+              "tipo": "partnership",
+              "titulo": "Google y Microsoft compiten por llevar la IA a las escuelas de EE. UU.",
+              "detalle": "Google y Microsoft están intensificando sus esfuerzos para integrar la inteligencia artificial en las escuelas de Estados Unidos. Ambas empresas buscan expandir el uso de sus tecnologías de IA en el ámbito educativo, profundizando su presencia en las aulas.",
+              "fuente": "The New York Times",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF5C0TndSw-_prua8mOgT8JHHHgDPvJ69KaBjDQWtkiqziiR-RMjh6pRPK-trrFsyGhvzk8LtvLURPDQtSmxxf7B89sKceJ8aaaDpPaTaCfoHXgOa5yk8bFN8h_jDIsOzTftGwfrrwML27LnNpAA==",
+              "aplicacion_genyx": "Esta tendencia de adopción de IA en la educación sugiere un mercado creciente para soluciones de IA personalizadas. GENyx podría explorar el desarrollo de herramientas de IA para el sector educativo, como tutores inteligentes o asistentes para la creación de contenido."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "openai.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHAlRelEOYlV6GKk8gc7LW5TKOHcpW0rToskYdSm8bXB59JntNzYeaMCpw29rJjzIq-xOMXCM7mRQnWYG2iY1t7diShuD1ylDZRePFB3nA="
+        },
+        {
+          "title": "openai.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFEWaxkmttnV3dkdBmZuE_LYVudnKehCjY00zDEJXLc4WwABmPoe7sdeEstgPaZPACZhbk8l_tzG-eDJsACRzDk6IPz-Zl0f8PNtP6swqW26Bs_7w=="
+        },
+        {
+          "title": "deepmind.google",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFG3NwYYW3dUHug5bSAMDfTVsVqbP0ejdST51xBxodJ4y6qyfABmBn6TJaY__WjnrxSFbthoQUyaNFASGFtfHiXIZtafCdh1QHESnL0usbAOtSs9CxQFaY6NH_Oyg=="
+        },
+        {
+          "title": "deepmind.google",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGNhtk3_XUV2Q_F_PHuVck45X9Kwe6le78tyyouaGcJPHFu-7FDmfoYklJ1VNDIOT2TrlouU6iqiJ6xAZo1nkcKVlqjPkBWmiCs5_qXSp8nFbsVMHEpznDo"
+        },
+        {
+          "title": "microsoft.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHUKvWJmAiOn8O1d9Nxbg7Mxyqg9aKeoXoOJIrM610zFdPmKDootoR8-kHvSn34CiSdGXxiPKC51GsViUElSB7cZ_KoUlGQCim84Yj47BlW7UhgXEBB0Ez76--n-zBYdNb2VVvnuTpI"
+        }
+      ],
+      "generated_at": "2026-08-26T05:03:32.886999-06:00",
+      "status": "ok"
+    },
+    "emerging": {
+      "key": "emerging",
+      "title": "🚀 Emerging Tech & Startups",
+      "data": [
+        {
+          "empresa": "Figure AI",
+          "sector": "Robótica / Inteligencia Artificial",
+          "valoracion": "$39 mil millones (post-money)",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Ronda de financiación Serie C de más de $1 mil millones",
+              "detalle": "Figure AI ha recibido más de $1 mil millones en capital comprometido en una nueva ronda de financiación Serie C, lo que eleva su valoración post-money a $39 mil millones. La ronda fue liderada por Parkway, con la participación de inversores estratégicos como NVIDIA, Intel, LG, Salesforce, T-Mobile y Qualcomm.",
+              "fuente": "Facebook (múltiples publicaciones citando la noticia)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE28j6q9SMw9UuWSFXOHCV_V87oQylUGz-MFzCtLPdSJch_b_J7uhl_kW6o1293AGmPWq3eg0gUENHjBWn5buDpKeqAkmKexhazt-9Lhmw4mYlUPJ9Q8CHhfmQlN8YXw9QeXVgYx-fbaY6ht3qXHEeGi5gHWPLGnmC3k3Md2UhqvrE1svUWZbc4bynalae1-yGLhIA4kjOavWcIYcU7VteN2qtKwMM-sDYa8s57AOhgEKLcXNsaCTqhdb39JMmsuS2k5g4gUTqD8Q==",
+              "por_que_importa": "Esta mega-ronda de financiación y la valoración estratosférica de Figure AI subrayan la intensa confianza de los inversores en el futuro de la robótica humanoide y la IA. La participación de gigantes tecnológicos como NVIDIA e Intel valida la importancia estratégica de la tecnología de Figure AI para el ecosistema tecnológico en general, impulsando la innovación en hardware y software de IA."
+            }
+          ]
+        },
+        {
+          "empresa": "Thinking Machines Lab",
+          "sector": "Inteligencia Artificial",
+          "valoracion": "$12 mil millones",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Ronda de financiación semilla de $2 mil millones",
+              "detalle": "Thinking Machines Lab, una startup liderada por la ex CTO de OpenAI, Mira Murati, ha asegurado una ronda de financiación semilla de $2 mil millones, elevando su valoración a $12 mil millones. Este logro es notable dado que la empresa aún no ha lanzado un producto. La ronda incluyó inversores prominentes como Nvidia y Andreessen Horowitz.",
+              "fuente": "Facebook (múltiples publicaciones citando la noticia)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE28j6q9SMw9UuWSFXOHCV_V87oQylUGz-MFzCtLPdSJch_b_J7uhl_kW6o1293AGmPWq3eg0gUENHjBWn5buDpKeqAkmKexhazt-9Lhmw4mYlUPJ9Q8CHhfmQlN8YXw9QeXVgYx-fbaY6ht3qXHEeGi5gHWPLGnmC3k3Md2UhqvrE1svUWZbc4bynalae1-yGLhIA4kjOavWcIYcU7VteN2qtKwMM-sDYa8s57AOhgEKLcXNsaCTqhdb39JMmsuS2k5g4gUTqD8Q==",
+              "por_que_importa": "Una ronda semilla de $2 mil millones y una valoración de $12 mil millones para una empresa sin producto es un evento sin precedentes, lo que indica una fe inmensa en el equipo y la visión detrás de Thinking Machines Lab. Liderada por una figura clave de OpenAI, esta startup está posicionada para ser un actor disruptivo en el espacio de la IA, atrayendo talento y capital significativos incluso antes de su lanzamiento."
+            }
+          ]
+        },
+        {
+          "empresa": "Castelion",
+          "sector": "Tecnología de Defensa",
+          "valoracion": "$13 mil millones",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Mega-ronda de financiación Serie C de $800 millones",
+              "detalle": "Castelion, una empresa de tecnología de defensa, ha cerrado una ronda de financiación Serie C de $800 millones, alcanzando una valoración de $13 mil millones. La ronda fue liderada por JPMorganChase Strategic Investment Group, con la participación de Andreessen Horowitz y Carlyle.",
+              "fuente": "QuantLogix",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGHBcZx-xIa0sxEUG3JaJQBNba57dMa6UveUp1tqprdpu7tkDGcgczcH5oQ0UNUwP5yi4nilt5sgw1vevwgaBYmfSXhy4YPdnhiJQQHOOD3ksHmCKwPiJnWZqcAn69ur8KQDXvMA94cEWjczu23jDrrPHfU2BNTd5DLyV88-w==",
+              "por_que_importa": "La significativa inversión en Castelion refleja la creciente importancia y el interés de los inversores en el sector de la tecnología de defensa. Esta financiación permitirá a la empresa escalar sus operaciones y desarrollar soluciones innovadoras para el mercado de defensa, lo que podría tener implicaciones importantes para la seguridad nacional y la geopolítica."
+            }
+          ]
+        },
+        {
+          "empresa": "Muon Space",
+          "sector": "Tecnología Espacial",
+          "valoracion": "$1.5 mil millones",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Ronda de financiación Serie C de $250 millones",
+              "detalle": "Muon Space ha completado una ronda de financiación Serie C de $250 millones, lo que eleva su valoración a $1.5 mil millones. La ronda fue liderada por Eclipse Capital.",
+              "fuente": "QuantLogix",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGHBcZx-xIa0sxEUG3JaJQBNba57dMa6UveUp1tqprdpu7tkDGcgczcH5oQ0UNUwP5yi4nilt5sgw1vevwgaBYmfSXhy4YPdnhiJQQHOOD3ksHmCKwPiJnWZqcAn69ur8KQDXvMA94cEWjczu23jDrrPHfU2BNTd5DLyV88-w==",
+              "por_que_importa": "La inversión en Muon Space destaca el continuo auge del sector de la tecnología espacial, con un enfoque en la observación de la Tierra y la recopilación de datos. Esta financiación permitirá a Muon Space avanzar en sus capacidades y expandir su infraestructura, lo que es crucial para aplicaciones que van desde el monitoreo climático hasta la inteligencia geoespacial."
+            }
+          ]
+        },
+        {
+          "empresa": "General Intuition",
+          "sector": "Inteligencia Artificial",
+          "valoracion": "$6 mil millones (pre-money)",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Ronda de financiación Serie B con una valoración de $6 mil millones",
+              "detalle": "General Intuition, con sede en Nueva York, está levantando una ronda Serie B con una valoración pre-money de $6 mil millones. Esto ocurre solo semanas después de haber recaudado $320 millones con una valoración de $2.3 mil millones. Nuevos inversores como Valor Equity Partners, Point72 Ventures y Seven Seven Six están respaldando la ronda, junto con los inversores existentes Khosla Ventures y General Catalyst.",
+              "fuente": "Dealroom News",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFTwLsBC-38us1AerRLNSPPY-3b7Q_CSHDj2NyO9VQXkm5PL-QuuTG3AW0Dz7PJarGfIp4YtMkk4E7tcIYkrkvMA5nDp-qaHZh8G8sPZ1Nl98wgq5dp4xCi0FejZfpeqtxN3f42CxjNCQ5KcRcmQOqzAsTwxNSGSST23L6KrfmlINfV74TrYbmy0hDQJBXSewmEoypySvI==",
+              "por_que_importa": "El rápido aumento en la valoración de General Intuition en cuestión de semanas subraya la intensa demanda y el optimismo del mercado por las soluciones de IA. Esta inyección de capital permitirá a la empresa acelerar su desarrollo y expansión, consolidando su posición como un actor clave en el panorama de la inteligencia artificial."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-08-26T05:04:05.445221-06:00",
+      "status": "ok"
+    },
+    "top10": {
+      "key": "top10",
+      "title": "📰 Top 10 Noticias",
+      "data": [
+        {
+          "ranking": 1,
+          "categoria": "AI",
+          "titular": "La Ley de Inteligencia Artificial de la UE Comienza su Aplicación, Impactando a Empresas Globales",
+          "fuente": "GlobeNewswire",
+          "url": "https://www.globenewswire.com/news-release/2026/08/25/3507024/0/en/PRESS-RELEASE-European-Union-Begins-Enforcing-Sweeping-Artificial-Intelligence-Act.html",
+          "resumen": "La Unión Europea ha comenzado a aplicar las principales disposiciones de su Ley de Inteligencia Artificial, otorgando a los reguladores europeos mayor autoridad sobre las empresas y tecnologías de IA, incluso aquellas fuera de la UE si sus sistemas se utilizan en el mercado europeo. Esta ley establece requisitos de transparencia para sistemas de IA de propósito general, la divulgación de interacciones con chatbots y el etiquetado de deepfakes.",
+          "por_que_importa": "Como fundador tech, esta regulación extraterritorial significa que cualquier producto o servicio de IA que opere en la UE debe cumplir con estas estrictas normas, impactando el diseño, desarrollo y despliegue global de soluciones de IA. Ignorar estas leyes podría resultar en multas sustanciales y barreras de entrada al mercado europeo."
+        },
+        {
+          "ranking": 2,
+          "categoria": "AI",
+          "titular": "Científicos Utilizan IA para Bioingeniería de Virus Sintéticos, Planteando Oportunidades y Riesgos Éticos",
+          "fuente": "Georgetown University",
+          "url": "https://www.georgetown.edu/news/ai-can-now-bioengineer-viruses-should-we-let-it/",
+          "resumen": "Científicos de la Universidad de Stanford y el Arc Institute han utilizado inteligencia artificial para diseñar los primeros genomas de virus sintéticos no encontrados en la naturaleza, específicamente bacteriófagos que destruyeron E. coli en laboratorio. Este avance abre la puerta a nuevas terapias, pero también plantea serias preocupaciones éticas y de seguridad sobre el uso malicioso o la creación inadvertida de agentes biológicos peligrosos.",
+          "por_que_importa": "Este hito subraya el poder dual de la IA en biotecnología. Para los fundadores de deep tech, representa una oportunidad inmensa en salud y biotecnología, pero también exige una profunda consideración ética y la anticipación de regulaciones estrictas sobre el desarrollo y la aplicación de IA en campos sensibles."
+        },
+        {
+          "ranking": 3,
+          "categoria": "AI",
+          "titular": "Collate Lanza AI Governance Studio para la Gestión y Cumplimiento de Activos de IA Empresariales",
+          "fuente": "GlobeNewswire",
+          "url": "https://www.globenewswire.com/news-release/2026/08/25/3507027/0/en/Collate-Governs-Enterprise-AI-Wherever-It-Runs.html",
+          "resumen": "Collate Inc. ha lanzado AI Governance Studio, una nueva capacidad que permite a las organizaciones descubrir, organizar y gobernar sus activos de IA en más de 130 plataformas, incluyendo AWS Bedrock, Databricks y Snowflake. La solución proporciona un inventario centralizado de LLMs, agentes y aplicaciones de IA, verificando continuamente su cumplimiento con los marcos regulatorios.",
+          "por_que_importa": "A medida que la IA se integra más en las operaciones empresariales, la gobernanza y el cumplimiento se vuelven críticos. Esta noticia destaca la creciente demanda de herramientas que permitan a los fundadores tech gestionar y auditar sus activos de IA, mitigando riesgos de seguridad y regulatorios."
+        },
+        {
+          "ranking": 4,
+          "categoria": "negocios",
+          "titular": "Startup Global de Agentes de IA Liner Recauda $36.1 Millones en Ronda de Financiación Serie C",
+          "fuente": "GlobeNewswire",
+          "url": "https://www.globenewswire.com/news-release/2026/08/25/3507025/0/en/Liner-Secures-36-1-Million-Series-C-Funding.html",
+          "resumen": "Liner, una startup global de agentes de IA, ha recaudado $36.1 millones en una ronda de financiación Serie C. La inversión refleja la confianza en la expansión de Liner de la IA de consumo a la IA empresarial, con la compañía superando a GPT-4 en precisión de respuesta de búsqueda y alcanzando 14 millones de usuarios registrados.",
+          "por_que_importa": "Esta ronda de financiación subraya el fuerte interés de los inversores en startups de IA que demuestran tracción y una estrategia clara para monetizar sus capacidades, especialmente en la transición de B2C a B2B con agentes de IA especializados. Es un indicador de dónde fluye el capital de riesgo."
+        },
+        {
+          "ranking": 5,
+          "categoria": "negocios",
+          "titular": "Startup de IA para Construcción Digs Recauda $25.3M y se Asocia con Gigante de Productos de Construcción",
+          "fuente": "GeekWire",
+          "url": "https://www.geekwire.com/2026/homebuilding-ai-startup-digs-raises-25-3m-partners-building-products-giant/",
+          "resumen": "Digs, una startup de IA para la construcción residencial, ha recaudado $25.3 millones en financiación Serie A, liderada por el gigante de productos de construcción Builders FirstSource. El acuerdo de cinco años integrará la plataforma de IA de Digs en el ecosistema digital de Builders FirstSource, optimizando desde estimaciones de pre-construcción hasta el mantenimiento del hogar.",
+          "por_que_importa": "Esta noticia muestra el potencial de la IA para transformar industrias tradicionales como la construcción. Para los fundadores tech, resalta la importancia de las asociaciones estratégicas con grandes corporaciones para escalar y la oportunidad de aplicar la IA para resolver problemas complejos en mercados establecidos."
+        },
+        {
+          "ranking": 6,
+          "categoria": "negocios",
+          "titular": "Booz Allen Cierra Adquisición de Ultra Mission Solutions por $720 Millones en Defensa Tecnológica",
+          "fuente": "GovCon Wire",
+          "url": "https://www.govconwire.com/2026/08/booz-allen-closes-720m-ultra-mission-solutions-purchase/",
+          "resumen": "Booz Allen Hamilton ha completado la adquisición de la unidad de negocio de soluciones de misión de Ultra I&C por $720 millones. Esta compra añade software de defensa, cifrado y productos de edge computing a la cartera de Booz Allen, fortaleciendo su unidad de tecnología de defensa.",
+          "por_que_importa": "Esta adquisición multimillonaria destaca la consolidación en el sector de la tecnología de defensa y la creciente demanda de capacidades avanzadas en software, ciberseguridad y edge computing. Los fundadores tech deben observar cómo las grandes empresas buscan integrar tecnologías clave a través de M&A para satisfacer las necesidades gubernamentales y de seguridad."
+        },
+        {
+          "ranking": 7,
+          "categoria": "negocios",
+          "titular": "JPMorgan Contrata a Ejecutivo de Citi para Impulsar su Banca de Inversión Tecnológica",
+          "fuente": "Reuters",
+          "url": "https://kfgo.com/2026/08/25/jpmorgan-hiring-citigroups-mcdow-to-run-east-coast-tech-investment-bank-memo-says/",
+          "resumen": "JPMorgan Chase ha contratado a Dan McDow de Citigroup para dirigir su negocio de banca de inversión tecnológica en la costa este. Este movimiento se produce en un momento de gran actividad en el sector tecnológico, impulsado por la recuperación de las valoraciones del software y el continuo crecimiento del ecosistema de la inteligencia artificial.",
+          "por_que_importa": "La contratación de alto perfil en la banca de inversión tecnológica por parte de un gigante como JPMorgan es una señal de confianza en el futuro del sector. Para los fundadores tech, esto sugiere un entorno favorable para la financiación y las salidas, especialmente en áreas relacionadas con el software y la IA."
+        },
+        {
+          "ranking": 8,
+          "categoria": "tendencia",
+          "titular": "La Inteligencia Artificial Transforma la Gestión de Cumplimiento Fiscal en Finanzas",
+          "fuente": "FinTech Global",
+          "url": "https://www.fintech.global/2026/08/25/ai-is-changing-how-tax-operations-manage-compliance/",
+          "resumen": "La inteligencia artificial está transformando las operaciones fiscales, permitiendo a las instituciones financieras automatizar tareas repetitivas de cumplimiento y liberar a los profesionales para enfocarse en la interpretación regulatoria y casos complejos. Se espera que la IA mejore la calidad de los datos, aumente la eficiencia y reduzca los riesgos en la gestión de cumplimiento fiscal.",
+          "por_que_importa": "Esta noticia ilustra una tendencia clave: la aplicación de la IA para optimizar procesos de back-office en la industria financiera. Los fundadores tech pueden identificar oportunidades para desarrollar soluciones de IA que aborden ineficiencias en cumplimiento, contabilidad y otras funciones empresariales críticas."
+        },
+        {
+          "ranking": 9,
+          "categoria": "mercados",
+          "titular": "El Mercado Anticipa los Resultados del Segundo Trimestre de Nvidia, Clave para el Sector de la IA",
+          "fuente": "Kiplinger",
+          "url": "https://www.kiplinger.com/investing/stocks/nvidia-stock-q2-earnings-preview-august-2026",
+          "resumen": "Nvidia se prepara para anunciar sus resultados del segundo trimestre fiscal de 2027, con analistas esperando ingresos de aproximadamente $92.2 mil millones, casi el doble que el año anterior, impulsados por la demanda de IA. El mercado estará atento a la guía de la compañía para el tercer trimestre, ya que se considera un barómetro clave para el entusiasmo y la sostenibilidad de la inversión en inteligencia artificial.",
+          "por_que_importa": "Los resultados de Nvidia son un indicador crucial de la salud del mercado de la IA y la inversión en infraestructura. Para los fundadores tech, un desempeño sólido o una guía optimista pueden reforzar la confianza en el sector, mientras que cualquier señal de desaceleración podría indicar una recalibración en las expectativas de crecimiento de la IA."
+        },
+        {
+          "ranking": 10,
+          "categoria": "mercados",
+          "titular": "Simposio de Jackson Hole se Centrará en la Innovación Financiera y sus Implicaciones Políticas",
+          "fuente": "Federal Reserve Bank of Kansas City",
+          "url": "https://www.kansascityfed.org/newsroom/press-releases/2026/jackson-hole-symposium-august-2026/",
+          "resumen": "El Banco de la Reserva Federal de Kansas City celebrará su Simposio de Política Económica anual en Jackson Hole del 27 al 29 de agosto, centrándose este año en 'Innovación Financiera: Implicaciones para Pagos y Política'. El evento reunirá a banqueros centrales, formuladores de políticas y académicos para discutir el impacto de las nuevas tecnologías, como los sistemas de pago digital, las criptomonedas y las stablecoins, en el futuro de la moneda y la política monetaria.",
+          "por_que_importa": "Este simposio es un foro influyente para la discusión de políticas monetarias globales. Para los fundadores tech en fintech y blockchain, las discusiones y posibles conclusiones sobre la innovación financiera, especialmente en pagos y activos digitales, pueden señalar futuras direcciones regulatorias y oportunidades de mercado."
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-08-26T05:05:30.042849-06:00",
+      "status": "ok"
+    },
+    "mercados": {
+      "key": "mercados",
+      "title": "💹 Pulso de Mercados",
+      "data": {
+        "pulso_mercados": {
+          "seccion": "indices",
+          "datos": [
+            {
+              "nombre": "S&P 500",
+              "valor": "7,677.28",
+              "cambio_pct": "+0.32%",
+              "tendencia": "↑",
+              "fuente": "BBN Times, AP News, moomoo",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFhH4TIeyb-9AQeJSTys1I2ms10UA4_OngpdeMef6TVKDRoovdEpFHfhfINZjVyXHdB1a9cYPACo79oWEiHHeH-riDPrVRtTwiZwyG0ETPon2EVKHtMee-4AlS_ZV0pG9vjd2GUbbOwFSI39lwAiFFMvd7kCF8cov8M8rzNk-eCMe649J3kOlMemnQtlc45zNXtCQZQQsz67BBhvtu1RBN0cQ_4fdzCOXvNtDHUJeAPytR9V3maKlEDTsxI28idQaUvSU7ZLauXB-0RiVF9",
+              "analisis": "El S&P 500 cerró al alza, impulsado por la recuperación de las acciones tecnológicas y la disminución de las preocupaciones sobre los rendimientos de los bonos."
+            },
+            {
+              "nombre": "NASDAQ Composite",
+              "valor": "26,151.30",
+              "cambio_pct": "+0.66%",
+              "tendencia": "↑",
+              "fuente": "BBN Times, AP News, moomoo, Investing.com",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFhH4TIeyb-9AQeJSTys1I2ms10UA4_OngpdeMef6TVKDRoovdEpFHfhfINZjVyXHdB1a9cYPACo79oWEiHHeH-riDPrVRtTwiZwyG0ETPon2EVKHtMee-4AlS_ZV0pG9vjd2GUbbOwFSI39lwAiFFMvd7kCF8cov8M8rzNk-eCMe649J3kOlMemnQtlc45zNXtCQZQQsz67BBhvtu1RBN0cQ_4fdzCOXvNtDHUJeAPytR9V3maKlEDTsxI28idQaUvSU7ZLauXB-0RiVF9",
+              "analisis": "El NASDAQ Composite mostró el mayor avance entre los principales índices, reflejando el fuerte desempeño del sector tecnológico."
+            },
+            {
+              "nombre": "Dow Jones Industrial Average",
+              "valor": "53,577.40",
+              "cambio_pct": "+0.30%",
+              "tendencia": "↑",
+              "fuente": "BBN Times, AP News, moomoo",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFhH4TIeyb-9AQeJSTys1I2ms10UA4_OngpdeMef6TVKDRoovdEpFHfhfINZjVyXHdB1a9cYPACo79oWEiHHeH-riDPrVRtTwiZwyG0ETPon2EVKHtMee-4AlS_ZV0pG9vjd2GUbbOwFSI39lwAiFFMvd7kCF8cov8M8rzNk-eCMe649J3kOlMemnQtlc45zNXtCQZQQsz67BBhvtu1RBN0cQ_4fdzCOXvNtDHUJeAPytR9V3maKlEDTsxI28idQaUvSU7ZLauXB-0RiVF9",
+              "analisis": "El Dow Jones extendió su racha ganadora por tercer día consecutivo, beneficiándose de la calma en los mercados financieros."
+            },
+            {
+              "nombre": "S&P/BMV IPC",
+              "valor": "66,293.07",
+              "cambio_pct": "+0.79%",
+              "tendencia": "↑",
+              "fuente": "Investing.com, Grupo BMV",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFFHFTFR5XHuRcKpQdx7EAjHMXizXe5XdZ21cOREivuKHTJyQO5qaM7lQrF3mlk2zfXVW7wGiHBnWRfS6cVTZRV75cAf_UTFHwiiBgTKR6ZZOHmGaAHdwq2Qo-KsW2kiq02o8o2qJyOAtYtDR-9E-fBx1O95AoN4WToLcTmIZlIW0NxqmEEQyA4anUkSnK4LxQBlfHbsL4FEGlO_U4376dTkOjYzb2tyHq9WNM=",
+              "analisis": "El principal índice de la Bolsa Mexicana de Valores cerró con ganancias, impulsado por varios sectores."
+            },
+            {
+              "nombre": "USD/MXN",
+              "valor": "16.9456",
+              "cambio_pct": "-0.02%",
+              "tendencia": "↓",
+              "fuente": "Investing.com",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFfa195TjNeAgfkKTaTLXZGdIulmUnY6GOtRgiFZwH_QJqmUQCt2AqG7f-sLIKH3Vp4bZaG9yMPEE9tSkwgmaPBQ2fVX_IfOmz4E89-WbsImJip_flCroZHqzOBGm9_bfUaZj6StaerUFVMp4Y9yJrj-8UW5gZl-Q=",
+              "analisis": "El tipo de cambio del peso mexicano frente al dólar estadounidense mostró una ligera apreciación."
+            }
+          ]
+        },
+        "acciones": {
+          "seccion": "acciones",
+          "datos": [
+            {
+              "nombre": "NVIDIA",
+              "valor": null,
+              "cambio_pct": "+2.2%",
+              "tendencia": "↑",
+              "fuente": "Pittsburgh Post-Gazette",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHHzhReQ2OL5M_ZWZHwiZy_Dmx4W6vsqPhykHLtOJVQ5LYJewPhByoesaYyvuKOiQercdatNoL3S8rQhpJzlj1hrXuvnUVpWBUfGujw_k9ZYpK6hQUZ7mU0cI1iUcM70E_yTdzRYJWpBVxoixYcD1udk_gWH0q9afLESvJKUGDJdvJBr9BTWoz77ueOxHA_2K4Jo8uAR1JzA4a19VEBJ9R1IiMIg-g2amE=",
+              "analisis": "Las acciones de NVIDIA subieron, contribuyendo al liderazgo de las empresas de inteligencia artificial en el mercado."
+            },
+            {
+              "nombre": "Meta Platforms",
+              "valor": null,
+              "cambio_pct": "+0.8%",
+              "tendencia": "↑",
+              "fuente": "Reuters",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG90Y1BOxYse1HV7Qr5gZla2qSY6_sAM1YsQbpgKVXcuUJyNdMIiFcPGQIShUfBukTaR30julW5yhGRheg6G5WT0oRj2Z7fBoIIuvNiaYyMUmR0N5COT5WFiY0nfzxEhNNET6KpSzy7SBl6YqkGVxPNrt7spdGsqig7icpswcaAj59HfP9E7KDZOxlG2oeXvzj2NEF4",
+              "analisis": "Meta Platforms registró un avance, en línea con la recuperación general de las megacapitalizaciones tecnológicas."
+            },
+            {
+              "nombre": "Advanced Micro Devices (AMD)",
+              "valor": null,
+              "cambio_pct": "+5.0%",
+              "tendencia": "↑",
+              "fuente": "Reuters",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG90Y1BOxYse1HV7Qr5gZla2qSY6_sAM1YsQbpgKVXcuUJyNdMIiFcPGQIShUfBukTaR30julW5yhGRheg6G5WT0oRj2Z7fBoIIuvNiaYyMUmR0N5COT5WFiY0nfzxEhNNET6KpSzy7SBl6YqkGVxPNrt7spdGsqig7icpswcaAj59HfP9E7KDZOxlG2oeXvzj2NEF4",
+              "analisis": "AMD experimentó un aumento significativo tras una mejora de calificación por parte de Raymond James."
+            },
+            {
+              "nombre": "Cerebras Systems (CBRS.US)",
+              "valor": null,
+              "cambio_pct": "-0.82%",
+              "tendencia": "↓",
+              "fuente": "moomoo Community",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHsU4JLGCzGhprOMJrGT0qrkTiYOFEW3EqNraFG7uQKI18-n65HHEC3PVhERjh77IF7vRjM6062DKMI3W-3cMi9H3MGzuFlnj5q-mCFmX-XJcJ4hzsl77c9-NrMLFvJN31fOFxbxbQPqoiX_sjqFnFs5JrnInbFkd_NtYcsnmKvTsbHc07WptRdRoFuDvN81VT9Whe2iKYx9L-N3RltVEoctbCuINFLZIaZOAlpihGMfA==",
+              "analisis": "ARK Invest aumentó su participación en Cerebras Systems, destacando el valor en la infraestructura de IA, a pesar de una ligera baja en el día."
+            }
+          ]
+        },
+        "earnings": {
+          "seccion": "earnings",
+          "datos": [
+            {
+              "nombre": "NVIDIA",
+              "valor": null,
+              "cambio_pct": null,
+              "tendencia": "→",
+              "fuente": "Reuters",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG90Y1BOxYse1HV7Qr5gZla2qSY6_sAM1YsQbpgKVXcuUJyNdMIiFcPGQIShUfBukTaR30julW5yhGRheg6G5WT0oRj2Z7fBoIIuvNiaYyMUmR0N5COT5WFiY0nfzxEhNNET6KpSzy7SBl6YqkGVxPNrt7spdGsqig7icpswcaAj59HfP9E7KDZOxlG2oeXvzj2NEF4",
+              "analisis": "NVIDIA reportará sus resultados el miércoles, siendo una prueba clave para el rally impulsado por la inteligencia artificial."
+            }
+          ]
+        },
+        "macro": {
+          "seccion": "macro",
+          "datos": [
+            {
+              "nombre": "Precios del Petróleo",
+              "valor": null,
+              "cambio_pct": null,
+              "tendencia": "↓",
+              "fuente": "BBN Times, AP News, Pittsburgh Post-Gazette",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFhH4TIeyb-9AQeJSTys1I2ms10UA4_OngpdeMef6TVKDRoovdEpFHfhfINZjVyXHdB1a9cYPACo79oWEiHHeH-riDPrVRtTwiZwyG0ETPon2EVKHtMee-4AlS_ZV0pG9vjd2GUbbOwFSI39lwAiFFMvd7kCF8cov8M8rzNk-eCMe649J3kOlMemnQtlc45zNXtCQZQQsz67BBhvtu1RBN0cQ_4fdzCOXvNtDHUJeAPytR9V3maKlEDTsxI28idQaUvSU7ZLauXB-0RiVF9",
+              "analisis": "La caída en los precios del petróleo contribuyó a calmar los mercados financieros y a aliviar las preocupaciones sobre la inflación."
+            },
+            {
+              "nombre": "Rendimientos de los Bonos del Tesoro de EE. UU.",
+              "valor": null,
+              "cambio_pct": null,
+              "tendencia": "↓",
+              "fuente": "BBN Times, Pittsburgh Post-Gazette",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFhH4TIeyb-9AQeJSTys1I2ms10UA4_OngpdeMef6TVKDRoovdEpFHfhfINZjVyXHdB1a9cYPACo79oWEiHHeH-riDPrVRtTwiZwyG0ETPon2EVKHtMee-4AlS_ZV0pG9vjd2GUbbOwFSI39lwAiFFMvd7kCF8cov8M8rzNk-eCMe649J3kOlMemnQtlc45zNXtCQZQQsz67BBhvtu1RBN0cQ_4fdzCOXvNtDHUJeAPytR9V3maKlEDTsxI28idQaUvSU7ZLauXB-0RiVF9",
+              "analisis": "La disminución de los rendimientos de los bonos del Tesoro de EE. UU. también apoyó la recuperación de las acciones."
+            },
+            {
+              "nombre": "Confianza del Consumidor en EE. UU.",
+              "valor": null,
+              "cambio_pct": null,
+              "tendencia": "↓",
+              "fuente": "Reuters",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG90Y1BOxYse1HV7Qr5gZla2qSY6_sAM1YsQbpgKVXcuUJyNdMIiFcPGQIShUfBukTaR30julW5yhGRheg6G5WT0oRj2Z7fBoIIuvNiaYyMUmR0N5COT5WFiY0nfzxEhNNET6KpSzy7SBl6YqkGVxPNrt7spdGsqig7icpswcaAj59HfP9E7KDZOxlG2oeXvzj2NEF4",
+              "analisis": "La confianza del consumidor en EE. UU. cayó a su nivel más bajo en siete meses durante agosto, lo que podría influir en el gasto futuro."
+            },
+            {
+              "nombre": "Política Monetaria de la Fed",
+              "valor": null,
+              "cambio_pct": null,
+              "tendencia": "→",
+              "fuente": "Reuters",
+              "url": "https://vertexaisearch.google.com/grounding/AUZIYQG90Y1BOxYse1HV7Qr5gZla2qSY6_sAM1YsQbpgKVXcuUJyNdMIiFcPGQIShUfBukTaR30julW5yhGRheg6G5WT0oRj2Z7fBoIIuvNiaYyMUmR0N5COT5WFiY0nfzxEhNNET6KpSzy7SBl6YqkGVxPNrt7spdGsqig7icpswcaAj59HfP9E7KDZOxlG2oeXvzj2NEF4",
+              "analisis": "Los participantes del mercado monetario anticipan un aumento de 25 puntos base en las tasas de interés para fin de año, con la atención puesta en el discurso del presidente de la Fed en Jackson Hole."
+            },
+            {
+              "nombre": "Inteligencia Artificial (IA)",
+              "valor": null,
+              "cambio_pct": null,
+              "tendencia": "↑",
+              "fuente": "The Motley Fool",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGMc_WCWqCN0YdTtaaVYksAPmRva79jHIX17Gb_gHqoZ9SVh0NjXbh81EzSpU9jpJBFEuygnhE32PkWIu9vmSYYjSSKVnxcRyZRBpYMKUuvsU5SSTEWYZFBtyuoMzbVWM2yoEdW_LqnrmJLE77IKYObcsvfW1VgGUpUruJxajFcj1bhgUN6Rc_M0hlyERbQ790cIrZPLotGfw==",
+              "analisis": "Persiste el debate sobre la inversión en infraestructura de IA, aunque las acciones tecnológicas relacionadas con la IA continúan liderando el avance del mercado."
+            }
+          ]
+        }
+      },
+      "grounding_sources": [
+        {
+          "title": "apnews.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEzFJh_989-PTxsLohMSMMOKnyZ214VBqfAraQ42aA7dBpMa1C3DWSyAVa48Uu21jDSY-ZqNJQ4VPAoRS0uv7ATC9HirIIqqn-j_BJ6GDAsLqov8fT9tGe_iKURQMG8BgCNLGx-XULoIZtOGBN1XvBugrk6TVnDJYowX-ZmRj0k7JaBWRNUfoeKHtJJx8PbvKKZouG7"
+        }
+      ],
+      "generated_at": "2026-08-26T05:06:06.213362-06:00",
+      "status": "ok"
+    },
+    "radar": {
+      "key": "radar",
+      "title": "🛰️ RADAR Inteligencia",
+      "data": [],
+      "generated_at": "2026-08-26T05:06:09.285421-06:00",
+      "status": "error",
+      "signals_total": 0,
+      "queries_run": 3,
+      "errors": [
+        "HTTP 401 for query: Top AI funding rounds and product launch",
+        "HTTP 401 for query: Big Tech AI announcements Google Microso",
+        "HTTP 401 for query: AI regulation policy changes worldwide l"
+      ]
+    }
+  },
+  "summary": {
+    "sections_ok": 5,
+    "sections_total": 6,
+    "quality": "PARTIAL"
+  }
+}
