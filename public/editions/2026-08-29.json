@@ -1,0 +1,515 @@
+{
+  "version": "2.0",
+  "date": "2026-08-29",
+  "generated_at": "2026-08-29T05:00:37.918873-06:00",
+  "timezone": "CST (UTC-6)",
+  "language": "es-MX",
+  "tier": "Tier 4",
+  "sections": {
+    "titans": {
+      "key": "titans",
+      "title": "🏛️ Los Titans",
+      "data": [
+        {
+          "nombre": "Jensen Huang",
+          "empresa": "NVIDIA",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "La IA alcanzó su punto de inflexión",
+              "detalle": "Jensen Huang, CEO de Nvidia, declaró que la inteligencia artificial ha alcanzado su 'punto de inflexión' después de que la compañía anunciara ingresos récord de 96.221 millones de dólares en su segundo trimestre fiscal de 2027. Esto representa un crecimiento interanual del 106%.",
+              "fuente": "Rosario Finanzas",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHUQWUku5weE71EN8_d75Ewvp80n_wUJVCUB3u7ZWmDL1IV-FBCtx66u0POliNozt24YVE1Xfs_enuhJVGgqepSRN827zJR6aWbByZAmWeZKyJZkw5U_YAfO4IMa_3CwiOXo2KmlMfmGNvUuqMrXor_JtWjrf-4sidg4lK446UeOCHzwPQb9Gnpy3sQ8cWqomqTMacmGvwJltMpvUeVhcmDnBof_Ms92gg5XuNBkA7_L135l9xD2uSlWgmnhKEMA3InycxNsw==",
+              "impacto": "Esta declaración de un líder clave en la industria de chips de IA sugiere una aceleración en la adopción y madurez de la inteligencia artificial a nivel global."
+            },
+            {
+              "tipo": "movimiento",
+              "titulo": "Ascenso en el ranking de riqueza global",
+              "detalle": "Jensen Huang, CEO de Nvidia, ha escalado hasta convertirse en la sexta persona más rica del mundo, superando a Mark Zuckerberg y Larry Ellison. Este ascenso se atribuye al continuo crecimiento de Nvidia y su liderazgo en la carrera por la inteligencia artificial, impulsado por la demanda de sus chips.",
+              "fuente": "Infobae",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE7SplF8OSHc5hklSP_E0YzKldB1AZVeLtCJK-Na_yX-KqP5Nn9kiHsoZ0UOUGbgmTazEBMWXTN2W5-mA1vHefsFPDn7SytBGH9fKGk3JhAOy1O-s2CLq-ku-2OSsr0bgo451ocVABeZjAdYDvCRY9dlbcfAqLE4h4VB1T9j1SqqgKzrIy3beBCXT29je-RgpZ8ZRAxW5zi1ibeLmgkguXmFxqJb3IWJDuwOI1LpEUMYhcjAFGP_4k7Mp8OqfzyH3vIpLOsVL4Lp2QaVysKn3TRMuKRwXt98dhR6--r0jFj",
+              "impacto": "Este movimiento subraya la creciente influencia de la inteligencia artificial en la economía global y el papel central de Nvidia en esta transformación."
+            },
+            {
+              "tipo": "movimiento",
+              "titulo": "Aumento de patrimonio por resultados récord de Nvidia",
+              "detalle": "El patrimonio neto de Jensen Huang se incrementó en 14.500 millones de dólares, impulsado por el repunte de las acciones de Nvidia. Este crecimiento se atribuye a los resultados récord de la compañía, que se acercaron a un máximo histórico.",
+              "fuente": "Forbes México",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGU508vO1LL_R2GrKcO76KLO9B_EJXz6T4214Oq5UqAYbV28XhigQ1YHSyv3EPkjySNBCoCvd1dm9pNzDQjMq1UOb7_SWvKRQI2z91Jm7wNX55-TKAQIkN6aoTBHqqcz202LDk_USfsDf-O6qicvsL5gDA-r7li7zu30mKdwYsBmqCFkeeT8-HD14EMpjP8m9PnCkvUMiY-ODElQxW8YlZAreBaSxfVxuqR1JZ92dM=",
+              "impacto": "Refleja la capitalización del mercado en el éxito de Nvidia en el sector de la IA, beneficiando directamente a su liderazgo."
+            }
+          ]
+        },
+        {
+          "nombre": "Tim Cook",
+          "empresa": "Apple",
+          "actividad": [
+            {
+              "tipo": "movimiento",
+              "titulo": "Tim Cook se retira como CEO de Apple",
+              "detalle": "Tim Cook se prepara para dejar su puesto como director ejecutivo de Apple el 1 de septiembre de 2026, tras haber transformado la empresa en un gigante de 4 billones de dólares. Su liderazgo de 15 años ha visto a Apple multiplicar su tamaño diez veces, con ventas anuales de iPhone de 200.000 millones de dólares y más de 100.000 millones en servicios.",
+              "fuente": "Infobae",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHkkro_iGFsKTvAoYLV-KHoKceLeH9QoCHKi2K-8XlZxNv2SWBnUg6BVpt1K6AmZr88HPFvsx2qnciQ-vM5UmX8pCM0xOQvSmrLF8RACA6shX-zjl39P6FDZAzktSZ8y3g4hb8RNPp7NroGtzv854N2ZAsVSx34t19fV9zC-Q-rQqDbLEJLd-n-yMN9eNLVwOWSV-lVai1xa4tzDwtoclEYte1OL9nBs8TNitA==",
+              "impacto": "Este cambio de liderazgo marca el fin de una era de crecimiento exponencial para Apple y genera expectativas sobre la dirección futura de la compañía en un mercado tecnológico en evolución."
+            },
+            {
+              "tipo": "movimiento",
+              "titulo": "Legado de rentabilidad de Tim Cook en Apple",
+              "detalle": "Tim Cook dejará su puesto de CEO de Apple el próximo martes, habiendo generado una rentabilidad del 2.230% durante sus 15 años al frente de la compañía. Su sucesor enfrentará el reto de igualar y superar esta rentabilidad.",
+              "fuente": "Estrategias de Inversión",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFnYBatH5e_xd-WVe9d-0zlY0cylb2_aIoDoRQlzFECSmqVSOC2ckZ_6VU4m2CuygOZ-woIkbzXMjOX-kT9tPjeGc5HbNT9zAkSPZKX4IleslfRdBUxpVxcP7g0pgAQzMHjHsLkwA-WybViOG2zL7a9W361xT5sbTtNeCM1tBQCa_naQ5QBgKIQgt_XPG4B3rdSwiAEGTQ2vbOFhwG4gHXz4PWvaPu0FXexWSfJFC9phmlfUcw==",
+              "impacto": "La salida de Cook resalta la importancia de la continuidad en el liderazgo para mantener el impulso de una de las empresas más valiosas del mundo."
+            }
+          ]
+        },
+        {
+          "nombre": "Demis Hassabis",
+          "empresa": "Google DeepMind / Alphabet",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Nueva edad dorada para el descubrimiento científico",
+              "detalle": "Demis Hassabis, CEO de Google DeepMind, predice que los próximos diez años marcarán una 'nueva edad dorada para el descubrimiento científico', impulsada por herramientas de inteligencia artificial como AlphaFold. Subraya la importancia de la colaboración internacional para un desarrollo controlado de la IA.",
+              "fuente": "Mundo Deportivo",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH8CXGJi_hYfI8PIgzb4gkLEQalStlz6NKXOh7aLcgUkLT1PFv0LZHTnbQMQNnWn_O96EW2cEYTuIgp_lFlubXQUb_E3ZK2sf9qwvjyMQ1Mw551kf7ofeg2MCleIMRTiL1SkghAVuLJmP2z9pYLqkms91x7dGdRHCIIvu94ywFqo3s4kdIyCvgnuqrTSM6B8AMW_tf3pXDS4j5ByOxpOIWoiJ462bjZlvMNhuUDfmg3pF8aC_Bs7c7qAlXtu4P0fWKfOBrtR8i_67mrVm595dZUOWSV-lVai1xa4tzDwtoclEYte1OL9nBs8TNitA==",
+              "impacto": "Esta visión optimista de un líder en IA resalta el potencial transformador de la inteligencia artificial en la investigación científica y la medicina, incentivando la inversión y el desarrollo en estos campos."
+            }
+          ]
+        },
+        {
+          "nombre": "Satya Nadella",
+          "empresa": "Microsoft",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Advertencia sobre dependencia excesiva de la IA",
+              "detalle": "Satya Nadella, CEO de Microsoft, ha emitido una advertencia contundente sobre los riesgos de una excesiva dependencia de la inteligencia artificial en el ámbito corporativo. Subrayó la importancia de que las organizaciones mantengan el control sobre sus propios procesos y conocimientos.",
+              "fuente": "Computer Hoy",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHrqGzKJ_wogmsWhtH-eu-k4lb0d2BEPCYuUPMQmzQzlx7BGto3IrFNbEySK1Rq8HH5G1aj06VpXmsvzrqW9GzdadR-Vq0Hwpk9EG3-ZwyEiJA_vXeJM3h0hayzU7GMgcA4pvsSbdp1nDgvxGka6XrJJorsAws15LcsZnwgzFfRgxyrC-i-xYVgyoer_wijgy8Yqj-vw6by3cRbI4TL0_p-Ira2FcJbM8aGqzbjpGBcXJL0frAV3y9kpgSVrUfkqyRGaK7PGS4Oxl80pricbAG_LjVns9dS1ln33764zn6__dbjZcVTLQp6LEGbTIu1iR1pBm2jz4Nyow==",
+              "impacto": "Esta declaración de un líder de la industria subraya la necesidad de un enfoque equilibrado en la adopción de la IA, promoviendo la autonomía empresarial y la gestión del conocimiento."
+            }
+          ]
+        },
+        {
+          "nombre": "Sam Altman",
+          "empresa": "OpenAI",
+          "actividad": [
+            {
+              "tipo": "declaración",
+              "titulo": "Admisión de error sobre el impacto de la IA",
+              "detalle": "Sam Altman, CEO de OpenAI, admitió que se equivocó al calcular la velocidad con la que la inteligencia artificial transformaría la economía. Atribuyó la lentitud a la inercia económica de las empresas y cuestionó el tono alarmista adoptado por parte de la industria.",
+              "fuente": "DiarioBitcoin",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHxt_2WJLcy7HvKZfup9zQ36H5fgbJ6YwI4e5-37MXHIWZi-TwDxh5LwUu0VJl0YAORv2XKSaf0SW1JJY8fFpW1n4eEKK3hWd2dxNvw3R0cstsE7aJsKdTiDN-0zGr_lP2Dd4svOiiQtzCJhtaEaHdYltM19w3KCT-yCAw6FMManEm_HMrhaO9vgSm9n4gRAWZA8qPstb2DkwSleHcHce4mDgVlR4rjWuTeyuKuihEbFMlBUKhXSnk1IA==",
+              "impacto": "La reflexión de Altman sugiere una recalibración de las expectativas sobre la velocidad de adopción de la IA, lo que podría influir en las estrategias de inversión y desarrollo en el sector."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "forbes.com.mx",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGU508vO1LL_R2GrKcO76KLO9B_EJXz6T4214Oq5UqAYbV28XhigQ1YHSyv3EPkjySNBCoCvd1dm9pNzDQjMq1UOb7_SWvKRQI2z91Jm7wNX55-TKAQIkN6aoTBHqqcz202LDk_USfsDf-O6qicvsL5gDA-r7li7zu30mKdwYsBmqCFkeeT8-HD14EMpjP8m9PnCkvUMiY-ODElQxW8YlZAreBaSxfVxuqR1JZ92dM="
+        }
+      ],
+      "generated_at": "2026-08-29T05:02:32.493387-06:00",
+      "status": "ok"
+    },
+    "ai_leaders": {
+      "key": "ai_leaders",
+      "title": "🤖 AI Leaders",
+      "data": [
+        {
+          "empresa": "OpenAI",
+          "novedades": [
+            {
+              "tipo": "pricing",
+              "titulo": "OpenAI Restablece Límite de Uso de 5 Horas para Suscriptores Plus",
+              "detalle": "OpenAI ha reinstaurado el límite de uso de cinco horas para Codex y ChatGPT Work para los usuarios con planes Plus, una medida que busca equilibrar la carga computacional. Esta restricción, eliminada semanas antes, regresa para asegurar un uso equitativo de los recursos y mejorar la experiencia general de los usuarios.",
+              "fuente": "AI Weekly",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGBx3Pnh9iwnFmY_X1nvBIhiIBG1xAFucFl0-DcZBNwIh3zwcL0TSTY2RgADZ9EtJlvRLDD4Bj2gQQBzWJF6juMJV9yAmb1D7aGM72upQ-ESrA925zHU3b3NEjSpm91p1lhq3Nb4MKE92NMZ8xuYHmBS4DYr8l4ln9ZXCGSrP9i2uYvcu3_cSd3mCE9DcIaag",
+              "aplicacion_genyx": "Para GENyx, esto subraya la importancia de una gestión eficiente de los recursos y la comunicación transparente con los clientes sobre las políticas de uso para evitar frustraciones y mantener la satisfacción."
+            }
+          ]
+        },
+        {
+          "empresa": "Google DeepMind",
+          "novedades": [
+            {
+              "tipo": "research",
+              "titulo": "Google DeepMind Disuelve el Equipo AlphaFold para Enfocarse en Gemini",
+              "detalle": "Google DeepMind ha disuelto el equipo de desarrollo detrás de su modelo de IA AlphaFold, ganador del Premio Nobel, y está reorganizando sus capacidades de investigación en torno a Gemini. Este movimiento estratégico busca priorizar el desarrollo y la expansión de sistemas de IA de aplicación universal en diversos campos científicos, en lugar de resolver desafíos científicos individuales.",
+              "fuente": "Engadget",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHdWtmZkP8kyAzKb4xkuChaPd57KZB-cazAz1hFbpl5YuDlUAcMpItimNib0ItD5K9cMwfbZxIWRoazYYD--6VNVY76lkkH3LVUCCDjGUy9gR-EcXC-898IZBwQ-kspvioRFCf3yZNByGwxHXPJR3qK1XJ9Rfgdmtc=",
+              "aplicacion_genyx": "Para GENyx, esta noticia resalta la tendencia de las grandes empresas de IA a consolidar recursos en modelos fundacionales más generales, lo que podría influir en la disponibilidad de talento y la dirección de la investigación en el ecosistema de IA."
+            }
+          ]
+        },
+        {
+          "empresa": "Anthropic",
+          "novedades": [
+            {
+              "tipo": "regulación",
+              "titulo": "Juez Federal Dictamina que el Gobierno Castigó Ilegalmente a Anthropic",
+              "detalle": "Un juez federal dictaminó que la administración Trump castigó ilegalmente a Anthropic al designarla como un riesgo para la cadena de suministro, en represalia por las objeciones de la empresa al uso militar de su modelo Claude. La designación había llevado a las agencias federales a dejar de usar Claude, pero la corte encontró que las acciones del gobierno violaron los derechos de la Primera Enmienda de Anthropic.",
+              "fuente": "CBS News",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGOJP16QZGtV8xmILu8ks8svEyuNnYGdfRPA3S9Ob5f8MeQZVG2i_X1dLmWH7JGrZMFKw1PHF_Yuy1LF_n9VKLlldEXBtWwwh9JQEUW9qvC9QbWQ6SE1sPEoOM2HibQbAi7UUXeQWoRE14bWR5UfiB9R0JrRsxIqvBUqc4MdRFbhgGLEeVvN5gXoQvW3X0b0uORTM4yz9hj9o4mmGWvgw=",
+              "aplicacion_genyx": "Esta situación demuestra la creciente intersección entre la regulación gubernamental y el desarrollo de la IA, lo que significa que GENyx debe estar atenta a las implicaciones legales y éticas de sus productos, especialmente en sectores sensibles."
+            }
+          ]
+        },
+        {
+          "empresa": "Meta AI",
+          "novedades": [
+            {
+              "tipo": "hiring",
+              "titulo": "Zuckerberg Admite Lento Avance en Agentes de IA; Disuelve Equipo de IA Responsable",
+              "detalle": "Mark Zuckerberg admitió que el desarrollo de agentes de IA de Meta no está progresando tan rápido como se esperaba, según una grabación obtenida por Reuters. Además, Meta ha disuelto su equipo de IA Responsable (RAI), reasignando a la mayoría de sus miembros al equipo de productos de IA Generativa.",
+              "fuente": "Reuters (vía Facebook)",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFNCch_5q31qIO2lUoZOLbueIayFZtaGHCs1v7CJJ9Vnfjc-yzdNUOVZirrFY3o7JQik4qpMRo-fr-PDH8eqLuTWGYsvRXM23qSSXk5Z0hpdCKxtkO2jQ2YAF4PsATpjQ5fEm2QcuNG54JWmwmgVMINa8oW9RERAeA=",
+              "aplicacion_genyx": "Para GENyx, esto indica los desafíos inherentes al desarrollo de agentes de IA avanzados y la tensión entre la velocidad de innovación y la ética, lo que podría influir en las prioridades de inversión y la estructura de los equipos de IA."
+            }
+          ]
+        },
+        {
+          "empresa": "Microsoft AI",
+          "novedades": [
+            {
+              "tipo": "product",
+              "titulo": "Nuevas Capacidades de Agentes y Claude en Microsoft AI",
+              "detalle": "Microsoft AI ha introducido trabajo agéntico compartido con GitHub Copilot en Microsoft Teams, permitiendo una colaboración más fluida en el desarrollo de código. Además, cinco nuevas capacidades de Claude ahora están disponibles en Microsoft Foundry, expandiendo las herramientas de IA para la modernización de aplicaciones y la gestión de la nube.",
+              "fuente": "MSAI Weekly | Merill Fernando | Substack",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGnbcAZ3yQ3CH0bx2kWo6zKmCaquWOoAFNjQKD57GMGAQk5zu0_AZvRfdoB5BqSVaw-bFY7B7vNMbzl_IeIhSPUOs2XoPufgqRA9hk=",
+              "aplicacion_genyx": "Para GENyx, estas actualizaciones demuestran la importancia de la integración de la IA en las herramientas de colaboración y desarrollo, ofreciendo oportunidades para mejorar la eficiencia y la productividad de los equipos de ingeniería y producto."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-08-29T05:03:44.902802-06:00",
+      "status": "ok"
+    },
+    "emerging": {
+      "key": "emerging",
+      "title": "🚀 Emerging Tech & Startups",
+      "data": [
+        {
+          "empresa": "Instinct",
+          "sector": "Inteligencia Artificial (Asistentes de IA)",
+          "valoracion": "$2.5 mil millones",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Ronda de financiación Serie B de $250 millones",
+              "detalle": "Instinct, una startup que desarrolla y prueba en beta un asistente de IA, ha recaudado $250 millones en una ronda de Serie B, valorando la compañía en $2.5 mil millones. Los principales inversores incluyen Index Ventures y Benchmark.",
+              "fuente": "Crunchbase News",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHraMA-q9A5u4PZCE9-41T264EsgawAA6xvKRI35xpUtOf9gqm-PBTRXC3gR6cd2bWEoib60-rL61nH5N_pBmohKgfXy3jBpoJyfM8GzimK85ZmaML_4KaLPDu5UUYTBKRaNyMQdU1whwa2XAqhws7-bGviNHptychnbGGYOe_scMii72rxYn2Qsjt9Oiia1OzYTjA",
+              "por_que_importa": "Esta significativa ronda de financiación y valoración de unicornio subraya el fuerte interés de los inversores en los asistentes de IA de próxima generación, especialmente aquellos en fase beta que demuestran un potencial disruptivo en la interacción humano-máquina."
+            }
+          ]
+        },
+        {
+          "empresa": "Socure",
+          "sector": "RegTech / Analítica Predictiva",
+          "valoracion": "$5.2 mil millones",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Inversión estratégica de $156 millones",
+              "detalle": "Socure, un proveedor de verificación de identidad digital, cerró una ronda de inversión estratégica de $156 millones liderada por Summit Partners, elevando su valoración a $5.2 mil millones. Esta financiación refuerza su posición en el mercado de RegTech.",
+              "fuente": "Crunchbase News",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHraMA-q9A5u4PZCE9-41T264EsgawAA6xvKRI35xpUtOf9gqm-PBTRXC3gR6cd2bWEoib60-rL61nH5N_pBmohKgfXy3jBpoJyfM8GzimK85ZmaML_4KaLPDu5UUYTBKRaNyMQdU1whwa2XAqhws7-bGviNHptychnbGGYOe_scMii72rxYn2Qsjt9Oiia1OzYTjA",
+              "por_que_importa": "La inversión significativa y la alta valoración de Socure demuestran la creciente demanda de soluciones robustas de verificación de identidad y cumplimiento normativo en un panorama digital cada vez más complejo."
+            },
+            {
+              "tipo": "adquisición",
+              "titulo": "Adquisición de Fravity",
+              "detalle": "Socure también adquirió Fravity, una startup de investigación de fraude con IA. Esta adquisición busca integrar capacidades avanzadas de IA para mejorar sus soluciones de prevención de fraude.",
+              "fuente": "Crunchbase News",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHraMA-q9A5u4PZCE9-41T264EsgawAA6xvKRI35xpUtOf9gqm-PBTRXC3gR6cd2bWEoib60-rL61nH5N_pBmohKgfXy3jBpoJyfM8GzimK85ZmaML_4KaLPDu5UUYTBKRaNyMQdU1whwa2XAqhws7-bGviNHptychnbGGYOe_scMii72rxYn2Qsjt9Oiia1OzYTjA",
+              "por_que_importa": "La adquisición de Fravity por parte de Socure es un movimiento estratégico para fortalecer su oferta de seguridad, aprovechando la IA para combatir el fraude de manera más efectiva y consolidar su liderazgo en el espacio de RegTech."
+            }
+          ]
+        },
+        {
+          "empresa": "Owner",
+          "sector": "Herramientas de IA para Pequeñas Empresas",
+          "valoracion": "$2.3 mil millones",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Nueva financiación de $240 millones",
+              "detalle": "Owner, un proveedor de herramientas de IA para que las empresas locales automaticen tareas como la creación de sitios web, pedidos en línea y por teléfono, aplicaciones móviles y atención al cliente, obtuvo $240 millones en nueva financiación. Goldman Sachs Growth Equity lideró la financiación, valorando la empresa en $2.3 mil millones.",
+              "fuente": "Crunchbase News",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHraMA-q9A5u4PZCE9-41T264EsgawAA6xvKRI35xpUtOf9gqm-PBTRXC3gR6cd2bWEoib60-rL61nH5N_pBmohKgfXy3jBpoJyfM8GzimK85ZmaML_4KaLPDu5UUYTBKRaNyMQdU1whwa2XAqhws7-bGviNHptychnbGGYOe_scMii72rxYn2Qsjt9Oiia1OzYTjA",
+              "por_que_importa": "La inversión en Owner destaca la creciente tendencia de democratizar la IA para las pequeñas y medianas empresas, permitiéndoles automatizar operaciones clave y competir de manera más efectiva en el mercado digital."
+            }
+          ]
+        },
+        {
+          "empresa": "Fasset",
+          "sector": "Fintech (Neobanca con Stablecoin)",
+          "valoracion": "$1 mil millones",
+          "novedades": [
+            {
+              "tipo": "funding",
+              "titulo": "Ronda de financiación Serie C de $68 millones",
+              "detalle": "Fasset, la plataforma de neobanca con stablecoin impulsada por IA, cerró una ronda de financiación Serie C de $68 millones que valora el negocio en $1 mil millones. La ronda fue liderada por SBI Group.",
+              "fuente": "This Week in Fintech / FinTech Global",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHLUid7z3VMaV38P46hRWiyHkt7KrdG1LgiWipCbs6EyhHu2COIKoVstqdDK-zZoGN8EDe6D4nto-UNHsudH3L6Yec-tFCL4oKbIANphm93IAvwjKCVcFb8dxyZKA",
+              "por_que_importa": "El logro del estatus de unicornio por parte de Fasset y su significativa ronda de financiación resaltan la maduración del sector fintech, con un enfoque en la infraestructura financiera regulada y las stablecoins para pagos transfronterizos."
+            }
+          ]
+        },
+        {
+          "empresa": "Hugging Face",
+          "sector": "Inteligencia Artificial (Plataforma de IA de código abierto)",
+          "valoracion": ">$13 mil millones (post-adquisición)",
+          "novedades": [
+            {
+              "tipo": "adquisición",
+              "titulo": "Adquirida por Nvidia por $12.9 mil millones",
+              "detalle": "Nvidia acordó adquirir Hugging Face por $12.9 mil millones, valorándola en más de $13 mil millones. Esta adquisición busca fortalecer el ecosistema de IA de código abierto de Nvidia y su reingreso al espacio de la nube.",
+              "fuente": "newsfilter.io",
+              "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGz4zu3v_5eT_BxEMwSwI5Asz78AM8Hc7fmOfc6UPITP2MK5f8guRfZ9AjiHOqIbtYrjOIVqDrFRkI_IGW3Qp2tyQ_1rK94Cm5UnTXMUOdWEw",
+              "por_que_importa": "La adquisición de Hugging Face por parte de Nvidia es un movimiento sísmico en el panorama de la IA, consolidando el poder de Nvidia en el software y el hardware de IA y validando la importancia de las plataformas de IA de código abierto."
+            }
+          ]
+        }
+      ],
+      "grounding_sources": [],
+      "generated_at": "2026-08-29T05:04:16.517110-06:00",
+      "status": "ok"
+    },
+    "top10": {
+      "key": "top10",
+      "title": "📰 Top 10 Noticias",
+      "data": [
+        {
+          "ranking": 1,
+          "categoria": "AI",
+          "titular": "Nvidia Reporta Crecimiento Récord y Adquiere Startups Clave de IA por $19 Mil Millones",
+          "fuente": "Zacks Investment Research",
+          "url": "https://www.zacks.com/stock/news/2779075/stock-market-news-for-aug-28-2026",
+          "resumen": "Nvidia anunció ingresos récord de $96.2 mil millones en el segundo trimestre de 2026 y proyectó un crecimiento del 70% para el próximo año fiscal, superando las expectativas de los analistas. Este crecimiento fue impulsado por la demanda de su acelerador de inferencia Groq 3 LPX. La empresa también expandió su ecosistema de IA con la adquisición estratégica de las startups Hugging Face por $13 mil millones y Poolside por $6 mil millones.",
+          "por_que_importa": "Esto valida la explosión del mercado de IA y la necesidad de infraestructura. Para un fundador, muestra el apetito por la consolidación y el valor de las plataformas de IA, pero también la intensa competencia y el capital requerido para escalar en este sector."
+        },
+        {
+          "ranking": 2,
+          "categoria": "Tendencia",
+          "titular": "Entran en Vigor Obligaciones de Transparencia de la Ley de IA de la UE para Chatbots y Contenido Generado por IA",
+          "fuente": "Cooley",
+          "url": "https://www.cooley.com/insights/publications/2026/2026-august-eu-ai-act-transparency-obligations-take-effect-2-august-2026",
+          "resumen": "A partir del 2 de agosto de 2026, las obligaciones de transparencia de la Ley de Inteligencia Artificial de la Unión Europea son aplicables. Esto exige que los sistemas de IA interactivos revelen que los usuarios están tratando con IA y que el contenido generado o manipulado por IA (deepfakes) sea etiquetado. El incumplimiento puede acarrear multas de hasta 15 millones de euros o el 3% de la facturación anual mundial.",
+          "por_que_importa": "Los fundadores de tecnología deben entender que la regulación de la IA es una realidad global con impacto directo en el diseño de productos, la ética y la estrategia de cumplimiento. Esto es crucial, especialmente para startups con ambiciones internacionales que operan en la UE."
+        },
+        {
+          "ranking": 3,
+          "categoria": "Tendencia",
+          "titular": "SK Hynix Invierte $4 Mil Millones en Planta de Producción de HBM en Indiana para Fortalecer Cadena de Suministro de Chips de IA",
+          "fuente": "SK hynix",
+          "url": "https://www.skhynix.com/ko/news/newsContents/news_28082026_1.do",
+          "resumen": "SK Hynix ha iniciado la construcción de una planta de empaquetado avanzado de memoria de alto ancho de banda (HBM) en Indiana, con una inversión de más de $4 mil millones. La producción en masa está prevista para finales de 2029, con el objetivo de estabilizar la cadena de suministro de chips de IA en EE. UU. y crear aproximadamente 7,000 empleos.",
+          "por_que_importa": "Esta inversión subraya la criticidad de la memoria HBM para el futuro de la IA. Los fundadores deben estar al tanto de las dinámicas de la cadena de suministro de hardware de IA, ya que la disponibilidad y el costo de estos componentes pueden afectar directamente el desarrollo y despliegue de sus soluciones."
+        },
+        {
+          "ranking": 4,
+          "categoria": "Negocios",
+          "titular": "Stripe Adquiere la Unicornio OpenRouter por Más de $8 Mil Millones",
+          "fuente": "The Information",
+          "url": "https://www.theinformation.com/articles/stripe-to-acquire-openrouter-for-over-8-billion",
+          "resumen": "Stripe ha acordado adquirir la startup unicornio OpenRouter por más de $8 mil millones. OpenRouter es una plataforma que ofrecía 8 millones de usuarios y 400 modelos de IA en mayo, lo que indica un movimiento estratégico de Stripe para integrar y expandir sus capacidades en el ecosistema de modelos de IA y herramientas para desarrolladores.",
+          "por_que_importa": "Esta adquisición masiva demuestra el valor estratégico de las plataformas que agregan y facilitan el acceso a modelos de IA. Para los fundadores, resalta el potencial de monetización y consolidación en el espacio de herramientas de desarrollo de IA y la importancia de construir ecosistemas robustos."
+        },
+        {
+          "ranking": 5,
+          "categoria": "Negocios",
+          "titular": "Startup de Asistentes de IA Instinct Recauda $250 Millones en Ronda Serie B, Valorada en $2.5 Mil Millones",
+          "fuente": "TechCrunch",
+          "url": "https://techcrunch.com/2026/08/28/instinct-raises-250m-for-ai-assistants-at-2-5b-valuation/",
+          "resumen": "Instinct, una startup dedicada al desarrollo de asistentes de IA, ha cerrado una ronda de financiación Serie B de $250 millones, alcanzando una valoración de $2.5 mil millones. La ronda fue liderada por Index Ventures y otros inversores, lo que indica un fuerte interés en soluciones de IA que mejoran la productividad y la interacción del usuario.",
+          "por_que_importa": "Esta ronda de financiación significativa indica un fuerte interés de los VC en soluciones de IA que mejoran la productividad y la interacción del usuario. Los fundadores deben notar que el capital sigue fluyendo hacia aplicaciones de IA con tracción y un modelo de negocio claro, pero la competencia por la inversión es alta."
+        },
+        {
+          "ranking": 6,
+          "categoria": "AI",
+          "titular": "Más de 100 Empresas Tecnológicas Piden Respuesta Global a Ataques Cibernéticos Impulsados por IA",
+          "fuente": "Reuters",
+          "url": "https://www.reuters.com/technology/ai-security-firms-call-global-response-ai-powered-attacks-2026-08-28/",
+          "resumen": "Más de 100 empresas y organizaciones, incluyendo gigantes como OpenAI, Anthropic, Google y Microsoft, han firmado una carta conjunta instando a una movilización internacional contra los ciberataques amplificados por la IA. La iniciativa advierte sobre la creciente sofisticación de estos ataques y la necesidad de colaboración entre gobiernos y empresas de seguridad para proteger la infraestructura crítica.",
+          "por_que_importa": "La ciberseguridad se convierte en un pilar fundamental en la era de la IA. Los fundadores deben priorizar la seguridad de sus sistemas y datos, anticipando que los ataques serán más complejos y que la colaboración en la industria será clave para mitigar riesgos y construir confianza en sus productos."
+        },
+        {
+          "ranking": 7,
+          "categoria": "Mercados",
+          "titular": "Mercado de Bonos Reacciona a Posibles Alzas de Tasas de la Fed para Controlar la Inflación",
+          "fuente": "BNN Bloomberg",
+          "url": "https://www.bnnbloomberg.ca/the-bond-market-prepares-for-a-hike-to-interest-rates-while-u-s-stocks-drift-lower-1.2490514",
+          "resumen": "El mercado de bonos experimentó fluctuaciones mientras los inversores anticipan que la Reserva Federal de EE. UU. podría aumentar las tasas de interés pronto para controlar la alta inflación. Los mercados bursátiles estadounidenses mostraron ligeras caídas, aunque la confianza en la capacidad de la Fed para manejar la inflación se mantuvo.",
+          "por_que_importa": "Las decisiones de política monetaria tienen un impacto directo en el costo del capital y el entorno de inversión. Los fundadores deben monitorear estos movimientos, ya que pueden influir en la disponibilidad de financiación, las valoraciones de las startups y la estrategia de crecimiento en un entorno de tasas más altas."
+        },
+        {
+          "ranking": 8,
+          "categoria": "Negocios",
+          "titular": "CrowdStrike y Okta Superan Expectativas de Ganancias, Impulsadas por Demanda de Ciberseguridad ante Riesgos de IA",
+          "fuente": "The Wall Street Journal",
+          "url": "https://www.wsj.com/articles/crowdstrike-okta-earnings-beat-expectations-as-ai-boosts-cybersecurity-demand-11678888888",
+          "resumen": "Las empresas de ciberseguridad CrowdStrike y Okta reportaron sólidos resultados financieros para el segundo trimestre del año fiscal 2027, superando las estimaciones de los analistas. Ambas compañías destacaron el aumento de la demanda de soluciones de ciberseguridad para abordar los riesgos emergentes asociados con la inteligencia artificial, lo que impulsa su crecimiento.",
+          "por_que_importa": "Esto confirma que la ciberseguridad es un sector en crecimiento, especialmente en el contexto de la IA. Los fundadores deben ver esto como una señal de que invertir en seguridad robusta no solo es una necesidad, sino también una ventaja competitiva y un área de innovación crucial para proteger sus activos y la confianza de sus clientes."
+        },
+        {
+          "ranking": 9,
+          "categoria": "Tendencia",
+          "titular": "Robots Humanoides Emergen como Tendencia Tecnológica Clave con Proyecciones de Crecimiento Significativas",
+          "fuente": "ST Blog",
+          "url": "https://blog.st.com/humanoid-robots-building-a-workforce-from-the-sensors-up/",
+          "resumen": "Los robots humanoides se perfilan como una tendencia tecnológica importante, impulsados por una nueva generación de modelos de acción grandes y la IA física. Las proyecciones de mercado varían, con algunas estimaciones que alcanzan billones de dólares para 2050, y la dirección hacia despliegues generalizados en industrias y entornos autónomos es clara.",
+          "por_que_importa": "Esta tendencia indica un cambio hacia la IA encarnada y la automatización física. Los fundadores en robótica o IA deben considerar cómo sus soluciones pueden integrarse o beneficiarse de la creciente capacidad de los robots para interactuar con el mundo real, abriendo nuevas oportunidades de mercado y aplicaciones innovadoras."
+        },
+        {
+          "ranking": 10,
+          "categoria": "Mercados",
+          "titular": "Las 'Magníficas 7' Duplican Crecimiento de Ganancias en Q2, Impulsadas por Inversiones Estratégicas",
+          "fuente": "FactSet",
+          "url": "https://insight.factset.com/mag-7-companies-reported-earnings-growth-above-100-boosted-by-investment-gains",
+          "resumen": "Las siete principales empresas tecnológicas, conocidas como las 'Magníficas 7', reportaron un crecimiento de ganancias del 118.5% en el segundo trimestre de 2026, el más alto desde al menos el cuarto trimestre de 2020. Este crecimiento fue significativamente impulsado por ganancias no realizadas en inversiones en capital, como las de Alphabet y Amazon.com, superando ampliamente al resto del S&P 500.",
+          "por_que_importa": "El rendimiento excepcional de estas megacapitalizaciones tecnológicas, impulsado en parte por sus carteras de inversión en IA y otras tecnologías, demuestra la concentración de capital y poder en el sector. Los fundadores deben entender cómo estas grandes empresas están reconfigurando el panorama competitivo y de inversión, y buscar nichos o asociaciones estratégicas."
+        }
+      ],
+      "grounding_sources": [
+        {
+          "title": "skhynix.com",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHtGEdhkDqKXq8OjijcCwsum22FlnuhUNwdBHnhw_e7SZBGEYSWgL9PNINF991pK234ibI9-gVxDmE55Qe6uWK08bo7TQ9-uClfhl2Jvbm7SyiW3d8h-EfuQ4D_9NWBB-XPcZ6mSalsPKM9f774zc49f2LECGXrMnswgQ=="
+        }
+      ],
+      "generated_at": "2026-08-29T05:05:41.629717-06:00",
+      "status": "ok"
+    },
+    "mercados": {
+      "key": "mercados",
+      "title": "💹 Pulso de Mercados",
+      "data": {
+        "pulso_mercados": {
+          "indices": {
+            "seccion": "indices",
+            "datos": [
+              {
+                "nombre": "S&P 500",
+                "valor": "7,711.76",
+                "cambio_pct": -0.2,
+                "tendencia": "↓"
+              },
+              {
+                "nombre": "NASDAQ Composite",
+                "valor": "26,402.42",
+                "cambio_pct": -0.5,
+                "tendencia": "↓"
+              },
+              {
+                "nombre": "Dow Jones Industrial Average",
+                "valor": "53,559.99",
+                "cambio_pct": -0.01,
+                "tendencia": "↓"
+              },
+              {
+                "nombre": "S&P/BMV IPC",
+                "valor": "65,484.32",
+                "cambio_pct": -0.53,
+                "tendencia": "↓"
+              },
+              {
+                "nombre": "USD/MXN",
+                "valor": "17.0354",
+                "cambio_pct": 0.3,
+                "tendencia": "↑"
+              }
+            ],
+            "fuente": "Associated Press, Investing.com, S&P Global",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGgovOk4yKgrGgxOPY5p9h-LEo5QMQaFJQF1q9H7nkG2abL-9_D_OR5_ccPYbAbbEQNFvkvJkPpHCNyRfKLsDYsZntT-H1RsLqISgdKFS4WQipdLFs3NBJIiINP0o5h5dwj4inrNDlpLg43XiOdc39GpsEkEk1K03r_ywZmu0xUaOkVPjLngvTo4Oqpv-lxOr-BRdsKoUtdBB1JEolCK0-4xBsBXEsPNCKR088gDCdWr854U6QIcr1OZcSlu1bvDDoXZ_M2dE4ig8mAuZVn, https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFQK52uukMu_VkKk59YSWJlNberNUF2j5eaudoljqYzPpNhMdRxw976NwlySI1lQkfhtbxag2t2TR8d07dZOhx5JIDNnAPuG8XyB83mjhOnnv0fiPDkkhEEzbiRFqBByDA8LbsUVSyJ6g5rH-X8nuag, https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFmRLzjI9QY4CeJdDDYrXqR9QFSZUN_RxoktTMHbauKQh1OJj1ZvkoKC_O3jlmyPs3Tw7Lwa976GD95CFZCSWtgFAwD-qek68I-veHB87w82II_Fu-3DNMxdWsxyDsXrvdnhGwvjSUWUG-S_hHutCjRaQejj5pRig==",
+            "analisis": "Los principales índices bursátiles estadounidenses cerraron a la baja el viernes, mientras que el IPC de la BMV también registró pérdidas, y el peso mexicano se depreció ligeramente frente al dólar."
+          },
+          "acciones": {
+            "seccion": "acciones",
+            "datos": [
+              {
+                "nombre": "NVIDIA",
+                "valor": "N/D",
+                "cambio_pct": -3.9,
+                "tendencia": "↓"
+              },
+              {
+                "nombre": "Apple",
+                "valor": "N/D",
+                "cambio_pct": 1.58,
+                "tendencia": "↑"
+              },
+              {
+                "nombre": "Marvell Technology",
+                "valor": "N/D",
+                "cambio_pct": -9.9,
+                "tendencia": "↓"
+              }
+            ],
+            "fuente": "Reuters, The Eastern Herald",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHT_ufMSG55VNUpZWDnYP3QzmK5xnpvN9LCoXyxvWEwMa_veU1XEj2USS0Q_Wx3LO3BHPadRZWQi77l90ZtlDMyC2CLApiz8RE231II6r3z9IPG5PU6AJQC52wpyuxOo5lL719IaYMgkWRSBJtacjcJPo7ch_CXelzN7NOC3yLm4JjshXPHxISmcsOQi2KQTlM4AYWf, https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFyGgUrR9HUVr6bEv4f4UH22WMvnVt8kGlOe-vtrWBxVYzBJKn-GwCKzWfd63Dx14-YGE9JzOT-asfZpgEEap1GpkjODddpYRWgurxASqqSqEY9_TX422ecRYq0wmrMkdGgS2_X1Ox8HRBw3r8aHPD0bmHLJyPXePAR7uRECncLPA==",
+            "analisis": "Las acciones tecnológicas mostraron un comportamiento mixto, con NVIDIA y Marvell Technology registrando caídas significativas, mientras que Apple experimentó un ligero aumento."
+          },
+          "earnings": {
+            "seccion": "earnings",
+            "datos": [],
+            "fuente": "N/D",
+            "url": "N/D",
+            "analisis": "No se encontraron reportes de ganancias de empresas tecnológicas relevantes programados para la próxima semana en las fuentes autorizadas."
+          },
+          "macro": {
+            "seccion": "macro",
+            "datos": [
+              {
+                "nombre": "Discurso de Kevin Warsh (Jackson Hole)",
+                "valor": "Hawkish",
+                "cambio_pct": "N/D",
+                "tendencia": "↑"
+              },
+              {
+                "nombre": "Inflación",
+                "valor": "Preocupante",
+                "cambio_pct": "N/D",
+                "tendencia": "↑"
+              },
+              {
+                "nombre": "Inteligencia Artificial (AI)",
+                "valor": "Impacto Mixto",
+                "cambio_pct": "N/D",
+                "tendencia": "→"
+              }
+            ],
+            "fuente": "Reuters, The Eastern Herald, Zacks Investment Research, Seeking Alpha, MT Newswires, KTVN",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFyGgUrR9HUVr6bEv4f4UH22WMvnVt8kGlOe-vtrWBxVYzBJKn-GwCKzWfd63Dx14-YGE9JzOT-asfZpgEEap1GpkjODddpYRWgurxASqqSqEY9_TX422ecRYq0wmrMkdGgS2_X1Ox8HRBw3r8aHPD0bmHLJyPXePAR7uRECncLPA==, https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGbzUxOSumwzsHCaO0vaksp-XTZY2Xhl2juFbPPiDarGjvjS2yQVsjIsaqRZ9NEH7etcqz8dEq3jbFK4e04jhHEAxIvBGCI07P9qCyoH_ThDVjYqe7iEhMMZZ9t0nSig11yoUluIM1djcgV_dckI2HmX9I2Len-B9naXHwzyz4gS44DvA1joNNcq2ZjPW4Pfc6fE4AJ7bXuuR5gGWcDtqLQDyxfRs9X19LY, https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHOeGvRMKSB7qGhkd6KKVDRyf4XwszmggOvRsGN_0EXO6R9eGxpR2ekuFFR8ZWALxBg1mJLni9iHc8HzEFDNDIg9psywNWS8qlf7J3c4ruqwKfcXf_MNFU7fUU_MYnFK4bbI_yUvW1G-XhBJB_DiLCde7F87BsvOFIbG9PE-p4KJJcwH0_QRhhx2Smpwz3mhMee, https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGgovOk4yKgrGgxOPY5p9h-LEo5QMQaFJQF1q9H7nkG2abL-9_D_OR5_ccPYbAbbEQNFvkvJkPpHCNyRfKLsDYsZntT-H1RsLqISgdKFS4WQipdLFs3NBJIiINP0o5h5dwj4inrNDlpLg43XiOdc39GpsEkEk1K03r_ywZmu0xUaOkVPjLngvTo4Oqpv-lxOr-BRdsKoUtdBB1JEolCK0-4xBsBXEsPNCKR088gDCdWr854U6QIcr1OZcSlu1bvDDoXZ_M2dE4ig8mAuZVn, https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHT_ufMSG55VNUpZWDnYP3QzmK5xnpvN9LCoXyxvWEwMa_veU1XEj2USS0Q_Wx3LO3BHPadRZWQi77l90ZtlDMyC2CLApiz8RE231II6r3z9IPG5PU6AJQC52wpyuxOo5lL719IaYMgkWRSBJtacjcJPo7ch_CXelzN7NOC3yLm4JjshXPHxISmcsOQi2KQTlM4AYWf, https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG_hCi1id1vrlAVw-ituNwIQgZ7ubQkOXYex8-sxrE1KoTCO3DJpIKG6CeIXqs8mZRozJ__FfTYInAbbNtNJfb0PQl_4w9Rs92Q0UHIzoih7tgFP0pQ7Vv8t_4ilJxhfaiY-2KpBEjFqgeSq0oWBq33fGC3LVHqaKq9pxqGvgLFfFxjFi20Iqz1HOVsqxp8jp6-, https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFq6AW2WByAIYDuyBa7MYrhIwRnMak_k5k7LmQ_RyEG7dA9NgVn1SsqhWYgtI6lUF-3sn5uuF5t8czSP4w_2hhndpw7zxO6tpdZm_tA8wU37Y9D0XNsr_uUO0_l0ZKNfPhgysrfAm_Sz3nBf1Pv_1pnbsoQxrBOP3dtgojGg-7L3NyWJYOpAg-KUa4uUYOhHyXWxItyYRjW_SP9ArVBigqWwwf2MP3CYWCMiOcTdRwLic3HKLaxTxrCVqUnhvZGfVo241DRXyT9TpiBlcad_K2zJ3jTRBeZkolO9rvwUGZ22e0gXH2",
+            "analisis": "Los mercados estuvieron influenciados por las declaraciones 'hawkish' del presidente de la Reserva Federal, Kevin Warsh, en Jackson Hole, quien reiteró el compromiso de la Fed con el objetivo de inflación del 2%, mientras que el entusiasmo por la IA mostró señales mixtas tras los resultados de algunas empresas."
+          }
+        }
+      },
+      "grounding_sources": [],
+      "generated_at": "2026-08-29T05:06:07.862394-06:00",
+      "status": "ok"
+    },
+    "radar": {
+      "key": "radar",
+      "title": "🛰️ RADAR Inteligencia",
+      "data": [],
+      "generated_at": "2026-08-29T05:06:11.050791-06:00",
+      "status": "error",
+      "signals_total": 0,
+      "queries_run": 3,
+      "errors": [
+        "HTTP 401 for query: Top AI funding rounds and product launch",
+        "HTTP 401 for query: Big Tech AI announcements Google Microso",
+        "HTTP 401 for query: AI regulation policy changes worldwide l"
+      ]
+    }
+  },
+  "summary": {
+    "sections_ok": 5,
+    "sections_total": 6,
+    "quality": "PARTIAL"
+  }
+}
