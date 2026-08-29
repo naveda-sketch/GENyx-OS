@@ -1,0 +1,108 @@
+El Periódico. Edición del 2026-08-29.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Jensen Huang.
+La IA alcanzó su punto de inflexión. Jensen Huang, CEO de Nvidia, declaró que la inteligencia artificial ha alcanzado su 'punto de inflexión' después de que la compañía anunciara ingresos récord de 96.221 millones de dólares en su segundo trimestre fiscal de 2027. Esto representa un crecimiento interanual del 106%. Fuente: Rosario Finanzas.
+Ascenso en el ranking de riqueza global. Jensen Huang, CEO de Nvidia, ha escalado hasta convertirse en la sexta persona más rica del mundo, superando a Mark Zuckerberg y Larry Ellison. Este ascenso se atribuye al continuo crecimiento de Nvidia y su liderazgo en la carrera por la inteligencia artificial, impulsado por la demanda de sus chips. Fuente: Infobae.
+Aumento de patrimonio por resultados récord de Nvidia. El patrimonio neto de Jensen Huang se incrementó en 14.500 millones de dólares, impulsado por el repunte de las acciones de Nvidia. Este crecimiento se atribuye a los resultados récord de la compañía, que se acercaron a un máximo histórico. Fuente: Forbes México.
+
+Tim Cook.
+Tim Cook se retira como CEO de Apple. Tim Cook se prepara para dejar su puesto como director ejecutivo de Apple el 1 de septiembre de 2026, tras haber transformado la empresa en un gigante de 4 billones de dólares. Su liderazgo de 15 años ha visto a Apple multiplicar su tamaño diez veces, con ventas anuales de iPhone de 200.000 millones de dólares y más de 100.000 millones en servicios. Fuente: Infobae.
+Legado de rentabilidad de Tim Cook en Apple. Tim Cook dejará su puesto de CEO de Apple el próximo martes, habiendo generado una rentabilidad del 2.230% durante sus 15 años al frente de la compañía. Su sucesor enfrentará el reto de igualar y superar esta rentabilidad. Fuente: Estrategias de Inversión.
+
+Demis Hassabis.
+Nueva edad dorada para el descubrimiento científico. Demis Hassabis, CEO de Google DeepMind, predice que los próximos diez años marcarán una 'nueva edad dorada para el descubrimiento científico', impulsada por herramientas de inteligencia artificial como AlphaFold. Subraya la importancia de la colaboración internacional para un desarrollo controlado de la IA. Fuente: Mundo Deportivo.
+
+Satya Nadella.
+Advertencia sobre dependencia excesiva de la IA. Satya Nadella, CEO de Microsoft, ha emitido una advertencia contundente sobre los riesgos de una excesiva dependencia de la inteligencia artificial en el ámbito corporativo. Subrayó la importancia de que las organizaciones mantengan el control sobre sus propios procesos y conocimientos. Fuente: Computer Hoy.
+
+Sam Altman.
+Admisión de error sobre el impacto de la IA. Sam Altman, CEO de OpenAI, admitió que se equivocó al calcular la velocidad con la que la inteligencia artificial transformaría la economía. Atribuyó la lentitud a la inercia económica de las empresas y cuestionó el tono alarmista adoptado por parte de la industria. Fuente: DiarioBitcoin.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+OpenAI Restablece Límite de Uso de 5 Horas para Suscriptores Plus. OpenAI ha reinstaurado el límite de uso de cinco horas para Codex y ChatGPT Work para los usuarios con planes Plus, una medida que busca equilibrar la carga computacional. Esta restricción, eliminada semanas antes, regresa para asegurar un uso equitativo de los recursos y mejorar la experiencia general de los usuarios. Fuente: AI Weekly.
+
+Google DeepMind.
+Google DeepMind Disuelve el Equipo AlphaFold para Enfocarse en Gemini. Google DeepMind ha disuelto el equipo de desarrollo detrás de su modelo de IA AlphaFold, ganador del Premio Nobel, y está reorganizando sus capacidades de investigación en torno a Gemini. Este movimiento estratégico busca priorizar el desarrollo y la expansión de sistemas de IA de aplicación universal en diversos campos científicos, en lugar de resolver desafíos científicos individuales. Fuente: Engadget.
+
+Anthropic.
+Juez Federal Dictamina que el Gobierno Castigó Ilegalmente a Anthropic. Un juez federal dictaminó que la administración Trump castigó ilegalmente a Anthropic al designarla como un riesgo para la cadena de suministro, en represalia por las objeciones de la empresa al uso militar de su modelo Claude. La designación había llevado a las agencias federales a dejar de usar Claude, pero la corte encontró que las acciones del gobierno violaron los derechos de la Primera Enmienda de Anthropic. Fuente: CBS News.
+
+Meta AI.
+Zuckerberg Admite Lento Avance en Agentes de IA; Disuelve Equipo de IA Responsable. Mark Zuckerberg admitió que el desarrollo de agentes de IA de Meta no está progresando tan rápido como se esperaba, según una grabación obtenida por Reuters. Además, Meta ha disuelto su equipo de IA Responsable (RAI), reasignando a la mayoría de sus miembros al equipo de productos de IA Generativa. Fuente: Reuters (vía Facebook).
+
+Microsoft AI.
+Nuevas Capacidades de Agentes y Claude en Microsoft AI. Microsoft AI ha introducido trabajo agéntico compartido con GitHub Copilot en Microsoft Teams, permitiendo una colaboración más fluida en el desarrollo de código. Además, cinco nuevas capacidades de Claude ahora están disponibles en Microsoft Foundry, expandiendo las herramientas de IA para la modernización de aplicaciones y la gestión de la nube. Fuente: MSAI Weekly | Merill Fernando | Substack.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Instinct.
+Ronda de financiación Serie B de $250 millones. Instinct, una startup que desarrolla y prueba en beta un asistente de IA, ha recaudado $250 millones en una ronda de Serie B, valorando la compañía en $2.5 mil millones. Los principales inversores incluyen Index Ventures y Benchmark. Fuente: Crunchbase News.
+
+Socure.
+Inversión estratégica de $156 millones. Socure, un proveedor de verificación de identidad digital, cerró una ronda de inversión estratégica de $156 millones liderada por Summit Partners, elevando su valoración a $5.2 mil millones. Esta financiación refuerza su posición en el mercado de RegTech. Fuente: Crunchbase News.
+Adquisición de Fravity. Socure también adquirió Fravity, una startup de investigación de fraude con IA. Esta adquisición busca integrar capacidades avanzadas de IA para mejorar sus soluciones de prevención de fraude. Fuente: Crunchbase News.
+
+Owner.
+Nueva financiación de $240 millones. Owner, un proveedor de herramientas de IA para que las empresas locales automaticen tareas como la creación de sitios web, pedidos en línea y por teléfono, aplicaciones móviles y atención al cliente, obtuvo $240 millones en nueva financiación. Goldman Sachs Growth Equity lideró la financiación, valorando la empresa en $2.3 mil millones. Fuente: Crunchbase News.
+
+Fasset.
+Ronda de financiación Serie C de $68 millones. Fasset, la plataforma de neobanca con stablecoin impulsada por IA, cerró una ronda de financiación Serie C de $68 millones que valora el negocio en $1 mil millones. La ronda fue liderada por SBI Group. Fuente: This Week in Fintech / FinTech Global.
+
+Hugging Face.
+Adquirida por Nvidia por $12.9 mil millones. Nvidia acordó adquirir Hugging Face por $12.9 mil millones, valorándola en más de $13 mil millones. Esta adquisición busca fortalecer el ecosistema de IA de código abierto de Nvidia y su reingreso al espacio de la nube. Fuente: newsfilter.io.
+
+Sección: 📰 Top 10 Noticias.
+
+Nvidia Reporta Crecimiento Récord y Adquiere Startups Clave de IA por $19 Mil Millones.
+Nvidia anunció ingresos récord de $96.2 mil millones en el segundo trimestre de 2026 y proyectó un crecimiento del 70% para el próximo año fiscal, superando las expectativas de los analistas. Este crecimiento fue impulsado por la demanda de su acelerador de inferencia Groq 3 LPX. La empresa también expandió su ecosistema de IA con la adquisición estratégica de las startups Hugging Face por $13 mil millones y Poolside por $6 mil millones. Fuente: Zacks Investment Research.
+¿Por qué importa? Esto valida la explosión del mercado de IA y la necesidad de infraestructura. Para un fundador, muestra el apetito por la consolidación y el valor de las plataformas de IA, pero también la intensa competencia y el capital requerido para escalar en este sector.
+
+Entran en Vigor Obligaciones de Transparencia de la Ley de IA de la UE para Chatbots y Contenido Generado por IA.
+A partir del 2 de agosto de 2026, las obligaciones de transparencia de la Ley de Inteligencia Artificial de la Unión Europea son aplicables. Esto exige que los sistemas de IA interactivos revelen que los usuarios están tratando con IA y que el contenido generado o manipulado por IA (deepfakes) sea etiquetado. El incumplimiento puede acarrear multas de hasta 15 millones de euros o el 3% de la facturación anual mundial. Fuente: Cooley.
+¿Por qué importa? Los fundadores de tecnología deben entender que la regulación de la IA es una realidad global con impacto directo en el diseño de productos, la ética y la estrategia de cumplimiento. Esto es crucial, especialmente para startups con ambiciones internacionales que operan en la UE.
+
+SK Hynix Invierte $4 Mil Millones en Planta de Producción de HBM en Indiana para Fortalecer Cadena de Suministro de Chips de IA.
+SK Hynix ha iniciado la construcción de una planta de empaquetado avanzado de memoria de alto ancho de banda (HBM) en Indiana, con una inversión de más de $4 mil millones. La producción en masa está prevista para finales de 2029, con el objetivo de estabilizar la cadena de suministro de chips de IA en EE. UU. y crear aproximadamente 7,000 empleos. Fuente: SK hynix.
+¿Por qué importa? Esta inversión subraya la criticidad de la memoria HBM para el futuro de la IA. Los fundadores deben estar al tanto de las dinámicas de la cadena de suministro de hardware de IA, ya que la disponibilidad y el costo de estos componentes pueden afectar directamente el desarrollo y despliegue de sus soluciones.
+
+Stripe Adquiere la Unicornio OpenRouter por Más de $8 Mil Millones.
+Stripe ha acordado adquirir la startup unicornio OpenRouter por más de $8 mil millones. OpenRouter es una plataforma que ofrecía 8 millones de usuarios y 400 modelos de IA en mayo, lo que indica un movimiento estratégico de Stripe para integrar y expandir sus capacidades en el ecosistema de modelos de IA y herramientas para desarrolladores. Fuente: The Information.
+¿Por qué importa? Esta adquisición masiva demuestra el valor estratégico de las plataformas que agregan y facilitan el acceso a modelos de IA. Para los fundadores, resalta el potencial de monetización y consolidación en el espacio de herramientas de desarrollo de IA y la importancia de construir ecosistemas robustos.
+
+Startup de Asistentes de IA Instinct Recauda $250 Millones en Ronda Serie B, Valorada en $2.5 Mil Millones.
+Instinct, una startup dedicada al desarrollo de asistentes de IA, ha cerrado una ronda de financiación Serie B de $250 millones, alcanzando una valoración de $2.5 mil millones. La ronda fue liderada por Index Ventures y otros inversores, lo que indica un fuerte interés en soluciones de IA que mejoran la productividad y la interacción del usuario. Fuente: TechCrunch.
+¿Por qué importa? Esta ronda de financiación significativa indica un fuerte interés de los VC en soluciones de IA que mejoran la productividad y la interacción del usuario. Los fundadores deben notar que el capital sigue fluyendo hacia aplicaciones de IA con tracción y un modelo de negocio claro, pero la competencia por la inversión es alta.
+
+Más de 100 Empresas Tecnológicas Piden Respuesta Global a Ataques Cibernéticos Impulsados por IA.
+Más de 100 empresas y organizaciones, incluyendo gigantes como OpenAI, Anthropic, Google y Microsoft, han firmado una carta conjunta instando a una movilización internacional contra los ciberataques amplificados por la IA. La iniciativa advierte sobre la creciente sofisticación de estos ataques y la necesidad de colaboración entre gobiernos y empresas de seguridad para proteger la infraestructura crítica. Fuente: Reuters.
+¿Por qué importa? La ciberseguridad se convierte en un pilar fundamental en la era de la IA. Los fundadores deben priorizar la seguridad de sus sistemas y datos, anticipando que los ataques serán más complejos y que la colaboración en la industria será clave para mitigar riesgos y construir confianza en sus productos.
+
+Mercado de Bonos Reacciona a Posibles Alzas de Tasas de la Fed para Controlar la Inflación.
+El mercado de bonos experimentó fluctuaciones mientras los inversores anticipan que la Reserva Federal de EE. UU. podría aumentar las tasas de interés pronto para controlar la alta inflación. Los mercados bursátiles estadounidenses mostraron ligeras caídas, aunque la confianza en la capacidad de la Fed para manejar la inflación se mantuvo. Fuente: BNN Bloomberg.
+¿Por qué importa? Las decisiones de política monetaria tienen un impacto directo en el costo del capital y el entorno de inversión. Los fundadores deben monitorear estos movimientos, ya que pueden influir en la disponibilidad de financiación, las valoraciones de las startups y la estrategia de crecimiento en un entorno de tasas más altas.
+
+CrowdStrike y Okta Superan Expectativas de Ganancias, Impulsadas por Demanda de Ciberseguridad ante Riesgos de IA.
+Las empresas de ciberseguridad CrowdStrike y Okta reportaron sólidos resultados financieros para el segundo trimestre del año fiscal 2027, superando las estimaciones de los analistas. Ambas compañías destacaron el aumento de la demanda de soluciones de ciberseguridad para abordar los riesgos emergentes asociados con la inteligencia artificial, lo que impulsa su crecimiento. Fuente: The Wall Street Journal.
+¿Por qué importa? Esto confirma que la ciberseguridad es un sector en crecimiento, especialmente en el contexto de la IA. Los fundadores deben ver esto como una señal de que invertir en seguridad robusta no solo es una necesidad, sino también una ventaja competitiva y un área de innovación crucial para proteger sus activos y la confianza de sus clientes.
+
+Robots Humanoides Emergen como Tendencia Tecnológica Clave con Proyecciones de Crecimiento Significativas.
+Los robots humanoides se perfilan como una tendencia tecnológica importante, impulsados por una nueva generación de modelos de acción grandes y la IA física. Las proyecciones de mercado varían, con algunas estimaciones que alcanzan billones de dólares para 2050, y la dirección hacia despliegues generalizados en industrias y entornos autónomos es clara. Fuente: ST Blog.
+¿Por qué importa? Esta tendencia indica un cambio hacia la IA encarnada y la automatización física. Los fundadores en robótica o IA deben considerar cómo sus soluciones pueden integrarse o beneficiarse de la creciente capacidad de los robots para interactuar con el mundo real, abriendo nuevas oportunidades de mercado y aplicaciones innovadoras.
+
+Las 'Magníficas 7' Duplican Crecimiento de Ganancias en Q2, Impulsadas por Inversiones Estratégicas.
+Las siete principales empresas tecnológicas, conocidas como las 'Magníficas 7', reportaron un crecimiento de ganancias del 118.5% en el segundo trimestre de 2026, el más alto desde al menos el cuarto trimestre de 2020. Este crecimiento fue significativamente impulsado por ganancias no realizadas en inversiones en capital, como las de Alphabet y Amazon.com, superando ampliamente al resto del S&P 500. Fuente: FactSet.
+¿Por qué importa? El rendimiento excepcional de estas megacapitalizaciones tecnológicas, impulsado en parte por sus carteras de inversión en IA y otras tecnologías, demuestra la concentración de capital y poder en el sector. Los fundadores deben entender cómo estas grandes empresas están reconfigurando el panorama competitivo y de inversión, y buscar nichos o asociaciones estratégicas.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
