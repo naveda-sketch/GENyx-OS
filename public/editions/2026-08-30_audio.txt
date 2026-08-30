@@ -1,0 +1,67 @@
+El Periódico. Edición del 2026-08-30.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Jensen Huang.
+NVIDIA Reporta Ganancias Sólidas y Visión de IA. NVIDIA superó las expectativas de ganancias y pronosticó un crecimiento de ingresos del 70% para el año fiscal 2028. El CEO Jensen Huang afirmó que 'la próxima revolución industrial ha comenzado', destacando la demanda continua de chips de IA. La compañía también anunció una división de acciones de 10 por 1 y un aumento del dividendo del 150%. Fuente: Facebook (Morning Brew).
+Huang Desestima la 'Burbuja de IA'. Jensen Huang declaró que no hay una burbuja de IA, argumentando que el mercado está cambiando de la computación de propósito general a la computación acelerada. Afirmó que la IA es lo suficientemente útil como para justificar su costo a escala, y que los chips de NVIDIA están 'literalmente en todas partes'. Fuente: Facebook (Morning Brew).
+Volatilidad en el Mercado de Acciones de NVIDIA. NVIDIA experimentó una montaña rusa en su capitalización de mercado, con una caída del 9.5% en el precio de sus acciones el martes, lo que resultó en una pérdida personal de 10 mil millones de dólares para Huang. A pesar de esto, la compañía reafirmó pedidos por 500 mil millones de dólares para 2025-2026. Fuente: Facebook (Stocks News).
+
+Tim Cook.
+Rumores de Retiro de CEO. Un podcast reciente, 'Two Blokes Talking Tech', mencionó que 'Tim Cook está terminando en Apple' y que este 'será el último podcast que escuche como CEO'. Esto sugiere una inminente partida o retiro de su rol como CEO de Apple. Fuente: EFTM (The Two Blokes Talking Tech podcast).
+
+Mark Zuckerberg.
+Acuerdo de Demanda por Adicción en Redes Sociales. Meta Platforms acordó un acuerdo de 17 mil millones de dólares en un juicio federal donde 29 estados acusaron a la compañía de diseñar Facebook e Instagram para causar adicción en niños y adolescentes. La compañía enfrentaba una posible multa de 1.4 billones de dólares. Las acciones de Meta cayeron un 7.5% en dos días. Fuente: Facebook.
+
+Larry Ellison.
+Oracle Beneficia de la Caída de NVIDIA. Las acciones de Oracle (ORCL) subieron en los últimos dos días, beneficiándose de la caída de NVIDIA. Esta dinámica del mercado permitió al cofundador de Oracle, Larry Ellison, ver un día positivo de negociación para su empresa. Fuente: KlickAnalytics.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+Actualizaciones de la aplicación ChatGPT con nuevas capacidades. La aplicación oficial de ChatGPT para Android ha recibido actualizaciones significativas, incluyendo la capacidad de generar imágenes a partir de descripciones, un modo de voz avanzado para conversaciones en tiempo real, y la función de subir fotos para transcribir recetas o identificar puntos de referencia. También se ha introducido una función de compartir pantalla con servicios de accesibilidad en disponibilidad limitada. Fuente: Google Play (ChatGPT).
+
+Google DeepMind.
+Gemini Notebook cambia a límites de uso basados en cómputo. A partir de septiembre, Gemini Notebook, la plataforma de cuadernos de Google, adoptará límites de uso basados en cómputo, similar a la aplicación Gemini. Esto significa que los usuarios verán diferentes niveles de límites de uso según su suscripción (Gratis, Google AI Plus, Google AI Pro, Google AI Ultra). Fuente: 9to5Google.
+
+Anthropic.
+Juez falla a favor de Anthropic contra el Pentágono. Una jueza federal de EE. UU. ha fallado a favor de Anthropic en su disputa legal contra el Pentágono, dictaminando que las acciones del gobierno de etiquetar a la empresa como un riesgo para la cadena de suministro fueron 'ilegales e infundadas'. La disputa surgió de la negativa de Anthropic a permitir el uso militar irrestricto de sus modelos Claude AI para vigilancia o armas autónomas. Fuente: PBS News, Al Jazeera.
+Claude mejora la mitigación de fallas de alineación de IA. Anthropic ha publicado una investigación que demuestra cómo su modelo Claude puede entrenar autónomamente otros modelos para mejorar su rendimiento en la mitigación de fallas de alineación de IA. Claude logró cerrar una parte sustancial de la brecha de seguridad en 10 categorías de fallas de alineación, superando a investigadores humanos en algunos aspectos. Fuente: Anthropic.
+
+Meta AI.
+Disponibilidad de los pesos de los modelos Llama 4 Scout y Maverick. Meta ha puesto a disposición los pesos de sus modelos Llama 4 Scout y Llama 4 Maverick para descarga y uso autoalojado bajo la Licencia Comunitaria Llama 4. Estos modelos están destinados a desarrolladores, investigadores y empresas, ofreciendo una ventana de contexto de hasta 10M tokens para Scout y 1M para Maverick, ambos compatibles con entrada de texto e imagen. Fuente: Resourify.
+
+Microsoft AI.
+Integración de GitHub Copilot en Microsoft Teams. Microsoft está profundizando la integración de la IA agentiva en su plataforma de colaboración Teams, permitiendo a los desarrolladores iniciar y dirigir sesiones colaborativas donde Copilot puede realizar cambios en sus proyectos de GitHub. Esto posiciona a Teams como un centro de comando para que humanos y agentes de IA trabajen juntos en la aceleración de proyectos de desarrollo. Fuente: Spyglass.
+Cambios en las políticas y facturación de GitHub Copilot. GitHub ha anunciado próximos cambios en las políticas y la facturación de Copilot, que incluyen el requisito de pago por adelantado para todas las nuevas asignaciones de puestos de Copilot Business o Enterprise. Además, se unificará la experiencia de Copilot Cloud Agent, Copilot Chat en github.com y Copilot Chat en GitHub Mobile en una única política. Fuente: GitHub Blog.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Anysphere (Cursor AI).
+SpaceX adquiere Anysphere (Cursor AI) por $60 mil millones. SpaceX, propiedad de Elon Musk, ha adquirido Anysphere, el desarrollador de la plataforma de codificación de IA Cursor, por aproximadamente $60 mil millones. Esta adquisición es descrita como una de las mayores compras tecnológicas en Silicon Valley en los últimos tiempos, convirtiendo a dos jóvenes ingenieros en multimillonarios. Fuente: Facebook (citando The Rundown).
+
+Instinct.
+Instinct recauda $250 millones en ronda Serie B. Instinct, una startup que desarrolla y prueba asistentes de IA, ha recaudado $250 millones en una ronda Serie B, valorando a la compañía de San Francisco en $2.5 mil millones. Los principales inversores incluyen Index Ventures y Benchmark. Fuente: Crunchbase News (citando The Wall Street Journal).
+
+Owner.
+Owner asegura $240 millones para herramientas de IA para PYMES. Owner, un proveedor de herramientas de IA para que las empresas locales automaticen tareas como la creación de sitios web, pedidos en línea y telefónicos, aplicaciones móviles y atención al cliente, obtuvo $240 millones en nueva financiación. Goldman Sachs Growth Equity lideró la financiación, valorando a la empresa de San Francisco en $2.3 mil millones. Fuente: Crunchbase News.
+
+Sarvam AI.
+Sarvam AI cerca de recaudar $300-350 millones en ronda de financiación. La startup india de IA Sarvam AI está cerca de recaudar entre $300 millones y $350 millones en una ronda de financiación que podría valorar la compañía en aproximadamente $1.5 mil millones a $1.55 mil millones. Se espera que la ronda sea liderada por Bessemer Venture Partners, con la participación de Nvidia, Amazon y Prosperity7 Ventures. Fuente: Facebook (citando Bloomberg).
+
+Anthropic.
+Anthropic planea desvelar el prospecto de su IPO después del Día del Trabajo. Anthropic, una de las principales empresas de IA, planea desvelar su prospecto de oferta pública inicial (IPO) después del Día del Trabajo, con una posible cotización a finales de septiembre o principios de octubre. Esto sigue a una victoria judicial que declaró ilegales los intentos del Pentágono de incluir a la firma en la lista negra. Fuente: Stock Analysis (citando Reuters y The Information).
+
+Sección: 📰 Top 10 Noticias.
+
+No se encontró información para esta sección.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
