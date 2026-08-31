@@ -1,0 +1,105 @@
+El Periódico. Edición del 2026-08-31.
+Tu briefing diario de inteligencia en tecnología, inteligencia artificial y negocios.
+
+Sección: 🏛️ Los Titans.
+
+Elon Musk.
+Predicción de IA 'superhumana' para 2027. Elon Musk predijo que la inteligencia artificial superará a los humanos en todas las tareas digitales para finales de 2027, excluyendo aquellas que requieran manipulación física de la materia. Esta predicción se basa en la rápida evolución de los sistemas de IA, especialmente en tareas de ciberseguridad complejas. Fuente: Business Standard.
+Apoyo a la Academia Espacial de EE. UU.. Elon Musk respaldó la propuesta del presidente Trump para crear una Academia Espacial de Estados Unidos, que capacitaría a astronautas, ingenieros y personal militar para las ambiciones espaciales del país. La iniciativa busca fortalecer la dominación espacial de EE. UU. a través de una fuerza laboral especializada. Fuente: TradingView.
+Proyectos 'Coming Soon' de Tesla y SpaceX. Elon Musk afirmó que los proyectos largamente prometidos de Tesla y SpaceX, que antes eran 'próximamente', se están materializando en fábricas, vehículos y fechas de lanzamiento firmes. Esto sugiere un avance significativo en la ejecución de planes ambiciosos de sus empresas. Fuente: Stocktwits.
+
+Satya Nadella.
+Construcción de un 'ecosistema fronterizo' de IA. Satya Nadella, CEO de Microsoft, enfatizó la necesidad de construir un 'ecosistema fronterizo' que empodere a personas y organizaciones en todas partes, en respuesta a una declaración de Mark Zuckerberg. Este comentario subraya la importancia de la accesibilidad y distribución de la IA avanzada. Fuente: Startup Pedia.
+
+Jensen Huang.
+La IA como 'próxima revolución industrial' de EE. UU.. Jensen Huang, CEO de NVIDIA, afirmó que la inteligencia artificial podría desencadenar la 'próxima revolución industrial' en Estados Unidos, trayendo de vuelta la manufactura y creando empleos. Defendió el auge de los centros de datos de IA, indicando que están reindustrializando la nación. Fuente: Times Now.
+
+Sam Altman.
+Admisión de plazos ambiciosos para la IA. Sam Altman, CEO de OpenAI, admitió que él y otros líderes de la industria han sido 'demasiado ambiciosos con los plazos' para la adopción generalizada de la IA. Señaló la inercia de la economía y la resistencia al cambio de comportamiento como factores que ralentizan la transición. Fuente: Stocktwits.
+OpenAI finaliza asociación con Cursor. OpenAI anunció el fin de su asociación con Cursor, una popular herramienta de codificación de IA ahora propiedad de SpaceX, intensificando la disputa entre Sam Altman y Elon Musk. Esta acción se produce en medio de una larga rivalidad entre los dos líderes tecnológicos. Fuente: Mashable.
+
+Sundar Pichai.
+Expansión de 'AI Overviews' en la búsqueda de Google. Google, bajo el liderazgo de Sundar Pichai, comenzó a expandir automáticamente las 'AI Overviews' de página completa en la parte superior de los resultados de búsqueda. Esta función empuja los enlaces de búsqueda orgánicos debajo de bloques de resúmenes generados por IA. Fuente: Facebook (citando pruebas de la industria).
+Cambio de nombre de 'Lake Ontario' a 'Lake America' en Google Maps. Google realizó cambios en Google Maps y Search, renombrando 'Lake Ontario' a 'Lake America'. Esta modificación se atribuye a una orden ejecutiva del presidente Trump. Fuente: Ground News.
+
+Sección: 🤖 AI Leaders.
+
+OpenAI.
+
+Google DeepMind.
+
+Anthropic.
+
+Meta AI.
+
+Microsoft AI.
+
+Sección: 🚀 Emerging Tech & Startups.
+
+Anthropic.
+Lanzamiento de Model Hardware Standard (MHS). Anthropic ha lanzado el Model Hardware Standard (MHS), un nuevo marco diseñado para permitir que los agentes de IA utilicen sistemas físicos como microscopios, hardware de computación cuántica y brazos robóticos de manera segura. Este estándar busca equilibrar el potencial de la IA para automatizar la investigación científica y la fabricación con la gestión de nuevos riesgos asociados. Fuente: Wired (vía Techmeme).
+Advertencia sobre ciberataques impulsados por IA. Anthropic, junto con OpenAI y más de 100 empresas tecnológicas, ha emitido una advertencia sobre la inminente oleada de ciberataques impulsados por la IA. Han instado a una acción colectiva y global, señalando que hay una 'ventana limitada' para prepararse ante estas amenazas crecientes. Fuente: Reuters (vía Techmeme).
+
+OpenAI.
+Lanzamiento de ChatGPT Pro y modelos GPT-4.1. OpenAI ha lanzado ChatGPT Pro, una nueva suscripción de $200 al mes que ofrece acceso ilimitado a todos sus modelos, incluyendo la versión completa de su modelo de 'razonamiento' o1. Además, ha implementado modelos más rápidos e inteligentes, GPT-4.1 y GPT-4.1 mini, para todos los usuarios de ChatGPT. Fuente: TechCrunch.
+Advertencia sobre ciberataques impulsados por IA. OpenAI, junto con Anthropic y más de 100 empresas tecnológicas, ha emitido una advertencia sobre la inminente oleada de ciberataques impulsados por la IA. Han instado a una acción colectiva y global, señalando que hay una 'ventana limitada' para prepararse ante estas amenazas crecientes. Fuente: Reuters (vía Techmeme).
+
+Figure AI.
+Demostración de robots humanoides Helix-02. Figure AI demostró recientemente las capacidades de sus robots humanoides Helix-02, impulsados por IA, al hacer que clasificaran paquetes de forma continua y sin intervención humana durante una prueba transmitida en vivo. Los robots clasificaron más de 250,000 paquetes a velocidades comparables a las de los trabajadores humanos, extendiendo la operación a 8 días sin fallas reportadas. Fuente: Facebook (citando demostración en vivo).
+
+Databricks.
+Mercedes-Benz USA migra a la arquitectura Medallion de Databricks. Mercedes-Benz USA ha logrado un ahorro del 60% en costos y un aumento del 50% en la productividad al migrar 140 años de sistemas heredados a la arquitectura Medallion de Databricks. Esta adopción estratégica subraya la capacidad de Databricks para modernizar la infraestructura de datos de grandes empresas y generar eficiencias significativas. Fuente: Databricks (vía YouTube).
+
+OpenAI.
+Restauración de límites de uso en ChatGPT Plus. OpenAI ha restaurado los límites de 5 horas para Codex y Work para los usuarios de ChatGPT Plus, después de varias semanas sin restricciones. La compañía indicó que esta medida busca suavizar la carga en su capacidad de cómputo, sugiriendo que la demanda está creciendo más rápido que la oferta de infraestructura. Fuente: Facebook (citando Techme.me).
+
+Sección: 📰 Top 10 Noticias.
+
+NVIDIA supera expectativas de ganancias del Q2 2026 impulsada por la demanda de IA, con ingresos récord de $96.2 mil millones..
+NVIDIA ha reportado ingresos récord de $96.2 mil millones en el segundo trimestre fiscal de 2026, superando las expectativas de Wall Street. Este crecimiento del 106% interanual se atribuye principalmente a la fuerte demanda de sus chips para centros de datos, esenciales para la infraestructura de inteligencia artificial. La compañía proyecta ingresos de $108 mil millones para el trimestre actual, lo que subraya la continua expansión del mercado de IA. Fuente: Reuters / Bloomberg / CNBC.
+¿Por qué importa? Para un fundador tech, esto confirma que la infraestructura de IA sigue siendo un motor económico masivo. La dominancia de NVIDIA indica que cualquier startup que dependa de cómputo intensivo en IA debe considerar la disponibilidad y el costo de hardware especializado, y buscar optimizaciones o alternativas para escalar.
+
+OpenAI pausa el desarrollo de su modelo de IA 'Astra' por alcanzar un nivel 'crítico' de riesgo en ciberseguridad..
+OpenAI ha suspendido internamente el desarrollo de su nuevo modelo de IA, Astra, tras determinar que ha alcanzado un nivel 'crítico' de riesgo en ciberseguridad. Las evaluaciones internas revelaron que Astra es capaz de identificar y explotar vulnerabilidades de 'día cero' de forma autónoma y planear ciberataques complejos. Fuente: Reuters / EFE (vía Cadena SER).
+¿Por qué importa? Esto subraya la creciente preocupación por la seguridad en el desarrollo de IA avanzada. Los fundadores tech deben priorizar la ciberseguridad desde el diseño en cualquier producto o servicio de IA, anticipando regulaciones más estrictas y la necesidad de robustos marcos de evaluación de riesgos.
+
+Sony Music y Warner demandan a Anthropic por 'robo masivo de propiedad intelectual' en el entrenamiento de modelos de IA..
+Las principales discográficas, incluyendo unidades de Sony Music y Warner Music, han presentado una demanda millonaria contra Anthropic, acusándola de utilizar obras protegidas por derechos de autor para entrenar sus modelos de IA. Este caso podría sentar un precedente legal sobre el uso de contenido con derechos de autor en el desarrollo de sistemas de inteligencia artificial. Fuente: Saphia Labs (citando fuentes relevantes).
+¿Por qué importa? La propiedad intelectual es un campo de batalla clave en la IA. Los fundadores deben ser extremadamente cautelosos con las fuentes de datos para el entrenamiento de sus modelos, asegurándose de tener los derechos adecuados o explorando datos sintéticos y licencias para evitar litigios costosos y daños a la reputación.
+
+Hugging Face explora una posible venta que podría valorar a la startup de IA en más de $13 mil millones..
+Hugging Face, la plataforma líder de modelos de IA de código abierto, está explorando una posible venta que podría alcanzar una valoración de más de $13 mil millones. La noticia, reportada por Business Insider, sugiere un interés significativo de grandes actores tecnológicos, incluyendo a NVIDIA, en adquirir la plataforma. Fuente: IT NOW / TradingKey / DiarioBitcoin.
+¿Por qué importa? Esta posible adquisición destaca el valor estratégico de las plataformas que agregan y facilitan el desarrollo de IA de código abierto. Para los fundadores, esto indica que el control sobre el ecosistema de herramientas y modelos de IA es tan crucial como el desarrollo de modelos propios, y que las plataformas de infraestructura pueden ser objetivos de adquisición muy atractivos.
+
+La computación cuántica de IBM resuelve un problema intratable en 15 minutos con 70 qubits lógicos..
+Investigadores de IBM y la Universidad de Chicago han logrado un hito en la computación cuántica, resolviendo un cálculo que los métodos clásicos no podían reproducir de manera práctica en aproximadamente 15 minutos. Utilizaron 70 qubits lógicos corregidos por error, demostrando la capacidad de la tecnología cuántica para abordar problemas complejos con fiabilidad. Fuente: Cadena 3.
+¿Por qué importa? Este avance es un paso significativo hacia la 'ventaja cuántica' y la comercialización de la computación cuántica. Los fundadores tech deben monitorear de cerca esta tecnología, ya que podría revolucionar campos como la criptografía, el descubrimiento de materiales y la optimización, abriendo nuevas oportunidades de negocio a mediano y largo plazo.
+
+La startup francesa de computación cuántica Pasqal debuta en Nasdaq con una valoración de $2 mil millones..
+Pasqal, una empresa francesa de computación cuántica, ha debutado en el Nasdaq con una valoración de aproximadamente $2 mil millones, recaudando $360 millones para su expansión. La compañía utiliza átomos neutros para sus unidades de procesamiento cuántico y ya tiene unidades desplegadas y en producción, buscando demostrar la viabilidad comercial de su tecnología. Fuente: EmpreAR.
+¿Por qué importa? La entrada de empresas de computación cuántica en los mercados públicos señala una maduración del sector y un creciente interés de los inversores. Los fundadores deben estar atentos a cómo estas empresas buscan monetizar la tecnología cuántica, lo que podría inspirar nuevos modelos de negocio o asociaciones en la intersección de la tecnología profunda y las finanzas.
+
+El Consejo de Estabilidad Financiera advierte a los gobiernos del G20 sobre los riesgos de ciberseguridad de la IA avanzada..
+El presidente del Consejo de Estabilidad Financiera (FSB) ha enviado una carta a los ministros de finanzas del G20, instándolos a tomar en serio los riesgos de ciberseguridad que plantean los modelos avanzados de inteligencia artificial. Se advierte que la IA tiene capacidades sofisticadas de autonomía que no entienden de fronteras, lo que podría generar ciberataques al sistema financiero. Fuente: Cadena SER.
+¿Por qué importa? La regulación de la IA es inminente y los riesgos de ciberseguridad son una prioridad para los reguladores globales. Los fundadores tech que desarrollen soluciones de IA, especialmente aquellas con implicaciones financieras o de infraestructura crítica, deben anticipar un escrutinio regulatorio y construir sus productos con un enfoque en la seguridad y la resiliencia.
+
+El Banco Central Europeo (BCE) mantiene las tasas de interés estables, pero el mercado anticipa una posible subida en septiembre..
+Aunque el BCE mantuvo sus tasas de interés clave sin cambios, los analistas de Danske Bank y otros expertos del mercado esperan una subida de 25 puntos básicos en septiembre, situando la tasa de depósito en el 2.5%. Esta expectativa se basa en un escenario de crecimiento económico más sólido de lo previsto y una inflación persistente, a pesar de que el aumento actual se limita a productos energéticos. Fuente: Bolsamania / elEconomista.es.
+¿Por qué importa? Las decisiones de los bancos centrales impactan directamente el costo del capital y el entorno de inversión. Los fundadores deben estar al tanto de las políticas monetarias, ya que tasas de interés más altas pueden encarecer el financiamiento para startups y afectar las valoraciones, mientras que un crecimiento económico resiliente puede ofrecer oportunidades de mercado.
+
+SoftBank negocia una participación mayoritaria en 1X Technologies, apostando $6 mil millones en robots humanoides..
+SoftBank está en conversaciones para adquirir una participación mayoritaria en 1X Technologies, un fabricante de robots humanoides, valorando la empresa en $6 mil millones. Esta inversión subraya la creciente apuesta de SoftBank por la robótica humanoide como el próximo gran negocio, complementando sus inversiones en chips e IA. Fuente: Café con IA (citando fuentes relevantes).
+¿Por qué importa? La robótica humanoide y la IA física representan una tendencia tecnológica emergente con un enorme potencial de mercado. Los fundadores tech deberían explorar cómo la robótica avanzada puede integrarse con sus soluciones de IA, o considerar oportunidades en el desarrollo de hardware, software o servicios para este sector en crecimiento.
+
+La UE presenta un plan de acción para la ciberseguridad y la IA, con nuevas medidas para evaluar modelos avanzados..
+La Comisión Europea ha presentado un plan de acción para abordar los riesgos y oportunidades de la IA avanzada para la ciberseguridad. Este plan incluye nuevas medidas para evaluar modelos de IA y reforzar la protección de infraestructuras críticas, con requisitos de ciberseguridad para productos digitales que se aplicarán a partir de 2026 y 2027. Fuente: Comisión Europea / Applus+ Laboratories.
+¿Por qué importa? La convergencia de la ciberseguridad y la IA es una tendencia crítica. Los fundadores que desarrollen productos digitales o soluciones de IA para el mercado europeo deben familiarizarse con las próximas regulaciones, como la Ley de Ciberresiliencia de la UE, para asegurar el cumplimiento y construir confianza en sus tecnologías desde el principio.
+
+Sección: 💹 Pulso de Mercados.
+
+
+Sección: 🛰️ RADAR Inteligencia.
+
+No se encontró información para esta sección.
+
+Fin del periódico. Que tengas un excelente día.
